@@ -83,6 +83,8 @@ def ellipse(w, h, cx=0, cy=0):
 
 
 def _rnd(pts, nd=1):
+    if nd == 0:
+        return [[int(round(x)), int(round(y))] for x, y in pts]
     return [[round(x, nd), round(y, nd)] for x, y in pts]
 
 
@@ -190,21 +192,27 @@ class Comp:
         self.w, self.h, self.op, self.name = w, h, op, name
         self.layers = []
 
-    def _add(self, layer, name, ip, op, ks, parent):
+    def _add(self, layer, name, ip, op, ks, parent, masks=None):
         layer.update({"ddd": 0, "ind": len(self.layers) + 1, "nm": name, "sr": 1,
                       "ks": ks or layer_ks(), "ao": 0, "ip": ip,
                       "op": self.op if op is None else op, "st": 0, "bm": 0})
         if parent is not None:
             layer["parent"] = parent["ind"]
+        if masks:
+            layer["hasMask"] = True
+            layer["masksProperties"] = masks
         self.layers.append(layer)
         return layer
 
-    def shape(self, name, shapes, ip=0, op=None, ks=None, parent=None):
-        return self._add({"ty": 4, "shapes": list(shapes)}, name, ip, op, ks, parent)
+    def shape(self, name, shapes, ip=0, op=None, ks=None, parent=None, masks=None):
+        return self._add({"ty": 4, "shapes": list(shapes)}, name, ip, op, ks, parent, masks)
 
-    def precomp(self, name, comp, ip=0, op=None, ks=None, parent=None):
+    def precomp(self, name, comp, ip=0, op=None, ks=None, parent=None, masks=None):
         return self._add({"ty": 0, "refId": comp.name, "w": comp.w, "h": comp.h},
-                         name, ip, op, ks, parent)
+                         name, ip, op, ks, parent, masks)
+
+    def image(self, name, asset, ip=0, op=None, ks=None, parent=None, masks=None):
+        return self._add({"ty": 2, "refId": asset["id"]}, name, ip, op, ks, parent, masks)
 
     def null(self, name, ip=0, op=None, ks=None, parent=None):
         return self._add({"ty": 3}, name, ip, op, ks, parent)
@@ -213,9 +221,35 @@ class Comp:
         return {"id": self.name, "nm": self.name, "layers": self.layers[::-1]}
 
 
-def animation(main, precomps, fps, name):
+def image_asset(path, aid):
+    """Embed a JPEG/PNG as a base64 image asset."""
+    import base64
+    from PIL import Image
+    with Image.open(path) as im:
+        w, h = im.size
+    mime = "image/png" if path.lower().endswith(".png") else "image/jpeg"
+    with open(path, "rb") as f:
+        data = base64.b64encode(f.read()).decode()
+    return {"id": aid, "w": w, "h": h, "u": "", "p": f"data:{mime};base64,{data}", "e": 1}
+
+
+def rrect(x, y, w, h, r):
+    """Rounded rectangle as a raw path value (for masks or animated shapes)."""
+    k = r * 0.5523
+    v = [(x + r, y), (x + w - r, y), (x + w, y + r), (x + w, y + h - r), (x + w - r, y + h),
+         (x + r, y + h), (x, y + h - r), (x, y + r)]
+    i = [(-k, 0), (0, 0), (0, -k), (0, 0), (k, 0), (0, 0), (0, k), (0, 0)]
+    o = [(0, 0), (k, 0), (0, 0), (0, k), (0, 0), (-k, 0), (0, 0), (0, -k)]
+    return {"i": _rnd(i, 2), "o": _rnd(o, 2), "v": _rnd(v, 2), "c": True}
+
+
+def mask(shape, mode="a", o=100):
+    return {"inv": False, "mode": mode, "pt": prop(shape), "o": prop(o), "x": prop(0), "nm": "mask"}
+
+
+def animation(main, precomps, fps, name, images=()):
     return {"v": "5.12.2", "fr": fps, "ip": 0, "op": main.op, "w": main.w, "h": main.h,
-            "nm": name, "ddd": 0, "assets": [c.asset() for c in precomps],
+            "nm": name, "ddd": 0, "assets": list(images) + [c.asset() for c in precomps],
             "layers": main.layers[::-1], "markers": []}
 
 
@@ -287,8 +321,11 @@ class Font:
         sc = size / self.upem
         return sum(g[3] for g in run) * sc + tracking * size * max(len(run) - 1, 0)
 
-    def paths(self, text, size, x, y, align="left", tracking=0.0):
-        """Glyph outlines as Lottie paths; (x, y) is the baseline anchor."""
+    def paths(self, text, size, x, y, align="left", tracking=0.0, nd=1):
+        """Glyph outlines as Lottie paths; (x, y) is the baseline anchor.
+
+        nd is the coordinate precision; 0 halves the size of text that is only
+        ever seen small."""
         sc = size / self.upem
         if align != "left":
             w = self.width(text, size, tracking)
@@ -299,13 +336,13 @@ class Font:
             for v, i, o in self._outline(gid):
                 out.append(path(([(ox + px * sc, oy - py * sc) for px, py in v],
                                  [(tx * sc, -ty * sc) for tx, ty in i],
-                                 [(tx * sc, -ty * sc) for tx, ty in o], True)))
+                                 [(tx * sc, -ty * sc) for tx, ty in o], True), nd=nd))
             pen_x += adv + tracking * size / sc
         return out
 
     def text(self, text, size, x, y, color="#ffffff", o=100, align="left", tracking=0.0,
-             nm=None):
-        return group(self.paths(text, size, x, y, align, tracking) + [fill(color, o)],
+             nm=None, nd=1):
+        return group(self.paths(text, size, x, y, align, tracking, nd) + [fill(color, o)],
                      nm=nm or "txt:" + text[:24])
 
 

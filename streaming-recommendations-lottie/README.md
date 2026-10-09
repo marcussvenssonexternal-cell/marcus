@@ -1,6 +1,26 @@
-# Streaming recommendations Lottie
+# Streaming recommendations Lotties
 
-A 12 s, 1920×1080, 30 fps Lottie of a streaming app's end-of-video flow:
+Two 1920×1080, 30 fps Lotties of a streaming app's end-of-video flow.
+
+## Vionlabs version (`vionlabs-recommendations.*`)
+
+13 s, styled after the Vionlabs demo UI, using the movies from the demo recording:
+
+| Time | What happens |
+| --- | --- |
+| 0.0–3.3 s | Fullscreen: Interstellar has ended and the end credits roll |
+| 3.3–4.5 s | The credits shrink into a mini-player (top left), with a "Did you enjoy it?" prompt underneath |
+| 4.0–5.5 s | Hero for Top Gun: Maverick, plus two rails: **Recommended for you** (Top Gun: Maverick, No Hard Feelings, Spider-Man: Across the Spider-Verse, Oppenheimer) and **Similar titles**, labelled "Because you watched Interstellar" (The Martian, Arrival, 2001: A Space Odyssey, Sunshine) |
+| 6.1–9.7 s | Focus on Top Gun: Maverick: the card enlarges, plays a preview and shows genres and mood tags |
+| 9.7–12.4 s | Focus moves to The Martian and the hero switches to it |
+| 12.4–13 s | Fade to black for a clean loop |
+
+The movie thumbnails in `images/` were cropped from the demo recording. Everything else
+(UI, credits, icons, logo) is vector. Built by `build_vionlabs.py`, previewed in `vionlabs-preview.mp4`.
+
+## Generic version (`streaming-recommendations.*`)
+
+12 s, with placeholder titles and illustrated artwork:
 
 | Time | What happens |
 | --- | --- |
@@ -11,24 +31,23 @@ A 12 s, 1920×1080, 30 fps Lottie of a streaming app's end-of-video flow:
 | 8.0–11.5 s | The hero preview plays (parallax road trip), credits keep rolling in the mini-player |
 | 11.5–12 s | Fade to black so the loop restarts cleanly |
 
+All titles, names and artwork in this version are placeholders. Built by `build.py`, previewed in `preview.mp4`.
+
 ## Files
 
-- `streaming-recommendations.json`: the Lottie (Bodymovin 5.12 format)
-- `streaming-recommendations.lottie`: the same animation as a dotLottie
-- `preview.mp4`: a render of the Lottie made with lottie-web
-- `build.py` / `lottie_kit.py`: generator scripts. All artwork is vector, and text is converted to outlines, so no fonts are needed at playback.
+- `*.json`: the Lotties (Bodymovin 5.12 format). `*.lottie` is the same animation as a dotLottie, which is much smaller.
+- `lottie_kit.py`: shared helpers. Text is converted to outlines, so no fonts are needed at playback.
 - `render_preview.cjs`: renders frames with lottie-web in headless Chromium
-
-All titles, names and artwork are placeholders.
 
 ## Editing
 
-Text, colours and timing are set in `build.py`. The timeline constants (`T_SHRINK`, `T_COUNT`,
-`T_PREVIEW`, …) are at the top, and the rail labels are in `build_main()`. To rebuild:
+Text, colours and timing are set in the build scripts. The timeline constants (`T_SHRINK`,
+`T_SWAP`, `FOCUS`, …) are at the top. In the Vionlabs version, titles, tags and rails are in
+`TITLES` and `ROWS`. To rebuild:
 
 ```sh
-pip install fonttools uharfbuzz          # uses the Inter font (OFL)
-python3 build.py                         # writes the .json and .lottie
+pip install fonttools uharfbuzz pillow   # uses the Inter font (OFL)
+python3 build_vionlabs.py                # or build.py; writes the .json and .lottie
 npm install && node render_preview.cjs streaming-recommendations.json frames
 ffmpeg -framerate 30 -i frames/frame_%04d.png -pix_fmt yuv420p preview.mp4
 ```
