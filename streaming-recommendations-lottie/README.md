@@ -4,19 +4,23 @@ Two 1920×1080, 30 fps Lotties of a streaming app's end-of-video flow.
 
 ## Vionlabs version (`vionlabs-recommendations.*`)
 
-13 s, styled after the Vionlabs demo UI, using the movies from the demo recording:
+16 s, styled after the Vionlabs demo UI, using the movies from the demo recording:
 
 | Time | What happens |
 | --- | --- |
 | 0.0–3.3 s | Fullscreen: Interstellar has ended and the end credits roll |
 | 3.3–4.5 s | The credits shrink into a mini-player (top left), with a "Did you enjoy it?" prompt underneath |
-| 4.0–5.5 s | Hero for Top Gun: Maverick, plus two rails: **Recommended for you** (Top Gun: Maverick, No Hard Feelings, Spider-Man: Across the Spider-Verse, Oppenheimer) and **Similar titles**, labelled "Because you watched Interstellar" (The Martian, Arrival, 2001: A Space Odyssey, Sunshine) |
-| 6.1–9.7 s | Focus on Top Gun: Maverick: the card enlarges, plays a preview and shows genres and mood tags |
-| 9.7–12.4 s | Focus moves to The Martian and the hero switches to it |
-| 12.4–13 s | Fade to black for a clean loop |
+| 3.9–5.3 s | Top Gun: Maverick fills the screen behind it: title, genre and mood tags, "Play now" / "Playing preview in", and three cards: **Recommended for you**, **Similar titles**, **Since you watched Interstellar** |
+| 5.3–8.3 s | "Playing preview in 3 · 2 · 1" countdown |
+| 8.3–11.0 s | The preview plays full screen |
+| 11.0–12.7 s | The page scrolls down to two rails: **Recommended for you** (Top Gun: Maverick, No Hard Feelings, Spider-Man: Across the Spider-Verse, Oppenheimer) and **Similar titles**, labelled "Because you watched Interstellar" (The Martian, Arrival, 2001: A Space Odyssey, Sunshine) |
+| 13.1–15.4 s | Focus lands on The Martian: the card enlarges, plays a preview and shows genres and mood tags |
+| 15.4–16 s | Fade to black for a clean loop |
 
-The movie thumbnails in `images/` were cropped from the demo recording. Everything else
-(UI, credits, icons, logo) is vector. Built by `build_vionlabs.py`, previewed in `vionlabs-preview.mp4`.
+The movie images in `images/` were cropped from the demo recording. The full-screen hero
+(`topgun_hero.jpg`) is upscaled from a thumbnail, so swap in a high-res still for a sharper result.
+Everything else (UI, credits, icons, logo) is vector. Built by `build_vionlabs.py`, previewed in
+`vionlabs-preview.mp4`.
 
 ## Generic version (`streaming-recommendations.*`)
 
@@ -42,8 +46,8 @@ All titles, names and artwork in this version are placeholders. Built by `build.
 ## Editing
 
 Text, colours and timing are set in the build scripts. The timeline constants (`T_SHRINK`,
-`T_SWAP`, `FOCUS`, …) are at the top. In the Vionlabs version, titles, tags and rails are in
-`TITLES` and `ROWS`. To rebuild:
+`T_SCROLL`, `T_HOVER`, …) are at the top. In the Vionlabs version, titles, tags and rails are in
+`HERO`, `HERO_CARDS` and `ROWS`. To rebuild:
 
 ```sh
 pip install fonttools uharfbuzz pillow   # uses the Inter font (OFL)
