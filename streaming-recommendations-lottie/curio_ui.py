@@ -76,12 +76,14 @@ def bf(items):
     return list(reversed(items))
 
 
-def pill(text, x, y, size=15, h=28, color=GENRE, edge=None, pad=12, align="left"):
+def pill(text, x, y, size=15, h=28, color=GENRE, edge=None, pad=12, align="left", fill_o=100,
+         edge_o=100, text_color="#ffffff"):
     w = MED.width(text, size) + 2 * pad
     if align == "right":
         x -= w
-    bg = [rect(w, h, x + w / 2, y + h / 2, h / 2), fill(color)] + ([stroke(edge, 1.2)] if edge else [])
-    label = MED.text(text, size, x + w / 2, y + h / 2 + size * 0.36, align="center")
+    bg = [rect(w, h, x + w / 2, y + h / 2, h / 2), fill(color, fill_o)] + (
+        [stroke(edge, 1.2, edge_o)] if edge else [])
+    label = MED.text(text, size, x + w / 2, y + h / 2 + size * 0.36, text_color, align="center")
     return bf([group(bg), label]), w
 
 

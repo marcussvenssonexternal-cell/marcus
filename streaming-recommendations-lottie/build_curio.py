@@ -36,7 +36,7 @@ from PIL import Image, ImageFilter
 from curio_ui import (BG, BLUE, FOCUS, GENRE, GENRE_EDGE, I_PAUSE, I_PLAY, I_THUMB, MED, MOOD,
                       MUTED, NAV_BG, PANEL, REG, SEMI, BOLD, TH, TW, bf, build_credits, flip,
                       nav_items, pill, pill_row)
-from lottie_kit import (Comp, anim, animation, ellipse, fade, fill, gfill, group, icon, image_asset,
+from lottie_kit import (Comp, Font, anim, animation, ellipse, fade, fill, gfill, group, icon, image_asset,
                         layer_ks, mask, rect, rrect, stroke)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -111,7 +111,7 @@ def on_off(intervals, ramp=8, delay=0):
 
 
 def add_card(m, name, img, x, y, w, enter, focus=(), info=None, radius=10, ip=0, parent=None,
-             grow=1.08, extra_out=None):
+             grow=1.08, extra_out=None, halo=(5, 12, 10)):
     """A rounded thumbnail. `focus` intervals enlarge it, ring it in blue and show `info`."""
     s = 100 * w / TW
     k = 100 / s                                  # canvas px -> image px
@@ -139,10 +139,12 @@ def add_card(m, name, img, x, y, w, enter, focus=(), info=None, radius=10, ip=0,
             REG.text(genres, 18, 18, 172, o=88),
             group(pills),
         ]), ip=ip, parent=layer, ks=layer_ks(o=on_off(focus, 8, 4)))
+    ring, glow, glow_w = halo                   # canvas px outside the card edge
     m.shape(f"{name} focus", bf([
-        group([rect(TW + 24 * k, TH + 24 * k, TW / 2, TH / 2, (radius + 10) * k),
-               stroke(FOCUS, 10 * k, 28)]),
-        group([rect(TW + 10 * k, TH + 10 * k, TW / 2, TH / 2, (radius + 4) * k), stroke(FOCUS, 4 * k)]),
+        group([rect(TW + 2 * glow * k, TH + 2 * glow * k, TW / 2, TH / 2, (radius + glow - 2) * k),
+               stroke(FOCUS, glow_w * k, 28)]),
+        group([rect(TW + 2 * ring * k, TH + 2 * ring * k, TW / 2, TH / 2, (radius + ring - 1) * k),
+               stroke(FOCUS, 4 * k)]),
     ]), ip=ip, parent=layer, ks=layer_ks(o=on_off(focus)))
     return layer
 
@@ -176,17 +178,50 @@ def write(data, name):
 
 # ------------------------------------------------------------------- hero
 
-HERO_PHASES = [  # (card image, backdrop, card title, hero label, title, reason icon, reason, chips)
+FONT_DIR = os.environ.get("INTER_DIR", "/usr/share/fonts/opentype/inter")
+D_XLIGHT = Font(f"{FONT_DIR}/InterDisplay-ExtraLight.otf")
+D_BLACK_IT = Font(f"{FONT_DIR}/InterDisplay-BlackItalic.otf")
+D_SEMI_IT = Font(f"{FONT_DIR}/InterDisplay-SemiBoldItalic.otf")
+CHROME = [(0, "#ffffff", 1), (0.42, "#d5dbe1", 1), (0.52, "#8e98a4", 1), (0.72, "#e6ebf0", 1),
+          (1, "#a3adb8", 1)]
+TITLE_MAX_W = 700                               # the text block never reaches the cards
+
+
+def fit(font, text, size, tracking):
+    """Largest size <= `size` whose width fits TITLE_MAX_W."""
+    return min(size, size * TITLE_MAX_W / font.width(text, size, tracking))
+
+
+CAP = 0.727                                     # Inter cap height (em)
+
+
+def hero_title(kind, x, base):
+    """Each title set in the spirit of its poster lettering (type only, no logo artwork).
+
+    Bottom-aligned on `base`; returns (shapes, top of the capitals)."""
+    if kind in ("oppenheimer", "arrival"):      # thin capitals, very wide spacing
+        text, size, tracking = ("OPPENHEIMER", 64, 0.34) if kind == "oppenheimer" else ("ARRIVAL", 78, 0.46)
+        size = fit(D_XLIGHT, text, size, tracking)
+        return [D_XLIGHT.text(text, size, x, base, tracking=tracking)], base - CAP * size
+    size = fit(D_BLACK_IT, "TOP GUN", 88, 0.02)  # heavy slanted chrome, MAVERICK spaced out below
+    top_base = base - 44
+    return [group(D_BLACK_IT.paths("TOP GUN", size, x, top_base, tracking=0.02)
+                  + [gfill(CHROME, (0, top_base - CAP * size), (0, top_base + 2))]),
+            group(D_SEMI_IT.paths("MAVERICK", 28, x + 8, base, tracking=0.6)
+                  + [gfill(CHROME, (0, base - 21), (0, base + 2))])], top_base - CAP * size
+
+
+HERO_PHASES = [  # (card image, backdrop, card title, hero label, title style, reason icon, reason, chips)
     ("oppenheimer", "oppenheimer_bd", "Because You Watched",
-     "BECAUSE YOU WATCHED INTERSTELLAR", "Oppenheimer", I_GROUP,
+     "BECAUSE YOU WATCHED INTERSTELLAR", "oppenheimer", I_GROUP,
      "Viewers who loved Interstellar went on to watch this",
      ["intense", "thought-provoking", "historical"]),
     ("topgun", "topgun_hero", "Recommendations",
-     "RECOMMENDED FOR YOU", "Top Gun: Maverick", I_SPARKLE,
+     "RECOMMENDED FOR YOU", "topgun", I_SPARKLE,
      "Picked for this viewer, even on day one",
      ["high octane", "intense", "inspiring"]),
     ("arrival", "arrival_bd", "Similar Titles",
-     "SIMILAR TO INTERSTELLAR", "Arrival", I_WAVE,
+     "SIMILAR TO INTERSTELLAR", "arrival", I_WAVE,
      "Feels like Interstellar: pacing, tone and emotional arc",
      ["thought-provoking", "emotional", "awe-inspiring"]),
 ]
@@ -202,7 +237,8 @@ def build_hero():
     mc = (mx + mw / 2, my + mh / 2)
     picks = [61, 99, 183]                       # each card lights up in its phase
     phase_end = [99, 183, None]
-    card_x, card_top, card_w = [949, 1251, 1553], 836, 288
+    card_w, gap, card_top = 288, 48, 836       # 48 px gaps: a highlighted card never reaches its neighbour
+    card_x = [W - 80 - 3 * card_w - 2 * gap + k * (card_w + gap) for k in range(3)]
 
     m.shape("page-bg", [group([rect(W, H, 960, 540), fill(BG)])], ip=s0 - 2)
     for k, (_, bd, *_rest) in enumerate(HERO_PHASES):
@@ -233,17 +269,19 @@ def build_hero():
                 o += [(t_out, [100]), (t_out + 8, [0])]
             return layer_ks(p=anim(p), o=anim(o))
 
-        m.shape(f"hero {k}: label", [SEMI.text(label, 18, 112, 690, FOCUS, tracking=0.14)],
+        title_shapes, title_top = hero_title(title, 110, 800)
+        m.shape(f"hero {k}: kicker", [SEMI.text(label, 15, 113, title_top - 24, FOCUS, tracking=0.2)],
                 ip=t_in, op=op, ks=ks(0))
-        m.shape(f"hero {k}: title", [BOLD.text(title, 80, 106, 780)], ip=t_in, op=op, ks=ks(2))
-        pills, _ = pill_row(chips, 112, 850, h=32, size=17, color=MOOD)
-        m.shape(f"hero {k}: reason", [icon(ic, 26, 126, 822, color=FOCUS),
-                                      MED.text(reason, 23, 150, 830, o=90)] + pills,
+        m.shape(f"hero {k}: title", title_shapes, ip=t_in, op=op, ks=ks(2))
+        pills, _ = pill_row(chips, 112, 874, h=30, size=15, color=MOOD, fill_o=16, edge=MOOD,
+                            edge_o=55, text_color="#ffd9d2")
+        m.shape(f"hero {k}: reason", [icon(ic, 22, 123, 845, color=FOCUS),
+                                      REG.text(reason, 21, 144, 852, o=82)] + pills,
                 ip=t_in, op=op, ks=ks(5))
     m.shape("hero: play", bf([
-        group([rect(220, 58, 218, 939, 8), fill(BLUE)]),
-        MED.text("Play now", 23, 148, 947),
-        icon(I_PLAY, 28, 290, 939),
+        group([rect(170, 50, 193, 962, 25), fill(BLUE)]),
+        MED.text("Play now", 20, 136, 969),
+        icon(I_PLAY, 22, 244, 962),
     ]), ip=s1, ks=layer_ks(p=anim([(picks[0] + 8, [0, 20], "out"), (picks[0] + 24, [0, 0])]),
                            o=fade(picks[0] + 8, picks[0] + 20)))
 
@@ -258,7 +296,7 @@ def build_hero():
                 ([(on, [55]), (on + 8, [100])] + ([(off, [100]), (off + 8, [55])] if off else [])
                  for on, off in focus[k]), []))))
         add_card(m, f"card {k}: {name}", imgs(name), card_x[k], card_top, card_w, t, focus=focus[k],
-                 radius=10, ip=s0)
+                 radius=10, ip=s0, grow=1.045, halo=(4, 9, 8))
 
     # mini-player with the credits still rolling
     bottom = my + mh
