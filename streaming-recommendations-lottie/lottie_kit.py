@@ -60,6 +60,27 @@ def anim(keys, ease="io"):
     return {"a": 1, "k": out}
 
 
+def motion(points, ease="smooth"):
+    """Position keyframes that can curve: [(t, [x, y], control_or_None), ...].
+
+    The optional control point bends the segment that starts at that key into a
+    quadratic curve (converted to Lottie's spatial tangents).
+    """
+    out = []
+    for n, (t, p, ctrl) in enumerate(points):
+        k = {"t": t, "s": list(p)}
+        if n < len(points) - 1:
+            (ox, oy), (ix, iy) = EASE[ease]
+            k["o"] = {"x": ox, "y": oy}
+            k["i"] = {"x": ix, "y": iy}
+            nxt = points[n + 1][1]
+            c = ctrl or p
+            k["to"] = [(c[0] - p[0]) * 2 / 3, (c[1] - p[1]) * 2 / 3]
+            k["ti"] = [(c[0] - nxt[0]) * 2 / 3, (c[1] - nxt[1]) * 2 / 3] if ctrl else [0, 0]
+        out.append(k)
+    return {"a": 1, "k": out}
+
+
 def fade(t0, t1, v0=0, v1=100, ease="io"):
     return anim([(t0, v0), (t1, v1)], ease)
 
@@ -247,10 +268,12 @@ def mask(shape, mode="a", o=100):
     return {"inv": False, "mode": mode, "pt": prop(shape), "o": prop(o), "x": prop(0), "nm": "mask"}
 
 
-def animation(main, precomps, fps, name, images=()):
+def animation(main, precomps, fps, name, images=(), markers=()):
+    """markers: [(frame, duration, name), ...] so a page can play named segments."""
     return {"v": "5.12.2", "fr": fps, "ip": 0, "op": main.op, "w": main.w, "h": main.h,
             "nm": name, "ddd": 0, "assets": list(images) + [c.asset() for c in precomps],
-            "layers": main.layers[::-1], "markers": []}
+            "layers": main.layers[::-1],
+            "markers": [{"tm": t, "dr": d, "cm": n} for t, d, n in markers]}
 
 
 # ---------------------------------------------------------------------- text

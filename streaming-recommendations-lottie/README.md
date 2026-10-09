@@ -2,6 +2,24 @@
 
 Two 1920×1080, 30 fps Lotties of a streaming app's end-of-video flow.
 
+## Curio landing page (`curio-*`)
+
+One Lottie per image slot on the Curio landing page. In each one a cursor clicks, and the
+thing the section is about lights up:
+
+| File | Page slot | Length | What it shows |
+| --- | --- | --- | --- |
+| `curio-hero` | Hero visual | 8.4 s, 1920×1080 | Interstellar's credits shrink into a mini-player. Then three clicks walk through **Because You Watched → Recommendations → Similar Titles**, the same order and 2.8 s rhythm as the rotating headline. Each click highlights its card and switches the hero to that pick. Markers: `because-you-watched`, `recommendations`, `similar-titles` |
+| `curio-because-you-watched` | Three experiences: Because You Watched | 6 s, 1280×720 | Viewers who loved Interstellar flow to what they watched next, which isn't only look-alikes. Then the top pick (Oppenheimer) is clicked |
+| `curio-personalized-recommendations` | Three experiences: Personalized Recommendations | 6 s, 1280×720 | A new viewer on day one, with 2 titles watched, gets mood rows (Thought-Provoking Sci-Fi, High-Stakes Thrills). Two picks are clicked and show their mood tags |
+| `curio-similar-titles` | Three experiences: Similar Titles | 6 s, 1280×720 | Interstellar's title page. Clicking Arrival, then The Martian, lights up the mood tags each one shares with Interstellar and connects them to the card |
+
+- **Blurred variants:** the `-blurred` files blur the movie artwork, like the screenshots currently on the page.
+- **Readability:** the section Lotties use large type, so they stay readable at about 640px wide.
+- **Previews:** in `previews/`.
+- **Build:** `python3 build_curio.py`, and `CURIO_BLUR=1 python3 build_curio.py` for the blurred set.
+- **Hero sync:** if the hero Lottie and the headline start together, they stay in step (8.4 s = 3 × 2.8 s).
+
 ## Vionlabs version (`vionlabs-recommendations.*`)
 
 16 s, styled after the Vionlabs demo UI, using the movies from the demo recording:
@@ -40,7 +58,7 @@ All titles, names and artwork in this version are placeholders. Built by `build.
 ## Files
 
 - `*.json`: the Lotties (Bodymovin 5.12 format). `*.lottie` is the same animation as a dotLottie, which is much smaller.
-- `lottie_kit.py`: shared helpers. Text is converted to outlines, so no fonts are needed at playback.
+- `lottie_kit.py` / `curio_ui.py`: shared helpers and UI pieces. Text is converted to outlines, so no fonts are needed at playback.
 - `render_preview.cjs`: renders frames with lottie-web in headless Chromium
 
 ## Editing
