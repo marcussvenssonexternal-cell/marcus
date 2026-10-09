@@ -65,6 +65,7 @@ CARD_INFO = {
     "topgun": ("Top Gun: Maverick", "action • adventure • drama", ["high octane", "intense"]),
     "arrival": ("Arrival", "sci-fi • drama • mystery", ["thought-provoking", "emotional"]),
     "martian": ("The Martian", "sci-fi • adventure • drama", ["suspenseful", "survival"]),
+    "spiderverse": ("Across the Spider-Verse", "animation • action • adventure", ["action-packed", "inventive"]),
 }
 
 
@@ -309,8 +310,13 @@ def build_hero():
 
 # --------------------------------------------- section: Because You Watched
 
+# highlight intervals (on, off) for the four titles, and the row slide before the fourth
+BYW_FOCUS = [(30, 80), (80, 130), (130, 172), (188, None)]
+BYW_SLIDE = (172, 188)
+
+
 def build_because_you_watched():
-    W, H, OP = 1280, 720, 180
+    W, H, OP = 1280, 720, 240
     imgs = Images()
     m = Comp(W, H, OP, "main")
     credits = build_credits(OP, roll=900, drift=200)
@@ -336,16 +342,19 @@ def build_because_you_watched():
         MED.text("Viewers who loved Interstellar", 22, 557, 200),
     ]), ks=layer_ks(p=anim([(16, [0, 16], "out"), (30, [0, 0])]), o=fade(16, 28)))
 
-    # the row they went on to watch
-    row_y, cw = 445, 330
-    xs = [60, 420, 780, 1140]
-    names = ["oppenheimer", "martian", "topgun", "spiderverse"]
+    # the row they went on to watch, highlighted one title at a time like a slideshow;
+    # before the fourth title the row slides one card to the left
+    row_y, cw, step = 445, 330, 360
+    xs = [60 + step * k for k in range(5)]
+    names = ["oppenheimer", "martian", "topgun", "spiderverse", "nohardfeelings"]
     m.shape("row-label", [MED.text("Because you watched Interstellar", 30, 60, row_y - 28)],
             ks=layer_ks(p=anim([(6, [0, 16], "out"), (22, [0, 0])]), o=fade(6, 18)))
-    pick = 72
-    for k in (3, 2, 1, 0):
-        add_card(m, names[k], imgs(names[k]), xs[k], row_y, cw, 8 + 3 * k,
-                 focus=[(pick, None)] if k == 0 else (), info=CARD_INFO.get(names[k]) if k == 0 else None)
+    focus = BYW_FOCUS
+    slide = BYW_SLIDE
+    row = m.null("row", ks=layer_ks(p=anim([(slide[0], [0, 0], "smooth"), (slide[1], [-step, 0])])))
+    for k in (4, 3, 2, 1, 0):
+        add_card(m, names[k], imgs(names[k]), xs[k], row_y, cw, 8 + 3 * min(k, 3), parent=row,
+                 focus=[focus[k]] if k < len(focus) else (), info=CARD_INFO.get(names[k]))
 
     add_fade(m, OP)
     write(animation(m, [credits], FPS, "Curio: Because You Watched", images=imgs.assets.values()),

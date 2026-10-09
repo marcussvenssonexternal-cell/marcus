@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 mkdir -p stills
 tmp=$(mktemp -d)
 # frame where everything is in and the section's highlight is fully on
-for spec in curio-because-you-watched:120 curio-personalized-recommendations:112 curio-similar-titles:104; do
+for spec in curio-because-you-watched:60 curio-personalized-recommendations:112 curio-similar-titles:104; do
   name=${spec%%:*}; frame=${spec##*:}
   for variant in "" "-blurred"; do
     node render_preview.cjs "$name$variant.json" "$tmp/$name$variant" --width 2560 --frames "$frame" >/dev/null
