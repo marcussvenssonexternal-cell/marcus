@@ -176,16 +176,16 @@ def write(data, name):
 
 # ------------------------------------------------------------------- hero
 
-HERO_PHASES = [  # (card image, backdrop, label above card, hero label, title, reason icon, reason, chips)
-    ("oppenheimer", "oppenheimer_bd", ["Because you watched", "Interstellar"],
+HERO_PHASES = [  # (card image, backdrop, card title, hero label, title, reason icon, reason, chips)
+    ("oppenheimer", "oppenheimer_bd", "Because You Watched",
      "BECAUSE YOU WATCHED INTERSTELLAR", "Oppenheimer", I_GROUP,
      "Viewers who loved Interstellar went on to watch this",
      ["intense", "thought-provoking", "historical"]),
-    ("topgun", "topgun_hero", ["Recommended for you"],
+    ("topgun", "topgun_hero", "Recommendations",
      "RECOMMENDED FOR YOU", "Top Gun: Maverick", I_SPARKLE,
      "Picked for this viewer, even on day one",
      ["high octane", "intense", "inspiring"]),
-    ("arrival", "arrival_bd", ["Similar titles"],
+    ("arrival", "arrival_bd", "Similar Titles",
      "SIMILAR TO INTERSTELLAR", "Arrival", I_WAVE,
      "Feels like Interstellar: pacing, tone and emotional arc",
      ["thought-provoking", "emotional", "awe-inspiring"]),
@@ -203,7 +203,6 @@ def build_hero():
     picks = [61, 99, 183]                       # each card lights up in its phase
     phase_end = [99, 183, None]
     card_x, card_top, card_w = [949, 1251, 1553], 836, 288
-    centres = [(x + card_w / 2, card_top + 81) for x in card_x]
 
     m.shape("page-bg", [group([rect(W, H, 960, 540), fill(BG)])], ip=s0 - 2)
     for k, (_, bd, *_rest) in enumerate(HERO_PHASES):
@@ -248,22 +247,16 @@ def build_hero():
     ]), ip=s1, ks=layer_ks(p=anim([(picks[0] + 8, [0, 20], "out"), (picks[0] + 24, [0, 0])]),
                            o=fade(picks[0] + 8, picks[0] + 20)))
 
-    # three cards, labelled like the rotating headline
+    # three cards, titled with the rotating headline's words; the active title brightens
     focus = [[(picks[k], phase_end[k])] for k in range(3)]
     for k in (2, 1, 0):
-        name, _, lines = HERO_PHASES[k][:3]
+        name, _, label = HERO_PHASES[k][:3]
         t = 38 + 4 * k
-        cx = centres[k][0]
-        txt = [MED.text(line, 20, cx, 812 - 26 * (len(lines) - 1 - j), align="center")
-               for j, line in enumerate(lines)]
-        widest = max(MED.width(line, 20) for line in lines)
-        m.shape(f"card {k}: label", txt, ip=s0, ks=layer_ks(
+        m.shape(f"card {k}: label", [SEMI.text(label, 22, card_x[k] + 2, 802)], ip=s0, ks=layer_ks(
             p=anim([(t, [0, 24], "out"), (t + 18, [0, 0])]),
-            o=anim([(t, [0]), (t + 12, [70])] + sum(
-                ([(on, [70]), (on + 8, [100])] + ([(off, [100]), (off + 8, [70])] if off else [])
+            o=anim([(t, [0]), (t + 12, [55])] + sum(
+                ([(on, [55]), (on + 8, [100])] + ([(off, [100]), (off + 8, [55])] if off else [])
                  for on, off in focus[k]), []))))
-        m.shape(f"card {k}: underline", [group([rect(widest, 4, cx, 822, 2), fill(FOCUS)])],
-                ip=s0, ks=layer_ks(o=on_off(focus[k])))
         add_card(m, f"card {k}: {name}", imgs(name), card_x[k], card_top, card_w, t, focus=focus[k],
                  radius=10, ip=s0)
 
@@ -403,9 +396,6 @@ def build_personalized():
         f = focus[(r, 0)]
         m.shape(f"row {r}: label", [MED.text(label, 28, 60, top - 26)], ks=layer_ks(
             p=anim([(t0, [0, 14], "out"), (t0 + 16, [0, 0])]), o=fade(t0, t0 + 12)))
-        m.shape(f"row {r}: underline", [group([rect(MED.width(label, 28), 4, 60 + MED.width(label, 28) / 2,
-                                                    top - 14, 2), fill(FOCUS)])],
-                ks=layer_ks(o=on_off(f)))
         for k in (3, 2, 1, 0):
             add_card(m, f"row {r}: {names[k]}", imgs(names[k]), xs[k], top, cw, t0 + 4 + 3 * k,
                      focus=f if k == 0 else (), info=CARD_INFO.get(names[k]) if k == 0 else None)
