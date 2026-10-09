@@ -1,25 +1,25 @@
 """Builds the Lotties for the Curio landing page (vionlabs.com/curio).
 
-One Lottie per visual slot on the page, each with a cursor that clicks and
-highlights the thing the section is about:
+One Lottie per visual slot on the page. Each one highlights, in turn, the
+thing the section is about:
 
   curio-hero                        Hero (1920x1080, 8.4 s). Interstellar's credits
-                                    shrink into a mini-player, then three clicks
-                                    walk through Because You Watched,
+                                    shrink into a mini-player, then the three
+                                    cards light up in turn: Because You Watched,
                                     Recommendations and Similar Titles. The loop
                                     is 3 x 2.8 s, the same rhythm as the hero's
                                     rotating headline, and carries markers for
                                     each phase.
   curio-because-you-watched         Three experiences, row 1 (1280x720, 6 s).
-                                    Viewers who loved Interstellar flow to what
-                                    they watched next; the top pick is clicked.
+                                    What viewers who loved Interstellar watched
+                                    next; the top pick lights up.
   curio-personalized-recommendations
                                     Three experiences, row 2 (1280x720, 6 s).
                                     A day-one viewer with two titles watched gets
-                                    mood rows; two picks are clicked.
+                                    mood rows; two picks light up.
   curio-similar-titles              Three experiences, row 3 (1280x720, 6 s).
-                                    Interstellar's title page; clicking a similar
-                                    title lights up the mood tags they share.
+                                    Interstellar's title page; as a similar title
+                                    lights up, so do the mood tags they share.
 
 CURIO_BLUR=1 builds the "-blurred" variants with the movie artwork blurred,
 matching the screenshots currently on the page.
@@ -28,7 +28,6 @@ Run:  python3 build_curio.py && CURIO_BLUR=1 python3 build_curio.py
 """
 import json
 import os
-import random
 import tempfile
 import zipfile
 
@@ -38,7 +37,7 @@ from curio_ui import (BG, BLUE, FOCUS, GENRE, GENRE_EDGE, I_PAUSE, I_PLAY, I_THU
                       MUTED, NAV_BG, PANEL, REG, SEMI, BOLD, TH, TW, bf, build_credits, flip,
                       nav_items, pill, pill_row)
 from lottie_kit import (Comp, anim, animation, ellipse, fade, fill, gfill, group, icon, image_asset,
-                        layer_ks, mask, motion, path, poly, rect, rrect, stroke, trim)
+                        layer_ks, mask, rect, rrect, stroke)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS = 30
@@ -59,7 +58,6 @@ I_SPARKLE = ("M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 
              "l1.25-2.75L23 19l-2.75-1.25L19 15z")
 I_WAVE = "M7 18h2V6H7v12zm4 4h2V2h-2v20zm-8-8h2v-4H3v4zm12 4h2V6h-2v12zm4-8v4h2v-4h-2z"
 
-ARROW = [(0, 0), (0, 30), (8, 23), (13.5, 34.5), (18.5, 32.5), (13, 21.5), (23, 21.5)]
 BACKDROP_CROP = {"oppenheimer": (57, 0, 353, 166)}   # 16:9 crop above the poster title
 AVATAR_COLORS = ["#5b9dff", "#e07a6d", "#8bd3a8", "#f2c14e", "#b88cf0", "#6fd1e3", "#f29ad8", "#9fb3ff"]
 
@@ -110,27 +108,6 @@ def on_off(intervals, ramp=8, delay=0):
         if off:
             keys += [(off, [100]), (off + ramp, [0])]
     return anim(keys)
-
-
-def add_cursor(m, path_keys, clicks, scale, ip, op):
-    """path_keys: motion() keys for the tip; clicks: frames where it presses."""
-    sk = [(ip, [scale, scale])]
-    for t in clicks:
-        sk += [(t - 2, [scale, scale]), (t + 2, [scale * 0.8] * 2), (t + 8, [scale, scale])]
-    m.shape("cursor", bf([
-        group([poly([(x + 1.5, y + 2.5) for x, y in ARROW]), fill("#000000", 35)]),
-        group([poly(ARROW), fill("#ffffff"), stroke("#14181f", 1.8)]),
-    ]), ip=ip, op=op, ks=layer_ks(p=motion(path_keys), s=anim(sk),
-                                   o=anim([(ip, [0]), (ip + 6, [100]), (op - 6, [100]), (op, [0])])))
-
-
-def add_ripple(m, t, x, y, r=46):
-    m.shape(f"click {t}", bf([
-        group([ellipse(anim([(t, [16, 16], "out"), (t + 14, [2 * r, 2 * r])]), 0, x, y),
-               stroke("#ffffff", 3)], o=anim([(t, [90]), (t + 14, [0])])),
-        group([ellipse(anim([(t, [20, 20], "out"), (t + 10, [r, r])]), 0, x, y), fill("#ffffff")],
-              o=anim([(t, [45]), (t + 10, [0])])),
-    ]), ip=t, op=t + 16)
 
 
 def add_card(m, name, img, x, y, w, enter, focus=(), info=None, radius=10, ip=0, parent=None,
@@ -223,15 +200,15 @@ def build_hero():
     s0, s1 = 28, 50                             # shrink into the mini-player
     mx, my, mw, mh = 92, 150, 480, 270
     mc = (mx + mw / 2, my + mh / 2)
-    clicks = [61, 99, 183]                      # one per phase
+    picks = [61, 99, 183]                       # each card lights up in its phase
     phase_end = [99, 183, None]
     card_x, card_top, card_w = [949, 1251, 1553], 836, 288
     centres = [(x + card_w / 2, card_top + 81) for x in card_x]
 
     m.shape("page-bg", [group([rect(W, H, 960, 540), fill(BG)])], ip=s0 - 2)
     for k, (_, bd, *_rest) in enumerate(HERO_PHASES):
-        t_on = s0 + 2 if k == 0 else clicks[k]
-        m.image(f"backdrop {k}", imgs(bd), ip=t_on, op=(clicks[k + 1] + 18 if k < 2 else OP),
+        t_on = s0 + 2 if k == 0 else picks[k]
+        m.image(f"backdrop {k}", imgs(bd), ip=t_on, op=(picks[k + 1] + 18 if k < 2 else OP),
                 ks=layer_ks(p=anim([(t_on, [960, 540], "linear"), (OP, [940, 532])]), a=(480, 270),
                             s=anim([(t_on, [206, 206], "out"), (t_on + 30, [200, 200], "linear"),
                                     (OP, [206, 206])]), o=fade(t_on, t_on + 14)))
@@ -244,7 +221,7 @@ def build_hero():
 
     # hero copy, one set per phase
     for k, (_, _, _, label, title, ic, reason, chips) in enumerate(HERO_PHASES):
-        t_in = clicks[k] + 3
+        t_in = picks[k] + 3
         t_out = phase_end[k]
         op = t_out + 10 if t_out else OP
 
@@ -268,11 +245,11 @@ def build_hero():
         group([rect(220, 58, 218, 939, 8), fill(BLUE)]),
         MED.text("Play now", 23, 148, 947),
         icon(I_PLAY, 28, 290, 939),
-    ]), ip=s1, ks=layer_ks(p=anim([(clicks[0] + 8, [0, 20], "out"), (clicks[0] + 24, [0, 0])]),
-                           o=fade(clicks[0] + 8, clicks[0] + 20)))
+    ]), ip=s1, ks=layer_ks(p=anim([(picks[0] + 8, [0, 20], "out"), (picks[0] + 24, [0, 0])]),
+                           o=fade(picks[0] + 8, picks[0] + 20)))
 
     # three cards, labelled like the rotating headline
-    focus = [[(clicks[k], phase_end[k])] for k in range(3)]
+    focus = [[(picks[k], phase_end[k])] for k in range(3)]
     for k in (2, 1, 0):
         name, _, lines = HERO_PHASES[k][:3]
         t = 38 + 4 * k
@@ -332,20 +309,6 @@ def build_hero():
         MED.text("-00:01", 21, 1662, 1034),
     ]), op=s0 + 4, ks=layer_ks(o=fade(s0 - 8, s0 + 2, 100, 0)))
 
-    # the cursor walks through the three experiences
-    start = (1560, 1150)
-    def arc(a, b):
-        return ((a[0] + b[0]) / 2, min(a[1], b[1]) - 90)
-
-    keys = [(48, list(start), (start[0] - 260, centres[0][1] + 60)), (clicks[0] - 1, list(centres[0]), None),
-            (clicks[0] + 25, list(centres[0]), arc(centres[0], centres[1])),
-            (clicks[1] - 1, list(centres[1]), None),
-            (clicks[1] + 70, list(centres[1]), arc(centres[1], centres[2])),
-            (clicks[2] - 1, list(centres[2]), None),
-            (clicks[2] + 40, list(centres[2]), None), (OP - 4, [1760, 1150], None)]
-    add_cursor(m, keys, clicks, 150, 48, OP)
-    for t, c in zip(clicks, centres):
-        add_ripple(m, t, *c, r=56)
     add_fade(m, OP, 5, 14)
     markers = [(0, 84, "because-you-watched"), (84, 84, "recommendations"), (168, 84, "similar-titles")]
     write(animation(m, [credits], FPS, "Curio hero", images=imgs.assets.values(), markers=markers),
@@ -375,48 +338,30 @@ def build_because_you_watched():
         REG.text("Finished", 20, mx + SEMI.width("Interstellar", 24) + 12, my + mh + 40, MUTED),
     ]), ks=layer_ks(o=fade(4, 16)))
 
-    # "viewers who loved it" cluster
-    cl = (880, 210)
     m.shape("viewers-pill", bf([
-        group([rect(470, 52, cl[0], 120, 26), fill(PANEL), stroke(FOCUS, 1.5, 60)]),
-        icon(I_GROUP, 28, cl[0] - 200, 120, color=FOCUS),
-        MED.text("Viewers who loved Interstellar", 22, cl[0] - 178, 128),
+        group([rect(470, 52, 880, 120, 26), fill(PANEL), stroke(FOCUS, 1.5, 60)]),
+        icon(I_GROUP, 28, 680, 120, color=FOCUS),
+        MED.text("Viewers who loved Interstellar", 22, 702, 128),
     ]), ks=layer_ks(p=anim([(16, [0, 16], "out"), (30, [0, 0])]), o=fade(16, 28)))
 
-    # the row they went on to watch
+    # the row they went on to watch, each title marked by those viewers
     row_y, cw = 445, 330
     xs = [60, 420, 780, 1140]
     names = ["oppenheimer", "martian", "topgun", "spiderverse"]
     m.shape("row-label", [MED.text("Because you watched Interstellar", 30, 60, row_y - 28)],
             ks=layer_ks(p=anim([(6, [0, 16], "out"), (22, [0, 0])]), o=fade(6, 18)))
-    click = 99
+    pick = 72
     for k in (3, 2, 1, 0):
         add_card(m, names[k], imgs(names[k]), xs[k], row_y, cw, 8 + 3 * k,
-                 focus=[(click, None)] if k == 0 else (), info=CARD_INFO.get(names[k]) if k == 0 else None)
-
-    # avatars travel from the cluster to the titles they watched next
-    rng = random.Random(2)
+                 focus=[(pick, None)] if k == 0 else (), info=CARD_INFO.get(names[k]) if k == 0 else None)
     for n in range(8):
-        card = n % 4
-        sx, sy = cl[0] + rng.uniform(-150, 150), cl[1] + rng.uniform(-20, 40)
-        ex, ey = xs[card] + cw - 30 - 30 * (n // 4), row_y + 28
-        t0 = 22 + n
-        t1 = 34 + 5 * n
-        t2 = t1 + 22
-        col = AVATAR_COLORS[n]
+        t = 32 + 3 * n
+        x, y = xs[n % 4] + cw - 30 - 30 * (n // 4), row_y + 28
         m.shape(f"viewer {n}", bf([
-            group([ellipse(40, 40), fill(col), stroke(BG, 3)]),
-            icon(I_PERSON, 26, 0, 1, color="#ffffff", o=90),
-        ]), ip=t0, ks=layer_ks(
-            p=motion([(t1, [sx, sy], ((sx + ex) / 2, min(sy, ey) - 120)), (t2, [ex, ey], None)]),
-            s=anim([(t0, [0, 0], "out"), (t0 + 8, [100, 100]), (t1, [100, 100]), (t2, [80, 80])]),
-            o=fade(t0, t0 + 6)))
+            group([ellipse(40, 40, x, y), fill(AVATAR_COLORS[n]), stroke(BG, 3)]),
+            icon(I_PERSON, 26, x, y + 1, color="#ffffff", o=90),
+        ]), ip=t, ks=layer_ks(p=(x, y), a=(x, y), s=anim([(t, [0, 0], "out"), (t + 8, [100, 100])])))
 
-    # click the top pick
-    centre = (xs[0] + cw / 2, row_y + TH * cw / TW / 2)
-    add_cursor(m, [(84, [760, 760], (520, 720)), (click - 1, list(centre), None),
-                   (OP, [centre[0] + 30, centre[1] + 20], None)], [click], 120, 84, OP)
-    add_ripple(m, click, *centre)
     add_fade(m, OP)
     write(animation(m, [credits], FPS, "Curio: Because You Watched", images=imgs.assets.values()),
           "curio-because-you-watched")
@@ -452,8 +397,8 @@ def build_personalized():
     xs = [60, 420, 780, 1140]
     rows = [("Thought-Provoking Sci-Fi", 262, ["arrival", "2001", "martian", "sunshine"], 24),
             ("High-Stakes Thrills", 518, ["topgun", "oppenheimer", "spiderverse", "nohardfeelings"], 36)]
-    clicks = [95, 131]
-    focus = {(0, 0): [(clicks[0], clicks[1])], (1, 0): [(clicks[1], None)]}
+    picks = [80, 124]
+    focus = {(0, 0): [(picks[0], picks[1])], (1, 0): [(picks[1], None)]}
     for r, (label, top, names, t0) in enumerate(rows):
         f = focus[(r, 0)]
         m.shape(f"row {r}: label", [MED.text(label, 28, 60, top - 26)], ks=layer_ks(
@@ -465,14 +410,6 @@ def build_personalized():
             add_card(m, f"row {r}: {names[k]}", imgs(names[k]), xs[k], top, cw, t0 + 4 + 3 * k,
                      focus=f if k == 0 else (), info=CARD_INFO.get(names[k]) if k == 0 else None)
 
-    centres = [(xs[0] + cw / 2, rows[r][1] + TH * cw / TW / 2) for r in range(2)]
-    add_cursor(m, [(80, [700, 760], (560, 520)), (clicks[0] - 1, list(centres[0]), None),
-                   (clicks[0] + 20, list(centres[0]),
-                    (centres[0][0] + 140, (centres[0][1] + centres[1][1]) / 2)),
-                   (clicks[1] - 1, list(centres[1]), None),
-                   (OP, [centres[1][0] + 30, centres[1][1] + 20], None)], clicks, 120, 80, OP)
-    for t, c in zip(clicks, centres):
-        add_ripple(m, t, *c)
     add_fade(m, OP)
     write(animation(m, [], FPS, "Curio: Personalized Recommendations", images=imgs.assets.values()),
           "curio-personalized-recommendations")
@@ -522,39 +459,24 @@ def build_similar():
     names = ["2001", "arrival", "martian", "sunshine"]
     m.shape("row-label", [MED.text("Similar titles", 28, 60, top - 24)],
             ks=layer_ks(p=anim([(14, [0, 14], "out"), (30, [0, 0])]), o=fade(14, 26)))
-    clicks = [73, 125]
-    focus = {1: [(clicks[0], clicks[1])], 2: [(clicks[1], None)]}
+    picks = [62, 118]
+    focus = {1: [(picks[0], picks[1])], 2: [(picks[1], None)]}
     shared = {1: ["thought-provoking", "emotional"], 2: ["suspenseful", "survival"]}
     for k in (3, 2, 1, 0):
         add_card(m, names[k], imgs(names[k]), xs[k], top, cw, 18 + 3 * k, focus=focus.get(k, ()),
                  info=CARD_INFO.get(names[k]) if k in focus else None)
 
-    # shared tags glow and connect to the clicked title
+    # the tags each highlighted title shares with Interstellar light up too
     for k, tags in shared.items():
         on, off = focus[k][0]
-        tx = xs[k] + cw / 2
-        for j, tag in enumerate(tags):
+        for tag in tags:
             x0, w = pos[tag]
-            px, py = x0 + w / 2, mood_y + 34
-            ex, ey = tx - 40 + 80 * j, top - 6
+            px = x0 + w / 2
             m.shape(f"shared {tag}", bf([
                 group([rect(w + 18, 52, px, mood_y + 17, 26), stroke(FOCUS, 9, 28)]),
                 group([rect(w + 8, 42, px, mood_y + 17, 21), stroke(FOCUS, 3)]),
             ]), ip=on, ks=layer_ks(o=on_off([(on + 2, off)])))
-            m.shape(f"link {tag}", bf([
-                group([path(([(px, py + 4), (ex, ey)], [(0, 0), (0, -70)], [(0, 70), (0, 0)], False)),
-                       stroke(FOCUS, 3), trim(e=anim([(on + 4, [0], "out"), (on + 20, [100])]))]),
-                group([ellipse(12, 12, ex, ey), fill(FOCUS)], o=anim([(on + 18, [0]), (on + 22, [100])])),
-            ]), ip=on, ks=layer_ks(o=on_off([(on, off)], 4)))
 
-    centres = [(xs[k] + cw / 2, top + TH * cw / TW / 2) for k in (1, 2)]
-    add_cursor(m, [(58, [1000, 760], (760, 740)), (clicks[0] - 1, list(centres[0]), None),
-                   (clicks[0] + 26, list(centres[0]),
-                    ((centres[0][0] + centres[1][0]) / 2, centres[0][1] + 90)),
-                   (clicks[1] - 1, list(centres[1]), None),
-                   (OP, [centres[1][0] + 30, centres[1][1] + 20], None)], clicks, 120, 58, OP)
-    for t, c in zip(clicks, centres):
-        add_ripple(m, t, *c)
     add_fade(m, OP)
     write(animation(m, [], FPS, "Curio: Similar Titles", images=imgs.assets.values()),
           "curio-similar-titles")

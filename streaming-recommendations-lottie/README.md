@@ -4,15 +4,15 @@ Two 1920×1080, 30 fps Lotties of a streaming app's end-of-video flow.
 
 ## Curio landing page (`curio-*`)
 
-One Lottie per image slot on the Curio landing page. In each one a cursor clicks, and the
-thing the section is about lights up:
+One Lottie per image slot on the Curio landing page. In each one, the thing the section is
+about lights up in turn:
 
 | File | Page slot | Length | What it shows |
 | --- | --- | --- | --- |
-| `curio-hero` | Hero visual | 8.4 s, 1920×1080 | Interstellar's credits shrink into a mini-player. Then three clicks walk through **Because You Watched → Recommendations → Similar Titles**, the same order and 2.8 s rhythm as the rotating headline. Each click highlights its card and switches the hero to that pick. Markers: `because-you-watched`, `recommendations`, `similar-titles` |
-| `curio-because-you-watched` | Three experiences: Because You Watched | 6 s, 1280×720 | Viewers who loved Interstellar flow to what they watched next, which isn't only look-alikes. Then the top pick (Oppenheimer) is clicked |
-| `curio-personalized-recommendations` | Three experiences: Personalized Recommendations | 6 s, 1280×720 | A new viewer on day one, with 2 titles watched, gets mood rows (Thought-Provoking Sci-Fi, High-Stakes Thrills). Two picks are clicked and show their mood tags |
-| `curio-similar-titles` | Three experiences: Similar Titles | 6 s, 1280×720 | Interstellar's title page. Clicking Arrival, then The Martian, lights up the mood tags each one shares with Interstellar and connects them to the card |
+| `curio-hero` | Hero visual | 8.4 s, 1920×1080 | Interstellar's credits shrink into a mini-player. Then the three cards light up in turn, **Because You Watched → Recommendations → Similar Titles**, in the same order and 2.8 s rhythm as the rotating headline. Each highlight switches the hero to that pick. Markers: `because-you-watched`, `recommendations`, `similar-titles` |
+| `curio-because-you-watched` | Three experiences: Because You Watched | 6 s, 1280×720 | What viewers who loved Interstellar watched next, which isn't only look-alikes. Then the top pick (Oppenheimer) lights up |
+| `curio-personalized-recommendations` | Three experiences: Personalized Recommendations | 6 s, 1280×720 | A new viewer on day one, with 2 titles watched, gets mood rows (Thought-Provoking Sci-Fi, High-Stakes Thrills). Two picks light up and show their mood tags |
+| `curio-similar-titles` | Three experiences: Similar Titles | 6 s, 1280×720 | Interstellar's title page. As Arrival, then The Martian, lights up, so do the mood tags each one shares with Interstellar |
 
 - **Blurred variants:** the `-blurred` files blur the movie artwork, like the screenshots currently on the page.
 - **Readability:** the section Lotties use large type, so they stay readable at about 640px wide.
