@@ -59,7 +59,6 @@ I_SPARKLE = ("M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 
 I_WAVE = "M7 18h2V6H7v12zm4 4h2V2h-2v20zm-8-8h2v-4H3v4zm12 4h2V6h-2v12zm4-8v4h2v-4h-2z"
 
 BACKDROP_CROP = {"oppenheimer": (57, 0, 353, 166)}   # 16:9 crop above the poster title
-AVATAR_COLORS = ["#5b9dff", "#e07a6d", "#8bd3a8", "#f2c14e", "#b88cf0", "#6fd1e3", "#f29ad8", "#9fb3ff"]
 
 CARD_INFO = {
     "oppenheimer": ("Oppenheimer", "drama • history • thriller", ["intense", "thought-provoking"]),
@@ -332,12 +331,12 @@ def build_because_you_watched():
     ]), ks=layer_ks(o=fade(4, 16)))
 
     m.shape("viewers-pill", bf([
-        group([rect(470, 52, 880, 120, 26), fill(PANEL), stroke(FOCUS, 1.5, 60)]),
-        icon(I_GROUP, 28, 680, 120, color=FOCUS),
-        MED.text("Viewers who loved Interstellar", 22, 702, 128),
+        group([rect(470, 52, 735, 192, 26), fill(PANEL), stroke(FOCUS, 1.5, 60)]),
+        icon(I_GROUP, 28, 535, 192, color=FOCUS),
+        MED.text("Viewers who loved Interstellar", 22, 557, 200),
     ]), ks=layer_ks(p=anim([(16, [0, 16], "out"), (30, [0, 0])]), o=fade(16, 28)))
 
-    # the row they went on to watch, each title marked by those viewers
+    # the row they went on to watch
     row_y, cw = 445, 330
     xs = [60, 420, 780, 1140]
     names = ["oppenheimer", "martian", "topgun", "spiderverse"]
@@ -347,13 +346,6 @@ def build_because_you_watched():
     for k in (3, 2, 1, 0):
         add_card(m, names[k], imgs(names[k]), xs[k], row_y, cw, 8 + 3 * k,
                  focus=[(pick, None)] if k == 0 else (), info=CARD_INFO.get(names[k]) if k == 0 else None)
-    for n in range(8):
-        t = 32 + 3 * n
-        x, y = xs[n % 4] + cw - 30 - 30 * (n // 4), row_y + 28
-        m.shape(f"viewer {n}", bf([
-            group([ellipse(40, 40, x, y), fill(AVATAR_COLORS[n]), stroke(BG, 3)]),
-            icon(I_PERSON, 26, x, y + 1, color="#ffffff", o=90),
-        ]), ip=t, ks=layer_ks(p=(x, y), a=(x, y), s=anim([(t, [0, 0], "out"), (t + 8, [100, 100])])))
 
     add_fade(m, OP)
     write(animation(m, [credits], FPS, "Curio: Because You Watched", images=imgs.assets.values()),
@@ -389,7 +381,7 @@ def build_personalized():
     cw = 330
     xs = [60, 420, 780, 1140]
     rows = [("Thought-Provoking Sci-Fi", 262, ["arrival", "2001", "martian", "sunshine"], 24),
-            ("High-Stakes Thrills", 518, ["topgun", "oppenheimer", "spiderverse", "nohardfeelings"], 36)]
+            ("High-Stakes Thrills", 528, ["topgun", "oppenheimer", "spiderverse", "nohardfeelings"], 36)]
     picks = [80, 124]
     focus = {(0, 0): [(picks[0], picks[1])], (1, 0): [(picks[1], None)]}
     for r, (label, top, names, t0) in enumerate(rows):
