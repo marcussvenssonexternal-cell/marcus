@@ -33,6 +33,7 @@ every visual:
 | `agentic-clips` | What the agent does: Clips in Every Ratio | still, 1280×720 | One Interstellar scene cut for TV (16:9), social feeds (1:1) and Shorts & TikTok (9:16) |
 | `agentic-branded-thumbnails` | What the agent does: Branded Thumbnails | still, 1280×720 | Thumbnails for three titles with each title's lettering placed, exports in three ratios, and "Approve & publish" |
 
+- **Hero v2 (draft, not on the page yet):** `agentic-hero-v2` (13 s, 1920×1080, loops on its own). It opens on a single chat card with "Try asking" suggestions. The request is typed one letter at a time, then the view pulls back: the chat docks to the right and the workspace unfolds to its left, the Creative Agent's own layout. The ranked list, clips and branded thumbnails stream in, and "Approve & publish" turns into "Published". Preview: `previews/agentic-hero-v2.mp4`; poster (the opening chat): `posters/agentic-hero-v2.*`. It is meant for a static headline, not the rotating one.
 - **Stills and posters:** `stills/agentic-*` (2560×1440) and `posters/agentic-*` (the frame shown before an animation loads, or instead of it with reduced motion) are rendered by `./render_stills.sh`.
 - **Previews:** `previews/agentic-hero.mp4`, `previews/agentic-curated-lists.mp4`.
 - **Build:** `python3 build_agentic.py`. It reuses the Curio UI pieces (`curio_ui.py`, `build_curio.py`) and artwork.
