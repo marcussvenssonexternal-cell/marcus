@@ -66,3 +66,44 @@ To run it by hand from any Claude Code session in this repo: "run the content ra
 - **LinkedIn is login-walled.** Mentions and competitor social activity are limited to what search
   engines index. For complete mention tracking, use LinkedIn page notifications or a social
   listening tool alongside this.
+
+# Content bot: Deep Dives
+
+The radar finds what to talk about each week. The content bot goes deep on one topic at a time:
+a three-week series of five pieces for Arash (one long read, a carousel brief and three posts),
+built from fresh research and the radar's gaps, with every claim sourced and a fact-check list.
+
+**Live page:** https://claude.ai/artifact/AkLbDNMUrD4qWSkDdHkR2L (private until shared from the page's Share menu)
+
+| View | Link | What you do there |
+| --- | --- | --- |
+| Topics | `…AkLbDNMUrD4qWSkDdHkR2L#topics` | Six in-depth topics, each from a different lens. **Pick for next** to steer what the bot writes; everyone sees the picks. |
+| A topic | `…#ad-breaks`, `…#catalogue`, `…#mood`, `…#agents`, `…#short-form`, `…#ten-years` | The brief (thesis, why now, questions, what we bring, what to get first, evidence) and, once written, the pack. |
+| A piece | e.g. `…#ad-breaks-01` | Set a status (To review, Editing, Ready to post, Posted, Parked), **Take it**, edit and save for the team, **Redraft with Claude** with a one-line instruction, keep notes, copy. |
+
+The six topics:
+
+| Topic | Lens | For |
+| --- | --- | --- |
+| Where the break lands | Advertising & CTV | AVOD / FAST, broadcasters, news, ad-tech partners |
+| The catalogue you already own | Subscription economics | Tier-1 and small–mid streamers, telcos |
+| What a machine means by mood | Technology explained | Product and metadata leads, buyers comparing vendors |
+| Agents need something to read | AI strategy | CTOs, CPOs, innovation leads |
+| Choosing the 90 seconds | Short-form, previews & artwork | Marketing, editorial and promo teams |
+| Ten years of teaching machines to feel | Founder story | Everyone: Arash's personal brand |
+
+**Run it:** from any Claude Code session in this repo, "run the content bot" (takes the top pick)
+or "run the content bot on mood". "Suggest deep-dive topics" proposes new ones from the latest
+radar weeks. The procedure is `.claude/skills/content-bot/SKILL.md`.
+
+| Path | What it is |
+| --- | --- |
+| `deep-dives/<id>.json` | One topic: pitch, series plan and, once written, the pack |
+| `deep-dives/<id>.md` | The same topic as a readable brief (generated) |
+| `bot/template.html` | The page design |
+| `bot/build.py` | Validates topics, gives pack pieces permanent ids, builds `bot/index.html` and the briefs; `--recover` pulls packs back out of the published page |
+
+Picks and the team's work (status, owner, notes, edits) live in the page's shared database, not in
+this repo, and survive every republish. Each person's picks can only be changed by that person.
+The bot reads them but never writes them. Same limits as the radar: research works from search
+summaries, so check every `[check]` on its source before posting.

@@ -1,0 +1,93 @@
+{
+  "id": "short-form",
+  "order": 5,
+  "title": "Choosing the 90 seconds",
+  "lens": "Short-form, previews & artwork",
+  "audience": [
+    "Marketing, editorial and promo teams",
+    "Small–mid streamers",
+    "Telco / cable operators"
+  ],
+  "thesis": "Every major streamer now has a vertical feed, and cropping 16:9 to 9:16 is a solved problem. Choosing which 90 seconds to crop is not, and that choice decides whether a clip turns into a full watch.",
+  "whyNow": "Netflix Clips, Disney+ Verts, HBO Max Shorts, Peacock and Tubi Scenes all launched feeds, and HBO Max still has people review the clips its AI picks. Peacock's 20% tap-through from highlights into live Olympics events is the only public conversion number, and it comes from sports. YouTube viewers watch more than 2 billion hours of Shorts on TV sets every month, and microdramas are projected at $3.6B outside China this year.",
+  "questions": [
+    "Sports has goals and red cards. What is the equivalent moment in a drama?",
+    "Does a clip lead to a full watch, and who is measuring it?",
+    "Previews, thumbnails and clips: one moment-picking problem with three outputs",
+    "What microdramas can teach long-form about the first ten seconds",
+    "When should a person still choose the clip?"
+  ],
+  "bring": "Preview Clips & Shorts and Custom Thumbnails, which pick moments by emotional arc; Arash's Streaming Media Q&A on verticalisation (June); the post 'Vertical video isn't the threat people think' from the content schedule, which this series builds on rather than repeats.",
+  "needs": [
+    "One example of an auto-picked preview next to the moment the trailer used, cleared to show",
+    "Any click-to-play number for previews or thumbnails we can publish",
+    "A designer slot for side-by-side frames"
+  ],
+  "events": [
+    "Content London (30 Nov–3 Dec), Vertical Programming & Microdrama Summit"
+  ],
+  "radar": [
+    "2026-W43 gap: Choosing the moment, not cropping it",
+    "2026-W43 theme: Long-form to vertical, auto-cropped and published",
+    "Ideas 2026-W43-07 and -08"
+  ],
+  "evidence": [
+    {
+      "label": "HBO Max embraces vertical video with a Shorts feed",
+      "url": "https://techcrunch.com/2026/07/28/hbo-max-embraces-vertical-video-with-a-new-shorts-feed/",
+      "date": "2026-07-28"
+    },
+    {
+      "label": "Peacock's vertical video strategy (TheWrap)",
+      "url": "https://thewrap.com/peacock-vertical-video-strategy-nba-bravocon-reality-tv",
+      "date": "2026"
+    },
+    {
+      "label": "YouTube viewers watch 2 billion hours of Shorts on TVs each month",
+      "url": "https://techcrunch.com/2026/05/14/youtube-viewers-watch-2-billion-hours-of-shorts-on-tvs-each-month/",
+      "date": "2026-05-14"
+    },
+    {
+      "label": "Microdrama revenue outside China to hit $3.6bn in 2026 (Screen Daily)",
+      "url": "https://www.screendaily.com/news/microdrama-revenue-outside-china-to-hit-36bn-in-2026-says-report/5219165.article",
+      "date": "2026"
+    },
+    {
+      "label": "Comcast rolls out AI platform with smart crop",
+      "url": "https://lightreading.com/ai-machine-learning/comcast-rolls-upgraded-ai-platform-for-broadcasters-and-streamers",
+      "date": "2026-09-02"
+    }
+  ],
+  "series": [
+    {
+      "kind": "article",
+      "pillar": "Industry Trend Commentary",
+      "format": "LinkedIn article",
+      "working": "The 90 seconds that sell 90 minutes"
+    },
+    {
+      "kind": "carousel",
+      "pillar": "Industry Trend Commentary",
+      "format": "Carousel",
+      "working": "Five streamers, five vertical feeds, one public number"
+    },
+    {
+      "kind": "post",
+      "pillar": "Product & AI Insight",
+      "format": "Image + text",
+      "working": "A thumbnail is a one-frame preview. Pick it the same way."
+    },
+    {
+      "kind": "post",
+      "pillar": "Opinion / Contrarian Take",
+      "format": "Text",
+      "working": "Microdramas aren't a threat to long-form. They're a lesson in the first ten seconds."
+    },
+    {
+      "kind": "post",
+      "pillar": "Behind the Scenes",
+      "format": "Image + text",
+      "working": "What we heard at Content London's microdrama summit"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "id": "agents",
+  "order": 4,
+  "title": "Agents need something to read",
+  "lens": "AI strategy",
+  "audience": [
+    "CTOs, CPOs and innovation leads",
+    "Tier-1 streamers",
+    "Broadcasters",
+    "Telco / cable operators"
+  ],
+  "thesis": "Every vendor shipped an agent this autumn. An agent is only as good as what it can read about the content. Grounding in facts fixes a made-up cast list, but a request like 'tense but not violent, under 100 minutes' needs to know how the scenes feel.",
+  "whyNow": "At least 13 of the companies the radar tracks pitched agents at or since IBC, from Gracenote's MCP server and entertainment SLM to ThinkAnalytics and ContentWise putting agents into editorial tools. Ad buying is going agentic too (Magnite's orchestration layer), and those agents will read structured content data. The question for buyers has moved from 'do you have an agent?' to 'what does it understand?'.",
+  "questions": [
+    "What does an agent actually need to know about a title to act on it?",
+    "Where do media agents fail today: invented metadata, generic answers, no sense of tone?",
+    "What is an MCP server, in plain words, and why should a catalogue owner care?",
+    "Who should own the understanding layer: the platform, the vendor or the agent?",
+    "How do you test an agent on your own catalogue before you buy it?"
+  ],
+  "bring": "The Vionlabs Agentic Layer shown at IBC 2026; Fingerprint+ embeddings and scene-level metadata as the context agents read; AWS and Google Cloud marketplace listings.",
+  "needs": [
+    "A short screen recording of the Agentic Layer answering a mood request",
+    "A decision on the TVBEurope Best of Show listing (unconfirmed in the radar: check before mentioning it)",
+    "Which cloud integrations we can name publicly"
+  ],
+  "events": [
+    "DPP Leaders' Briefing, London (17–18 Nov)",
+    "AWS re:Invent, Las Vegas (30 Nov–4 Dec)"
+  ],
+  "radar": [
+    "2026-W43 theme: Agentic everything",
+    "2026-W43 gap: The signal at the source",
+    "Idea 2026-W43-03"
+  ],
+  "evidence": [
+    {
+      "label": "Gracenote expands AI roadmap with agents and an entertainment SLM",
+      "url": "https://www.nielsen.com/news-center/2026/gracenote-expands-ai-product-roadmap-with-sports-mcp-server-entertainment-slm-and-agents/",
+      "date": "2026-09-09"
+    },
+    {
+      "label": "ThinkAnalytics brings agentic AI to curation and advertising",
+      "url": "https://www.broadbandtvnews.com/2026/09/22/thinkanalytics-brings-agentic-ai-to-content-curation-and-advertising/",
+      "date": "2026-09-22"
+    },
+    {
+      "label": "ContentWise UX Engine 11, 'The Agentic Release'",
+      "url": "https://contentwise.com/event/ibc-show-2026/",
+      "date": "2026-09"
+    },
+    {
+      "label": "Magnite advances agentic vision (Orchestration)",
+      "url": "https://www.globenewswire.com/news-release/2026/09/16/3363128/0/en/magnite-advances-agentic-vision-as-major-media-owners-buyers-and-technology-players-leverage-orchestration-layer.html",
+      "date": "2026-09-16"
+    },
+    {
+      "label": "Rethink: AI agents prepare to swarm IBC 2026",
+      "url": "https://rethinkresearch.biz/articles/ai-agents-prepare-to-swarm-ibc-2026/",
+      "date": "2026-09"
+    }
+  ],
+  "series": [
+    {
+      "kind": "article",
+      "pillar": "Product & AI Insight",
+      "format": "LinkedIn article",
+      "working": "Before an agent can act on your catalogue, something has to understand it"
+    },
+    {
+      "kind": "carousel",
+      "pillar": "Product & AI Insight",
+      "format": "Carousel",
+      "working": "'Tense but not violent': what an agent needs to know to answer that"
+    },
+    {
+      "kind": "post",
+      "pillar": "Industry Trend Commentary",
+      "format": "Text",
+      "working": "Thirteen companies, one word. What the agent wave means for buyers."
+    },
+    {
+      "kind": "post",
+      "pillar": "Founder POV / Build Lessons",
+      "format": "Text",
+      "working": "We put an agent on top of years of emotion data. What surprised us. (Arash voice note)"
+    },
+    {
+      "kind": "post",
+      "pillar": "Behind the Scenes",
+      "format": "Image + text",
+      "working": "The demo we run at the stand, and the question everyone asks"
+    }
+  ]
+}

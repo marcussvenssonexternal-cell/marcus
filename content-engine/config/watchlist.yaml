@@ -3,6 +3,8 @@
 # if unknown and the run will look for it.
 
 radar_url: https://claude.ai/artifact/UKwTmC8DtVMasqkdp3Xa2f
+# The content bot's page (in-depth series). Built by bot/build.py, not by the radar run.
+deepdives_url: https://claude.ai/artifact/AkLbDNMUrD4qWSkDdHkR2L
 
 # Web searches are capped per session turn and shared by every research agent.
 # The run splits this budget across its agents; keep the total under ~190.
