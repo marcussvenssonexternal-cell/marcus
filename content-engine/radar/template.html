@@ -4,14 +4,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one reading column with a sticky week bar; ideas as a two-up card grid, everything else as ruled lists. */
+/* Layout: sticky bar with three views (This week, Idea board, Find & ask) over one reading column; ideas as cards, everything else as ruled lists. */
 :root {
   --bg: #f4f6f7;
   --surface: #ffffff;
+  --sunk: #eaeef0;
   --fg: #14212b;
   --muted: #5b6a75;
   --line: #d9e0e4;
   --accent: #0a6c74;
+  --accent-fg: #ffffff;
   --accent-soft: #e0f0f1;
   --tally: #c8361d;
   --ok: #1f7a3f;
@@ -21,6 +23,11 @@
   --p-founder: #9a5b00;
   --p-bts: #7a4fb0;
   --p-contrarian: #c8361d;
+  --s-new: #5b6a75;
+  --s-drafting: #3a5bc7;
+  --s-ready: #9a6400;
+  --s-posted: #1f7a3f;
+  --s-parked: #8a959c;
   --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
   --font-quote: "Newsreader", Georgia, "Times New Roman", serif;
@@ -34,16 +41,18 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f171d; --surface: #16212a; --fg: #e4ebef; --muted: #93a3ae; --line: #2a3843;
-    --accent: #4fc1c8; --accent-soft: #15343a; --tally: #ff7a5c; --ok: #5fcf88; --warn: #e3b048;
+    --bg: #0f171d; --surface: #16212a; --sunk: #0c1318; --fg: #e4ebef; --muted: #93a3ae; --line: #2a3843;
+    --accent: #4fc1c8; --accent-fg: #062326; --accent-soft: #15343a; --tally: #ff7a5c; --ok: #5fcf88; --warn: #e3b048;
     --p-product: #4fc1c8; --p-trend: #8ea8ff; --p-founder: #e3b048; --p-bts: #c4a2f2; --p-contrarian: #ff7a5c;
+    --s-new: #93a3ae; --s-drafting: #8ea8ff; --s-ready: #e3b048; --s-posted: #5fcf88; --s-parked: #6c7a84;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0f171d; --surface: #16212a; --fg: #e4ebef; --muted: #93a3ae; --line: #2a3843;
-  --accent: #4fc1c8; --accent-soft: #15343a; --tally: #ff7a5c; --ok: #5fcf88; --warn: #e3b048;
+  --bg: #0f171d; --surface: #16212a; --sunk: #0c1318; --fg: #e4ebef; --muted: #93a3ae; --line: #2a3843;
+  --accent: #4fc1c8; --accent-fg: #062326; --accent-soft: #15343a; --tally: #ff7a5c; --ok: #5fcf88; --warn: #e3b048;
   --p-product: #4fc1c8; --p-trend: #8ea8ff; --p-founder: #e3b048; --p-bts: #c4a2f2; --p-contrarian: #ff7a5c;
+  --s-new: #93a3ae; --s-drafting: #8ea8ff; --s-ready: #e3b048; --s-posted: #5fcf88; --s-parked: #6c7a84;
   color-scheme: dark;
 }
 
@@ -59,7 +68,9 @@ body::before {
   z-index: 10; background: var(--surface);
 }
 a { color: var(--accent); text-underline-offset: 2px; }
-a:focus-visible, button:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
 h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
 .wrap {
   max-width: 1080px; margin: 0 auto;
@@ -67,39 +78,63 @@ h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
 
-/* Week bar */
+/* Bar */
 .bar {
   position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
   background: var(--surface); border-bottom: 1px solid var(--line);
 }
-.bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; padding-block: 10px; }
-.brand { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+.bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .brand strong { font: 800 var(--step-1)/1 var(--font-display); letter-spacing: -0.01em; }
-.tally { width: 9px; height: 9px; border-radius: 50%; background: var(--tally); align-self: center; box-shadow: 0 0 0 3px color-mix(in srgb, var(--tally) 22%, transparent); }
-.bar nav { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--step--1); flex: 1; }
-.bar nav a { color: var(--muted); text-decoration: none; }
-.bar nav a:hover { color: var(--fg); }
-.weekpick { display: flex; align-items: center; gap: 8px; font: 500 var(--step--1) var(--font-mono); color: var(--muted); }
-.weekpick select {
-  font: 500 var(--step--1) var(--font-mono); color: var(--fg); background: var(--bg);
-  border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px;
+.tally { width: 9px; height: 9px; border-radius: 50%; background: var(--tally); box-shadow: 0 0 0 3px color-mix(in srgb, var(--tally) 22%, transparent); }
+.tabs { display: flex; gap: 2px; flex: 1; min-width: 0; }
+.tab {
+  font: 600 var(--step--1)/1 var(--font-body); color: var(--muted); background: none; border: 0;
+  padding: 8px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap;
 }
+.tab:hover { color: var(--fg); background: var(--sunk); }
+.tab[aria-selected="true"] { color: var(--fg); background: var(--accent-soft); }
+.tab .count { font: 500 0.6875rem var(--font-mono); color: var(--muted); margin-left: 4px; }
+.weekpick { display: flex; align-items: center; gap: 8px; font: 500 var(--step--1) var(--font-mono); color: var(--muted); }
+select, input[type="search"], input[type="url"], input[type="text"], textarea {
+  font: 400 var(--step--1)/1.4 var(--font-body); color: var(--fg); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; max-width: 100%;
+}
+.weekpick select { font-family: var(--font-mono); background: var(--bg); }
+textarea { width: 100%; resize: vertical; font-size: var(--step-0); line-height: 1.5; }
+
+/* Buttons */
+.btn {
+  font: 600 var(--step--1)/1 var(--font-body); color: var(--fg); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 6px; padding: 8px 11px; cursor: pointer; white-space: nowrap;
+}
+.btn:hover { border-color: var(--muted); }
+.btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.btn.soft { background: var(--accent-soft); color: var(--fg); border-color: transparent; }
+.btn.quiet { background: none; border-color: transparent; color: var(--accent); padding-inline: 6px; }
+.btn.danger { color: var(--tally); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 
 /* Lead */
 .lead { padding-block: 36px 28px; display: grid; gap: 18px; }
+.lead.compact { padding-block: 28px 18px; gap: 8px; }
 .eyebrow { font: 500 var(--step--1)/1.3 var(--font-mono); color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
 .lead h1 { font-size: var(--step-3); font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; max-width: 30ch; }
+.lead p { margin: 0; color: var(--muted); max-width: 70ch; }
 .lead ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; max-width: 72ch; }
 .counts { display: flex; flex-wrap: wrap; gap: 8px 22px; font: 500 var(--step--1) var(--font-mono); color: var(--muted); }
 .counts b { color: var(--fg); font-weight: 500; }
+.jump { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--step--1); }
+.jump a { color: var(--muted); }
 
 /* Sections */
-section.block { padding-block: 28px; border-top: 1px solid var(--line); scroll-margin-top: 64px; }
+section.block { padding-block: 28px; border-top: 1px solid var(--line); scroll-margin-top: 72px; }
 .block-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 16px; }
 .block-head h2 { font-size: var(--step-2); font-weight: 700; letter-spacing: -0.01em; }
 .block-head p { margin: 0; color: var(--muted); font-size: var(--step--1); max-width: 60ch; }
 
-/* Pillar chips */
+/* Chips, dots, pills */
 .filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
 .chip {
   display: inline-flex; align-items: center; gap: 6px; font: 500 var(--step--1)/1 var(--font-body);
@@ -107,31 +142,33 @@ section.block { padding-block: 28px; border-top: 1px solid var(--line); scroll-m
 }
 button.chip { cursor: pointer; }
 button.chip[aria-pressed="true"] { border-color: var(--fg); background: var(--fg); color: var(--bg); }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; }
+.chip .n { font-family: var(--font-mono); font-size: 0.75rem; opacity: 0.75; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; display: inline-block; }
 .dot.product { background: var(--p-product); } .dot.trend { background: var(--p-trend); }
 .dot.founder { background: var(--p-founder); } .dot.bts { background: var(--p-bts); }
 .dot.contrarian { background: var(--p-contrarian); }
+.sdot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; flex: none; }
+.s-new { --s: var(--s-new); } .s-drafting { --s: var(--s-drafting); } .s-ready { --s: var(--s-ready); }
+.s-posted { --s: var(--s-posted); } .s-parked { --s: var(--s-parked); }
+.sdot { background: var(--s); }
+.spill { display: inline-flex; align-items: center; gap: 6px; font: 500 0.75rem/1 var(--font-mono); color: var(--s); border: 1px solid currentColor; border-radius: 4px; padding: 4px 7px; }
+.timing { font: 500 0.75rem/1 var(--font-mono); padding: 4px 7px; border-radius: 4px; border: 1px solid currentColor; }
+.timing.now { color: var(--tally); } .timing.month { color: var(--warn); } .timing.evergreen { color: var(--muted); }
 
-/* Idea cards */
+/* Idea cards (week view) */
 .ideas { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 14px; }
 .idea {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0;
 }
 .idea-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; font-size: var(--step--1); color: var(--muted); }
-.idea-meta .pillar { display: inline-flex; align-items: center; gap: 6px; color: var(--fg); font-weight: 600; }
-.timing { font: 500 0.75rem/1 var(--font-mono); padding: 4px 7px; border-radius: 4px; border: 1px solid currentColor; }
-.timing.now { color: var(--tally); } .timing.month { color: var(--warn); } .timing.evergreen { color: var(--muted); }
+.pillar { display: inline-flex; align-items: center; gap: 6px; color: var(--fg); font-weight: 600; }
 .hook { font: italic 500 var(--step-2)/1.3 var(--font-quote); margin: 0; letter-spacing: -0.005em; }
 .idea p { margin: 0; }
-.kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: var(--step--1); }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: var(--step--1); margin: 0; }
 .kv dt { color: var(--muted); font-family: var(--font-mono); font-size: 0.75rem; padding-top: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
 .kv dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
-.idea-foot { margin-top: auto; display: flex; justify-content: flex-end; }
-.copy {
-  font: 500 var(--step--1) var(--font-body); color: var(--accent); background: var(--accent-soft);
-  border: 0; border-radius: 6px; padding: 6px 10px; cursor: pointer;
-}
+.idea-foot { margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
 
 /* Ruled lists */
 .rows { display: grid; }
@@ -167,17 +204,85 @@ td.num { font-family: var(--font-display); font-weight: 700; font-size: var(--st
 .group-label td { font: 600 var(--step--1) var(--font-display); padding-top: 20px; color: var(--accent); border-bottom-color: var(--fg); }
 td ul { margin: 0; padding-left: 1em; display: grid; gap: 4px; }
 
+/* Board */
+.notice { font-size: var(--step--1); color: var(--muted); background: var(--sunk); border-radius: 8px; padding: 10px 12px; margin-bottom: 16px; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px; }
+.toolbar input[type="search"] { flex: 1 1 220px; min-width: 0; padding: 8px 10px; }
+.statusbar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+.group { margin-bottom: 26px; }
+.group > h2, .group > summary { font: 700 var(--step-1)/1.2 var(--font-display); display: flex; align-items: center; gap: 8px; margin-bottom: 10px; cursor: default; }
+.group > summary { cursor: pointer; list-style: none; }
+.group > summary::-webkit-details-marker { display: none; }
+.group > summary::after { content: "Show"; font: 500 0.75rem var(--font-mono); color: var(--accent); margin-left: 6px; }
+.group[open] > summary::after { content: "Hide"; }
+.group .n { font: 500 0.75rem var(--font-mono); color: var(--muted); }
+.cards { display: grid; gap: 8px; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  border-left: 3px solid var(--s); min-width: 0; scroll-margin-top: 120px;
+}
+.card-main { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 16px; padding: 12px 14px; align-items: start; }
+.card-hook {
+  font: italic 500 var(--step-1)/1.35 var(--font-quote); color: var(--fg); background: none; border: 0; padding: 0;
+  text-align: left; cursor: pointer; overflow-wrap: anywhere;
+}
+.card-hook:hover { color: var(--accent); }
+.card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; font-size: var(--step--1); color: var(--muted); margin-top: 6px; grid-column: 1; }
+.card-side { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.st-select { font: 500 0.75rem var(--font-mono); color: var(--s); border-color: currentColor; background: var(--surface); padding: 5px 6px; }
+.owner { display: inline-flex; align-items: center; gap: 6px; font-size: var(--step--1); color: var(--fg); }
+.owner img { width: 20px; height: 20px; border-radius: 50%; }
+.owner img[src="data:,"] { visibility: hidden; }
+.card-detail { border-top: 1px solid var(--line); padding: 14px; display: grid; gap: 16px; }
+.card-detail h3 { font: 600 0.75rem var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+.card-detail p { margin: 0; max-width: 72ch; }
+.pane { display: grid; gap: 8px; }
+.draft-box { background: var(--sunk); border-radius: 8px; padding: 12px; display: grid; gap: 8px; }
+.draft-box textarea { background: var(--surface); min-height: 9rem; }
+.hint { font-size: 0.75rem; color: var(--muted); }
+.saved { font: 500 0.75rem var(--font-mono); color: var(--muted); }
+
+/* Add idea form */
+.addform { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; margin-bottom: 22px; display: grid; gap: 12px; }
+.addform h2 { font-size: var(--step-1); }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; }
+.field { display: grid; gap: 4px; font-size: var(--step--1); min-width: 0; }
+.field > span { font-weight: 600; }
+.field input, .field select { width: 100%; }
+
+/* Find & ask */
+.searchbig { display: flex; gap: 8px; margin-bottom: 18px; }
+.searchbig input { flex: 1; min-width: 0; font-size: var(--step-0); padding: 10px 12px; }
+.results { display: grid; gap: 22px; margin-bottom: 28px; }
+.rgroup h2 { font: 600 0.75rem var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+.hit { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding-block: 10px; border-bottom: 1px solid var(--line); align-items: start; }
+.hit-title { font-weight: 600; overflow-wrap: anywhere; }
+.hit p { margin: 2px 0 0; color: var(--muted); font-size: var(--step--1); max-width: 80ch; overflow-wrap: anywhere; }
+.ask { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: grid; gap: 12px; margin-bottom: 40px; }
+.ask h2 { font-size: var(--step-2); }
+.answer { white-space: pre-wrap; overflow-wrap: anywhere; font-size: var(--step-0); line-height: 1.6; max-width: 76ch; }
+.answer:empty { display: none; }
+
 .note { color: var(--muted); font-size: var(--step--1); }
 .coverage ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; max-width: 80ch; color: var(--muted); font-size: var(--step--1); }
 footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--step--1); }
 .empty { color: var(--muted); font-style: italic; }
 
+.toast {
+  position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20;
+  max-width: min(560px, calc(100vw - 32px)); background: var(--fg); color: var(--bg);
+  font-size: var(--step--1); padding: 10px 14px; border-radius: 8px; box-shadow: 0 6px 24px rgb(0 0 0 / 0.2);
+}
+
 @media (max-width: 720px) {
   .row { grid-template-columns: 1fr; }
   .event { grid-template-columns: 1fr; }
   .when b { display: inline; margin-right: 8px; }
-  .bar nav { order: 3; flex-basis: 100%; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
-  .bar nav a { white-space: nowrap; }
+  .tabs { order: 3; flex-basis: 100%; overflow-x: auto; scrollbar-width: none; }
+  .card-main { grid-template-columns: 1fr; }
+  .card-side { flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .hit { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
@@ -187,27 +292,34 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
 <header class="bar">
   <div class="wrap">
     <div class="brand"><span class="tally" aria-hidden="true"></span><strong>Content Radar</strong></div>
-    <nav aria-label="Sections">
-      <a href="#ideas">Ideas</a><a href="#gaps">Gaps</a><a href="#themes">Competitors</a>
-      <a href="#events">Events</a><a href="#mentions">Mentions</a><a href="#stats">Stats</a><a href="#feed">Feed</a>
+    <nav class="tabs" role="tablist" aria-label="Views">
+      <button type="button" class="tab" role="tab" id="tab-week" data-tab="week" aria-selected="true">This week</button>
+      <button type="button" class="tab" role="tab" id="tab-board" data-tab="board" aria-selected="false">Idea board<span class="count" id="board-count"></span></button>
+      <button type="button" class="tab" role="tab" id="tab-find" data-tab="find" aria-selected="false">Find &amp; ask</button>
     </nav>
     <label class="weekpick" for="week">Week <select id="week"></select></label>
   </div>
 </header>
 
-<main class="wrap" id="app"></main>
+<main class="wrap" id="app">
+  <div id="view-week" role="tabpanel" aria-labelledby="tab-week"></div>
+  <div id="view-board" role="tabpanel" aria-labelledby="tab-board" hidden></div>
+  <div id="view-find" role="tabpanel" aria-labelledby="tab-find" hidden></div>
+</main>
 
 <footer>
-  <div class="wrap" id="foot"></div>
+  <div class="wrap">Content Radar for the Vionlabs content team. A new week lands every Monday morning from competitor blogs and newsrooms, public LinkedIn posts, trade press and the Notion event calendar. The idea board, notes and drafts are shared with everyone who has access to this page.</div>
 </footer>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <script type="application/json" id="radar-data">/*RADAR_DATA*/</script>
 <script>
 (function () {
-  var data = JSON.parse(document.getElementById("radar-data").textContent);
-  var weeks = (data.weeks || []).slice().sort(function (a, b) { return a.week < b.week ? 1 : -1; });
-  var app = document.getElementById("app");
-  var pick = document.getElementById("week");
+  "use strict";
+  var DATA = JSON.parse(document.getElementById("radar-data").textContent);
+  var WEEKS = (DATA.weeks || []).slice().sort(function (a, b) { return a.week < b.week ? 1 : -1; });
+  var BRAND = DATA.brand || "";
+  var PAGE_URL = DATA.url || "";
 
   var PILLARS = [
     { key: "product", name: "Product & AI Insight" },
@@ -216,15 +328,19 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
     { key: "bts", name: "Behind the Scenes" },
     { key: "contrarian", name: "Opinion / Contrarian Take" }
   ];
-  function pillarKey(name) {
-    var n = String(name || "").toLowerCase();
-    if (n.indexOf("product") > -1) return "product";
-    if (n.indexOf("trend") > -1 || n.indexOf("industry") > -1) return "trend";
-    if (n.indexOf("founder") > -1) return "founder";
-    if (n.indexOf("behind") > -1) return "bts";
-    if (n.indexOf("contrarian") > -1 || n.indexOf("opinion") > -1) return "contrarian";
-    return "";
-  }
+  var FORMATS = ["Text", "Carousel", "Image + text", "Video"];
+  var STATUSES = [
+    { key: "new", label: "New" },
+    { key: "drafting", label: "Drafting" },
+    { key: "ready", label: "Ready to post" },
+    { key: "posted", label: "Posted" },
+    { key: "parked", label: "Parked" }
+  ];
+  var GROUP_ORDER = ["drafting", "ready", "new", "posted", "parked"];
+  var MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+  // ---------- helpers ----------
+  function $(sel) { return document.querySelector(sel); }
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -238,8 +354,17 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
   function sources(list) {
     if (!list || !list.length) return "";
     return '<div class="src">' + list.map(function (s) {
-      return "<span>" + link(s.label || s.title || "Source", s.url) + (s.date ? ' <time>' + esc(s.date) + "</time>" : "") + "</span>";
+      return "<span>" + link(s.label || s.title || "Source", s.url) + (s.date ? " <time>" + esc(s.date) + "</time>" : "") + "</span>";
     }).join("") + "</div>";
+  }
+  function pillarKey(name) {
+    var n = String(name || "").toLowerCase();
+    if (n.indexOf("product") > -1) return "product";
+    if (n.indexOf("trend") > -1 || n.indexOf("industry") > -1) return "trend";
+    if (n.indexOf("founder") > -1) return "founder";
+    if (n.indexOf("behind") > -1) return "bts";
+    if (n.indexOf("contrarian") > -1 || n.indexOf("opinion") > -1) return "contrarian";
+    return "";
   }
   function timingClass(t) {
     var n = String(t || "").toLowerCase();
@@ -248,183 +373,854 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
     return "evergreen";
   }
   function daysUntil(iso, today) {
-    if (!iso) return null;
-    var a = new Date(iso + "T00:00:00Z"), b = new Date(today + "T00:00:00Z");
+    if (!iso || iso.length < 10) return null;
+    var a = new Date(iso.slice(0, 10) + "T00:00:00Z"), b = new Date(today + "T00:00:00Z");
     if (isNaN(a) || isNaN(b)) return null;
     return Math.round((a - b) / 86400000);
   }
-  var MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
   function dayLabel(ev) {
-    if (!ev.start || ev.start.length < 10) return '<b>' + esc(ev.dates || ev.start || "TBC") + "</b>";
+    if (!ev.start || ev.start.length < 10) return "<b>" + esc(ev.dates || ev.start || "TBC") + "</b>";
     var s = ev.start, e = ev.end || ev.start;
     var m1 = MONTHS[+s.slice(5, 7) - 1], m2 = MONTHS[+e.slice(5, 7) - 1];
     var d1 = s.slice(8, 10), d2 = e.slice(8, 10);
     var range = s === e ? d1 : (m1 === m2 ? d1 + "–" + d2 : d1 + " " + m1 + "–" + d2);
     return "<b>" + range + "</b> " + (m1 === m2 || s === e ? m1 : m2) + " " + s.slice(0, 4);
   }
+  function isoWeek(dateStr) {
+    var d = new Date(dateStr);
+    if (isNaN(d)) return "";
+    d = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+    var day = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - day);
+    var y = d.getUTCFullYear();
+    var wk = Math.ceil(((d - Date.UTC(y, 0, 1)) / 86400000 + 1) / 7);
+    return y + "-W" + (wk < 10 ? "0" : "") + wk;
+  }
+  function shortWeek(w) { return String(w || "").replace(/^\d{4}-/, ""); }
+  function statusLabel(k) { for (var i = 0; i < STATUSES.length; i++) if (STATUSES[i].key === k) return STATUSES[i].label; return "New"; }
+  function toast(msg) {
+    var t = $("#toast");
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(toast.timer);
+    toast.timer = setTimeout(function () { t.hidden = true; }, 4200);
+  }
+  function copyText(text, btn, label) {
+    var done = function () { if (btn) { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = label; }, 1600); } };
+    try {
+      navigator.clipboard.writeText(text).then(done, function () { toast("Couldn't copy. Select the text and copy it yourself."); });
+    } catch (e) { toast("Couldn't copy. Select the text and copy it yourself."); }
+  }
+  function storeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function storeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* per-viewer convenience only */ } }
 
-  var filter = "";
+  // ---------- state ----------
+  var RADAR_IDEAS = [];
+  WEEKS.forEach(function (w) {
+    (w.ideas || []).forEach(function (i, n) {
+      RADAR_IDEAS.push(Object.assign({}, i, {
+        id: i.id || (w.week + "-" + (n < 9 ? "0" : "") + (n + 1)), week: w.week, origin: "radar", order: n
+      }));
+    });
+  });
 
-  function render(w) {
+  var S = {
+    tab: "week",
+    week: WEEKS.length ? WEEKS[0].week : "",
+    weekFilter: "",
+    board: { q: "", pillar: "", status: "", owner: "", open: {}, adding: false, prefill: null, confirmDelete: "" },
+    findQ: "",
+    work: {},      // idea id -> {status, owner, note, draft, updatedBy, updatedAt}
+    team: [],      // team-added ideas
+    local: {},     // idea id -> unsaved {note, draft}
+    db: null, user: null, me: null, canWrite: null, sample: null, tools: false,
+    drafting: {}, // idea id -> AbortController
+    pendingRender: false
+  };
+
+  function allIdeas() { return RADAR_IDEAS.concat(S.team); }
+  function findIdea(id) { var a = allIdeas(); for (var i = 0; i < a.length; i++) if (a[i].id === id) return a[i]; return null; }
+  function statusOf(id) { var w = S.work[id]; return (w && w.status) || "new"; }
+  function writable() { return !!(S.db && S.canWrite !== false && S.me && S.me.id); }
+
+  // ---------- week view ----------
+  function renderWeek() {
+    var w = null;
+    for (var i = 0; i < WEEKS.length; i++) if (WEEKS[i].week === S.week) w = WEEKS[i];
+    w = w || WEEKS[0];
+    var el = $("#view-week");
+    if (!w) { el.innerHTML = '<p class="empty" style="padding-block:40px">No weeks published yet. The first weekly run fills this page.</p>'; return; }
     var today = w.generated;
-    var ideas = w.ideas || [];
-    var upcoming = (w.events || []).filter(function (e) { return e.status !== "recent"; });
-    var next = upcoming.filter(function (e) { return e.status === "going" && daysUntil(e.start, today) >= 0; })
+    var ideas = RADAR_IDEAS.filter(function (i) { return i.week === w.week; });
+    var next = (w.events || []).filter(function (e) { return e.status === "going" && daysUntil(e.start, today) >= 0; })
       .sort(function (a, b) { return a.start < b.start ? -1 : 1; })[0];
 
-    var html = "";
-    html += '<section class="lead" aria-labelledby="headline">';
-    html += '<div class="eyebrow">' + esc(w.week) + " · generated " + esc(w.generated) + (w.window ? " · window " + esc(w.window) : "") + "</div>";
-    html += '<h1 id="headline">' + esc(w.headline) + "</h1>";
-    if (w.summary && w.summary.length) html += "<ul>" + w.summary.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ul>";
-    html += '<div class="counts"><span><b>' + ideas.length + "</b> content ideas</span><span><b>" + (w.gaps || []).length +
+    var h = '<section class="lead" aria-labelledby="headline">';
+    h += '<div class="eyebrow">' + esc(w.week) + " · generated " + esc(w.generated) + (w.window ? " · window " + esc(w.window) : "") + "</div>";
+    h += '<h1 id="headline">' + esc(w.headline) + "</h1>";
+    if (w.summary && w.summary.length) h += "<ul>" + w.summary.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ul>";
+    h += '<div class="counts"><span><b>' + ideas.length + "</b> content ideas</span><span><b>" + (w.gaps || []).length +
       "</b> gaps</span><span><b>" + (w.mentions || []).length + "</b> mentions</span>" +
       (next ? "<span>next event <b>" + esc(next.name) + "</b> in <b>" + daysUntil(next.start, today) + "</b> days</span>" : "") + "</div>";
-    html += "</section>";
+    h += '<nav class="jump" aria-label="Sections"><a href="#sec-ideas">Ideas</a><a href="#sec-gaps">Gaps</a><a href="#sec-themes">Competitors</a><a href="#sec-events">Events</a><a href="#sec-mentions">Mentions</a><a href="#sec-stats">Stats</a><a href="#sec-feed">Feed</a></nav>';
+    h += "</section>";
 
     // Ideas
-    html += '<section class="block" id="ideas"><div class="block-head"><h2>Content ideas</h2><p>Ready for the weekly draft. Each hook is written as a first line; the sources are what it reacts to.</p></div>';
+    h += '<section class="block" id="sec-ideas"><div class="block-head"><h2>Content ideas</h2><p>Each hook is written as a first line. Pick one up with <b>Work on it</b>: it opens on the idea board, where you can draft it with Claude.</p></div>';
     var used = PILLARS.filter(function (p) { return ideas.some(function (i) { return pillarKey(i.pillar) === p.key; }); });
     if (used.length > 1) {
-      html += '<div class="filters" role="group" aria-label="Filter by pillar"><button type="button" class="chip" data-f="" aria-pressed="' + (filter === "") + '">All</button>' +
-        used.map(function (p) { return '<button type="button" class="chip" data-f="' + p.key + '" aria-pressed="' + (filter === p.key) + '"><span class="dot ' + p.key + '"></span>' + esc(p.name) + "</button>"; }).join("") + "</div>";
+      h += '<div class="filters" role="group" aria-label="Filter by pillar"><button type="button" class="chip" data-act="wfilter" data-f="" aria-pressed="' + (S.weekFilter === "") + '">All</button>' +
+        used.map(function (p) { return '<button type="button" class="chip" data-act="wfilter" data-f="' + p.key + '" aria-pressed="' + (S.weekFilter === p.key) + '"><span class="dot ' + p.key + '"></span>' + esc(p.name) + "</button>"; }).join("") + "</div>";
     }
-    html += '<div class="ideas">';
-    ideas.forEach(function (i, n) {
+    h += '<div class="ideas">';
+    ideas.forEach(function (i) {
       var k = pillarKey(i.pillar);
-      if (filter && k !== filter) return;
-      html += '<article class="idea">';
-      html += '<div class="idea-meta"><span class="pillar"><span class="dot ' + k + '"></span>' + esc(i.pillar) + "</span>" +
+      if (S.weekFilter && k !== S.weekFilter) return;
+      var st = statusOf(i.id);
+      h += '<article class="idea">';
+      h += '<div class="idea-meta"><span class="pillar"><span class="dot ' + k + '"></span>' + esc(i.pillar) + "</span>" +
         (i.format ? "<span>" + esc(i.format) + "</span>" : "") +
         (i.timing ? '<span class="timing ' + timingClass(i.timing) + '">' + esc(i.timing) + "</span>" : "") + "</div>";
-      html += '<p class="hook" id="hook-' + n + '">' + esc(i.hook) + "</p>";
-      if (i.angle) html += "<p>" + esc(i.angle) + "</p>";
-      html += '<dl class="kv">';
-      if (i.proof) html += "<dt>Bring</dt><dd>" + esc(i.proof) + "</dd>";
-      if (i.event) html += "<dt>Event</dt><dd>" + esc(i.event) + "</dd>";
-      if (i.reactsTo && i.reactsTo.length) html += "<dt>Reacts to</dt><dd>" + sources(i.reactsTo) + "</dd>";
-      html += "</dl>";
-      html += '<div class="idea-foot"><button type="button" class="copy" data-hook="' + n + '">Copy hook</button></div>';
-      html += "</article>";
+      h += '<p class="hook">' + esc(i.hook) + "</p>";
+      if (i.angle) h += "<p>" + esc(i.angle) + "</p>";
+      h += '<dl class="kv">';
+      if (i.proof) h += "<dt>Bring</dt><dd>" + esc(i.proof) + "</dd>";
+      if (i.event) h += "<dt>Event</dt><dd>" + esc(i.event) + "</dd>";
+      if (i.reactsTo && i.reactsTo.length) h += "<dt>Reacts to</dt><dd>" + sources(i.reactsTo) + "</dd>";
+      h += "</dl>";
+      h += '<div class="idea-foot"><span>' + (S.db ? '<span class="spill s-' + st + '"><span class="sdot"></span>' + esc(statusLabel(st)) + "</span>" : "") + "</span>" +
+        '<span class="actions"><button type="button" class="btn quiet" data-act="copyhook" data-id="' + esc(i.id) + '">Copy hook</button>' +
+        '<button type="button" class="btn soft" data-act="workon" data-id="' + esc(i.id) + '">Work on it</button></span></div>';
+      h += "</article>";
     });
-    if (!ideas.length) html += '<p class="empty">No ideas this week.</p>';
-    html += "</div></section>";
+    if (!ideas.length) h += '<p class="empty">No ideas this week.</p>';
+    h += "</div></section>";
 
     // Gaps
-    html += '<section class="block" id="gaps"><div class="block-head"><h2>Gaps nobody is covering</h2><p>White space in what competitors publish, where Vionlabs has standing to speak.</p></div><div class="rows">';
-    (w.gaps || []).forEach(function (g) {
-      html += '<div class="row"><h3>' + esc(g.title) + "</h3><div><p>" + esc(g.detail) + "</p>" + sources(g.evidence) + "</div></div>";
+    h += '<section class="block" id="sec-gaps"><div class="block-head"><h2>Gaps nobody is covering</h2><p>White space in what competitors publish, where Vionlabs has standing to speak.</p></div><div class="rows">';
+    (w.gaps || []).forEach(function (g, n) {
+      h += '<div class="row"><h3>' + esc(g.title) + "</h3><div><p>" + esc(g.detail) + "</p>" + sources(g.evidence) +
+        '<div class="actions" style="margin-top:8px"><button type="button" class="btn quiet" data-act="makeidea" data-kind="gap" data-week="' + esc(w.week) + '" data-n="' + n + '">Make it an idea</button></div></div></div>';
     });
-    if (!(w.gaps || []).length) html += '<p class="empty">No gaps recorded.</p>';
-    html += "</div></section>";
+    if (!(w.gaps || []).length) h += '<p class="empty">No gaps recorded.</p>';
+    h += "</div></section>";
 
     // Themes
-    html += '<section class="block" id="themes"><div class="block-head"><h2>What competitors are saying</h2><p>Recurring themes across blogs, newsrooms and public LinkedIn posts.</p></div><div class="rows">';
+    h += '<section class="block" id="sec-themes"><div class="block-head"><h2>What competitors are saying</h2><p>Recurring themes across blogs, newsrooms and public LinkedIn posts.</p></div><div class="rows">';
     (w.themes || []).forEach(function (t) {
-      html += '<div class="row"><div><h3>' + esc(t.title) + "</h3>" +
+      h += '<div class="row"><div><h3>' + esc(t.title) + "</h3>" +
         (t.who && t.who.length ? '<div class="who">' + t.who.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div>" : "") +
         "</div><div><p>" + esc(t.detail) + "</p>" + sources(t.sources) + "</div></div>";
     });
-    html += "</div></section>";
+    h += "</div></section>";
 
     // Events
     var evs = (w.events || []).slice().sort(function (a, b) { return String(a.start) < String(b.start) ? -1 : 1; });
-    var ahead = evs.filter(function (e) { return e.status !== "recent"; });
-    var past = evs.filter(function (e) { return e.status === "recent"; });
-    html += '<section class="block" id="events"><div class="block-head"><h2>Events</h2><p>From the Notion event calendar, with what each one is about and hooks for before, during and after.</p></div><div>';
-    ahead.concat(past).forEach(function (e) {
+    var ordered = evs.filter(function (e) { return e.status !== "recent"; }).concat(evs.filter(function (e) { return e.status === "recent"; }));
+    h += '<section class="block" id="sec-events"><div class="block-head"><h2>Events</h2><p>From the Notion event calendar, with what each one is about and hooks for before, during and after.</p></div><div>';
+    ordered.forEach(function (e) {
       var d = daysUntil(e.start, today);
       var rel = e.status === "recent" ? "recap" : (d == null ? "" : d < 0 ? "on now" : d === 0 ? "today" : "in " + d + " days");
-      html += '<div class="event"><div class="when">' + dayLabel(e) + (rel ? "<br><span>" + esc(rel) + "</span>" : "") + "</div><div>";
-      html += "<h3>" + link(e.name, e.url) + ' <span class="status ' + esc(e.status || "") + '">' + esc((e.status || "").replace("-", " ")) + "</span></h3>";
+      h += '<div class="event"><div class="when">' + dayLabel(e) + (rel ? "<br><span>" + esc(rel) + "</span>" : "") + "</div><div>";
+      h += "<h3>" + link(e.name, e.url) + ' <span class="status ' + esc(e.status || "") + '">' + esc((e.status || "").replace("-", " ")) + "</span></h3>";
       var line = [e.city, e.role].filter(Boolean).join(" · ");
-      if (line) html += '<p class="note">' + esc(line) + "</p>";
-      if (e.agenda) html += "<p>" + esc(e.agenda) + "</p>";
-      if (e.hashtag) html += '<p class="mono">' + esc(e.hashtag) + "</p>";
-      if (e.hooks && e.hooks.length) html += "<ul>" + e.hooks.map(function (h) { return "<li>" + esc(h) + "</li>"; }).join("") + "</ul>";
-      html += "</div></div>";
+      if (line) h += '<p class="note">' + esc(line) + "</p>";
+      if (e.agenda) h += "<p>" + esc(e.agenda) + "</p>";
+      if (e.hashtag) h += '<p class="mono">' + esc(e.hashtag) + "</p>";
+      if (e.hooks && e.hooks.length) h += "<ul>" + e.hooks.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>";
+      h += "</div></div>";
     });
-    html += "</div></section>";
+    h += "</div></section>";
 
     // Mentions
-    html += '<section class="block" id="mentions"><div class="block-head"><h2>Mentions</h2><p>Public posts and articles naming Vionlabs or Arash. LinkedIn only shows what search engines index, so treat this as a partial view.</p></div>';
+    h += '<section class="block" id="sec-mentions"><div class="block-head"><h2>Mentions</h2><p>Public posts and articles naming Vionlabs or Arash. LinkedIn only shows what search engines index, so treat this as a partial view.</p></div>';
     if ((w.mentions || []).length) {
-      html += '<div class="table-scroll"><table><thead><tr><th>Date</th><th>Who / where</th><th>What was said</th><th>Do</th></tr></thead><tbody>';
+      h += '<div class="table-scroll"><table><thead><tr><th>Date</th><th>Who / where</th><th>What was said</th><th>Do</th></tr></thead><tbody>';
       w.mentions.forEach(function (m) {
-        html += '<tr><td class="mono">' + esc(m.date) + "</td><td>" + link(m.who, m.url) + '<br><span class="note">' + esc(m.where) + "</span></td><td>" + esc(m.summary) + '</td><td class="action">' + esc(m.action || "") + "</td></tr>";
+        h += '<tr><td class="mono">' + esc(m.date) + "</td><td>" + link(m.who, m.url) + '<br><span class="note">' + esc(m.where) + "</span></td><td>" + esc(m.summary) + '</td><td class="action">' + esc(m.action || "") + "</td></tr>";
       });
-      html += "</tbody></table></div>";
+      h += "</tbody></table></div>";
     } else {
-      html += '<p class="empty">No new public mentions found this week.</p>';
+      h += '<p class="empty">No new public mentions found this week.</p>';
     }
-    html += "</section>";
+    h += "</section>";
 
     // Stats
-    html += '<section class="block" id="stats"><div class="block-head"><h2>Stats bank</h2><p>Fresh, sourced numbers to anchor posts. Check the source before quoting.</p></div>';
+    h += '<section class="block" id="sec-stats"><div class="block-head"><h2>Stats bank</h2><p>Fresh, sourced numbers to anchor posts. Check the source before quoting.</p></div>';
     if ((w.stats || []).length) {
-      html += '<div class="table-scroll"><table><thead><tr><th>Number</th><th>What it measures</th><th>Source</th></tr></thead><tbody>';
+      h += '<div class="table-scroll"><table><thead><tr><th>Number</th><th>What it measures</th><th>Source</th></tr></thead><tbody>';
       w.stats.forEach(function (s) {
-        html += '<tr><td class="num">' + esc(s.value) + "</td><td>" + esc(s.what) + "</td><td>" + link(s.source, s.url) + (s.date ? ' <span class="mono">' + esc(s.date) + "</span>" : "") + "</td></tr>";
+        h += '<tr><td class="num">' + esc(s.value) + "</td><td>" + esc(s.what) + "</td><td>" + link(s.source, s.url) + (s.date ? ' <span class="mono">' + esc(s.date) + "</span>" : "") + "</td></tr>";
       });
-      html += "</tbody></table></div>";
+      h += "</tbody></table></div>";
     }
-    html += "</section>";
+    h += "</section>";
 
     // Feed
-    html += '<section class="block" id="feed"><div class="block-head"><h2>Competitor feed</h2><p>Latest blog and newsroom items per company. <span class="newtag">new</span> marks a company with something new since last week.</p></div>';
+    h += '<section class="block" id="sec-feed"><div class="block-head"><h2>Competitor feed</h2><p>Latest blog and newsroom items per company. <span class="newtag">new</span> marks a company with something new since last week.</p></div>';
     var groups = [];
     (w.competitors || []).forEach(function (c) { if (groups.indexOf(c.group) < 0) groups.push(c.group); });
-    html += '<div class="table-scroll"><table><thead><tr><th>Company</th><th>Latest items</th><th>Core message</th></tr></thead><tbody>';
+    h += '<div class="table-scroll"><table><thead><tr><th>Company</th><th>Latest items</th><th>Core message</th></tr></thead><tbody>';
     groups.forEach(function (g) {
-      html += '<tr class="group-label"><td colspan="3">' + esc(g) + "</td></tr>";
+      h += '<tr class="group-label"><td colspan="3">' + esc(g) + "</td></tr>";
       w.competitors.filter(function (c) { return c.group === g; }).forEach(function (c) {
-        html += "<tr><td><strong>" + esc(c.name) + "</strong>" + (c.new ? '<span class="newtag">new</span>' : "") + "</td><td><ul>" +
+        h += "<tr><td><strong>" + esc(c.name) + "</strong>" + (c.new ? '<span class="newtag">new</span>' : "") + "</td><td><ul>" +
           (c.latest || []).map(function (l) { return "<li>" + link(l.title, l.url) + (l.date ? ' <span class="mono">' + esc(l.date) + "</span>" : "") + "</li>"; }).join("") +
           "</ul></td><td>" + esc(c.message) + "</td></tr>";
       });
     });
-    html += "</tbody></table></div></section>";
+    h += "</tbody></table></div></section>";
 
-    // Coverage
     if ((w.coverage || []).length) {
-      html += '<section class="block coverage" id="coverage"><div class="block-head"><h2>How this was made</h2></div><ul>' +
+      h += '<section class="block coverage" id="sec-coverage"><div class="block-head"><h2>How this was made</h2></div><ul>' +
         w.coverage.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul></section>";
     }
-
-    app.innerHTML = html;
-    document.getElementById("foot").textContent =
-      "Content Radar for the Vionlabs content team. Updated weekly from competitor blogs, newsrooms, public LinkedIn posts, trade press and the Notion event calendar.";
+    el.innerHTML = h;
   }
 
-  function current() {
-    var v = pick.value;
-    for (var i = 0; i < weeks.length; i++) if (weeks[i].week === v) return weeks[i];
-    return weeks[0];
-  }
-
-  pick.innerHTML = weeks.map(function (w) { return '<option value="' + esc(w.week) + '">' + esc(w.week) + "</option>"; }).join("");
-  pick.addEventListener("change", function () { filter = ""; render(current()); });
-
-  app.addEventListener("click", function (e) {
-    var chip = e.target.closest("button.chip");
-    if (chip) { filter = chip.getAttribute("data-f"); render(current()); return; }
-    var btn = e.target.closest("button.copy");
-    if (btn) {
-      var el = document.getElementById("hook-" + btn.getAttribute("data-hook"));
-      var text = el ? el.textContent : "";
-      var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy hook"; }, 1600); };
-      var fallback = function () {
-        var r = document.createRange(); r.selectNodeContents(el);
-        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-        btn.textContent = "Selected, press copy";
-      };
-      try {
-        navigator.clipboard.writeText(text).then(done, fallback);
-      } catch (err) { fallback(); }
+  // ---------- board ----------
+  function ideaMatches(i) {
+    var b = S.board;
+    if (b.pillar && pillarKey(i.pillar) !== b.pillar) return false;
+    if (b.status && statusOf(i.id) !== b.status) return false;
+    var owner = S.work[i.id] && S.work[i.id].owner;
+    if (b.owner === "mine" && !(owner && S.me && owner === S.me.id)) return false;
+    if (b.owner === "none" && owner) return false;
+    if (b.q) {
+      var hay = [i.hook, i.angle, i.proof, i.pillar, i.event, i.week, (S.work[i.id] || {}).note].join(" ").toLowerCase();
+      var terms = b.q.toLowerCase().split(/\s+/).filter(Boolean);
+      for (var t = 0; t < terms.length; t++) if (hay.indexOf(terms[t]) < 0) return false;
     }
-  });
+    return true;
+  }
 
-  if (weeks.length) render(weeks[0]);
-  else app.innerHTML = '<p class="empty" style="padding-block:40px">No weeks published yet. The first weekly run fills this page.</p>';
+  function sortIdeas(list) {
+    return list.slice().sort(function (a, b) {
+      var wa = a.week || "", wb = b.week || "";
+      if (wa !== wb) return wa < wb ? 1 : -1;
+      if (a.origin !== b.origin) return a.origin === "team" ? -1 : 1;
+      if (a.origin === "team") return String(a.createdAt) < String(b.createdAt) ? 1 : -1;
+      return a.order - b.order;
+    });
+  }
+
+  function ownerHtml(i) {
+    var w = S.work[i.id] || {};
+    var mine = w.owner && S.me && w.owner === S.me.id;
+    var h = "";
+    if (w.owner) h += '<span class="owner" data-uid="' + esc(w.owner) + '"><img alt="" src="data:,"><span class="nm">…</span></span>';
+    if (writable()) {
+      if (!w.owner) h += '<button type="button" class="btn quiet" data-act="take" data-id="' + esc(i.id) + '">Take it</button>';
+      else if (mine) h += '<button type="button" class="btn quiet" data-act="release" data-id="' + esc(i.id) + '">Release</button>';
+    }
+    return h;
+  }
+
+  function statusControl(i) {
+    var st = statusOf(i.id);
+    if (!writable()) return '<span class="spill s-' + st + '"><span class="sdot"></span>' + esc(statusLabel(st)) + "</span>";
+    return '<select class="st-select s-' + st + '" data-act="status" data-id="' + esc(i.id) + '" aria-label="Status">' +
+      STATUSES.map(function (s) { return '<option value="' + s.key + '"' + (s.key === st ? " selected" : "") + ">" + esc(s.label) + "</option>"; }).join("") + "</select>";
+  }
+
+  function cardHtml(i) {
+    var st = statusOf(i.id), open = !!S.board.open[i.id], k = pillarKey(i.pillar);
+    var w = S.work[i.id] || {};
+    var loc = S.local[i.id] || {};
+    var h = '<article class="card s-' + st + '" id="' + esc(i.id) + '">';
+    h += '<div class="card-main"><div><button type="button" class="card-hook" data-act="toggle" data-id="' + esc(i.id) + '" aria-expanded="' + open + '">' + esc(i.hook) + "</button>";
+    h += '<div class="card-meta"><span class="pillar"><span class="dot ' + k + '"></span>' + esc(i.pillar || "No pillar") + "</span>" +
+      (i.format ? "<span>" + esc(i.format) + "</span>" : "") +
+      '<span class="mono">' + (i.origin === "team" ? "Team idea · " : "") + esc(shortWeek(i.week)) + "</span>" +
+      (w.draft ? '<span class="mono">draft saved</span>' : "") + "</div></div>";
+    h += '<div class="card-side">' + statusControl(i) + '<span class="actions">' + ownerHtml(i) + "</span></div></div>";
+    if (open) {
+      h += '<div class="card-detail">';
+      if (i.angle) h += '<div><h3>Angle</h3><p>' + esc(i.angle) + "</p></div>";
+      var kv = "";
+      if (i.proof) kv += "<dt>Bring</dt><dd>" + esc(i.proof) + "</dd>";
+      if (i.event) kv += "<dt>Event</dt><dd>" + esc(i.event) + "</dd>";
+      if (i.reactsTo && i.reactsTo.length) kv += "<dt>Reacts to</dt><dd>" + sources(i.reactsTo) + "</dd>";
+      if (i.origin === "team" && safeUrl(i.source)) kv += "<dt>Source</dt><dd>" + link(i.source, i.source) + "</dd>";
+      if (i.origin === "team") kv += '<dt>Added by</dt><dd><span class="owner" data-uid="' + esc(i.by || "") + '"><img alt="" src="data:,"><span class="nm">…</span></span> <span class="mono">' + esc(String(i.createdAt || "").slice(0, 10)) + "</span></dd>";
+      if (kv) h += '<dl class="kv">' + kv + "</dl>";
+
+      // Notes
+      var note = loc.note != null ? loc.note : (w.note || "");
+      h += '<div class="pane"><h3>Team notes</h3>';
+      if (writable()) {
+        h += '<textarea id="note-' + esc(i.id) + '" data-field="note" data-id="' + esc(i.id) + '" rows="3" placeholder="Who is doing what, what to check, a better angle…">' + esc(note) + "</textarea>";
+        h += '<div class="actions"><button type="button" class="btn" data-act="savenote" data-id="' + esc(i.id) + '">Save note</button><span class="saved" id="nstat-' + esc(i.id) + '"></span></div>';
+      } else {
+        h += note ? '<p style="white-space:pre-wrap">' + esc(note) + "</p>" : '<p class="empty">No notes yet.</p>';
+      }
+      h += "</div>";
+
+      // Draft
+      var draft = loc.draft != null ? loc.draft : (w.draft || "");
+      var busy = !!S.drafting[i.id];
+      h += '<div class="draft-box"><h3>Draft</h3>';
+      if (S.sample) {
+        h += '<div class="actions">' +
+          '<button type="button" class="btn primary" data-act="draft" data-kind="post" data-id="' + esc(i.id) + '"' + (busy ? " disabled" : "") + ">Draft a post with Claude</button>" +
+          '<button type="button" class="btn" data-act="draft" data-kind="carousel" data-id="' + esc(i.id) + '"' + (busy ? " disabled" : "") + ">Draft a carousel brief</button>" +
+          (busy ? '<button type="button" class="btn" data-act="stopdraft" data-id="' + esc(i.id) + '">Stop</button>' : "") + "</div>";
+      }
+      h += '<textarea id="draft-' + esc(i.id) + '" data-field="draft" data-id="' + esc(i.id) + '" rows="10" placeholder="' +
+        (S.sample ? "Draft with Claude, or write it here yourself." : "Write the draft here.") + '"' + (writable() || S.sample ? "" : " readonly") + ">" + esc(draft) + "</textarea>";
+      h += '<div class="actions">' + (writable() ? '<button type="button" class="btn" data-act="savedraft" data-id="' + esc(i.id) + '">Save draft</button>' : "") +
+        '<button type="button" class="btn quiet" data-act="copydraft" data-id="' + esc(i.id) + '">Copy draft</button>' +
+        (PAGE_URL ? '<button type="button" class="btn quiet" data-act="copylink" data-id="' + esc(i.id) + '">Copy link to idea</button>' : "") +
+        '<span class="saved" id="dstat-' + esc(i.id) + '">' + (w.updatedAt && w.draft ? "Saved " + esc(String(w.updatedAt).slice(0, 10)) : "") + "</span></div>";
+      h += '<p class="hint">Claude writes from the idea and its sources only. Anything marked [check] came from a search summary: confirm it on the source before posting.</p>';
+      h += "</div>";
+
+      if (i.origin === "team" && writable() && S.me && (i.by === S.me.id || S.isEditor)) {
+        h += '<div class="actions">' + (S.board.confirmDelete === i.id
+          ? '<span class="note">Delete this idea and its notes for everyone?</span><button type="button" class="btn danger" data-act="delete" data-id="' + esc(i.id) + '">Delete</button><button type="button" class="btn quiet" data-act="canceldelete">Keep it</button>'
+          : '<button type="button" class="btn quiet danger" data-act="askdelete" data-id="' + esc(i.id) + '">Delete idea</button>') + "</div>";
+      }
+      h += "</div>";
+    }
+    h += "</article>";
+    return h;
+  }
+
+  function addFormHtml() {
+    var p = S.board.prefill || {};
+    var h = '<form class="addform" id="addform"><h2>Add an idea to the board</h2>';
+    h += '<label class="field"><span>Hook (the post\'s first line)</span><textarea id="add-hook" rows="2" maxlength="400" required>' + esc(p.hook || "") + "</textarea></label>";
+    h += '<div class="fields"><label class="field"><span>Pillar</span><select id="add-pillar">' +
+      PILLARS.map(function (x) { return '<option' + (x.name === p.pillar ? " selected" : "") + ">" + esc(x.name) + "</option>"; }).join("") + "</select></label>";
+    h += '<label class="field"><span>Format</span><select id="add-format">' + FORMATS.map(function (f) { return "<option" + (f === p.format ? " selected" : "") + ">" + f + "</option>"; }).join("") + "</select></label>";
+    h += '<label class="field"><span>Source link (optional)</span><input type="url" id="add-source" placeholder="https://" value="' + esc(p.source || "") + '"></label></div>';
+    h += '<label class="field"><span>Angle (optional)</span><textarea id="add-angle" rows="3" maxlength="2000">' + esc(p.angle || "") + "</textarea></label>";
+    h += '<div class="actions"><button type="submit" class="btn primary">Add to board</button><button type="button" class="btn quiet" data-act="canceladd">Cancel</button></div></form>';
+    return h;
+  }
+
+  function renderBoard() {
+    var el = $("#view-board");
+    var ideas = allIdeas();
+    var counts = {};
+    STATUSES.forEach(function (s) { counts[s.key] = 0; });
+    ideas.forEach(function (i) { counts[statusOf(i.id)]++; });
+    var active = counts.drafting + counts.ready;
+    $("#board-count").textContent = active ? String(active) : "";
+
+    var h = '<section class="lead compact"><h1>Idea board</h1><p>Every idea the radar has suggested, plus the team\'s own. Take one, draft it with Claude, and move it along to posted. Everyone with access sees the same board.</p></section>';
+    if (!S.db) h += '<div class="notice">Open this page signed in to claude.ai to track status, notes and drafts with the team. You can still browse and copy ideas here.</div>';
+    else if (S.canWrite === false) h += '<div class="notice">You can view the board. To change it, ask the page owner to give you Contributor access in the Share menu.</div>';
+
+    h += '<div class="toolbar"><input type="search" id="board-q" placeholder="Search ideas and notes" value="' + esc(S.board.q) + '" aria-label="Search ideas">';
+    h += '<select id="board-pillar" aria-label="Pillar"><option value="">All pillars</option>' + PILLARS.map(function (p) { return '<option value="' + p.key + '"' + (S.board.pillar === p.key ? " selected" : "") + ">" + esc(p.name) + "</option>"; }).join("") + "</select>";
+    if (S.db) h += '<select id="board-owner" aria-label="Owner"><option value="">Anyone</option><option value="mine"' + (S.board.owner === "mine" ? " selected" : "") + '>Mine</option><option value="none"' + (S.board.owner === "none" ? " selected" : "") + ">Unclaimed</option></select>";
+    if (writable() && !S.board.adding) h += '<button type="button" class="btn primary" data-act="openadd">Add an idea</button>';
+    h += "</div>";
+    h += '<div class="statusbar" role="group" aria-label="Filter by status"><button type="button" class="chip" data-act="sfilter" data-s="" aria-pressed="' + (S.board.status === "") + '">All <span class="n">' + ideas.length + "</span></button>" +
+      GROUP_ORDER.map(function (k) { return '<button type="button" class="chip s-' + k + '" data-act="sfilter" data-s="' + k + '" aria-pressed="' + (S.board.status === k) + '"><span class="sdot"></span>' + esc(statusLabel(k)) + ' <span class="n">' + counts[k] + "</span></button>"; }).join("") + "</div>";
+
+    if (S.board.adding && writable()) h += addFormHtml();
+
+    var shown = sortIdeas(ideas.filter(ideaMatches));
+    var any = false;
+    GROUP_ORDER.forEach(function (k) {
+      var list = shown.filter(function (i) { return statusOf(i.id) === k; });
+      if (!list.length) return;
+      any = true;
+      var collapsible = (k === "posted" || k === "parked") && S.board.status !== k && !S.board.q;
+      var head = '<span class="sdot s-' + k + '"></span>' + esc(statusLabel(k)) + ' <span class="n">' + list.length + "</span>";
+      var body = '<div class="cards">' + list.map(cardHtml).join("") + "</div>";
+      h += collapsible ? '<details class="group"><summary>' + head + "</summary>" + body + "</details>"
+                       : '<section class="group"><h2>' + head + "</h2>" + body + "</section>";
+    });
+    if (!any) h += '<p class="empty">No ideas match. Clear the filters, or add one.</p>';
+    el.innerHTML = h;
+    fillProfiles(el);
+  }
+
+  function fillProfiles(root) {
+    if (!S.user) return;
+    var nodes = root.querySelectorAll("[data-uid]");
+    var ids = [];
+    nodes.forEach(function (n) { var id = n.getAttribute("data-uid"); if (id && ids.indexOf(id) < 0) ids.push(id); });
+    if (!ids.length) return;
+    S.user.profiles(ids).then(function (ps) {
+      nodes.forEach(function (n) {
+        var p = ps[n.getAttribute("data-uid")];
+        if (!p) return;
+        var img = n.querySelector("img"), nm = n.querySelector(".nm");
+        if (img) img.src = p.avatarUrl;
+        if (nm) nm.textContent = p.isMe ? "You" : (p.name || "Someone");
+      });
+    });
+  }
+
+  // ---------- db writes ----------
+  var chains = {};
+  function saveWork(id, patch) {
+    if (!writable()) return Promise.reject({ code: "not_writable" });
+    var ref = S.db.doc("work/" + id);
+    chains[id] = (chains[id] || Promise.resolve()).catch(function () {}).then(function () {
+      var cur = Object.assign({}, S.work[id] || {}, patch, { updatedBy: S.me.id, updatedAt: new Date().toISOString() });
+      return ref.set(cur);
+    });
+    return chains[id].catch(function (e) { onWriteError(e); throw e; });
+  }
+  function onWriteError(e) {
+    var code = e && e.code;
+    if (code === "invalid_argument") {
+      S.canWrite = false;
+      toast("This change wasn't saved. You can view the board but not change it; ask the page owner for Contributor access.");
+      render();
+    } else if (code === "quota_exceeded") {
+      toast("The board's storage is full. Delete some old team ideas, then try again.");
+    } else if (code === "revoked") {
+      S.db = null; toast("Your access to this page changed. Reload to continue."); render();
+    } else if (code !== "not_writable") {
+      toast("Couldn't save just now. Try again in a moment.");
+    }
+  }
+
+  // ---------- drafting with Claude ----------
+  function ideaBrief(i) {
+    var lines = ["Hook: " + i.hook, "Pillar: " + (i.pillar || "")];
+    if (i.format) lines.push("Format: " + i.format);
+    if (i.angle) lines.push("Angle: " + i.angle);
+    if (i.proof) lines.push("What Vionlabs brings: " + i.proof);
+    if (i.event) lines.push("Tied to event: " + i.event);
+    var src = (i.reactsTo || []).map(function (s) { return "- " + (s.label || "") + (s.date ? " (" + s.date + ")" : "") + (s.url ? " " + s.url : ""); });
+    if (i.origin === "team" && i.source) src.push("- " + i.source);
+    if (src.length) lines.push("Sources it reacts to:\n" + src.join("\n"));
+    var note = (S.work[i.id] || {}).note;
+    if (note) lines.push("Team notes: " + note);
+    return lines.join("\n");
+  }
+  var POST_SPEC = "Write the full LinkedIn text post for Arash to publish. Start with the hook as the first line (tighten it if it helps). 120 to 220 words in short paragraphs and plain sentences. Acknowledge the reasonable other side before disagreeing. End with one specific question to the reader, never \"thoughts?\". At most three hashtags on the last line, or none.";
+  var CAROUSEL_SPEC = "Write a carousel design brief for the designer, in this order: 1) Hook / slide 1 claim. 2) Pillar. 3) Slide-by-slide sequence: 6 to 10 slides, each with the on-slide text (one or two short lines) and a note for the designer. 4) Data to visualize: which numbers get a big stat card and which deserve a chart. 5) Closing takeaway and soft call to action. 6) A 60 to 100 word LinkedIn caption to post with it. Slides are 1080x1350 portrait.";
+  function draftPrompt(i, kind) {
+    return "You are drafting LinkedIn content for Arash Pendari, CEO and founder of Vionlabs, for the Vionlabs content team to review. Follow the brand brief and its voice rules exactly.\n\n" +
+      "<brand_brief>\n" + BRAND.slice(0, 12000) + "\n</brand_brief>\n\n<idea>\n" + ideaBrief(i) + "\n</idea>\n\n" +
+      (kind === "carousel" ? CAROUSEL_SPEC : POST_SPEC) + "\n\n" +
+      "Facts: use only the facts in the idea and its sources as given here. They were gathered from search-result summaries, so put [check] right after every number, quote or claim taken from them. Never invent customer names, results, numbers or quotes. Only name a Vionlabs customer that the brief lists as public. Output only the draft, with no preamble and no closing remarks.";
+  }
+  function sampleErrorCopy(code) {
+    return {
+      not_granted: "Claude isn't allowed on this page for you. You can still write drafts by hand.",
+      sampling_disabled: "Claude isn't available for your account here.",
+      rate_limited: "Claude is busy or you've hit a usage limit. Try again in a little while.",
+      session_expired: "Sign in to claude.ai again, then retry.",
+      refused: "Claude declined this one. Try rewording the idea or the notes.",
+      prompt_too_large: "That's too much text for one request. Shorten the notes and try again.",
+      empty_completion: "Claude returned nothing. Try again with a sharper angle."
+    }[code] || "Something went wrong talking to Claude. Try again.";
+  }
+  function runDraft(id, kind) {
+    var i = findIdea(id);
+    if (!i || !S.sample || S.drafting[id]) return;
+    var ctl = new AbortController();
+    S.drafting[id] = ctl;
+    S.local[id] = Object.assign({}, S.local[id], { draft: "" });
+    rerenderCard(id);
+    var stat = document.getElementById("dstat-" + id);
+    if (stat) stat.textContent = "Thinking…";
+    S.sample(draftPrompt(i, kind), {
+      signal: ctl.signal, cache: false,
+      onText: function (u) {
+        S.local[id].draft = u.text;
+        var ta = document.getElementById("draft-" + id);
+        if (ta) ta.value = u.text;
+        var st = document.getElementById("dstat-" + id);
+        if (st) st.textContent = "Writing…";
+      }
+    }).then(function (res) {
+      delete S.drafting[id];
+      S.local[id].draft = res.text;
+      var patch = { draft: res.text, draftKind: kind };
+      if (statusOf(id) === "new") patch.status = "drafting";
+      if (writable()) {
+        saveWork(id, patch).then(function () { delete S.local[id].draft; setStat("dstat-" + id, "Saved for the team"); }, function () {});
+      }
+      rerenderCard(id);
+      if (res.truncated) toast("The draft was cut short. Edit it, or try again.");
+    }, function (e) {
+      delete S.drafting[id];
+      S.local[id].draft = e && e.text ? e.text : ((S.work[id] || {}).draft || "");
+      rerenderCard(id);
+      if (e && e.code !== "cancelled") toast(sampleErrorCopy(e.code));
+      if (e && (e.code === "not_granted" || e.code === "sampling_disabled")) { S.sample = null; render(); }
+    });
+  }
+  function setStat(elId, text) { var el = document.getElementById(elId); if (el) el.textContent = text; }
+
+  function rerenderCard(id) {
+    var el = document.getElementById(id);
+    var i = findIdea(id);
+    if (!el || !i || S.tab !== "board") return;
+    var tmp = document.createElement("div");
+    tmp.innerHTML = cardHtml(i);
+    var fresh = tmp.firstChild;
+    el.replaceWith(fresh);
+    fillProfiles(fresh);
+  }
+
+  // ---------- find & ask ----------
+  var STOP = ("a an and are as at be but by can did do does for from has have how i if in into is it its of on or our "
+    + "so than that the their them there these they this to up was we what when where which who why will with you your about "
+    + "any been more most not no only over some such then very just also should would could tell me show give list").split(" ");
+  function terms(q) {
+    return String(q || "").toLowerCase().split(/[^a-z0-9+#%.\-]+/).filter(function (t) { return t.length > 1 && STOP.indexOf(t) < 0; });
+  }
+  function buildIndex() {
+    var items = [];
+    WEEKS.forEach(function (w) {
+      (w.gaps || []).forEach(function (g, n) { items.push({ type: "Gap", week: w.week, title: g.title, text: g.detail, url: (g.evidence || [])[0] && g.evidence[0].url, ref: { kind: "gap", week: w.week, n: n } }); });
+      (w.themes || []).forEach(function (t) { items.push({ type: "Competitor theme", week: w.week, title: t.title, text: t.detail + " " + (t.who || []).join(", "), url: (t.sources || [])[0] && t.sources[0].url }); });
+      (w.competitors || []).forEach(function (c, n) { items.push({ type: "Competitor", week: w.week, title: c.name, text: c.message + " " + (c.latest || []).map(function (l) { return l.title + " (" + l.date + ")"; }).join("; "), url: (c.latest || [])[0] && c.latest[0].url, ref: { kind: "competitor", week: w.week, n: n } }); });
+      (w.stats || []).forEach(function (s, n) { items.push({ type: "Stat", week: w.week, title: s.value + " " + s.what, text: s.source + " " + (s.date || ""), url: s.url, ref: { kind: "stat", week: w.week, n: n } }); });
+      (w.events || []).forEach(function (e) { items.push({ type: "Event", week: w.week, title: e.name + " (" + (e.start || "") + ")", text: [e.status, e.city, e.role, e.agenda].concat(e.hooks || []).filter(Boolean).join(" "), url: e.url }); });
+      (w.mentions || []).forEach(function (m, n) { items.push({ type: "Mention", week: w.week, title: m.who, text: m.summary + " " + (m.where || ""), url: m.url, ref: { kind: "mention", week: w.week, n: n } }); });
+    });
+    allIdeas().forEach(function (i) {
+      items.push({ type: "Idea", week: i.week, title: i.hook, text: [i.pillar, i.angle, i.proof, i.event, statusLabel(statusOf(i.id))].filter(Boolean).join(" "), url: (i.reactsTo || [])[0] && i.reactsTo[0].url, ref: { kind: "idea", id: i.id } });
+    });
+    return items;
+  }
+  function search(q, type) {
+    var ts = terms(q);
+    if (!ts.length) return [];
+    var phrase = String(q).toLowerCase().trim();
+    return buildIndex().map(function (it) {
+      if (type && it.type.toLowerCase().indexOf(String(type).toLowerCase()) < 0) return null;
+      var hay = (it.title + " " + it.text).toLowerCase(), score = 0;
+      ts.forEach(function (t) { if (hay.indexOf(t) > -1) score += it.title.toLowerCase().indexOf(t) > -1 ? 2 : 1; });
+      if (phrase.length > 3 && hay.indexOf(phrase) > -1) score += 3;
+      return score ? { it: it, score: score } : null;
+    }).filter(Boolean).sort(function (a, b) { return b.score - a.score || (a.it.week < b.it.week ? 1 : -1); }).map(function (x) { return x.it; });
+  }
+  var TYPE_ORDER = ["Idea", "Gap", "Competitor theme", "Competitor", "Stat", "Event", "Mention"];
+
+  function renderFind() {
+    var el = $("#view-find");
+    var h = '<section class="lead compact"><h1>Find &amp; ask</h1><p>Search every week of the radar and the team\'s ideas. Turn any gap, stat, mention or competitor move into an idea for the board, or ask Claude a question about it all.</p></section>';
+    h += '<div class="searchbig"><input type="search" id="find-q" placeholder="Try: vertical, ThinkAnalytics, ad break, DPP" value="' + esc(S.findQ) + '" aria-label="Search the radar"></div>';
+    h += '<div id="find-results" class="results"></div>';
+    if (S.sample) {
+      h += '<section class="ask" aria-labelledby="ask-h"><h2 id="ask-h">Ask Claude about the radar</h2>';
+      h += '<label class="field"><span class="hint">Claude searches the radar to answer and cites what it finds. It only knows what is on this page.</span><textarea id="ask-q" rows="3" placeholder="What have competitors said about vertical video, and which of our ideas cover it?"></textarea></label>';
+      h += '<div class="actions"><button type="button" class="btn primary" id="ask-go" data-act="ask">Ask Claude</button><button type="button" class="btn" id="ask-stop" data-act="stopask" hidden>Stop</button><span class="saved" id="ask-stat"></span></div>';
+      h += '<div class="answer" id="ask-out"></div></section>';
+    }
+    el.innerHTML = h;
+    renderResults();
+  }
+
+  function renderResults() {
+    var box = $("#find-results");
+    if (!box) return;
+    var q = S.findQ.trim();
+    if (!q) { box.innerHTML = '<p class="note">Results appear as you type.</p>'; return; }
+    var hits = search(q);
+    if (!hits.length) { box.innerHTML = '<p class="empty">Nothing matches “' + esc(q) + '”.</p>'; return; }
+    var h = "";
+    TYPE_ORDER.forEach(function (type) {
+      var list = hits.filter(function (x) { return x.type === type; }).slice(0, 8);
+      if (!list.length) return;
+      h += '<div class="rgroup"><h2>' + esc(type) + "s</h2>";
+      list.forEach(function (x) {
+        var act = "";
+        if (x.ref && x.ref.kind === "idea") act = '<button type="button" class="btn quiet" data-act="workon" data-id="' + esc(x.ref.id) + '">Open on board</button>';
+        else if (x.ref && writable()) act = '<button type="button" class="btn quiet" data-act="makeidea" data-kind="' + x.ref.kind + '" data-week="' + esc(x.ref.week) + '" data-n="' + x.ref.n + '">Make it an idea</button>';
+        h += '<div class="hit"><div><div class="hit-title">' + link(x.title, x.url) + ' <span class="mono">' + esc(shortWeek(x.week)) + "</span></div><p>" + esc(String(x.text).slice(0, 260)) + "</p></div><div>" + act + "</div></div>";
+      });
+      h += "</div>";
+    });
+    box.innerHTML = h;
+  }
+
+  var askCtl = null;
+  function compactHit(x) { return { type: x.type, week: x.week, title: x.title, text: String(x.text).slice(0, 400), url: x.url || "" }; }
+  function askPrompt(q, withTools) {
+    var latest = WEEKS[0] || {};
+    var head = "You answer questions for the Vionlabs content team about their Content Radar: a weekly scan of competitors, streaming trends, events and mentions, plus their idea board. " +
+      "Answer only from the radar data you are given or can look up; if it isn't there, say so plainly. Cite what you use inline as (title, week). " +
+      "Write plain text: short paragraphs or lines starting with '- '. No markdown headings. Keep it under 250 words unless the question needs more.\n\n" +
+      "Weeks in the radar: " + WEEKS.map(function (w) { return w.week; }).join(", ") + ". Latest week (" + (latest.week || "") + ") headline: " + (latest.headline || "") + "\n";
+    if (withTools) return head + "\nUse the tools to search before answering; try a few different short keywords.\n\nQuestion: " + q;
+    var ctx = search(q).slice(0, 40).map(function (x) { return JSON.stringify(compactHit(x)); }).join("\n");
+    var sum = (latest.summary || []).map(function (s) { return "- " + s; }).join("\n");
+    return head + "\nLatest week summary:\n" + sum + "\n\nMatching radar items (JSON lines):\n" + (ctx || "(no keyword matches)") + "\n\nQuestion: " + q;
+  }
+  var ASK_TOOLS = [
+    {
+      name: "search_radar",
+      description: "Keyword search across every week of the Content Radar: ideas (with board status), gaps, competitor themes, competitor feed, stats, events and mentions. Returns up to 15 matches as {type, week, title, text, url}. Use short keywords such as 'vertical', 'ThinkAnalytics' or 'ad break'.",
+      inputSchema: { type: "object", properties: { query: { type: "string" }, type: { type: "string", enum: TYPE_ORDER } }, required: ["query"] },
+      execute: function (input) { return search(String(input.query || ""), input.type ? String(input.type) : "").slice(0, 15).map(compactHit); }
+    },
+    {
+      name: "get_week",
+      description: "Returns one week's headline, summary bullets, idea hooks and gap titles. Pass a week like 2026-W43.",
+      inputSchema: { type: "object", properties: { week: { type: "string" } }, required: ["week"] },
+      execute: function (input) {
+        var w = WEEKS.filter(function (x) { return x.week === String(input.week); })[0];
+        if (!w) throw new Error("No such week. Weeks: " + WEEKS.map(function (x) { return x.week; }).join(", "));
+        return { week: w.week, headline: w.headline, summary: w.summary, ideas: (w.ideas || []).map(function (i) { return i.hook; }), gaps: (w.gaps || []).map(function (g) { return g.title; }) };
+      }
+    },
+    {
+      name: "board_status",
+      description: "Returns the team's idea board: every idea's hook, pillar, week and status (New, Drafting, Ready to post, Posted, Parked).",
+      execute: function () { return allIdeas().map(function (i) { return { hook: i.hook, pillar: i.pillar, week: i.week, status: statusLabel(statusOf(i.id)) }; }); }
+    }
+  ];
+  function runAsk() {
+    var qEl = $("#ask-q"), out = $("#ask-out");
+    var q = qEl ? qEl.value.trim() : "";
+    if (!q || !S.sample || askCtl) return;
+    askCtl = new AbortController();
+    $("#ask-go").disabled = true; $("#ask-stop").hidden = false;
+    setStat("ask-stat", "Thinking…");
+    out.textContent = "";
+    var opts = { signal: askCtl.signal, onText: function (u) { out.textContent = u.text; setStat("ask-stat", "Writing…"); } };
+    if (S.tools) opts.tools = ASK_TOOLS; else opts.cache = false;
+    S.sample(askPrompt(q, S.tools), opts).then(function (res) {
+      out.textContent = res.text; setStat("ask-stat", res.truncated ? "Cut short. Ask for less at a time." : "");
+    }, function (e) {
+      out.textContent = e && e.text ? e.text : "";
+      setStat("ask-stat", e && e.code === "cancelled" ? "Stopped." : sampleErrorCopy(e && e.code));
+      if (e && (e.code === "not_granted" || e.code === "sampling_disabled")) { S.sample = null; }
+    }).then(function () {
+      askCtl = null;
+      var go = $("#ask-go"), stop = $("#ask-stop");
+      if (go) go.disabled = false; if (stop) stop.hidden = true;
+    });
+  }
+
+  // ---------- make an idea from a radar item ----------
+  function prefillFrom(kind, week, n) {
+    var w = WEEKS.filter(function (x) { return x.week === week; })[0];
+    if (!w) return null;
+    if (kind === "gap") { var g = w.gaps[n]; return { hook: "", pillar: "Opinion / Contrarian Take", angle: g.title + ". " + g.detail, source: (g.evidence || [])[0] ? g.evidence[0].url : "" }; }
+    if (kind === "stat") { var s = w.stats[n]; return { hook: s.value + ": " + s.what + ".", pillar: "Industry Trend Commentary", angle: "React to this number: " + s.value + " " + s.what + " (" + s.source + ", " + (s.date || "") + ").", source: s.url }; }
+    if (kind === "competitor") { var c = w.competitors[n]; return { hook: "", pillar: "Industry Trend Commentary", angle: c.name + ": " + c.message + " Latest: " + (c.latest || []).map(function (l) { return l.title; }).join("; "), source: (c.latest || [])[0] ? c.latest[0].url : "" }; }
+    if (kind === "mention") { var m = w.mentions[n]; return { hook: "", pillar: "Behind the Scenes", format: "Image + text", angle: m.who + " (" + m.where + "): " + m.summary, source: m.url }; }
+    return null;
+  }
+
+  // ---------- render / routing ----------
+  function render() {
+    ["week", "board", "find"].forEach(function (t) {
+      $("#view-" + t).hidden = S.tab !== t;
+      $("#tab-" + t).setAttribute("aria-selected", String(S.tab === t));
+    });
+    $(".weekpick").hidden = S.tab !== "week";
+    if (S.tab === "week") renderWeek();
+    if (S.tab === "board") renderBoard(); else updateBoardCount();
+    if (S.tab === "find") renderFind();
+  }
+  function updateBoardCount() {
+    var n = allIdeas().filter(function (i) { var s = statusOf(i.id); return s === "drafting" || s === "ready"; }).length;
+    $("#board-count").textContent = n ? String(n) : "";
+  }
+  function scheduleRender() {
+    var a = document.activeElement;
+    if (a && a.closest && a.closest("#app") && /^(TEXTAREA|INPUT|SELECT)$/.test(a.tagName)) { S.pendingRender = true; return; }
+    if (S.tab === "board") renderBoard();
+    else if (S.tab === "week") renderWeek();
+    else renderResults();
+    updateBoardCount();
+  }
+  function go(tab, opts) {
+    S.tab = tab;
+    storeSet("radar.tab", tab);
+    render();
+    if (opts && opts.focus) {
+      var el = document.getElementById(opts.focus);
+      if (el) { el.scrollIntoView({ block: "start" }); var b = el.querySelector(".card-hook"); if (b) b.focus({ preventScroll: true }); }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
+  function openIdea(id) {
+    if (!findIdea(id)) return;
+    S.board.open[id] = true;
+    S.board.q = ""; S.board.status = ""; S.board.pillar = ""; S.board.owner = "";
+    go("board", { focus: id });
+  }
+  function fromHash() {
+    var h = (location.hash || "").replace(/^#/, "");
+    if (h === "week" || h === "board" || h === "find") { S.tab = h; return true; }
+    if (h && findIdea(h)) { S.board.open[h] = true; S.tab = "board"; S.focusOnLoad = h; return true; }
+    return false;
+  }
+
+  // ---------- events ----------
+  document.querySelector(".tabs").addEventListener("click", function (e) {
+    var t = e.target.closest("[data-tab]");
+    if (t) go(t.getAttribute("data-tab"));
+  });
+  var pick = $("#week");
+  pick.innerHTML = WEEKS.map(function (w) { return '<option value="' + esc(w.week) + '">' + esc(w.week) + "</option>"; }).join("");
+  pick.addEventListener("change", function () { S.week = pick.value; S.weekFilter = ""; renderWeek(); });
+
+  var app = $("#app");
+  app.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-act]");
+    if (!b || b.tagName === "SELECT") return;
+    var act = b.getAttribute("data-act"), id = b.getAttribute("data-id");
+    if (act === "wfilter") { S.weekFilter = b.getAttribute("data-f"); renderWeek(); }
+    else if (act === "copyhook") { var i = findIdea(id); if (i) copyText(i.hook, b, "Copy hook"); }
+    else if (act === "workon") openIdea(id);
+    else if (act === "toggle") { S.board.open[id] = !S.board.open[id]; rerenderCard(id); var c = document.getElementById(id); if (c) { var hb = c.querySelector(".card-hook"); if (hb) hb.focus(); } }
+    else if (act === "sfilter") { S.board.status = b.getAttribute("data-s"); renderBoard(); }
+    else if (act === "openadd") { S.board.adding = true; S.board.prefill = null; renderBoard(); var f = $("#add-hook"); if (f) f.focus(); }
+    else if (act === "canceladd") { S.board.adding = false; S.board.prefill = null; renderBoard(); }
+    else if (act === "take") saveWork(id, { owner: S.me.id, status: statusOf(id) === "new" ? "drafting" : statusOf(id) }).catch(function () {});
+    else if (act === "release") saveWork(id, { owner: null }).catch(function () {});
+    else if (act === "savenote") {
+      var ta = document.getElementById("note-" + id);
+      if (!ta) return;
+      setStat("nstat-" + id, "Saving…");
+      saveWork(id, { note: ta.value.slice(0, 20000) }).then(function () { if (S.local[id]) delete S.local[id].note; setStat("nstat-" + id, "Saved"); }, function () { setStat("nstat-" + id, ""); });
+    }
+    else if (act === "savedraft") {
+      var d = document.getElementById("draft-" + id);
+      if (!d) return;
+      setStat("dstat-" + id, "Saving…");
+      var patch = { draft: d.value.slice(0, 60000) };
+      if (statusOf(id) === "new" && d.value.trim()) patch.status = "drafting";
+      saveWork(id, patch).then(function () { if (S.local[id]) delete S.local[id].draft; setStat("dstat-" + id, "Saved for the team"); }, function () { setStat("dstat-" + id, ""); });
+    }
+    else if (act === "copydraft") { var dd = document.getElementById("draft-" + id); if (dd && dd.value) copyText(dd.value, b, "Copy draft"); }
+    else if (act === "copylink") copyText(PAGE_URL + "#" + id, b, "Copy link to idea");
+    else if (act === "draft") runDraft(id, b.getAttribute("data-kind"));
+    else if (act === "stopdraft") { if (S.drafting[id]) S.drafting[id].abort(); }
+    else if (act === "askdelete") { S.board.confirmDelete = id; rerenderCard(id); }
+    else if (act === "canceldelete") { var cd = S.board.confirmDelete; S.board.confirmDelete = ""; rerenderCard(cd); }
+    else if (act === "delete") {
+      var idea = findIdea(id);
+      S.board.confirmDelete = "";
+      if (!idea || idea.origin !== "team") return;
+      Promise.resolve().then(function () { return S.db.doc("team_ideas/" + idea.docId).delete(); })
+        .then(function () { return S.work[id] ? S.db.doc("work/" + id).delete() : null; })
+        .then(function () { toast("Idea deleted."); }, onWriteError);
+    }
+    else if (act === "makeidea") {
+      var pf = prefillFrom(b.getAttribute("data-kind"), b.getAttribute("data-week"), +b.getAttribute("data-n"));
+      if (!pf) return;
+      if (!writable()) { toast("Sign in with Contributor access to add ideas to the board."); return; }
+      S.board.adding = true; S.board.prefill = pf;
+      go("board");
+      var hk = $("#add-hook"); if (hk) hk.focus();
+    }
+    else if (act === "ask") runAsk();
+    else if (act === "stopask") { if (askCtl) askCtl.abort(); }
+  });
+  app.addEventListener("change", function (e) {
+    var t = e.target;
+    if (t.getAttribute("data-act") === "status") {
+      var id = t.getAttribute("data-id");
+      saveWork(id, { status: t.value }).catch(function () {});
+    }
+    else if (t.id === "board-pillar") { S.board.pillar = t.value; renderBoard(); }
+    else if (t.id === "board-owner") { S.board.owner = t.value; renderBoard(); }
+  });
+  var qTimer = null;
+  app.addEventListener("input", function (e) {
+    var t = e.target;
+    var f = t.getAttribute("data-field");
+    if (f) { var id = t.getAttribute("data-id"); S.local[id] = Object.assign({}, S.local[id]); S.local[id][f] = t.value; return; }
+    if (t.id === "board-q") {
+      clearTimeout(qTimer);
+      qTimer = setTimeout(function () {
+        S.board.q = t.value;
+        renderBoard();
+        var el = $("#board-q"); if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+      }, 220);
+    }
+    if (t.id === "find-q") { S.findQ = t.value; renderResults(); }
+  });
+  app.addEventListener("keydown", function (e) {
+    if (e.target.id === "ask-q" && e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); runAsk(); }
+  });
+  app.addEventListener("focusout", function () {
+    setTimeout(function () {
+      if (!S.pendingRender) return;
+      var a = document.activeElement;
+      if (a && a.closest && a.closest("#app") && /^(TEXTAREA|INPUT|SELECT)$/.test(a.tagName)) return;
+      S.pendingRender = false;
+      scheduleRender();
+    }, 0);
+  });
+  app.addEventListener("submit", function (e) {
+    if (e.target.id !== "addform") return;
+    e.preventDefault();
+    var hook = $("#add-hook").value.trim();
+    if (!hook) { toast("Write a hook first: the first line of the post."); $("#add-hook").focus(); return; }
+    var src = $("#add-source").value.trim();
+    if (src && !safeUrl(src)) { toast("The source link needs to start with https://"); $("#add-source").focus(); return; }
+    if (!writable()) return;
+    var doc = {
+      hook: hook.slice(0, 400), pillar: $("#add-pillar").value, format: $("#add-format").value,
+      angle: $("#add-angle").value.trim().slice(0, 2000), source: src, by: S.me.id, createdAt: new Date().toISOString()
+    };
+    var btn = e.target.querySelector("[type=submit]"); btn.disabled = true;
+    S.db.collection("team_ideas").add(doc).then(function () {
+      S.board.adding = false; S.board.prefill = null; S.board.status = ""; S.board.q = "";
+      toast("Added to the board under New.");
+      renderBoard();
+    }, function (err) { btn.disabled = false; onWriteError(err); });
+  });
+  window.addEventListener("hashchange", function () { if (fromHash()) { render(); if (S.focusOnLoad) { go("board", { focus: S.focusOnLoad }); S.focusOnLoad = null; } } });
+
+  // ---------- boot ----------
+  if (!fromHash()) {
+    var last = storeGet("radar.tab");
+    if (last === "board" || last === "find") S.tab = last;
+  }
+  render();
+  if (S.focusOnLoad) { var fid = S.focusOnLoad; S.focusOnLoad = null; go("board", { focus: fid }); }
+
+  var C = window.claude;
+  if (C && typeof C.use === "function") {
+    C.use("user").then(function (u) {
+      if (!u) return null;
+      S.user = u;
+      return Promise.all([u.me(), u.can("data.write"), u.canEdit()]).then(function (r) {
+        S.me = r[0]; S.canWrite = r[1]; S.isEditor = r[2];
+      });
+    }).then(function () {
+      return C.use("db");
+    }).then(function (db) {
+      if (!db) { scheduleRender(); return; }
+      S.db = db;
+      db.collection("work").onSnapshot(function (snap) {
+        var m = {};
+        snap.docs.forEach(function (d) { if (d.exists) m[d.id] = d.data(); });
+        S.work = m;
+        scheduleRender();
+      }, function (err) { if (err && err.code === "revoked") { S.db = null; scheduleRender(); } });
+      db.collection("team_ideas").onSnapshot(function (snap) {
+        S.team = snap.docs.filter(function (d) { return d.exists; }).map(function (d) {
+          var x = d.data() || {};
+          return {
+            id: "team-" + d.id, docId: d.id, origin: "team", hook: String(x.hook || ""), pillar: String(x.pillar || ""),
+            format: String(x.format || ""), angle: String(x.angle || ""), source: String(x.source || ""),
+            by: x.by || "", createdAt: String(x.createdAt || ""), week: isoWeek(x.createdAt) || "", order: 0
+          };
+        });
+        scheduleRender();
+      }, function () {});
+    }).catch(function () { scheduleRender(); });
+
+    C.use("sample").then(function (sm) {
+      if (!sm) return;
+      S.sample = sm;
+      return sm.limits().then(function (l) { S.tools = !!(l && l.tools); }, function () { S.tools = false; });
+    }).then(function () {
+      if (!S.sample) return;
+      if (S.tab === "find") renderFind(); else scheduleRender();
+    }).catch(function () {});
+  }
 })();
 </script>

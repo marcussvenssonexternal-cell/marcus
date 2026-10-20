@@ -29,7 +29,8 @@
           "url": "https://www.newscaststudio.com/2026/09/21/viewers-less-likely-to-cancel-their-default-streaming-service/",
           "date": "2026-09-21"
         }
-      ]
+      ],
+      "id": "2026-W43-01"
     },
     {
       "hook": "HBO Max and Paramount+ are about to become one app. The hard part isn't the tech stack. It's making two libraries that were never described the same way feel like one.",
@@ -49,7 +50,8 @@
           "url": "https://cordcuttersnews.com/streaming-subscribers-file-lawsuit-to-keep-paramount-and-hbo-max-separate",
           "date": "2026-10-16"
         }
-      ]
+      ],
+      "id": "2026-W43-02"
     },
     {
       "hook": "IBC was wall-to-wall agents. I didn't hear many booths explain what their agent actually understands about the film.",
@@ -74,7 +76,8 @@
           "url": "https://contentwise.com/event/ibc-show-2026/",
           "date": "2026-09"
         }
-      ]
+      ],
+      "id": "2026-W43-03"
     },
     {
       "hook": "Six minutes of ads an hour beat twelve on recall by 89%. Nobody is measuring where those six minutes land in the story.",
@@ -95,7 +98,8 @@
           "url": "https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/",
           "date": "2026-09-15"
         }
-      ]
+      ],
+      "id": "2026-W43-04"
     },
     {
       "hook": "60% of CTV bid requests don't know what show they're running in. We're building scene-level targeting on data that isn't there.",
@@ -120,7 +124,8 @@
           "url": "https://www.advanced-television.com/2026/09/15/wurl-launches-content-intelligence-platform/",
           "date": "2026-09-15"
         }
-      ]
+      ],
+      "id": "2026-W43-05"
     },
     {
       "hook": "\"Mood\" is on every metadata spec sheet now. Five questions that tell you whether it's real.",
@@ -150,7 +155,8 @@
           "url": "https://www.tvbeurope.com/media-consumption/pa-tv-metadata-aims-to-improve-content-discovery-with-ai-supported-enrichment-tool",
           "date": "2026-04"
         }
-      ]
+      ],
+      "id": "2026-W43-06"
     },
     {
       "hook": "Every major streamer now has a vertical feed. Only one has shared how often a clip turns into a watch, and that was for live sports.",
@@ -176,7 +182,8 @@
           "date": "2026-09-02"
         }
       ],
-      "event": "Content London (30 Nov–3 Dec), Vertical Programming & Microdrama Summit"
+      "event": "Content London (30 Nov–3 Dec), Vertical Programming & Microdrama Summit",
+      "id": "2026-W43-07"
     },
     {
       "hook": "Sports has a goal. A drama doesn't. So what's the \"goal\" in a 90-minute film?",
@@ -196,7 +203,8 @@
           "url": "https://www.momentslab.com/blog/moments-lab-to-showcase-studio-at-ibc2026",
           "date": "2026-09"
         }
-      ]
+      ],
+      "id": "2026-W43-08"
     },
     {
       "hook": "Saving an editor 70% of their time is a cost story. Getting a viewer to watch one more title is a revenue story. Our industry keeps pitching the first one.",
@@ -221,7 +229,8 @@
           "url": "https://www.broadbandtvnews.com/2026/09/22/thinkanalytics-brings-agentic-ai-to-content-curation-and-advertising/",
           "date": "2026-09-22"
         }
-      ]
+      ],
+      "id": "2026-W43-09"
     },
     {
       "hook": "Most recommendation engines are built for the viewer with 2,000 hours of history. We built Curio for the one who has watched two titles.",
@@ -241,7 +250,8 @@
           "url": "https://www.vionlabs.com/news/vionlabs-launches-curio",
           "date": "2026-09"
         }
-      ]
+      ],
+      "id": "2026-W43-10"
     },
     {
       "hook": "News is the fastest-growing FAST genre, up 53% in a year. It's also the genre where one badly placed ad break ends up as a screenshot.",
@@ -256,7 +266,8 @@
           "url": "https://www.newscaststudio.com/2026/08/20/fast-sports-programming-growth-outpaces-channel-expansion-gracenote-finds/",
           "date": "2026-08-20"
         }
-      ]
+      ],
+      "id": "2026-W43-11"
     },
     {
       "hook": "We get 60 seconds on the DPP main stage on 18 November. Here's everything we had to cut to fit.",
@@ -277,7 +288,8 @@
           "url": "https://www.thedpp.com/news/dpp-media-tech-ceo-survey-2026-set-to-reflect-and-define-industry-transformation",
           "date": "2026"
         }
-      ]
+      ],
+      "id": "2026-W43-12"
     }
   ],
   "gaps": [

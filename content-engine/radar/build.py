@@ -7,6 +7,10 @@
 Each week is one file, reports/<ISO week>.json (e.g. 2026-W43.json). The page holds every
 week, newest first, so the published artifact doubles as the archive: --recover pulls past
 weeks back out of it when a fresh session doesn't have them on disk.
+
+Every idea gets a permanent id (<week>-<nn>) the first time it is built. The idea board keys
+the team's status, owner, notes and drafts on that id, so never renumber or reorder ideas in a
+week that has been published.
 """
 import argparse
 import json
@@ -16,6 +20,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REPORTS = HERE.parent / "reports"
+BRAND = HERE.parent / "config" / "brand.md"
+WATCHLIST = HERE.parent / "config" / "watchlist.yaml"
 TEMPLATE = HERE / "template.html"
 OUT = HERE / "index.html"
 PLACEHOLDER = "/*RADAR_DATA*/"
@@ -47,6 +53,24 @@ def check(week, name):
     return problems
 
 
+def assign_ids(week, path):
+    """Give new ideas their permanent id and save it back to the week's file."""
+    ideas = week.get("ideas", [])
+    taken = {i["id"] for i in ideas if i.get("id")}
+    n, changed = 0, False
+    for idea in ideas:
+        if idea.get("id"):
+            continue
+        n += 1
+        while f"{week['week']}-{n:02d}" in taken:
+            n += 1
+        idea["id"] = f"{week['week']}-{n:02d}"
+        taken.add(idea["id"])
+        changed = True
+    if changed:
+        path.write_text(json.dumps(week, ensure_ascii=False, indent=2) + "\n")
+
+
 def load_weeks():
     weeks, problems = [], []
     for path in sorted(REPORTS.glob("*.json")):
@@ -54,8 +78,17 @@ def load_weeks():
         problems += check(week, path.name)
         if path.stem != week.get("week"):
             problems.append(f"{path.name}: file name doesn't match week '{week.get('week')}'")
+        if not problems:
+            assign_ids(week, path)
         weeks.append(week)
+    ids = [i.get("id") for w in weeks for i in w.get("ideas", [])]
+    problems += [f"idea id '{x}' is used twice" for x in sorted({x for x in ids if ids.count(x) > 1})]
     return sorted(weeks, key=lambda w: w["week"], reverse=True), problems
+
+
+def radar_url():
+    m = re.search(r"^radar_url:\s*(\S+)", WATCHLIST.read_text(), re.M) if WATCHLIST.exists() else None
+    return m.group(1) if m else ""
 
 
 def src(items):
@@ -102,7 +135,8 @@ def build():
     for w in weeks:
         (REPORTS / f"{w['week']}.md").write_text(markdown(w))
     # "</" would end the <script> block early; "<\/" is the same string in JSON.
-    payload = json.dumps({"weeks": weeks}, ensure_ascii=False, indent=1).replace("</", "<\\/")
+    data = {"weeks": weeks, "url": radar_url(), "brand": BRAND.read_text() if BRAND.exists() else ""}
+    payload = json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/")
     template = TEMPLATE.read_text()
     if template.count(PLACEHOLDER) != 1:
         sys.exit(f"{TEMPLATE.name} must contain {PLACEHOLDER} exactly once")
