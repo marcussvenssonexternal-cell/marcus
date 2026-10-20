@@ -103,6 +103,7 @@ radar weeks. The procedure is `.claude/skills/content-bot/SKILL.md`.
 | `bot/template.html` | The page design |
 | `bot/build.py` | Validates topics, gives pack pieces permanent ids, builds `bot/index.html` and the briefs; `--recover` pulls packs back out of the published page |
 | `bot/cover.html`, `bot/cover.js` | LinkedIn article covers (1920×1080): `node content-engine/bot/cover.js <topic>` renders `deep-dives/covers/<piece>.png` from the piece's `cover` spec |
+| `bot/gdoc.py` | Turns a pack piece into HTML for a Google Doc (upload with the Google Drive connector); drafts for review live in Google Docs, linked from the page |
 | `bot/prose_check.py` | Flags likely LLM patterns (em-dash pivots, "it's not X, it's Y", foils, kicker lines) in a draft or a topic's pack |
 
 **Writing style:** every piece of content gets a pass with the `human-prose` skill

@@ -125,17 +125,31 @@ lists (`{"covers/<file>.png": "content-engine/deep-dives/covers/<file>.png"}`). 
 or `capabilities`: omitting `capabilities` keeps the team's picks, edits, Claude redrafting and
 cover downloads working. Never renumber or reorder the pieces of a pack that was already published.
 
-### 6. Save
+### 6. Drafts in Google Docs
+
+Marcus wants drafts in Google Docs. For each piece that is ready for review (always the long
+read), push first so the cover is on GitHub, then run `python3 content-engine/bot/gdoc.py <piece id>`
+and upload its output with the Google Drive connector's `create_file` (`contentMimeType`
+`text/html`, title `Long read draft: <title>` or `Post draft: <title>`). Read it back with
+`read_file_content` to check the headings, links and cover came through. Put open items on the
+piece as `checks` (one line each) before exporting, so the Doc lists them. Save the Doc's link on
+the piece as `googleDoc`, rebuild and republish: the page then shows **Open in Google Docs**.
+
+A piece that already has a `googleDoc` is the team's working copy: never create a second Doc for
+it. Changes go into that Doc with the Google Docs connector; if it isn't on, ask Marcus to turn it
+on rather than making a new file.
+
+### 7. Save
 
 Commit `content-engine/deep-dives/` and push to the branch this session was given, or to
 `claude/content-bot` if it wasn't given one. Never push to `main`. If the push fails, say so: the
 page still holds the pack, and the next run recovers it.
 
-### 7. Report back
+### 8. Report back
 
 A short message: which topic and why (picks), the five pieces with slots and hooks, what needs
 Arash (voice note) or the team (`needs`, `[Team: …]` lines), the riskiest unconfirmed claim, and
-the page link (`deepdives_url#<id>`).
+the page link (`deepdives_url#<id>`) and the Google Doc links.
 
 ## Mode 2: suggest topics
 

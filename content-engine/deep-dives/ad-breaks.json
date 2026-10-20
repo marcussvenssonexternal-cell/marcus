@@ -239,7 +239,13 @@
           "seoDescription": "CTV now prices ad load, attention and emotion. Where a break lands in the story still goes unmeasured. What the research shows, and what to test first.",
           "shareText": "We now put a price on almost everything about a CTV ad break except where it lands in the story.\n\nI went through what the research says about ad load, fit and break position, where the evidence is thin, and the best argument against my view. At the end are the three tests I'd run first if I had an ad tier.\n\nIf you sell CTV inventory, would you charge more for a break you could prove lands at a natural pause?"
         },
-        "final": "2026-10-20"
+        "final": "2026-10-20",
+        "googleDoc": "https://docs.google.com/document/d/1p-wnvd-e-aCsk7CEZ6pRiEiFr8cAsBA2_Stily8wtb4/edit",
+        "checks": [
+          "Arash: confirm the webinar anecdote (a shot that pans into darkness read as a black frame) is how you described it.",
+          "The 41% and 26% recall figures (FreeWheel and MediaScience, 436 participants) appear in one outlet only, ppc.land on 15 September 2026.",
+          "The Nine quote on manual ad approvals comes from one report of Bitmovin's release (Señal News, 14 September 2026)."
+        ]
       },
       {
         "kind": "post",

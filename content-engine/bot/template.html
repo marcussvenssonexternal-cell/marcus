@@ -633,6 +633,7 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
     }
 
     h += '<div class="actions">' + (!editing ? '<button type="button" class="btn" data-act="edit" data-id="' + esc(p.id) + '">' + (writable() ? "Edit" : (S.sample ? "Redraft" : "Edit a copy")) + "</button>" : "") +
+      (safeUrl(p.googleDoc) ? '<a class="btn" href="' + esc(p.googleDoc) + '" target="_blank" rel="noopener">Open in Google Docs</a>' : "") +
       '<button type="button" class="btn quiet" data-act="copy" data-id="' + esc(p.id) + '">Copy text</button>' +
       (PAGE_URL ? '<button type="button" class="btn quiet" data-act="copylink" data-id="' + esc(p.id) + '">Copy link</button>' : "") + "</div>";
 
