@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Deep Dives cover</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* A 1920x1080 LinkedIn article cover: series kicker, headline, and a story's tension curve across the runtime with the piece's marks on it. Rendered to PNG by cover.js. */
+:root {
+  --ink: #14212b;
+  --paper: #f4f6f7;
+  --muted: #93a3ae;
+  --line: #2a3843;
+  --accent: #4fc1c8;
+  --warn: #ff7a5c;
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ink); color: var(--paper); }
+.cover { position: relative; width: 1920px; height: 1080px; padding: 132px 132px 0; }
+.kicker { font: 500 28px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); display: flex; gap: 22px; align-items: center; }
+.kicker span + span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--line); margin-right: 22px; vertical-align: middle; }
+.kicker .by { color: var(--muted); }
+h1 { margin: 40px 0 0; font: 800 92px/1.04 var(--display); letter-spacing: -0.025em; max-width: 1420px; text-wrap: balance; }
+svg { position: absolute; left: 0; bottom: 0; }
+.mark { position: absolute; top: 128px; right: 132px; font: 700 34px/1 var(--display); letter-spacing: -0.01em; color: var(--paper); display: flex; align-items: center; gap: 14px; }
+.mark i { display: inline-grid; grid-template-columns: repeat(3, 8px); gap: 4px; align-items: end; height: 28px; }
+.mark i b { display: block; width: 8px; background: var(--accent); border-radius: 2px; }
+.mark i b:nth-child(1) { height: 12px; } .mark i b:nth-child(2) { height: 28px; } .mark i b:nth-child(3) { height: 20px; }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="kicker" id="kicker"></div>
+  <h1 id="headline"></h1>
+  <svg id="curve" width="1920" height="1080" viewBox="0 0 1920 1080" aria-hidden="true"></svg>
+  <div class="mark"><i><b></b><b></b><b></b></i>Vionlabs</div>
+</div>
+<script>
+// Spec comes from cover.js: {kicker, by, headline, marks: [{at: 0..1, label, tone: "good"|"bad"}]}.
+function draw(spec) {
+  document.getElementById("kicker").innerHTML = "";
+  [spec.kicker, spec.by].filter(Boolean).forEach(function (t, i) {
+    var s = document.createElement("span"); s.textContent = t; if (i) s.className = "by";
+    document.getElementById("kicker").appendChild(s);
+  });
+  document.getElementById("headline").textContent = spec.headline || "";
+
+  // An illustrative tension curve for a 90-minute film: rises, a resolved valley, a long climb to the climax.
+  var P = [[0, .22], [.05, .30], [.10, .26], [.16, .44], [.22, .38], [.28, .60], [.315, .70], [.37, .16], [.43, .30], [.49, .52],
+           [.54, .46], [.60, .60], [.66, .64], [.70, .74], [.74, .86], [.80, .62], [.86, .92], [.92, .40], [1, .24]];
+  var X0 = 132, X1 = 1788, TOP = 700, BASE = 930;
+  function px(p) { return [X0 + p[0] * (X1 - X0), BASE - 18 - p[1] * (BASE - 18 - TOP)]; }
+  var pts = P.map(px);
+  function path(ps) {
+    var d = "M" + ps[0][0].toFixed(1) + " " + ps[0][1].toFixed(1);
+    for (var i = 0; i < ps.length - 1; i++) {
+      var p0 = ps[i - 1] || ps[i], p1 = ps[i], p2 = ps[i + 1], p3 = ps[i + 2] || p2;
+      var c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+      var c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      d += " C" + c1.map(function (v) { return v.toFixed(1); }).join(" ") + " " + c2.map(function (v) { return v.toFixed(1); }).join(" ") + " " + p2[0].toFixed(1) + " " + p2[1].toFixed(1);
+    }
+    return d;
+  }
+  function yAt(x) {
+    for (var i = 0; i < P.length - 1; i++) if (x >= P[i][0] && x <= P[i + 1][0]) {
+      var t = (x - P[i][0]) / (P[i + 1][0] - P[i][0]), s = t * t * (3 - 2 * t);
+      return px([x, P[i][1] + (P[i + 1][1] - P[i][1]) * s])[1];
+    }
+    return BASE;
+  }
+  var line = path(pts);
+  var h = '<defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4fc1c8" stop-opacity="0.28"/><stop offset="1" stop-color="#4fc1c8" stop-opacity="0"/></linearGradient></defs>';
+  h += '<path d="' + line + ' L' + X1 + ' ' + BASE + ' L' + X0 + ' ' + BASE + ' Z" fill="url(#fill)"/>';
+  h += '<path d="' + line + '" fill="none" stroke="#4fc1c8" stroke-width="5" stroke-linecap="round"/>';
+  // Runtime ruler with scene boundaries.
+  h += '<line x1="' + X0 + '" y1="' + BASE + '" x2="' + X1 + '" y2="' + BASE + '" stroke="#2a3843" stroke-width="3"/>';
+  [.04, .09, .13, .19, .25, .3, .35, .41, .46, .51, .57, .63, .68, .72, .77, .83, .89, .95].forEach(function (x) {
+    var X = X0 + x * (X1 - X0);
+    h += '<line x1="' + X + '" y1="' + (BASE - 12) + '" x2="' + X + '" y2="' + (BASE + 12) + '" stroke="#2a3843" stroke-width="3"/>';
+  });
+  ["0:00", "0:30", "1:00", "1:30"].forEach(function (t, i) {
+    var X = X0 + (i / 3) * (X1 - X0);
+    h += '<text x="' + X + '" y="' + (BASE + 52) + '" fill="#93a3ae" font-family="IBM Plex Mono, monospace" font-size="24" text-anchor="' + (i === 0 ? "start" : i === 3 ? "end" : "middle") + '">' + t + "</text>";
+  });
+  (spec.marks || []).forEach(function (m) {
+    var X = X0 + m.at * (X1 - X0), Y = yAt(m.at), good = m.tone === "good";
+    var c = good ? "#4fc1c8" : "#ff7a5c";
+    // Lift the label clear of the curve anywhere under its text.
+    var top = Y;
+    for (var k = -0.09; k <= 0.09; k += 0.005) top = Math.min(top, yAt(Math.max(0, Math.min(1, m.at + k))));
+    var LY = top - 70;
+    h += '<line x1="' + X + '" y1="' + (LY + 18) + '" x2="' + X + '" y2="' + (BASE - 30) + '" stroke="' + c + '" stroke-width="4"' + (good ? "" : ' stroke-dasharray="10 10"') + "/>";
+    h += '<rect x="' + (X - 34) + '" y="' + (BASE - 30) + '" width="68" height="60" rx="8" fill="' + c + '"/>';
+    h += '<text x="' + X + '" y="' + (BASE + 9) + '" fill="#14212b" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="24" text-anchor="middle">AD</text>';
+    h += '<circle cx="' + X + '" cy="' + Y + '" r="11" fill="#14212b" stroke="' + c + '" stroke-width="5"/>';
+    h += '<text x="' + X + '" y="' + LY + '" fill="' + c + '" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="28" text-anchor="middle" letter-spacing="2">' + String(m.label || "").toUpperCase().replace(/[<&>]/g, "") + "</text>";
+  });
+  document.getElementById("curve").innerHTML = h;
+}
+if (window.COVER) draw(window.COVER);
+</script>
+</body>
+</html>

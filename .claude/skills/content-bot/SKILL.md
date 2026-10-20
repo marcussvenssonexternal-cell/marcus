@@ -99,6 +99,9 @@ Quality bar:
 - Every piece lists its own `sources`. `factcheck` lists every claim the pack uses, with status
   `check` (from a summary), `confirmed` (two independent sources, or the source page read) or
   `unconfirmed` (conflicting; keep it out of the copy).
+- Last, give every piece a separate pass with the `human-prose` skill
+  (`.claude/skills/human-prose/SKILL.md`), using `python3 content-engine/bot/prose_check.py
+  content-engine/deep-dives/<id>.json` for hints. Facts, links and placeholders stay as they are.
 - `voiceNote`: 4 to 6 prompts that make the series sound like Arash.
 - `coverage`: searches used, what couldn't be reached, conflicts found, and what was left out
   on purpose.
@@ -109,10 +112,18 @@ Quality bar:
 python3 content-engine/bot/build.py   # validates, gives new pieces their ids, writes bot/index.html and deep-dives/*.md
 ```
 
-Fix anything it reports, then publish with `Artifact`: `file_path` `content-engine/bot/index.html`,
-`url` = `deepdives_url`. Don't pass `icon` or `capabilities`: omitting `capabilities` keeps the
-team's picks, edits and Claude redrafting working. Never renumber or reorder the pieces of a pack
-that was already published.
+The long read gets a LinkedIn cover: give the article piece a `cover` (`image`
+`covers/<piece id>.png`, `kicker`, `by`, `alt`, and two or so `marks` on the tension curve, each
+`{at: 0..1, label, tone: "good" | "bad"}`) and run `node content-engine/bot/cover.js <topic id>`.
+Look at the PNG once before publishing. Also give it `linkedin` fields: `headline`, `seoTitle`
+(60 characters or fewer), `seoDescription` (about 150) and `shareText` (the post that goes out with
+the article).
+
+Fix anything the build reports, then publish with `Artifact`: `file_path`
+`content-engine/bot/index.html`, `url` = `deepdives_url`, and `files` mapping each cover the build
+lists (`{"covers/<file>.png": "content-engine/deep-dives/covers/<file>.png"}`). Don't pass `icon`
+or `capabilities`: omitting `capabilities` keeps the team's picks, edits, Claude redrafting and
+cover downloads working. Never renumber or reorder the pieces of a pack that was already published.
 
 ### 6. Save
 

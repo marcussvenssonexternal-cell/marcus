@@ -64,3 +64,19 @@ Cadence: 2 posts a week. Arash records one voice note a week; the team drafts; A
   "it's important to note", or other generic corporate AI copy
 
 Gut check: would this sound like Arash saying it to a friend at a conference bar?
+
+### Human prose (applies to every post, article, caption and blog)
+
+Write so it reads like careful human prose rather than typical LLM output. Keep the meaning,
+facts and level of detail intact. The full skill is `.claude/skills/human-prose/SKILL.md`.
+
+Avoid these patterns:
+- Negative parallelism: "No X, no Y – just Z", "It's not X, it's Y", "Not only X, but Y". State what is true directly instead of first dismissing what isn't.
+- Easy/hard foils: "Anyone can X. Y is the hard part." Make the point without setting up a straw contrast.
+- Reflexive triads: lists of exactly three items or clauses used for rhythm rather than because there are three things to say.
+- Punchy kicker sentences at the end of paragraphs that restate the point as a lesson or aphorism.
+- Em-dashes (—) used for dramatic pivots or asides; use commas, parentheses, colons, or separate sentences instead.
+
+Vary sentence length naturally, connect ideas with plain logical links (because, so, although)
+where they help, and let paragraphs end when the content ends. Don't add a summary or moral that
+wasn't in the original.

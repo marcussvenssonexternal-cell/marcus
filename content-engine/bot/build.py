@@ -161,6 +161,12 @@ def build():
     OUT.write_text(template.replace(PLACEHOLDER, payload))
     packs = [t["id"] for t in topics if t.get("pack")]
     print(f"Wrote {OUT} with {len(topics)} topic(s); packs: {', '.join(packs) or 'none yet'}")
+    covers = [p["cover"]["image"] for t in topics for p in (t.get("pack") or {}).get("pieces", []) if (p.get("cover") or {}).get("image")]
+    for c in covers:
+        if (TOPICS / c).exists():
+            print(f"Cover to publish with the page: {c} <- {(TOPICS / c).relative_to(HERE.parent.parent)}")
+        else:
+            print(f"Warning: cover {c} is missing; run `node content-engine/bot/cover.js` (the page keeps any copy already published)")
 
 
 def recover(page):

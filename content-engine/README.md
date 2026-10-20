@@ -102,6 +102,12 @@ radar weeks. The procedure is `.claude/skills/content-bot/SKILL.md`.
 | `deep-dives/<id>.md` | The same topic as a readable brief (generated) |
 | `bot/template.html` | The page design |
 | `bot/build.py` | Validates topics, gives pack pieces permanent ids, builds `bot/index.html` and the briefs; `--recover` pulls packs back out of the published page |
+| `bot/cover.html`, `bot/cover.js` | LinkedIn article covers (1920×1080): `node content-engine/bot/cover.js <topic>` renders `deep-dives/covers/<piece>.png` from the piece's `cover` spec |
+| `bot/prose_check.py` | Flags likely LLM patterns (em-dash pivots, "it's not X, it's Y", foils, kicker lines) in a draft or a topic's pack |
+
+**Writing style:** every piece of content gets a pass with the `human-prose` skill
+(`.claude/skills/human-prose/SKILL.md`). The same rules are in `config/brand.md`, so the radar,
+the content bot and the pages' **Redraft with Claude** all follow them.
 
 Picks and the team's work (status, owner, notes, edits) live in the page's shared database, not in
 this repo, and survive every republish. Each person's picks can only be changed by that person.

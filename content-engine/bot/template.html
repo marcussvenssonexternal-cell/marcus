@@ -244,6 +244,13 @@ details.notes > summary { cursor: pointer; font: 600 var(--step--1) var(--font-b
 details.notes > summary::-webkit-details-marker { display: none; }
 details.notes[open] > summary { margin-bottom: 8px; }
 .piece-src { border-top: 1px solid var(--line); padding-top: 12px; }
+figure.cover { margin: 0; display: grid; gap: 8px; }
+figure.cover img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 8px; border: 1px solid var(--line); background: var(--sunk); }
+figure.cover figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; font-size: var(--step--1); color: var(--muted); }
+.fields-li { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) auto; gap: 10px 14px; align-items: start; font-size: var(--step--1); margin: 0; }
+.fields-li dt { font: 500 0.75rem var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding-top: 3px; }
+.fields-li dd { margin: 0; min-width: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.fields-li .n { font: 500 0.6875rem var(--font-mono); color: var(--muted); margin-left: 6px; }
 
 /* Fact-check */
 .table-scroll { overflow-x: auto; }
@@ -271,6 +278,8 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
   .part { grid-template-columns: 2rem minmax(0, 1fr); }
   .part .k { grid-column: 2; justify-content: flex-start; }
   .barlinks { display: none; }
+  .fields-li { grid-template-columns: minmax(0, 1fr) auto; }
+  .fields-li dt { grid-column: 1 / -1; padding-top: 0; }
 }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
@@ -383,13 +392,14 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
     h = h.replace(/\[check\]/g, '<span class="chk">check</span>');
     return h;
   }
-  function md(src) {
+  function md(src, shift) {
+    shift = shift == null ? 1 : shift;
     var blocks = String(src || "").replace(/\r/g, "").split(/\n{2,}/);
     return blocks.map(function (b) {
       b = b.replace(/^\n+|\n+$/g, "");
       if (!b) return "";
       var m = b.match(/^(#{1,4})\s+(.*)$/);
-      if (m && b.indexOf("\n") < 0) { var lv = Math.min(4, m[1].length + 1); return "<h" + lv + ">" + inline(m[2]) + "</h" + lv + ">"; }
+      if (m && b.indexOf("\n") < 0) { var lv = Math.min(4, m[1].length + shift); return "<h" + lv + ">" + inline(m[2]) + "</h" + lv + ">"; }
       var lines = b.split("\n");
       if (lines.every(function (l) { return /^\s*[-*]\s+/.test(l); })) return "<ul>" + lines.map(function (l) { return "<li>" + inline(l.replace(/^\s*[-*]\s+/, "")) + "</li>"; }).join("") + "</ul>";
       if (lines.every(function (l) { return /^\s*\d+[.)]\s+/.test(l); })) return "<ol>" + lines.map(function (l) { return "<li>" + inline(l.replace(/^\s*\d+[.)]\s+/, "")) + "</li>"; }).join("") + "</ol>";
@@ -417,7 +427,7 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
     picks: {},    // user id -> [topic ids]
     local: {},    // piece id -> unsaved {note, draft}
     editing: {}, open: {}, drafting: {},
-    db: null, user: null, me: null, canWrite: null, sample: null,
+    db: null, user: null, me: null, canWrite: null, sample: null, downloads: null,
     pendingRender: false
   };
   function writable() { return !!(S.db && S.canWrite !== false && S.me && S.me.id); }
@@ -596,7 +606,12 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
     h += '<div class="piece-side">' + statusControl(p) + '<span class="actions">' + ownerHtml(p) + "</span></div></div>";
 
     h += '<div class="piece-body"><h2>' + esc(p.title) + "</h2>" + (p.subtitle ? '<p class="sub">' + esc(p.subtitle) + "</p>" : "");
-    h += '<div class="version">' + (team ? '<span>Team version' + (w.updatedAt ? " · saved " + esc(String(w.updatedAt).slice(0, 10)) : "") + "</span>" : "<span>The bot's draft</span>") +
+    if (p.cover && p.cover.image) {
+      h += '<figure class="cover"><img src="' + esc(p.cover.image) + '" alt="' + esc(p.cover.alt || "") + '" width="1920" height="1080" loading="lazy">' +
+        "<figcaption><span>Cover image · 1920×1080 PNG</span>" +
+        (S.downloads ? '<button type="button" class="btn quiet" data-act="dlcover" data-id="' + esc(p.id) + '">Download cover</button>' : "") + "</figcaption></figure>";
+    }
+    h += '<div class="version">' + (team ? '<span>Team version' + (w.updatedAt ? " · saved " + esc(String(w.updatedAt).slice(0, 10)) : "") + "</span>" : "<span>" + (p.final ? "Final draft · fact-checked " + esc(p.final) + " · ready for Arash" : "The bot's draft") + "</span>") +
       (team && writable() ? '<button type="button" class="btn quiet" data-act="revert" data-id="' + esc(p.id) + '">Go back to the bot\'s draft</button>' : "") + "</div>";
 
     if (editing) {
@@ -620,6 +635,17 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
     h += '<div class="actions">' + (!editing ? '<button type="button" class="btn" data-act="edit" data-id="' + esc(p.id) + '">' + (writable() ? "Edit" : (S.sample ? "Redraft" : "Edit a copy")) + "</button>" : "") +
       '<button type="button" class="btn quiet" data-act="copy" data-id="' + esc(p.id) + '">Copy text</button>' +
       (PAGE_URL ? '<button type="button" class="btn quiet" data-act="copylink" data-id="' + esc(p.id) + '">Copy link</button>' : "") + "</div>";
+
+    if (p.linkedin) {
+      var LI = [["headline", "Headline"], ["seoTitle", "SEO title"], ["seoDescription", "SEO description"], ["shareText", "Post text when you publish"], ["coverAlt", "Cover alt text"]];
+      h += '<details class="notes"><summary>Publishing on LinkedIn</summary><dl class="fields-li">';
+      LI.forEach(function (f) {
+        var v = f[0] === "coverAlt" ? (p.cover || {}).alt : p.linkedin[f[0]];
+        if (!v) return;
+        h += "<dt>" + esc(f[1]) + '</dt><dd>' + esc(v) + '<span class="n">' + String(v).length + ' chars</span></dd><dd><button type="button" class="btn quiet" data-act="copyfield" data-id="' + esc(p.id) + '" data-f="' + f[0] + '">Copy</button></dd>';
+      });
+      h += "</dl></details>";
+    }
 
     var note = loc.note != null ? loc.note : (w.note || "");
     h += '<details class="notes"' + (note ? " open" : "") + "><summary>Team notes" + (w.note ? " (1)" : "") + "</summary>";
@@ -791,9 +817,23 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
     else if (act === "copy" && x) {
       var ed = document.getElementById("draft-" + id), src = ed ? ed.value : currentText(x.piece);
       var title = x.piece.kind === "article" ? x.piece.title + "\n\n" : "";
-      copyText(title + plainText(src).replace(/\[check\]/g, "[check]"), x.piece.kind === "article" ? "<h1>" + esc(x.piece.title) + "</h1>" + md(src) : "", b, "Copy text");
+      copyText(title + plainText(src).replace(/\[check\]/g, "[check]"), x.piece.kind === "article" ? "<h1>" + esc(x.piece.title) + "</h1>" + md(src, 0) : "", b, "Copy text");
     }
     else if (act === "copylink") copyText(PAGE_URL + "#" + id, "", b, "Copy link");
+    else if (act === "copyfield" && x) {
+      var f = b.getAttribute("data-f");
+      copyText(f === "coverAlt" ? (x.piece.cover || {}).alt || "" : (x.piece.linkedin || {})[f] || "", "", b, "Copy");
+    }
+    else if (act === "dlcover" && x && S.downloads) {
+      b.disabled = true;
+      fetch(x.piece.cover.image).then(function (r) { if (!r.ok) throw new Error("fetch"); return r.blob(); })
+        .then(function (blob) { return S.downloads.save({ filename: x.piece.id + "-cover.png", data: blob }); })
+        .then(function (res) { if (res && res.status === "saved") toast("Cover saved."); }, function (e) {
+          if (e && e.code === "unavailable") { S.downloads = null; rerenderPiece(id); }
+          else if (!e || e.code !== "declined") toast("Couldn't save the cover. Open it from the repo instead: content-engine/deep-dives/" + x.piece.cover.image);
+        })
+        .then(function () { var bb = document.querySelector('[data-act="dlcover"][data-id="' + id + '"]'); if (bb) bb.disabled = false; });
+    }
     else if (act === "take") saveWork(id, { owner: S.me.id, status: statusOf(id) === "review" ? "editing" : statusOf(id) }).catch(function () {});
     else if (act === "release") saveWork(id, { owner: null }).catch(function () {});
     else if (act === "savenote") {
@@ -858,6 +898,8 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
         scheduleRender();
       }, function () {});
     }).catch(function () { scheduleRender(); });
+
+    C.use("downloads").then(function (d) { if (d) { S.downloads = d; scheduleRender(); } }).catch(function () {});
 
     C.use("sample").then(function (sm) {
       if (!sm) return;

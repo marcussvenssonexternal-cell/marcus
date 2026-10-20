@@ -91,7 +91,8 @@ Anything you couldn't verify (an award, a quote, a number from one search snippe
 
 Quality bar for ideas (6–10 per week):
 - The hook is the post's first line and states the opinion. It follows the voice rules in
-  `brand.md`; none of the banned phrases.
+  `brand.md`; none of the banned phrases. Hooks and angles get a pass with the `human-prose`
+  skill (no "it's not X, it's Y", no em-dash pivots, no aphorism kickers).
 - Each idea cites at least one source it reacts to, and says what Vionlabs can bring
   (a number, a product example, a customer story that is already public, a demo).
 - Spread across the five pillars; at least one idea ties to an upcoming event; at least one is
