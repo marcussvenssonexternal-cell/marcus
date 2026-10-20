@@ -1,0 +1,97 @@
+# What the weekly Content Radar watches. Add, remove or fix entries freely; the next run
+# picks them up. "site" is where the company publishes (blog or newsroom). Leave it empty
+# if unknown and the run will look for it.
+
+radar_url: https://claude.ai/artifact/UKwTmC8DtVMasqkdp3Xa2f
+
+# Web searches are capped per session turn and shared by every research agent.
+# The run splits this budget across its agents; keep the total under ~190.
+search_budget:
+  total: 180
+  per_agent: 30
+
+groups:
+  video_ai:
+    label: Video AI & metadata
+    companies:
+      - { name: Gracenote (Nielsen), site: https://gracenote.com/newsroom/ }
+      - { name: Veritone, site: https://www.veritone.com/newsroom/ }
+      - { name: Moments Lab, site: https://www.momentslab.com/blog }
+      - { name: TwelveLabs, site: https://www.twelvelabs.io/blog }
+      - { name: Media Distillery, site: https://mediadistillery.com/news }
+      - { name: Mimir, site: }
+      - { name: Valossa, site: https://valossa.com }
+      - { name: Imaginario AI, site: https://imaginario.ai/wide-lens/ }
+      - { name: DeepVA (Aiconix), site: https://docs.deepva.com/changelog/ }
+      - { name: PA TV Metadata, site: }
+      - { name: Eon Media, site: }
+      - { name: Metadat-AI, site: }   # not found under this name in week 43; confirm the right URL
+
+  discovery:
+    label: Discovery & personalization
+    companies:
+      - { name: ThinkAnalytics, site: https://thinkanalytics.com }
+      - { name: XroadMedia, site: https://www.xroadmedia.com }
+      - { name: ContentWise, site: https://contentwise.com/news/ }
+      - { name: Mediagenix (ex-Spideo), site: https://www.mediagenix.tv/resources/news/ }
+      - { name: 24i, site: https://www.24i.com }
+      - { name: JUMP, site: https://www.jumptvs.com }
+      - { name: NPAW, site: https://npaw.com/blog/ }
+      - { name: Synamedia, site: https://www.synamedia.com/press/ }
+      - { name: Bitmovin, site: https://bitmovin.com/blog/ }
+      - { name: Accedo, site: }
+
+  ctv_ads:
+    label: CTV ads & context
+    companies:
+      - { name: Wurl, site: }
+      - { name: FreeWheel, site: }
+      - { name: Peer39, site: https://insights.peer39.com }
+      - { name: Magnite / SpringServe, site: }
+      - { name: KERV.ai, site: https://kerv.ai }
+      - { name: Anoki, site: https://anoki.ai }
+      - { name: IRIS.TV, site: https://blog.iris.tv/en }
+      - { name: Yospace, site: }
+    press: [Digiday, AdExchanger, TVREV, Beet.TV, StreamTV Insider, The Media Leader]
+
+  clips:
+    label: Clips, shorts & highlights
+    companies:
+      - { name: WSC Sports, site: }
+      - { name: Magnifi / FanOS Media (Sportz Interactive), site: }
+      - { name: OpusClip, site: https://opus.pro/business/media-and-entertainment }
+      - { name: Comcast Technology Solutions, site: }
+      - { name: Qvest, site: }
+      - { name: Vizrt, site: }
+    also_watch: "Vertical feeds inside streaming apps (Netflix Clips, Disney+ Verts, HBO Max Shorts, Peacock, Tubi Scenes) and microdramas (ReelShort, DramaBox, broadcasters commissioning vertical)."
+
+trade_press:
+  - Streaming Media
+  - TVBEurope
+  - Broadband TV News
+  - Advanced Television
+  - StreamTV Insider
+  - Digital TV Europe
+  - NewscastStudio
+  - TV Technology
+  - CSI Magazine
+  - Rethink TV
+  - Variety / Deadline / The Hollywood Reporter (business of streaming)
+  - Digiday
+  - The Desk
+  - DPP insight
+  - "Research: Nielsen The Gauge, Antenna, Ampere Analysis, MIDiA Research, Parks Associates, HUB Research"
+topics:
+  - churn, retention and default-service behaviour
+  - price rises and bundling
+  - FAST and AVOD growth, especially Europe and news
+  - AI in media (agentic AI, gen-AI search inside streaming UIs, AI labelling, catalogue licensing for AI)
+  - discovery and "too much choice"
+  - European broadcasters' streaming strategies (BBC, ITVX, Channel 4, ProSieben, RTL, TF1+, SVT, NRK, Yle)
+  - consolidation (Skydance/WBD, Sky/ITV)
+  - sports streaming
+
+mentions:
+  keywords: ['"Vionlabs"', '"Arash Pendari"', '"Vionlabs" Curio', '"Vionlabs" "Agentic Layer"', '"Fingerprint+" Vionlabs']
+  people: [Arash Pendari, Viktor Carlsson, Sebastian Hoop, Leona Unrath]
+  partners: [SDVI, CineSys, Embrace, IVORY, Plex, SeaOvers, i-CABLE, Innotech, Great American Media / Pure Flix, Zeam Media, Deutsche Telekom, AWS, Google Cloud, DPP, IAMT]

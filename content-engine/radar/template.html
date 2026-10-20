@@ -1,0 +1,430 @@
+<title>Vionlabs Content Radar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column with a sticky week bar; ideas as a two-up card grid, everything else as ruled lists. */
+:root {
+  --bg: #f4f6f7;
+  --surface: #ffffff;
+  --fg: #14212b;
+  --muted: #5b6a75;
+  --line: #d9e0e4;
+  --accent: #0a6c74;
+  --accent-soft: #e0f0f1;
+  --tally: #c8361d;
+  --ok: #1f7a3f;
+  --warn: #9a6400;
+  --p-product: #0a6c74;
+  --p-trend: #3a5bc7;
+  --p-founder: #9a5b00;
+  --p-bts: #7a4fb0;
+  --p-contrarian: #c8361d;
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-quote: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --step--1: 0.8125rem;
+  --step-0: 0.9375rem;
+  --step-1: 1.125rem;
+  --step-2: 1.375rem;
+  --step-3: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f171d; --surface: #16212a; --fg: #e4ebef; --muted: #93a3ae; --line: #2a3843;
+    --accent: #4fc1c8; --accent-soft: #15343a; --tally: #ff7a5c; --ok: #5fcf88; --warn: #e3b048;
+    --p-product: #4fc1c8; --p-trend: #8ea8ff; --p-founder: #e3b048; --p-bts: #c4a2f2; --p-contrarian: #ff7a5c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f171d; --surface: #16212a; --fg: #e4ebef; --muted: #93a3ae; --line: #2a3843;
+  --accent: #4fc1c8; --accent-soft: #15343a; --tally: #ff7a5c; --ok: #5fcf88; --warn: #e3b048;
+  --p-product: #4fc1c8; --p-trend: #8ea8ff; --p-founder: #e3b048; --p-bts: #c4a2f2; --p-contrarian: #ff7a5c;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 var(--step-0)/1.55 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--surface);
+}
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Week bar */
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--surface); border-bottom: 1px solid var(--line);
+}
+.bar .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; padding-block: 10px; }
+.brand { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+.brand strong { font: 800 var(--step-1)/1 var(--font-display); letter-spacing: -0.01em; }
+.tally { width: 9px; height: 9px; border-radius: 50%; background: var(--tally); align-self: center; box-shadow: 0 0 0 3px color-mix(in srgb, var(--tally) 22%, transparent); }
+.bar nav { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--step--1); flex: 1; }
+.bar nav a { color: var(--muted); text-decoration: none; }
+.bar nav a:hover { color: var(--fg); }
+.weekpick { display: flex; align-items: center; gap: 8px; font: 500 var(--step--1) var(--font-mono); color: var(--muted); }
+.weekpick select {
+  font: 500 var(--step--1) var(--font-mono); color: var(--fg); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px;
+}
+
+/* Lead */
+.lead { padding-block: 36px 28px; display: grid; gap: 18px; }
+.eyebrow { font: 500 var(--step--1)/1.3 var(--font-mono); color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.lead h1 { font-size: var(--step-3); font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; max-width: 30ch; }
+.lead ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; max-width: 72ch; }
+.counts { display: flex; flex-wrap: wrap; gap: 8px 22px; font: 500 var(--step--1) var(--font-mono); color: var(--muted); }
+.counts b { color: var(--fg); font-weight: 500; }
+
+/* Sections */
+section.block { padding-block: 28px; border-top: 1px solid var(--line); scroll-margin-top: 64px; }
+.block-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 16px; }
+.block-head h2 { font-size: var(--step-2); font-weight: 700; letter-spacing: -0.01em; }
+.block-head p { margin: 0; color: var(--muted); font-size: var(--step--1); max-width: 60ch; }
+
+/* Pillar chips */
+.filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; font: 500 var(--step--1)/1 var(--font-body);
+  padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg);
+}
+button.chip { cursor: pointer; }
+button.chip[aria-pressed="true"] { border-color: var(--fg); background: var(--fg); color: var(--bg); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex: none; }
+.dot.product { background: var(--p-product); } .dot.trend { background: var(--p-trend); }
+.dot.founder { background: var(--p-founder); } .dot.bts { background: var(--p-bts); }
+.dot.contrarian { background: var(--p-contrarian); }
+
+/* Idea cards */
+.ideas { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 14px; }
+.idea {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0;
+}
+.idea-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; font-size: var(--step--1); color: var(--muted); }
+.idea-meta .pillar { display: inline-flex; align-items: center; gap: 6px; color: var(--fg); font-weight: 600; }
+.timing { font: 500 0.75rem/1 var(--font-mono); padding: 4px 7px; border-radius: 4px; border: 1px solid currentColor; }
+.timing.now { color: var(--tally); } .timing.month { color: var(--warn); } .timing.evergreen { color: var(--muted); }
+.hook { font: italic 500 var(--step-2)/1.3 var(--font-quote); margin: 0; letter-spacing: -0.005em; }
+.idea p { margin: 0; }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: var(--step--1); }
+.kv dt { color: var(--muted); font-family: var(--font-mono); font-size: 0.75rem; padding-top: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
+.kv dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.idea-foot { margin-top: auto; display: flex; justify-content: flex-end; }
+.copy {
+  font: 500 var(--step--1) var(--font-body); color: var(--accent); background: var(--accent-soft);
+  border: 0; border-radius: 6px; padding: 6px 10px; cursor: pointer;
+}
+
+/* Ruled lists */
+.rows { display: grid; }
+.row { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 6px 24px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.row:first-child { padding-top: 0; }
+.row h3 { font-size: var(--step-1); font-weight: 700; line-height: 1.3; }
+.row p { margin: 0 0 6px; max-width: 72ch; }
+.who { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.who span { font-size: 0.75rem; padding: 2px 7px; border-radius: 4px; background: var(--accent-soft); color: var(--fg); }
+.src { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--step--1); }
+.src time, .mono { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+
+/* Events */
+.event { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 4px 20px; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.event:first-child { padding-top: 0; }
+.when { font: 500 var(--step--1)/1.35 var(--font-mono); }
+.when b { display: block; font-size: var(--step-1); font-weight: 500; }
+.when span { color: var(--muted); }
+.event h3 { font-size: var(--step-1); font-weight: 700; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.status { font: 500 0.75rem/1 var(--font-mono); padding: 4px 7px; border-radius: 4px; border: 1px solid currentColor; text-transform: uppercase; letter-spacing: 0.04em; }
+.status.going { color: var(--ok); } .status.tbd { color: var(--warn); } .status.not-going, .status.recent { color: var(--muted); }
+.event p { margin: 4px 0; max-width: 72ch; }
+.event ul { margin: 6px 0 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+/* Tables */
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: var(--step--1); }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); }
+th { font: 500 0.75rem var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+td.num { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.action { font: 500 0.75rem var(--font-mono); white-space: nowrap; }
+.newtag { font: 500 0.6875rem/1 var(--font-mono); color: var(--tally); margin-left: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+.group-label td { font: 600 var(--step--1) var(--font-display); padding-top: 20px; color: var(--accent); border-bottom-color: var(--fg); }
+td ul { margin: 0; padding-left: 1em; display: grid; gap: 4px; }
+
+.note { color: var(--muted); font-size: var(--step--1); }
+.coverage ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; max-width: 80ch; color: var(--muted); font-size: var(--step--1); }
+footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--step--1); }
+.empty { color: var(--muted); font-style: italic; }
+
+@media (max-width: 720px) {
+  .row { grid-template-columns: 1fr; }
+  .event { grid-template-columns: 1fr; }
+  .when b { display: inline; margin-right: 8px; }
+  .bar nav { order: 3; flex-basis: 100%; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+  .bar nav a { white-space: nowrap; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand"><span class="tally" aria-hidden="true"></span><strong>Content Radar</strong></div>
+    <nav aria-label="Sections">
+      <a href="#ideas">Ideas</a><a href="#gaps">Gaps</a><a href="#themes">Competitors</a>
+      <a href="#events">Events</a><a href="#mentions">Mentions</a><a href="#stats">Stats</a><a href="#feed">Feed</a>
+    </nav>
+    <label class="weekpick" for="week">Week <select id="week"></select></label>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<footer>
+  <div class="wrap" id="foot"></div>
+</footer>
+
+<script type="application/json" id="radar-data">/*RADAR_DATA*/</script>
+<script>
+(function () {
+  var data = JSON.parse(document.getElementById("radar-data").textContent);
+  var weeks = (data.weeks || []).slice().sort(function (a, b) { return a.week < b.week ? 1 : -1; });
+  var app = document.getElementById("app");
+  var pick = document.getElementById("week");
+
+  var PILLARS = [
+    { key: "product", name: "Product & AI Insight" },
+    { key: "trend", name: "Industry Trend Commentary" },
+    { key: "founder", name: "Founder POV / Build Lessons" },
+    { key: "bts", name: "Behind the Scenes" },
+    { key: "contrarian", name: "Opinion / Contrarian Take" }
+  ];
+  function pillarKey(name) {
+    var n = String(name || "").toLowerCase();
+    if (n.indexOf("product") > -1) return "product";
+    if (n.indexOf("trend") > -1 || n.indexOf("industry") > -1) return "trend";
+    if (n.indexOf("founder") > -1) return "founder";
+    if (n.indexOf("behind") > -1) return "bts";
+    if (n.indexOf("contrarian") > -1 || n.indexOf("opinion") > -1) return "contrarian";
+    return "";
+  }
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function safeUrl(u) { return /^https?:\/\//i.test(String(u || "")) ? String(u) : ""; }
+  function link(label, url) {
+    var u = safeUrl(url);
+    return u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(label) + "</a>" : esc(label);
+  }
+  function sources(list) {
+    if (!list || !list.length) return "";
+    return '<div class="src">' + list.map(function (s) {
+      return "<span>" + link(s.label || s.title || "Source", s.url) + (s.date ? ' <time>' + esc(s.date) + "</time>" : "") + "</span>";
+    }).join("") + "</div>";
+  }
+  function timingClass(t) {
+    var n = String(t || "").toLowerCase();
+    if (n.indexOf("week") > -1 || n.indexOf("now") > -1) return "now";
+    if (n.indexOf("month") > -1) return "month";
+    return "evergreen";
+  }
+  function daysUntil(iso, today) {
+    if (!iso) return null;
+    var a = new Date(iso + "T00:00:00Z"), b = new Date(today + "T00:00:00Z");
+    if (isNaN(a) || isNaN(b)) return null;
+    return Math.round((a - b) / 86400000);
+  }
+  var MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  function dayLabel(ev) {
+    if (!ev.start || ev.start.length < 10) return '<b>' + esc(ev.dates || ev.start || "TBC") + "</b>";
+    var s = ev.start, e = ev.end || ev.start;
+    var m1 = MONTHS[+s.slice(5, 7) - 1], m2 = MONTHS[+e.slice(5, 7) - 1];
+    var d1 = s.slice(8, 10), d2 = e.slice(8, 10);
+    var range = s === e ? d1 : (m1 === m2 ? d1 + "–" + d2 : d1 + " " + m1 + "–" + d2);
+    return "<b>" + range + "</b> " + (m1 === m2 || s === e ? m1 : m2) + " " + s.slice(0, 4);
+  }
+
+  var filter = "";
+
+  function render(w) {
+    var today = w.generated;
+    var ideas = w.ideas || [];
+    var upcoming = (w.events || []).filter(function (e) { return e.status !== "recent"; });
+    var next = upcoming.filter(function (e) { return e.status === "going" && daysUntil(e.start, today) >= 0; })
+      .sort(function (a, b) { return a.start < b.start ? -1 : 1; })[0];
+
+    var html = "";
+    html += '<section class="lead" aria-labelledby="headline">';
+    html += '<div class="eyebrow">' + esc(w.week) + " · generated " + esc(w.generated) + (w.window ? " · window " + esc(w.window) : "") + "</div>";
+    html += '<h1 id="headline">' + esc(w.headline) + "</h1>";
+    if (w.summary && w.summary.length) html += "<ul>" + w.summary.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ul>";
+    html += '<div class="counts"><span><b>' + ideas.length + "</b> content ideas</span><span><b>" + (w.gaps || []).length +
+      "</b> gaps</span><span><b>" + (w.mentions || []).length + "</b> mentions</span>" +
+      (next ? "<span>next event <b>" + esc(next.name) + "</b> in <b>" + daysUntil(next.start, today) + "</b> days</span>" : "") + "</div>";
+    html += "</section>";
+
+    // Ideas
+    html += '<section class="block" id="ideas"><div class="block-head"><h2>Content ideas</h2><p>Ready for the weekly draft. Each hook is written as a first line; the sources are what it reacts to.</p></div>';
+    var used = PILLARS.filter(function (p) { return ideas.some(function (i) { return pillarKey(i.pillar) === p.key; }); });
+    if (used.length > 1) {
+      html += '<div class="filters" role="group" aria-label="Filter by pillar"><button type="button" class="chip" data-f="" aria-pressed="' + (filter === "") + '">All</button>' +
+        used.map(function (p) { return '<button type="button" class="chip" data-f="' + p.key + '" aria-pressed="' + (filter === p.key) + '"><span class="dot ' + p.key + '"></span>' + esc(p.name) + "</button>"; }).join("") + "</div>";
+    }
+    html += '<div class="ideas">';
+    ideas.forEach(function (i, n) {
+      var k = pillarKey(i.pillar);
+      if (filter && k !== filter) return;
+      html += '<article class="idea">';
+      html += '<div class="idea-meta"><span class="pillar"><span class="dot ' + k + '"></span>' + esc(i.pillar) + "</span>" +
+        (i.format ? "<span>" + esc(i.format) + "</span>" : "") +
+        (i.timing ? '<span class="timing ' + timingClass(i.timing) + '">' + esc(i.timing) + "</span>" : "") + "</div>";
+      html += '<p class="hook" id="hook-' + n + '">' + esc(i.hook) + "</p>";
+      if (i.angle) html += "<p>" + esc(i.angle) + "</p>";
+      html += '<dl class="kv">';
+      if (i.proof) html += "<dt>Bring</dt><dd>" + esc(i.proof) + "</dd>";
+      if (i.event) html += "<dt>Event</dt><dd>" + esc(i.event) + "</dd>";
+      if (i.reactsTo && i.reactsTo.length) html += "<dt>Reacts to</dt><dd>" + sources(i.reactsTo) + "</dd>";
+      html += "</dl>";
+      html += '<div class="idea-foot"><button type="button" class="copy" data-hook="' + n + '">Copy hook</button></div>';
+      html += "</article>";
+    });
+    if (!ideas.length) html += '<p class="empty">No ideas this week.</p>';
+    html += "</div></section>";
+
+    // Gaps
+    html += '<section class="block" id="gaps"><div class="block-head"><h2>Gaps nobody is covering</h2><p>White space in what competitors publish, where Vionlabs has standing to speak.</p></div><div class="rows">';
+    (w.gaps || []).forEach(function (g) {
+      html += '<div class="row"><h3>' + esc(g.title) + "</h3><div><p>" + esc(g.detail) + "</p>" + sources(g.evidence) + "</div></div>";
+    });
+    if (!(w.gaps || []).length) html += '<p class="empty">No gaps recorded.</p>';
+    html += "</div></section>";
+
+    // Themes
+    html += '<section class="block" id="themes"><div class="block-head"><h2>What competitors are saying</h2><p>Recurring themes across blogs, newsrooms and public LinkedIn posts.</p></div><div class="rows">';
+    (w.themes || []).forEach(function (t) {
+      html += '<div class="row"><div><h3>' + esc(t.title) + "</h3>" +
+        (t.who && t.who.length ? '<div class="who">' + t.who.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div>" : "") +
+        "</div><div><p>" + esc(t.detail) + "</p>" + sources(t.sources) + "</div></div>";
+    });
+    html += "</div></section>";
+
+    // Events
+    var evs = (w.events || []).slice().sort(function (a, b) { return String(a.start) < String(b.start) ? -1 : 1; });
+    var ahead = evs.filter(function (e) { return e.status !== "recent"; });
+    var past = evs.filter(function (e) { return e.status === "recent"; });
+    html += '<section class="block" id="events"><div class="block-head"><h2>Events</h2><p>From the Notion event calendar, with what each one is about and hooks for before, during and after.</p></div><div>';
+    ahead.concat(past).forEach(function (e) {
+      var d = daysUntil(e.start, today);
+      var rel = e.status === "recent" ? "recap" : (d == null ? "" : d < 0 ? "on now" : d === 0 ? "today" : "in " + d + " days");
+      html += '<div class="event"><div class="when">' + dayLabel(e) + (rel ? "<br><span>" + esc(rel) + "</span>" : "") + "</div><div>";
+      html += "<h3>" + link(e.name, e.url) + ' <span class="status ' + esc(e.status || "") + '">' + esc((e.status || "").replace("-", " ")) + "</span></h3>";
+      var line = [e.city, e.role].filter(Boolean).join(" · ");
+      if (line) html += '<p class="note">' + esc(line) + "</p>";
+      if (e.agenda) html += "<p>" + esc(e.agenda) + "</p>";
+      if (e.hashtag) html += '<p class="mono">' + esc(e.hashtag) + "</p>";
+      if (e.hooks && e.hooks.length) html += "<ul>" + e.hooks.map(function (h) { return "<li>" + esc(h) + "</li>"; }).join("") + "</ul>";
+      html += "</div></div>";
+    });
+    html += "</div></section>";
+
+    // Mentions
+    html += '<section class="block" id="mentions"><div class="block-head"><h2>Mentions</h2><p>Public posts and articles naming Vionlabs or Arash. LinkedIn only shows what search engines index, so treat this as a partial view.</p></div>';
+    if ((w.mentions || []).length) {
+      html += '<div class="table-scroll"><table><thead><tr><th>Date</th><th>Who / where</th><th>What was said</th><th>Do</th></tr></thead><tbody>';
+      w.mentions.forEach(function (m) {
+        html += '<tr><td class="mono">' + esc(m.date) + "</td><td>" + link(m.who, m.url) + '<br><span class="note">' + esc(m.where) + "</span></td><td>" + esc(m.summary) + '</td><td class="action">' + esc(m.action || "") + "</td></tr>";
+      });
+      html += "</tbody></table></div>";
+    } else {
+      html += '<p class="empty">No new public mentions found this week.</p>';
+    }
+    html += "</section>";
+
+    // Stats
+    html += '<section class="block" id="stats"><div class="block-head"><h2>Stats bank</h2><p>Fresh, sourced numbers to anchor posts. Check the source before quoting.</p></div>';
+    if ((w.stats || []).length) {
+      html += '<div class="table-scroll"><table><thead><tr><th>Number</th><th>What it measures</th><th>Source</th></tr></thead><tbody>';
+      w.stats.forEach(function (s) {
+        html += '<tr><td class="num">' + esc(s.value) + "</td><td>" + esc(s.what) + "</td><td>" + link(s.source, s.url) + (s.date ? ' <span class="mono">' + esc(s.date) + "</span>" : "") + "</td></tr>";
+      });
+      html += "</tbody></table></div>";
+    }
+    html += "</section>";
+
+    // Feed
+    html += '<section class="block" id="feed"><div class="block-head"><h2>Competitor feed</h2><p>Latest blog and newsroom items per company. <span class="newtag">new</span> marks a company with something new since last week.</p></div>';
+    var groups = [];
+    (w.competitors || []).forEach(function (c) { if (groups.indexOf(c.group) < 0) groups.push(c.group); });
+    html += '<div class="table-scroll"><table><thead><tr><th>Company</th><th>Latest items</th><th>Core message</th></tr></thead><tbody>';
+    groups.forEach(function (g) {
+      html += '<tr class="group-label"><td colspan="3">' + esc(g) + "</td></tr>";
+      w.competitors.filter(function (c) { return c.group === g; }).forEach(function (c) {
+        html += "<tr><td><strong>" + esc(c.name) + "</strong>" + (c.new ? '<span class="newtag">new</span>' : "") + "</td><td><ul>" +
+          (c.latest || []).map(function (l) { return "<li>" + link(l.title, l.url) + (l.date ? ' <span class="mono">' + esc(l.date) + "</span>" : "") + "</li>"; }).join("") +
+          "</ul></td><td>" + esc(c.message) + "</td></tr>";
+      });
+    });
+    html += "</tbody></table></div></section>";
+
+    // Coverage
+    if ((w.coverage || []).length) {
+      html += '<section class="block coverage" id="coverage"><div class="block-head"><h2>How this was made</h2></div><ul>' +
+        w.coverage.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul></section>";
+    }
+
+    app.innerHTML = html;
+    document.getElementById("foot").textContent =
+      "Content Radar for the Vionlabs content team. Updated weekly from competitor blogs, newsrooms, public LinkedIn posts, trade press and the Notion event calendar.";
+  }
+
+  function current() {
+    var v = pick.value;
+    for (var i = 0; i < weeks.length; i++) if (weeks[i].week === v) return weeks[i];
+    return weeks[0];
+  }
+
+  pick.innerHTML = weeks.map(function (w) { return '<option value="' + esc(w.week) + '">' + esc(w.week) + "</option>"; }).join("");
+  pick.addEventListener("change", function () { filter = ""; render(current()); });
+
+  app.addEventListener("click", function (e) {
+    var chip = e.target.closest("button.chip");
+    if (chip) { filter = chip.getAttribute("data-f"); render(current()); return; }
+    var btn = e.target.closest("button.copy");
+    if (btn) {
+      var el = document.getElementById("hook-" + btn.getAttribute("data-hook"));
+      var text = el ? el.textContent : "";
+      var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy hook"; }, 1600); };
+      var fallback = function () {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = "Selected, press copy";
+      };
+      try {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } catch (err) { fallback(); }
+    }
+  });
+
+  if (weeks.length) render(weeks[0]);
+  else app.innerHTML = '<p class="empty" style="padding-block:40px">No weeks published yet. The first weekly run fills this page.</p>';
+})();
+</script>

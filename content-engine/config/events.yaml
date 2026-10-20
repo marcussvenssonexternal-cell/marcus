@@ -1,0 +1,100 @@
+# Fallback snapshot of the Notion "Event Calendar" (Events & Conferences Planning).
+# Source of truth is Notion: https://app.notion.com/p/2f00081c16a080a78eaae740c7c09f59
+# The weekly run reads Notion when the connector is available and only falls back to this
+# file when it isn't. Snapshot taken 2026-10-20.
+#
+# status: going | tbd | not-going   (Notion "Attendance")
+# role:   what Vionlabs does there  (Notion "Comment" / "Priority")
+
+upcoming:
+  - name: NAB Show New York
+    start: 2026-10-21
+    end: 2026-10-22
+    city: New York
+    status: tbd
+    role: "Explore who attends; last year heavy on sports and news"
+
+  - name: Satis
+    start: 2026-11-04
+    end: 2026-11-05
+    city: Paris
+    status: going
+    people: [Viktor, David, "Nancy (tbc)"]
+    role: "Booth together with Embrace"
+
+  - name: DPP Leaders' Briefing
+    start: 2026-11-17
+    end: 2026-11-18
+    city: London
+    status: going
+    people: ["Viktor (tbc)", David, "Arash (tbc)"]
+    role: "Exhibition stand + 1-minute pitch on main stage"
+
+  - name: AWS re:Invent
+    start: 2026-11-30
+    end: 2026-12-04
+    city: Las Vegas
+    status: tbd
+    role: "Check whether Embrace / Codemill are going"
+
+  - name: Content London
+    start: 2026-11-30
+    end: 2026-12-03
+    city: London
+    status: tbd
+
+  - name: IAMT London Conference & Awards
+    start: 2026-12-01
+    end: 2026-12-02
+    city: London
+    status: tbd
+    role: "Tied to IAMT membership; good for meeting the industry"
+
+  - name: The TV of Tomorrow Show
+    start: 2026-12-02
+    end: 2026-12-03
+    city: San Francisco
+    status: tbd
+    role: "AI's impact on TV and advertising expected to be a major topic"
+
+  - name: The Future of TV Advertising Global
+    start: 2026-12-08
+    end: 2026-12-09
+    city: London
+    status: tbd
+
+  - name: OTT Question Time Live 2027
+    start: 2027-01-26
+    end: 2027-01-27
+    city: London
+    status: tbd
+
+  - name: HPA Tech Retreat
+    start: 2027-02-14
+    end: 2027-02-17
+    status: going
+    role: "Possible Innovation Zone booth"
+
+  - name: NAB Show
+    start: 2027-04
+    city: Las Vegas
+    status: going
+    role: "Must attend"
+
+  - name: Stream TV Europe
+    start: 2027-04-20
+    end: 2027-04-22
+    status: going
+
+recent:
+  - name: IBC
+    start: 2026-09-11
+    end: 2026-09-14
+    city: Amsterdam
+    role: "Exhibited + panel discussion; DPP Espresso Summit and DPP drinks side events"
+
+  - name: SET Expo
+    start: 2026-08-17
+    end: 2026-08-20
+    city: São Paulo
+    role: "Exhibited + panel discussion"
