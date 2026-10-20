@@ -21,6 +21,23 @@ about lights up in turn:
 - **Build:** `python3 build_curio.py`, and `CURIO_BLUR=1 python3 build_curio.py` for the blurred set.
 - **Hero sync:** if the hero Lottie and the headline start together, they stay in step (8.4 s = 3 × 2.8 s).
 
+## Agentic Layer landing page (`agentic-*`)
+
+Same approach as Curio, for the Agentic Layer page. One "Space Night" campaign runs through
+every visual:
+
+| File | Page slot | Length | What it shows |
+| --- | --- | --- | --- |
+| `agentic-hero` | Hero visual | 8.4 s, 1920×1080 | A request is typed into the agent and sent. Then its three results light up in turn, **Curated Lists → Clips in Every Ratio → Branded Thumbnails**, with the agent's replies building up in the conversation. It ends on "Approve & publish". Same 252-frame timing as `curio-hero` (beats at 61 / 99 / 183, hold frame 90), so the page's rotating headline drives it without script changes. Markers: `curated-lists`, `clips-in-every-ratio`, `branded-thumbnails` |
+| `agentic-curated-lists` | What the agent does: Curated Lists | 8 s, 1280×720 | The Curation Agent ranks five titles by relevance; the highlight walks down the list |
+| `agentic-clips` | What the agent does: Clips in Every Ratio | still, 1280×720 | One Interstellar scene cut for TV (16:9), social feeds (1:1) and Shorts & TikTok (9:16) |
+| `agentic-branded-thumbnails` | What the agent does: Branded Thumbnails | still, 1280×720 | Thumbnails for three titles with each title's lettering placed, exports in three ratios, and "Approve & publish" |
+
+- **Stills and posters:** `stills/agentic-*` (2560×1440) and `posters/agentic-*` (the frame shown before an animation loads, or instead of it with reduced motion) are rendered by `./render_stills.sh`.
+- **Previews:** `previews/agentic-hero.mp4`, `previews/agentic-curated-lists.mp4`.
+- **Build:** `python3 build_agentic.py`. It reuses the Curio UI pieces (`curio_ui.py`, `build_curio.py`) and artwork.
+- The relevance scores, timecodes and title lettering are illustrative, like the rest of the demo UI.
+
 ## Vionlabs version (`vionlabs-recommendations.*`)
 
 16 s, styled after the Vionlabs demo UI, using the movies from the demo recording:

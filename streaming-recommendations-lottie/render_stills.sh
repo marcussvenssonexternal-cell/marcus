@@ -22,3 +22,19 @@ PY
     echo "stills/$name$variant.{webp,jpg}"
   done
 done
+# Agentic Layer page: section stills, plus posters shown before (or instead of) each animation
+for spec in agentic-clips:60:2560:stills agentic-branded-thumbnails:60:2560:stills \
+            agentic-hero:90:1920:posters agentic-curated-lists:60:2560:posters; do
+  IFS=: read -r name frame width dir <<<"$spec"
+  mkdir -p "$dir"
+  node render_preview.cjs "$name.json" "$tmp/$name" --width "$width" --frames "$frame" >/dev/null
+  python3 - "$tmp/$name/frame_$(printf %04d "$frame").png" "$dir/$name" <<'PY'
+import sys
+from PIL import Image
+src, out = sys.argv[1], sys.argv[2]
+im = Image.open(src).convert("RGB")
+im.save(out + ".webp", quality=88, method=6)
+im.save(out + ".jpg", quality=88, optimize=True, progressive=True)
+PY
+  echo "$dir/$name.{webp,jpg}"
+done
