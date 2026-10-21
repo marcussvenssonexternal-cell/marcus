@@ -471,78 +471,97 @@ def build_hero():
 
 # --------------------------------------------------------------- hero, v2 draft
 #
-# Chat first: a single chat card in the middle, the request typed one letter at a
-# time; on send the chat docks to the right and the workspace unfolds to its left
-# (the Creative Agent's own layout), then the results stream in and get approved.
-# Loops on its own (13 s); it is not tied to a rotating headline.
+# Chat first, with no frame: the question, the input and three suggestions sit
+# straight on the page. The request is typed one letter at a time and each
+# suggestion lights up as its words are typed. On send the input grows into the
+# chat panel, docked right, while the workspace unfolds to its left (the Creative
+# Agent's own layout); then the results stream in and get approved.
+# Transparent background, so it sits on the page; loops on its own (13 s).
 
 PROMPT2 = "Build a Space Night line-up with clips and branded thumbnails"
-SUGGESTIONS = ["Find every rooftop scene in Paris", "Make it 9:16", "A cozier Friday line-up"]
 REPLIES2 = REPLIES + [("publish", "Published 9 assets to the Space Night campaign.")]
 
+# Material Design icons (Apache 2.0)
+I_MOVIE = ("M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 "
+           "2-.9 2-2V4h-4z")
+I_IMAGE = ("M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 "
+           "3.01L14.5 12l4.5 6H5l3.5-4.5z")
+# (icon, label, the words in the request that pick it)
+SUGGESTIONS = [(I_LIST, "A Space Night line-up", "line-up"),
+               (I_MOVIE, "Clips for TV and mobile", "clips"),
+               (I_IMAGE, "Branded thumbnails", "thumbnails")]
 
-def typewriter(m, name, text, size, x0, base, t0, op, parent=None):
-    """Reveals `text` one character at a time (spaces take a beat longer).
 
-    Returns the frame typing ends and the caret's keyframes."""
-    t, mk, ck = t0, [], []
-    for j in range(len(text) + 1):
+def type_times(text, t0):
+    """Frame at which each prefix of `text` is shown; spaces take a beat longer."""
+    ts = [t0]
+    for ch in text:
+        ts.append(ts[-1] + (2 if ch == " " else 1))
+    return ts
+
+
+def typewriter(m, name, text, size, x0, base, ts, op, parent=None):
+    """Reveals `text` one character at a time on the frames in `ts`; returns the caret's keyframes."""
+    mk, ck = [], []
+    for j, t in enumerate(ts):
         w = REG.width(text[:j], size) if j else 0
         mk.append((t, rrect(x0 - 2, base - 24, w + 4 if j else 0.1, 32, 0), "hold"))
         ck.append((t, [x0 + w + 2, base - 7], "hold"))
-        if j < len(text):
-            t += 2 if text[j] == " " else 1
-    m.shape(name, [REG.text(text, size, x0, base)], ip=t0, op=op, parent=parent, masks=[mask(anim(mk))])
-    return t, ck
+    m.shape(name, [REG.text(text, size, x0, base)], ip=ts[0], op=op, parent=parent, masks=[mask(anim(mk))])
+    return ck
+
+
+def suggestion_chip(icon_d, label, x, y, lit=False):
+    size, h = 18, 50
+    w = MED.width(label, size) + 74
+    items = [group([rect(w, h, x + w / 2, y + h / 2, h / 2),
+                    fill("#13233f" if lit else "#ffffff", 100 if lit else 4),
+                    stroke(FOCUS if lit else "#ffffff", 1.4, 100 if lit else 14)]),
+             group([ellipse(34, 34, x + 30, y + h / 2), fill(FOCUS, 30 if lit else 14)]),
+             icon(icon_d, 18, x + 30, y + h / 2, color=FOCUS),
+             MED.text(label, size, x + 56, y + h / 2 + size * 0.36, "#ffffff" if lit else "#c9d1de")]
+    return bf(items), w
+
+
+CHAT_START = (960 - 552 / 2, 524, 552, 128)    # the input at the start: centred, no panel around it
 
 
 def hero2_chat(m, T, cam):
-    """The chat: a card in the middle that docks to the right as the workspace opens."""
-    px, py, pw, ph = 1280, 100, 600, 944        # docked
-    sx, sy, sh = 660, 330, 420                  # the opening card
+    """The chat: frameless in the middle, then grown into a panel docked on the right."""
+    px, py, pw, ph = 1280, 100, 600, 944        # the docked panel
+    ix, iw, ih = px + 24, pw - 48, 128          # its input
+    iy = py + ph - 24 - ih
+    sx, sy = CHAT_START[:2]
     e0, e1 = T["expand"]
 
-    def dock(dy):
-        return layer_ks(p=anim([(0, [sx - px, dy], "hold"), (e0, [sx - px, dy], "smooth"), (e1, [0, 0])]))
+    def move(start, end):
+        return anim([(0, start, "hold"), (e0, start, "smooth"), (e1, end)])
 
-    m.shape("card-glow", [group([ellipse(1100, 760, 960, 540), gfill([(0, "#1d4fa8", 0.55), (1, BG, 0)],
-                                                                      (960, 540), (1510, 540), radial=True)])],
+    m.shape("glow", [group([ellipse(1400, 1400, 960, 560), gfill([(0, "#1d4fa8", 0.32), (0.55, "#1d4fa8", 0.1),
+                                                                  (1, "#1d4fa8", 0)],
+                                                                 (960, 560), (1660, 560), radial=True)])],
             parent=cam, ks=layer_ks(o=anim([(0, [100]), (e0, [100]), (e1, [0])])))
+
+    # the panel grows out of the input
     m.shape("chat-panel", [group([
-        rect(anim([(e0, [pw, sh], "smooth"), (e1, [pw, ph])]), 0,
-             anim([(e0, [sx + pw / 2, sy + sh / 2], "smooth"), (e1, [px + pw / 2, py + ph / 2])]), 0, 18),
-        fill(PANEL), stroke("#ffffff", 1.2, 12)])], parent=cam)
-    top = m.null("chat-top", ks=dock(sy - py), parent=cam)
-    iy = py + ph - 24 - 128                     # the input, at the bottom of the panel
-    bottom = m.null("chat-bottom", ks=dock(sy + sh - 24 - 128 - iy), parent=cam)
+        rect(move([iw, ih], [pw, ph]), 0, move([sx + iw / 2, sy + ih / 2], [px + pw / 2, py + ph / 2]), 0, 16),
+        fill(PANEL), stroke("#ffffff", 1.2, 12)])], parent=cam, ip=e0,
+        ks=layer_ks(o=anim([(e0, [0]), (e0 + 8, [100])])))
+    # the agent's mark leads the opening, then becomes the panel's header
+    m.shape("chat-mark", bf([group([rect(38, 38, px + 47, py + 44, 10), fill("#1d2a44")]),
+                             icon(I_SPARKLE, 22, px + 47, py + 44, color=FOCUS)]), parent=cam,
+            ks=layer_ks(a=(px + 47, py + 44), p=move([960, 380], [px + 47, py + 44]),
+                        s=move([132, 132], [100, 100])))
+    m.shape("chat-title", [SEMI.text("Vionlabs Agentic Layer", 21, px + 78, py + 52)], parent=cam,
+            ks=layer_ks(o=anim([(0, [0]), (e1 - 8, [0]), (e1 + 2, [100])])))
+    m.shape("greeting", [SEMI.text("What do you need from your library?", 36, 960, 462, align="center"),
+                         REG.text("Lists, clips and artwork, ready for you to review.", 21, 960, 498, MUTED,
+                                  align="center")],
+            parent=cam, ks=layer_ks(o=anim([(0, [100]), (T["send"] - 2, [100]), (T["send"] + 4, [0])])))
 
-    m.shape("chat-head", bf([
-        group([rect(38, 38, px + 47, py + 44, 10), fill("#1d2a44")]),
-        icon(I_SPARKLE, 22, px + 47, py + 44, color=FOCUS),
-        SEMI.text("Vionlabs Agentic Layer", 21, px + 78, py + 52),
-    ]), parent=top)
-    m.shape("greeting", [SEMI.text("What do you need from your library?", 30, px + 28, py + 150),
-                         REG.text("Lists, clips and artwork, ready for you to review.", 20, px + 28, py + 186, MUTED)],
-            parent=top, ks=layer_ks(o=anim([(0, [100]), (T["send"] - 4, [100]), (T["send"] + 1, [0])])))
-
-    # suggestions under the card, gone once typing starts
-    x, chips = 0, []
-    for s in SUGGESTIONS:
-        g, w = pill(s, 0, 0, size=17, h=38, color="#ffffff", fill_o=4, edge="#ffffff", edge_o=16, pad=16,
-                    text_color="#c9d1de")
-        chips.append((g, w))
-        x += w + 10
-    x = 960 - (x - 10) / 2
-    items = [MED.text("Try asking", 16, 960, sy + sh + 48, MUTED, align="center", tracking=0.08)]
-    for g, w in chips:
-        items.append(group(g, p=(x, sy + sh + 72)))
-        x += w + 10
-    m.shape("suggestions", items, parent=cam,
-            ks=layer_ks(o=anim([(0, [100]), (T["type"], [100]), (T["type"] + 10, [0])])))
-
-    # the input, typed into one letter at a time
-    ix, iw, ih = px + 24, pw - 48, 128
-    m.shape("input", [group([rect(iw, ih, ix + iw / 2, iy + ih / 2, 14), fill(INPUT), stroke("#ffffff", 1.2, 14)])],
+    # the input, typed into one letter at a time; it moves with the panel
+    bottom = m.null("input-dock", parent=cam, ks=layer_ks(p=move([sx - ix, sy - iy], [0, 0])))
+    m.shape("input", [group([rect(iw, ih, ix + iw / 2, iy + ih / 2, 14), fill(INPUT), stroke("#ffffff", 1.2, 16)])],
             parent=bottom)
     m.shape("input-focus", [group([rect(iw, ih, ix + iw / 2, iy + ih / 2, 14), stroke(FOCUS, 1.6)])], parent=bottom,
             ks=layer_ks(o=anim([(0, [0]), (T["type"] - 6, [0]), (T["type"], [80]), (T["send"], [80]),
@@ -550,48 +569,68 @@ def hero2_chat(m, T, cam):
     m.shape("placeholder", [REG.text("Describe what you need…", 21, ix + 22, iy + 44, MUTED, o=80)], parent=bottom,
             op=T["type"])
     m.shape("placeholder-after", [REG.text("Ask a follow-up…", 21, ix + 22, iy + 44, MUTED, o=80)], parent=bottom,
-            ip=T["send"] + 2, ks=layer_ks(o=vis(T["send"] + 2)))
+            ip=e1, ks=layer_ks(o=vis(e1)))
     size, lh, x0 = 21, 30, ix + 22
-    t, caret = T["type"], []
+    t, caret, typed_at = T["type"], [], {}
     for k, line in enumerate(wrap(REG, PROMPT2, size, iw - 104)):
-        t, keys = typewriter(m, f"typed {k}", line, size, x0, iy + 42 + k * lh, t, T["send"], parent=bottom)
-        caret += keys
-        t += 2                                  # the space at the line break
+        ts = type_times(line, t)
+        caret += typewriter(m, f"typed {k}", line, size, x0, iy + 42 + k * lh, ts, T["send"], parent=bottom)
+        for _, _, word in SUGGESTIONS:
+            if word in line and word not in typed_at:
+                typed_at[word] = ts[line.index(word) + len(word)]
+        t = ts[-1] + 2                          # the space at the line break
     blink = [(f, [100 if n % 2 == 0 else 0], "hold") for n, f in enumerate(range(0, T["type"], 8))]
     blink += [(T["type"], [100], "hold"), (T["send"], [0])]
     m.shape("caret", [group([rect(2.5, 26, 0, 0, 1), fill("#ffffff")])], parent=bottom, op=T["send"] + 1,
             ks=layer_ks(p=anim([(0, [x0 + 2, iy + 35], "hold")] + caret), o=anim(blink)))
-    sx_, sy_ = ix + iw - 40, iy + ih - 40
     m.shape("send", bf([group([ellipse(48, 48, 0, 0), fill(BLUE)]), icon(I_SEND, 22, 2, 0)]), parent=bottom,
-            ks=layer_ks(p=(sx_, sy_), s=anim([(T["send"] - 4, [100, 100]), (T["send"], [86, 86], "out"),
-                                               (T["send"] + 8, [100, 100])])))
+            ks=layer_ks(p=(ix + iw - 40, iy + ih - 40),
+                        s=anim([(T["send"] - 4, [100, 100]), (T["send"], [86, 86], "out"), (T["send"] + 8, [100, 100])])))
 
-    # the conversation
+    # suggestions under the input; each lights up as its words are typed
+    widths = [suggestion_chip(d, label, 0, 0)[1] for d, label, _ in SUGGESTIONS]
+    x = 960 - (sum(widths) + 12 * (len(widths) - 1)) / 2
+    cy = sy + ih + 34
+    gone = anim([(0, [100]), (T["send"], [100]), (T["send"] + 8, [0])])
+    for k, (d, label, word) in enumerate(SUGGESTIONS):
+        base, w = suggestion_chip(d, label, x, cy)
+        on, _ = suggestion_chip(d, label, x, cy, lit=True)
+        m.shape(f"suggestion {k}", base, parent=cam, op=T["send"] + 10, ks=layer_ks(o=gone))
+        c = (x + w / 2, cy + 25)
+        t_hit = typed_at.get(word, T["send"])
+        m.shape(f"suggestion {k} lit", on, parent=cam, ip=t_hit, op=T["send"] + 10, ks=layer_ks(
+            a=c, p=c, s=anim([(t_hit, [100, 100], "out"), (t_hit + 4, [106, 106]), (t_hit + 12, [100, 100])]),
+            o=anim([(t_hit, [0]), (t_hit + 4, [100]), (T["send"], [100]), (T["send"] + 8, [0])])))
+        x += w + 12
+
+    # the conversation, once the panel is in place
     bx, bw = px + 24, pw - 48
     shapes, bh = user_bubble(wrap(REG, PROMPT2, 22, bw - 40), bx, py + 96, bw)
-    tb = T["send"] + 2
-    m.shape("user-bubble", shapes, parent=top, ip=tb,
+    tb = e1 - 8
+    m.shape("user-bubble", shapes, parent=cam, ip=tb,
             ks=layer_ks(p=anim([(tb, [0, 24], "out"), (tb + 16, [0, 0])]), o=vis(tb)))
     y = py + 96 + bh + 52
-    ts = T["send"] + 6
+    ts = e1 + 2
     dots = [group([ellipse(10, 10, bx + 8 + 18 * k, y - 8), fill("#ffffff")],
-                  o=anim([(ts + 3 * k + 8 * n, [25 if n % 2 == 0 else 90]) for n in range(8)])) for k in range(3)]
-    m.shape("thinking", dots, parent=top, ip=ts, op=T["phases"][0])
+                  o=anim([(ts + 3 * k + 8 * n, [25 if n % 2 == 0 else 90]) for n in range(4)])) for k in range(3)]
+    m.shape("thinking", dots, parent=cam, ip=ts, op=T["phases"][0])
     for k, (tool, text) in enumerate(REPLIES2):
         items, h = agent_reply(tool, wrap(REG, text, 22, bw - 8), bx, y)
         t_r = T["phases"][k] + 2
-        m.shape(f"reply {k}", items, parent=top, ip=t_r,
+        m.shape(f"reply {k}", items, parent=cam, ip=t_r,
                 ks=layer_ks(p=anim([(t_r, [0, 14], "out"), (t_r + 16, [0, 0])]), o=vis(t_r)))
         y += h + 44
 
 
-def hero2_workspace(m, imgs, T, cam):
+def hero2_workspace(m, imgs, T, cam, start):
     """The workspace that unfolds to the left of the chat, then fills with results."""
     e0, e1 = T["expand"]
+    sx, sy, iw, ih = start
     wx0, wx1, py, ph = 40, 1264, 100, 944
+    s_edge = sx - 16
     m.shape("workspace", [group([
-        rect(anim([(e0, [0.1, 420], "smooth"), (e1, [wx1 - wx0, ph])]), 0,
-             anim([(e0, [644, 540], "smooth"), (e1, [(wx0 + wx1) / 2, py + ph / 2])]), 0, 18),
+        rect(anim([(e0, [0.1, ih], "smooth"), (e1, [wx1 - wx0, ph])]), 0,
+             anim([(e0, [s_edge, sy + ih / 2], "smooth"), (e1, [(wx0 + wx1) / 2, py + ph / 2])]), 0, 16),
         fill(PANEL, 55), stroke("#ffffff", 1, 8)])], ip=e0, parent=cam)
     m.shape("logo", logo(wx0 + 4, 64, 22), parent=cam, ks=layer_ks(o=vis(e1 - 6)))
 
@@ -599,7 +638,7 @@ def hero2_workspace(m, imgs, T, cam):
     x0, top = 72, 196
     t_sk, t_list = e0 + 10, T["phases"][0]
     pulse = [(t_sk + 8 * n, [100 if n % 2 else 45]) for n in range((t_list - t_sk) // 8 + 1)]
-    clip = mask(anim([(e0, rrect(644, 330, 0.1, 420, 18), "smooth"), (e1, rrect(wx0, py, wx1 - wx0, ph, 18))]))
+    clip = mask(anim([(e0, rrect(s_edge, sy, 0.1, ih, 16), "smooth"), (e1, rrect(wx0, py, wx1 - wx0, ph, 16))]))
     sk = []
     for k in range(4):
         y = top + 104 + k * 134
@@ -629,18 +668,19 @@ def build_hero_v2():
     W, H, OP = 1920, 1080, 390
     PRECOMPS.clear()
     imgs = Images()
-    m = Comp(W, H, OP, "main")
-    T = {"type": 22, "send": 96, "expand": (104, 134), "phases": [140, 210, 280, 342]}
-    m.shape("bg", [group([rect(W, H, W / 2, H / 2), fill(BG)])])
-    e0, e1 = T["expand"]                        # the opening card fills the frame, then the view pulls back
-    cam = m.null("camera", ks=layer_ks(p=(W / 2, H / 2), a=(W / 2, H / 2), s=anim(
+    T = {"type": 22, "send": 96, "expand": (100, 132), "phases": [146, 216, 286, 348]}
+    scene = Comp(W, H, OP, "comp_scene")        # no background: it sits on the page
+    e0, e1 = T["expand"]                        # the opening fills the frame, then the view pulls back
+    cam = scene.null("camera", ks=layer_ks(p=(W / 2, H / 2), a=(W / 2, H / 2), s=anim(
         [(0, [150, 150], "hold"), (e0, [150, 150], "smooth"), (e1, [100, 100])])))
-    hero2_workspace(m, imgs, T, cam)
-    hero2_chat(m, T, cam)
-    add_fade(m, OP, 5, 18)
-    markers = [(0, T["expand"][0], "chat"), (T["expand"][0], T["phases"][0] - T["expand"][0], "expand"),
-               (T["phases"][0], OP - T["phases"][0], "results")]
-    write(animation(m, PRECOMPS, FPS, "Agentic Layer hero (v2 draft)", images=imgs.assets.values(),
+    # the workspace is drawn first so the chat panel stays on top of it; it opens from the input's left edge
+    hero2_workspace(scene, imgs, T, cam, CHAT_START)
+    hero2_chat(scene, T, cam)
+    # the loop fades the whole scene, so nothing paints over the page
+    m = Comp(W, H, OP, "main")
+    m.precomp("scene", scene, ks=layer_ks(o=anim([(0, [0]), (6, [100]), (OP - 18, [100]), (OP, [0])])))
+    markers = [(0, e0, "chat"), (e0, T["phases"][0] - e0, "expand"), (T["phases"][0], OP - T["phases"][0], "results")]
+    write(animation(m, [scene] + PRECOMPS, FPS, "Agentic Layer hero (v2 draft)", images=imgs.assets.values(),
                     markers=markers), "agentic-hero-v2")
 
 
