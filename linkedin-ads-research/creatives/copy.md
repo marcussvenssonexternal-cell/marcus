@@ -10,7 +10,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 > Your video library has the answers. Now you can just ask.
 >
-> The Vionlabs Agentic Layer curates lists, cuts clips in every ratio and creates branded thumbnails from a plain-language request, grounded in scene-level understanding of every title. Your team approves before anything goes live.
+> The Vionlabs Agentic Layer curates lists, cuts clips in every ratio and creates branded thumbnails from a plain-language request. Nothing goes live until your team approves it.
 
 **Headline:** Talk to your video library  
 **CTA button:** Request Demo  
@@ -20,6 +20,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 **Claims**
 
 - Curates lists, cuts clips in every ratio, creates branded thumbnails: vionlabs.com/agentic-layer (SEO description) (On the website)
+- “Nothing goes live until your team approves it”: vionlabs.com/agentic-layer (On the website)
 - “10 titles / 10 teasers” in the visual: UI mock (Example values)
 
 ## ag2 · Agentic Layer · Ask. Approve. Publish.
@@ -58,7 +59,8 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- Clips in every ratio: vionlabs.com/agentic-layer; Creative Lab formats 16:9 to 9:16 (On the website)
+- “The right scene, cut for TV, feeds and Shorts.”: vionlabs.com/agentic-layer (On the website)
+- Intelligent reframing; from cinematic 16:9 to vertical 9:16: vionlabs.com/creative-lab (On the website)
 
 ## ag4 · Agentic Layer · Best of Show at IBC2026
 
@@ -88,7 +90,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 > Two titles can share a genre and feel nothing alike.
 >
-> Curio recommends on how titles feel to watch, so Because You Watched, personalized rows and similar titles keep viewers in the mood they came for.
+> Curio matches viewers on pacing, tone and emotional arc, not just the genre a title is filed under. It powers Because You Watched, personalized rows and similar titles.
 
 **Headline:** Recommendations matched on how titles feel  
 **CTA button:** Learn More  
@@ -98,6 +100,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 **Claims**
 
 - Matches viewers to how titles feel to watch; Because You Watched, personalized rows, similar titles: vionlabs.com/curio (SEO description) (On the website)
+- “Matched on pacing, tone and emotional arc, not just the genre a title is filed under.”: vionlabs.com/curio (On the website)
 
 ## cu2 · Curio · Recommend before the first view
 
@@ -116,7 +119,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- Handles new and long-tail titles without viewing history: Curio launch press release (Check before launch)
+- “New releases and long-tail titles get recommended from day one, before anyone has watched them.”: vionlabs.com/curio (On the website)
 
 ## cu3 · Curio · 1M+ analyzed assets
 
@@ -124,9 +127,9 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Intro text**
 
-> Curio is live with Great American Pure Flix.
+> Great American Pure Flix is the first platform to bring Curio to its members.
 >
-> Its recommendations come from embeddings learned from more than 1,000,000 analyzed assets, powering Because You Watched, personalized rows and similar titles.
+> Curio’s recommendations come from embeddings learned from more than 1,000,000 analyzed assets, powering Because You Watched, personalized rows and similar titles.
 
 **Headline:** Curio: AI recommendations, now live  
 **CTA button:** Learn More  
@@ -135,8 +138,30 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- Live with Great American Pure Flix: vionlabs.com/curio (SEO description) (On the website)
-- Embeddings learned from 1,000,000+ analyzed assets: Curio launch press release (Check before launch)
+- “Pure Flix is now the first platform to bring Curio to its members”: vionlabs.com/curio (On the website)
+- 1,000,000+ analyzed assets: vionlabs.com/curio and /agentic-layer (On the website)
+
+## cu4 · Curio · Scrolling past great content
+
+![Scrolling past great content](png/cu4.png)
+
+**Intro text**
+
+> Viewers spend 14 minutes on average searching for something to watch, and nearly half say they would cancel a service over trouble finding something.
+>
+> Curio matches viewers to how a title feels to watch. Less searching. More watching.
+>
+> Source: Gracenote, 2025 State of Play (November 2025).
+
+**Headline:** Less searching. More watching.  
+**CTA button:** Learn More  
+**Audience:** Product, growth and retention leads at streaming services  
+**Inspired by:** Problem first, backed by third-party numbers, like TwelveLabs' “Detection tools were supposed to make video review easier” hook
+
+**Claims**
+
+- 14 min searching; 19% abandon the session; nearly half would cancel: Gracenote, 2025 State of Play (Nov 2025), survey of 3,000 consumers in 6 countries; quoted on vionlabs.com/curio (On the website)
+- “Your Viewers Are Scrolling Past Great Content”; “Less searching. More watching.”: vionlabs.com homepage and /curio (On the website)
 
 ## ed1 · Editorial Lab · 90%+ of your catalog
 
@@ -146,7 +171,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 > Your editors can’t hand-curate a whole catalog. They don’t have to.
 >
-> Editorial Lab’s AI Media Agent suggests mood- and plot-driven Smartlists covering 90%+ of your catalog. Your team picks what goes live.
+> Editorial Lab suggests mood-, genre- and plot-based Smartlists with 90%+ catalog coverage. Turn 3,000 assets into 80 curated lists automatically, then let your team pick what goes live.
 
 **Headline:** Mood-based lists for 90%+ of your catalog  
 **CTA button:** Learn More  
@@ -155,7 +180,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- Mood-based lists covering 90%+ of your catalog: vionlabs.com homepage and /editorial-lab (Check before launch)
+- “AI-curated Smartlists with 90%+ catalog coverage”; “Transform 3,000 assets into 80 curated lists automatically”: vionlabs.com/editorial-lab (On the website)
 - List names and moods in the visual: UI mock (Example values)
 
 ## ed2 · Editorial Lab · Hidden content is hidden revenue
@@ -176,7 +201,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 **Claims**
 
 - “Hidden content is hidden revenue”: Vionlabs blog headline (On the website)
-- Covers 90%+ of your catalog: vionlabs.com/editorial-lab (Check before launch)
+- 90%+ catalog coverage: vionlabs.com/editorial-lab (On the website)
 
 ## cr1 · Creative Lab · The visual it deserves
 
@@ -218,6 +243,26 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 - Recipes; formats 16:9 to 9:16: Creative Lab press release, 9 Sep 2025 (On the website)
 - Recipe fields and titles in the visual: UI mock (Example values)
 
+## cr3 · Creative Lab · 20.9% lower cost per conversion
+
+![20.9% lower cost per conversion](png/cr3.png)
+
+**Intro text**
+
+> Whose clips convert better: your agency’s or the AI’s?
+>
+> At a leading European broadcaster, a paid-social A/B test in April 2026 measured a 20.9% lower cost per conversion with Vionlabs-generated clips than with clips made through an external agency.
+
+**Headline:** 20.9% lower cost per conversion with AI clips  
+**CTA button:** Learn More  
+**Audience:** Performance marketing, growth and social teams at streamers and broadcasters  
+**Inspired by:** Big measured result with a side-by-side, like TwelveLabs' “Review a 2-hour master in 12 minutes”
+
+**Claims**
+
+- 20.9% lower cost per conversion vs agency-made clips (paid-social A/B test, April 2026, unnamed European broadcaster): vionlabs.com/agentic-layer, Results section (no footnote) (On the website)
+- Bars indexed to agency clips = 100 (79.1 is 20.9% lower): Derived from the 20.9% figure (Example values)
+
 ## op1 · Operations Lab · Skip Intro on every episode
 
 ![Skip Intro on every episode](png/op1.png)
@@ -235,8 +280,8 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- 98% detection accuracy: vionlabs.com homepage and /operations-lab (Check before launch)
-- 2× more episodes watched: vionlabs.com/operations-lab (AWS listing says session time) (Check before launch)
+- “Detect intros, recaps, and credits at 98% accuracy”: vionlabs.com homepage; no source given on the page (Check before launch)
+- “2× More Episodes Watched”: vionlabs.com/operations-lab; no source given (AWS listing says session time) (Check before launch)
 
 ## op2 · Operations Lab · Ad breaks that respect the story
 
@@ -246,16 +291,18 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 > A fixed-interval ad break doesn’t care if it lands mid-sentence. Your viewers do.
 >
-> Story-aware ad breaks land at natural pauses. Compared with fixed-interval insertion, they cut churn by 46%.
+> “Bad ad breaks can destroy engagement, and we have proven that Vionlabs improves it.” Scott Olechowski, Co-Founder & CPO, Plex
 
-**Headline:** 46% less churn with story-aware ad breaks  
+**Headline:** Ad breaks that respect the story  
 **CTA button:** Learn More  
 **Audience:** AVOD/FAST monetisation, ad operations and revenue leads  
 **Inspired by:** Before → after comparison, like TwelveLabs' “Review a 2-hour master in 12 minutes”
 
 **Claims**
 
-- 46% churn reduction vs fixed-interval insertion: vionlabs.com/operations-lab; SDVI webinar post (Check before launch)
+- “46% churn reduction with AI-optimized ad breaks”: vionlabs.com homepage; no source given on the page (Check before launch)
+- “Create ad breaks that respect the story.”: vionlabs.com/operations-lab (On the website)
+- Plex quote: Plex customer story on vionlabs.com (On the website)
 
 ## op3 · Operations Lab · Ad breaks in minutes
 
@@ -293,8 +340,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- Contextual ads: vionlabs.com/operations-lab (SEO description) (On the website)
-- IAB topic mapping: vionlabs.com homepage (Compliance & Topic Detection) (Check before launch)
+- “Serve ads that match the moment.”; “Contextual targeting (IAB, mood, keywords)”: vionlabs.com/operations-lab (On the website)
 - Ad categories in the visual: UI mock (Example values)
 
 ## cs1 · Content Safety API · Check every scene before it airs
@@ -314,7 +360,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- Profanity (speech) and nudity (picture) flags with timestamps and confidence scores: vionlabs.com/api (Check before launch)
+- Content Safety API (one of nine Content Intelligence APIs); profanity and nudity flags with timestamps and confidence scores: vionlabs.com/api (flag details from a search snippet) (Check before launch)
 - Timestamps and scores in the visual: UI mock (Example values)
 
 ## vt1 · Verticalisation · A season of shorts
@@ -344,7 +390,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 > Moods, genres, keywords, language, synopses and embeddings from one API.
 >
-> The Vionlabs Fingerprint+ API turns every title into structured data your product and data teams can build on, with dialogue transcribed in 99+ languages.
+> The Vionlabs Fingerprint+ API turns every title into structured data. Clean RESTful APIs, structured JSON responses, 99+ languages, and available on Google Cloud Marketplace and AWS Marketplace.
 
 **Headline:** Your video, as data: the Fingerprint+ API  
 **CTA button:** Learn More  
@@ -353,8 +399,8 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- Moods, genres, keywords, language detection, multilingual synopses, embeddings: vionlabs.com/api (On the website)
-- Dialogue transcribed in 99+ languages: vionlabs.com/our-ai (Check before launch)
+- Fingerprint+: moods, genres, keywords, language detection, multilingual synopses, embeddings: vionlabs.com/api (On the website)
+- “Clean RESTful APIs. Structured JSON responses.”; Google Cloud and AWS Marketplace; 99+ languages: vionlabs.com/api and homepage (On the website)
 - JSON response shape: Illustrative; replace with a real response from the API docs (Example values)
 
 ## emb1 · Embeddings API · Titles that feel alike
@@ -365,7 +411,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 > Search your catalog by how a title feels as well as by its tags.
 >
-> Vionlabs multimodal embeddings, learned from more than 1,000,000 analyzed assets, power similarity, semantic search and recommendations through one API.
+> Vionlabs multimodal embeddings, learned from more than 1,000,000 analyzed assets, power similarity, semantic search and recommendations, even without user history.
 
 **Headline:** Embeddings built for film and TV  
 **CTA button:** Learn More  
@@ -374,8 +420,8 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- Multimodal embeddings for similarity, semantic search, recommendations: vionlabs.com/embeddings-api (SEO description) (On the website)
-- 1,000,000+ analyzed assets: Curio launch press release (Check before launch)
+- Similarity, semantic search, recommendations; “Embeddings enable recommendation systems even without user history.”: vionlabs.com/embeddings-api (On the website)
+- 1,000,000+ analyzed assets: vionlabs.com/curio (On the website)
 
 ## tr1 · Trust & deployment · Never leaves your environment
 
@@ -385,7 +431,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 > Your content is your most valuable asset. It can stay where it is.
 >
-> Vionlabs runs inside your infrastructure, in the cloud or on-premise, so no assets leave your environment. Security is ISO 27001-aligned and GDPR compliant.
+> Vionlabs deploys on-prem within your infrastructure, so no assets ever leave your environment. Security follows ISO 27001-based practices.
 
 **Headline:** AI that runs inside your infrastructure  
 **CTA button:** Learn More  
@@ -394,8 +440,29 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- Runs within your infrastructure; no assets leave your environment: vionlabs.com homepage (Check before launch)
-- Edge processing, ISO 27001-aligned, GDPR: vionlabs.com/trust-center (SEO description) (On the website)
+- “We deploy on-prem within your infrastructure – no assets ever leave your environment.”: vionlabs.com homepage (On the website)
+- “ISO 27001-based security practices” (not a certification), GDPR: vionlabs.com/trust-center (On the website)
+
+## tr2 · Trust & deployment · Never used to train our models
+
+![Never used to train our models](png/tr2.png)
+
+**Intro text**
+
+> Before anyone hands over their catalog, they ask the same question.
+>
+> Video files and data provided by customers are never used to train Vionlabs AI models. Deploy on-prem and no assets ever leave your environment.
+
+**Headline:** Your video never trains our models  
+**CTA button:** Learn More  
+**Audience:** Legal, security and technology leads at studios and broadcasters  
+**Inspired by:** Objection-handling statement with proof tiles
+
+**Claims**
+
+- “Video files and data provided by customers are never used to train Vionlabs AI models.”: vionlabs.com/trust-center (On the website)
+- ISO 27001-based security practices; GDPR, LGPD, CPRA; EU AI Act lowest risk category (Risk Level 4): vionlabs.com/trust-center (On the website)
+- On-prem, no assets leave your environment: vionlabs.com homepage (On the website)
 
 ## sp1 · Company · Signed to live in 30 days
 
@@ -416,6 +483,26 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - i-CABLE quote: Vionlabs × SeaOvers press release, 11 Sep 2025 (Check before launch)
 
+## pl1 · Company · Plex customer story
+
+![Plex customer story](png/pl1.png)
+
+**Intro text**
+
+> How did Plex unlock deep catalog discovery for 25 million viewers?
+>
+> Vionlabs enriched 50,000+ titles with AI metadata. “We have seen significant uplift in minutes based on using mood data properly.” Scott Olechowski, Co-Founder & CPO, Plex
+
+**Headline:** How Plex unlocked deep catalog discovery  
+**CTA button:** Learn More  
+**Audience:** Content, product and growth leads at streamers with large catalogs  
+**Inspired by:** Vionlabs original: customer story promo
+
+**Claims**
+
+- 25 million viewers: Plex story title on vionlabs.com (not repeated in the body) (Check before launch)
+- 50,000+ titles enriched with AI metadata; quote: Plex customer story on vionlabs.com (On the website)
+
 ## br1 · Brand · Ours can feel it
 
 ![Ours can feel it](png/br1.png)
@@ -424,7 +511,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 > General-purpose AI can tell you there’s a person by a window. It can’t tell you the scene is about loss.
 >
-> Vionlabs models are trained on entertainment content and understand stories, characters, emotions and structure.
+> Vionlabs is domain-specific AI built for entertainment, not a generic wrapper. It understands stories, characters, emotions and structure.
 
 **Headline:** AI that understands stories  
 **CTA button:** Learn More  
@@ -435,6 +522,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - Trained on entertainment content; understands stories, characters, emotions and structure: vionlabs.com/our-ai (SEO description) (On the website)
 - Headline riffs on the blog post “Your AI Can See the Scene. It Can’t Feel It.”: Vionlabs blog (On the website)
+- “Domain-specific AI built for entertainment. Not a generic wrapper.”: vionlabs.com homepage (On the website)
 
 ## br2 · Brand · 20+ media companies
 
@@ -442,9 +530,9 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Intro text**
 
-> “Vionlabs enabled us to do the things we always wanted to do, but couldn’t do at scale.” Scott Olechowski, CPO, Plex
+> “We know for a fact, based on the engagement we have seen, that it is ROI positive.” Scott Olechowski, Co-Founder & CPO, Plex
 >
-> More than 20 media companies use Vionlabs, reaching 300M+ viewers.
+> 20+ media companies use Vionlabs to make their libraries discoverable, engaging and revenue-ready.
 
 **Headline:** Trusted by 20+ media companies  
 **CTA button:** Learn More  
@@ -453,8 +541,8 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- 20+ media companies, 300M+ viewers: vionlabs.com homepage (“300M+ Happy Viewers”) (Check before launch)
-- Plex quote: vionlabs.com/customer-stories (Check before launch)
+- “20+ Media Companies”, “300M+ Happy Viewers”: vionlabs.com homepage; no source given on the page (Check before launch)
+- Plex quote: Plex customer story on vionlabs.com (On the website)
 
 ## wb1 · Agentic Layer · Live webinar template
 

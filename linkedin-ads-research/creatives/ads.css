@@ -35,10 +35,10 @@ body { background: #222; font-family: "Inter", sans-serif; padding: 40px; displa
 .ad.light { background: var(--light-bg); color: var(--light-text); }
 .ad .glow { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
 
-/* Stand-in wordmark: replace with the official logo file before launch. */
 .logo { display: flex; align-items: center; gap: 14px; font-family: "Inter Display", "Inter"; font-weight: 600; font-size: 36px; letter-spacing: -0.02em; }
 .logo i { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, var(--sky), var(--blue)); position: relative; }
 .logo i::after { content: ""; position: absolute; left: 12px; top: 9px; border-left: 14px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+.wordmark { height: 30px; width: auto; display: block; }
 .logo .x { color: var(--faint); font-weight: 400; margin: 0 6px; }
 .logo .partner { color: var(--muted); font-weight: 500; }
 

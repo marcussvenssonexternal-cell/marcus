@@ -1,283 +1,613 @@
 [
   {
-    "id": "ag1", "product": "Agentic Layer", "name": "Talk to your video library",
+    "id": "ag1",
+    "product": "Agentic Layer",
+    "name": "Talk to your video library",
     "inspired": "Product UI as the hero, like TwelveLabs' “Focus on the story” before/after visual",
-    "intro": "Your video library has the answers. Now you can just ask.\n\nThe Vionlabs Agentic Layer curates lists, cuts clips in every ratio and creates branded thumbnails from a plain-language request, grounded in scene-level understanding of every title. Your team approves before anything goes live.",
+    "intro": "Your video library has the answers. Now you can just ask.\n\nThe Vionlabs Agentic Layer curates lists, cuts clips in every ratio and creates branded thumbnails from a plain-language request. Nothing goes live until your team approves it.",
     "headline": "Talk to your video library",
     "cta": "Request Demo",
     "audience": "Heads of content, editorial and marketing at streamers and broadcasters",
     "claims": [
-      {"text": "Curates lists, cuts clips in every ratio, creates branded thumbnails", "source": "vionlabs.com/agentic-layer (SEO description)", "status": "site"},
-      {"text": "“10 titles / 10 teasers” in the visual", "source": "UI mock", "status": "illustrative"}
+      {
+        "text": "Curates lists, cuts clips in every ratio, creates branded thumbnails",
+        "source": "vionlabs.com/agentic-layer (SEO description)",
+        "status": "site"
+      },
+      {
+        "text": "“Nothing goes live until your team approves it”",
+        "source": "vionlabs.com/agentic-layer",
+        "status": "site"
+      },
+      {
+        "text": "“10 titles / 10 teasers” in the visual",
+        "source": "UI mock",
+        "status": "illustrative"
+      }
     ]
   },
   {
-    "id": "ag2", "product": "Agentic Layer", "name": "Ask. Approve. Publish.",
+    "id": "ag2",
+    "product": "Agentic Layer",
+    "name": "Ask. Approve. Publish.",
     "inspired": "Pipeline diagram with an approval step, like TwelveLabs' “Review shouldn’t be the bottleneck”",
     "intro": "Your team knows what it wants. Getting it shouldn’t take a queue of requests.\n\nAsk the Agentic Layer for teasers, lists or artwork in plain language. It does the work, and your team reviews and publishes.",
     "headline": "Ask. Approve. Publish.",
     "cta": "Request Demo",
     "audience": "Content operations, marketing and creative leads at streamers",
     "claims": [
-      {"text": "“Ask. Approve. Publish.”", "source": "vionlabs.com/agentic-layer (Open Graph title)", "status": "site"}
+      {
+        "text": "“Ask. Approve. Publish.”",
+        "source": "vionlabs.com/agentic-layer (Open Graph title)",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "ag3", "product": "Agentic Layer", "name": "One title. Every ratio.",
+    "id": "ag3",
+    "product": "Agentic Layer",
+    "name": "One title. Every ratio.",
     "inspired": "Three-beat headline and fan-out diagram, like TwelveLabs' “One master. Five markets.”",
     "intro": "Every channel wants a different shape.\n\nAsk the Agentic Layer for a teaser and get 16:9, 1:1, 4:5 and 9:16 versions from a single master, with thumbnails to match.",
     "headline": "Every ratio from one request",
     "cta": "Learn More",
     "audience": "Social, marketing and promo teams at streamers and broadcasters",
     "claims": [
-      {"text": "Clips in every ratio", "source": "vionlabs.com/agentic-layer; Creative Lab formats 16:9 to 9:16", "status": "site"}
+      {
+        "text": "“The right scene, cut for TV, feeds and Shorts.”",
+        "source": "vionlabs.com/agentic-layer",
+        "status": "site"
+      },
+      {
+        "text": "Intelligent reframing; from cinematic 16:9 to vertical 9:16",
+        "source": "vionlabs.com/creative-lab",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "ag4", "product": "Agentic Layer", "name": "Best of Show at IBC2026",
+    "id": "ag4",
+    "product": "Agentic Layer",
+    "name": "Best of Show at IBC2026",
     "inspired": "Vionlabs original: award as social proof",
     "intro": "The Agentic Layer won Best of Show at IBC2026.\n\nIt lets media teams talk to their video library. Search by mood, moment or character, then get clips, lists and artwork back, ready to approve.",
     "headline": "IBC2026 Best of Show: the Agentic Layer",
     "cta": "Request Demo",
     "audience": "Broad media and entertainment decision-makers; retarget IBC visitors",
     "claims": [
-      {"text": "TVBEurope Best of Show award at IBC2026", "source": "tvbeurope.com, 14 Sep 2026", "status": "verify"},
-      {"text": "Medal artwork", "source": "Stand-in; swap for TVBEurope's official winner badge", "status": "verify"}
+      {
+        "text": "TVBEurope Best of Show award at IBC2026",
+        "source": "tvbeurope.com, 14 Sep 2026",
+        "status": "verify"
+      },
+      {
+        "text": "Medal artwork",
+        "source": "Stand-in; swap for TVBEurope's official winner badge",
+        "status": "verify"
+      }
     ]
   },
   {
-    "id": "cu1", "product": "Curio", "name": "How titles feel",
+    "id": "cu1",
+    "product": "Curio",
+    "name": "How titles feel",
     "inspired": "Annotated side-by-side, like TwelveLabs' “Focus on the story”",
-    "intro": "Two titles can share a genre and feel nothing alike.\n\nCurio recommends on how titles feel to watch, so Because You Watched, personalized rows and similar titles keep viewers in the mood they came for.",
+    "intro": "Two titles can share a genre and feel nothing alike.\n\nCurio matches viewers on pacing, tone and emotional arc, not just the genre a title is filed under. It powers Because You Watched, personalized rows and similar titles.",
     "headline": "Recommendations matched on how titles feel",
     "cta": "Learn More",
     "audience": "Product, personalization and growth leads at streaming services",
     "claims": [
-      {"text": "Matches viewers to how titles feel to watch; Because You Watched, personalized rows, similar titles", "source": "vionlabs.com/curio (SEO description)", "status": "site"}
+      {
+        "text": "Matches viewers to how titles feel to watch; Because You Watched, personalized rows, similar titles",
+        "source": "vionlabs.com/curio (SEO description)",
+        "status": "site"
+      },
+      {
+        "text": "“Matched on pacing, tone and emotional arc, not just the genre a title is filed under.”",
+        "source": "vionlabs.com/curio",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "cu2", "product": "Curio", "name": "Recommend before the first view",
+    "id": "cu2",
+    "product": "Curio",
+    "name": "Recommend before the first view",
     "inspired": "Problem-first hook, like TwelveLabs' “Detection tools were supposed to…” intro",
     "intro": "New titles have no viewing history. That’s exactly when they need recommending.\n\nCurio understands every title from day one, so new releases and long-tail content show up in the right rows from the start.",
     "headline": "Recommend new titles from day one",
     "cta": "Learn More",
     "audience": "Product, personalization and content-acquisition leads at streamers",
     "claims": [
-      {"text": "Handles new and long-tail titles without viewing history", "source": "Curio launch press release", "status": "verify"}
+      {
+        "text": "“New releases and long-tail titles get recommended from day one, before anyone has watched them.”",
+        "source": "vionlabs.com/curio",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "cu3", "product": "Curio", "name": "1M+ analyzed assets",
+    "id": "cu3",
+    "product": "Curio",
+    "name": "1M+ analyzed assets",
     "inspired": "Big-number hero, like TwelveLabs' “Review a 2-hour master in 12 minutes”",
-    "intro": "Curio is live with Great American Pure Flix.\n\nIts recommendations come from embeddings learned from more than 1,000,000 analyzed assets, powering Because You Watched, personalized rows and similar titles.",
+    "intro": "Great American Pure Flix is the first platform to bring Curio to its members.\n\nCurio’s recommendations come from embeddings learned from more than 1,000,000 analyzed assets, powering Because You Watched, personalized rows and similar titles.",
     "headline": "Curio: AI recommendations, now live",
     "cta": "Learn More",
     "audience": "Product and personalization leads at streamers",
     "claims": [
-      {"text": "Live with Great American Pure Flix", "source": "vionlabs.com/curio (SEO description)", "status": "site"},
-      {"text": "Embeddings learned from 1,000,000+ analyzed assets", "source": "Curio launch press release", "status": "verify"}
+      {
+        "text": "“Pure Flix is now the first platform to bring Curio to its members”",
+        "source": "vionlabs.com/curio",
+        "status": "site"
+      },
+      {
+        "text": "1,000,000+ analyzed assets",
+        "source": "vionlabs.com/curio and /agentic-layer",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "ed1", "product": "Editorial Lab", "name": "90%+ of your catalog",
+    "id": "cu4",
+    "product": "Curio",
+    "name": "Scrolling past great content",
+    "inspired": "Problem first, backed by third-party numbers, like TwelveLabs' “Detection tools were supposed to make video review easier” hook",
+    "intro": "Viewers spend 14 minutes on average searching for something to watch, and nearly half say they would cancel a service over trouble finding something.\n\nCurio matches viewers to how a title feels to watch. Less searching. More watching.\n\nSource: Gracenote, 2025 State of Play (November 2025).",
+    "headline": "Less searching. More watching.",
+    "cta": "Learn More",
+    "audience": "Product, growth and retention leads at streaming services",
+    "claims": [
+      {
+        "text": "14 min searching; 19% abandon the session; nearly half would cancel",
+        "source": "Gracenote, 2025 State of Play (Nov 2025), survey of 3,000 consumers in 6 countries; quoted on vionlabs.com/curio",
+        "status": "site"
+      },
+      {
+        "text": "“Your Viewers Are Scrolling Past Great Content”; “Less searching. More watching.”",
+        "source": "vionlabs.com homepage and /curio",
+        "status": "site"
+      }
+    ]
+  },
+  {
+    "id": "ed1",
+    "product": "Editorial Lab",
+    "name": "90%+ of your catalog",
     "inspired": "Stat headline over product UI",
-    "intro": "Your editors can’t hand-curate a whole catalog. They don’t have to.\n\nEditorial Lab’s AI Media Agent suggests mood- and plot-driven Smartlists covering 90%+ of your catalog. Your team picks what goes live.",
+    "intro": "Your editors can’t hand-curate a whole catalog. They don’t have to.\n\nEditorial Lab suggests mood-, genre- and plot-based Smartlists with 90%+ catalog coverage. Turn 3,000 assets into 80 curated lists automatically, then let your team pick what goes live.",
     "headline": "Mood-based lists for 90%+ of your catalog",
     "cta": "Learn More",
     "audience": "Editorial, curation and programming teams at streamers",
     "claims": [
-      {"text": "Mood-based lists covering 90%+ of your catalog", "source": "vionlabs.com homepage and /editorial-lab", "status": "verify"},
-      {"text": "List names and moods in the visual", "source": "UI mock", "status": "illustrative"}
+      {
+        "text": "“AI-curated Smartlists with 90%+ catalog coverage”; “Transform 3,000 assets into 80 curated lists automatically”",
+        "source": "vionlabs.com/editorial-lab",
+        "status": "site"
+      },
+      {
+        "text": "List names and moods in the visual",
+        "source": "UI mock",
+        "status": "illustrative"
+      }
     ]
   },
   {
-    "id": "ed2", "product": "Editorial Lab", "name": "Hidden content is hidden revenue",
+    "id": "ed2",
+    "product": "Editorial Lab",
+    "name": "Hidden content is hidden revenue",
     "inspired": "Before → after with ✕ / ✓ lists, like TwelveLabs' “Review a 2-hour master in 12 minutes”",
     "intro": "The titles nobody finds are titles you paid for and never earn from.\n\nEditorial Lab surfaces your deep catalog in fresh mood- and plot-driven rows, so more of your library gets watched.",
     "headline": "Hidden content is hidden revenue",
     "cta": "Learn More",
     "audience": "Content strategy, programming and revenue leads at streamers",
     "claims": [
-      {"text": "“Hidden content is hidden revenue”", "source": "Vionlabs blog headline", "status": "site"},
-      {"text": "Covers 90%+ of your catalog", "source": "vionlabs.com/editorial-lab", "status": "verify"}
+      {
+        "text": "“Hidden content is hidden revenue”",
+        "source": "Vionlabs blog headline",
+        "status": "site"
+      },
+      {
+        "text": "90%+ catalog coverage",
+        "source": "vionlabs.com/editorial-lab",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "cr1", "product": "Creative Lab", "name": "The visual it deserves",
+    "id": "cr1",
+    "product": "Creative Lab",
+    "name": "The visual it deserves",
     "inspired": "Annotated before/after imagery, like TwelveLabs' “Focus on the story. Not the edit.”",
     "intro": "A random frame makes a bad first impression.\n\nCreative Lab turns your brand rules into recipes, then creates on-brand thumbnails, preview clips and shorts for every title in your catalog.",
     "headline": "On-brand thumbnails for every title",
     "cta": "Learn More",
     "audience": "Creative, brand and marketing teams at streamers and broadcasters",
     "claims": [
-      {"text": "“Every asset gets the visual it deserves”; thumbnails and preview clips at scale", "source": "vionlabs.com/creative-lab (SEO description)", "status": "site"},
-      {"text": "Recipes (mood, keywords, characters, key moments)", "source": "Creative Lab press release, 9 Sep 2025", "status": "site"}
+      {
+        "text": "“Every asset gets the visual it deserves”; thumbnails and preview clips at scale",
+        "source": "vionlabs.com/creative-lab (SEO description)",
+        "status": "site"
+      },
+      {
+        "text": "Recipes (mood, keywords, characters, key moments)",
+        "source": "Creative Lab press release, 9 Sep 2025",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "cr2", "product": "Creative Lab", "name": "Write the recipe once",
+    "id": "cr2",
+    "product": "Creative Lab",
+    "name": "Write the recipe once",
     "inspired": "Input → output diagram, like TwelveLabs' “Generation is automated” pipeline",
     "intro": "Set the mood, the moment and the format once.\n\nCreative Lab applies your recipe across the catalog and generates thumbnails, previews and shorts from 16:9 to 9:16, ready for your team to review.",
     "headline": "One recipe. Art for every title.",
     "cta": "Request Demo",
     "audience": "Creative, brand and marketing teams at streamers",
     "claims": [
-      {"text": "Recipes; formats 16:9 to 9:16", "source": "Creative Lab press release, 9 Sep 2025", "status": "site"},
-      {"text": "Recipe fields and titles in the visual", "source": "UI mock", "status": "illustrative"}
+      {
+        "text": "Recipes; formats 16:9 to 9:16",
+        "source": "Creative Lab press release, 9 Sep 2025",
+        "status": "site"
+      },
+      {
+        "text": "Recipe fields and titles in the visual",
+        "source": "UI mock",
+        "status": "illustrative"
+      }
     ]
   },
   {
-    "id": "op1", "product": "Operations Lab", "name": "Skip Intro on every episode",
+    "id": "cr3",
+    "product": "Creative Lab",
+    "name": "20.9% lower cost per conversion",
+    "inspired": "Big measured result with a side-by-side, like TwelveLabs' “Review a 2-hour master in 12 minutes”",
+    "intro": "Whose clips convert better: your agency’s or the AI’s?\n\nAt a leading European broadcaster, a paid-social A/B test in April 2026 measured a 20.9% lower cost per conversion with Vionlabs-generated clips than with clips made through an external agency.",
+    "headline": "20.9% lower cost per conversion with AI clips",
+    "cta": "Learn More",
+    "audience": "Performance marketing, growth and social teams at streamers and broadcasters",
+    "claims": [
+      {
+        "text": "20.9% lower cost per conversion vs agency-made clips (paid-social A/B test, April 2026, unnamed European broadcaster)",
+        "source": "vionlabs.com/agentic-layer, Results section (no footnote)",
+        "status": "site"
+      },
+      {
+        "text": "Bars indexed to agency clips = 100 (79.1 is 20.9% lower)",
+        "source": "Derived from the 20.9% figure",
+        "status": "illustrative"
+      }
+    ]
+  },
+  {
+    "id": "op1",
+    "product": "Operations Lab",
+    "name": "Skip Intro on every episode",
     "inspired": "Outcome headline plus proof stats, like TwelveLabs' “Review a 2-hour master in 12 minutes”",
     "intro": "Viewers who can skip the intro watch more episodes.\n\nOperations Lab detects intros, recaps and credits with 98% accuracy, so Skip Intro and Next Episode work across your whole back catalog.",
     "headline": "Skip Intro on every episode, automatically",
     "cta": "Learn More",
     "audience": "Media operations, product and engagement leads at streamers",
     "claims": [
-      {"text": "98% detection accuracy", "source": "vionlabs.com homepage and /operations-lab", "status": "verify"},
-      {"text": "2× more episodes watched", "source": "vionlabs.com/operations-lab (AWS listing says session time)", "status": "verify"}
+      {
+        "text": "“Detect intros, recaps, and credits at 98% accuracy”",
+        "source": "vionlabs.com homepage; no source given on the page",
+        "status": "verify"
+      },
+      {
+        "text": "“2× More Episodes Watched”",
+        "source": "vionlabs.com/operations-lab; no source given (AWS listing says session time)",
+        "status": "verify"
+      }
     ]
   },
   {
-    "id": "op2", "product": "Operations Lab", "name": "Ad breaks that respect the story",
+    "id": "op2",
+    "product": "Operations Lab",
+    "name": "Ad breaks that respect the story",
     "inspired": "Before → after comparison, like TwelveLabs' “Review a 2-hour master in 12 minutes”",
-    "intro": "A fixed-interval ad break doesn’t care if it lands mid-sentence. Your viewers do.\n\nStory-aware ad breaks land at natural pauses. Compared with fixed-interval insertion, they cut churn by 46%.",
-    "headline": "46% less churn with story-aware ad breaks",
+    "intro": "A fixed-interval ad break doesn’t care if it lands mid-sentence. Your viewers do.\n\n“Bad ad breaks can destroy engagement, and we have proven that Vionlabs improves it.” Scott Olechowski, Co-Founder & CPO, Plex",
+    "headline": "Ad breaks that respect the story",
     "cta": "Learn More",
     "audience": "AVOD/FAST monetisation, ad operations and revenue leads",
     "claims": [
-      {"text": "46% churn reduction vs fixed-interval insertion", "source": "vionlabs.com/operations-lab; SDVI webinar post", "status": "verify"}
+      {
+        "text": "“46% churn reduction with AI-optimized ad breaks”",
+        "source": "vionlabs.com homepage; no source given on the page",
+        "status": "verify"
+      },
+      {
+        "text": "“Create ad breaks that respect the story.”",
+        "source": "vionlabs.com/operations-lab",
+        "status": "site"
+      },
+      {
+        "text": "Plex quote",
+        "source": "Plex customer story on vionlabs.com",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "op3", "product": "Operations Lab", "name": "Ad breaks in minutes",
+    "id": "op3",
+    "product": "Operations Lab",
+    "name": "Ad breaks in minutes",
     "inspired": "Time-saved headline with ✕ / ✓ lists, like TwelveLabs' “Review a 2-hour master in 12 minutes”",
     "intro": "Marking ad breaks by hand takes 20 to 60 minutes per episode.\n\nVionlabs Ad-Break Creation finds the natural pauses for you in minutes, so your back catalog can carry ads too.",
     "headline": "Ad breaks in minutes, not hours",
     "cta": "Request Demo",
     "audience": "Ad operations and media supply chain teams at AVOD/FAST services",
     "claims": [
-      {"text": "Manual marking takes 20–60 min per episode; with AI, minutes", "source": "Vionlabs × SDVI webinar post", "status": "verify"}
+      {
+        "text": "Manual marking takes 20–60 min per episode; with AI, minutes",
+        "source": "Vionlabs × SDVI webinar post",
+        "status": "verify"
+      }
     ]
   },
   {
-    "id": "op4", "product": "Operations Lab", "name": "Match the ad to the moment",
+    "id": "op4",
+    "product": "Operations Lab",
+    "name": "Match the ad to the moment",
     "inspired": "Annotated scene → result, like TwelveLabs' “Focus on the story”",
     "intro": "The scene before the break sets the mood for the ad.\n\nVionlabs Contextual Advertising reads the mood, setting and topic of each scene, so the ad that follows fits the moment.",
     "headline": "Match the ad to the moment",
     "cta": "Learn More",
     "audience": "Ad sales, programmatic and monetisation leads at broadcasters and AVOD/FAST services",
     "claims": [
-      {"text": "Contextual ads", "source": "vionlabs.com/operations-lab (SEO description)", "status": "site"},
-      {"text": "IAB topic mapping", "source": "vionlabs.com homepage (Compliance & Topic Detection)", "status": "verify"},
-      {"text": "Ad categories in the visual", "source": "UI mock", "status": "illustrative"}
+      {
+        "text": "“Serve ads that match the moment.”; “Contextual targeting (IAB, mood, keywords)”",
+        "source": "vionlabs.com/operations-lab",
+        "status": "site"
+      },
+      {
+        "text": "Ad categories in the visual",
+        "source": "UI mock",
+        "status": "illustrative"
+      }
     ]
   },
   {
-    "id": "cs1", "product": "Content Safety API", "name": "Check every scene before it airs",
+    "id": "cs1",
+    "product": "Content Safety API",
+    "name": "Check every scene before it airs",
     "inspired": "Compliance angle, like TwelveLabs' “Trust but verify” webinar and “Can you trust every video?”",
     "intro": "Compliance review shouldn’t mean watching every minute.\n\nThe Vionlabs Content Safety API flags profanity in speech and nudity on screen with timestamps and confidence scores, and maps topics to IAB categories.",
     "headline": "Check every scene before it airs",
     "cta": "Learn More",
     "audience": "Compliance, standards & practices and ad operations teams",
     "claims": [
-      {"text": "Profanity (speech) and nudity (picture) flags with timestamps and confidence scores", "source": "vionlabs.com/api", "status": "verify"},
-      {"text": "Timestamps and scores in the visual", "source": "UI mock", "status": "illustrative"}
+      {
+        "text": "Content Safety API (one of nine Content Intelligence APIs); profanity and nudity flags with timestamps and confidence scores",
+        "source": "vionlabs.com/api (flag details from a search snippet)",
+        "status": "verify"
+      },
+      {
+        "text": "Timestamps and scores in the visual",
+        "source": "UI mock",
+        "status": "illustrative"
+      }
     ]
   },
   {
-    "id": "vt1", "product": "Verticalisation", "name": "A season of shorts",
+    "id": "vt1",
+    "product": "Verticalisation",
+    "name": "A season of shorts",
     "inspired": "Fan-out diagram, like TwelveLabs' “One master. Five markets.”",
     "intro": "Your long-form library is full of short-form stories.\n\nVionlabs Verticalisation splits films and episodes into chapters and micro-episodes, ready for vertical feeds.",
     "headline": "Turn one film into a season of shorts",
     "cta": "Learn More",
     "audience": "Social, digital and FAST channel teams at broadcasters and studios",
     "claims": [
-      {"text": "Long-form into chapters and micro-episodes", "source": "Streaming Media Q&A, ~Jun 2026", "status": "verify"}
+      {
+        "text": "Long-form into chapters and micro-episodes",
+        "source": "Streaming Media Q&A, ~Jun 2026",
+        "status": "verify"
+      }
     ]
   },
   {
-    "id": "api1", "product": "Fingerprint+ API", "name": "Your video, as data",
+    "id": "api1",
+    "product": "Fingerprint+ API",
+    "name": "Your video, as data",
     "inspired": "Product-as-hero, developer angle",
-    "intro": "Moods, genres, keywords, language, synopses and embeddings from one API.\n\nThe Vionlabs Fingerprint+ API turns every title into structured data your product and data teams can build on, with dialogue transcribed in 99+ languages.",
+    "intro": "Moods, genres, keywords, language, synopses and embeddings from one API.\n\nThe Vionlabs Fingerprint+ API turns every title into structured data. Clean RESTful APIs, structured JSON responses, 99+ languages, and available on Google Cloud Marketplace and AWS Marketplace.",
     "headline": "Your video, as data: the Fingerprint+ API",
     "cta": "Learn More",
     "audience": "CTOs, product and data engineering leads at media companies",
     "claims": [
-      {"text": "Moods, genres, keywords, language detection, multilingual synopses, embeddings", "source": "vionlabs.com/api", "status": "site"},
-      {"text": "Dialogue transcribed in 99+ languages", "source": "vionlabs.com/our-ai", "status": "verify"},
-      {"text": "JSON response shape", "source": "Illustrative; replace with a real response from the API docs", "status": "illustrative"}
+      {
+        "text": "Fingerprint+: moods, genres, keywords, language detection, multilingual synopses, embeddings",
+        "source": "vionlabs.com/api",
+        "status": "site"
+      },
+      {
+        "text": "“Clean RESTful APIs. Structured JSON responses.”; Google Cloud and AWS Marketplace; 99+ languages",
+        "source": "vionlabs.com/api and homepage",
+        "status": "site"
+      },
+      {
+        "text": "JSON response shape",
+        "source": "Illustrative; replace with a real response from the API docs",
+        "status": "illustrative"
+      }
     ]
   },
   {
-    "id": "emb1", "product": "Embeddings API", "name": "Titles that feel alike",
+    "id": "emb1",
+    "product": "Embeddings API",
+    "name": "Titles that feel alike",
     "inspired": "Diagram-led, developer angle",
-    "intro": "Search your catalog by how a title feels as well as by its tags.\n\nVionlabs multimodal embeddings, learned from more than 1,000,000 analyzed assets, power similarity, semantic search and recommendations through one API.",
+    "intro": "Search your catalog by how a title feels as well as by its tags.\n\nVionlabs multimodal embeddings, learned from more than 1,000,000 analyzed assets, power similarity, semantic search and recommendations, even without user history.",
     "headline": "Embeddings built for film and TV",
     "cta": "Learn More",
     "audience": "Data science, ML and search/recommendation engineers at media companies",
     "claims": [
-      {"text": "Multimodal embeddings for similarity, semantic search, recommendations", "source": "vionlabs.com/embeddings-api (SEO description)", "status": "site"},
-      {"text": "1,000,000+ analyzed assets", "source": "Curio launch press release", "status": "verify"}
+      {
+        "text": "Similarity, semantic search, recommendations; “Embeddings enable recommendation systems even without user history.”",
+        "source": "vionlabs.com/embeddings-api",
+        "status": "site"
+      },
+      {
+        "text": "1,000,000+ analyzed assets",
+        "source": "vionlabs.com/curio",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "tr1", "product": "Trust & deployment", "name": "Never leaves your environment",
+    "id": "tr1",
+    "product": "Trust & deployment",
+    "name": "Never leaves your environment",
     "inspired": "Objection-handling diagram",
-    "intro": "Your content is your most valuable asset. It can stay where it is.\n\nVionlabs runs inside your infrastructure, in the cloud or on-premise, so no assets leave your environment. Security is ISO 27001-aligned and GDPR compliant.",
+    "intro": "Your content is your most valuable asset. It can stay where it is.\n\nVionlabs deploys on-prem within your infrastructure, so no assets ever leave your environment. Security follows ISO 27001-based practices.",
     "headline": "AI that runs inside your infrastructure",
     "cta": "Learn More",
     "audience": "CTOs, CISOs and media supply chain leads at studios and broadcasters",
     "claims": [
-      {"text": "Runs within your infrastructure; no assets leave your environment", "source": "vionlabs.com homepage", "status": "verify"},
-      {"text": "Edge processing, ISO 27001-aligned, GDPR", "source": "vionlabs.com/trust-center (SEO description)", "status": "site"}
+      {
+        "text": "“We deploy on-prem within your infrastructure – no assets ever leave your environment.”",
+        "source": "vionlabs.com homepage",
+        "status": "site"
+      },
+      {
+        "text": "“ISO 27001-based security practices” (not a certification), GDPR",
+        "source": "vionlabs.com/trust-center",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "sp1", "product": "Company", "name": "Signed to live in 30 days",
+    "id": "tr2",
+    "product": "Trust & deployment",
+    "name": "Never used to train our models",
+    "inspired": "Objection-handling statement with proof tiles",
+    "intro": "Before anyone hands over their catalog, they ask the same question.\n\nVideo files and data provided by customers are never used to train Vionlabs AI models. Deploy on-prem and no assets ever leave your environment.",
+    "headline": "Your video never trains our models",
+    "cta": "Learn More",
+    "audience": "Legal, security and technology leads at studios and broadcasters",
+    "claims": [
+      {
+        "text": "“Video files and data provided by customers are never used to train Vionlabs AI models.”",
+        "source": "vionlabs.com/trust-center",
+        "status": "site"
+      },
+      {
+        "text": "ISO 27001-based security practices; GDPR, LGPD, CPRA; EU AI Act lowest risk category (Risk Level 4)",
+        "source": "vionlabs.com/trust-center",
+        "status": "site"
+      },
+      {
+        "text": "On-prem, no assets leave your environment",
+        "source": "vionlabs.com homepage",
+        "status": "site"
+      }
+    ]
+  },
+  {
+    "id": "sp1",
+    "product": "Company",
+    "name": "Signed to live in 30 days",
     "inspired": "Vionlabs original: customer quote and timeline",
     "intro": "“In just 30 days, we moved from a signed contract to a live deployment.” i-CABLE, Hong Kong\n\nSee how fast Vionlabs can be live on your catalog.",
     "headline": "From signed contract to live in 30 days",
     "cta": "Request Demo",
     "audience": "Procurement-stage buyers; retarget website and demo-page visitors",
     "claims": [
-      {"text": "i-CABLE quote", "source": "Vionlabs × SeaOvers press release, 11 Sep 2025", "status": "verify"}
+      {
+        "text": "i-CABLE quote",
+        "source": "Vionlabs × SeaOvers press release, 11 Sep 2025",
+        "status": "verify"
+      }
     ]
   },
   {
-    "id": "br1", "product": "Brand", "name": "Ours can feel it",
+    "id": "pl1",
+    "product": "Company",
+    "name": "Plex customer story",
+    "inspired": "Vionlabs original: customer story promo",
+    "intro": "How did Plex unlock deep catalog discovery for 25 million viewers?\n\nVionlabs enriched 50,000+ titles with AI metadata. “We have seen significant uplift in minutes based on using mood data properly.” Scott Olechowski, Co-Founder & CPO, Plex",
+    "headline": "How Plex unlocked deep catalog discovery",
+    "cta": "Learn More",
+    "audience": "Content, product and growth leads at streamers with large catalogs",
+    "claims": [
+      {
+        "text": "25 million viewers",
+        "source": "Plex story title on vionlabs.com (not repeated in the body)",
+        "status": "verify"
+      },
+      {
+        "text": "50,000+ titles enriched with AI metadata; quote",
+        "source": "Plex customer story on vionlabs.com",
+        "status": "site"
+      }
+    ]
+  },
+  {
+    "id": "br1",
+    "product": "Brand",
+    "name": "Ours can feel it",
     "inspired": "Positioning against general-purpose video AI",
-    "intro": "General-purpose AI can tell you there’s a person by a window. It can’t tell you the scene is about loss.\n\nVionlabs models are trained on entertainment content and understand stories, characters, emotions and structure.",
+    "intro": "General-purpose AI can tell you there’s a person by a window. It can’t tell you the scene is about loss.\n\nVionlabs is domain-specific AI built for entertainment, not a generic wrapper. It understands stories, characters, emotions and structure.",
     "headline": "AI that understands stories",
     "cta": "Learn More",
     "audience": "Broad media and entertainment audience; good for cold reach",
     "claims": [
-      {"text": "Trained on entertainment content; understands stories, characters, emotions and structure", "source": "vionlabs.com/our-ai (SEO description)", "status": "site"},
-      {"text": "Headline riffs on the blog post “Your AI Can See the Scene. It Can’t Feel It.”", "source": "Vionlabs blog", "status": "site"}
+      {
+        "text": "Trained on entertainment content; understands stories, characters, emotions and structure",
+        "source": "vionlabs.com/our-ai (SEO description)",
+        "status": "site"
+      },
+      {
+        "text": "Headline riffs on the blog post “Your AI Can See the Scene. It Can’t Feel It.”",
+        "source": "Vionlabs blog",
+        "status": "site"
+      },
+      {
+        "text": "“Domain-specific AI built for entertainment. Not a generic wrapper.”",
+        "source": "vionlabs.com homepage",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "br2", "product": "Brand", "name": "20+ media companies",
+    "id": "br2",
+    "product": "Brand",
+    "name": "20+ media companies",
     "inspired": "Vionlabs original: proof numbers and a customer quote",
-    "intro": "“Vionlabs enabled us to do the things we always wanted to do, but couldn’t do at scale.” Scott Olechowski, CPO, Plex\n\nMore than 20 media companies use Vionlabs, reaching 300M+ viewers.",
+    "intro": "“We know for a fact, based on the engagement we have seen, that it is ROI positive.” Scott Olechowski, Co-Founder & CPO, Plex\n\n20+ media companies use Vionlabs to make their libraries discoverable, engaging and revenue-ready.",
     "headline": "Trusted by 20+ media companies",
     "cta": "Learn More",
     "audience": "Broad media and entertainment decision-makers; retargeting",
     "claims": [
-      {"text": "20+ media companies, 300M+ viewers", "source": "vionlabs.com homepage (“300M+ Happy Viewers”)", "status": "verify"},
-      {"text": "Plex quote", "source": "vionlabs.com/customer-stories", "status": "verify"}
+      {
+        "text": "“20+ Media Companies”, “300M+ Happy Viewers”",
+        "source": "vionlabs.com homepage; no source given on the page",
+        "status": "verify"
+      },
+      {
+        "text": "Plex quote",
+        "source": "Plex customer story on vionlabs.com",
+        "status": "site"
+      }
     ]
   },
   {
-    "id": "wb1", "product": "Agentic Layer", "name": "Live webinar template",
+    "id": "wb1",
+    "product": "Agentic Layer",
+    "name": "Live webinar template",
     "inspired": "Co-branded webinar with speakers and date, like TwelveLabs × NVIDIA “Trust But Verify”",
     "intro": "Watch the Agentic Layer work live. Ask for clips, lists and artwork in plain language, then approve and publish.\n\n[Date] · [Time CET] · Live demo and Q&A with [Speaker] and [Partner speaker].",
     "headline": "Live webinar: talk to your video library",
     "cta": "Register",
     "audience": "Everyone above; strongest as a retargeting and nurture ad",
     "claims": [
-      {"text": "Date, time, speakers and partner logo", "source": "Placeholders (yellow dashed in the image)", "status": "illustrative"}
+      {
+        "text": "Date, time, speakers and partner logo",
+        "source": "Placeholders (yellow dashed in the image)",
+        "status": "illustrative"
+      }
     ]
   }
 ]
