@@ -38,3 +38,16 @@ im.save(out + ".jpg", quality=88, optimize=True, progressive=True)
 PY
   echo "$dir/$name.{webp,jpg}"
 done
+# Agentic Layer hero v3: no background of its own, so its poster keeps transparency (WebP),
+# plus a JPEG on the page's navy
+node render_preview.cjs agentic-hero-v3.json "$tmp/agentic-hero-v3" --width 1920 --frames 424 --transparent >/dev/null
+python3 - "$tmp/agentic-hero-v3/frame_0424.png" posters/agentic-hero-v3 <<'PY'
+import sys
+from PIL import Image
+src, out = sys.argv[1], sys.argv[2]
+im = Image.open(src).convert("RGBA")
+im.save(out + ".webp", quality=86, method=6)
+bg = Image.new("RGBA", im.size, "#0a1322")
+Image.alpha_composite(bg, im).convert("RGB").save(out + ".jpg", quality=86, optimize=True, progressive=True)
+PY
+echo "posters/agentic-hero-v3.{webp,jpg}"
