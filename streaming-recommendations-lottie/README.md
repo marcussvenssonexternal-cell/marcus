@@ -39,7 +39,7 @@ every visual:
   - **Results:** each film (Arrival, Sunshine, The Martian) gets a row: poster, title, "Open in Creative Lab", and four clips. Each clip arrives as the 16:9 shot and reframes to 9:16 around its subject, then plays. The agent ticks the top clips "Added to list", and the view scrolls to the next film.
   - **Files:** preview on the page's navy: `previews/agentic-hero-v3.mp4`; transparent poster: `posters/agentic-hero-v3.webp`.
   - It goes with a static headline, not the rotating one. `render_preview.cjs` takes `--bg <colour>` and `--transparent` for Lotties like this one.
-- **Section look:** the three section visuals share the hero's style: an "Agentic Layer" window, the request in a blue bubble, the agent's answer in a card, and the result below. There's nothing to import by hand; people only approve.
+- **Section look:** the three section visuals are just the conversation and its result on a transparent background, straight on the page like the hero: the request in a blue bubble, the agent's answer in a card, and the result below. Each canvas is fitted to its content. There's nothing to import by hand; people only approve.
 - **Stills and posters:** `stills/agentic-*` (2560×1440) and `posters/agentic-*` (the frame shown before an animation loads, or instead of it with reduced motion) are rendered by `./render_stills.sh`.
 - **Share image:** `posters/agentic-og.jpg` (1200×630) is the page's social preview: the headline next to the clip cards and chat from the v3 hero.
 - **Previews:** `previews/agentic-hero.mp4`, `previews/agentic-curated-lists.mp4`.

@@ -835,49 +835,48 @@ def build_hero_v3():
 
 # ----------------------------------------------------------- section helpers
 #
-# The section visuals use the hero's look: an "Agentic Layer" window, the request
-# in a blue bubble, the agent's answer in a card, and the result underneath.
-# Every request reads like one a team would type, and every result shows exactly
-# what it asked for. Nothing is imported by hand: the agent does the work and
-# people only approve.
+# The section visuals are just the conversation and its result, with no window or
+# background: the request in a blue bubble, the agent's answer in a card, and the
+# result underneath, straight on the page like the hero. Every request reads like
+# one a team would type, and every result shows exactly what it asked for. Nothing
+# is imported by hand: the agent does the work and people only approve.
 
-SECTION_BG = "#0d1520"
+SECTION_W, EDGE = 1280, 12                      # canvas width; inset that keeps focus glows inside
 
 
-def section_start(op, agent):
-    """A 1280x720 Agentic Layer window, with the agent doing the work named on the right."""
-    W, H = 1280, 720
+def section_start(op):
+    """A transparent 1280-wide canvas; its height is fitted to the content by section_end."""
     PRECOMPS.clear()
-    m = Comp(W, H, op, "main")
-    m.shape("bg", [group([rect(W, H, W / 2, H / 2), fill(SECTION_BG)]),
-                   group([ellipse(1300, 700, 980, 0), gfill([(0, "#1b2a46", 0.9), (1, SECTION_BG, 0)],
-                                                            (980, 0), (1630, 0), radial=True)])])
-    aw = MED.width(agent, 17) + 32
-    m.shape("header", bf([
-        group([rect(40, 40, 56, 46, 11), fill("#1d2a44")]),
-        icon(I_SPARKLE, 23, 56, 46, color=FOCUS),
-        SEMI.text("Agentic Layer", 23, 88, 54),
-        group([rect(aw, 34, W - 48 - aw / 2, 46, 17), fill("#ffffff", 5), stroke("#ffffff", 1, 14)]),
-        MED.text(agent, 17, W - 48 - aw / 2, 52, MUTED, align="center"),
-        group([rect(W - 72, 1, W / 2, 90), fill("#ffffff", 8)]),
-    ]))
-    return m, Images()
+    return Comp(SECTION_W, 720, op, "main"), Images()
+
+
+def section_end(m, bottom):
+    m.h = round(bottom + EDGE)
+
+
+def section_write(scene, imgs, title, name, t_in=8, t_out=12):
+    """Fades the whole visual in and out for the loop (no black overlay: the canvas is transparent)."""
+    op = scene.op
+    scene.name = "comp_section"
+    main = Comp(scene.w, scene.h, op, "main")
+    main.precomp("section", scene, ks=layer_ks(o=anim([(0, [0]), (t_in, [100]), (op - t_out, [100]), (op, [0])])))
+    write(animation(main, [scene] + PRECOMPS, FPS, title, images=imgs.assets.values()), name)
 
 
 def section_prompt(m, prompt, reply, t=0):
     """The request (right-aligned bubble) and the agent's answer in a card under it.
 
     A newline in the request marks where its line should break."""
-    size = 24
-    lines = [ln for part in prompt.split("\n") for ln in wrap(REG, part, size, 960)]
-    bw = max(REG.width(t_, size) for t_ in lines) + 40
-    shapes, bh = user_bubble(lines, m.w - 36 - bw, 112, bw, size=size, lh=32, pad=18)
+    size = 26
+    lines = [ln for part in prompt.split("\n") for ln in wrap(REG, part, size, 1000)]
+    bw = max(REG.width(t_, size) for t_ in lines) + 44
+    shapes, bh = user_bubble(lines, m.w - EDGE - bw, EDGE, bw, size=size, lh=35, pad=20)
     appear(m, "prompt", shapes, t, dy=16)
-    y = 112 + bh + 16
-    rlines = wrap(REG, reply, 22, 1000)
-    items, h = reply_card(rlines, 36, y, max(REG.width(t_, 22) for t_ in rlines) + 40, size=22)
+    y = EDGE + bh + 18
+    rlines = wrap(REG, reply, 24, 1040)
+    items, h = reply_card(rlines, EDGE, y, max(REG.width(t_, 24) for t_ in rlines) + 44, size=24, lh=33, pad=22)
     appear(m, "reply", items, t + 10, dy=12)
-    return y + h + 28
+    return y + h + 30
 
 
 # --------------------------------------------- section: Curated Lists
@@ -887,10 +886,11 @@ LIST_FOCUS = [(36, 76), (76, 116), (116, 156), (156, 196), (196, None)]
 
 def build_curated_lists():
     OP = 240
-    m, imgs = section_start(OP, "Curation Agent")
+    m, imgs = section_start(OP)
     top = section_prompt(m, "Give me 5 space movies for a Friday night line-up",
                          "Ranked 5 titles from your catalog by how well they fit a Friday space night.")
-    rw, rh, gap, x0 = 1208, 72, 6, 36
+    x0, rh, gap = EDGE, 76, 8
+    rw = m.w - 2 * EDGE
     for k, (name, title, genres, moods, score) in enumerate(LINEUP):
         y = top + k * (rh + gap)
         t = 14 + 3 * k
@@ -916,9 +916,8 @@ def build_curated_lists():
         media(m, f"row {k} thumb", imgs(name), full(name, (0, 0, 112, 63)), (x0 + 56, y + 4.5, 112, 63), 6, t)
         m.shape(f"row {k} lit", [group([rect(rw, rh, x0 + rw / 2, y + rh / 2, 12), fill("#ffffff", 5)])]
                 + focus_ring(x0, y, rw, rh, 12, ring=3, glow=8), ks=layer_ks(o=on_off([LIST_FOCUS[k]])))
-    add_fade(m, OP)
-    write(animation(m, PRECOMPS, FPS, "Agentic Layer: Curated Lists", images=imgs.assets.values()),
-          "agentic-curated-lists")
+    section_end(m, top + len(LINEUP) * (rh + gap) - gap)
+    section_write(m, imgs, "Agentic Layer: Curated Lists", "agentic-curated-lists")
 
 
 # --------------------------------------------- section: Clips in Every Ratio
@@ -926,11 +925,11 @@ def build_curated_lists():
 def build_clips():
     """One scene, asked for by name, cut for every screen; the vertical cut is the one in focus."""
     OP = 90
-    m, imgs = section_start(OP, "Creative Agent")
+    m, imgs = section_start(OP)
     top = section_prompt(m, "Give me a 30-second clip from Top Gun: Maverick of the low-level canyon flight,\n"
                             "for TV, feeds and TikTok",
                          "Found the canyon flight and cut it in 16:9 for TV, 1:1 for feeds and 9:16 for TikTok.")
-    h, gap, x = 320, 20, 36
+    h, gap, x = 340, 22, EDGE
     clips = [("16:9  ·  TV", (480, 270, 960, 540), h * 16 / 9),
              ("1:1  ·  Feeds", (690, 270, 540, 540), h),
              ("9:16  ·  TikTok & Shorts", (790, 270, 540 * 9 / 16, 540), h * 9 / 16)]
@@ -952,9 +951,8 @@ def build_clips():
         if k == 2:
             m.shape("clip 9x16 focus", focus_ring(*box, 12, ring=3, glow=8), ks=layer_ks(o=on_off([(t + 16, None)])))
         x += w + gap
-    add_fade(m, OP)
-    write(animation(m, PRECOMPS, FPS, "Agentic Layer: Clips in Every Ratio", images=imgs.assets.values()),
-          "agentic-clips")
+    section_end(m, top + h + 16 + 32)
+    section_write(m, imgs, "Agentic Layer: Clips in Every Ratio", "agentic-clips")
 
 
 # --------------------------------------------- section: Branded Thumbnails
@@ -968,10 +966,10 @@ THUMBS = [("arrival", "Arrival", "Scene at 17m 05s", (115, 112, 230, 129.4)),
 def build_branded():
     """Three titles, a strong scene from each with its logo placed, ready to approve."""
     OP = 90
-    m, imgs = section_start(OP, "Creative Agent")
+    m, imgs = section_start(OP)
     top = section_prompt(m, "Make 3 thumbnails for Arrival, Sunshine and The Martian and add their logos",
                          "Picked a strong scene from each title and placed its logo, in 16:9, 1:1 and 9:16.")
-    gap, x0 = 24, 36
+    gap, x0 = 24, EDGE
     tw = (m.w - 2 * x0 - 2 * gap) / 3
     th = tw * 9 / 16
     for k, (name, title, scene, crop) in enumerate(THUMBS):
@@ -992,16 +990,15 @@ def build_branded():
                                       group(chips)], t + 6, dy=8)
     by = top + th + 96
     appear(m, "approve-bar", bf([
-        group([rect(m.w - 72, 1, m.w / 2, by - 10), fill("#ffffff", 8)]),
+        group([rect(m.w - 2 * x0, 1, m.w / 2, by - 10), fill("#ffffff", 10)]),
         SEMI.text("3 titles  ·  3 ratios  ·  9 thumbnails ready", 21, x0 + 2, by + 30),
         REG.text("Nothing is published until you approve it.", 17, x0 + 2, by + 56, MUTED),
         group([rect(280, 52, m.w - x0 - 140, by + 24, 26), fill(BLUE)]),
         icon(I_CHECK, 22, m.w - x0 - 280 + 34, by + 24),
         SEMI.text("Approve & publish", 20, m.w - x0 - 280 + 54, by + 31),
     ]), 30, dy=8)
-    add_fade(m, OP)
-    write(animation(m, PRECOMPS, FPS, "Agentic Layer: Branded Thumbnails", images=imgs.assets.values()),
-          "agentic-branded-thumbnails")
+    section_end(m, by + 60)
+    section_write(m, imgs, "Agentic Layer: Branded Thumbnails", "agentic-branded-thumbnails")
 
 
 if __name__ == "__main__":
