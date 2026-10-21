@@ -841,11 +841,11 @@ def build_hero_v3():
 # one a team would type, and every result shows exactly what it asked for. Nothing
 # is imported by hand: the agent does the work and people only approve.
 
-SECTION_W, EDGE = 1280, 12                      # canvas width; inset that keeps focus glows inside
+SECTION_W, EDGE = 960, 12                       # canvas width (compact, so nothing feels spread out); inset that keeps focus glows inside
 
 
 def section_start(op):
-    """A transparent 1280-wide canvas; its height is fitted to the content by section_end."""
+    """A transparent canvas, SECTION_W wide; its height is fitted to the content by section_end."""
     PRECOMPS.clear()
     return Comp(SECTION_W, 720, op, "main"), Images()
 
@@ -868,12 +868,12 @@ def section_prompt(m, prompt, reply, t=0):
 
     A newline in the request marks where its line should break."""
     size = 26
-    lines = [ln for part in prompt.split("\n") for ln in wrap(REG, part, size, 1000)]
+    lines = [ln for part in prompt.split("\n") for ln in wrap(REG, part, size, m.w - 2 * EDGE - 60)]
     bw = max(REG.width(t_, size) for t_ in lines) + 44
     shapes, bh = user_bubble(lines, m.w - EDGE - bw, EDGE, bw, size=size, lh=35, pad=20)
     appear(m, "prompt", shapes, t, dy=16)
     y = EDGE + bh + 18
-    rlines = wrap(REG, reply, 24, 1040)
+    rlines = wrap(REG, reply, 24, m.w - 2 * EDGE - 60)
     items, h = reply_card(rlines, EDGE, y, max(REG.width(t_, 24) for t_ in rlines) + 44, size=24, lh=33, pad=22)
     appear(m, "reply", items, t + 10, dy=12)
     return y + h + 30
@@ -897,7 +897,7 @@ def build_curated_lists():
         gx = x0 + 196 + REG.width(genres, 17) + 16
         pills, _ = pill_row(moods, gx, y + 40, gap=6, size=14, h=26, color=MOOD, fill_o=16,
                             edge=MOOD, edge_o=55, text_color="#ffd9d2", pad=10)
-        bar_w = 180
+        bar_w = 150
         bar_x = x0 + rw - 24 - bar_w
         ks = layer_ks(p=anim([(t, [0, 14], "out"), (t + 16, [0, 0])]), o=vis(t))
         m.shape(f"row {k}", bf([
@@ -926,13 +926,14 @@ def build_clips():
     """One scene, asked for by name, cut for every screen; the vertical cut is the one in focus."""
     OP = 90
     m, imgs = section_start(OP)
-    top = section_prompt(m, "Give me a 30-second clip from Top Gun: Maverick of the low-level canyon flight,\n"
+    top = section_prompt(m, "Give me a 30-second clip of the canyon flight in Top Gun: Maverick,\n"
                             "for TV, feeds and TikTok",
-                         "Found the canyon flight and cut it in 16:9 for TV, 1:1 for feeds and 9:16 for TikTok.")
-    h, gap, x = 340, 22, EDGE
+                         "Found the canyon flight and cut it for TV, feeds and TikTok.")
+    gap, x = 18, EDGE
+    h = (m.w - 2 * EDGE - 2 * gap) / (16 / 9 + 1 + 9 / 16)       # the three cuts fill the width
     clips = [("16:9  ·  TV", (480, 270, 960, 540), h * 16 / 9),
              ("1:1  ·  Feeds", (690, 270, 540, 540), h),
-             ("9:16  ·  TikTok & Shorts", (790, 270, 540 * 9 / 16, 540), h * 9 / 16)]
+             ("9:16  ·  TikTok", (790, 270, 540 * 9 / 16, 540), h * 9 / 16)]
     for k, (label, crop, w) in enumerate(clips):
         t = 14 + 4 * k
         box = (x, top, w, h)
@@ -967,8 +968,8 @@ def build_branded():
     """Three titles, a strong scene from each with its logo placed, ready to approve."""
     OP = 90
     m, imgs = section_start(OP)
-    top = section_prompt(m, "Make 3 thumbnails for Arrival, Sunshine and The Martian and add their logos",
-                         "Picked a strong scene from each title and placed its logo, in 16:9, 1:1 and 9:16.")
+    top = section_prompt(m, "Make 3 thumbnails for Arrival, Sunshine and The Martian\nand add their logos",
+                         "Picked a strong scene from each title and placed its logo.")
     gap, x0 = 24, EDGE
     tw = (m.w - 2 * x0 - 2 * gap) / 3
     th = tw * 9 / 16
@@ -978,24 +979,23 @@ def build_branded():
         media(m, f"thumb {k}", imgs(name), crop or full(name, (0, 0, tw, th)), (x, top, tw, th), 12, t)
         m.shape(f"thumb {k} logo", bf([scrim(x, top, tw, th, 12)] + title_logo(name, x + 20, top + th - 22, 26)),
                 ks=layer_ks(o=vis(t + 8)))
-        cx = x + tw
+        cx = x
         chips = []
-        for label in ("9:16", "1:1", "16:9"):
+        for label in ("16:9", "1:1", "9:16"):
             c, w = chip_check(label, 0, 0, size=15, h=28)
-            cx -= w
-            chips.append(group(c, p=(cx, top + th + 14)))
-            cx -= 8
-        appear(m, f"thumb {k} meta", [SEMI.text(title, 20, x + 2, top + th + 34),
-                                      REG.text(scene, 16, x + 2, top + th + 58, MUTED),
+            chips.append(group(c, p=(cx, top + th + 70)))
+            cx += w + 8
+        appear(m, f"thumb {k} meta", [SEMI.text(title, 20, x + 2, top + th + 32),
+                                      REG.text(scene, 16, x + 2, top + th + 56, MUTED),
                                       group(chips)], t + 6, dy=8)
-    by = top + th + 96
+    by = top + th + 128
     appear(m, "approve-bar", bf([
         group([rect(m.w - 2 * x0, 1, m.w / 2, by - 10), fill("#ffffff", 10)]),
         SEMI.text("3 titles  ·  3 ratios  ·  9 thumbnails ready", 21, x0 + 2, by + 30),
         REG.text("Nothing is published until you approve it.", 17, x0 + 2, by + 56, MUTED),
-        group([rect(280, 52, m.w - x0 - 140, by + 24, 26), fill(BLUE)]),
-        icon(I_CHECK, 22, m.w - x0 - 280 + 34, by + 24),
-        SEMI.text("Approve & publish", 20, m.w - x0 - 280 + 54, by + 31),
+        group([rect(260, 52, m.w - x0 - 130, by + 24, 26), fill(BLUE)]),
+        icon(I_CHECK, 22, m.w - x0 - 260 + 32, by + 24),
+        SEMI.text("Approve & publish", 20, m.w - x0 - 260 + 52, by + 31),
     ]), 30, dy=8)
     section_end(m, by + 60)
     section_write(m, imgs, "Agentic Layer: Branded Thumbnails", "agentic-branded-thumbnails")
