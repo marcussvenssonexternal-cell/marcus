@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vionlabs LinkedIn ads</title>
+<link rel="stylesheet" href="ads.css">
+<script src="scenes.js"></script>
+<style>
+  .bubble { margin-left: auto; width: fit-content; max-width: 880px; background: var(--blue); color: #fff; font-size: 25px; line-height: 1.35; padding: 18px 26px; border-radius: 22px 22px 6px 22px; }
+  .agent { display: flex; align-items: center; gap: 10px; font-size: 21px; font-weight: 600; color: var(--muted); }
+  .agent b { color: var(--sky); font-size: 24px; }
+  .t { position: absolute; left: 12px; bottom: 9px; right: 12px; font-size: 16px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.7); }
+  .badge { position: absolute; top: 9px; right: 9px; font-size: 13px; font-weight: 700; padding: 4px 8px; border-radius: 6px; background: rgba(0,0,0,.6); color: #fff; letter-spacing: .04em; }
+  .chip { font-size: 21px; padding: 10px 18px; border-radius: 12px; background: rgba(255,255,255,.06); border: 1.5px solid var(--panel-edge); color: var(--text); }
+  .light .chip { background: #f3f6fb; border-color: var(--light-edge); color: var(--light-text); }
+  .btn { font-size: 21px; font-weight: 600; padding: 11px 22px; border-radius: 12px; }
+  .btn.p { background: var(--blue); color: #fff; }
+  .btn.s { border: 1.5px solid var(--panel-edge); color: var(--muted); }
+  .light .btn.s { border-color: var(--light-edge); color: var(--light-muted); }
+  .step { font-size: 18px; font-weight: 700; letter-spacing: .14em; color: var(--blue); text-transform: uppercase; }
+  .arrow-down { text-align: center; color: #a8b3c7; font-size: 28px; line-height: 1; margin: 12px 0; }
+  .stat b { display: block; font-family: "Inter Display", "Inter"; font-size: 84px; font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--text); }
+  .stat span { display: block; margin-top: 10px; font-size: 23px; color: var(--muted); line-height: 1.3; }
+  .light .stat b { color: var(--light-text); }
+  .seg { position: absolute; top: 0; bottom: 0; display: grid; place-items: center; font-size: 18px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  .tc { font-size: 17px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .kv { display: grid; grid-template-columns: 170px 1fr; gap: 14px 18px; font-size: 22px; align-items: center; }
+  .kv dt { color: var(--muted); font-weight: 500; }
+  .light .kv dt { color: var(--light-muted); }
+  .quote { font-family: "Inter Display", "Inter"; font-size: 46px; font-weight: 500; line-height: 1.25; letter-spacing: -0.02em; }
+  .ph { outline: 2.5px dashed #f5c451; outline-offset: 4px; border-radius: 6px; color: #f5c451; }
+  .code { font-family: "DejaVu Sans Mono", monospace; font-size: 21px; line-height: 1.6; color: #c9d3e6; white-space: pre; }
+  .code .k { color: var(--blue-hi); } .code .s { color: #f0a58f; } .code .n { color: #7fd1c7; } .code .c { color: var(--faint); }
+</style>
+</head>
+<body>
+
+<!-- ============================ AGENTIC LAYER ============================ -->
+
+<section class="ad" id="ag1">
+  <div class="glow" style="width:760px;height:520px;right:-240px;bottom:-120px;background:rgba(51,96,208,.42)"></div>
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Agentic Layer</span></div>
+  <h1 style="margin-top:62px;font-size:104px">Talk to your<br><span class="hl">video library.</span></h1>
+  <p class="sub" style="margin-top:26px;width:940px">Describe what you need. The Agentic Layer curates the list, cuts the clips and designs the artwork.</p>
+  <div class="panel abs" style="left:84px;right:84px;top:556px;height:420px;padding:30px">
+    <div class="bubble">Make a “Cozy Winter Nights” row, with a 9:16 teaser and a thumbnail for every title.</div>
+    <div class="agent" style="margin-top:20px"><b>✦</b>Agentic Layer</div>
+    <div class="row" style="gap:14px;margin-top:14px">
+      <div class="frame" style="width:181px;height:102px" data-scene="snow"></div>
+      <div class="frame" style="width:181px;height:102px" data-scene="forest"></div>
+      <div class="frame" style="width:181px;height:102px" data-scene="night"></div>
+      <div class="frame" style="width:181px;height:102px" data-scene="dawn"></div>
+      <div class="frame" style="width:181px;height:102px" data-scene="noir"></div>
+    </div>
+    <div class="row" style="margin-top:22px;justify-content:space-between;align-items:center">
+      <div class="row" style="gap:12px"><span class="chip">10 titles</span><span class="chip">10 teasers · 9:16</span><span class="chip">10 thumbnails</span></div>
+      <div class="row" style="gap:12px"><span class="btn s">Refine</span><span class="btn p">Approve</span></div>
+    </div>
+  </div>
+  <div class="foot"><span class="cta">See it in action</span><span class="note">Best of Show · IBC2026</span></div>
+</section>
+
+<section class="ad light" id="ag2">
+  <div class="logo abs" style="left:84px;top:84px"><i></i>Vionlabs</div>
+  <h1 class="abs" style="left:84px;top:300px;font-size:124px;line-height:1.02">Ask.<br>Approve.<br><span class="hl">Publish.</span></h1>
+  <p class="sub abs" style="left:84px;top:720px;width:450px">The Agentic Layer does the work. Your team makes the call.</p>
+  <span class="cta abs" style="left:84px;bottom:84px">Book a demo</span>
+  <div class="abs" style="left:592px;right:84px;top:120px">
+    <div class="panel" style="padding:24px 26px">
+      <div class="step">1 · Ask</div>
+      <p style="font-size:24px;line-height:1.4;margin-top:10px">“Cut 30-second teasers for every new release this month, in 16:9 and 9:16.”</p>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="panel" style="padding:24px 26px">
+      <div class="step">2 · The agent works</div>
+      <div class="col" style="gap:14px;margin-top:16px">
+        <div class="row" style="align-items:center;gap:16px"><div class="frame" style="width:96px;height:54px" data-scene="desert"></div><span style="font-size:23px;flex:1">Finds the strongest moments</span><span class="tag ok">✓</span></div>
+        <div class="row" style="align-items:center;gap:16px"><div class="frame" style="width:96px;height:54px" data-scene="neon"></div><span style="font-size:23px;flex:1">Cuts 16:9 and 9:16</span><span class="tag ok">✓</span></div>
+        <div class="row" style="align-items:center;gap:16px"><div class="frame" style="width:96px;height:54px" data-scene="sunset"></div><span style="font-size:23px;flex:1">Designs branded thumbnails</span><span class="tag ok">✓</span></div>
+      </div>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="panel" style="padding:24px 26px">
+      <div class="step">3 · You approve</div>
+      <div class="row" style="gap:12px;margin-top:16px">
+        <div class="frame" style="width:142px;height:80px" data-scene="desert"><span class="badge" style="background:var(--blue)">✓</span></div>
+        <div class="frame" style="width:142px;height:80px" data-scene="neon"><span class="badge" style="background:var(--blue)">✓</span></div>
+        <div class="frame" style="width:142px;height:80px" data-scene="sunset"><span class="badge" style="background:var(--blue)">✓</span></div>
+      </div>
+      <div class="row" style="margin-top:18px;justify-content:space-between;align-items:center">
+        <span style="font-size:21px;color:var(--light-muted)">12 assets ready</span><span class="btn p">Approve &amp; publish</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ad" id="ag3">
+  <div class="glow" style="width:620px;height:420px;left:-200px;bottom:60px;background:rgba(51,96,208,.35)"></div>
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Agentic Layer</span></div>
+  <h1 style="margin-top:56px;font-size:96px">One title.<br>Every ratio.<br><span class="hl">Every channel.</span></h1>
+  <p class="sub" style="margin-top:24px;width:900px">Ask for a teaser and get it in 16:9, 1:1, 4:5 and 9:16, cut from a single master.</p>
+  <svg class="abs" style="left:0;top:0" width="1200" height="1200" id="ag3-wires"></svg>
+  <div class="abs" style="left:84px;top:682px">
+    <div class="frame" id="ag3-master" style="width:370px;height:208px;outline:2px solid var(--sky)" data-scene="portrait"></div>
+    <div class="tc" style="margin-top:12px;font-size:19px;color:var(--muted)">MASTER · 16:9 · 01:48:22</div>
+  </div>
+  <div class="abs row" style="left:560px;right:84px;top:640px;align-items:flex-end;gap:14px;height:252px">
+    <div class="col" style="align-items:center;gap:10px"><div class="frame ag3-out" style="width:160px;height:90px" data-scene="portrait"></div><span class="tc" style="color:var(--muted)">16:9 · CTV</span></div>
+    <div class="col" style="align-items:center;gap:10px"><div class="frame ag3-out" style="width:116px;height:116px" data-scene="portrait"></div><span class="tc" style="color:var(--muted)">1:1 · Feed</span></div>
+    <div class="col" style="align-items:center;gap:10px"><div class="frame ag3-out" style="width:116px;height:145px" data-scene="portrait"></div><span class="tc" style="color:var(--muted)">4:5 · Mobile</span></div>
+    <div class="col" style="align-items:center;gap:10px"><div class="frame ag3-out" style="width:118px;height:210px" data-scene="portrait"></div><span class="tc" style="color:var(--muted)">9:16 · Vertical</span></div>
+  </div>
+  <div class="foot"><span class="cta">See how it works</span></div>
+</section>
+
+<section class="ad" id="ag4">
+  <div class="glow" style="width:700px;height:700px;right:-160px;top:180px;background:rgba(232,195,106,.18)"></div>
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b style="background:#e8c36a;box-shadow:0 0 14px #e8c36a"></b>Award winner</span></div>
+  <h1 style="margin-top:96px;font-size:100px">Best of Show<br>at <span class="hl">IBC2026.</span></h1>
+  <p class="sub" style="margin-top:28px;width:560px">The Agentic Layer won TVBEurope’s Best of Show award. Now it’s ready to talk to your video library.</p>
+  <svg class="abs" style="right:84px;top:300px" width="440" height="440" viewBox="0 0 440 440">
+    <defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6dd9a"/><stop offset="1" stop-color="#b98a2f"/></linearGradient></defs>
+    <circle cx="220" cy="220" r="210" fill="none" stroke="url(#gold)" stroke-width="3" opacity=".5"/>
+    <circle cx="220" cy="220" r="186" fill="#121c2a" stroke="url(#gold)" stroke-width="6"/>
+    <circle cx="220" cy="220" r="160" fill="none" stroke="#e8c36a" stroke-width="1.5" stroke-dasharray="3 7" opacity=".7"/>
+    <path d="M220 112 l20 41 45 6 -33 31 8 45 -40 -21 -40 21 8 -45 -33 -31 45 -6z" fill="url(#gold)"/>
+    <text x="220" y="292" text-anchor="middle" font-family="Inter Display" font-weight="700" font-size="34" fill="#f4f6fa" letter-spacing="1">BEST OF SHOW</text>
+    <text x="220" y="330" text-anchor="middle" font-family="Inter" font-weight="600" font-size="22" fill="#e8c36a" letter-spacing="4">IBC2026</text>
+  </svg>
+  <div class="panel abs" style="left:84px;top:760px;width:560px;padding:22px 26px">
+    <div class="bubble" style="margin-left:0;font-size:22px;max-width:none;border-radius:18px 18px 18px 6px">Find every scene where the lead laughs, cut a 15-second reel.</div>
+    <div class="agent" style="margin-top:14px;font-size:19px"><b>✦</b>Agentic Layer · 14 moments found</div>
+  </div>
+  <div class="foot"><span class="cta">See the winning demo</span><span class="note">Award: TVBEurope Best of Show, IBC2026</span></div>
+</section>
+
+<!-- ================================ CURIO ================================ -->
+
+<section class="ad" id="cu1">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Curio</span></div>
+  <h1 style="margin-top:62px;font-size:92px">Match viewers to how<br>titles <span class="hl">feel</span> to watch.</h1>
+  <p class="sub" style="margin-top:24px;width:980px">Curio powers Because You Watched, personalized rows and similar titles, matched on mood, not just genre.</p>
+  <svg class="abs" style="left:0;top:0" width="1200" height="1200">
+    <g fill="none" stroke="#e07a6d" stroke-width="2" opacity=".6">
+      <path d="M414 735 C470 735 470 690 500 690"/><path d="M414 735 C470 735 470 760 500 760"/><path d="M414 735 C470 735 470 830 500 830"/>
+      <path d="M700 690 C730 690 730 735 786 735"/><path d="M700 760 C730 760 730 735 786 735"/><path d="M700 830 C730 830 730 735 786 735"/>
+    </g>
+  </svg>
+  <div class="panel abs" style="left:84px;top:560px;width:330px;padding:20px">
+    <div class="panel-title" style="font-size:17px">Because you watched</div>
+    <div class="frame" style="height:162px;margin-top:14px" data-scene="space"></div>
+    <div style="font-size:25px;font-weight:600;margin-top:14px">The Long Orbit</div>
+    <div class="row" style="gap:8px;margin-top:10px"><span class="tag genre">Sci-fi</span></div>
+  </div>
+  <div class="abs col" style="left:500px;top:668px;width:200px;gap:26px;align-items:center">
+    <span class="tag mood">awe-inspiring</span><span class="tag mood">tense</span><span class="tag mood">thought-provoking</span>
+  </div>
+  <div class="tc abs" style="left:500px;width:200px;top:880px;text-align:center;color:var(--muted)">shared moods</div>
+  <div class="panel abs" style="right:84px;top:560px;width:330px;padding:20px;border-color:rgba(61,155,255,.6)">
+    <div class="panel-title" style="font-size:17px;color:var(--sky)">Curio pick</div>
+    <div class="frame" style="height:162px;margin-top:14px" data-scene="desert"></div>
+    <div style="font-size:25px;font-weight:600;margin-top:14px">Red Horizon</div>
+    <div class="row" style="gap:8px;margin-top:10px"><span class="tag genre">Drama</span></div>
+  </div>
+  <div class="foot"><span class="cta">Meet Curio</span><span class="note">Different genre. Same feeling.</span></div>
+</section>
+
+<section class="ad" id="cu2">
+  <div class="glow" style="width:640px;height:480px;right:-180px;top:-120px;background:rgba(51,96,208,.35)"></div>
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Curio</span></div>
+  <h1 style="margin-top:60px;font-size:90px">Recommend new titles<br><span class="hl">before anyone has<br>watched them.</span></h1>
+  <p class="sub" style="margin-top:24px;width:1000px">No viewing history yet? Curio understands each title from day one, so new and long-tail content gets found.</p>
+  <div class="panel abs" style="left:84px;top:640px;width:300px;padding:20px">
+    <div class="panel-title" style="font-size:17px">Added today</div>
+    <div class="frame" style="height:146px;margin-top:12px" data-scene="noir"><span class="badge" style="background:var(--blue)">NEW</span></div>
+    <div style="font-size:24px;font-weight:600;margin-top:12px">Undertow</div>
+    <div class="tc" style="margin-top:6px;color:var(--muted)">0 views · 0 ratings</div>
+    <div class="row" style="gap:8px;margin-top:12px"><span class="tag mood">brooding</span><span class="tag mood">suspenseful</span></div>
+  </div>
+  <div class="abs" style="left:398px;top:790px;font-size:34px;color:var(--sky)">→</div>
+  <div class="abs col" style="left:444px;right:84px;top:640px;gap:22px">
+    <div>
+      <div style="font-size:21px;font-weight:600;color:var(--muted)">Because you watched Night Shift</div>
+      <div class="row" style="gap:10px;margin-top:10px">
+        <div class="frame" style="width:142px;height:80px" data-scene="night"></div>
+        <div class="frame" style="width:142px;height:80px;outline:3px solid var(--sky)" data-scene="noir"><span class="badge" style="background:var(--blue)">NEW</span></div>
+        <div class="frame" style="width:142px;height:80px" data-scene="neon"></div>
+        <div class="frame" style="width:142px;height:80px" data-scene="dusk"></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:21px;font-weight:600;color:var(--muted)">Slow-burn crime dramas</div>
+      <div class="row" style="gap:10px;margin-top:10px">
+        <div class="frame" style="width:142px;height:80px" data-scene="dusk"></div>
+        <div class="frame" style="width:142px;height:80px" data-scene="night"></div>
+        <div class="frame" style="width:142px;height:80px;outline:3px solid var(--sky)" data-scene="noir"><span class="badge" style="background:var(--blue)">NEW</span></div>
+        <div class="frame" style="width:142px;height:80px" data-scene="snow"></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="cta">Meet Curio</span></div>
+</section>
+
+<section class="ad" id="cu3">
+  <div class="glow" style="width:900px;height:600px;left:150px;top:260px;background:rgba(51,96,208,.28)"></div>
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Curio · Now live</span></div>
+  <div class="abs" style="left:84px;top:220px;font-family:'Inter Display';font-weight:700;font-size:300px;letter-spacing:-.05em;line-height:.9;background:linear-gradient(180deg,#fff 30%,#6f9bff);-webkit-background-clip:text;color:transparent">1M+</div>
+  <p class="abs" style="left:92px;top:520px;font-size:40px;font-weight:600;letter-spacing:-.01em;width:900px;line-height:1.25">analyzed assets taught Curio how titles feel.</p>
+  <div class="abs row" style="left:84px;right:84px;top:700px;gap:18px">
+    <div class="panel" style="flex:1;padding:22px"><div class="frame" style="height:120px" data-scene="space"></div><div style="font-size:22px;font-weight:600;margin-top:14px">Because You Watched</div></div>
+    <div class="panel" style="flex:1;padding:22px"><div class="frame" style="height:120px" data-scene="forest"></div><div style="font-size:22px;font-weight:600;margin-top:14px">Personalized rows</div></div>
+    <div class="panel" style="flex:1;padding:22px"><div class="frame" style="height:120px" data-scene="sunset"></div><div style="font-size:22px;font-weight:600;margin-top:14px">Similar titles</div></div>
+  </div>
+  <div class="foot"><span class="cta">Meet Curio</span><span class="note" style="color:var(--muted);font-size:24px">Live with Great American Pure Flix</span></div>
+</section>
+
+<!-- ============================ EDITORIAL LAB ============================ -->
+
+<section class="ad light" id="ed1">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Editorial Lab</span></div>
+  <h1 style="margin-top:58px;font-size:92px">Mood-based lists for<br><span class="hl">90%+ of your catalog.</span></h1>
+  <p class="sub" style="margin-top:22px;width:1000px">An AI Media Agent suggests mood- and plot-driven Smartlists. Your editors pick the winners.</p>
+  <div class="abs" style="left:84px;right:84px;top:520px;display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div class="panel" style="padding:20px">
+      <div class="row" style="justify-content:space-between;align-items:center"><span style="font-size:24px;font-weight:700">Rainy Sunday Mysteries</span><span class="tag ok">Suggested</span></div>
+      <div class="row" style="gap:8px;margin-top:14px"><div class="frame" style="flex:1;height:68px" data-scene="noir"></div><div class="frame" style="flex:1;height:68px" data-scene="night"></div><div class="frame" style="flex:1;height:68px" data-scene="dusk"></div><div class="frame" style="flex:1;height:68px" data-scene="snow"></div></div>
+      <div class="row" style="gap:8px;margin-top:12px"><span class="tag mood">cozy</span><span class="tag mood">puzzling</span></div>
+    </div>
+    <div class="panel" style="padding:20px">
+      <div class="row" style="justify-content:space-between;align-items:center"><span style="font-size:24px;font-weight:700">Feel-Good Underdogs</span><span class="tag ok">Suggested</span></div>
+      <div class="row" style="gap:8px;margin-top:14px"><div class="frame" style="flex:1;height:68px" data-scene="sunset"></div><div class="frame" style="flex:1;height:68px" data-scene="forest"></div><div class="frame" style="flex:1;height:68px" data-scene="concert"></div><div class="frame" style="flex:1;height:68px" data-scene="dawn"></div></div>
+      <div class="row" style="gap:8px;margin-top:12px"><span class="tag mood">uplifting</span><span class="tag mood">heartfelt</span></div>
+    </div>
+    <div class="panel" style="padding:20px">
+      <div class="row" style="justify-content:space-between;align-items:center"><span style="font-size:24px;font-weight:700">Slow-Burn Sci-Fi</span><span class="tag ok">Suggested</span></div>
+      <div class="row" style="gap:8px;margin-top:14px"><div class="frame" style="flex:1;height:68px" data-scene="space"></div><div class="frame" style="flex:1;height:68px" data-scene="desert"></div><div class="frame" style="flex:1;height:68px" data-scene="neon"></div><div class="frame" style="flex:1;height:68px" data-scene="snow"></div></div>
+      <div class="row" style="gap:8px;margin-top:12px"><span class="tag mood">contemplative</span><span class="tag mood">eerie</span></div>
+    </div>
+    <div class="panel" style="padding:20px">
+      <div class="row" style="justify-content:space-between;align-items:center"><span style="font-size:24px;font-weight:700">Big Nights Out</span><span class="tag ok">Suggested</span></div>
+      <div class="row" style="gap:8px;margin-top:14px"><div class="frame" style="flex:1;height:68px" data-scene="concert"></div><div class="frame" style="flex:1;height:68px" data-scene="neon"></div><div class="frame" style="flex:1;height:68px" data-scene="night"></div><div class="frame" style="flex:1;height:68px" data-scene="sunset"></div></div>
+      <div class="row" style="gap:8px;margin-top:12px"><span class="tag mood">energetic</span><span class="tag mood">fun</span></div>
+    </div>
+  </div>
+  <div class="foot"><span class="cta">Explore Editorial Lab</span></div>
+</section>
+
+<section class="ad" id="ed2">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Editorial Lab</span></div>
+  <h1 style="margin-top:60px;font-size:100px">Hidden content is<br><span class="hl">hidden revenue.</span></h1>
+  <p class="sub" style="margin-top:22px">Most of your catalog never makes it onto a row.</p>
+  <div class="abs row" style="left:84px;right:84px;top:500px;gap:30px;align-items:center">
+    <div class="panel" style="flex:1;padding:22px">
+      <div class="row" style="justify-content:space-between"><span class="panel-title">Today</span><span class="tc">genre tags only</span></div>
+      <div id="grid-before" style="display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:14px"></div>
+    </div>
+    <div style="font-size:40px;color:var(--sky)">→</div>
+    <div class="panel" style="flex:1;padding:22px;border-color:rgba(61,155,255,.55)">
+      <div class="row" style="justify-content:space-between"><span class="panel-title" style="color:var(--sky)">With Editorial Lab</span><span class="tc">mood &amp; plot lists</span></div>
+      <div id="grid-after" style="display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:14px"></div>
+    </div>
+  </div>
+  <div class="abs row" style="left:84px;right:84px;top:790px;gap:30px">
+    <ul class="list no" style="flex:1;font-size:24px"><li>Same titles in every row</li><li>Deep catalog never surfaces</li><li>Hours of manual curation</li></ul>
+    <div style="width:30px"></div>
+    <ul class="list yes" style="flex:1;font-size:24px"><li>Fresh rows from the back catalog</li><li>Smartlists suggested for you</li><li>Covers 90%+ of your catalog</li></ul>
+  </div>
+  <div class="foot"><span class="cta">Find your hidden revenue</span></div>
+</section>
+
+<!-- ============================= CREATIVE LAB ============================= -->
+
+<section class="ad" id="cr1">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div></div>
+  <h1 class="abs" style="left:84px;top:250px;width:500px;font-size:80px;line-height:1.04">Every title gets the <span class="hl">visual it deserves.</span></h1>
+  <p class="sub abs" style="left:84px;top:610px;width:470px;font-size:28px">Creative Lab turns your brand rules into recipes, then makes on-brand thumbnails for every title, not just the top ten.</p>
+  <span class="cta abs" style="left:84px;bottom:84px">Learn how</span>
+  <div class="abs" style="left:620px;right:84px;top:84px;height:500px">
+    <div class="frame" style="height:500px" ><div data-scene="noir" style="width:100%;height:100%;filter:blur(3px) brightness(.55) saturate(.6)"></div></div>
+    <span class="tag bad abs" style="left:18px;top:18px;font-weight:700;letter-spacing:.08em">AUTO-GRABBED FRAME</span>
+    <div class="abs" style="left:70px;top:120px;width:180px;height:200px;border:2px dashed var(--coral);border-radius:8px"></div>
+    <span class="tag bad abs" style="left:70px;top:330px">Too dark</span>
+    <div class="abs" style="left:300px;top:160px;width:150px;height:240px;border:2px dashed var(--coral);border-radius:8px"></div>
+    <span class="tag bad abs" style="left:290px;top:410px">Motion blur</span>
+  </div>
+  <div class="abs" style="left:620px;right:84px;top:612px;height:504px">
+    <div class="frame" style="height:504px" data-scene="portrait"></div>
+    <span class="tag blue abs" style="left:18px;top:18px;font-weight:700;letter-spacing:.08em">CREATIVE LAB</span>
+    <div class="abs" style="left:26px;bottom:74px;font-family:'Inter Display';font-weight:800;font-size:54px;letter-spacing:.02em;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.4)">SALTWATER</div>
+    <div class="abs row" style="left:26px;bottom:24px;gap:8px"><span class="tag ok" style="background:rgba(11,19,28,.75)">✓ Clear subject</span><span class="tag ok" style="background:rgba(11,19,28,.75)">✓ Brand recipe</span></div>
+  </div>
+</section>
+
+<section class="ad light" id="cr2">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Creative Lab</span></div>
+  <h1 style="margin-top:58px;font-size:92px">Write the recipe once.<br><span class="hl">Art for every title.</span></h1>
+  <div class="panel abs" style="left:84px;top:470px;width:420px;padding:26px">
+    <div class="panel-title">Recipe · Winter campaign</div>
+    <dl class="kv" style="margin-top:20px;grid-template-columns:130px 1fr">
+      <dt>Mood</dt><dd><span class="tag mood">warm</span> <span class="tag mood">nostalgic</span></dd>
+      <dt>Moment</dt><dd style="font-size:22px">Lead in frame</dd>
+      <dt>Keywords</dt><dd style="font-size:22px">snow, family</dd>
+      <dt>Formats</dt><dd style="font-size:22px">16:9 · 1:1 · 9:16</dd>
+      <dt>Brand</dt><dd style="font-size:22px">Title top-left</dd>
+    </dl>
+  </div>
+  <div class="abs" style="left:520px;top:690px;font-size:40px;color:var(--blue)">→</div>
+  <div class="abs" style="left:576px;right:84px;top:470px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div class="frame" style="height:150px" data-scene="snow"><span class="t" style="top:10px;bottom:auto">Northbound</span></div>
+    <div class="frame" style="height:150px" data-scene="forest"><span class="t" style="top:10px;bottom:auto">The Quiet Season</span></div>
+    <div class="frame" style="height:150px" data-scene="dawn"><span class="t" style="top:10px;bottom:auto">Paper Moons</span></div>
+    <div class="frame" style="height:150px" data-scene="night"><span class="t" style="top:10px;bottom:auto">Glass Harbor</span></div>
+    <div class="frame" style="height:150px" data-scene="sunset"><span class="t" style="top:10px;bottom:auto">Last Light</span></div>
+    <div class="frame" style="height:150px" data-scene="dusk"><span class="t" style="top:10px;bottom:auto">Summit</span></div>
+  </div>
+  <div class="foot"><span class="cta">See Creative Lab</span><span class="note">Thumbnails, previews and shorts</span></div>
+</section>
+
+<!-- ============================ OPERATIONS LAB ============================ -->
+
+<section class="ad" id="op1">
+  <div class="glow" style="width:700px;height:400px;left:240px;top:430px;background:rgba(51,96,208,.3)"></div>
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Operations Lab</span></div>
+  <h1 style="margin-top:58px;font-size:100px">Skip Intro on<br><span class="hl">every episode.</span></h1>
+  <p class="sub" style="margin-top:22px;width:1000px">Automatic intro, recap and credit detection across your whole back catalog. No scrubbing.</p>
+  <div class="panel abs" style="left:84px;right:84px;top:540px;padding:24px">
+    <div class="frame" style="height:250px" data-scene="dusk">
+      <span class="abs" style="right:22px;bottom:22px;font-size:24px;font-weight:600;padding:14px 24px;border-radius:12px;background:rgba(255,255,255,.92);color:#0b131c">Skip Intro ⏭</span>
+    </div>
+    <div style="position:relative;height:46px;margin-top:18px;border-radius:10px;overflow:hidden;background:#1a2433">
+      <div class="seg" style="left:0;width:9%;background:#2b3a55;color:#c9d3e6">Recap</div>
+      <div class="seg" style="left:9%;width:9%;background:var(--blue);color:#fff">Intro</div>
+      <div class="seg" style="left:18%;width:72%;color:var(--faint)">Episode</div>
+      <div class="seg" style="left:90%;width:10%;background:#2b3a55;color:#c9d3e6">Credits</div>
+    </div>
+    <div class="row tc" style="justify-content:space-between;margin-top:8px"><span>00:00</span><span>01:12</span><span>02:05</span><span style="margin-left:auto">41:30</span><span style="margin-left:60px">44:08</span></div>
+  </div>
+  <div class="foot" style="justify-content:flex-start;gap:60px">
+    <span class="cta">See Operations Lab</span>
+    <div class="stat"><b style="font-size:60px">98%</b><span style="font-size:20px;margin-top:6px">detection accuracy</span></div>
+    <div class="stat"><b style="font-size:60px">2×</b><span style="font-size:20px;margin-top:6px">more episodes watched</span></div>
+  </div>
+</section>
+
+<section class="ad" id="op2">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Ad-Break Creation</span></div>
+  <h1 style="margin-top:58px;font-size:100px">Ad breaks that<br><span class="hl">respect the story.</span></h1>
+  <div class="abs" style="left:84px;right:84px;top:440px">
+    <div class="panel" style="padding:24px">
+      <div class="row" style="justify-content:space-between;align-items:center"><span class="panel-title">Fixed interval</span><span class="tag bad">✕ cuts mid-scene</span></div>
+      <div style="position:relative;height:64px;margin-top:16px" id="tl-fixed"></div>
+    </div>
+    <div class="panel" style="padding:24px;margin-top:18px;border-color:rgba(61,155,255,.55)">
+      <div class="row" style="justify-content:space-between;align-items:center"><span class="panel-title" style="color:var(--sky)">Story-aware</span><span class="tag ok">✓ breaks at natural pauses</span></div>
+      <div style="position:relative;height:64px;margin-top:16px" id="tl-story"></div>
+    </div>
+  </div>
+  <div class="abs row" style="left:84px;right:84px;top:820px;align-items:center;gap:40px">
+    <div class="stat"><b style="font-size:120px;color:var(--blue-hi)">46%</b></div>
+    <p style="font-size:32px;line-height:1.3;width:560px">less churn than fixed-interval ad breaks</p>
+  </div>
+  <div class="foot"><span class="cta">See Ad-Break Creation</span></div>
+</section>
+
+<section class="ad" id="op3">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Ad-Break Creation</span></div>
+  <h1 style="margin-top:58px;font-size:92px">Ad breaks in minutes,<br><span class="hl">not hours.</span></h1>
+  <p class="sub" style="margin-top:22px;width:1000px">Marking ad breaks by hand takes 20–60 minutes per episode. Let the AI find the natural pauses instead.</p>
+  <div class="abs row" style="left:84px;right:84px;top:520px;gap:22px;align-items:stretch">
+    <div class="panel" style="flex:1;padding:24px">
+      <div class="row" style="justify-content:space-between"><span class="panel-title">By hand</span><span class="tc" style="font-size:20px;color:var(--coral)">20–60 min / episode</span></div>
+      <div class="row" style="gap:6px;margin-top:16px"><div class="frame" style="flex:1;height:70px" data-scene="night"></div><div class="frame" style="flex:1;height:70px" data-scene="night"></div><div class="frame" style="flex:1;height:70px" data-scene="night"></div><div class="frame" style="flex:1;height:70px" data-scene="night"></div></div>
+      <div class="tc" style="margin-top:8px">frame… by… frame…</div>
+      <ul class="list no" style="margin-top:22px;font-size:23px;gap:14px"><li>Scrubbing every episode</li><li>Inconsistent placement</li><li>Back catalog left behind</li></ul>
+    </div>
+    <div style="align-self:center;font-size:40px;color:var(--sky)">→</div>
+    <div class="panel" style="flex:1;padding:24px;border-color:rgba(61,155,255,.55)">
+      <div class="row" style="justify-content:space-between"><span class="panel-title" style="color:var(--sky)">With Vionlabs</span><span class="tc" style="font-size:20px;color:var(--sky)">minutes</span></div>
+      <div style="position:relative;height:70px;margin-top:16px" id="tl-auto"></div>
+      <div class="tc" style="margin-top:8px">4 breaks · natural pauses</div>
+      <ul class="list yes" style="margin-top:22px;font-size:23px;gap:14px"><li>Story-aware placement</li><li>Consistent every time</li><li>Whole library at once</li></ul>
+    </div>
+  </div>
+  <div class="foot"><span class="cta">Automate ad breaks</span></div>
+</section>
+
+<section class="ad light" id="op4">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Contextual Advertising</span></div>
+  <h1 style="margin-top:58px;font-size:100px">Match the ad<br>to <span class="hl">the moment.</span></h1>
+  <p class="sub" style="margin-top:22px;width:1000px">Vionlabs reads the mood, setting and topic of the scene before each break, so the ad fits.</p>
+  <div class="abs" style="left:84px;top:520px;width:560px">
+    <div class="frame" style="height:315px" data-scene="sunset"></div>
+    <div class="row" style="gap:8px;margin-top:14px;flex-wrap:wrap"><span class="tag mood">uplifting</span><span class="tag genre">coastline</span><span class="tag genre">IAB: Travel</span></div>
+    <div class="tc" style="margin-top:12px;color:var(--light-muted)">Scene before break · 00:31:40</div>
+  </div>
+  <div class="abs" style="left:664px;top:650px;font-size:40px;color:var(--blue)">→</div>
+  <div class="panel abs" style="left:716px;right:84px;top:520px;padding:24px">
+    <div class="panel-title">Ad break 3</div>
+    <div style="font-size:22px;font-weight:600;margin-top:18px">Best fit</div>
+    <div class="col" style="gap:10px;margin-top:10px"><span class="tag ok" style="width:fit-content;color:var(--blue);border-color:rgba(51,96,208,.4);background:rgba(51,96,208,.08)">✓ Travel &amp; tourism</span><span class="tag ok" style="width:fit-content;color:var(--blue);border-color:rgba(51,96,208,.4);background:rgba(51,96,208,.08)">✓ Outdoor &amp; sports</span></div>
+    <div style="font-size:22px;font-weight:600;margin-top:22px">Avoid</div>
+    <div class="col" style="gap:10px;margin-top:10px"><span class="tag bad" style="width:fit-content">✕ Insurance claims</span></div>
+  </div>
+  <div class="foot"><span class="cta">Learn more</span></div>
+</section>
+
+<!-- ============================ CONTENT SAFETY ============================ -->
+
+<section class="ad" id="cs1">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Content Safety API</span></div>
+  <h1 style="margin-top:58px;font-size:100px">Check every scene<br><span class="hl">before it airs.</span></h1>
+  <p class="sub" style="margin-top:22px;width:1000px">Profanity, nudity and sensitive topics, flagged with timestamps and confidence scores.</p>
+  <div class="panel abs" style="left:84px;right:84px;top:540px;padding:26px">
+    <div class="row" style="justify-content:space-between"><span class="panel-title">Episode 4 · Scan results</span><span class="tc">44:08</span></div>
+    <div style="position:relative;height:30px;margin-top:22px;background:#1a2433;border-radius:8px">
+      <div class="abs" style="left:28.7%;top:-8px;width:4px;height:46px;background:var(--coral);border-radius:2px"></div>
+      <div class="abs" style="left:61%;top:-8px;width:4px;height:46px;background:var(--coral);border-radius:2px"></div>
+      <div class="abs" style="left:81%;top:-8px;width:4px;height:46px;background:#f5c451;border-radius:2px"></div>
+    </div>
+    <div class="col" style="gap:14px;margin-top:30px">
+      <div class="row" style="align-items:center;gap:18px"><span class="tag bad" style="width:150px;justify-content:center">Profanity</span><span style="font-size:22px;flex:1;color:var(--muted)">Speech</span><span class="tc" style="font-size:21px;color:var(--text)">00:12:41</span><span class="tc" style="width:90px;text-align:right;font-size:21px">0.97</span></div>
+      <div class="row" style="align-items:center;gap:18px"><span class="tag bad" style="width:150px;justify-content:center">Nudity</span><span style="font-size:22px;flex:1;color:var(--muted)">Picture</span><span class="tc" style="font-size:21px;color:var(--text)">00:26:55</span><span class="tc" style="width:90px;text-align:right;font-size:21px">0.91</span></div>
+      <div class="row" style="align-items:center;gap:18px"><span class="tag" style="width:150px;justify-content:center;background:rgba(245,196,81,.14);color:#f5c451;border:1.5px solid rgba(245,196,81,.5)">Topic</span><span style="font-size:22px;flex:1;color:var(--muted)">IAB: Alcohol</span><span class="tc" style="font-size:21px;color:var(--text)">00:35:44</span><span class="tc" style="width:90px;text-align:right;font-size:21px">0.88</span></div>
+    </div>
+  </div>
+  <div class="foot"><span class="cta">See the Content Safety API</span></div>
+</section>
+
+<!-- =========================== VERTICALISATION =========================== -->
+
+<section class="ad" id="vt1">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Verticalisation</span></div>
+  <h1 style="margin-top:58px;font-size:100px">Turn one film into<br><span class="hl">a season of shorts.</span></h1>
+  <p class="sub" style="margin-top:22px;width:1000px">Long-form titles become chapters and micro-episodes for vertical feeds.</p>
+  <div class="abs" style="left:84px;right:84px;top:530px">
+    <div class="row" style="gap:4px;height:90px">
+      <div class="frame" style="flex:1" data-scene="dawn"></div><div class="frame" style="flex:1" data-scene="forest"></div><div class="frame" style="flex:1" data-scene="desert"></div>
+      <div class="frame" style="flex:1" data-scene="dusk"></div><div class="frame" style="flex:1" data-scene="night"></div>
+    </div>
+    <div class="row tc" style="margin-top:8px"><span style="flex:1">Ch 1</span><span style="flex:1">Ch 2</span><span style="flex:1">Ch 3</span><span style="flex:1">Ch 4</span><span style="flex:1">Ch 5</span></div>
+  </div>
+  <svg class="abs" style="left:0;top:0" width="1200" height="1200"><g stroke="#3d9bff" stroke-width="2" opacity=".5" fill="none">
+    <path d="M187 660 L187 706"/><path d="M393 660 L393 706"/><path d="M600 660 L600 706"/><path d="M806 660 L806 706"/><path d="M1013 660 L1013 706"/></g></svg>
+  <div class="abs row" style="left:84px;right:84px;top:720px;gap:16px">
+    <div class="col" style="flex:1;align-items:center;gap:10px"><div class="frame" style="width:150px;height:267px" data-scene="dawn"><span class="t">Ep 1</span></div></div>
+    <div class="col" style="flex:1;align-items:center;gap:10px"><div class="frame" style="width:150px;height:267px" data-scene="forest"><span class="t">Ep 2</span></div></div>
+    <div class="col" style="flex:1;align-items:center;gap:10px"><div class="frame" style="width:150px;height:267px" data-scene="desert"><span class="t">Ep 3</span></div></div>
+    <div class="col" style="flex:1;align-items:center;gap:10px"><div class="frame" style="width:150px;height:267px" data-scene="dusk"><span class="t">Ep 4</span></div></div>
+    <div class="col" style="flex:1;align-items:center;gap:10px"><div class="frame" style="width:150px;height:267px" data-scene="night"><span class="t">Ep 5</span></div></div>
+  </div>
+  <div class="foot"><span class="cta">See Verticalisation</span><span class="note">16:9 in. 9:16 out.</span></div>
+</section>
+
+<!-- ============================ API / EMBEDDINGS ============================ -->
+
+<section class="ad" id="api1">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Fingerprint+ API</span></div>
+  <h1 style="margin-top:58px;font-size:110px">Your video,<br><span class="hl">as data.</span></h1>
+  <p class="sub" style="margin-top:22px;width:1000px">Moods, genres, keywords, language detection, multilingual synopses and embeddings. One API.</p>
+  <div class="panel abs" style="left:84px;right:84px;top:550px;padding:28px 32px;background:#0e1824">
+    <div class="row" style="gap:8px;margin-bottom:18px"><i style="width:13px;height:13px;border-radius:50%;background:#e07a6d"></i><i style="width:13px;height:13px;border-radius:50%;background:#f5c451"></i><i style="width:13px;height:13px;border-radius:50%;background:#7fd1c7"></i><span class="tc" style="margin-left:14px">example response</span></div>
+<div class="code">{
+  <span class="k">"title"</span>: <span class="s">"The Long Orbit"</span>,
+  <span class="k">"moods"</span>: [<span class="s">"awe-inspiring"</span>, <span class="s">"tense"</span>, <span class="s">"hopeful"</span>],
+  <span class="k">"genres"</span>: [<span class="s">"science fiction"</span>, <span class="s">"drama"</span>],
+  <span class="k">"keywords"</span>: [<span class="s">"space station"</span>, <span class="s">"rescue"</span>, <span class="s">"isolation"</span>],
+  <span class="k">"language"</span>: <span class="s">"en"</span>,
+  <span class="k">"synopsis"</span>: { <span class="k">"en"</span>: <span class="s">"…"</span>, <span class="k">"es"</span>: <span class="s">"…"</span>, <span class="k">"de"</span>: <span class="s">"…"</span> },
+  <span class="k">"embedding"</span>: [<span class="n">0.021</span>, <span class="n">-0.113</span>, <span class="n">0.087</span>, <span class="c">…</span>]
+}</div>
+  </div>
+  <div class="foot"><span class="cta">Get API access</span><span class="note">Dialogue in 99+ languages</span></div>
+</section>
+
+<section class="ad light" id="emb1">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Embeddings API</span></div>
+  <h1 style="margin-top:58px;font-size:100px">Find titles that<br><span class="hl">feel alike.</span></h1>
+  <p class="sub" style="margin-top:22px;width:1000px">Multimodal embeddings learned from 1,000,000+ analyzed assets. Similarity, semantic search and recommendations from one vector.</p>
+  <div class="panel abs" style="left:84px;right:84px;top:540px;height:440px;padding:0;overflow:hidden">
+    <svg id="scatter" width="1032" height="440"></svg>
+  </div>
+  <div class="foot"><span class="cta">Explore the Embeddings API</span></div>
+</section>
+
+<!-- ============================== TRUST / SPEED ============================== -->
+
+<section class="ad" id="tr1">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Trust Center</span></div>
+  <h1 style="margin-top:58px;font-size:96px">Your assets never<br><span class="hl">leave your environment.</span></h1>
+  <p class="sub" style="margin-top:22px;width:1000px">Vionlabs runs inside your infrastructure, in the cloud or on-premise. Only the metadata comes out.</p>
+  <div class="abs" style="left:84px;top:520px;width:700px;height:400px;border:2.5px dashed rgba(61,155,255,.6);border-radius:26px;padding:26px">
+    <div class="row" style="justify-content:space-between"><span class="panel-title" style="color:var(--sky)">🔒 Your infrastructure</span><span class="tc">cloud or on-premise</span></div>
+    <div class="row" style="gap:20px;margin-top:40px;align-items:center">
+      <div class="panel" style="width:260px;padding:18px">
+        <div class="row" style="gap:6px"><div class="frame" style="flex:1;height:60px" data-scene="night"></div><div class="frame" style="flex:1;height:60px" data-scene="dawn"></div></div>
+        <div class="row" style="gap:6px;margin-top:6px"><div class="frame" style="flex:1;height:60px" data-scene="forest"></div><div class="frame" style="flex:1;height:60px" data-scene="dusk"></div></div>
+        <div style="font-size:21px;font-weight:600;margin-top:12px">Your media library</div>
+      </div>
+      <div style="font-size:34px;color:var(--sky)">→</div>
+      <div class="panel" style="flex:1;padding:22px;border-color:rgba(61,155,255,.55);text-align:center">
+        <div class="logo" style="justify-content:center;font-size:28px"><i style="width:28px;height:28px"></i>Vionlabs</div>
+        <div style="font-size:21px;color:var(--muted);margin-top:10px">edge processing</div>
+      </div>
+    </div>
+  </div>
+  <div class="abs" style="left:800px;top:700px;font-size:34px;color:var(--sky)">→</div>
+  <div class="panel abs" style="left:850px;right:84px;top:620px;padding:22px">
+    <div class="panel-title" style="font-size:16px">Only this leaves</div>
+    <div class="col" style="gap:10px;margin-top:14px;font-size:21px"><span>Metadata</span><span>Markers</span><span>Moods &amp; tags</span></div>
+  </div>
+  <div class="foot"><span class="cta">Visit the Trust Center</span><span class="note">ISO 27001-aligned · GDPR</span></div>
+</section>
+
+<section class="ad light" id="sp1">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div><span class="eyebrow"><b></b>Customer story</span></div>
+  <h1 style="margin-top:96px;font-size:108px">Signed to live<br>in <span class="hl">30 days.</span></h1>
+  <div class="abs" style="left:84px;right:84px;top:560px">
+    <div style="position:relative;height:8px;background:var(--light-edge);border-radius:4px">
+      <div class="abs" style="left:0;top:0;height:8px;width:100%;background:linear-gradient(90deg,var(--blue),#6f9bff);border-radius:4px"></div>
+      <div class="abs" style="left:-6px;top:-10px;width:28px;height:28px;border-radius:50%;background:#fff;border:6px solid var(--blue)"></div>
+      <div class="abs" style="right:-6px;top:-10px;width:28px;height:28px;border-radius:50%;background:var(--blue)"></div>
+    </div>
+    <div class="row" style="justify-content:space-between;margin-top:26px;font-size:24px;font-weight:600"><span>Day 0 · Contract signed</span><span style="color:var(--blue)">Day 30 · Live</span></div>
+  </div>
+  <div class="panel abs" style="left:84px;right:84px;top:720px;padding:34px 38px">
+    <p class="quote" style="font-size:40px">“In just 30 days, we moved from a signed contract to a live deployment.”</p>
+    <p style="margin-top:18px;font-size:23px;color:var(--light-muted)">i-CABLE, Hong Kong</p>
+  </div>
+  <div class="foot"><span class="cta">Book a demo</span></div>
+</section>
+
+<!-- ================================ BRAND ================================ -->
+
+<section class="ad" id="br1">
+  <div class="top"><div class="logo"><i></i>Vionlabs</div></div>
+  <h1 style="margin-top:52px;font-size:92px">Your AI can<br>see the scene.<br><span class="hl">Ours can feel it.</span></h1>
+  <p class="sub" style="margin-top:20px;width:1000px">AI trained on entertainment content. It understands stories, characters, emotions and structure.</p>
+  <div class="panel abs" style="left:84px;right:84px;top:600px;padding:22px">
+    <div class="row" style="gap:22px">
+      <div class="frame" style="width:400px;height:225px" data-scene="noir"></div>
+      <dl class="kv" style="flex:1;grid-template-columns:150px 1fr;font-size:22px;gap:16px 14px;align-content:center">
+        <dt>Sees</dt><dd style="color:var(--faint)">person, window, rain</dd>
+        <dt>Feels</dt><dd><span class="tag mood">dread</span> <span class="tag mood">longing</span></dd>
+        <dt>Character</dt><dd>Lead, alone</dd>
+        <dt>Structure</dt><dd>Act 2 turning point</dd>
+      </dl>
+    </div>
+    <svg width="988" height="110" style="margin-top:14px;display:block">
+      <path d="M0 90 C80 80 120 60 200 70 S330 100 400 60 S520 20 560 40 S640 100 700 80 S820 10 900 30 L984 50" fill="none" stroke="#e07a6d" stroke-width="3"/>
+      <path d="M0 90 C80 80 120 60 200 70 S330 100 400 60 S520 20 560 40 S640 100 700 80 S820 10 900 30 L984 50 L984 120 L0 120 Z" fill="rgba(224,122,109,.12)"/>
+      <line x1="420" y1="0" x2="420" y2="120" stroke="#fff" stroke-width="2" stroke-dasharray="4 5" opacity=".6"/>
+      <text x="430" y="16" font-size="16" fill="#9aa3b5" font-family="Inter">emotional arc</text>
+    </svg>
+  </div>
+  <div class="foot"><span class="cta">See our AI</span></div>
+</section>
+
+<section class="ad" id="br2">
+  <div class="glow" style="width:800px;height:500px;left:200px;top:120px;background:rgba(51,96,208,.3)"></div>
+  <div class="top"><div class="logo"><i></i>Vionlabs</div></div>
+  <div class="abs row" style="left:84px;right:84px;top:220px;gap:60px">
+    <div class="stat"><b style="font-size:170px;color:var(--blue-hi)">20+</b><span style="font-size:30px">media companies</span></div>
+    <div class="stat"><b style="font-size:170px;color:var(--blue-hi)">300M+</b><span style="font-size:30px">viewers</span></div>
+  </div>
+  <div class="panel abs" style="left:84px;right:84px;top:570px;padding:40px 44px">
+    <p class="quote">“Vionlabs enabled us to do the things we always wanted to do, but couldn’t do at scale.”</p>
+    <p style="margin-top:22px;font-size:24px;color:var(--muted)">Scott Olechowski, Chief Product Officer, Plex</p>
+  </div>
+  <div class="foot"><span class="cta">Read customer stories</span></div>
+</section>
+
+<!-- =============================== WEBINAR =============================== -->
+
+<section class="ad light" id="wb1">
+  <div class="top"><div class="logo"><i></i>Vionlabs<span class="x">|</span><span class="partner ph">Partner logo</span></div></div>
+  <div style="margin-top:64px"><span class="eyebrow"><b style="background:#e5484d;box-shadow:0 0 14px #e5484d"></b>Live webinar</span></div>
+  <h1 style="margin-top:28px;font-size:86px">Talk to your library:<br><span class="hl">the Agentic Layer, live.</span></h1>
+  <div class="abs row" style="left:84px;right:84px;top:560px;gap:20px">
+    <div class="panel" style="flex:1;padding:18px"><div class="frame" style="height:190px" data-scene="dusk"><span class="badge">Live demo</span></div><div style="font-size:22px;font-weight:600;margin-top:12px">Ask for clips in plain language</div></div>
+    <div class="panel" style="flex:1;padding:18px"><div class="frame" style="height:190px" data-scene="concert"><span class="badge">Q&amp;A</span></div><div style="font-size:22px;font-weight:600;margin-top:12px">From request to publish</div></div>
+  </div>
+  <div class="abs row" style="left:84px;right:84px;top:860px;gap:40px">
+    <div class="row" style="gap:16px;align-items:center"><div style="width:64px;height:64px;border-radius:50%;background:#d5dceb"></div><div><div class="ph" style="font-size:24px;font-weight:600">Speaker name</div><div class="ph" style="font-size:19px;margin-top:6px">Title, Vionlabs</div></div></div>
+    <div class="row" style="gap:16px;align-items:center"><div style="width:64px;height:64px;border-radius:50%;background:#d5dceb"></div><div><div class="ph" style="font-size:24px;font-weight:600">Speaker name</div><div class="ph" style="font-size:19px;margin-top:6px">Title, Partner</div></div></div>
+  </div>
+  <div class="foot"><span class="ph" style="font-size:26px;font-weight:600;letter-spacing:.06em">DATE · TIME CET</span><span class="cta">Register now</span></div>
+</section>
+
+<script>
+  // Editorial Lab grids: dim = never promoted, lit = on a row
+  const scenes = ["dusk","dawn","night","sunset","forest","desert","snow","space","neon","noir","concert","portrait"];
+  function grid(id, litEvery) {
+    const el = document.getElementById(id);
+    for (let i = 0; i < 40; i++) {
+      const lit = litEvery(i);
+      el.insertAdjacentHTML("beforeend",
+        `<div class="frame" style="height:34px;border-radius:5px;opacity:${lit ? 1 : 0.18};${lit ? "outline:2px solid #3d9bff" : ""}" data-scene="${scenes[(i * 7) % 12]}"></div>`);
+    }
+  }
+  grid("grid-before", (i) => i < 6);
+  grid("grid-after", (i) => i % 9 !== 4);
+
+  // Ad-break timelines: scene blocks with break markers
+  const blocks = [11, 7, 14, 9, 12, 8, 15, 10, 14];
+  function timeline(id, markers, good) {
+    const el = document.getElementById(id);
+    let x = 0;
+    const total = blocks.reduce((a, b) => a + b, 0);
+    blocks.forEach((b, i) => {
+      el.insertAdjacentHTML("beforeend",
+        `<div style="position:absolute;top:10px;bottom:10px;left:${(x / total) * 100}%;width:calc(${(b / total) * 100}% - 4px);border-radius:6px;background:${i % 2 ? "#22324a" : "#1b2a3f"}"></div>`);
+      x += b;
+    });
+    markers.forEach((m) => {
+      el.insertAdjacentHTML("beforeend",
+        `<div style="position:absolute;top:0;bottom:0;left:calc(${m}% - 3px);width:6px;border-radius:3px;background:${good ? "#3d9bff" : "#e07a6d"};box-shadow:0 0 12px ${good ? "#3d9bff" : "#e07a6d"}"></div>`);
+    });
+  }
+  const total = blocks.reduce((a, b) => a + b, 0);
+  const bounds = [];
+  blocks.reduce((acc, b) => { bounds.push(((acc + b) / total) * 100); return acc + b; }, 0);
+  timeline("tl-fixed", [20, 40, 60, 80], false);
+  timeline("tl-story", [bounds[1] - 0.2, bounds[3] - 0.2, bounds[5] - 0.2, bounds[7] - 0.2], true);
+  timeline("tl-auto", [bounds[1] - 0.2, bounds[3] - 0.2, bounds[5] - 0.2, bounds[7] - 0.2], true);
+
+  // Embeddings scatter: three mood clusters, a query title and its nearest neighbours
+  (function () {
+    const svg = document.getElementById("scatter");
+    const clusters = [
+      { x: 230, y: 250, c: "#3360d0", label: "Space epics" },
+      { x: 560, y: 150, c: "#e07a6d", label: "Cozy mysteries" },
+      { x: 800, y: 320, c: "#2f9e8f", label: "Feel-good sports" },
+    ];
+    let out = "";
+    clusters.forEach((cl, k) => {
+      for (let i = 0; i < 34; i++) {
+        const a = i * 2.39996 + k, r = 14 + 9 * Math.sqrt(i);
+        out += `<circle cx="${cl.x + Math.cos(a) * r * 1.4}" cy="${cl.y + Math.sin(a) * r}" r="6" fill="${cl.c}" opacity="${0.35 + (i % 4) * 0.12}"/>`;
+      }
+      out += `<text x="${cl.x}" y="${cl.y + 112}" text-anchor="middle" font-family="Inter" font-weight="600" font-size="21" fill="#56627a">${cl.label}</text>`;
+    });
+    const q = { x: 262, y: 228 };
+    [[230, 262], [300, 210], [214, 196], [286, 268]].forEach(([x, y]) => {
+      out += `<line x1="${q.x}" y1="${q.y}" x2="${x}" y2="${y}" stroke="#0e1720" stroke-width="2" opacity=".55"/>`;
+      out += `<circle cx="${x}" cy="${y}" r="8" fill="#3360d0" stroke="#fff" stroke-width="2.5"/>`;
+    });
+    out += `<circle cx="${q.x}" cy="${q.y}" r="13" fill="#0e1720" stroke="#fff" stroke-width="3"/>`;
+    out += `<rect x="${q.x + 24}" y="${q.y - 62}" width="312" height="44" rx="10" fill="#0e1720"/>`;
+    out += `<text x="${q.x + 40}" y="${q.y - 33}" font-family="Inter" font-weight="600" font-size="20" fill="#fff">The Long Orbit · 4 nearest</text>`;
+    svg.innerHTML = out;
+  })();
+
+  // ag3: wires from the master frame to the top of each output frame
+  (function () {
+    const ad = document.getElementById("ag3").getBoundingClientRect();
+    const m = document.getElementById("ag3-master").getBoundingClientRect();
+    const x0 = m.right - ad.left, y0 = m.top + m.height / 2 - ad.top;
+    let out = "";
+    document.querySelectorAll(".ag3-out").forEach((o) => {
+      const r = o.getBoundingClientRect();
+      const x1 = r.left + r.width / 2 - ad.left, y1 = r.top - ad.top - 4;
+      out += `<path d="M${x0} ${y0} C${x0 + 120} ${y0} ${x1} ${y1 - 120} ${x1} ${y1}" fill="none" stroke="#3d9bff" stroke-width="2" opacity=".55"/>`;
+    });
+    document.getElementById("ag3-wires").innerHTML = out;
+  })();
+</script>
+</body>
+</html>

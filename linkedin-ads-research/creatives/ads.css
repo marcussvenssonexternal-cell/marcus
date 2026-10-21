@@ -1,0 +1,96 @@
+/* Vionlabs LinkedIn single-image ads, 1200x1200.
+   Palette: site variables (Primary #3360D0, Secondary #111B29) plus the
+   product UI's accent blue and coral mood tags. */
+:root {
+  --bg: #0b131c;
+  --bg-2: #111b29;
+  --panel: rgba(255, 255, 255, 0.045);
+  --panel-edge: rgba(255, 255, 255, 0.11);
+  --blue: #3360d0;
+  --blue-hi: #6f9bff;
+  --sky: #3d9bff;
+  --coral: #e07a6d;
+  --coral-soft: rgba(224, 122, 109, 0.16);
+  --genre: #1b2d62;
+  --genre-edge: #34508f;
+  --text: #f4f6fa;
+  --muted: #9aa3b5;
+  --faint: #5d6778;
+
+  --light-bg: #eef2f8;
+  --light-panel: #ffffff;
+  --light-edge: #d9e0ec;
+  --light-text: #0e1720;
+  --light-muted: #56627a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #222; font-family: "Inter", sans-serif; padding: 40px; display: grid; gap: 40px; justify-content: center; }
+
+.ad {
+  width: 1200px; height: 1200px; position: relative; overflow: hidden;
+  background: var(--bg); color: var(--text); padding: 84px;
+  font-family: "Inter", sans-serif; -webkit-font-smoothing: antialiased;
+}
+.ad.light { background: var(--light-bg); color: var(--light-text); }
+.ad .glow { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
+
+/* Stand-in wordmark: replace with the official logo file before launch. */
+.logo { display: flex; align-items: center; gap: 14px; font-family: "Inter Display", "Inter"; font-weight: 600; font-size: 36px; letter-spacing: -0.02em; }
+.logo i { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, var(--sky), var(--blue)); position: relative; }
+.logo i::after { content: ""; position: absolute; left: 12px; top: 9px; border-left: 14px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+.logo .x { color: var(--faint); font-weight: 400; margin: 0 6px; }
+.logo .partner { color: var(--muted); font-weight: 500; }
+
+.eyebrow { display: inline-flex; align-items: center; gap: 12px; padding: 10px 20px; border-radius: 999px;
+  border: 1.5px solid var(--panel-edge); color: var(--muted); font-size: 21px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+.eyebrow b { width: 10px; height: 10px; border-radius: 50%; background: var(--sky); box-shadow: 0 0 14px var(--sky); }
+.light .eyebrow { border-color: var(--light-edge); color: var(--light-muted); }
+
+h1 { font-family: "Inter Display", "Inter"; font-weight: 700; letter-spacing: -0.035em; line-height: 1.0; font-size: 96px; }
+h1 .hl { color: var(--blue-hi); }
+.light h1 .hl { color: var(--blue); }
+h1 .dim { color: var(--muted); }
+.sub { font-size: 31px; line-height: 1.38; color: var(--muted); font-weight: 400; }
+.light .sub { color: var(--light-muted); }
+
+.cta { display: inline-flex; align-items: center; gap: 14px; background: var(--blue); color: #fff;
+  font-size: 31px; font-weight: 600; padding: 24px 36px; border-radius: 16px; letter-spacing: -0.01em;
+  box-shadow: 0 10px 40px rgba(51, 96, 208, 0.45); }
+.cta::after { content: "→"; font-weight: 500; }
+
+.panel { background: var(--panel); border: 1.5px solid var(--panel-edge); border-radius: 22px; padding: 26px; backdrop-filter: blur(8px); }
+.light .panel { background: var(--light-panel); border-color: var(--light-edge); box-shadow: 0 12px 40px rgba(14, 23, 32, 0.08); }
+.panel-title { font-size: 20px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.light .panel-title { color: var(--light-muted); }
+
+.frame { border-radius: 14px; overflow: hidden; position: relative; background: #000; }
+.frame svg { display: block; }
+[data-scene] { position: relative; }
+
+.tag { display: inline-flex; align-items: center; gap: 8px; padding: 7px 15px; border-radius: 999px; font-size: 19px; font-weight: 500; white-space: nowrap; }
+.tag.mood { background: var(--coral); color: #fff; }
+.tag.genre { background: var(--genre); border: 1.5px solid var(--genre-edge); color: #dfe7ff; }
+.tag.blue { background: var(--blue); color: #fff; }
+.tag.ghost { border: 1.5px solid var(--panel-edge); color: var(--muted); }
+.tag.ok { background: rgba(61, 155, 255, 0.16); color: var(--sky); border: 1.5px solid rgba(61, 155, 255, 0.45); }
+.tag.bad { background: var(--coral-soft); color: var(--coral); border: 1.5px solid rgba(224, 122, 109, 0.5); }
+
+.list { list-style: none; display: grid; gap: 18px; font-size: 26px; }
+.list li { display: flex; align-items: center; gap: 16px; }
+.list li::before { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 19px; font-weight: 700; }
+.list.no li { color: var(--muted); }
+.list.no li::before { content: "✕"; background: rgba(255, 255, 255, 0.08); color: var(--faint); }
+.list.yes li::before { content: "✓"; background: var(--sky); color: var(--bg); }
+.light .list.no li { color: var(--light-muted); }
+.light .list.no li::before { background: #dde3ee; color: #8a95a8; }
+.light .list.yes li::before { background: var(--blue); color: #fff; }
+
+.top { display: flex; justify-content: space-between; align-items: center; height: 48px; }
+.foot { position: absolute; left: 84px; right: 84px; bottom: 84px; display: flex; align-items: center; justify-content: space-between; }
+.note { font-size: 22px; color: var(--faint); }
+.light .note { color: var(--light-muted); }
+.mono { font-family: "DejaVu Sans Mono", "Menlo", monospace; }
+.row { display: flex; gap: 20px; }
+.col { display: flex; flex-direction: column; }
+.abs { position: absolute; }
