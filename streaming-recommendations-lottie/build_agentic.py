@@ -602,9 +602,12 @@ def hero3_chat(m, T, cam, lines):
     def grow(start, end):
         return anim([(0, start, "hold"), (g0, start, "smooth"), (g1, end)])
 
-    m.shape("glow", [group([ellipse(1400, 1400, 960, 560), gfill([(0, "#1d4fa8", 0.32), (0.55, "#1d4fa8", 0.1),
-                                                                  (1, "#1d4fa8", 0)],
-                                                                 (960, 560), (1660, 560), radial=True)])],
+    # a wide oval that fades out completely inside the frame, even at the opening's 150% zoom,
+    # so it never meets the edge of the animation on the page
+    m.shape("glow", [group([ellipse(660, 660, 960, 540), gfill([(0, "#1d4fa8", 0.34), (0.45, "#1d4fa8", 0.14),
+                                                                (1, "#1d4fa8", 0)],
+                                                               (960, 540), (1290, 540), radial=True)],
+                           p=(960, 540), a=(960, 540), s=(180, 100))],
             parent=cam, ks=layer_ks(o=anim([(0, [100]), (g0, [100]), (g1, [60]), (o1, [0])])))
     # everything in the chat rides on this: centred at first, docked right once the workspace opens
     slide = m.null("chat-slide", parent=cam, ks=layer_ks(
