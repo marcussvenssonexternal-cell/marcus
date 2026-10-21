@@ -36,7 +36,7 @@ echo "posters/agentic-hero.{webp,jpg}"
 # The hero v3 and the section visuals have no background of their own, so they keep transparency
 # (WebP), plus a JPEG on the page's navy. Section stills, and posters shown before (or instead of)
 # each animation.
-for spec in agentic-hero-v3:424:1920:posters agentic-curated-lists:60:1760:posters \
+for spec in agentic-hero-v3:429:1920:posters agentic-curated-lists:60:1760:posters \
             agentic-clips:60:1760:stills agentic-branded-thumbnails:60:1760:stills; do
   IFS=: read -r name frame width dir <<<"$spec"
   mkdir -p "$dir"

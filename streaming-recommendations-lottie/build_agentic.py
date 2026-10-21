@@ -478,10 +478,10 @@ def build_hero():
 # most intense scenes arrive as 16:9 shots that reframe to 9:16 vertical clips.
 # Transparent background, so it sits on the page; loops on its own.
 
-PROMPT3 = "Turn the most intense scenes in 3 sci-fi films into vertical TikTok clips"
+PROMPT3 = "Find the most intense scenes in 3 sci-fi films and cut them for every screen"
 REPLIES3 = ["I found 3 sci-fi titles: Arrival, Sunshine and The Martian. Pulled their most intense scenes "
-            "and reframed them as 9:16 vertical clips.",
-            "Added the top clips to your TikTok list. Open a title in Creative Lab to fine-tune."]
+            "and cut each one in 16:9 and 9:16.",
+            "Added the top clips to your campaign list. Open a title in Creative Lab to fine-tune."]
 
 # Material Design icons (Apache 2.0)
 I_MOVIE = ("M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 "
@@ -490,6 +490,8 @@ I_PORTRAIT = ("M17 3H7c-1.1 0-1.99.9-1.99 2L5 19c0 1.1.89 2 1.99 2H17c1.1 0 2-.9
               "16H7V5h10v14z")
 I_PHONE = ("M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 "
            "19H7V5h10v14z")
+I_DEVICES = ("M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 "
+             "1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z")
 I_ARROW = "M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
 I_CLOSE = ("M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 "
            "13.41 12z")
@@ -498,8 +500,8 @@ I_GRID = ("M3 3v8h8V3H3zm6 6H5V5h4v4zm-6 4v8h8v-8H3zm6 6H5v-4h4v4zm4-16v8h8V3h-8
           "4v8h8v-8h-8zm6 6h-4v-4h4v4z")
 # (icon, label, the word in the request that picks it)
 SUGGESTIONS = [(I_MOVIE, "Scenes by mood", "intense"),
-               (I_PORTRAIT, "Vertical 9:16 clips", "vertical"),
-               (I_PHONE, "Ready for TikTok", "TikTok")]
+               (I_GRID, "Titles by genre", "sci-fi"),
+               (I_DEVICES, "Clips for every screen", "screen")]
 
 # (title, meta, poster crop, clips); a clip is (image, 9:16 crop as cx, cy, height in image px,
 # where in the film, relevance, length, added to the list)
@@ -951,17 +953,17 @@ def build_curated_lists():
 # --------------------------------------------- section: Clips in Every Ratio
 
 def build_clips():
-    """One scene, asked for by name, cut for every screen; the vertical cut is the one in focus."""
+    """One scene, found from a description and cut for every screen; the 9:16 cut is the one in focus."""
     OP = 90
     m, imgs = section_start(OP)
-    top = section_prompt(m, "Give me a 30-second clip of the canyon flight in Top\u00a0Gun:\u00a0Maverick, "
-                            "for TV, feeds and TikTok",
-                         "Found the canyon flight and cut it for TV, feeds and TikTok.")
+    top = section_prompt(m, "Find the canyon flight in Top\u00a0Gun:\u00a0Maverick and cut a 30-second clip "
+                            "for every screen",
+                         "Found the canyon flight and cut it for TV, feeds and mobile.")
     gap, x = 18, EDGE
     h = (m.w - 2 * EDGE - 2 * gap) / (16 / 9 + 1 + 9 / 16)       # the three cuts fill the width
     clips = [("16:9  ·  TV", (480, 270, 960, 540), h * 16 / 9),
              ("1:1  ·  Feeds", (690, 270, 540, 540), h),
-             ("9:16  ·  TikTok", (790, 270, 540 * 9 / 16, 540), h * 9 / 16)]
+             ("9:16  ·  Mobile", (790, 270, 540 * 9 / 16, 540), h * 9 / 16)]
     for k, (label, crop, w) in enumerate(clips):
         t = 14 + 4 * k
         box = (x, top, w, h)
@@ -975,7 +977,8 @@ def build_clips():
             group([rect(tw, 4, x + 16 + tw / 2, ty, 2), fill("#ffffff", 30)]),
             group([rect(tw * 0.42, 4, x + 16 + tw * 0.21, ty, 2), fill("#ffffff")]),
         ]), ks=layer_ks(o=vis(t)))
-        chip, _ = chip_check(label, x, top + h + 16, size=16, h=32)
+        cw = chip_check(label, 0, 0, size=16, h=32)[1]
+        chip, _ = chip_check(label, min(x, m.w - EDGE - cw), top + h + 16, size=16, h=32)   # stays in frame
         appear(m, f"clip {k} label", chip, t + 4, dy=8)
         if k == 2:
             m.shape("clip 9x16 focus", focus_ring(*box, 12, ring=3, glow=8), ks=layer_ks(o=on_off([(t + 16, None)])))
