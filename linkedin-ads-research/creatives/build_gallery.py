@@ -1,4 +1,5 @@
-"""Builds gallery.html (the review page) and copy.md from copy.json.
+"""Builds the review page (gallery.html for the artifact, index.html standalone) and copy.md
+from copy.json.
 
     python3 build_gallery.py
 """
@@ -32,10 +33,19 @@ def build_markdown():
 def build_gallery():
     template = (HERE / "gallery.template.html").read_text()
     data = json.dumps(ADS, ensure_ascii=False).replace("</", "<\\/")
-    (HERE / "gallery.html").write_text(template.replace("/*ADS_JSON*/[]", data))
+    page = template.replace("/*ADS_JSON*/[]", data)
+    # gallery.html is published as a claude.ai artifact, which adds the document shell itself.
+    (HERE / "gallery.html").write_text(page)
+    # index.html is the same page as a standalone document, for GitHub Pages or any static host.
+    head, body = page.split('<div class="wrap">', 1)
+    (HERE / "index.html").write_text(
+        '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+        '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+        '<meta name="robots" content="noindex">\n<style>body { margin: 0; } img { max-width: 100%; }</style>\n'
+        + head + '</head>\n<body>\n<div class="wrap">' + body + '</body>\n</html>\n')
 
 
 if __name__ == "__main__":
     build_markdown()
     build_gallery()
-    print(f"built gallery.html and copy.md for {len(ADS)} ads")
+    print(f"built gallery.html, index.html and copy.md for {len(ADS)} ads")
