@@ -40,6 +40,7 @@ every visual:
   - **Files:** preview on the page's navy: `previews/agentic-hero-v3.mp4`; transparent poster: `posters/agentic-hero-v3.webp`.
   - It goes with a static headline, not the rotating one. `render_preview.cjs` takes `--bg <colour>` and `--transparent` for Lotties like this one.
 - **Stills and posters:** `stills/agentic-*` (2560×1440) and `posters/agentic-*` (the frame shown before an animation loads, or instead of it with reduced motion) are rendered by `./render_stills.sh`.
+- **Share image:** `posters/agentic-og.jpg` (1200×630) is the page's social preview: the headline next to the clip cards and chat from the v3 hero.
 - **Previews:** `previews/agentic-hero.mp4`, `previews/agentic-curated-lists.mp4`.
 - **Build:** `python3 build_agentic.py`. It reuses the Curio UI pieces (`curio_ui.py`, `build_curio.py`) and artwork.
 - The relevance scores, timecodes and title lettering are illustrative, like the rest of the demo UI.
