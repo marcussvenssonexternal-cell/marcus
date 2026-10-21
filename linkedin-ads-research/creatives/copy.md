@@ -21,7 +21,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - Curates lists, cuts clips in every ratio, creates branded thumbnails: vionlabs.com/agentic-layer (SEO description) (On the website)
 - “Nothing goes live until your team approves it”: vionlabs.com/agentic-layer (On the website)
-- “10 titles / 10 teasers” in the visual: UI mock (Example values)
+- Curation Agent screenshot: Product image from vionlabs.com (On the website)
 
 ## ag2 · Agentic Layer · Ask. Approve. Publish.
 
@@ -41,6 +41,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 **Claims**
 
 - “Ask. Approve. Publish.”: vionlabs.com/agentic-layer (Open Graph title) (On the website)
+- Creative Agent branded-thumbnails screenshot: Product image from vionlabs.com (On the website)
 
 ## ag3 · Agentic Layer · One title. Every ratio.
 
@@ -50,7 +51,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 > Every channel wants a different shape.
 >
-> Ask the Agentic Layer for a teaser and get 16:9, 1:1, 4:5 and 9:16 versions from a single master, with thumbnails to match.
+> Ask the Agentic Layer for a clip. It finds the scene and reframes it for TV, feeds and Shorts, in 16:9, 1:1 and 9:16.
 
 **Headline:** Every ratio from one request  
 **CTA button:** Learn More  
@@ -59,8 +60,8 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Claims**
 
-- “The right scene, cut for TV, feeds and Shorts.”: vionlabs.com/agentic-layer (On the website)
-- Intelligent reframing; from cinematic 16:9 to vertical 9:16: vionlabs.com/creative-lab (On the website)
+- “Found the scene and reframed it for every screen.”; “The right scene, cut for TV, feeds and Shorts.”: vionlabs.com/agentic-layer (On the website)
+- Creative Agent clips screenshot: Product image from vionlabs.com (On the website)
 
 ## ag4 · Agentic Layer · Best of Show at IBC2026
 
@@ -81,6 +82,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - TVBEurope Best of Show award at IBC2026: tvbeurope.com, 14 Sep 2026 (Check before launch)
 - Medal artwork: Stand-in; swap for TVBEurope's official winner badge (Check before launch)
+- Agentic Layer “What do you need from your library?” screenshot: Product image from vionlabs.com (On the website)
 
 ## cu1 · Curio · How titles feel
 
@@ -101,6 +103,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - Matches viewers to how titles feel to watch; Because You Watched, personalized rows, similar titles: vionlabs.com/curio (SEO description) (On the website)
 - “Matched on pacing, tone and emotional arc, not just the genre a title is filed under.”: vionlabs.com/curio (On the website)
+- Curio Similar titles screenshot: Product image from vionlabs.com (On the website)
 
 ## cu2 · Curio · Recommend before the first view
 
@@ -120,6 +123,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 **Claims**
 
 - “New releases and long-tail titles get recommended from day one, before anyone has watched them.”: vionlabs.com/curio (On the website)
+- “The Northman · added today · 0 views” and the rows around it: Example scenario using title art from vionlabs.com (Example values)
 
 ## cu3 · Curio · 1M+ analyzed assets
 
@@ -140,6 +144,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - “Pure Flix is now the first platform to bring Curio to its members”: vionlabs.com/curio (On the website)
 - 1,000,000+ analyzed assets: vionlabs.com/curio and /agentic-layer (On the website)
+- Curio Because You Watched, personalized rows and Similar titles screenshot: Product image from vionlabs.com (On the website)
 
 ## cu4 · Curio · Scrolling past great content
 
@@ -181,7 +186,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 **Claims**
 
 - “AI-curated Smartlists with 90%+ catalog coverage”; “Transform 3,000 assets into 80 curated lists automatically”: vionlabs.com/editorial-lab (On the website)
-- List names and moods in the visual: UI mock (Example values)
+- List names, moods and titles in the visual: Example lists using title art from vionlabs.com (Example values)
 
 ## ed2 · Editorial Lab · Hidden content is hidden revenue
 
@@ -211,7 +216,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 > A random frame makes a bad first impression.
 >
-> Creative Lab turns your brand rules into recipes, then creates on-brand thumbnails, preview clips and shorts for every title in your catalog.
+> Creative Lab turns your brand rules into recipes, then picks the strongest scene and places the title, for every title in your catalog.
 
 **Headline:** On-brand thumbnails for every title  
 **CTA button:** Learn More  
@@ -222,6 +227,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - “Every asset gets the visual it deserves”; thumbnails and preview clips at scale: vionlabs.com/creative-lab (SEO description) (On the website)
 - Recipes (mood, keywords, characters, key moments): Creative Lab press release, 9 Sep 2025 (On the website)
+- Skyfall raw frame vs. finished thumbnail: Creative Lab examples on vionlabs.com (On the website)
 
 ## cr2 · Creative Lab · Write the recipe once
 
@@ -241,7 +247,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 **Claims**
 
 - Recipes; formats 16:9 to 9:16: Creative Lab press release, 9 Sep 2025 (On the website)
-- Recipe fields and titles in the visual: UI mock (Example values)
+- Recipe fields in the visual: Example recipe; thumbnails are Creative Lab examples from vionlabs.com (Example values)
 
 ## cr3 · Creative Lab · 20.9% lower cost per conversion
 
@@ -262,6 +268,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - 20.9% lower cost per conversion vs agency-made clips (paid-social A/B test, April 2026, unnamed European broadcaster): vionlabs.com/agentic-layer, Results section (no footnote) (On the website)
 - Bars indexed to agency clips = 100 (79.1 is 20.9% lower): Derived from the 20.9% figure (Example values)
+- Clip frames in the visual: Example frames from vionlabs.com, not the clips from the A/B test (Example values)
 
 ## op1 · Operations Lab · Skip Intro on every episode
 
@@ -282,6 +289,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - “Detect intros, recaps, and credits at 98% accuracy”: vionlabs.com homepage; no source given on the page (Check before launch)
 - “2× More Episodes Watched”: vionlabs.com/operations-lab; no source given (AWS listing says session time) (Check before launch)
+- Peaky Blinders frame with Skip Intro button and timeline: Example frame from vionlabs.com; button and timeline are a mock-up (Example values)
 
 ## op2 · Operations Lab · Ad breaks that respect the story
 
@@ -322,6 +330,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 **Claims**
 
 - Manual marking takes 20–60 min per episode; with AI, minutes: Vionlabs × SDVI webinar post (Check before launch)
+- AI-powered ad-break screenshot: Product image from vionlabs.com (On the website)
 
 ## op4 · Operations Lab · Match the ad to the moment
 
@@ -342,6 +351,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - “Serve ads that match the moment.”; “Contextual targeting (IAB, mood, keywords)”: vionlabs.com/operations-lab (On the website)
 - Ad categories in the visual: UI mock (Example values)
+- Ticket to Paradise frame and its tags: Example frame from vionlabs.com; tags are a mock-up (Example values)
 
 ## cs1 · Content Safety API · Check every scene before it airs
 
@@ -381,6 +391,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 **Claims**
 
 - Long-form into chapters and micro-episodes: Streaming Media Q&A, ~Jun 2026 (Check before launch)
+- Gladiator chapter strip and vertical episodes: Crops of two website frames to show the idea, not real Verticalisation output (Example values)
 
 ## api1 · Fingerprint+ API · Your video, as data
 
@@ -401,7 +412,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - Fingerprint+: moods, genres, keywords, language detection, multilingual synopses, embeddings: vionlabs.com/api (On the website)
 - “Clean RESTful APIs. Structured JSON responses.”; Google Cloud and AWS Marketplace; 99+ languages: vionlabs.com/api and homepage (On the website)
-- JSON response shape: Illustrative; replace with a real response from the API docs (Example values)
+- Metadata (genre, keyword, mood scores and similar titles) screenshot: Product image from vionlabs.com (On the website)
 
 ## emb1 · Embeddings API · Titles that feel alike
 
@@ -422,6 +433,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - Similarity, semantic search, recommendations; “Embeddings enable recommendation systems even without user history.”: vionlabs.com/embeddings-api (On the website)
 - 1,000,000+ analyzed assets: vionlabs.com/curio (On the website)
+- Title clusters and Gladiator’s nearest neighbours: Illustration using title art from vionlabs.com, not real embedding output (Example values)
 
 ## tr1 · Trust & deployment · Never leaves your environment
 
@@ -523,6 +535,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 - Trained on entertainment content; understands stories, characters, emotions and structure: vionlabs.com/our-ai (SEO description) (On the website)
 - Headline riffs on the blog post “Your AI Can See the Scene. It Can’t Feel It.”: Vionlabs blog (On the website)
 - “Domain-specific AI built for entertainment. Not a generic wrapper.”: vionlabs.com homepage (On the website)
+- Sees / Feels / Structure labels on the Papillon frame: Illustration, not real model output (Example values)
 
 ## br2 · Brand · 20+ media companies
 
@@ -562,3 +575,4 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 **Claims**
 
 - Date, time, speakers and partner logo: Placeholders (yellow dashed in the image) (Example values)
+- Agentic Layer screenshot: Product image from vionlabs.com (On the website)

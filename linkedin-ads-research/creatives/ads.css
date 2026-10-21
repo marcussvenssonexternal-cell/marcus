@@ -33,6 +33,8 @@ body { background: #222; font-family: "Inter", sans-serif; padding: 40px; displa
   font-family: "Inter", sans-serif; -webkit-font-smoothing: antialiased;
 }
 .ad.light { background: var(--light-bg); color: var(--light-text); }
+.ad { isolation: isolate; }
+.ad .glow, .ad .bg { z-index: -1; }
 .ad .glow { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
 
 .logo { display: flex; align-items: center; gap: 14px; font-family: "Inter Display", "Inter"; font-weight: 600; font-size: 36px; letter-spacing: -0.02em; }
@@ -66,6 +68,8 @@ h1 .dim { color: var(--muted); }
 
 .frame { border-radius: 14px; overflow: hidden; position: relative; background: #000; }
 .frame svg { display: block; }
+.shot { position: relative; overflow: hidden; border-radius: 18px; border: 1.5px solid var(--panel-edge); background: #0b131c; box-shadow: 0 30px 80px rgba(0, 0, 0, .55); }
+.light .shot { border-color: var(--light-edge); box-shadow: 0 24px 60px rgba(14, 23, 32, .18); }
 [data-scene] { position: relative; }
 
 .tag { display: inline-flex; align-items: center; gap: 8px; padding: 7px 15px; border-radius: 999px; font-size: 19px; font-weight: 500; white-space: nowrap; }

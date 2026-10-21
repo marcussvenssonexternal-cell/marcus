@@ -20,9 +20,9 @@
         "status": "site"
       },
       {
-        "text": "“10 titles / 10 teasers” in the visual",
-        "source": "UI mock",
-        "status": "illustrative"
+        "text": "Curation Agent screenshot",
+        "source": "Product image from vionlabs.com",
+        "status": "site"
       }
     ]
   },
@@ -40,6 +40,11 @@
         "text": "“Ask. Approve. Publish.”",
         "source": "vionlabs.com/agentic-layer (Open Graph title)",
         "status": "site"
+      },
+      {
+        "text": "Creative Agent branded-thumbnails screenshot",
+        "source": "Product image from vionlabs.com",
+        "status": "site"
       }
     ]
   },
@@ -48,19 +53,19 @@
     "product": "Agentic Layer",
     "name": "One title. Every ratio.",
     "inspired": "Three-beat headline and fan-out diagram, like TwelveLabs' “One master. Five markets.”",
-    "intro": "Every channel wants a different shape.\n\nAsk the Agentic Layer for a teaser and get 16:9, 1:1, 4:5 and 9:16 versions from a single master, with thumbnails to match.",
+    "intro": "Every channel wants a different shape.\n\nAsk the Agentic Layer for a clip. It finds the scene and reframes it for TV, feeds and Shorts, in 16:9, 1:1 and 9:16.",
     "headline": "Every ratio from one request",
     "cta": "Learn More",
     "audience": "Social, marketing and promo teams at streamers and broadcasters",
     "claims": [
       {
-        "text": "“The right scene, cut for TV, feeds and Shorts.”",
+        "text": "“Found the scene and reframed it for every screen.”; “The right scene, cut for TV, feeds and Shorts.”",
         "source": "vionlabs.com/agentic-layer",
         "status": "site"
       },
       {
-        "text": "Intelligent reframing; from cinematic 16:9 to vertical 9:16",
-        "source": "vionlabs.com/creative-lab",
+        "text": "Creative Agent clips screenshot",
+        "source": "Product image from vionlabs.com",
         "status": "site"
       }
     ]
@@ -84,6 +89,11 @@
         "text": "Medal artwork",
         "source": "Stand-in; swap for TVBEurope's official winner badge",
         "status": "verify"
+      },
+      {
+        "text": "Agentic Layer “What do you need from your library?” screenshot",
+        "source": "Product image from vionlabs.com",
+        "status": "site"
       }
     ]
   },
@@ -106,6 +116,11 @@
         "text": "“Matched on pacing, tone and emotional arc, not just the genre a title is filed under.”",
         "source": "vionlabs.com/curio",
         "status": "site"
+      },
+      {
+        "text": "Curio Similar titles screenshot",
+        "source": "Product image from vionlabs.com",
+        "status": "site"
       }
     ]
   },
@@ -123,6 +138,11 @@
         "text": "“New releases and long-tail titles get recommended from day one, before anyone has watched them.”",
         "source": "vionlabs.com/curio",
         "status": "site"
+      },
+      {
+        "text": "“The Northman · added today · 0 views” and the rows around it",
+        "source": "Example scenario using title art from vionlabs.com",
+        "status": "illustrative"
       }
     ]
   },
@@ -144,6 +164,11 @@
       {
         "text": "1,000,000+ analyzed assets",
         "source": "vionlabs.com/curio and /agentic-layer",
+        "status": "site"
+      },
+      {
+        "text": "Curio Because You Watched, personalized rows and Similar titles screenshot",
+        "source": "Product image from vionlabs.com",
         "status": "site"
       }
     ]
@@ -186,8 +211,8 @@
         "status": "site"
       },
       {
-        "text": "List names and moods in the visual",
-        "source": "UI mock",
+        "text": "List names, moods and titles in the visual",
+        "source": "Example lists using title art from vionlabs.com",
         "status": "illustrative"
       }
     ]
@@ -219,7 +244,7 @@
     "product": "Creative Lab",
     "name": "The visual it deserves",
     "inspired": "Annotated before/after imagery, like TwelveLabs' “Focus on the story. Not the edit.”",
-    "intro": "A random frame makes a bad first impression.\n\nCreative Lab turns your brand rules into recipes, then creates on-brand thumbnails, preview clips and shorts for every title in your catalog.",
+    "intro": "A random frame makes a bad first impression.\n\nCreative Lab turns your brand rules into recipes, then picks the strongest scene and places the title, for every title in your catalog.",
     "headline": "On-brand thumbnails for every title",
     "cta": "Learn More",
     "audience": "Creative, brand and marketing teams at streamers and broadcasters",
@@ -232,6 +257,11 @@
       {
         "text": "Recipes (mood, keywords, characters, key moments)",
         "source": "Creative Lab press release, 9 Sep 2025",
+        "status": "site"
+      },
+      {
+        "text": "Skyfall raw frame vs. finished thumbnail",
+        "source": "Creative Lab examples on vionlabs.com",
         "status": "site"
       }
     ]
@@ -252,8 +282,8 @@
         "status": "site"
       },
       {
-        "text": "Recipe fields and titles in the visual",
-        "source": "UI mock",
+        "text": "Recipe fields in the visual",
+        "source": "Example recipe; thumbnails are Creative Lab examples from vionlabs.com",
         "status": "illustrative"
       }
     ]
@@ -277,6 +307,11 @@
         "text": "Bars indexed to agency clips = 100 (79.1 is 20.9% lower)",
         "source": "Derived from the 20.9% figure",
         "status": "illustrative"
+      },
+      {
+        "text": "Clip frames in the visual",
+        "source": "Example frames from vionlabs.com, not the clips from the A/B test",
+        "status": "illustrative"
       }
     ]
   },
@@ -299,6 +334,11 @@
         "text": "“2× More Episodes Watched”",
         "source": "vionlabs.com/operations-lab; no source given (AWS listing says session time)",
         "status": "verify"
+      },
+      {
+        "text": "Peaky Blinders frame with Skip Intro button and timeline",
+        "source": "Example frame from vionlabs.com; button and timeline are a mock-up",
+        "status": "illustrative"
       }
     ]
   },
@@ -343,6 +383,11 @@
         "text": "Manual marking takes 20–60 min per episode; with AI, minutes",
         "source": "Vionlabs × SDVI webinar post",
         "status": "verify"
+      },
+      {
+        "text": "AI-powered ad-break screenshot",
+        "source": "Product image from vionlabs.com",
+        "status": "site"
       }
     ]
   },
@@ -364,6 +409,11 @@
       {
         "text": "Ad categories in the visual",
         "source": "UI mock",
+        "status": "illustrative"
+      },
+      {
+        "text": "Ticket to Paradise frame and its tags",
+        "source": "Example frame from vionlabs.com; tags are a mock-up",
         "status": "illustrative"
       }
     ]
@@ -404,6 +454,11 @@
         "text": "Long-form into chapters and micro-episodes",
         "source": "Streaming Media Q&A, ~Jun 2026",
         "status": "verify"
+      },
+      {
+        "text": "Gladiator chapter strip and vertical episodes",
+        "source": "Crops of two website frames to show the idea, not real Verticalisation output",
+        "status": "illustrative"
       }
     ]
   },
@@ -428,9 +483,9 @@
         "status": "site"
       },
       {
-        "text": "JSON response shape",
-        "source": "Illustrative; replace with a real response from the API docs",
-        "status": "illustrative"
+        "text": "Metadata (genre, keyword, mood scores and similar titles) screenshot",
+        "source": "Product image from vionlabs.com",
+        "status": "site"
       }
     ]
   },
@@ -453,6 +508,11 @@
         "text": "1,000,000+ analyzed assets",
         "source": "vionlabs.com/curio",
         "status": "site"
+      },
+      {
+        "text": "Title clusters and Gladiator’s nearest neighbours",
+        "source": "Illustration using title art from vionlabs.com, not real embedding output",
+        "status": "illustrative"
       }
     ]
   },
@@ -568,6 +628,11 @@
         "text": "“Domain-specific AI built for entertainment. Not a generic wrapper.”",
         "source": "vionlabs.com homepage",
         "status": "site"
+      },
+      {
+        "text": "Sees / Feels / Structure labels on the Papillon frame",
+        "source": "Illustration, not real model output",
+        "status": "illustrative"
       }
     ]
   },
@@ -607,6 +672,11 @@
         "text": "Date, time, speakers and partner logo",
         "source": "Placeholders (yellow dashed in the image)",
         "status": "illustrative"
+      },
+      {
+        "text": "Agentic Layer screenshot",
+        "source": "Product image from vionlabs.com",
+        "status": "site"
       }
     ]
   }

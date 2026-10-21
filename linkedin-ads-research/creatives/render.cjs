@@ -14,6 +14,8 @@ const { chromium } = require("playwright");
   const page = await browser.newPage({ viewport: { width: 1400, height: 1400 }, deviceScaleFactor: 1 });
   await page.goto("file://" + path.join(__dirname, "ads.html"));
   await page.evaluate(() => document.fonts.ready);
+  await page.waitForLoadState("networkidle");
+  await page.evaluate(() => Promise.all([...document.images].map((i) => i.complete ? 0 : new Promise((r) => (i.onload = i.onerror = r)))));
 
   for (const ad of await page.$$("section.ad")) {
     const id = await ad.getAttribute("id");

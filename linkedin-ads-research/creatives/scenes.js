@@ -1,5 +1,5 @@
-// Generic, rights-free "film frames" drawn as SVG, so the ads never depend on
-// licensed stills. Any element with data-scene="<name>" is filled with one.
+// Fills ad frames: data-img uses real images from the Vionlabs website (img/),
+// data-scene draws a generic SVG stand-in scene.
 (function () {
   const W = 320, H = 180;
 
@@ -110,6 +110,12 @@
 
   let n = 0;
   window.renderScenes = function () {
+    // Real website images: data-img="name" loads img/name.jpg, data-pos sets object-position.
+    document.querySelectorAll("[data-img]").forEach((el) => {
+      const pos = el.dataset.pos || "50% 50%";
+      el.insertAdjacentHTML("afterbegin",
+        `<img src="img/${el.dataset.img}.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${pos};${el.dataset.filter ? "filter:" + el.dataset.filter : ""}">`);
+    });
     document.querySelectorAll("[data-scene]").forEach((el) => {
       const make = SCENES[el.dataset.scene];
       if (!make) return;
