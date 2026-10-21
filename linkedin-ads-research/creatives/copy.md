@@ -22,6 +22,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 - Curates lists, cuts clips in every ratio, creates branded thumbnails: vionlabs.com/agentic-layer (SEO description) (On the website)
 - “Nothing goes live until your team approves it”: vionlabs.com/agentic-layer (On the website)
 - Curation Agent screenshot: Product image from vionlabs.com (On the website)
+- “Best of Show · IBC2026” line in the image: TVBEurope Best of Show awards, 14 Sep 2026 (Check before launch)
 
 ## ag2 · Agentic Layer · Ask. Approve. Publish.
 
@@ -42,6 +43,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - “Ask. Approve. Publish.”: vionlabs.com/agentic-layer (Open Graph title) (On the website)
 - Creative Agent branded-thumbnails screenshot: Product image from vionlabs.com (On the website)
+- “Best of Show · IBC2026” line in the image: TVBEurope Best of Show awards, 14 Sep 2026 (Check before launch)
 
 ## ag3 · Agentic Layer · One title. Every ratio.
 
@@ -62,6 +64,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - “Found the scene and reframed it for every screen.”; “The right scene, cut for TV, feeds and Shorts.”: vionlabs.com/agentic-layer (On the website)
 - Creative Agent clips screenshot: Product image from vionlabs.com (On the website)
+- “Best of Show · IBC2026” line in the image: TVBEurope Best of Show awards, 14 Sep 2026 (Check before launch)
 
 ## ag4 · Agentic Layer · Best of Show at IBC2026
 
@@ -144,7 +147,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 - “Pure Flix is now the first platform to bring Curio to its members”: vionlabs.com/curio (On the website)
 - 1,000,000+ analyzed assets: vionlabs.com/curio and /agentic-layer (On the website)
-- Curio Because You Watched, personalized rows and Similar titles screenshot: Product image from vionlabs.com (On the website)
+- Curio Because You Watched screenshot: Product image from vionlabs.com (On the website)
 
 ## cu4 · Curio · Scrolling past great content
 
@@ -521,7 +524,7 @@ Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 
 **Intro text**
 
-> General-purpose AI can tell you there’s a person by a window. It can’t tell you the scene is about loss.
+> General-purpose AI can tell you there’s a man by the sea. It can’t tell you the scene is about longing.
 >
 > Vionlabs is domain-specific AI built for entertainment, not a generic wrapper. It understands stories, characters, emotions and structure.
 

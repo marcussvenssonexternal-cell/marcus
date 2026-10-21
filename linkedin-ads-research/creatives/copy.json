@@ -23,6 +23,11 @@
         "text": "Curation Agent screenshot",
         "source": "Product image from vionlabs.com",
         "status": "site"
+      },
+      {
+        "text": "“Best of Show · IBC2026” line in the image",
+        "source": "TVBEurope Best of Show awards, 14 Sep 2026",
+        "status": "verify"
       }
     ]
   },
@@ -45,6 +50,11 @@
         "text": "Creative Agent branded-thumbnails screenshot",
         "source": "Product image from vionlabs.com",
         "status": "site"
+      },
+      {
+        "text": "“Best of Show · IBC2026” line in the image",
+        "source": "TVBEurope Best of Show awards, 14 Sep 2026",
+        "status": "verify"
       }
     ]
   },
@@ -67,6 +77,11 @@
         "text": "Creative Agent clips screenshot",
         "source": "Product image from vionlabs.com",
         "status": "site"
+      },
+      {
+        "text": "“Best of Show · IBC2026” line in the image",
+        "source": "TVBEurope Best of Show awards, 14 Sep 2026",
+        "status": "verify"
       }
     ]
   },
@@ -167,7 +182,7 @@
         "status": "site"
       },
       {
-        "text": "Curio Because You Watched, personalized rows and Similar titles screenshot",
+        "text": "Curio Because You Watched screenshot",
         "source": "Product image from vionlabs.com",
         "status": "site"
       }
@@ -609,7 +624,7 @@
     "product": "Brand",
     "name": "Ours can feel it",
     "inspired": "Positioning against general-purpose video AI",
-    "intro": "General-purpose AI can tell you there’s a person by a window. It can’t tell you the scene is about loss.\n\nVionlabs is domain-specific AI built for entertainment, not a generic wrapper. It understands stories, characters, emotions and structure.",
+    "intro": "General-purpose AI can tell you there’s a man by the sea. It can’t tell you the scene is about longing.\n\nVionlabs is domain-specific AI built for entertainment, not a generic wrapper. It understands stories, characters, emotions and structure.",
     "headline": "AI that understands stories",
     "cta": "Learn More",
     "audience": "Broad media and entertainment audience; good for cold reach",

@@ -45,7 +45,7 @@ body { background: #222; font-family: "Inter", sans-serif; padding: 40px; displa
 .logo .partner { color: var(--muted); font-weight: 500; }
 
 .eyebrow { display: inline-flex; align-items: center; gap: 12px; padding: 10px 20px; border-radius: 999px;
-  border: 1.5px solid var(--panel-edge); color: var(--muted); font-size: 21px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+  border: 1.5px solid var(--panel-edge); color: var(--muted); font-size: 23px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
 .eyebrow b { width: 10px; height: 10px; border-radius: 50%; background: var(--sky); box-shadow: 0 0 14px var(--sky); }
 .light .eyebrow { border-color: var(--light-edge); color: var(--light-muted); }
 
@@ -92,7 +92,10 @@ h1 .dim { color: var(--muted); }
 
 .top { display: flex; justify-content: space-between; align-items: center; height: 48px; }
 .foot { position: absolute; left: 84px; right: 84px; bottom: 84px; display: flex; align-items: center; justify-content: space-between; }
-.note { font-size: 22px; color: var(--faint); }
+.note { font-size: 24px; color: var(--faint); }
+.proof { display: inline-flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 600; color: var(--text); }
+.proof b { width: 12px; height: 12px; border-radius: 50%; background: #e8c36a; box-shadow: 0 0 14px #e8c36a; }
+.light .proof { color: var(--light-text); }
 .light .note { color: var(--light-muted); }
 .mono { font-family: "DejaVu Sans Mono", "Menlo", monospace; }
 .row { display: flex; gap: 20px; }
