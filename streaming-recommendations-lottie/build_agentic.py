@@ -841,7 +841,7 @@ def build_hero_v3():
 # one a team would type, and every result shows exactly what it asked for. Nothing
 # is imported by hand: the agent does the work and people only approve.
 
-SECTION_W, EDGE = 960, 12                       # canvas width (compact, so nothing feels spread out); inset that keeps focus glows inside
+SECTION_W, EDGE = 880, 12                       # canvas width (compact, so nothing feels spread out); inset that keeps focus glows inside
 
 
 def section_start(op):
@@ -863,20 +863,48 @@ def section_write(scene, imgs, title, name, t_in=8, t_out=12):
     write(animation(main, [scene] + PRECOMPS, FPS, title, images=imgs.assets.values()), name)
 
 
+def balanced(text, size, max_w):
+    """Wraps `text` into as few lines as fit `max_w`, then evens their lengths, like a chat bubble.
+
+    A non-breaking space (\\u00a0) keeps words together, e.g. a film title."""
+    words = text.split(" ")
+
+    def fit(w):
+        lines, cur = [], ""
+        for word in words:
+            t = f"{cur} {word}".strip()
+            if not cur or REG.width(t.replace("\u00a0", " "), size) <= w:
+                cur = t
+            else:
+                lines.append(cur)
+                cur = word
+        return lines + [cur]
+
+    n = len(fit(max_w))
+    lo, hi = max_w / 2, max_w
+    while n > 1 and hi - lo > 2:
+        mid = (lo + hi) / 2
+        if len(fit(mid)) == n:
+            hi = mid
+        else:
+            lo = mid
+    return [ln.replace("\u00a0", " ") for ln in fit(hi)]
+
+
 def section_prompt(m, prompt, reply, t=0):
     """The request (right-aligned bubble) and the agent's answer in a card under it.
 
-    A newline in the request marks where its line should break."""
+    Both stay narrower than the canvas, as in a real chat, with their lines evened out."""
     size = 26
-    lines = [ln for part in prompt.split("\n") for ln in wrap(REG, part, size, m.w - 2 * EDGE - 60)]
+    lines = balanced(prompt, size, m.w * 0.68 - 44)
     bw = max(REG.width(t_, size) for t_ in lines) + 44
     shapes, bh = user_bubble(lines, m.w - EDGE - bw, EDGE, bw, size=size, lh=35, pad=20)
     appear(m, "prompt", shapes, t, dy=16)
-    y = EDGE + bh + 18
-    rlines = wrap(REG, reply, 24, m.w - 2 * EDGE - 60)
+    y = EDGE + bh + 20
+    rlines = balanced(reply, 24, m.w * 0.74 - 44)
     items, h = reply_card(rlines, EDGE, y, max(REG.width(t_, 24) for t_ in rlines) + 44, size=24, lh=33, pad=22)
     appear(m, "reply", items, t + 10, dy=12)
-    return y + h + 30
+    return y + h + 40
 
 
 # --------------------------------------------- section: Curated Lists
@@ -889,13 +917,13 @@ def build_curated_lists():
     m, imgs = section_start(OP)
     top = section_prompt(m, "Give me 5 space movies for a Friday night line-up",
                          "Ranked 5 titles from your catalog by how well they fit a Friday space night.")
-    x0, rh, gap = EDGE, 76, 8
+    x0, rh, gap = EDGE, 82, 12
     rw = m.w - 2 * EDGE
     for k, (name, title, genres, moods, score) in enumerate(LINEUP):
         y = top + k * (rh + gap)
         t = 14 + 3 * k
         gx = x0 + 196 + REG.width(genres, 17) + 16
-        pills, _ = pill_row(moods, gx, y + 40, gap=6, size=14, h=26, color=MOOD, fill_o=16,
+        pills, _ = pill_row(moods, gx, y + 44, gap=6, size=14, h=26, color=MOOD, fill_o=16,
                             edge=MOOD, edge_o=55, text_color="#ffd9d2", pad=10)
         bar_w = 150
         bar_x = x0 + rw - 24 - bar_w
@@ -903,17 +931,17 @@ def build_curated_lists():
         m.shape(f"row {k}", bf([
             group([rect(rw, rh, x0 + rw / 2, y + rh / 2, 12), fill(ROW)]),
             BOLD.text(str(k + 1), 24, x0 + 26, y + rh / 2 + 9, align="center", o=70),
-            SEMI.text(title, 23, x0 + 196, y + 31),
-            REG.text(genres, 17, x0 + 196, y + 59, MUTED),
+            SEMI.text(title, 24, x0 + 196, y + 35),
+            REG.text(genres, 17, x0 + 196, y + 63, MUTED),
             group(pills),
-            group([rect(bar_w, 7, bar_x + bar_w / 2, y + 52, 3.5), fill("#ffffff", 12)]),
+            group([rect(bar_w, 7, bar_x + bar_w / 2, y + 56, 3.5), fill("#ffffff", 12)]),
             group([rect(anim([(t + 6, [0.1, 7], "out"), (t + 30, [bar_w * score / 100, 7])]), 0,
-                        anim([(t + 6, [bar_x, y + 52], "out"), (t + 30, [bar_x + bar_w * score / 200, y + 52])]),
+                        anim([(t + 6, [bar_x, y + 56], "out"), (t + 30, [bar_x + bar_w * score / 200, y + 56])]),
                         0, 3.5), fill(FOCUS)]),
-            BOLD.text(f"{score}%", 24, bar_x + bar_w, y + 32, align="right"),
-            REG.text("relevance", 15, bar_x, y + 32, MUTED),
+            BOLD.text(f"{score}%", 24, bar_x + bar_w, y + 35, align="right"),
+            REG.text("relevance", 15, bar_x, y + 35, MUTED),
         ]), ks=ks)
-        media(m, f"row {k} thumb", imgs(name), full(name, (0, 0, 112, 63)), (x0 + 56, y + 4.5, 112, 63), 6, t)
+        media(m, f"row {k} thumb", imgs(name), full(name, (0, 0, 128, 72)), (x0 + 50, y + 5, 128, 72), 6, t)
         m.shape(f"row {k} lit", [group([rect(rw, rh, x0 + rw / 2, y + rh / 2, 12), fill("#ffffff", 5)])]
                 + focus_ring(x0, y, rw, rh, 12, ring=3, glow=8), ks=layer_ks(o=on_off([LIST_FOCUS[k]])))
     section_end(m, top + len(LINEUP) * (rh + gap) - gap)
@@ -926,7 +954,7 @@ def build_clips():
     """One scene, asked for by name, cut for every screen; the vertical cut is the one in focus."""
     OP = 90
     m, imgs = section_start(OP)
-    top = section_prompt(m, "Give me a 30-second clip of the canyon flight in Top Gun: Maverick,\n"
+    top = section_prompt(m, "Give me a 30-second clip of the canyon flight in Top\u00a0Gun:\u00a0Maverick, "
                             "for TV, feeds and TikTok",
                          "Found the canyon flight and cut it for TV, feeds and TikTok.")
     gap, x = 18, EDGE
@@ -968,7 +996,7 @@ def build_branded():
     """Three titles, a strong scene from each with its logo placed, ready to approve."""
     OP = 90
     m, imgs = section_start(OP)
-    top = section_prompt(m, "Make 3 thumbnails for Arrival, Sunshine and The Martian\nand add their logos",
+    top = section_prompt(m, "Make 3 thumbnails for Arrival, Sunshine and The Martian and add their logos",
                          "Picked a strong scene from each title and placed its logo.")
     gap, x0 = 24, EDGE
     tw = (m.w - 2 * x0 - 2 * gap) / 3
