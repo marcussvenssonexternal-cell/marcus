@@ -8,7 +8,7 @@ From Viktor's ad brief. Images in `png/` (S = 1080×1080, L = 1200×627), videos
 **Audience:** Editorial, search and discovery teams whose catalogue search only matches titles and genres.  
 **Targeting:** Job titles: Head of Editorial, Head of Search, Product Manager Discovery, Head of Content Operations, Metadata Manager · Functions: Product Management, Operations, Media and Communication · Seniority: Manager and up · Retarget: engaged with Ad 1 or Ad 2 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
 
-_Modelled on the favourite TwelveLabs reference (DAM search): the keyword search fails, then the same need typed naturally finds every match. Our angle is entertainment language and mood, not objects on screen._
+_Modelled on the favourite TwelveLabs reference (DAM search), including its motion: blurred screens behind the catalogue, a rushing wall of results, an empty player a click fills, and a camera that pulls back over a canvas of searches. Our angle is entertainment language and mood, not objects on screen._
 
 **Assets**
 
@@ -64,7 +64,7 @@ _Modelled on the favourite TwelveLabs reference (DAM search): the keyword search
 **Audience:** Ad ops, monetisation and media ops teams at AVOD, FAST and broadcast services whose breaks are set by a timer or by hand.  
 **Targeting:** Job titles: Head of Ad Operations, Monetization Manager, Head of AVOD/FAST, Ad Sales Operations Manager, Head of Media Operations · Functions: Operations, Sales, Business Development · Seniority: Manager and up · Retarget: engaged with Ad 3 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
 
-_Modelled on the TwelveLabs ad-break reference: a jarring ad cuts into the story so the viewer feels the problem. Our angle: breaks land in the quiet valleys of the story arc, and each one carries mood, IAB and brand-safety context._
+_Modelled on the TwelveLabs ad-break reference: a jarring ad cuts into the story so the viewer feels the problem. Our angle: breaks land in the quiet valleys of the story arc with mood, IAB and brand-safety context, then the camera pulls back over every title with its breaks placed._
 
 **Assets**
 
@@ -121,12 +121,12 @@ _Modelled on the TwelveLabs ad-break reference: a jarring ad cuts into the story
 **Audience:** Social, digital and marketing teams who need vertical clips from the archive every day, and the content ops teams who feed them.  
 **Targeting:** Job titles: Social Media Manager, Head of Digital, Head of Marketing, Promo Producer, Content Operations Manager · Functions: Marketing, Media and Communication, Operations · Seniority: Manager and up · Retarget: engaged with Ad 2 or C1 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
 
-_Modelled on the TwelveLabs broadcast reference: scrubbing a long file, then segments appear and one is exported for social. Ours works across a film archive, tags moments by mood, and reframes to 9:16 with the character kept in frame._
+_Modelled on the TwelveLabs broadcast reference: scrubbing a long file, then segments appear and one is exported for social. Ours rushes through mood-tagged moments across a film archive, reframes one to 9:16, then pulls back over a feed's worth of shorts._
 
 **Assets**
 
-- Video · 21 s · 1:1: `video/v3-S.mp4`
-- Video · 21 s · 9:16: `video/v3-V.mp4`
+- Video · 22 s · 1:1: `video/v3-S.mp4`
+- Video · 22 s · 9:16: `video/v3-V.mp4`
 
 **Headlines**
 
@@ -174,7 +174,7 @@ _Modelled on the TwelveLabs broadcast reference: scrubbing a long file, then seg
 **Audience:** Creative, design and marketing teams who still pick thumbnails by hand, title by title.  
 **Targeting:** Job titles: Creative Director, Head of Creative, Design Lead, Head of Marketing, Head of Content Operations · Functions: Arts and Design, Marketing, Operations · Seniority: Manager and up · Retarget: engaged with Ad 2 or C1 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
 
-_Modelled on the TwelveLabs editors reference: the manual hunt first, then the tool does it for the whole library. Ours shows bad frames rejected by hand, then one recipe applied to every title._
+_Modelled on the TwelveLabs editors reference: the manual hunt first, then the tool does it for the whole library. Ours rejects bad frames by hand, sets one recipe, and the whole catalogue rushes past with every thumbnail done._
 
 **Assets**
 

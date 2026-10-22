@@ -93,6 +93,19 @@ Why it works best:
   what's actually happening on screen." It ends with a question to start comments: "What does your current
   video search actually look like? 👀"
 
+### The motion that makes it feel good
+
+The team likes video 4 most partly for its animation, which keeps lots of screens in motion:
+- **Depth from the first frame:** the main window sits in front of blurred video screens.
+- **The rushing wall:** a full-screen grid of very rounded thumbnails slides diagonally past the camera for about a second.
+- **The pick:** the wall collapses into a row under an empty player; a click fills the player.
+- **One card:** the query sits on top of the playing clip.
+- **The pull-back:** the camera zooms out from that card over a canvas of query-and-clip cards. The outer cards fade and blur, and everything keeps drifting.
+- **Constant motion:** nothing on screen is ever completely still.
+
+Our video series uses the same kinds of moves, in our own style: blurred screens behind the main window, a tilted rushing
+wall, an empty player and a click, and a camera pull-back over a canvas of searches, episodes or phones.
+
 Note for Vionlabs: this is TwelveLabs positioning against tag-based metadata, which is close to what Vionlabs
 sells (M1). Our answer is that Vionlabs metadata comes from what is in the video (mood, emotion, story,
 scenes), so the same structure works for us with entertainment-language queries.
