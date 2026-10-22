@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Ahrefs",
+      "mcp__Claude_Docs",
+      "mcp__Webflow__webflow_guide_tool",
+      "mcp__Webflow__data_sites_tool",
+      "mcp__Webflow__data_pages_tool",
+      "mcp__Webflow__data_cms_tool",
+      "mcp__Webflow__data_aeo_tool",
+      "WebSearch",
+      "WebFetch",
+      "Bash(git *)",
+      "Bash(mkdir *)",
+      "Bash(python3 *)"
+    ],
+    "deny": [
+      "mcp__Webflow__designer_tool",
+      "mcp__Webflow__data_element_builder",
+      "mcp__Webflow__data_element_tool",
+      "mcp__Webflow__data_element_settings_tool",
+      "mcp__Webflow__data_component_builder",
+      "mcp__Webflow__data_component_tool",
+      "mcp__Webflow__data_component_props_tool",
+      "mcp__Webflow__data_component_variants_tool",
+      "mcp__Webflow__data_whtml_builder",
+      "mcp__Webflow__data_style_tool",
+      "mcp__Webflow__data_interactions_tool",
+      "mcp__Webflow__data_scripts_tool",
+      "mcp__Webflow__data_members_tool",
+      "mcp__Webflow__data_forms_tool",
+      "mcp__Webflow__data_webhook_tool",
+      "mcp__Webflow__data_enterprise_tool",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)"
+    ]
+  }
+}

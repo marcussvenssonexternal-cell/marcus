@@ -14,12 +14,18 @@ Each run it:
    to us, and pages ranking for our buyer prompts that leave us out (Ahrefs
    and web search).
 3. Finds content gaps from competitors' rankings, monthly (Ahrefs).
-4. Audits vionlabs.com read-only (Webflow) and scans the news.
-5. Adds up to 8 new tasks to the backlog, drafts help for the top ones, and
-   writes a readout tab plus a KPI row in the Tracking log.
+4. Audits vionlabs.com (Webflow) and scans the news.
+5. Does the backlog tasks people have set to "Approved: agent does it" in the
+   Agent column, publishing on vionlabs.com within the rules in AGENT.md.
+6. Drafts up to two "Agent drafts" tasks a week: content as Webflow CMS drafts,
+   outreach as ready-to-copy text.
+7. Adds up to 8 new tasks to the backlog and writes a readout tab plus a KPI
+   row in the Tracking log, listing every site change so it can be undone.
 
 It needs no API keys. The routine needs three connectors attached (Ahrefs,
-Webflow and Claude Docs) and this repository. A run uses about 6,000 of the
+Webflow and Claude Docs) and this repository. `.claude/settings.json` at the
+repository root pre-approves the tools it uses, so an unattended run does not
+stop at permission prompts, and denies the Webflow Designer and element tools. A run uses about 6,000 of the
 200,000 monthly units on the Ahrefs Lite plan.
 
 ## Files
