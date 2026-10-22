@@ -1,0 +1,23 @@
+[
+  {"id": 1, "text": "What are the best recommendation engines for a streaming service?", "buyer": "Head of product", "stage": "Shortlist", "target": "Curio"},
+  {"id": 2, "text": "How can a streaming platform improve content discovery beyond collaborative filtering?", "buyer": "Head of product", "stage": "Problem", "target": "Curio"},
+  {"id": 3, "text": "Which companies offer mood- or emotion-based recommendations for video?", "buyer": "Head of product", "stage": "Shortlist", "target": "Curio, Fingerprint+"},
+  {"id": 4, "text": "How do streaming services solve the cold-start problem for new titles?", "buyer": "Data science", "stage": "Problem", "target": "Curio, Embeddings API"},
+  {"id": 5, "text": "Best video embeddings API for media catalogue similarity search", "buyer": "Engineering", "stage": "Shortlist", "target": "Embeddings API"},
+  {"id": 6, "text": "AI video metadata tagging tools for broadcasters and streamers", "buyer": "Content ops", "stage": "Shortlist", "target": "Editorial Lab, API"},
+  {"id": 7, "text": "How do I enrich metadata for a large back catalogue automatically?", "buyer": "Content ops", "stage": "Problem", "target": "Editorial Lab"},
+  {"id": 8, "text": "Alternatives to Gracenote for video metadata", "buyer": "Content ops", "stage": "Compare", "target": "Vionlabs"},
+  {"id": 9, "text": "AI tools that generate thumbnails and artwork for streaming titles", "buyer": "Creative / marketing", "stage": "Shortlist", "target": "Creative Lab"},
+  {"id": 10, "text": "How to automatically cut vertical clips from long-form TV and film", "buyer": "Social / marketing", "stage": "Problem", "target": "Agentic Layer"},
+  {"id": 11, "text": "AI agent that searches a video library in plain language", "buyer": "Creative / ops", "stage": "Shortlist", "target": "Agentic Layer"},
+  {"id": 12, "text": "Automatic intro, recap and credits detection for streaming", "buyer": "Ops / engineering", "stage": "Shortlist", "target": "Operations Lab"},
+  {"id": 13, "text": "How to find ad-break points in films and series automatically", "buyer": "Ad ops", "stage": "Problem", "target": "Operations Lab"},
+  {"id": 14, "text": "Which vendors do scene-level contextual advertising for CTV?", "buyer": "Ad sales", "stage": "Shortlist", "target": "Operations Lab"},
+  {"id": 15, "text": "How can FAST channels grow ad revenue with AI?", "buyer": "Monetisation", "stage": "Problem", "target": "Operations Lab"},
+  {"id": 16, "text": "Should we build video AI on AWS Rekognition or Twelve Labs, or buy a media-specific tool?", "buyer": "CTO", "stage": "Compare", "target": "Vionlabs"},
+  {"id": 17, "text": "Which AI companies specialise in video understanding for media and entertainment?", "buyer": "Executive", "stage": "Shortlist", "target": "Vionlabs"},
+  {"id": 18, "text": "AI tools for streaming services on AWS Marketplace", "buyer": "Procurement", "stage": "Shortlist", "target": "Vionlabs"},
+  {"id": 19, "text": "What is Vionlabs and who uses it?", "buyer": "Any", "stage": "Brand", "target": "Correct description, Plex, Pure Flix"},
+  {"id": 20, "text": "Vionlabs vs Gracenote: which is better for video metadata and content discovery?", "buyer": "Any", "stage": "Brand", "target": "A fair, favourable comparison"},
+  {"id": 21, "text": "Is Vionlabs GDPR compliant, can it run on-premise, and how is it priced?", "buyer": "Security / procurement", "stage": "Brand", "target": "Trust Center, Deployment Options, Pricing"}
+]

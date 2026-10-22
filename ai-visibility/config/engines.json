@@ -1,0 +1,32 @@
+{
+  "runs_per_prompt": 3,
+  "workers_per_engine": 4,
+  "engines": {
+    "chatgpt": {
+      "enabled": true,
+      "model": "gpt-5",
+      "key_env": "OPENAI_API_KEY",
+      "host": "api.openai.com"
+    },
+    "perplexity": {
+      "enabled": true,
+      "model": "sonar",
+      "key_env": "PERPLEXITY_API_KEY",
+      "host": "api.perplexity.ai"
+    },
+    "gemini": {
+      "enabled": true,
+      "model": "gemini-2.5-flash",
+      "key_env": "GEMINI_API_KEY",
+      "host": "generativelanguage.googleapis.com"
+    },
+    "claude": {
+      "enabled": true,
+      "model": "claude-opus-5-5",
+      "effort": "medium",
+      "max_searches": 5,
+      "key_env": "VISIBILITY_ANTHROPIC_API_KEY",
+      "host": "api.anthropic.com"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "canonical": {
+    "description": "DRAFT until the one-story sheet (backlog task 1) is approved: Vionlabs is entertainment-specific AI that understands what is inside every title (mood, scenes, characters, pacing) so streamers can personalise discovery, automate artwork and clips, and place ads in context.",
+    "headquarters": "Stockholm, Sweden",
+    "founded": "TO CONFIRM: vionlabs.com says 2016, Wikidata and LinkedIn say 2010",
+    "products": ["Curio", "Agentic Layer", "Editorial Lab", "Creative Lab", "Operations Lab", "Embeddings API", "Fingerprint+"],
+    "retired_names": ["Discovery Suite", "Efficiency Suite"],
+    "customers": ["Plex", "Deutsche Telekom", "Great American Pure Flix", "Canela Media", "Cineverse", "Zeam"]
+  },
+  "red_flags": [
+    {"pattern": "smart[- ]buildings?", "why": "Confused with Vion Labs, a smart-buildings company"},
+    {"pattern": "VisionLabs", "why": "Confused with VisionLabs, a different AI company"},
+    {"pattern": "\\b(Discovery|Efficiency) Suite\\b", "why": "Uses a retired product name"},
+    {"pattern": "coding (experience|assistant)", "why": "Echoes stale template text on vionlabs.com that describes a coding tool"}
+  ]
+}
