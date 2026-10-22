@@ -1,10 +1,10 @@
 # TwelveLabs LinkedIn video ads: reference notes
 
-Three TwelveLabs video ads shared as references (Oct 2026), broken down frame by frame. The videos
-themselves are not stored here. All three are 16:9 (1280×720), 25–30 seconds, with sound; the audio
-could not be transcribed, but every video tells its story without it.
+Four TwelveLabs video ads shared as references (Oct 2026), broken down frame by frame. The videos
+themselves are not stored here. All four are 16:9 (1280×720), 25–30 seconds, with sound; the audio
+could not be transcribed, but every video tells its story without it. **Video 4 is the team's favourite.**
 
-## What all three do
+## What all four do
 
 - **Open on the problem, shown rather than told.** The first 3–5 seconds make you feel the pain:
   an ad cutting into a car chase, or a cursor frantically scrubbing through footage.
@@ -69,6 +69,33 @@ scrubbing, more time in the edit bay actually making decisions."
 
 Post: "A 60-minute broadcast can hold 20 different stories - but most systems still treat it as one
 giant file." / topic shifts, anchor handoffs, segments / "One broadcast. Endless ways to repurpose it."
+
+## Video 4: search inside the DAM (25 s), the favourite
+
+| Time | What happens |
+| --- | --- |
+| 0–3.3 s | A cluttered Finder window called "DAM", full of files like "IMG_1094 copy 2.mp4", scrolling; football footage blurred behind |
+| 3.5–5.3 s | Typing a keyword search: "Linebacker tackles for a loss" |
+| 5.5–7.3 s | "No results found", alone on a blank screen: the failure moment |
+| 7.5–9.5 s | A new search bar with a soft brand-coloured glow; the same need, typed naturally: "Linebacker sacks quarterback for a loss" |
+| 10–11 s | A wall of football thumbnails rushes in: the results |
+| 11.5–15 s | Click one result; that exact play runs under the query |
+| 15.5–19 s | Zoom out: many query-and-clip pairs ("Neutral zone infraction", "One handed catch for the touchdown", "Celebration after touchdown", "Fans gather to cheer the team") |
+| 19.5–21 s | "Find the scenes that matter from your DAM with" … and the logo finishes the sentence |
+| 21.5–25 s | Logo |
+
+Why it works best:
+- **The same search fails, then succeeds.** "No results found" is the most relatable moment in any of the four, and
+  the fix is the same intent typed naturally.
+- **One specific, concrete query** ("Linebacker sacks quarterback for a loss"), then breadth through many queries.
+- **The closing line runs into the logo**, so the brand is the answer to the sentence.
+- **The post goes after metadata itself**: "Tags capture what someone thought to write down. They don't capture
+  what's actually happening on screen." It ends with a question to start comments: "What does your current
+  video search actually look like? 👀"
+
+Note for Vionlabs: this is TwelveLabs positioning against tag-based metadata, which is close to what Vionlabs
+sells (M1). Our answer is that Vionlabs metadata comes from what is in the video (mood, emotion, story,
+scenes), so the same structure works for us with entertainment-language queries.
 
 ## What Vionlabs can take
 
