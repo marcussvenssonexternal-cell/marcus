@@ -2,41 +2,21 @@
   "us": {
     "name": "Vionlabs",
     "aliases": ["Vionlabs", "Vion Labs", "VionLabs"],
-    "domains": ["vionlabs.com"]
+    "domain": "vionlabs.com"
   },
-  "competitors": [
-    {"name": "Gracenote", "aliases": ["Gracenote"]},
-    {"name": "TwelveLabs", "aliases": ["TwelveLabs", "Twelve Labs"]},
-    {"name": "ThinkAnalytics", "aliases": ["ThinkAnalytics", "Think Analytics"]},
-    {"name": "Moments Lab", "aliases": ["Moments Lab", "MomentsLab", "Newsbridge"]},
-    {"name": "Coactive AI", "aliases": ["Coactive"]},
-    {"name": "Anoki", "aliases": ["Anoki", "ContextIQ"]},
-    {"name": "Brightcove", "aliases": ["Brightcove"]},
-    {"name": "Mixpeek", "aliases": ["Mixpeek"]},
-    {"name": "Valossa", "aliases": ["Valossa"]},
-    {"name": "Veritone", "aliases": ["Veritone"]},
-    {"name": "IRIS.TV", "aliases": ["IRIS.TV", "IRIS TV"]},
-    {"name": "Wurl", "aliases": ["Wurl"]},
-    {"name": "Synamedia", "aliases": ["Synamedia"]},
-    {"name": "Media Distillery", "aliases": ["Media Distillery"]},
-    {"name": "Simply.TV", "aliases": ["Simply.TV", "Simply TV"]},
-    {"name": "Spideo", "aliases": ["Spideo"]},
-    {"name": "XroadMedia", "aliases": ["XroadMedia", "Xroad Media"]},
-    {"name": "24i", "aliases": ["24i"]},
-    {"name": "Kaltura", "aliases": ["Kaltura"]},
-    {"name": "Amazon Rekognition", "aliases": ["Amazon Rekognition", "AWS Rekognition", "Rekognition"]},
-    {"name": "Amazon Personalize", "aliases": ["Amazon Personalize", "AWS Personalize"]},
-    {"name": "Google Video Intelligence", "aliases": ["Video Intelligence API", "Google Video Intelligence", "Cloud Video Intelligence"]},
-    {"name": "Azure Video Indexer", "aliases": ["Video Indexer"]},
-    {"name": "Recombee", "aliases": ["Recombee"]},
-    {"name": "Clarifai", "aliases": ["Clarifai"]},
-    {"name": "Imagga", "aliases": ["Imagga"]},
-    {"name": "Limecraft", "aliases": ["Limecraft"]},
-    {"name": "Netra", "aliases": ["Netra"]},
-    {"name": "Vidrovr", "aliases": ["Vidrovr"]},
-    {"name": "Perfect Memory", "aliases": ["Perfect Memory"]},
-    {"name": "Peer39", "aliases": ["Peer39"]},
-    {"name": "GumGum", "aliases": ["GumGum"]},
-    {"name": "Kerv", "aliases": ["Kerv"]}
+  "tracked_competitors": [
+    {"name": "Mixpeek", "domain": "mixpeek.com"},
+    {"name": "TwelveLabs", "domain": "twelvelabs.io"},
+    {"name": "Gracenote", "domain": "gracenote.com"},
+    {"name": "Moments Lab", "domain": "momentslab.com"},
+    {"name": "Coactive AI", "domain": "coactive.ai"},
+    {"name": "ThinkAnalytics", "domain": "thinkanalytics.com"}
+  ],
+  "other_competitors": [
+    "Anoki", "Brightcove", "Valossa", "Veritone", "IRIS.TV", "Wurl", "Synamedia",
+    "Media Distillery", "Simply.TV", "Spideo", "XroadMedia", "24i", "Kaltura",
+    "Amazon Rekognition", "Google Video Intelligence", "Azure Video Indexer",
+    "Recombee", "Clarifai", "Imagga", "Limecraft", "Netra", "Vidrovr",
+    "Perfect Memory", "Peer39", "GumGum", "Kerv"
   ]
 }

@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-22",
+  "kind": "baseline, run by hand",
+  "kpis": {
+    "ai_citations_all_platforms": 1,
+    "ai_pages_cited": 1,
+    "domain_rating": 30,
+    "live_referring_domains": 1054,
+    "live_backlinks": 3943,
+    "nonbranded_keywords_top40": 1
+  },
+  "ai_citations": {
+    "mixpeek.com": {"all": 368, "pages": 67, "chatgpt": 15, "perplexity": 55, "gemini": 25, "google_ai_overviews": 12, "google_ai_mode": 13, "copilot": 43},
+    "twelvelabs.io": {"all": 140, "pages": 82, "chatgpt": 7, "perplexity": 12, "gemini": 9, "google_ai_overviews": 0, "google_ai_mode": 13, "copilot": 5},
+    "gracenote.com": {"all": 73, "pages": 46, "chatgpt": 1, "perplexity": 3, "gemini": 0, "google_ai_overviews": 1, "google_ai_mode": 1, "copilot": 0},
+    "momentslab.com": {"all": 24, "pages": 13, "chatgpt": 0, "perplexity": 6, "gemini": 1, "google_ai_overviews": 0, "google_ai_mode": 4, "copilot": 1},
+    "coactive.ai": {"all": 9, "pages": 10, "chatgpt": 0, "perplexity": 0, "gemini": 0, "google_ai_overviews": 0, "google_ai_mode": 0, "copilot": 0},
+    "vionlabs.com": {"all": 1, "pages": 1, "chatgpt": 0, "perplexity": 1, "gemini": 0, "google_ai_overviews": 0, "google_ai_mode": 0, "copilot": 0},
+    "thinkanalytics.com": {"all": 1, "pages": 3, "chatgpt": 0, "perplexity": 0, "gemini": 0, "google_ai_overviews": 0, "google_ai_mode": 0, "copilot": 0}
+  },
+  "outreach_targets": [
+    "huggingface.co", "producthunt.com", "iab.com", "mapyourshow.com", "trustradius.com", "f6s.com",
+    "dang.ai", "martechseries.com", "tech.eu", "analyticsinsight.net", "eu-startups.com", "unite.ai",
+    "ibc.org", "nabshow.com", "kdnuggets.com", "startus-insights.com", "aibusiness.com",
+    "advanced-television.com", "parksassociates.com", "craft.co", "cynopsis.com", "totaltele.com",
+    "newscaststudio.com", "svgeurope.org", "videoweek.com", "twimlai.com", "streamtvinsider.com",
+    "cablefax.com", "toolbit.ai", "aitoptools.com"
+  ],
+  "spam_link_domains_seen": [
+    "buybacklinks.agency", "webrankingsolutionbacklinks.com", "increasewebtrafficwithlinks.com",
+    "webbacklinkskbuy.com", "atozbacklinks.com", "friendlybacklinksbuy.com", "trafficboosterlinkseo.com",
+    "quickseolinks.com", "wowqualitybacklinks.com", "welinkbacklinks.com", "worldtopbacklinks.com",
+    "bestsitesbacklinks.com", "superbqualitybacklinks.com", "rarebacklinks.com", "bestseobacklinkforsite.com",
+    "bestrankbacklinks.com", "buytopqualitybacklinks.com", "buyfairbacklinks.com", "99backlinksbuy.com",
+    "rankshiftseo.shop", "rankboostly.shop", "seolinkpro.shop", "seo-high-ranking.shop",
+    "seoexpress.website", "link-baron-optimal-organic-collective.store", "thebacklinks.shop", "seoexpress.shop"
+  ],
+  "tasks_added": [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44],
+  "ahrefs_units_used": 9635
+}
