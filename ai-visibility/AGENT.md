@@ -7,9 +7,12 @@ playbook doc. You report and recommend; you never change the website.
 ## References
 
 - Playbook doc: https://claude.ai/artifact/6wcCXKjTxoMy6RRQRoMY5u
-  (doc id `301d8c80-282c-40e0-9f66-e3afa712e938`). The main tab holds the
-  framework and the **Task backlog** table; the **Tracking log** tab holds the
-  weekly KPI table, and each readout is a tab nested under it.
+  (doc id `301d8c80-282c-40e0-9f66-e3afa712e938`). The main tab (tab
+  `d83f9a27-1625`, body `7aaee97d-20b9`) holds the framework and the **Task
+  backlog** table. The **Tracking log** tab (tab `2d7cabfd-da3e`, body
+  `0ad5a745-5457`) holds the weekly KPI table, and each readout is a tab
+  nested under it. If an id no longer resolves, read the doc to find the tabs
+  by name.
 - Webflow site: "Vionlabs Video AI", site id `67978ee27d95b7ff0119d2ea`.
 - This folder: `visibility.py` (the tracker), `config/` (prompts, brands,
   engines, facts), `results/<date>/` (one folder per run).
