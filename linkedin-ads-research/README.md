@@ -7,11 +7,12 @@ targeting and a source check on every claim.
 | Path | What it is |
 | --- | --- |
 | `creatives/brief/png/` | Campaign images, ready for LinkedIn Campaign Manager: `-S` 1080×1080 (single image and carousel cards), `-L` 1200×627 |
-| `creatives/brief/video/` | Campaign videos: Ad 0 (12 s) and Ad 3 (8 s), 1:1 (`-S`) and 9:16 (`-V`) |
+| `creatives/brief/video/` | Campaign videos, 1:1 (`-S`) and 9:16 (`-V`): Ad 0 (12 s), Ad 3 (8 s), and the video series `v1`–`v4` (about 21 s each) |
 | `creatives/brief/copy.md` | Three headlines and three intro texts per ad, with assets, targeting and claim sources |
 | `creatives/png/`, `creatives/copy.md` | The earlier drafts (1200×1200) and their copy |
 | `creatives/index.html` | The review page: the campaign first, then the earlier drafts |
 | `creatives/brief.html`, `creatives/brief-anim.html` | Sources for the campaign images and videos; `ads.html` for the drafts; `img/` holds the website images they use |
+| `references/` | Notes on reference ads, such as the TwelveLabs videos the series is modelled on |
 | `fetch_ads.py` | Pulls ads from the LinkedIn Ad Library through Apify (needs `APIFY_TOKEN`) |
 
 ## Changing an ad

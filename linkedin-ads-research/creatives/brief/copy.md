@@ -2,6 +2,224 @@
 
 From Viktor's ad brief. Images in `png/` (S = 1080×1080, L = 1200×627), videos in `video/`; sources in `../brief.html` and `../brief-anim.html`. CTA on every ad: **Book a demo**.
 
+## Video 1 · Search by mood
+
+**Lab:** Editorial Lab · search by mood  
+**Audience:** Editorial, search and discovery teams whose catalogue search only matches titles and genres.  
+**Targeting:** Job titles: Head of Editorial, Head of Search, Product Manager Discovery, Head of Content Operations, Metadata Manager · Functions: Product Management, Operations, Media and Communication · Seniority: Manager and up · Retarget: engaged with Ad 1 or Ad 2 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
+
+_Modelled on the favourite TwelveLabs reference (DAM search): the keyword search fails, then the same need typed naturally finds every match. Our angle is entertainment language and mood, not objects on screen._
+
+**Assets**
+
+- Video · 21 s · 1:1: `video/v1-S.mp4`
+- Video · 21 s · 9:16: `video/v1-V.mp4`
+
+**Headlines**
+
+1. Your metadata says Comedy. Your viewers search for feel-good. (61)
+2. Search your library by mood, not by keyword. (44)
+3. Find the titles that match the mood. (36)
+
+**Intro text 1** (426 characters)
+
+> Your catalogue is tagged. So why does “feel-good movie with a happy ending” still return nothing?
+>
+> Tags capture what someone wrote down: title, year, genre. Vionlabs understands how a title feels to watch, because our AI was built and trained for entertainment.
+>
+> Just describe what you’re after:
+> 🎭 a mood
+> 💬 a theme
+> 🎬 a kind of story
+>
+> What does search in your catalogue look like today? 👀
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (297 characters)
+
+> “Feel-good movie with a happy ending.” Keyword search: no results. Vionlabs: every title that fits.
+>
+> Our models read mood, emotion and story arc straight from the video, so search, rows and recommendations work the way viewers actually ask. In 99+ languages.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (261 characters)
+
+> Genre is what the studio sent. Mood is what viewers search for.
+>
+> Vionlabs enriches every title with mood, theme and scene-level metadata, so your editors and your search box can find titles by feeling, not just by keyword.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- Search by mood, theme and story arc, in 99+ languages: Ad prompts, M3 and base context (From the brief)
+- Catalogue genres, search results, mood tags and the query pairs: Real titles from vionlabs.com; genres simplified, matches and tags illustrative (Example values)
+- Title art and frames from vionlabs.com (Ticket to Paradise, Gladiator and others): Same rights check as the rest of the campaign: confirm paid use (Check before launch)
+
+## Video 2 · Ad breaks that respect the story
+
+**Lab:** Operations Lab · ad breaks  
+**Audience:** Ad ops, monetisation and media ops teams at AVOD, FAST and broadcast services whose breaks are set by a timer or by hand.  
+**Targeting:** Job titles: Head of Ad Operations, Monetization Manager, Head of AVOD/FAST, Ad Sales Operations Manager, Head of Media Operations · Functions: Operations, Sales, Business Development · Seniority: Manager and up · Retarget: engaged with Ad 3 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
+
+_Modelled on the TwelveLabs ad-break reference: a jarring ad cuts into the story so the viewer feels the problem. Our angle: breaks land in the quiet valleys of the story arc, and each one carries mood, IAB and brand-safety context._
+
+**Assets**
+
+- Video · 21 s · 1:1: `video/v2-S.mp4`
+- Video · 21 s · 9:16: `video/v2-V.mp4`
+
+**Headlines**
+
+1. Ad breaks that respect the story. (33)
+2. Nothing kills a climax like a badly timed ad break. (51)
+3. Place every ad break between moments, not in them. (50)
+
+**Intro text 1** (418 characters)
+
+> Nothing kills a climax like an ad landing in the middle of it.
+>
+> Fixed timers don’t know where the story is. Vionlabs does: our AI follows the scenes and the emotional arc of every episode, so breaks land between moments, not inside them.
+>
+> Every break also carries context:
+> 🎭 the mood around it
+> 🏷️ an IAB category
+> ✅ a brand-safety flag
+>
+> Better for viewers. Better for advertisers.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (325 characters)
+
+> Your viewers feel a badly placed ad break before they notice the ad.
+>
+> Vionlabs places breaks at natural scene breaks, timed to the story’s emotional arc, and tags each one with mood and IAB context for better ad matching. Customers have seen 80% fewer manual tasks in ad-break creation.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (271 characters)
+
+> Ad breaks every ten minutes, wherever the story happens to be? That interrupts the moments viewers came for.
+>
+> Vionlabs reads every scene and story beat, then places breaks where the story pauses, ready for your player and ad server.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- Breaks at natural scene breaks, with mood and IAB context: Ad prompts, Ad 3 and O1 (From the brief)
+- 80% fewer manual tasks in ad-break creation: Sales-deck success story. Checklist: confirm public use and how to credit (Check before launch)
+- S1 E4 label, story arc, chapters, break times and the “MEGA SALE” ad: Illustrative; the interrupting ad is a made-up placeholder with no brand (Example values)
+- Title art and frames from vionlabs.com (a Succession frame): Same rights check as the rest of the campaign: confirm paid use (Check before launch)
+
+## Video 3 · One library. Endless shorts.
+
+**Lab:** Creative Lab · scene search and 9:16  
+**Audience:** Social, digital and marketing teams who need vertical clips from the archive every day, and the content ops teams who feed them.  
+**Targeting:** Job titles: Social Media Manager, Head of Digital, Head of Marketing, Promo Producer, Content Operations Manager · Functions: Marketing, Media and Communication, Operations · Seniority: Manager and up · Retarget: engaged with Ad 2 or C1 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
+
+_Modelled on the TwelveLabs broadcast reference: scrubbing a long file, then segments appear and one is exported for social. Ours works across a film archive, tags moments by mood, and reframes to 9:16 with the character kept in frame._
+
+**Assets**
+
+- Video · 21 s · 1:1: `video/v3-S.mp4`
+- Video · 21 s · 9:16: `video/v3-V.mp4`
+
+**Headlines**
+
+1. One library. Endless shorts. (28)
+2. Need one epic moment for social? Find it in seconds. (52)
+3. Every moment in your archive, ready for 9:16. (45)
+
+**Intro text 1** (422 characters)
+
+> Your archive holds thousands of moments social teams would love. Finding one still means scrubbing hours of video.
+>
+> Vionlabs breaks every title into scenes and moments, tagged by mood and content. Pick a moment and export it in 9:16, with the character kept in frame.
+>
+> 🎬 Moments found automatically
+> 📱 Vertical reframing with character tracking
+> 🏷️ Clips arrive with summaries and tags
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (223 characters)
+
+> Social teams need fresh vertical clips every day. Your library already has them.
+>
+> Vionlabs finds the scene, reframes it from 16:9 to 9:16 and hands over a tagged clip ready to publish.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (258 characters)
+
+> One feature film can hold a hundred shareable moments.
+>
+> Vionlabs scene search works in plain language across the whole library, in 99+ languages, so the right moment takes seconds to find, not an afternoon of scrubbing.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- Scene retrieval across the library; 16:9 to 9:16 with character tracking; clips with summaries and tags; 99+ languages: Ad prompts, C3 (From the brief)
+- Moods, timecodes and the social caption: Illustrative; generic feed with no platform logos (Example values)
+- Title art and frames from vionlabs.com (Gladiator, Troy and four other films): Same rights check as the rest of the campaign: confirm paid use (Check before launch)
+
+## Video 4 · One recipe. Every title.
+
+**Lab:** Creative Lab · thumbnail recipes  
+**Audience:** Creative, design and marketing teams who still pick thumbnails by hand, title by title.  
+**Targeting:** Job titles: Creative Director, Head of Creative, Design Lead, Head of Marketing, Head of Content Operations · Functions: Arts and Design, Marketing, Operations · Seniority: Manager and up · Retarget: engaged with Ad 2 or C1 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
+
+_Modelled on the TwelveLabs editors reference: the manual hunt first, then the tool does it for the whole library. Ours shows bad frames rejected by hand, then one recipe applied to every title._
+
+**Assets**
+
+- Video · 21 s · 1:1: `video/v4-S.mp4`
+- Video · 21 s · 9:16: `video/v4-V.mp4`
+
+**Headlines**
+
+1. One recipe. Thumbnails for every title. (39)
+2. Stop hunting for the perfect frame. (35)
+3. Your team sets the recipe. The AI picks the frames. (51)
+
+**Intro text 1** (409 characters)
+
+> Picking thumbnails by hand: scrub, squint, reject the blurry one, repeat. For every title.
+>
+> With Vionlabs, your team sets a recipe once: lead character, warm mood, medium close-up, bright, title placed, 16:9 and 9:16. The AI applies it to the whole catalogue and filters out blur, on-screen text and nudity.
+>
+> Your team keeps the creative call. The AI does the scrubbing.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (273 characters)
+
+> Your designers didn’t sign up to scrub timelines for the right frame.
+>
+> Vionlabs picks frames by mood, character and composition, like a film editor would, and delivers thumbnails in every format your apps need, straight into your MAM.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (226 characters)
+
+> A great thumbnail is the first thing a viewer judges. Most catalogues have a few, not thousands.
+>
+> Set a recipe once and Vionlabs creates thumbnails for every title, in every aspect ratio.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- Recipes (character, mood, shot type, brightness, format, title logo); filters for blur, on-screen text and nudity: Ad prompts, C1 and C2 (From the brief)
+- “Title 1 of 2,431” and the progress count: Example values (Example values)
+- The rejected frames: Website frames with blur, darkening or a caption added to show bad picks (Example values)
+- Title art and frames from vionlabs.com (La La Land and the thumbnail wall): Same rights check as the rest of the campaign: confirm paid use (Check before launch)
+
 ## Ad 0 · AI built for entertainment
 
 **Lab:** All  

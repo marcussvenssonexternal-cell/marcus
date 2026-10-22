@@ -1,6 +1,6 @@
 // Records the brief campaign videos: renders brief-anim.html?v=<id> frame by frame and encodes MP4
 // to brief/video/, plus a poster PNG for the review page.
-//   node record.cjs                  (all four)
+//   node record.cjs                  (all of them)
 //   node record.cjs ad0-S ad3-V      (only these)
 const path = require("path");
 const fs = require("fs");
@@ -8,7 +8,8 @@ const { execFileSync } = require("child_process");
 const { chromium } = require("playwright");
 
 (async () => {
-  const ids = process.argv.slice(2).length ? process.argv.slice(2) : ["ad0-S", "ad0-V", "ad3-S", "ad3-V"];
+  const ids = process.argv.slice(2).length ? process.argv.slice(2)
+    : ["ad0", "ad3", "v1", "v2", "v3", "v4"].flatMap((k) => [k + "-S", k + "-V"]);
   const outDir = path.join(__dirname, "brief", "video");
   fs.mkdirSync(outDir, { recursive: true });
   const browser = await chromium.launch();
@@ -20,7 +21,7 @@ const { chromium } = require("playwright");
     await page.evaluate(() => document.fonts.ready);
     await page.evaluate(() => window.animReady);
     await page.waitForLoadState("networkidle");
-    const { duration, fps } = await page.evaluate(() => window.VIDEO);
+    const { duration, fps, poster } = await page.evaluate(() => window.VIDEO);
     const frames = fs.mkdtempSync(path.join(require("os").tmpdir(), `rec-${id}-`));
     const stage = await page.$("#stage");
     const n = Math.round(duration * fps);
@@ -32,7 +33,7 @@ const { chromium } = require("playwright");
     execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-framerate", String(fps), "-i", path.join(frames, "f%04d.png"),
       "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "20", "-preset", "medium", "-movflags", "+faststart", out]);
     // poster frame for the review page
-    fs.copyFileSync(path.join(frames, `f${String(Math.round(n * (id.startsWith("ad0") ? 0.475 : 0.9))).padStart(4, "0")}.png`), path.join(outDir, `${id}.png`));
+    fs.copyFileSync(path.join(frames, `f${String(Math.min(n - 1, Math.round(poster * fps))).padStart(4, "0")}.png`), path.join(outDir, `${id}.png`));
     fs.rmSync(frames, { recursive: true, force: true });
     console.log("recorded", id, n, "frames");
     await page.close();
