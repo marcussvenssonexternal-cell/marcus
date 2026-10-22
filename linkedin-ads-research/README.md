@@ -11,6 +11,7 @@ targeting and a source check on every claim.
 | `creatives/brief/copy.md` | Three headlines and three intro texts per ad, with assets, targeting and claim sources |
 | `creatives/png/`, `creatives/copy.md` | The earlier drafts (1200×1200) and their copy |
 | `creatives/index.html` | The review page: the campaign first, then the earlier drafts |
+| `creatives/share/` | One page per campaign ad, each published as its own link so a single ad can be sent on its own; `links.json` holds the links |
 | `creatives/brief.html`, `creatives/brief-anim.html` | Sources for the campaign images and videos; `ads.html` for the drafts; `img/` holds the website images they use |
 | `references/` | Notes on reference ads, such as the TwelveLabs videos the series is modelled on |
 | `fetch_ads.py` | Pulls ads from the LinkedIn Ad Library through Apify (needs `APIFY_TOKEN`) |

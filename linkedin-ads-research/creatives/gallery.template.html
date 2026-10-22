@@ -114,6 +114,12 @@
   .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
   .cta { font-weight: 600; font-size: 13.5px; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 999px; padding: 3px 12px; }
   .small { font-size: 13.5px; color: var(--muted); }
+  .share { margin-left: auto; display: inline-flex; gap: 10px; align-items: center; }
+  .share a { font-size: 13px; font-weight: 500; color: var(--accent); }
+  main > .ad { margin-top: 28px; }
+  .one .videos figure { max-width: 440px; flex-basis: 300px; }
+  .one .videos figure.vert { max-width: 300px; flex-basis: 220px; }
+  footer a { color: var(--accent); }
   .note { font-size: 14px; border-left: 3px solid var(--accent); padding-left: 12px; }
 
   .copy { font: 500 12px var(--body); color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; cursor: pointer; text-transform: none; letter-spacing: 0; white-space: nowrap; }
@@ -204,6 +210,9 @@
 <script>
   const BRIEF = /*BRIEF_JSON*/[];
   const ADS = /*ADS_JSON*/[];
+  const ONLY = /*ONLY*/null; // set on the one-ad share pages that build_gallery.py writes to share/
+  const LINKS = /*LINKS_JSON*/{}; // each campaign ad's own share link (share/links.json)
+  const HOME = "https://claude.ai/artifact/RedxbdkboDwKTX5Cm22UtR";
   const STATUS = { site: "On the website", verify: "Check before launch", illustrative: "Example values", brief: "From the brief", example: "Example values" };
   const FOLD = 150, HEADLINE_MAX = 70, INTRO_MAX = 600;
 
@@ -237,7 +246,8 @@
   }
   function adHtml(ad) {
     return `<article class="ad" id="${ad.id}">
-      <div class="ad-head"><div class="meta"><span class="num">${esc(ad.num)}</span><span class="lab">${esc(ad.lab)}</span></div>
+      <div class="ad-head"><div class="meta"><span class="num">${esc(ad.num)}</span><span class="lab">${esc(ad.lab)}</span>
+        ${!ONLY && LINKS[ad.id] ? `<span class="share"><a href="${LINKS[ad.id]}" target="_blank" rel="noopener">Open on its own</a><button class="copy" data-kind="link" data-id="${ad.id}">Copy share link</button></span>` : ""}</div>
         <h3>${esc(ad.name)}</h3><p class="aud">${esc(ad.audience)}</p></div>
       <div class="ad-cols">
         ${assetsHtml(ad)}
@@ -317,39 +327,50 @@
     <dt>Seniority</dt><dd>${esc(g.seniority)}</dd><dt>Industries</dt><dd>${esc(INDUSTRIES)}</dd></dl></div>`;
 
   const groups = document.getElementById("groups");
-  groups.innerHTML = SECTIONS.map((g) => {
-    const ads = BRIEF.filter((a) => a.group === g.key);
-    return `<section class="group" data-view="${g.key}">
-      <div class="group-head"><div><h2>${esc(g.name)}</h2><p class="pitch">${esc(g.pitch)}</p>
-        <div class="n">${ads.length} ${ads.length === 1 ? "ad" : "ads"} · ${countAssets(ads)} assets</div></div></div>
-      ${ads.map(adHtml).join("")}
-    </section>`;
-  }).join("") + `<section class="group" data-view="drafts">
-      <div class="group-head"><div><h2>Earlier drafts</h2>
-        <p class="pitch">The first round: 34 single-image ads (1200 × 1200) modelled on TwelveLabs’ LinkedIn ads, grouped by audience. Same style as the campaign above, so the strongest can run next to it.</p>
-        <div class="n">${ADS.length} ads</div></div></div>
-      ${DRAFT_GROUPS.map((g) => `<div class="subgroup"><h3>${esc(g.name)}</h3>${draftTargeting(g)}<div class="grid">${ADS.filter((a) => a.audience === g.key).map(card).join("")}</div></div>`).join("")}
-    </section>`;
-  groups.querySelectorAll("[data-intro]").forEach((f) => showIntro(f, 0));
+  if (ONLY) {
+    // a share page: just this one ad
+    document.body.classList.add("one");
+    document.querySelector("header").innerHTML = `<div class="kicker">Vionlabs · LinkedIn ad draft · “AI built for entertainment” campaign</div>`;
+    document.querySelector(".brief").remove();
+    document.getElementById("filters").remove();
+    document.querySelector("footer").innerHTML = `One ad from the Vionlabs LinkedIn ad review. <a href="${HOME}" target="_blank" rel="noopener">Open the full review page</a>.`;
+    groups.innerHTML = adHtml(BRIEF.find((a) => a.id === ONLY));
+    groups.querySelectorAll("[data-intro]").forEach((f) => showIntro(f, 0));
+  } else {
+    groups.innerHTML = SECTIONS.map((g) => {
+      const ads = BRIEF.filter((a) => a.group === g.key);
+      return `<section class="group" data-view="${g.key}">
+        <div class="group-head"><div><h2>${esc(g.name)}</h2><p class="pitch">${esc(g.pitch)}</p>
+          <div class="n">${ads.length} ${ads.length === 1 ? "ad" : "ads"} · ${countAssets(ads)} assets</div></div></div>
+        ${ads.map(adHtml).join("")}
+      </section>`;
+    }).join("") + `<section class="group" data-view="drafts">
+        <div class="group-head"><div><h2>Earlier drafts</h2>
+          <p class="pitch">The first round: 34 single-image ads (1200 × 1200) modelled on TwelveLabs’ LinkedIn ads, grouped by audience. Same style as the campaign above, so the strongest can run next to it.</p>
+          <div class="n">${ADS.length} ads</div></div></div>
+        ${DRAFT_GROUPS.map((g) => `<div class="subgroup"><h3>${esc(g.name)}</h3>${draftTargeting(g)}<div class="grid">${ADS.filter((a) => a.audience === g.key).map(card).join("")}</div></div>`).join("")}
+      </section>`;
+    groups.querySelectorAll("[data-intro]").forEach((f) => showIntro(f, 0));
 
-  const VIEWS = [{ key: "campaign", name: "Whole campaign" }, ...SECTIONS.map(({ key, name }) => ({ key, name: name.replace(" follow-ups", "").replace(" follow-up", "") })), { key: "drafts", name: "Earlier drafts" }];
-  const bar = document.getElementById("filters");
-  bar.innerHTML = VIEWS.map((v) => `<button class="chip" aria-pressed="false" data-p="${v.key}">${esc(v.name)}</button>`).join("") + `<span class="count" id="count"></span>`;
+    const VIEWS = [{ key: "campaign", name: "Whole campaign" }, ...SECTIONS.map(({ key, name }) => ({ key, name: name.replace(" follow-ups", "").replace(" follow-up", "") })), { key: "drafts", name: "Earlier drafts" }];
+    const bar = document.getElementById("filters");
+    bar.innerHTML = VIEWS.map((v) => `<button class="chip" aria-pressed="false" data-p="${v.key}">${esc(v.name)}</button>`).join("") + `<span class="count" id="count"></span>`;
 
-  function applyFilter(key) {
-    let ads = 0;
-    groups.querySelectorAll(".group").forEach((s) => {
-      const on = key === "campaign" ? s.dataset.view !== "drafts" : s.dataset.view === key;
-      s.hidden = !on; if (on) ads += s.querySelectorAll(".ad, .card").length;
-    });
-    bar.querySelectorAll(".chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.p === key)));
-    document.getElementById("count").textContent = key === "drafts" ? `${ads} drafts` : `${ads} of ${BRIEF.length} ads`;
-    try { localStorage.setItem("ad-view", key); } catch (e) {}
+    function applyFilter(key) {
+      let ads = 0;
+      groups.querySelectorAll(".group").forEach((s) => {
+        const on = key === "campaign" ? s.dataset.view !== "drafts" : s.dataset.view === key;
+        s.hidden = !on; if (on) ads += s.querySelectorAll(".ad, .card").length;
+      });
+      bar.querySelectorAll(".chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.p === key)));
+      document.getElementById("count").textContent = key === "drafts" ? `${ads} drafts` : `${ads} of ${BRIEF.length} ads`;
+      try { localStorage.setItem("ad-view", key); } catch (e) {}
+    }
+    bar.addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) applyFilter(b.dataset.p); });
+    let saved = "campaign";
+    try { saved = localStorage.getItem("ad-view") || "campaign"; } catch (e) {}
+    applyFilter(VIEWS.some((v) => v.key === saved) ? saved : "campaign");
   }
-  bar.addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) applyFilter(b.dataset.p); });
-  let saved = "campaign";
-  try { saved = localStorage.getItem("ad-view") || "campaign"; } catch (e) {}
-  applyFilter(VIEWS.some((v) => v.key === saved) ? saved : "campaign");
 
   groups.addEventListener("click", async (e) => {
     const tab = e.target.closest("[data-tab]");
@@ -357,18 +378,20 @@
     const b = e.target.closest(".copy");
     if (!b) return;
     const { kind, id, i } = b.dataset;
-    const text = kind === "bh" ? BRIEF.find((a) => a.id === id).headlines[i]
+    const text = kind === "link" ? LINKS[id]
+      : kind === "bh" ? BRIEF.find((a) => a.id === id).headlines[i]
       : kind === "bi" ? BRIEF.find((a) => a.id === id).intros[i]
       : ADS.find((a) => a.id === id)[kind];
     try {
       await navigator.clipboard.writeText(text);
       b.textContent = "Copied";
     } catch (err) {
+      if (kind === "link") { b.textContent = "Can’t copy here: use Open on its own"; setTimeout(() => (b.textContent = "Copy share link"), 2600); return; }
       const target = kind === "bh" ? b.closest("li").firstElementChild : b.closest(".field").querySelector(".intro, .headline");
       const range = document.createRange(); range.selectNodeContents(target);
       const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
       b.textContent = "Selected, press ⌘C";
     }
-    setTimeout(() => (b.textContent = "Copy"), 1800);
+    setTimeout(() => (b.textContent = kind === "link" ? "Copy share link" : "Copy"), 1800);
   });
 </script>

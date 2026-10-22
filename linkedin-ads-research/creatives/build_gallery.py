@@ -1,5 +1,7 @@
-"""Builds the review page (gallery.html for the artifact, index.html standalone) and the copy decks
-(brief/copy.md for the campaign, copy.md for the earlier drafts) from the two copy.json files.
+"""Builds the review page (gallery.html for the artifact, index.html standalone), one share page per
+campaign ad (share/<id>.html, each published as its own artifact so a single ad can be sent on its own),
+and the copy decks (brief/copy.md for the campaign, copy.md for the earlier drafts) from the two copy.json
+files. share/links.json holds each share page's published link; the review page shows them per ad.
 
     python3 build_gallery.py
 """
@@ -10,6 +12,14 @@ import pathlib
 HERE = pathlib.Path(__file__).parent
 BRIEF = json.loads((HERE / "brief" / "copy.json").read_text())
 ADS = json.loads((HERE / "copy.json").read_text())
+LINKS_FILE = HERE / "share" / "links.json"
+LINKS = json.loads(LINKS_FILE.read_text()) if LINKS_FILE.exists() else {}
+
+# Share-page titles: a short name for each ad, used as the artifact's title.
+SHORT = {"ad0": "AI built for entertainment", "ad1": "Same genre, different movie", "ad2": "Every asset, alive",
+         "ad3": "Every second, time-coded", "m1": "From zero to hero", "m2": "Editorial lists", "m3": "Search by feeling",
+         "c1": "Assets brought to life", "c2": "Thumbnail recipes", "c3": "Find the scene", "o1": "Automate QC",
+         "v1": "Search by mood", "v2": "Story-aware ad breaks", "v3": "Endless shorts", "v4": "One recipe"}
 
 STATUS = {"site": "On the website", "verify": "Check before launch", "illustrative": "Example values",
           "brief": "From the brief", "example": "Example values"}
@@ -71,10 +81,27 @@ def build_drafts_markdown():
     (HERE / "copy.md").write_text("\n".join(lines))
 
 
+def js(data):
+    return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+
+def build_share_pages():
+    # One page per campaign ad, with only that ad, for sending to a teammate.
+    template = (HERE / "gallery.template.html").read_text()
+    out = HERE / "share"
+    out.mkdir(exist_ok=True)
+    for ad in BRIEF:
+        title = f"{ad['num']} · {SHORT[ad['id']]}"
+        page = (template.replace("<title>Vionlabs LinkedIn Ads</title>", f"<title>{title}</title>")
+                .replace("/*BRIEF_JSON*/[]", js([ad])).replace("/*ADS_JSON*/[]", "[]")
+                .replace("/*ONLY*/null", js(ad["id"])).replace("/*LINKS_JSON*/{}", "{}"))
+        (out / f"{ad['id']}.html").write_text(page)
+
+
 def build_gallery():
     template = (HERE / "gallery.template.html").read_text()
-    js = lambda data: json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-    page = template.replace("/*BRIEF_JSON*/[]", js(BRIEF)).replace("/*ADS_JSON*/[]", js(ADS))
+    page = (template.replace("/*BRIEF_JSON*/[]", js(BRIEF)).replace("/*ADS_JSON*/[]", js(ADS))
+            .replace("/*LINKS_JSON*/{}", js(LINKS)))
     # gallery.html is published as a claude.ai artifact, which adds the document shell itself.
     (HERE / "gallery.html").write_text(page)
     # index.html is the same page as a standalone document, for GitHub Pages or any static host.
@@ -91,4 +118,6 @@ if __name__ == "__main__":
     build_brief_markdown()
     build_drafts_markdown()
     build_gallery()
-    print(f"built gallery.html, index.html, brief/copy.md and copy.md for {len(BRIEF)} campaign ads and {len(ADS)} drafts")
+    build_share_pages()
+    print(f"built gallery.html, index.html, {len(BRIEF)} share pages, brief/copy.md and copy.md "
+          f"for {len(BRIEF)} campaign ads and {len(ADS)} drafts ({len(LINKS)} share links)")
