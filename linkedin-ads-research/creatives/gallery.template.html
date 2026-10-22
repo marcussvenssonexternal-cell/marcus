@@ -97,6 +97,17 @@
   .st.verify { color: var(--warn); background: var(--warn-soft); }
   .st.illustrative { color: var(--ex); background: var(--ex-soft); }
 
+  .group { margin-top: 44px; display: grid; gap: 18px; }
+  .group-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 18px 32px; align-items: start; }
+  @media (max-width: 860px) { .group-head { grid-template-columns: 1fr; } }
+  .group-head h2 { font-size: 30px; line-height: 1.1; letter-spacing: -0.02em; }
+  .group-head .pitch { margin-top: 8px; color: var(--muted); font-size: 16px; max-width: 60ch; }
+  .group-head .n { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-top: 10px; }
+  .targeting { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; display: grid; gap: 8px; font-size: 14px; min-width: 0; }
+  .targeting .t-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); }
+  .targeting dl { display: grid; grid-template-columns: 110px 1fr; gap: 6px 12px; }
+  .targeting dt { color: var(--muted); }
+  .group .grid { margin-top: 4px; }
   footer { margin-top: 48px; color: var(--muted); font-size: 13.5px; max-width: 70ch; }
   code { font-family: var(--mono); font-size: .92em; }
   @media (prefers-reduced-motion: no-preference) { .card { transition: border-color .15s; } .card:hover { border-color: var(--accent); } }
@@ -106,7 +117,7 @@
   <header>
     <div class="kicker">LinkedIn · single image · 1200 × 1200 · drafts, Oct 2026</div>
     <h1>Vionlabs LinkedIn ad drafts</h1>
-    <p class="lede">28 ads across every current product, built from what works in TwelveLabs’ current LinkedIn ads and made with real product screenshots and title art from vionlabs.com. Each card shows the image, the copy as LinkedIn shows it, and where every claim comes from.</p>
+    <p class="lede">34 ads, grouped by the three audiences sales sells to, each with its own LinkedIn targeting. Built from what works in TwelveLabs’ current LinkedIn ads and made with real product screenshots and title art from vionlabs.com. Each card shows the image, the copy as LinkedIn shows it, and where every claim comes from.</p>
   </header>
 
   <div class="brief">
@@ -133,6 +144,7 @@
     <section>
       <h2>How to read a card</h2>
       <ul>
+        <li>The label on each image and the first words of its post name the audience it’s for.</li>
         <li>Grey text in the intro is hidden behind “…see more” on desktop (after about 150 characters).</li>
         <li>Headline counts turn amber past 70 characters, where LinkedIn may cut them off.</li>
         <li><span class="st illustrative">Example values</span> are mock-up numbers and names, not claims.</li>
@@ -140,8 +152,8 @@
     </section>
   </div>
 
-  <nav class="bar" id="filters" aria-label="Filter by product"></nav>
-  <main class="grid" id="grid"></main>
+  <nav class="bar" id="filters" aria-label="Filter by audience"></nav>
+  <main id="groups"></main>
 
   <footer>
     Every image in the ads is a product screenshot or title art from vionlabs.com. Sources for every ad (HTML), the PNGs and this copy live in <code>linkedin-ads-research/creatives/</code> on the <code>claude/exciting-cerf-d0xnu7</code> branch.
@@ -185,27 +197,62 @@
     </article>`;
   }
 
-  const grid = document.getElementById("grid");
-  grid.innerHTML = ADS.map(card).join("");
+  // Audiences come from sales feedback; targeting uses LinkedIn Campaign Manager's own field names.
+  const INDUSTRIES = "Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications";
+  const AUDIENCES = [
+    { key: "ai", name: "AI, ML & engineering",
+      pitch: "Our own models, trained on 1M+ titles and built for entertainment. Emotional understanding, and an embedding space that powers recommendations and search.",
+      titles: "Head of AI, Director of Machine Learning, ML Engineer, Data Scientist, Head of Data, VP Engineering, CTO, Head of Personalization; CISO and Head of Security for the two trust ads",
+      functions: "Engineering, Information Technology, Research", seniority: "Senior, Manager, Director, VP, CXO" },
+    { key: "product", name: "Product, editorial & content",
+      pitch: "Metadata for every asset, curation across the whole library, plain-language search down to the scene, and high-quality thumbnails and clips at scale with recipes.",
+      titles: "Head of Product, Product Manager, Head of Content Operations, Metadata Manager, Head of Editorial, Head of Programming, Creative Director, Head of Marketing, Social Media Manager",
+      functions: "Product Management, Operations, Media and Communication, Marketing, Arts and Design", seniority: "Manager, Director, VP, CXO" },
+    { key: "ops", name: "Content ops & automation",
+      pitch: "Automated ad-break creation, binge markers for intros, recaps and credits, and time-based metadata that workflows can act on.",
+      titles: "Head of Media Operations, Media Supply Chain Manager, Broadcast Operations Manager, Head of Ad Operations, Head of AVOD/FAST, Monetization Manager, Compliance Manager, Automation Engineer",
+      functions: "Operations, Engineering, Business Development", seniority: "Manager, Director, VP" },
+    { key: "all", name: "Everyone: proof & retargeting",
+      pitch: "The award, customer stories and the webinar. Strongest on people who already know Vionlabs.",
+      titles: "Website visitors (last 90 days), company page followers, people who watched or opened earlier ads, and your target account list",
+      functions: "Any of the three audiences above", seniority: "Manager and up" },
+  ];
 
-  const products = ["All", ...new Set(ADS.map((a) => a.product))];
+  const groups = document.getElementById("groups");
+  groups.innerHTML = AUDIENCES.map((g) => {
+    const ads = ADS.filter((a) => a.audience === g.key);
+    return `<section class="group" data-audience="${g.key}">
+      <div class="group-head">
+        <div><h2>${esc(g.name)}</h2><p class="pitch">${esc(g.pitch)}</p><div class="n">${ads.length} ads</div></div>
+        <div class="targeting"><span class="t-label">LinkedIn targeting</span>
+          <dl><dt>${g.key === "all" ? "Audiences" : "Job titles"}</dt><dd>${esc(g.titles)}</dd>
+          <dt>Functions</dt><dd>${esc(g.functions)}</dd><dt>Seniority</dt><dd>${esc(g.seniority)}</dd>
+          <dt>Industries</dt><dd>${esc(INDUSTRIES)}</dd></dl></div>
+      </div>
+      <div class="grid">${ads.map(card).join("")}</div>
+    </section>`;
+  }).join("");
+
   const bar = document.getElementById("filters");
-  bar.innerHTML = products.map((p) => `<button class="chip" aria-pressed="${p === "All"}" data-p="${esc(p)}">${esc(p)}</button>`).join("") +
-    `<span class="count" id="count"></span>`;
+  bar.innerHTML = [{ key: "all-groups", name: "All audiences" }, ...AUDIENCES].map((g) =>
+    `<button class="chip" aria-pressed="false" data-p="${g.key}">${esc(g.name)}</button>`).join("") + `<span class="count" id="count"></span>`;
 
-  function applyFilter(p) {
+  function applyFilter(key) {
     let shown = 0;
-    grid.querySelectorAll(".card").forEach((c) => { const on = p === "All" || c.dataset.product === p; c.hidden = !on; shown += on; });
-    bar.querySelectorAll(".chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.p === p)));
+    groups.querySelectorAll(".group").forEach((s) => {
+      const on = key === "all-groups" || s.dataset.audience === key;
+      s.hidden = !on; if (on) shown += s.querySelectorAll(".card").length;
+    });
+    bar.querySelectorAll(".chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.p === key)));
     document.getElementById("count").textContent = `${shown} of ${ADS.length} ads`;
-    try { localStorage.setItem("ad-filter", p); } catch (e) {}
+    try { localStorage.setItem("ad-audience", key); } catch (e) {}
   }
   bar.addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) applyFilter(b.dataset.p); });
-  let saved = "All";
-  try { saved = localStorage.getItem("ad-filter") || "All"; } catch (e) {}
-  applyFilter(products.includes(saved) ? saved : "All");
+  let saved = "all-groups";
+  try { saved = localStorage.getItem("ad-audience") || "all-groups"; } catch (e) {}
+  applyFilter(["all-groups", ...AUDIENCES.map((g) => g.key)].includes(saved) ? saved : "all-groups");
 
-  grid.addEventListener("click", async (e) => {
+  groups.addEventListener("click", async (e) => {
     const b = e.target.closest(".copy");
     if (!b) return;
     const ad = ADS.find((a) => a.id === b.dataset.id);

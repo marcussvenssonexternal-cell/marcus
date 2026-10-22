@@ -45,9 +45,9 @@ body { background: #222; font-family: "Inter", sans-serif; padding: 40px; displa
 .logo .partner { color: var(--muted); font-weight: 500; }
 
 .eyebrow { display: inline-flex; align-items: center; gap: 12px; padding: 10px 20px; border-radius: 999px;
-  border: 1.5px solid var(--panel-edge); color: var(--muted); font-size: 23px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+  border: 1.5px solid rgba(255, 255, 255, 0.2); color: #d5ddeb; font-size: 25px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
 .eyebrow b { width: 10px; height: 10px; border-radius: 50%; background: var(--sky); box-shadow: 0 0 14px var(--sky); }
-.light .eyebrow { border-color: var(--light-edge); color: var(--light-muted); }
+.light .eyebrow { border-color: #c9d2e3; color: var(--light-text); }
 
 h1 { font-family: "Inter Display", "Inter"; font-weight: 700; letter-spacing: -0.035em; line-height: 1.0; font-size: 96px; }
 h1 .hl { color: var(--blue-hi); }
