@@ -1,4 +1,4 @@
-# Vionlabs LinkedIn ad copy
+# Vionlabs LinkedIn ad copy: earlier drafts
 
 Single-image ads, 1200×1200. Images in `png/`, sources in `ads.html`.
 

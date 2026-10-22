@@ -1,0 +1,575 @@
+[
+  {
+    "id": "ad0",
+    "num": "Ad 0",
+    "group": "audience",
+    "name": "AI built for entertainment",
+    "lab": "All",
+    "audience": "All decision makers: product, engineering, AI/ML, content operations, editorial and ad ops at streaming services, broadcasters and telcos.",
+    "targeting": "Job functions: Product Management, Engineering, Operations, Media and Communication, Business Development · Seniority: Manager and up · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications",
+    "note": "Run first or in parallel, so the audience ads reach people who already know who Vionlabs is.",
+    "assets": [
+      {
+        "id": "a0-L",
+        "label": "Single image · 1200×627"
+      },
+      {
+        "id": "a0-S",
+        "label": "Single image · 1080×1080 (contrast option)"
+      },
+      {
+        "carousel": [
+          "a0-c1",
+          "a0-c2",
+          "a0-c3",
+          "a0-c4",
+          "a0-c5"
+        ],
+        "label": "Carousel · 5 cards · 1080×1080"
+      },
+      {
+        "video": "ad0-S",
+        "label": "Video · 12 s · 1:1"
+      },
+      {
+        "video": "ad0-V",
+        "label": "Video · 12 s · 9:16"
+      }
+    ],
+    "headlines": [
+      "Generic AI sees pixels. Ours understands stories.",
+      "AI built for entertainment, by people from entertainment.",
+      "Our own models. Trained on 1M+ entertainment assets."
+    ],
+    "intros": [
+      "Generic AI can tell you there are two men sitting by a wall. It can’t tell you it’s the moment hope comes back.\n\nVionlabs has built its own AI models for film and TV since 2019. Trained on 1M+ entertainment assets, they understand mood, emotion and story arc at scene and asset level, straight from the video.\n\nGlobal entertainment leaders run it in production in 60+ countries.\n\nVionlabs. AI built for entertainment.",
+      "We come from entertainment. Founded in Stockholm in 2016 by people from film and VFX, we analysed content by hand before we automated anything.\n\nThat’s why our AI reads a film the way a storyteller does: mood, emotion and story arc, not just objects on screen. Built in-house since 2019, trained on 1M+ entertainment assets, in production with global entertainment leaders.\n\nVionlabs. AI built for entertainment.",
+      "Many media teams have tried generic AI and found it doesn’t understand their content.\n\nVionlabs is domain-specific AI for film and TV: our own models, 80+ specialised expert networks and 99+ languages, reading visuals, audio and dialogue together. Run it via API, our portal, or on-prem in your own cloud.\n\nIn production in 60+ countries, reaching 500M viewers.\n\nVionlabs. AI built for entertainment."
+    ],
+    "claims": [
+      {
+        "text": "Founded in Stockholm in 2016 by people from film and VFX; own models since 2019; 1M+ assets; 80+ expert networks; 99+ languages; 60+ countries; 500M viewers",
+        "source": "Ad prompts, base context",
+        "status": "brief"
+      },
+      {
+        "text": "“Approved logo” boxes on carousel card 5",
+        "source": "Needs the approved customer-logo list before production",
+        "status": "verify"
+      },
+      {
+        "text": "On-prem in your own cloud",
+        "source": "Checklist: confirm the wording with the tech team",
+        "status": "verify"
+      },
+      {
+        "text": "Frames from The Shawshank Redemption and Skyfall; title thumbnails on card 4",
+        "source": "Real imagery from vionlabs.com. The brief asks for no real stills or posters: confirm rights for paid use",
+        "status": "verify"
+      },
+      {
+        "text": "Mood, scene and emotion tags and the story-arc beats",
+        "source": "Illustrative, not live model output",
+        "status": "example"
+      }
+    ]
+  },
+  {
+    "id": "ad1",
+    "num": "Ad 1",
+    "group": "audience",
+    "name": "Same genre. Different movie.",
+    "lab": "Editorial Lab, Embedding API",
+    "audience": "Heads of AI/ML, data science leads, CTOs, VP Engineering and product owners for recommendations, personalisation and search. Weighing build in-house, a general foundation model, or a specialist.",
+    "targeting": "Job titles: Head of AI, Director of Machine Learning, Head of Data Science, CTO, VP Engineering, Head of Personalization, Head of Search, Product Owner Recommendations · Functions: Engineering, Information Technology, Research, Product Management · Seniority: Senior and up",
+    "note": "Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies from the website. Concept B (embedding clusters) is an alternative to test against it.",
+    "assets": [
+      {
+        "id": "a1-L",
+        "label": "Concept A · 1200×627"
+      },
+      {
+        "id": "a1-S",
+        "label": "Concept A · 1080×1080"
+      },
+      {
+        "id": "a1b-L",
+        "label": "Concept B · 1200×627"
+      },
+      {
+        "id": "a1b-S",
+        "label": "Concept B · 1080×1080"
+      }
+    ],
+    "headlines": [
+      "Same genre. Completely different movie.",
+      "Your recommender is only as good as its embeddings.",
+      "We didn’t wrap a chatbot. We built AI for entertainment."
+    ],
+    "intros": [
+      "Two comedies. One is a feel-good summer romp, the other a bittersweet dramedy. Your genre tags say they’re the same.\n\nOur AI, built and trained for entertainment, knows they’re not. Emotion-aware embeddings, from our own models trained on 1M+ entertainment assets, are what make recommendations and search work.\n\nOne embedding space feeds your existing recommender and search via API. We power your engine; we don’t replace it.\n\nVionlabs. AI built for entertainment.",
+      "Build in-house, use a general foundation model, or buy from a specialist? Start with what your embeddings actually understand.\n\nVionlabs has built its own models for film and TV since 2019: emotional prediction plus scene-level and asset-level understanding, from visuals, audio and dialogue, across 80+ expert networks. Run via API or on-prem in your own cloud.\n\nVionlabs. AI built for entertainment.",
+      "Genre is a blunt signal. Emotion is what viewers actually respond to.\n\nVionlabs gives every title an emotion fingerprint and a place in one embedding space, trained on 1M+ entertainment assets. Your recommender and search get a signal general-purpose models don’t have.\n\nVionlabs. AI built for entertainment."
+    ],
+    "claims": [
+      {
+        "text": "Own models since 2019, 1M+ assets, 80+ expert networks; one embedding space via API; API or on-prem",
+        "source": "Ad prompts, Ad 1 proof points",
+        "status": "brief"
+      },
+      {
+        "text": "On-prem in your own cloud",
+        "source": "Checklist: confirm the wording with the tech team",
+        "status": "verify"
+      },
+      {
+        "text": "Vacation Friends and We Bought a Zoo, with emotion fingerprints; the four embedding clusters",
+        "source": "Real titles from vionlabs.com. Radar shapes and clusters are illustrative: swap in real fingerprints from the portal before launch",
+        "status": "example"
+      }
+    ]
+  },
+  {
+    "id": "ad2",
+    "num": "Ad 2",
+    "group": "audience",
+    "name": "Make every asset come alive",
+    "lab": "Editorial Lab + Creative Lab",
+    "audience": "Heads of content operations, editorial and programming leads, product managers for discovery and UX, and engineering leads. Large libraries with thin metadata, hand-built lists and manual thumbnails.",
+    "targeting": "Job titles: Head of Content Operations, Head of Editorial, Head of Programming, Product Manager Discovery, Head of Product, Metadata Manager, Engineering Lead · Functions: Operations, Product Management, Media and Communication, Engineering · Seniority: Manager and up",
+    "assets": [
+      {
+        "carousel": [
+          "a2-c1",
+          "a2-c2",
+          "a2-c3",
+          "a2-c4",
+          "a2-c5"
+        ],
+        "label": "Carousel · 5 cards · 1080×1080"
+      },
+      {
+        "id": "a2-L",
+        "label": "Single image · 1200×627"
+      }
+    ],
+    "headlines": [
+      "Your whole library. Searchable by mood.",
+      "One recipe. Thumbnails for your entire catalogue.",
+      "AI that watches like an editor. At catalogue scale."
+    ],
+    "intros": [
+      "Thousands of titles. How many does anyone actually find?\n\nVionlabs gives every title rich metadata: mood, genre, theme, scene tags and summaries in 99+ languages. Search the whole library in plain language, like “feel-good comedies with a happy ending”, and turn the results into Smart Lists in minutes.\n\nIt works because our AI understands mood and story the way your editors do.\n\nVionlabs. AI built for entertainment.",
+      "Most of your catalogue is never surfaced: thin metadata, hand-built lists, thumbnails made one by one.\n\nVionlabs makes every asset come alive: metadata for every title, search down to the scene (“epic sword fights”), and thumbnails and clips from a recipe you set once.\n\nCustomers have seen 83% higher recommendation accuracy and 75% higher viewer engagement with custom preview clips.\n\nVionlabs. AI built for entertainment.",
+      "Define a recipe once. Get thumbnails and clips for the whole catalogue.\n\nVionlabs picks scenes by mood, character and composition, the way an editor would, because it was built and trained for entertainment. Metadata, scene search, thumbnails and clips for every title.\n\nVionlabs. AI built for entertainment."
+    ],
+    "claims": [
+      {
+        "text": "Metadata (mood, genre, theme, scene tags, summaries) in 99+ languages; plain-language and scene search; Smart Lists; recipes",
+        "source": "Ad prompts, Ad 2 proof points",
+        "status": "brief"
+      },
+      {
+        "text": "83% higher recommendation accuracy; 75% higher viewer engagement with custom preview clips",
+        "source": "Sales-deck success stories. Checklist: confirm public use and how to credit",
+        "status": "verify"
+      },
+      {
+        "text": "Search results, mood tags and scene timecodes",
+        "source": "Real titles from vionlabs.com; the matches and timecodes are illustrative",
+        "status": "example"
+      }
+    ]
+  },
+  {
+    "id": "ad3",
+    "num": "Ad 3",
+    "group": "audience",
+    "name": "Every second, time-coded",
+    "lab": "Operations Lab",
+    "audience": "Media operations managers, MAM and supply-chain leads, automation and engineering leads, ad ops and monetisation, player product owners. Markers and ad breaks still set by hand or by vendors.",
+    "targeting": "Job titles: Head of Media Operations, Media Supply Chain Manager, MAM Manager, Head of Ad Operations, Monetization Manager, Automation Engineer, Player Product Owner · Functions: Operations, Engineering, Product Management · Seniority: Manager and up",
+    "assets": [
+      {
+        "id": "a3-L",
+        "label": "Visual A · 1200×627"
+      },
+      {
+        "id": "a3-S",
+        "label": "Visual A · 1080×1080"
+      },
+      {
+        "id": "a3b-L",
+        "label": "Visual B (number-led) · 1200×627"
+      },
+      {
+        "id": "a3b-S",
+        "label": "Visual B (number-led) · 1080×1080"
+      },
+      {
+        "video": "ad3-S",
+        "label": "Animation · 8 s · 1:1"
+      },
+      {
+        "video": "ad3-V",
+        "label": "Animation · 8 s · 9:16"
+      }
+    ],
+    "headlines": [
+      "278 days of manual tagging. Or 7.",
+      "Skip Intro is table stakes. Tagging by hand shouldn’t be.",
+      "We used to do this by hand. Now our AI does it for you."
+    ],
+    "intros": [
+      "65,000 episodes: 278 days of manual marking, or 7 days with Vionlabs.\n\nOur AI time-codes every episode: intro, recap, credits, chapters and natural ad breaks, so Skip Intro, autoplay to the next episode and ad insertion run automatically across the whole catalogue.\n\nMarkers and breaks are story-aware. The AI understands scenes and narrative, so breaks land between moments, not in the middle of them.\n\nVionlabs. AI built for entertainment.",
+      "Netflix viewers press Skip Intro 136 million times a day. Your viewers expect it on every episode.\n\nVionlabs detects intros, recaps and credits automatically. Customers have seen 2x more episodes watched and 15% higher retention with skip intro, recap and credits.\n\nWe started by marking content by hand, so we know how heavy this work is. Now the AI takes the repetitive work and your team gets its time back.\n\nVionlabs. AI built for entertainment.",
+      "Intro, recap and credit markers still set by hand or by vendors? That’s slow, inconsistent and can’t keep up with new content.\n\nVionlabs time-codes every second of your library and places ad breaks at natural scene breaks. Customers have seen 80% fewer manual tasks in ad-break creation.\n\nVionlabs. AI built for entertainment."
+    ],
+    "claims": [
+      {
+        "text": "65,000 episodes: 278 days manual vs 7 days with AI; 2x more episodes watched; 15% higher retention; 80% fewer manual tasks in ad-break creation",
+        "source": "Sales-deck success stories. Checklist: confirm public use and how to credit",
+        "status": "verify"
+      },
+      {
+        "text": "Netflix viewers press Skip Intro 136 million times a day",
+        "source": "Netflix (2022), via TVBEurope. Text only, no Netflix logo or UI",
+        "status": "brief"
+      },
+      {
+        "text": "97% of viewers stay with scene-matched breaks vs 92% with standard breaks",
+        "source": "Left out: the checklist says find the source before using it",
+        "status": "verify"
+      },
+      {
+        "text": "S1 E4 label, markers and ad-break timecodes",
+        "source": "Illustrative episode data on a Peaky Blinders frame from vionlabs.com",
+        "status": "example"
+      }
+    ]
+  },
+  {
+    "id": "m1",
+    "num": "M1",
+    "group": "editorial",
+    "name": "From zero to hero",
+    "lab": "Editorial Lab · metadata",
+    "audience": "Follow-up and retargeting for people who engaged with Ad 2: content operations, metadata and product teams.",
+    "targeting": "Retarget: engaged with Ad 0 or Ad 2 (video views, opens, clicks) and website visitors · plus Ad 2 job titles",
+    "assets": [
+      {
+        "id": "m1-L",
+        "label": "Single image · 1200×627"
+      },
+      {
+        "id": "m1-S",
+        "label": "Single image · 1080×1080"
+      }
+    ],
+    "headlines": [
+      "From one genre tag to full metadata. For every title.",
+      "Your studio metadata says ‘Musical’. Ours says a lot more.",
+      "Full metadata for every asset, straight from the video."
+    ],
+    "intros": [
+      "Most titles arrive with a title, a year and one genre.\n\nVionlabs gives every asset in your library full metadata, straight from the video: genres, moods, keywords, themes, a summary and an emotion fingerprint.\n\nOur AI is trained on 1M+ entertainment assets and understands each title at asset and scene level, so moods and themes read like an editor wrote them.\n\nVionlabs. AI built for entertainment.",
+      "Title, year, Musical. That’s often all the studio sends.\n\nVionlabs sees a love story about two dreamers in Los Angeles: romantic, inspiring, uplifting and hopeful, with keywords like singer, songwriter and dance. For every title in your library, in 99+ languages.\n\nVionlabs. AI built for entertainment.",
+      "Search, rows and recommendations can only be as good as your metadata.\n\nVionlabs enriches every title with mood, genre, theme, scene tags and summaries, generated from the video itself by AI built for entertainment.\n\nVionlabs. AI built for entertainment."
+    ],
+    "claims": [
+      {
+        "text": "1M+ assets; asset- and scene-level understanding; 99+ languages",
+        "source": "Ad prompts, base context and M1",
+        "status": "brief"
+      },
+      {
+        "text": "La La Land and its metadata",
+        "source": "Example from the Vionlabs sales deck, shown with the title art from vionlabs.com; radar shape illustrative",
+        "status": "verify"
+      }
+    ]
+  },
+  {
+    "id": "m2",
+    "num": "M2",
+    "group": "editorial",
+    "name": "From library to editorial lists",
+    "lab": "Editorial Lab · Smart Lists",
+    "audience": "Follow-up for editorial and programming leads who engaged with Ad 2.",
+    "targeting": "Retarget: engaged with Ad 0 or Ad 2 · plus Head of Editorial, Head of Programming, Content Strategy",
+    "assets": [
+      {
+        "id": "m2-L",
+        "label": "Single image · 1200×627"
+      },
+      {
+        "id": "m2-S",
+        "label": "Single image · 1080×1080"
+      },
+      {
+        "carousel": [
+          "m2-c1",
+          "m2-c2",
+          "m2-c3"
+        ],
+        "label": "Carousel · 3 cards · 1080×1080"
+      }
+    ],
+    "headlines": [
+      "Every title in a list. Every list a reason to watch.",
+      "Monetise the back catalogue, not just the top 10.",
+      "AI-curated Smart Lists for 90% of your library."
+    ],
+    "intros": [
+      "Your top 10 gets all the rows. The rest of the catalogue waits.\n\nEditorial Lab turns your whole library into AI-curated Smart Lists at scale, like “Feel-good Sunday” or “Edge-of-your-seat thrillers”. With 90% library coverage, you monetise the whole catalogue, not just the top 10.\n\nThe AI understands mood and story, so the lists feel curated by an editor, not keyword-matched.\n\nVionlabs. AI built for entertainment.",
+      "Building editorial lists by hand doesn’t scale. Keyword matching doesn’t feel curated.\n\nVionlabs Smart Lists group titles by mood and story across 90% of your library, ready for your editors to review and publish.\n\nVionlabs. AI built for entertainment.",
+      "Hidden gems only earn when someone sees them.\n\nVionlabs puts 90% of your library into AI-curated editorial lists, from “Feel-good Sunday” to “Underdog stories”. Built by people from entertainment, trained on 1M+ entertainment assets.\n\nVionlabs. AI built for entertainment."
+    ],
+    "claims": [
+      {
+        "text": "90% library coverage",
+        "source": "Checklist: no source found. Define what it measures (e.g. share of the catalogue in at least one Smart List)",
+        "status": "verify"
+      },
+      {
+        "text": "List names and the titles in them",
+        "source": "List names from the brief; titles are vionlabs.com thumbnails, groupings illustrative",
+        "status": "example"
+      }
+    ]
+  },
+  {
+    "id": "m3",
+    "num": "M3",
+    "group": "editorial",
+    "name": "Search by feeling",
+    "lab": "Editorial Lab · natural-language search",
+    "audience": "Follow-up for editorial, product and search teams who engaged with Ad 1 or Ad 2.",
+    "targeting": "Retarget: engaged with Ad 1 or Ad 2 · plus Head of Search, Product Manager Discovery, Head of Editorial",
+    "assets": [
+      {
+        "id": "m3-L",
+        "label": "Single image · 1200×627"
+      },
+      {
+        "id": "m3-S",
+        "label": "Single image · 1080×1080"
+      },
+      {
+        "carousel": [
+          "m3-c1",
+          "m3-c2",
+          "m3-c3",
+          "m3-c4"
+        ],
+        "label": "Carousel · 4 cards · 1080×1080"
+      }
+    ],
+    "headlines": [
+      "Search your library by mood, not by title.",
+      "Type a feeling. Get a list.",
+      "Find every underdog story. Even the untagged ones."
+    ],
+    "intros": [
+      "“Underdog stories.” “Feel-good romantic comedies.” “Tense true stories.”\n\nSearch your library the way editors and viewers actually think. Type what you’re after and get every matching title.\n\nBecause our AI understands mood, emotion and theme, a query like “underdog stories” returns the right films even when no existing metadata says “underdog”.\n\nVionlabs. AI built for entertainment.",
+      "Your metadata says “Sports”. Your editor is looking for “underdog stories”.\n\nVionlabs natural-language search finds titles by mood and theme across the whole library, in 99+ languages, and turns the results into lists.\n\nVionlabs. AI built for entertainment.",
+      "Search by feeling, not by keyword.\n\nVionlabs was built for film and TV, so it understands what a title is about and how it feels to watch. Ask in plain language and get every matching title.\n\nVionlabs. AI built for entertainment."
+    ],
+    "claims": [
+      {
+        "text": "Natural-language search by mood, emotion and theme; 99+ languages",
+        "source": "Ad prompts, M3 and base context",
+        "status": "brief"
+      },
+      {
+        "text": "Queries and result titles",
+        "source": "Queries adapted from the brief; titles from vionlabs.com, matches illustrative",
+        "status": "example"
+      }
+    ]
+  },
+  {
+    "id": "c1",
+    "num": "C1",
+    "group": "creative",
+    "name": "Every asset, brought to life",
+    "lab": "Creative Lab · thumbnails and clips at scale",
+    "audience": "Content and marketing (the result) and engineering (the integration) at the same time.",
+    "targeting": "Retarget: engaged with Ad 2 · plus Head of Marketing, Creative Director, Head of Content Operations, Engineering Lead, MAM Manager",
+    "assets": [
+      {
+        "id": "c1-L",
+        "label": "Single image · 1200×627"
+      },
+      {
+        "id": "c1-S",
+        "label": "Single image · 1080×1080"
+      }
+    ],
+    "headlines": [
+      "Thumbnails and clips for every title. Automatically.",
+      "Your MAM, enriched. Your catalogue, alive.",
+      "Every asset. Every format. 16:9 to 9:16."
+    ],
+    "intros": [
+      "Thumbnails and preview clips for your top titles are easy. For the whole catalogue, they’re a production line.\n\nVionlabs generates high-quality thumbnails and clips for every title, in 16:9, 4:3, 1:1 and 9:16. API-first, it enriches your MAM and plugs into existing pipelines.\n\nThe AI picks frames by mood, character and composition, like a film editor, and filters out blur, on-screen text and nudity. Customers have seen 75% higher viewer engagement with custom preview clips.\n\nVionlabs. AI built for entertainment.",
+      "For content and marketing: thumbnails and clips for every title, generated automatically. For engineering: one API into your MAM and existing pipelines.\n\nBuilt by people from film and VFX, trained on 1M+ entertainment assets.\n\nVionlabs. AI built for entertainment.",
+      "Every asset deserves a strong first impression.\n\nVionlabs extracts high-quality thumbnails and clips at catalogue scale, in every aspect ratio, straight into your existing workflows.\n\nVionlabs. AI built for entertainment."
+    ],
+    "claims": [
+      {
+        "text": "Every format (16:9, 4:3, 1:1, 9:16); API-first into the MAM; frames picked by mood, character and composition; filters blur, on-screen text and nudity",
+        "source": "Ad prompts, C1",
+        "status": "brief"
+      },
+      {
+        "text": "75% higher viewer engagement with custom preview clips",
+        "source": "Sales-deck success story. Checklist: confirm public use and how to credit",
+        "status": "verify"
+      },
+      {
+        "text": "Gladiator frames and the generated thumbnails",
+        "source": "Real frames from vionlabs.com, arranged to illustrate the output",
+        "status": "example"
+      }
+    ]
+  },
+  {
+    "id": "c2",
+    "num": "C2",
+    "group": "creative",
+    "name": "Recipes",
+    "lab": "Creative Lab · recipe-based generation",
+    "audience": "Creative, marketing and content teams. The creative superpower: the team sets the recipe, the AI does the heavy lifting.",
+    "targeting": "Retarget: engaged with Ad 2 or C1 · plus Creative Director, Head of Creative, Head of Marketing, Promo Producer",
+    "assets": [
+      {
+        "id": "c2-L",
+        "label": "Single image · 1200×627"
+      },
+      {
+        "id": "c2-S",
+        "label": "Single image · 1080×1080"
+      },
+      {
+        "id": "c2b-S",
+        "label": "Variant B (three recipes) · 1080×1080"
+      }
+    ],
+    "headlines": [
+      "One recipe. Thumbnails for your whole catalogue.",
+      "Same film. Three recipes. Three different stories.",
+      "Your team sets the recipe. The AI does the scrubbing."
+    ],
+    "intros": [
+      "Tell the AI what you want once, as a recipe: “lead character close-up, smiling, bright, no on-screen text, 16:9”.\n\nVionlabs extracts matching thumbnails and clips across the whole library. Endless creative possibilities, no manual scrubbing.\n\nYour team designs the recipe; the AI does the heavy lifting. People stay in charge of the creative call.\n\nVionlabs. AI built for entertainment.",
+      "One title can tell many stories. “Tense, battle scene, 9:16, 15-second clip” finds a different film inside Gladiator than “lead close-up, bright, 16:9”.\n\nVionlabs recipes give creative teams that control across the whole catalogue, from an AI that understands mood and character the way editors do.\n\nVionlabs. AI built for entertainment.",
+      "Creative teams shouldn’t spend their days scrubbing timelines for the right frame.\n\nSet the recipe once: character, mood, shot type, brightness, format, length. Vionlabs applies it to every title.\n\nVionlabs. AI built for entertainment."
+    ],
+    "claims": [
+      {
+        "text": "Recipes (character, mood, shot type, brightness, format, length) applied across the library",
+        "source": "Ad prompts, C2",
+        "status": "brief"
+      },
+      {
+        "text": "Recipe values and the thumbnails shown",
+        "source": "Example values in the UI; titles from vionlabs.com",
+        "status": "example"
+      }
+    ]
+  },
+  {
+    "id": "c3",
+    "num": "C3",
+    "group": "creative",
+    "name": "Find the scene. Ship the short.",
+    "lab": "Creative Lab · scene search and verticalisation",
+    "audience": "Social, digital and marketing teams who need vertical content, and the content ops teams who feed them.",
+    "targeting": "Retarget: engaged with Ad 2 or C1 · plus Social Media Manager, Head of Digital, Head of Marketing, Promo Producer",
+    "assets": [
+      {
+        "carousel": [
+          "c3-c1",
+          "c3-c2",
+          "c3-c3",
+          "c3-c4"
+        ],
+        "label": "Carousel · 4 cards · 1080×1080"
+      },
+      {
+        "id": "c3-L",
+        "label": "Single image · 1200×627"
+      }
+    ],
+    "headlines": [
+      "Every sword fight in your library. In seconds.",
+      "Your archive is full of shorts. Go find them.",
+      "Find the scene. Ship the short."
+    ],
+    "intros": [
+      "Search every scene in your library, find every matching moment and turn them into vertical clips for social.\n\nVionlabs scene retrieval works in plain language across the entire library, in 99+ languages. Type “epic sword fights” and get every matching scene, with titles and timecodes.\n\nAutomatic vertical conversion with character tracking keeps the subject in frame. Clips arrive with summaries and tags, ready to publish.\n\nVionlabs. AI built for entertainment.",
+      "Your archive is a content engine you haven’t switched on.\n\nVionlabs finds the scene, reframes it from 16:9 to 9:16 with the subject kept in frame, and hands you a tagged clip ready for social.\n\nVionlabs. AI built for entertainment.",
+      "Social teams need fresh vertical content every day. Your library already has it.\n\nScene-level understanding across the whole catalogue, from AI built for entertainment, turns search results into ready-to-publish shorts.\n\nVionlabs. AI built for entertainment."
+    ],
+    "claims": [
+      {
+        "text": "Natural-language scene retrieval across the library; vertical conversion with character tracking; clips with summaries and tags; 99+ languages",
+        "source": "Ad prompts, C3",
+        "status": "brief"
+      },
+      {
+        "text": "Sword-fight results, timecodes and the social feed",
+        "source": "Titles from vionlabs.com; timecodes illustrative; generic feed with no platform logos",
+        "status": "example"
+      }
+    ]
+  },
+  {
+    "id": "o1",
+    "num": "O1",
+    "group": "operations",
+    "name": "Automate QC",
+    "lab": "Operations Lab · time-based metadata",
+    "audience": "Follow-up for media ops, MAM, ad ops and compliance teams who engaged with Ad 3.",
+    "targeting": "Retarget: engaged with Ad 0 or Ad 3 · plus Head of Media Operations, QC Manager, Compliance Manager, Head of Ad Operations",
+    "assets": [
+      {
+        "carousel": [
+          "o1-c1",
+          "o1-c2",
+          "o1-c3",
+          "o1-c4",
+          "o1-c5"
+        ],
+        "label": "Carousel · 5 cards · 1080×1080"
+      },
+      {
+        "id": "o1-L",
+        "label": "Single image overview · 1200×627"
+      }
+    ],
+    "headlines": [
+      "Every second of your library, QC’d.",
+      "Binge markers, ad breaks, chapters, compliance. Automated.",
+      "Ad breaks that land between moments, not in them."
+    ],
+    "intros": [
+      "Every asset time-coded and QC’d automatically: binge markers, ad breaks, chapters and compliance flags. Frame-accurate and ready for your MAM and player.\n\nOur AI understands scenes and narrative, so ad breaks land between moments, not in the middle of them.\n\n65,000 episodes: 278 days of manual work, or 7 days with Vionlabs. Customers have seen 80% fewer manual tasks in ad-break creation.\n\nVionlabs. AI built for entertainment.",
+      "QC shouldn’t mean watching every minute of every episode.\n\nVionlabs flags nudity and profanity frame by frame with severity levels, generates chapters with summaries, and places ad breaks at natural scene breaks with mood and IAB tags.\n\nVionlabs. AI built for entertainment.",
+      "We started by doing this by hand, so we know how heavy QC work is.\n\nNow our AI does it: binge markers, ad breaks, chapters and compliance flags for every episode, at scale. Your team gets its time back for the creative work.\n\nVionlabs. AI built for entertainment."
+    ],
+    "claims": [
+      {
+        "text": "278 days vs 7 days on 65,000 episodes; 80% fewer manual tasks in ad-break creation",
+        "source": "Sales-deck success stories. Checklist: confirm public use and how to credit",
+        "status": "verify"
+      },
+      {
+        "text": "Episode label, markers, chapters and flags",
+        "source": "Illustrative episode data on frames from vionlabs.com; flagged frames are abstract placeholders, as the brief requires",
+        "status": "example"
+      }
+    ]
+  }
+]

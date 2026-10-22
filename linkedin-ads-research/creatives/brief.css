@@ -1,0 +1,63 @@
+/* Sizes and components for the "AI built for entertainment" campaign (Viktor's ad brief),
+   in the same style as ads.css. S = 1080x1080 (single image or carousel card), L = 1200x627. */
+.ad.S { width: 1080px; height: 1080px; padding: 72px; }
+.ad.L { width: 1200px; height: 627px; padding: 46px 56px; }
+.S .wordmark { height: 28px; }
+.L .wordmark { height: 22px; }
+.S .eyebrow { font-size: 21px; padding: 9px 18px; }
+.L .eyebrow { font-size: 15px; padding: 6px 13px; gap: 9px; }
+.L .eyebrow b { width: 8px; height: 8px; }
+.S .top { height: 44px; }
+.L .top { height: 32px; }
+.S h1 { font-size: 80px; }
+.L h1 { font-size: 50px; }
+.S .foot { left: 72px; right: 72px; bottom: 64px; }
+.L .foot { left: 56px; right: 56px; bottom: 40px; }
+.S .cta { font-size: 27px; padding: 18px 30px; }
+.L .cta { font-size: 19px; padding: 12px 20px; border-radius: 12px; }
+.signoff { font-family: "Inter Display", "Inter"; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+.light .signoff { color: var(--light-text); }
+.S .signoff { font-size: 25px; }
+.L .signoff { font-size: 18px; }
+.count { font-size: 20px; font-weight: 700; letter-spacing: .14em; color: var(--blue-hi); }
+.light .count { color: var(--blue); }
+
+.t-small { font-size: 15px; color: var(--muted); }
+.tc { font-family: "DejaVu Sans Mono", monospace; font-variant-numeric: tabular-nums; }
+.badge { position: absolute; top: 9px; right: 9px; font-size: 14px; font-weight: 700; padding: 4px 8px; border-radius: 6px; background: rgba(0, 0, 0, .65); color: #fff; letter-spacing: .04em; }
+.play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(0, 0, 0, .55); display: grid; place-items: center; color: #fff; font-size: 15px; }
+
+.search { display: flex; align-items: center; gap: 16px; background: #fff; color: #0e1720; border-radius: 18px; box-shadow: 0 20px 60px rgba(0, 0, 0, .45); }
+.light .search { box-shadow: 0 16px 40px rgba(14, 23, 32, .14); border: 1.5px solid var(--light-edge); }
+.search .q { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.search .caret { width: 3px; background: var(--blue); align-self: stretch; margin: 14px 0; flex: none; }
+.search .go { margin-left: auto; background: var(--blue); color: #fff; border-radius: 12px; font-weight: 600; white-space: nowrap; }
+
+.timeline { position: relative; background: #1a2433; border-radius: 10px; }
+.timeline .seg { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; padding-left: 10px; font-family: "DejaVu Sans Mono", monospace; font-weight: 700; letter-spacing: .04em; white-space: nowrap; overflow: hidden; border-radius: 6px; }
+.timeline .marker { position: absolute; top: -10px; bottom: -10px; width: 6px; border-radius: 3px; }
+.timeline .playhead { position: absolute; top: -14px; bottom: -14px; width: 3px; background: #fff; box-shadow: 0 0 12px rgba(255, 255, 255, .8); }
+.light .timeline { background: #dfe5ef; }
+
+.ui { position: absolute; background: #0f1824; border: 1.5px solid var(--panel-edge); border-radius: 18px; overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, .55); color: var(--text); }
+.ui-bar { display: flex; align-items: center; gap: 12px; height: 50px; padding: 0 18px; border-bottom: 1px solid var(--panel-edge); background: #0c131c; font-size: 16px; font-weight: 600; }
+.ui-bar img { height: 14px; }
+.ui-bar .mod { padding-left: 12px; border-left: 1px solid var(--panel-edge); }
+.ui-bar .ctx { margin-left: auto; color: var(--faint); font-size: 14px; font-weight: 500; }
+.placeholder-logo { border: 2px dashed rgba(245, 196, 81, .7); color: #f5c451; border-radius: 12px; display: grid; place-items: center; font-family: "DejaVu Sans Mono", monospace; }
+.hand { position: absolute; font-family: "Caveat", cursive; color: #ffd166; white-space: nowrap; }
+.quote { font-family: "Inter Display", "Inter"; font-weight: 500; line-height: 1.25; letter-spacing: -0.02em; }
+.stat b { display: block; font-family: "Inter Display", "Inter"; font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--text); }
+.stat span { display: block; margin-top: 10px; font-size: 24px; color: var(--muted); line-height: 1.3; }
+.light .stat b { color: var(--light-text); }
+.btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 600; border-radius: 10px; }
+
+/* V = 1080x1920 vertical video, same type scale as S */
+.ad.V { width: 1080px; height: 1920px; padding: 96px 72px; }
+.V .wordmark { height: 32px; }
+.V .eyebrow { font-size: 22px; padding: 10px 19px; }
+.V .top { height: 48px; }
+.V h1 { font-size: 88px; }
+.V .foot { left: 72px; right: 72px; bottom: 110px; }
+.V .cta { font-size: 30px; padding: 20px 34px; }
+.V .signoff { font-size: 28px; }
