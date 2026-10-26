@@ -1,6 +1,6 @@
 ---
 name: content-bot
-description: Run the Vionlabs content bot. Picks an in-depth topic (the team's top pick on the Deep Dives page, or the one named), researches it, writes the whole series in Arash's voice (long read, posts, carousel brief, fact-check) and republishes the Deep Dives page. Also proposes new deep-dive topics from the Content Radar. Use when asked to run the content bot, write a deep dive, or suggest in-depth topics.
+description: Run the Vionlabs content bot. Picks an in-depth topic (the team's top pick on the Deep Dives page, or the one named), researches it, writes the whole series in Arash's voice (long read, posts, carousel brief, fact-check) and republishes the Deep Dives page. Also proposes new deep-dive topics from the Content Radar, and runs the Wednesday draft for Arash's approval (Google Doc at 10:00 plus a Swedish Slack message). Use when asked to run the content bot, write a deep dive, suggest in-depth topics, or run the weekly draft for Arash.
 ---
 
 # Content bot: in-depth series
@@ -20,8 +20,9 @@ Everything lives in `content-engine/`:
 | `bot/template.html`, `bot/build.py` | Page template and the build/recover script |
 | `reports/<ISO week>.json` | The radar's weeks: gaps, themes, stats and sources to build on |
 
-Two modes. "Run the content bot" (optionally "on <id>") writes a pack. "Suggest deep-dive topics"
-proposes new topics.
+Three modes. "Run the content bot" (optionally "on <id>") writes a pack. "Suggest deep-dive
+topics" proposes new topics. "Run the weekly draft for Arash" is Mode 3, which the Wednesday
+Routine runs.
 
 ## Mode 1: write a pack
 
@@ -150,6 +151,67 @@ page still holds the pack, and the next run recovers it.
 A short message: which topic and why (picks), the five pieces with slots and hooks, what needs
 Arash (voice note) or the team (`needs`, `[Team: …]` lines), the riskiest unconfirmed claim, and
 the page link (`deepdives_url#<id>`) and the Google Doc links.
+
+## Mode 3: weekly draft for Arash (Wednesdays)
+
+Every Wednesday a finished long read, with images, goes to Arash Pendari (CEO,
+`arash@vionlabs.com`) at 10:00 Stockholm time, as a Google Doc with a short Slack message in
+Swedish from Marcus. It has to be good enough to publish as it stands: Arash should be able to
+read it once and answer "Kör". The Routine "Weekly LinkedIn draft for Arash" runs this mode.
+
+Each article piece carries its approval state in `approval`: `week` (ISO week it goes out),
+`doc`, `shareAt`, `shareWith`, `role`, `status` (`ready` → `shared` → `approved` or
+`changes`), `message` (the Swedish text), and `sharedAt` once sent.
+
+1. **Set up** as in Mode 1, step 1.
+2. **Find this week's piece.** Work out the ISO week (`date +%G-W%V`). If a piece already has
+   `approval.week` set to this week, it was prepared earlier: go to step 5 (or stop if it has
+   `sharedAt`). Otherwise pick the next long read: the most-picked topic without a pack, ties
+   by `order`, and write it with Mode 1 (at least the long read, finished; the other pieces may
+   stay drafts). Skip `ten-years` unless Arash's voice-note answers are in its notes. If every
+   topic has a pack, run Mode 2 first.
+3. **Bring the long read up to the approval bar.**
+   - Two verification agents check every claim against two sources or the primary source.
+     Resolve each `[check]`: confirm it, credit the single source in the sentence (for example
+     "reported by PPC Land"), or cut it. Rewrite around every `[Arash: …]` and `[Team: …]`.
+   - A pass with the `human-prose` skill, then a professional editor's read for a founder's
+     byline: the opening line is his view, then something concrete; paragraphs average under
+     35 words; numbers go in short bullet lists; at most a couple of company names per
+     sentence; one bold line at most; ends with one specific question.
+   - Images: the cover and at least one in-article figure (`figures`, drawn by `figure.html`,
+     with a source line), rendered with `node content-engine/bot/cover.js <topic>` and looked at
+     once. Place the figure in the body as `![alt](figures/<file>.png)`.
+   - `python3 content-engine/bot/gdoc.py <piece id> --approval` must build; it refuses while
+     any open marker remains.
+4. **Make the Doc.** Commit and push (the Doc loads images from GitHub). Upload the
+   `--approval` HTML with Google Drive `create_file` into the folder "Arash LinkedIn drafts"
+   (`1oqbE5ZEX0ErHsJu5tokyTSI0qKRQMTlq`), titled `LinkedIn article: <title>`. Read it back and
+   check the rendered pages once (PDF export plus the google-workspace skill's
+   `render_export.py`). Set `googleDoc`, `approval` (`week`, `doc`, `shareAt` "<date> 10:00
+   Europe/Stockholm", `shareWith`, `role` "commenter", `status` "ready", `message`), rebuild,
+   republish the page with its images, commit and push.
+5. **Share at 10:00.** If it is before 10:00 in Stockholm, schedule the rest with `send_later`
+   for 10:00 local time and end the turn. Then: share the Doc with `arash@vionlabs.com` as
+   `commenter` (Drive `share_file`), and send `approval.message` to Arash as a Slack direct
+   message from Marcus if Slack tools are available. Without Slack, put the message in the
+   final summary so Marcus can paste it. Set `status` "shared" and `sharedAt`, commit and push.
+6. **Follow up earlier drafts.** For pieces with `status` "shared", read the Doc's comments
+   (`read_file_content` with `includeComments`) and, with Slack, Arash's replies in the DM.
+   "Kör", "ok", "godkänt" or "approved" means approved: set `status` "approved" and tell
+   Marcus it is ready to post (the Doc's "Ready to publish" section has everything). If he
+   asked for changes, set `status` "changes" and list them for Marcus. Never edit a shared Doc
+   without the Google Docs connector, and never post to LinkedIn yourself: no connected tool
+   can publish there, so Marcus posts it.
+7. **Report to Marcus** (the Routine sends it by push and email): what went to Arash and when,
+   the Doc link, the Swedish message, and any approvals or requested changes.
+
+**The Swedish message** is written as Marcus would write it: informal, warm, short, no emoji,
+no em dashes. It opens with "Hej Arash!" and the link, gives two or three sentences on what the
+article argues and why it matters for Vionlabs, says "Allt är faktagranskat, länkat till
+källor och skrivet i ditt namn. Det tar ungefär N minuter att läsa.", asks at most one question
+(only to confirm something personal, like his own anecdote), and ends: 'Ser det bra ut? Svara
+bara "Kör" så publicerar vi den. Vill du ändra något kan du kommentera direkt i dokumentet, så
+fixar jag resten.'
 
 ## Mode 2: suggest topics
 

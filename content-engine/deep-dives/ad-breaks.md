@@ -64,7 +64,7 @@ Five pieces for 24 Nov to 8 Dec, timed to land before The TV of Tomorrow Show an
 
 ## The most expensive second in streaming is the one before the break
 
-_ad-breaks-01 · Tue 24 Nov · LinkedIn article · Industry Trend Commentary_
+_ad-breaks-01 · When Arash approves · LinkedIn article · Industry Trend Commentary_
 
 *CTV now prices ad load, attention and emotion. Where a break lands in the story still goes unmeasured, and that's the part viewers feel.*
 

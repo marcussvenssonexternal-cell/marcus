@@ -101,7 +101,6 @@
     "pieces": [
       {
         "kind": "article",
-        "slot": "Tue 24 Nov",
         "pillar": "Industry Trend Commentary",
         "format": "LinkedIn article",
         "title": "The most expensive second in streaming is the one before the break",
@@ -240,10 +239,17 @@
           "shareText": "We price almost everything about a CTV ad break except the part viewers feel most: where it lands in the story.\n\nI went through the research on ad load, ad fit and break position, including where the evidence is thin and the best argument against my view. It ends with three cheap tests for anyone running an ad tier.\n\nIf you sell CTV inventory, would you charge more for a break you could prove lands at a natural pause?"
         },
         "final": "2026-10-20",
-        "googleDoc": "https://docs.google.com/document/d/1NumGyZyTnh0ClTHzssMgzQ4t2aOdssHRKZ7bKm2Uzxo/edit",
+        "googleDoc": "https://docs.google.com/document/d/15xI-DVn6sZcqfs3Z2605ss-e7kyGKBn3oq613siu1lg/edit",
         "checks": [],
         "edited": "2026-10-21",
         "approval": {
+          "week": "2026-W44",
+          "doc": "https://docs.google.com/document/d/15xI-DVn6sZcqfs3Z2605ss-e7kyGKBn3oq613siu1lg/edit",
+          "shareAt": "2026-10-28 10:00 Europe/Stockholm",
+          "shareWith": "arash@vionlabs.com",
+          "role": "commenter",
+          "status": "ready",
+          "message": "Hej Arash! Veckans LinkedIn-artikel är klar för dig: https://docs.google.com/document/d/15xI-DVn6sZcqfs3Z2605ss-e7kyGKBn3oq613siu1lg/edit\n\nDen handlar om var reklamavbrotten hamnar i berättelsen. Branschen prissätter nu nästan allt kring en reklampaus (antal avbrott, längd, attention, känsla) utom var i storyn den landar. Där är vi starka, och texten visar hur vår ad-break-detektering fungerar med SDVI och i-CABLE som exempel.\n\nAllt är faktagranskat, länkat till källor och skrivet i ditt namn. Det tar ungefär fem minuter att läsa.\n\nEn sak bara: jag använder exemplet du tog upp i SDVI-webinaret, där en panorering in i mörker kan se ut som en svart bild för modellen. Stämmer det som du minns det?\n\nSer det bra ut? Svara bara \"Kör\" så publicerar vi den. Vill du ändra något kan du kommentera direkt i dokumentet, så fixar jag resten.",
           "note": "Single-source facts are attributed to their source in the text (PPC Land for the FreeWheel/MediaScience study, Bitmovin's announcement for Nine). Arash confirms the webinar anecdote when he approves."
         },
         "figures": [
@@ -266,7 +272,8 @@
             "missingTag": "Not priced yet",
             "source": "Source: FreeWheel, 17 September 2026"
           }
-        ]
+        ],
+        "slot": "When Arash approves"
       },
       {
         "kind": "post",
