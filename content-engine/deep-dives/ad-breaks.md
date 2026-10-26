@@ -78,6 +78,8 @@ Its scores take in the number of breaks, how long the ads run, the time of day, 
 
 Every one of those inputs describes how much interruption there is. To a buyer, a break at the end of a scene and a break in the middle of a reveal still look the same: one break, two minutes.
 
+![What a CTV buyer can score an ad break on today: number of breaks, ad duration, time of day, live or on demand, device, attention, quality and emotional resonance. Where in the story the break lands is not priced yet.](figures/ad-breaks-01-signals.png)
+
 ## Ad loads are rising
 
 Ad tiers are carrying more ads this year. Across the big US services, [Ampere](https://www.androidauthority.com/streaming-services-more-ads-2026-3708866/) puts the average up about 18% between January and August.
@@ -88,13 +90,13 @@ Each of those extra minutes has to go somewhere in a story. Network dramas make 
 
 Usually that's an editor scrubbing through the timeline, or a rule that looks for black frames and silence. Rules like that miss a lot in film. [Amazon's own documentation](https://docs.aws.amazon.com/rekognition/latest/dg/segments.html) says black frames with audio over them, such as fade-outs and voice-overs, are treated as content and skipped.
 
-Doing it by hand is slow. When Nine moved Stan's catalogue onto [Bitmovin's scene analysis](https://senalnews.com/en/content/nine-entertainment-deploys-bitmovins-ai-scene-analysis-on-stan-to-boost-catalog-monetization) in September, it said ad approvals would otherwise have taken a lot of manual effort and time [check].
+Doing it by hand is slow. When Nine moved Stan's catalogue onto [Bitmovin's scene analysis](https://senalnews.com/en/content/nine-entertainment-deploys-bitmovins-ai-scene-analysis-on-stan-to-boost-catalog-monetization) in September, it said approving ad placements had taken a lot of manual work before.
 
 ## What the research tells us
 
 On how much advertising people will accept, the evidence is fairly strong, although most of it comes from FreeWheel and its partners:
 
-- In a FreeWheel study with MediaScience (436 viewers), unaided recall was 41% in a lightly loaded programme and 26% next to nine minutes of ads per half hour [check].
+- In a FreeWheel study with MediaScience, [reported by PPC Land](https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/), unaided recall among 436 viewers was 41% in a lightly loaded programme and 26% next to nine minutes of ads per half hour.
 - FreeWheel and Mediaprobe found that six minutes of ads an hour delivered 89% higher recall than twelve.
 
 On whether the ad fits the content, the evidence is growing:
@@ -126,7 +128,7 @@ We've worked on this at Vionlabs for years. Our ad-break detection combines four
 
 The more of them agree on a spot, the higher it's rated (excellent, good or passable). An editor then reviews a ranked shortlist instead of the whole film.
 
-It still makes mistakes. In [a webinar with SDVI](https://www.vionlabs.com/news/accelerating-ad-breaks-detection-and-insertion-webinar-with-sdvi) this summer I described one: a shot that pans into darkness can look like a black frame to the model, so it gets flagged as a break [check].
+It still makes mistakes. In [a webinar with SDVI](https://www.vionlabs.com/news/accelerating-ad-breaks-detection-and-insertion-webinar-with-sdvi) this summer I described one: a shot that pans into darkness can look like a black frame to the model, so it gets flagged as a break.
 
 That's why we built it for a person to check the result. [SDVI has shown our detection](https://sdvi.com/about-us/press-releases/sdvi-to-showcase-next-generation-rally-platform-and-new-technology-integrations-at-ibc2026/) on its Rally platform with Codemill's Accurate.Video, where editors validate each suggested break frame by frame.
 

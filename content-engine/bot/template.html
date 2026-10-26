@@ -398,6 +398,12 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
     return blocks.map(function (b) {
       b = b.replace(/^\n+|\n+$/g, "");
       if (!b) return "";
+      var im = b.match(/^!\[([^\]]*)\]\(([^)\s]+)\)$/);
+      if (im) {
+        if (shift === 0) return "";
+        var u = /^https:\/\//.test(im[2]) || /^[a-z0-9][a-z0-9_\/.-]*$/i.test(im[2]) ? im[2] : "";
+        return u ? '<figure class="cover"><img src="' + esc(u) + '" alt="' + esc(im[1]) + '" loading="lazy"></figure>' : "";
+      }
       var m = b.match(/^(#{1,4})\s+(.*)$/);
       if (m && b.indexOf("\n") < 0) { var lv = Math.min(4, m[1].length + shift); return "<h" + lv + ">" + inline(m[2]) + "</h" + lv + ">"; }
       var lines = b.split("\n");
@@ -409,6 +415,7 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
   }
   function plainText(src) {
     return String(src || "")
+      .replace(/^!\[[^\]]*\]\([^)]*\)\n*/gm, "")
       .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, "$1 ($2)")
       .replace(/^#{1,4}\s+/gm, "")
       .replace(/\*\*([^*]+)\*\*/g, "$1")
