@@ -33,7 +33,7 @@ The Vionlabs Agentic Layer shown at IBC 2026; Fingerprint+ embeddings and scene-
 
 ## Series plan
 
-1. **Before an agent can act on your catalogue, something has to understand it** (LinkedIn article, Product & AI Insight)
+1. **Before an agent can act on your catalogue, something has to understand it** (Blog post (vionlabs.com), Product & AI Insight)
 2. **'Tense but not violent': what an agent needs to know to answer that** (Carousel, Product & AI Insight)
 3. **Thirteen companies, one word. What the agent wave means for buyers.** (Text, Industry Trend Commentary)
 4. **We put an agent on top of years of emotion data. What surprised us. (Arash voice note)** (Text, Founder POV / Build Lessons)

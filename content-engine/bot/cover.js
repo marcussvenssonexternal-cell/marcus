@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Render the images for the Deep Dives packs: LinkedIn article covers and in-article figures.
+// Render the images for the Deep Dives packs: blog post covers and in-article figures.
 //
 //   node content-engine/bot/cover.js            # every piece with a "cover" or "figures" in deep-dives/*.json
 //   node content-engine/bot/cover.js ad-breaks  # one topic

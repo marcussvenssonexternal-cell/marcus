@@ -32,7 +32,7 @@ Preview Clips & Shorts and Custom Thumbnails, which pick moments by emotional ar
 
 ## Series plan
 
-1. **The 90 seconds that sell 90 minutes** (LinkedIn article, Industry Trend Commentary)
+1. **The 90 seconds that sell 90 minutes** (Blog post (vionlabs.com), Industry Trend Commentary)
 2. **Five streamers, five vertical feeds, one public number** (Carousel, Industry Trend Commentary)
 3. **A thumbnail is a one-frame preview. Pick it the same way.** (Image + text, Product & AI Insight)
 4. **Microdramas aren't a threat to long-form. They're a lesson in the first ten seconds.** (Text, Opinion / Contrarian Take)

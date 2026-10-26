@@ -1,13 +1,14 @@
 ---
 name: content-bot
-description: Run the Vionlabs content bot. Picks an in-depth topic (the team's top pick on the Deep Dives page, or the one named), researches it, writes the whole series in Arash's voice (long read, posts, carousel brief, fact-check) and republishes the Deep Dives page. Also proposes new deep-dive topics from the Content Radar, and runs the Wednesday draft for Arash's approval (Google Doc at 10:00 plus a Swedish Slack message). Use when asked to run the content bot, write a deep dive, suggest in-depth topics, or run the weekly draft for Arash.
+description: Run the Vionlabs content bot. Picks an in-depth topic (the team's top pick on the Deep Dives page, or the one named), researches it, writes the whole series in Arash's voice (long read, posts, carousel brief, fact-check) and republishes the Deep Dives page. Also proposes new deep-dive topics from the Content Radar, and runs the Wednesday draft for Arash's approval (Google Doc at 10:00 plus a Swedish Slack message), putting the approved long read live on the vionlabs.com blog. Use when asked to run the content bot, write a deep dive, suggest in-depth topics, or run the weekly draft for Arash.
 ---
 
 # Content bot: in-depth series
 
 The Content Radar finds what to talk about each week. The content bot goes deep on one topic at a
-time: a three-week series of five pieces for Arash's LinkedIn, built on fresh research and the
-radar's evidence, with every claim sourced.
+time: a three-week series of five pieces, built on fresh research and the radar's evidence, with
+every claim sourced. The long read is a blog post on vionlabs.com/news under Arash's name (never a
+LinkedIn article); the posts and the carousel go on his LinkedIn.
 
 Everything lives in `content-engine/`:
 
@@ -79,7 +80,9 @@ the topic's `series` so it matches the pieces one to one, and fix `whyNow` and `
 research corrected them. Keep `id` and `order`.
 
 Five pieces, in posting order:
-1. A long read (`article`): 1,100 to 1,600 words of Markdown. The first line is the opinion
+1. A long read (`article`): a blog post for vionlabs.com/news under Arash's name, 1,100 to 1,600
+   words of Markdown. It ends like the blog's other posts: an italic line inviting the reader to
+   see it on their own content, then `[**Book a demo with Vionlabs →**](https://www.vionlabs.com/book-a-demo)`. The first line is the opinion
    itself. Short `##` sections. Name the competitors or research that complicate the thesis; never
    pretend a gap is wider than the evidence shows. Follow "Our take first" in `brand.md`: the
    piece is Vionlabs' argument, with four or five links at most and other sources credited by
@@ -115,12 +118,13 @@ Quality bar:
 python3 content-engine/bot/build.py   # validates, gives new pieces their ids, writes bot/index.html and deep-dives/*.md
 ```
 
-The long read gets a LinkedIn cover: give the article piece a `cover` (`image`
+The long read gets a cover, which is also the blog post's main image: give the article piece a `cover` (`image`
 `covers/<piece id>.png`, `kicker`, `by`, `alt`, and two or so `marks` on the tension curve, each
 `{at: 0..1, label, tone: "good" | "bad"}`) and run `node content-engine/bot/cover.js <topic id>`.
-Look at the PNG once before publishing. Also give it `linkedin` fields: `headline`, `seoTitle`
-(60 characters or fewer), `seoDescription` (about 150) and `shareText` (the post that goes out with
-the article).
+Look at the PNG once before publishing. Also give it `website` fields: `title` (Title Case, like the blog's other
+posts), `slug`, `url` (`https://www.vionlabs.com/news/<slug>`), `author` ("Arash Pendari") and
+`summary` (one or two sentences for the blog grid, 150 to 200 characters), plus
+`linkedin.shareText`: the LinkedIn post that shares the link once the post is live.
 
 Fix anything the build reports, then publish with `Artifact`: `file_path`
 `content-engine/bot/index.html`, `url` = `deepdives_url`, and `files` mapping each cover the build
@@ -158,14 +162,17 @@ the page link (`deepdives_url#<id>`) and the Google Doc links.
 
 Every Wednesday a finished long read, with images, goes to Arash Pendari (CEO,
 `arash@vionlabs.com`) at 10:00 Stockholm time, as a Google Doc with a short Slack message in
-Swedish from Marcus. It has to be good enough to publish as it stands: Arash should be able to
-read it once and answer "Kör". The Routine "Weekly LinkedIn draft for Arash" runs this mode.
+Swedish from Marcus. It is a blog post for vionlabs.com/news, staged as a Webflow draft, and it
+goes live as soon as Arash approves it. It has to be good enough to publish as it stands: Arash
+should be able to read it once and answer "Kör". The Routine "Weekly LinkedIn draft for Arash" runs this mode.
 
 Each article piece carries its approval state in `approval`: `week` (ISO week it goes out),
 `doc`, `shareAt`, `shareWith`, `role`, `status` (`ready` → `scheduled` → `shared` →
-`approved` or `changes`), `message` (the Swedish text), and `sharedAt` once sent.
+`approved` or `changes`), `message` (the Swedish text), and `sharedAt` once sent. `website.status`
+tracks the blog post: `not staged` → `draft` → `live`.
 
-The Doc needs the Google Drive connector. If this session doesn't have it (a Routine runs
+The Doc needs the Google Drive connector and the blog post needs Webflow. If this session doesn't
+have Google Drive (a Routine runs
 without connectors unless they were added to it), do steps 1 to 3, commit and push, and tell
 Marcus the Doc wasn't made because the Routine has no Google Drive connector. Don't share or
 send anything.
@@ -194,11 +201,21 @@ send anything.
      any open marker remains.
 4. **Make the Doc.** Commit and push (the Doc loads images from GitHub). Upload the
    `--approval` HTML with Google Drive `create_file` into the folder "Arash LinkedIn drafts"
-   (`1oqbE5ZEX0ErHsJu5tokyTSI0qKRQMTlq`), titled `LinkedIn article: <title>`. Read it back and
+   (`1oqbE5ZEX0ErHsJu5tokyTSI0qKRQMTlq`), titled `Blog post: <website title>`. Read it back and
    check the rendered pages once (PDF export plus the google-workspace skill's
    `render_export.py`). Set `googleDoc`, `approval` (`week`, `doc`, `shareAt` "<date> 10:00
    Europe/Stockholm", `shareWith`, `role` "commenter", `status` "ready", `message`), rebuild,
    republish the page with its images, commit and push.
+   Then stage the post on the website as a draft (Webflow; call `webflow_guide_tool` once first).
+   Upload the cover and every figure with `data_assets_tool` `create_asset` (the file's MD5),
+   then POST the file to the returned S3 `uploadUrl` as multipart form data: `acl`, `bucket`,
+   `X-Amz-Algorithm`, `X-Amz-Credential`, `X-Amz-Date`, `key`, `Policy`, `X-Amz-Signature`,
+   `success_action_status`, `Content-Type`, `Cache-Control` from `uploadDetails`, then `file`.
+   Record each as `website.assets[<path>] = {fileId, url}` (the `hostedUrl`). Run
+   `python3 content-engine/bot/webflow.py <piece id>` and create the item in the News collection
+   (`67978ee27d95b7ff0119d37e`) with `create_collection_items`, `isDraft` true and
+   `original-published-on-date` set to the share date. Save `website.itemId` and `status`
+   "draft". Never publish it at this step. Without Webflow, skip staging and say so in the report.
 5. **Share at 10:00.** If it is before 10:00 in Stockholm, set `status` "scheduled", commit and
    push (so no other run books it twice), schedule the rest with `send_later` for 10:00 local
    time and end the turn. Then: share the Doc with `arash@vionlabs.com` as
@@ -207,20 +224,24 @@ send anything.
    final summary so Marcus can paste it. Set `status` "shared" and `sharedAt`, commit and push.
 6. **Follow up earlier drafts.** For pieces with `status` "shared", read the Doc's comments
    (`read_file_content` with `includeComments`) and, with Slack, Arash's replies in the DM.
-   "Kör", "ok", "godkänt" or "approved" means approved: set `status` "approved" and tell
-   Marcus it is ready to post (the Doc's "Ready to publish" section has everything). If he
-   asked for changes, set `status` "changes" and list them for Marcus. Never edit a shared Doc
-   without the Google Docs connector, and never post to LinkedIn yourself: no connected tool
-   can publish there, so Marcus posts it.
+   "Kör", "ok", "godkänt" or "approved" means approved: set `status` "approved" and put the
+   post live. Set `original-published-on-date` to now with `update_collection_items`, then
+   `publish_collection_items` for `website.itemId`, and check the result lists no errors. Set
+   `website.status` "live" and `publishedAt`, commit and push, and send Marcus the link with
+   `linkedin.shareText` so he can share it on LinkedIn. If Arash asked for changes, set `status`
+   "changes" and list them for Marcus. Apply agreed changes to the piece, update the draft item and
+   send a new Doc; never edit a shared Doc without the Google Docs connector. Never post to
+   LinkedIn yourself: no connected tool can, so Marcus shares the link.
 7. **Report to Marcus** (the Routine sends it as a push notification): what went to Arash and when,
-   the Doc link, the Swedish message, and any approvals or requested changes.
+   the Doc link, the Swedish message, any approvals or requested changes, and any post that went
+   live (with its link).
 
 **The Swedish message** is written as Marcus would write it: informal, warm, short, no emoji,
-no em dashes. It opens with "Hej Arash!" and the link, gives two or three sentences on what the
+no em dashes. It opens with "Hej Arash! Veckans blogginlägg till vionlabs.com är klart för dig:" and the link, gives two or three sentences on what the
 article argues and why it matters for Vionlabs, says "Allt är faktagranskat och skrivet i
 ditt namn. Det tar ungefär N minuter att läsa.", asks at most one question
 (only to confirm something personal, like his own anecdote), and ends: 'Ser det bra ut? Svara
-bara "Kör" så publicerar vi den. Vill du ändra något kan du kommentera direkt i dokumentet, så
+bara "Kör" så publicerar vi det på hemsidan. Vill du ändra något kan du kommentera direkt i dokumentet, så
 fixar jag resten.'
 
 ## Mode 2: suggest topics
@@ -251,12 +272,12 @@ step 5, and report the pitches. Don't delete or rewrite topics that have a pack.
   "events": ["Optional: events it ties to"],
   "radar": ["2026-W43 gap: …", "Ideas 2026-W43-04"],
   "evidence": [{ "label": "…", "url": "https://…", "date": "2026-09-17" }],
-  "series": [{ "kind": "article | post | carousel", "pillar": "<one of the five pillars>", "format": "LinkedIn article | Text | Carousel | Image + text", "working": "Working title" }],
+  "series": [{ "kind": "article | post | carousel", "pillar": "<one of the five pillars>", "format": "Blog post (vionlabs.com) | Text | Carousel | Image + text", "working": "Working title" }],
   "pack": {                          // added by Mode 1
     "generated": "2026-10-20",
     "summary": "One paragraph: what's in it, timing, anything to watch",
     "pieces": [{
-      "kind": "article", "slot": "Tue 24 Nov", "pillar": "Industry Trend Commentary", "format": "LinkedIn article",
+      "kind": "article", "slot": "Tue 24 Nov", "pillar": "Industry Trend Commentary", "format": "Blog post (vionlabs.com)",
       "title": "…", "subtitle": "Optional, articles only",
       "body": "Markdown (articles, carousel briefs) or plain text (posts)",
       "sources": [{ "label": "…", "url": "…", "date": "…" }]

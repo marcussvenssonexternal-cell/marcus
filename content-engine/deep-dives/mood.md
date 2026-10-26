@@ -32,7 +32,7 @@ Fingerprint+ emotion-aware embeddings and Metadata Enrichment; scene-level emoti
 
 ## Series plan
 
-1. **Five things 'mood' can mean on a metadata spec sheet** (LinkedIn article, Product & AI Insight)
+1. **Five things 'mood' can mean on a metadata spec sheet** (Blog post (vionlabs.com), Product & AI Insight)
 2. **One film, two timelines: what happens vs how it feels** (Carousel, Product & AI Insight)
 3. **A synopsis is marketing copy. Don't build your metadata on it.** (Text, Opinion / Contrarian Take)
 4. **How do you check a machine's feelings?** (Text, Product & AI Insight)

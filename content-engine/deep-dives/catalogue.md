@@ -32,7 +32,7 @@ Mood rows, Because You Watched and Similar Titles; Curio, launched with Great Am
 
 ## Series plan
 
-1. **Your churn problem is sitting in the back catalogue** (LinkedIn article, Industry Trend Commentary)
+1. **Your churn problem is sitting in the back catalogue** (Blog post (vionlabs.com), Industry Trend Commentary)
 2. **What makes a service someone's default, in six numbers** (Carousel, Industry Trend Commentary)
 3. **The top-10 row is where catalogues go to be ignored** (Text, Opinion / Contrarian Take)
 4. **We built Curio for the viewer who has watched two titles** (Text, Founder POV / Build Lessons)

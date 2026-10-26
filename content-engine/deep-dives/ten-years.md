@@ -32,7 +32,7 @@ Arash's own story in his words, the team that built it, early photos and the fir
 
 ## Series plan
 
-1. **What we got wrong about emotion AI, and what we got right** (LinkedIn article, Founder POV / Build Lessons)
+1. **What we got wrong about emotion AI, and what we got right** (Blog post (vionlabs.com), Founder POV / Build Lessons)
 2. **The first customer who said no, and why they were right** (Text, Founder POV / Build Lessons)
 3. **The change of direction that saved the company** (Text, Founder POV / Build Lessons)
 4. **The people who built it (a crediting post with real photos)** (Image + text, Behind the Scenes)

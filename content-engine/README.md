@@ -102,7 +102,8 @@ radar weeks. The procedure is `.claude/skills/content-bot/SKILL.md`.
 | `deep-dives/<id>.md` | The same topic as a readable brief (generated) |
 | `bot/template.html` | The page design |
 | `bot/build.py` | Validates topics, gives pack pieces permanent ids, builds `bot/index.html` and the briefs; `--recover` pulls packs back out of the published page |
-| `bot/cover.html`, `bot/cover.js` | LinkedIn article covers (1920×1080): `node content-engine/bot/cover.js <topic>` renders `deep-dives/covers/<piece>.png` from the piece's `cover` spec |
+| `bot/cover.html`, `bot/cover.js` | Blog post covers (1920×1080): `node content-engine/bot/cover.js <topic>` renders `deep-dives/covers/<piece>.png` from the piece's `cover` spec |
+| `bot/webflow.py` | A long read as a post for the vionlabs.com blog (Webflow "News" collection): `python3 content-engine/bot/webflow.py <piece id>` prints the item's fieldData; Mode 3 of the content-bot skill stages it as a draft and publishes it once Arash approves |
 | `bot/gdoc.py` | Turns a pack piece into HTML for a Google Doc (upload with the Google Drive connector); drafts for review live in Google Docs, linked from the page |
 | `bot/prose_check.py` | Flags likely LLM patterns (em-dash pivots, "it's not X, it's Y", foils, kicker lines) in a draft or a topic's pack |
 

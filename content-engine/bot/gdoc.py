@@ -4,6 +4,8 @@
     python3 gdoc.py ad-breaks-01 > piece.html             # review copy for the team
     python3 gdoc.py ad-breaks-01 --approval > piece.html  # clean copy for Arash to approve
 
+The long read (kind "article") is a blog post for vionlabs.com/news; the other pieces are LinkedIn.
+
 Upload the output with the Google Drive connector's create_file (contentMimeType "text/html"),
 which converts it to a Google Doc: headings, links, lists, images and the LinkedIn table come
 through as native formatting. Then save the Doc's link on the piece ("googleDoc", or
@@ -61,17 +63,19 @@ def body(src, branch):
     return "\n".join(out)
 
 
-def linkedin_fields(p, heading):
-    li, cover = p.get("linkedin"), p.get("cover") or {}
-    if not li:
+def publish_fields(p, heading):
+    web, li, cover = p.get("website") or {}, p.get("linkedin") or {}, p.get("cover") or {}
+    if not (web or li):
         return []
-    rows = [("Headline", li.get("headline")), ("SEO title", li.get("seoTitle")),
+    rows = [("Title on vionlabs.com", web.get("title")), ("Address", web.get("url")),
+            ("Summary on the blog page", web.get("summary")), ("Author", web.get("author")),
+            ("Headline", li.get("headline")), ("SEO title", li.get("seoTitle")),
             ("SEO description", li.get("seoDescription")), ("Cover alt text", cover.get("alt"))]
     out = [f"{heading}<table border=\"1\" cellpadding=\"6\" style=\"border-collapse:collapse\">"
            + "".join(f'<tr><td width="28%"><b>{k}</b></td><td>{html.escape(v)}</td></tr>' for k, v in rows if v) + "</table>"]
     if li.get("shareText"):
-        out.append(f"{P}<b>Post text when the article is published:</b></p>"
-                   + "".join(f"{P}{inline(x)}</p>" for x in li["shareText"].split("\n\n")))
+        out.append(f"{P}<b>{'LinkedIn post to share it once it is live' if web else 'Post text when the article is published'}:</b></p>"
+                   + "".join(P + "<br>".join(inline(l) for l in x.split("\n")) + "</p>" for x in li["shareText"].split("\n\n")))
     return out
 
 
@@ -81,15 +85,17 @@ def piece_html(piece_id, approval=False, branch="claude/practical-fermi-gatt4t")
         for p in (t.get("pack") or {}).get("pieces", []):
             if p.get("id") != piece_id:
                 continue
-            kind = {"article": "LinkedIn article", "post": "LinkedIn post", "carousel": "Carousel brief"}[p["kind"]]
+            kind = {"article": "Blog post for vionlabs.com", "post": "LinkedIn post", "carousel": "Carousel brief"}[p["kind"]]
+            url = (p.get("website") or {}).get("url")
             words = len(re.sub(r"^!\[[^\]]*\]\([^)]*\)$", "", p["body"], flags=re.M).split())
             cover = p.get("cover") or {}
-            h = [f"<h1>{html.escape(p['title'])}</h1>"]
+            h = [f"<h1>{html.escape((p.get('website') or {}).get('title') or p['title'])}</h1>"]
             if approval:
                 left = sorted(set(OPEN.findall(p["body"])))
                 if left:
                     sys.exit(f"{piece_id} still has open markers, so it isn't ready for Arash: {', '.join(left)}")
-                h.append(f"{P}<i>Draft for approval. {kind} by Arash Pendari, about {max(1, round(words / 230))} minutes to read.</i></p>")
+                h.append(f"{P}<i>Draft for approval. {kind} by Arash Pendari, about {max(1, round(words / 230))} minutes to read."
+                         + (f" When it's approved it goes live at {html.escape(url)}." if url else "") + "</i></p>")
             else:
                 h.append(f"{P}<i>Draft for review. {kind} by Arash Pendari, part of the series “{html.escape(t['title'])}”"
                          + (f", scheduled for {html.escape(p['slot'])}" if p.get("slot") else "")
@@ -98,7 +104,7 @@ def piece_html(piece_id, approval=False, branch="claude/practical-fermi-gatt4t")
                 h.append(image(cover["image"], cover.get("alt", ""), branch))
             h.append(body(p["body"], branch))
             if approval:
-                h += linkedin_fields(p, f'<hr><h2 {H}>Ready to publish</h2>')
+                h += publish_fields(p, f'<hr><h2 {H}>Ready to publish</h2>')
             else:
                 checks = p.get("checks") or []  # what is still open in this piece, one line each
                 h.append(f"<hr><h2 {H}>Notes for review</h2>")
@@ -107,7 +113,7 @@ def piece_html(piece_id, approval=False, branch="claude/practical-fermi-gatt4t")
                              + ("" if checks else " The fact-check list is on the Deep Dives page.") + "</p>")
                     if checks:
                         h.append("<ol>" + "".join(f'<li style="margin-bottom:6pt">{inline(c)}</li>' for c in checks) + "</ol>")
-                h += linkedin_fields(p, '<h3 style="margin-top:16pt;margin-bottom:6pt;page-break-after:avoid">Publishing on LinkedIn</h3>')
+                h += publish_fields(p, '<h3 style="margin-top:16pt;margin-bottom:6pt;page-break-after:avoid">Publishing</h3>')
             return '<html><head><meta charset="utf-8"></head><body>\n' + "\n".join(h) + "\n</body></html>"
     sys.exit(f"No piece with id {piece_id}")
 

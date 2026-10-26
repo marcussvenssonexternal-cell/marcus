@@ -35,7 +35,7 @@ Ad-Break Creation and Contextual Ad-Breaks; the SDVI ad-break detection demo on 
 
 ## Series plan
 
-1. **The most expensive second in streaming is the one before the break** (LinkedIn article, Industry Trend Commentary)
+1. **The most expensive second in streaming is the one before the break** (Blog post (vionlabs.com), Industry Trend Commentary)
 2. **Ad minutes per hour rose 18% this year. Every extra minute has to land somewhere.** (Text, Industry Trend Commentary)
 3. **How a machine finds the place where a story pauses** (Carousel, Product & AI Insight)
 4. **Network TV writes its breaks into the script. Films never had them.** (Text, Opinion / Contrarian Take)
@@ -64,7 +64,7 @@ Five pieces for 24 Nov to 8 Dec, timed to land before The TV of Tomorrow Show an
 
 ## The most expensive second in streaming is the one before the break
 
-_ad-breaks-01 · When Arash approves · LinkedIn article · Industry Trend Commentary_
+_ad-breaks-01 · On vionlabs.com when Arash approves · Blog post (vionlabs.com) · Industry Trend Commentary_
 
 *CTV now prices ad load, attention and emotion. Where a break lands in the story still goes unmeasured, and that's the part viewers feel.*
 
@@ -151,6 +151,10 @@ If you run an ad tier or a FAST channel, these tests are cheap:
 - How often people finish a title when its breaks follow the story, compared with breaks on a timer
 
 And if you sell CTV inventory, I'd like to hear from you. Would you charge more for a break you could prove lands at a natural pause, or will buyers never pay for position?
+
+*Want to see where the natural pauses fall in your own catalogue?*
+
+[**Book a demo with Vionlabs →**](https://www.vionlabs.com/book-a-demo)
 
 **Sources:** [FreeWheel brings attention, quality and emotional resonance signals to CTV buying](https://www.nasdaq.com/press-release/freewheel-brings-attention-quality-and-emotional-resonance-signals-ctv-buying-2026-09) (2026-09-17); [Streaming services are showing more ads in 2026 (Ampere data, Android Authority)](https://www.androidauthority.com/streaming-services-more-ads-2026-3708866/) (2026-09); [More ads cut streaming brand recall from 41% to 26% (FreeWheel + MediaScience)](https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/) (2026-09-15); [Nelson, Meyvis & Galak, Enhancing the television-viewing experience through commercial interruptions (JCR)](https://ideas.repec.org/a/oup/jconrs/doi10.1086-597030.html) (2009); [YouTube's Peak Points uses Gemini to place ads after peak moments (9to5Google)](https://9to5google.com/2025/05/15/youtube-ads-gemini-peak-points-placement/) (2025-05-15); [Amazon Rekognition: detecting video segments](https://docs.aws.amazon.com/rekognition/latest/dg/segments.html) (current docs); [Nine deploys Bitmovin AI Scene Analysis on Stan (Señal News)](https://senalnews.com/en/content/nine-entertainment-deploys-bitmovins-ai-scene-analysis-on-stan-to-boost-catalog-monetization) (2026-09-14); [Bitmovin: AI ad placement score at scene level](https://bitmovin.com/blog/ai-ad-placement-score-scene-level-streaming/) (2026-Q1); [Accelerating ad-break detection and insertion: webinar with SDVI](https://www.vionlabs.com/news/accelerating-ad-breaks-detection-and-insertion-webinar-with-sdvi) (2026-08-19); [SDVI at IBC2026: Rally platform with Vionlabs and Accurate.Video](https://sdvi.com/about-us/press-releases/sdvi-to-showcase-next-generation-rally-platform-and-new-technology-integrations-at-ibc2026/) (2026-09); [Vionlabs and SeaOvers partnership; i-CABLE first deployment](https://www.vionlabs.com/news/vionlabs-and-seaovers-announce-partnership-to-elevate-ad-supported-streaming-with-ai-i-cable-launches-first-deployment-in-asia) (2025-09-11); [FreeWheel Context Engine (Business Wire)](https://www.businesswire.com/news/home/20260414782359/en/) (2026-04-14); [Anoki ContextIQ via Index Exchange (Business Wire)](https://www.businesswire.com/news/home/20251209200641/en) (2025-12-09); [IAB Tech Lab defines six core CTV ad formats (NewscastStudio)](https://www.newscaststudio.com/2025/12/12/iab-tech-lab-defines-six-core-ad-formats-in-new-ctv-portfolio) (2025-12-12); [IAB Tech Lab: OpenRTB updates for your 2026 roadmap](https://iabtechlab.com/essential-openrtb-updates-you-cant-ignore-for-your-2026-roadmap/) (2026); [Wurl launches Content Intelligence Platform (MediaPost)](https://www.mediapost.com/publications/article/418319/) (2026-09-15); [Peer39 CTV Truths report, Q1 2026](https://insights.peer39.com/ctv-truths-report-q1-2026) (2026-Q1); [MRC Viewable Ad Impression Measurement Guidelines (IAB)](https://www.iab.com/wp-content/uploads/2015/06/MRC-Viewable-Ad-Impression-Measurement-Guideline.pdf) (2014-06-30); [MRC viewability standards: definition and history (Pixalate)](https://www.pixalate.com/blog/mrc-viewability-standards-definition-history) (undated)
 

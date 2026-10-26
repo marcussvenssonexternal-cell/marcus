@@ -443,6 +443,12 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
   function pickersOf(tid) { return Object.keys(S.picks).filter(function (u) { return S.picks[u].indexOf(tid) > -1; }); }
   function myPicks() { return (S.me && S.me.id && S.picks[S.me.id]) || []; }
   function currentText(p) { var w = S.work[p.id] || {}; return w.draft ? w.draft : p.body; }
+  // One field of the publishing panel: "web.x" from the blog post, "coverAlt", or the LinkedIn fields.
+  function publishField(p, f) {
+    if (f === "coverAlt") return (p.cover || {}).alt;
+    if (f.indexOf("web.") === 0) return (p.website || {})[f.slice(4)];
+    return (p.linkedin || {})[f];
+  }
   function topicState(t) {
     var ps = (t.pack || {}).pieces || [];
     if (!ps.length) return { key: "proposed", label: "Proposed" };
@@ -644,11 +650,13 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
       '<button type="button" class="btn quiet" data-act="copy" data-id="' + esc(p.id) + '">Copy text</button>' +
       (PAGE_URL ? '<button type="button" class="btn quiet" data-act="copylink" data-id="' + esc(p.id) + '">Copy link</button>' : "") + "</div>";
 
-    if (p.linkedin) {
-      var LI = [["headline", "Headline"], ["seoTitle", "SEO title"], ["seoDescription", "SEO description"], ["shareText", "Post text when you publish"], ["coverAlt", "Cover alt text"]];
-      h += '<details class="notes"><summary>Publishing on LinkedIn</summary><dl class="fields-li">';
+    if (p.linkedin || p.website) {
+      var LI = [["web.title", "Title on vionlabs.com"], ["web.url", "Address"], ["web.summary", "Summary on the blog page"],
+        ["headline", "Headline"], ["seoTitle", "SEO title"], ["seoDescription", "SEO description"],
+        ["shareText", p.website ? "LinkedIn post to share it" : "Post text when you publish"], ["coverAlt", "Cover alt text"]];
+      h += '<details class="notes"><summary>' + (p.website ? "Publishing on vionlabs.com" : "Publishing on LinkedIn") + '</summary><dl class="fields-li">';
       LI.forEach(function (f) {
-        var v = f[0] === "coverAlt" ? (p.cover || {}).alt : p.linkedin[f[0]];
+        var v = publishField(p, f[0]);
         if (!v) return;
         h += "<dt>" + esc(f[1]) + '</dt><dd>' + esc(v) + '<span class="n">' + String(v).length + ' chars</span></dd><dd><button type="button" class="btn quiet" data-act="copyfield" data-id="' + esc(p.id) + '" data-f="' + f[0] + '">Copy</button></dd>';
       });
@@ -716,7 +724,7 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
 
   // ---------- redraft with Claude ----------
   var SPEC = {
-    article: "Rewrite the LinkedIn article for Arash to publish. 1,100 to 1,600 words. Markdown: the first line is the opinion itself, then short sections with ## headings, short paragraphs and plain sentences. Acknowledge the reasonable other side before disagreeing. Credit people and partners by name where the text already does. End with one specific question to the reader, never \"thoughts?\".",
+    article: "Rewrite the long read Arash publishes on the Vionlabs blog (vionlabs.com/news). 1,100 to 1,600 words. Markdown: the first line is the opinion itself, then short sections with ## headings, short paragraphs and plain sentences. Acknowledge the reasonable other side before disagreeing. Credit people and partners by name where the text already does. End with one specific question to the reader, never \"thoughts?\".",
     post: "Rewrite the LinkedIn text post for Arash to publish. The first line is the opinion itself. 120 to 220 words in short paragraphs. Acknowledge the reasonable other side before disagreeing. End with one specific question, never \"thoughts?\". At most three hashtags on the last line, or none.",
     carousel: "Rewrite the carousel design brief for the designer: 1) Hook / slide 1 claim. 2) Slide-by-slide sequence, 6 to 10 slides, each with the on-slide text (one or two short lines) and a note for the designer. 3) Data to visualise: which numbers get a big stat card and which deserve a chart. 4) Closing takeaway and soft call to action. 5) A 60 to 100 word caption. Slides are 1080x1350 portrait. Use Markdown lists."
   };
@@ -830,7 +838,7 @@ footer { padding-block: 28px 48px; border-top: 1px solid var(--line); color: var
     else if (act === "copylink") copyText(PAGE_URL + "#" + id, "", b, "Copy link");
     else if (act === "copyfield" && x) {
       var f = b.getAttribute("data-f");
-      copyText(f === "coverAlt" ? (x.piece.cover || {}).alt || "" : (x.piece.linkedin || {})[f] || "", "", b, "Copy");
+      copyText(publishField(x.piece, f) || "", "", b, "Copy");
     }
     else if (act === "dlcover" && x && S.downloads) {
       b.disabled = true;

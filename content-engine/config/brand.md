@@ -44,6 +44,10 @@ Only name a customer in public content if it has already been announced publicly
 
 Cadence: 2 posts a week. Arash records one voice note a week; the team drafts; Arash reviews on Mondays.
 
+Long reads are blog posts on vionlabs.com/news under Arash's name (Webflow's "News" collection),
+not LinkedIn articles. Like the blog's other posts they have Title Case titles, few links, and end
+with a "Book a demo" line. LinkedIn gets the posts, the carousels and a post sharing each blog link.
+
 | Pillar | Covers | Best format |
 | --- | --- | --- |
 | Product & AI Insight | How emotion-aware AI / metadata works, told through specifics | Carousel |
