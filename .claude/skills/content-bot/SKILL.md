@@ -160,13 +160,19 @@ Swedish from Marcus. It has to be good enough to publish as it stands: Arash sho
 read it once and answer "Kör". The Routine "Weekly LinkedIn draft for Arash" runs this mode.
 
 Each article piece carries its approval state in `approval`: `week` (ISO week it goes out),
-`doc`, `shareAt`, `shareWith`, `role`, `status` (`ready` → `shared` → `approved` or
-`changes`), `message` (the Swedish text), and `sharedAt` once sent.
+`doc`, `shareAt`, `shareWith`, `role`, `status` (`ready` → `scheduled` → `shared` →
+`approved` or `changes`), `message` (the Swedish text), and `sharedAt` once sent.
+
+The Doc needs the Google Drive connector. If this session doesn't have it (a Routine runs
+without connectors unless they were added to it), do steps 1 to 3, commit and push, and tell
+Marcus the Doc wasn't made because the Routine has no Google Drive connector. Don't share or
+send anything.
 
 1. **Set up** as in Mode 1, step 1.
 2. **Find this week's piece.** Work out the ISO week (`date +%G-W%V`). If a piece already has
-   `approval.week` set to this week, it was prepared earlier: go to step 5 (or stop if it has
-   `sharedAt`). Otherwise pick the next long read: the most-picked topic without a pack, ties
+   `approval.week` set to this week, it was prepared earlier: go to step 5. If it has
+   `sharedAt`, or `status` "scheduled" (a session has already booked the 10:00 share), go to
+   step 6. Otherwise pick the next long read: the most-picked topic without a pack, ties
    by `order`, and write it with Mode 1 (at least the long read, finished; the other pieces may
    stay drafts). Skip `ten-years` unless Arash's voice-note answers are in its notes. If every
    topic has a pack, run Mode 2 first.
@@ -190,8 +196,9 @@ Each article piece carries its approval state in `approval`: `week` (ISO week it
    `render_export.py`). Set `googleDoc`, `approval` (`week`, `doc`, `shareAt` "<date> 10:00
    Europe/Stockholm", `shareWith`, `role` "commenter", `status` "ready", `message`), rebuild,
    republish the page with its images, commit and push.
-5. **Share at 10:00.** If it is before 10:00 in Stockholm, schedule the rest with `send_later`
-   for 10:00 local time and end the turn. Then: share the Doc with `arash@vionlabs.com` as
+5. **Share at 10:00.** If it is before 10:00 in Stockholm, set `status` "scheduled", commit and
+   push (so no other run books it twice), schedule the rest with `send_later` for 10:00 local
+   time and end the turn. Then: share the Doc with `arash@vionlabs.com` as
    `commenter` (Drive `share_file`), and send `approval.message` to Arash as a Slack direct
    message from Marcus if Slack tools are available. Without Slack, put the message in the
    final summary so Marcus can paste it. Set `status` "shared" and `sharedAt`, commit and push.
@@ -202,7 +209,7 @@ Each article piece carries its approval state in `approval`: `week` (ISO week it
    asked for changes, set `status` "changes" and list them for Marcus. Never edit a shared Doc
    without the Google Docs connector, and never post to LinkedIn yourself: no connected tool
    can publish there, so Marcus posts it.
-7. **Report to Marcus** (the Routine sends it by push and email): what went to Arash and when,
+7. **Report to Marcus** (the Routine sends it as a push notification): what went to Arash and when,
    the Doc link, the Swedish message, and any approvals or requested changes.
 
 **The Swedish message** is written as Marcus would write it: informal, warm, short, no emoji,
