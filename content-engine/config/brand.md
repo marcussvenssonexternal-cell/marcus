@@ -65,6 +65,17 @@ Cadence: 2 posts a week. Arash records one voice note a week; the team drafts; A
 
 Gut check: would this sound like Arash saying it to a friend at a conference bar?
 
+### Our take first (long reads and articles)
+
+Our take leads and sources support it. Most of a long read is Vionlabs' own view: the argument,
+what we've learned building the product, how we read the market, what we'd do and what we expect
+next. Each section opens with that view, and research backs it up in a sentence or two without
+standing in for it. No research roundups (a section like "What the research tells us"). Use only
+the facts that carry the argument. Link four or five sources at most, preferring the news hook
+and our own proof, and credit the rest by name in the sentence ("Ampere puts the average up
+18%"). The full source list lives in the piece's `sources` and the fact-check. Mark opinions as
+opinions ("I think", "my reading") so they never pass as findings.
+
 ### Human prose (applies to every post, article, caption and blog)
 
 Write so it reads like careful human prose rather than typical LLM output. Keep the meaning,

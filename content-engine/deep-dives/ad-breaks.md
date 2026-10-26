@@ -72,81 +72,75 @@ We price almost everything about a streaming ad break except the part viewers fe
 
 You know the moment. You're an hour into a thriller, the detective has just pushed the door open, and the screen cuts to an ad for car insurance.
 
-The rest of the break is getting priced. In September, [FreeWheel started selling attention, quality and emotional resonance](https://www.nasdaq.com/press-release/freewheel-brings-attention-quality-and-emotional-resonance-signals-ctv-buying-2026-09) as signals for CTV buying.
+The rest of the break is getting priced. In September, [FreeWheel started selling attention, quality and emotional resonance](https://www.nasdaq.com/press-release/freewheel-brings-attention-quality-and-emotional-resonance-signals-ctv-buying-2026-09) as signals for CTV buying. Its scores also take in the number of breaks, how long the ads run, the time of day, live or on demand, and the device.
 
-Its scores take in the number of breaks, how long the ads run, the time of day, live or on demand, and the device. A couple of years ago most of that wasn't priced at all, so this is real progress.
+A couple of years ago most of that wasn't priced at all, so this is real progress.
 
-Every one of those inputs describes how much interruption there is. To a buyer, a break at the end of a scene and a break in the middle of a reveal still look the same: one break, two minutes.
+Every one of those inputs still describes how much interruption there is, though. To a buyer, a break at the end of a scene and a break in the middle of a reveal look the same: one break, two minutes.
 
 ![What a CTV buyer can score an ad break on today: number of breaks, ad duration, time of day, live or on demand, device, attention, quality and emotional resonance. Where in the story the break lands is not priced yet.](figures/ad-breaks-01-signals.png)
 
-## Ad loads are rising
+## Who pays for the second before the break
 
-Ad tiers are carrying more ads this year. Across the big US services, [Ampere](https://www.androidauthority.com/streaming-services-more-ads-2026-3708866/) puts the average up about 18% between January and August.
+The second before a break decides how the viewer meets the ad. If the story has just come to rest, the ad arrives as a pause. If the detective is halfway through the door, the ad is what stands between the viewer and the reveal.
 
-Paramount+ went from 7.9 to 9.0 minutes an hour. Netflix is still the lightest at about 2.4, and Prime Video was the only major service to cut.
+The publisher chooses that second. I think most of the cost of a bad choice lands on the advertiser, because theirs is the brand the viewer meets while annoyed. The platform pays later if people start giving up on episodes.
 
-Each of those extra minutes has to go somewhere in a story. Network dramas make that easy, because the writers build the act breaks into the script. Films and older catalogue titles were never written that way, so somebody has to decide where they pause.
+We already know advertisers lose out when the viewing experience gets worse. In a FreeWheel study with MediaScience, [reported by PPC Land](https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/), unaided recall was 41% in a lightly loaded programme and 26% next to nine minutes of ads per half hour.
 
-Usually that's an editor scrubbing through the timeline, or a rule that looks for black frames and silence. Rules like that miss a lot in film. [Amazon's own documentation](https://docs.aws.amazon.com/rekognition/latest/dg/segments.html) says black frames with audio over them, such as fade-outs and voice-overs, are treated as content and skipped.
+That study measured the amount of advertising. I couldn't find an industry study that compares a mid-scene break with one at a natural pause, on recall or on drop-off, so nobody can yet put a price on the difference.
 
-Doing it by hand is slow. When Nine moved Stan's catalogue onto [Bitmovin's scene analysis](https://senalnews.com/en/content/nine-entertainment-deploys-bitmovins-ai-scene-analysis-on-stan-to-boost-catalog-monetization) in September, it said approving ad placements had taken a lot of manual work before.
+## More breaks, and fewer of them planned
 
-## What the research tells us
+Ad tiers carry more ads this year. Ampere puts the average across the big US services up about 18% between January and August.
 
-On how much advertising people will accept, the evidence is fairly strong, although most of it comes from FreeWheel and its partners:
+Each of those extra minutes has to go somewhere in a story. Network dramas make that easy, because the writers build act breaks into the script.
 
-- In a FreeWheel study with MediaScience, [reported by PPC Land](https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/), unaided recall among 436 viewers was 41% in a lightly loaded programme and 26% next to nine minutes of ads per half hour.
-- FreeWheel and Mediaprobe found that six minutes of ads an hour delivered 89% higher recall than twelve.
+Films and older catalogue titles were made to play straight through, so their breaks get added afterwards to a cut that was never meant to stop.
 
-On whether the ad fits the content, the evidence is growing:
+Usually an editor finds them by scrubbing through the timeline, and that's slow. Nine said approving ad placements for Stan's catalogue had taken a lot of manual work before it moved to Bitmovin's scene analysis in September.
 
-- [Wurl and TVision](https://www.businesswire.com/news/home/20250731423150/en) found attention rose from 27% to 66% of a 30-second ad when its emotion matched the content's, across more than 50 campaigns. Wurl sells emotion matching, so this is a vendor study.
-- [FreeWheel's VX Lab](https://www.freewheel.com/wp-content/uploads/2025/09/FreeWheel_VX_Lab_Maximizing_Brand_Recall_Report.pdf) found recall about 20% higher when programme and ad shared one of their top three keywords, and up to 38% higher when the top keyword matched.
+The faster option is a rule that looks for black frames and silence. In film that misses a lot, because a fade to black often has music or a voice running over it.
 
-On where the break sits in the story, there is very little. I couldn't find an industry study comparing a mid-scene break with one at a natural pause, on recall or on drop-off.
+## What a natural pause looks like
 
-The closest is older academic work. [Wang and Calder](https://www.kellogg.northwestern.edu/academics-research/research/detail/2006/media-trasportation-and-advertising/) found that being absorbed in a story can help an ad, but that an ad which intrudes on the experience loses out.
+We've worked on this at Vionlabs for years. The main thing we've learned is that the picture and the story don't always pause in the same place.
 
-## The case for the break
+A story is resting when several things are true at once. The scene has ended, nobody is speaking, the next shot looks clearly different from the last one, and the tension has eased.
 
-The best argument against me comes from research I like. Across six studies, [Nelson, Meyvis and Galak](https://ideas.repec.org/a/oup/jconrs/doi10.1086-597030.html) found that commercial breaks can make a programme more enjoyable, because the pause stops us getting used to it.
-
-YouTube is betting on position too, in its own way. Its [Peak Points pilot](https://9to5google.com/2025/05/15/youtube-ads-gemini-peak-points-placement/), announced in May 2025, uses Gemini to place an ad right after a peak moment, such as a marriage proposal. I haven't seen any published results yet.
-
-So I accept that a break can help a show. Network TV has used the cliffhanger break on purpose for decades, and it works because the writers built the tension to carry viewers through the ads and back.
-
-What worries me is the break nobody designed. It's the one dropped mid-conversation because the clock reached 14:00, or in the middle of a long, quiet scene because the picture went dark.
-
-The enjoyment effect has limits too. It disappeared for programmes that don't lead viewers to adapt, and the authors guessed at the time that very fast-paced shows probably don't benefit either.
-
-News raises the stakes further. News and commentary channels grew faster than any other major FAST genre over the past year, up 52.9% by [Gracenote's count](https://www.newscaststudio.com/2026/08/20/fast-sports-programming-growth-outpaces-channel-expansion-gracenote-finds/), and news is where the content next to a break matters most.
-
-## How we look for the pause
-
-We've worked on this at Vionlabs for years. Our ad-break detection combines four models: one that spots black frames and avoids cutting into speech, one that follows the flow of the story, one that finds scene boundaries, and one that compares how similar the shots are.
+No single signal sees all of that, so our ad-break detection combines four models. One spots black frames and avoids cutting into speech, one follows the flow of the story, one finds scene boundaries, and one compares how similar the shots are.
 
 The more of them agree on a spot, the higher it's rated (excellent, good or passable). An editor then reviews a ranked shortlist instead of the whole film.
 
 It still makes mistakes. In [a webinar with SDVI](https://www.vionlabs.com/news/accelerating-ad-breaks-detection-and-insertion-webinar-with-sdvi) this summer I described one: a shot that pans into darkness can look like a black frame to the model, so it gets flagged as a break.
 
-That's why we built it for a person to check the result. [SDVI has shown our detection](https://sdvi.com/about-us/press-releases/sdvi-to-showcase-next-generation-rally-platform-and-new-technology-integrations-at-ibc2026/) on its Rally platform with Codemill's Accurate.Video, where editors validate each suggested break frame by frame.
+That's why we built it for a person to check the result. SDVI has shown our detection on its Rally platform with Codemill's Accurate.Video, where editors validate each suggested break frame by frame.
 
-With our partner SeaOvers, [i-CABLE in Hong Kong](https://www.vionlabs.com/news/vionlabs-and-seaovers-announce-partnership-to-elevate-ad-supported-streaming-with-ai-i-cable-launches-first-deployment-in-asia) went from signed contract to live in 30 days.
+It's also quick to roll out. With our partner SeaOvers, [i-CABLE in Hong Kong](https://www.vionlabs.com/news/vionlabs-and-seaovers-announce-partnership-to-elevate-ad-supported-streaming-with-ai-i-cable-launches-first-deployment-in-asia) went from signed contract to live in 30 days.
 
-We're not alone in this. [Bitmovin](https://bitmovin.com/blog/ai-ad-placement-score-scene-level-streaming/) describes an ad opportunity score for each scene boundary, based on the pacing and tension of the scenes on either side. I read that as a good sign that publishers want breaks that respect the story.
+## The case for the break
 
-## The missing signal
+The best argument against me comes from research I like. Across six studies, Nelson, Meyvis and Galak found that commercial breaks can make a programme more enjoyable, because the pause stops us getting used to it.
 
-Contextual data is finally moving through CTV. [Wurl](https://www.mediapost.com/publications/article/418319/) now adds it to bid requests before they reach the buyer, while [FreeWheel](https://www.businesswire.com/news/home/20260414782359/en/) and [Anoki](https://www.businesswire.com/news/home/20251209200641/en/) describe the tone of each scene.
+They didn't test where the break sat, so this part is my reading. I think the breaks that help are the ones a story can absorb, like the cliffhanger network TV has used on purpose for decades.
 
-Even so, [Peer39](https://insights.peer39.com/ctv-truths-report-q1-2026) finds that about 60% of CTV bid requests carry no usable signal about the programme at all.
+The breaks that worry me are the ones nobody designed. One gets dropped mid-conversation because the clock reached 14:00, another into a long, quiet scene because the picture went dark.
 
-I couldn't find anything in the industry's ad standards that records where in the story a break falls.
+YouTube seems to agree that position matters. Its Peak Points pilot, announced in May 2025, uses Gemini to place an ad right after a peak moment such as a marriage proposal. I haven't seen published results yet.
 
-Emotion travels today to describe the scene before an ad, so that a matching ad can be picked. Where the break itself sits is taken as given.
+## Placement should be priced
 
-That's the signal I think we should add next. **A break-quality score, created where the content lives and carried with the cue point, would let buyers pay more for breaks that keep the story intact, and give publishers a way to prove it.**
+Context is starting to travel with CTV ads. Wurl adds contextual data to bid requests, and FreeWheel and Anoki describe the tone of each scene so a matching ad can be picked.
+
+It's early days. Peer39 finds that about 60% of CTV bid requests still carry no usable signal about the programme at all.
+
+And all of that describes the content around a break. Where the break itself sits is taken as given, and I couldn't find anything in the industry's ad standards that records it.
+
+Display advertising had a similar gap. For years ads were bought on served impressions, with no way to know whether anyone could see them. The Media Rating Council set a viewability standard in 2014, and buyers now sign viewable-only deals that don't pay for ads nobody could see.
+
+I expect break placement to go the same way. **A break-quality score, created where the content lives and carried with the cue point, would let buyers pay more for breaks that keep the story intact, and give publishers a way to prove it.**
+
+Bitmovin is moving in a similar direction with an ad opportunity score for each scene boundary, based on the pacing and tension of the scenes on either side. I take that as a good sign that publishers want breaks that respect the story.
 
 ## Where I'd start
 
@@ -158,7 +152,7 @@ If you run an ad tier or a FAST channel, these tests are cheap:
 
 And if you sell CTV inventory, I'd like to hear from you. Would you charge more for a break you could prove lands at a natural pause, or will buyers never pay for position?
 
-**Sources:** [FreeWheel brings attention, quality and emotional resonance signals to CTV buying](https://www.nasdaq.com/press-release/freewheel-brings-attention-quality-and-emotional-resonance-signals-ctv-buying-2026-09) (2026-09-17); [Streaming services are showing more ads in 2026 (Ampere data, Android Authority)](https://www.androidauthority.com/streaming-services-more-ads-2026-3708866/) (2026-09); [More ads cut streaming brand recall from 41% to 26% (FreeWheel + MediaScience)](https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/) (2026-09-15); [Wurl and TVision: emotion alignment and ad attention on streaming TV](https://www.businesswire.com/news/home/20250731423150/en) (2025-07-31); [Wang & Calder, Media Transportation and Advertising (Journal of Consumer Research)](https://www.kellogg.northwestern.edu/academics-research/research/detail/2006/media-trasportation-and-advertising/) (2006); [Nelson, Meyvis & Galak, Enhancing the television-viewing experience through commercial interruptions (JCR)](https://ideas.repec.org/a/oup/jconrs/doi10.1086-597030.html) (2009); [YouTube's Peak Points uses Gemini to place ads after peak moments (9to5Google)](https://9to5google.com/2025/05/15/youtube-ads-gemini-peak-points-placement/) (2025-05-15); [Amazon Rekognition: detecting video segments](https://docs.aws.amazon.com/rekognition/latest/dg/segments.html) (current docs); [Nine deploys Bitmovin AI Scene Analysis on Stan (Señal News)](https://senalnews.com/en/content/nine-entertainment-deploys-bitmovins-ai-scene-analysis-on-stan-to-boost-catalog-monetization) (2026-09-14); [Bitmovin: AI ad placement score at scene level](https://bitmovin.com/blog/ai-ad-placement-score-scene-level-streaming/) (2026-Q1); [FAST sports growth outpaces channel expansion (Gracenote via NewscastStudio)](https://www.newscaststudio.com/2026/08/20/fast-sports-programming-growth-outpaces-channel-expansion-gracenote-finds/) (2026-08-20); [Accelerating ad-break detection and insertion: webinar with SDVI](https://www.vionlabs.com/news/accelerating-ad-breaks-detection-and-insertion-webinar-with-sdvi) (2026-08-19); [SDVI at IBC2026: Rally platform with Vionlabs and Accurate.Video](https://sdvi.com/about-us/press-releases/sdvi-to-showcase-next-generation-rally-platform-and-new-technology-integrations-at-ibc2026/) (2026-09); [Vionlabs and SeaOvers partnership; i-CABLE first deployment](https://www.vionlabs.com/news/vionlabs-and-seaovers-announce-partnership-to-elevate-ad-supported-streaming-with-ai-i-cable-launches-first-deployment-in-asia) (2025-09-11); [FreeWheel Context Engine (Business Wire)](https://www.businesswire.com/news/home/20260414782359/en/) (2026-04-14); [Anoki ContextIQ via Index Exchange (Business Wire)](https://www.businesswire.com/news/home/20251209200641/en) (2025-12-09); [IAB Tech Lab defines six core CTV ad formats (NewscastStudio)](https://www.newscaststudio.com/2025/12/12/iab-tech-lab-defines-six-core-ad-formats-in-new-ctv-portfolio) (2025-12-12); [IAB Tech Lab: OpenRTB updates for your 2026 roadmap](https://iabtechlab.com/essential-openrtb-updates-you-cant-ignore-for-your-2026-roadmap/) (2026); [Wurl launches Content Intelligence Platform (MediaPost)](https://www.mediapost.com/publications/article/418319/) (2026-09-15); [Peer39 CTV Truths report, Q1 2026](https://insights.peer39.com/ctv-truths-report-q1-2026) (2026-Q1); [FreeWheel VX Lab: Maximizing Brand Recall Through Contextual Alignment](https://www.freewheel.com/wp-content/uploads/2025/09/FreeWheel_VX_Lab_Maximizing_Brand_Recall_Report.pdf) (2025-09)
+**Sources:** [FreeWheel brings attention, quality and emotional resonance signals to CTV buying](https://www.nasdaq.com/press-release/freewheel-brings-attention-quality-and-emotional-resonance-signals-ctv-buying-2026-09) (2026-09-17); [Streaming services are showing more ads in 2026 (Ampere data, Android Authority)](https://www.androidauthority.com/streaming-services-more-ads-2026-3708866/) (2026-09); [More ads cut streaming brand recall from 41% to 26% (FreeWheel + MediaScience)](https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/) (2026-09-15); [Nelson, Meyvis & Galak, Enhancing the television-viewing experience through commercial interruptions (JCR)](https://ideas.repec.org/a/oup/jconrs/doi10.1086-597030.html) (2009); [YouTube's Peak Points uses Gemini to place ads after peak moments (9to5Google)](https://9to5google.com/2025/05/15/youtube-ads-gemini-peak-points-placement/) (2025-05-15); [Amazon Rekognition: detecting video segments](https://docs.aws.amazon.com/rekognition/latest/dg/segments.html) (current docs); [Nine deploys Bitmovin AI Scene Analysis on Stan (Señal News)](https://senalnews.com/en/content/nine-entertainment-deploys-bitmovins-ai-scene-analysis-on-stan-to-boost-catalog-monetization) (2026-09-14); [Bitmovin: AI ad placement score at scene level](https://bitmovin.com/blog/ai-ad-placement-score-scene-level-streaming/) (2026-Q1); [Accelerating ad-break detection and insertion: webinar with SDVI](https://www.vionlabs.com/news/accelerating-ad-breaks-detection-and-insertion-webinar-with-sdvi) (2026-08-19); [SDVI at IBC2026: Rally platform with Vionlabs and Accurate.Video](https://sdvi.com/about-us/press-releases/sdvi-to-showcase-next-generation-rally-platform-and-new-technology-integrations-at-ibc2026/) (2026-09); [Vionlabs and SeaOvers partnership; i-CABLE first deployment](https://www.vionlabs.com/news/vionlabs-and-seaovers-announce-partnership-to-elevate-ad-supported-streaming-with-ai-i-cable-launches-first-deployment-in-asia) (2025-09-11); [FreeWheel Context Engine (Business Wire)](https://www.businesswire.com/news/home/20260414782359/en/) (2026-04-14); [Anoki ContextIQ via Index Exchange (Business Wire)](https://www.businesswire.com/news/home/20251209200641/en) (2025-12-09); [IAB Tech Lab defines six core CTV ad formats (NewscastStudio)](https://www.newscaststudio.com/2025/12/12/iab-tech-lab-defines-six-core-ad-formats-in-new-ctv-portfolio) (2025-12-12); [IAB Tech Lab: OpenRTB updates for your 2026 roadmap](https://iabtechlab.com/essential-openrtb-updates-you-cant-ignore-for-your-2026-roadmap/) (2026); [Wurl launches Content Intelligence Platform (MediaPost)](https://www.mediapost.com/publications/article/418319/) (2026-09-15); [Peer39 CTV Truths report, Q1 2026](https://insights.peer39.com/ctv-truths-report-q1-2026) (2026-Q1); [MRC Viewable Ad Impression Measurement Guidelines (IAB)](https://www.iab.com/wp-content/uploads/2015/06/MRC-Viewable-Ad-Impression-Measurement-Guideline.pdf) (2014-06-30); [MRC viewability standards: definition and history (Pixalate)](https://www.pixalate.com/blog/mrc-viewability-standards-definition-history) (undated)
 
 ## Ad minutes per hour rose 18% this year. Every extra minute has to land somewhere.
 
@@ -290,6 +284,7 @@ What's the worst-placed ad break you've ever sat through?
 | IAB Tech Lab CTV Ad Portfolio: Pause, Menu, Screensaver, In-Scene, Squeezebacks, Overlays; released for public comment (final version not confirmed) | [NewscastStudio; StreamTV Insider](https://www.newscaststudio.com/2025/12/12/iab-tech-lab-defines-six-core-ad-formats-in-new-ctv-portfolio) 2025-12-12 | confirmed |
 | About 60% of CTV bid requests contain no usable program-level signal (Peer39's own data) | [Peer39 report; PPC Land](https://insights.peer39.com/ctv-truths-report-q1-2026) 2026-Q1 | confirmed |
 | '46% reduction in churn' (vionlabs.com) vs '64% churn for misaligned AVOD ads' (AWS listing): conflicting, method not public. Not used. | [Vionlabs AWS Marketplace listing](https://aws.amazon.com/marketplace/pp/prodview-xmfajvapsnwsg) undated | unconfirmed |
+| Display ads were long bought on served impressions; the MRC set a viewability standard in 2014 (advisory lifted for display in March, guidelines final 30 June); buyers now sign viewable-only deals that discount non-viewable impressions | [MRC guidelines (IAB) and Pixalate's history of the standard](https://www.iab.com/wp-content/uploads/2015/06/MRC-Viewable-Ad-Impression-Measurement-Guideline.pdf) 2014 | confirmed |
 
 ## How this was made
 

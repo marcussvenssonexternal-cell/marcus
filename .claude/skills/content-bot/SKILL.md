@@ -81,7 +81,9 @@ research corrected them. Keep `id` and `order`.
 Five pieces, in posting order:
 1. A long read (`article`): 1,100 to 1,600 words of Markdown. The first line is the opinion
    itself. Short `##` sections. Name the competitors or research that complicate the thesis; never
-   pretend a gap is wider than the evidence shows.
+   pretend a gap is wider than the evidence shows. Follow "Our take first" in `brand.md`: the
+   piece is Vionlabs' argument, with four or five links at most and other sources credited by
+   name in the sentence.
 2. Three posts (`post`): 120 to 220 words each, each a different pillar, each standing alone. One
    is the contrarian take, one leads with a number.
 3. One carousel brief (`carousel`): hook, 8 to 10 slides with on-slide text and a designer note,
@@ -182,7 +184,8 @@ send anything.
      "reported by PPC Land"), or cut it. Rewrite around every `[Arash: …]` and `[Team: …]`.
    - A pass with the `human-prose` skill, then a professional editor's read for a founder's
      byline: the opening line is his view, then something concrete; paragraphs average under
-     35 words; numbers go in short bullet lists; at most a couple of company names per
+     35 words; Vionlabs' own view leads every section and the text has four or five links at
+     most ("Our take first" in `brand.md`); numbers go in short bullet lists; at most a couple of company names per
      sentence; one bold line at most; ends with one specific question.
    - Images: the cover and at least one in-article figure (`figures`, drawn by `figure.html`,
      with a source line), rendered with `node content-engine/bot/cover.js <topic>` and looked at
@@ -214,8 +217,8 @@ send anything.
 
 **The Swedish message** is written as Marcus would write it: informal, warm, short, no emoji,
 no em dashes. It opens with "Hej Arash!" and the link, gives two or three sentences on what the
-article argues and why it matters for Vionlabs, says "Allt är faktagranskat, länkat till
-källor och skrivet i ditt namn. Det tar ungefär N minuter att läsa.", asks at most one question
+article argues and why it matters for Vionlabs, says "Allt är faktagranskat och skrivet i
+ditt namn. Det tar ungefär N minuter att läsa.", asks at most one question
 (only to confirm something personal, like his own anecdote), and ends: 'Ser det bra ut? Svara
 bara "Kör" så publicerar vi den. Vill du ändra något kan du kommentera direkt i dokumentet, så
 fixar jag resten.'
