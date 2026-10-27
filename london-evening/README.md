@@ -13,8 +13,8 @@ gets a "Requested" stamp once the request is sent.
 
 The page is also built natively in the Vionlabs Webflow site as the page "An evening in the City" at
 `/london`, using classes prefixed `lon-` and a native Webflow form named "London evening request".
-It opens with the site's "Navbar Primary" component, shown there as a floating rounded bar by CSS in
-the page's head code, so the component looks the same as before on every other page.
+It opens with the site's standard "Navbar Primary" component; the page's head code only gives it the
+page's navy background, so the component is unchanged on every other page.
 Fonts, animations and the ticket script (live guest name, "Requested" stamp, tilt) are in that page's
 custom code. Its form submissions land in Webflow under Forms, and reach HubSpot the same way as the
 site's other Webflow forms. This folder is the standalone version of the same design.
