@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your seat for an evening in the City · Embrace × Vionlabs · London, 16 November</title>
 <meta name="description" content="A private reception for the people who run media operations, hosted by Embrace and Vionlabs. Monday 16 November 2026, 18:30 – 22:00, Vinoteca di Sartoria, 21 Bloomberg Arcade, London. Request your place.">
-<meta name="theme-color" content="#2343c4">
+<meta name="theme-color" content="#111b2c">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Your seat for an evening in the City">
@@ -49,21 +49,22 @@
 </script>
 
 <style>
-/* Colours and type from the "K3 · Ticket (bright blue)" social post. */
+/* Colours and type from the "K2 · Ticket (navy)" social post. */
 :root {
-  --blue: #2343c4;
-  --blue-deep: #1b35a3;
+  --bg: #111b2c;
+  --art: #16233a;
+  --accent: #e0457f;
+  --accent-strong: #cf3a72;
+  --accent-ink: #b52f62;
   --paper: #f7f7f5;
   --ink: #16171a;
   --ink-soft: #5a5c61;
-  --navy: #111b2c;
   --perf: #c9cbcf;
   --field-line: #8a8d92;
   --white: #ffffff;
-  --on-blue: rgba(255, 255, 255, 0.88);
-  --on-blue-soft: rgba(255, 255, 255, 0.76);
+  --on-dark: rgba(255, 255, 255, 0.88);
+  --on-dark-soft: rgba(255, 255, 255, 0.74);
   --error: #b3261e;
-  --error-on-blue: #ffd2d2;
 
   --side: clamp(20px, 5vw, 72px);
   --max: 1180px;
@@ -77,7 +78,7 @@ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--blue);
+  background: var(--bg);
   color: var(--white);
   font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 300;
@@ -118,11 +119,9 @@ a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px
 .pill svg { width: 26px; height: auto; flex: none; transition: transform 200ms ease; }
 .pill:hover svg { transform: translateX(4px); }
 .pill:active { transform: translateY(1px); }
-.pill-white { background: var(--white); color: var(--ink); }
-.pill-white:hover { background: #e9ecf9; }
-.pill-blue { background: var(--blue); color: var(--white); }
-.pill-blue:hover { background: var(--blue-deep); }
-.pill-blue:focus-visible { outline-color: var(--blue); }
+.pill-accent { background: var(--accent-strong); color: var(--white); }
+.pill-accent:hover { background: var(--accent-ink); }
+.form-ticket .pill-accent:focus-visible { outline-color: var(--accent-ink); }
 
 /* ---------- Header ---------- */
 
@@ -133,7 +132,7 @@ a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px
 
 .hero {
   position: relative; overflow: hidden; padding-bottom: clamp(56px, 8vw, 112px);
-  background: radial-gradient(ellipse 70% 45% at 50% 72%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(ellipse 70% 45% at 50% 72%, rgba(77, 155, 255, 0.16), rgba(77, 155, 255, 0) 70%);
 }
 
 h1 {
@@ -141,11 +140,12 @@ h1 {
   font-size: clamp(40px, 6.6vw, 88px); line-height: 1.04; font-weight: 500; letter-spacing: -0.02em;
   text-wrap: balance;
 }
-.lead { margin: clamp(20px, 2.4vw, 32px) 0 0; max-width: 33em; font-size: clamp(19px, 2vw, 26px); line-height: 1.45; color: var(--on-blue); }
+h1 .dot { color: var(--accent); }
+.lead { margin: clamp(20px, 2.4vw, 32px) 0 0; max-width: 33em; font-size: clamp(19px, 2vw, 26px); line-height: 1.45; color: var(--on-dark); }
 
 .status-pill {
   display: inline-flex; align-items: center; gap: 10px; margin: 0 0 16px;
-  padding: 6px 14px; border-radius: 999px; background: var(--white); color: var(--blue);
+  padding: 6px 14px; border-radius: 999px; background: var(--white); color: var(--accent-ink);
   font-family: var(--mono); font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
 }
 
@@ -168,7 +168,7 @@ h1 {
   to { opacity: 1; transform: none; }
 }
 
-.ticket-art { position: relative; background: var(--navy); overflow: hidden; }
+.ticket-art { position: relative; background: var(--art); overflow: hidden; }
 .ticket-art img { position: absolute; left: -12%; bottom: 0; width: 121%; height: auto; }
 
 .ticket-main { display: flex; flex-direction: column; padding: clamp(28px, 4vw, 48px) clamp(24px, 3.6vw, 44px); }
@@ -181,7 +181,7 @@ h1 {
 .ticket-stub { position: relative; display: grid; place-items: center; border-left: 3px dashed var(--perf); }
 .ticket-stub::before, .ticket-stub::after {
   content: ''; position: absolute; left: calc(-1 * var(--notch) - 1.5px);
-  width: calc(2 * var(--notch)); height: calc(2 * var(--notch)); border-radius: 50%; background: var(--blue);
+  width: calc(2 * var(--notch)); height: calc(2 * var(--notch)); border-radius: 50%; background: var(--bg);
 }
 .ticket-stub::before { top: calc(-1 * var(--notch)); }
 .ticket-stub::after { bottom: calc(-1 * var(--notch)); }
@@ -193,25 +193,25 @@ h1 {
 .hero-cta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px 40px; margin-top: clamp(36px, 5vw, 56px); }
 .hero-cta p { margin: 0; }
 .cta-title { font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; line-height: 1.25; }
-.cta-sub { margin-top: 4px !important; font-size: clamp(17px, 1.8vw, 21px); color: var(--on-blue); }
+.cta-sub { margin-top: 4px !important; font-size: clamp(17px, 1.8vw, 21px); color: var(--on-dark); }
 
 /* ---------- Request ---------- */
 
 .request { padding-block: clamp(72px, 9vw, 128px); border-top: 1px solid rgba(255, 255, 255, 0.24); }
 .request-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
 
-.kicker-on-blue { margin: 0; font-family: var(--mono); font-size: 14px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--on-blue-soft); }
+.kicker-on-dark { margin: 0; font-family: var(--mono); font-size: 14px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--on-dark-soft); }
 h2 { margin: 16px 0 0; font-size: clamp(40px, 4.8vw, 64px); line-height: 1.04; font-weight: 500; letter-spacing: -0.02em; }
-.request-intro > p.intro { margin: 20px 0 0; max-width: 28em; font-size: 20px; color: var(--on-blue); }
+.request-intro > p.intro { margin: 20px 0 0; max-width: 28em; font-size: 20px; color: var(--on-dark); }
 
 .steps { list-style: none; margin: 40px 0 0; padding: 0; counter-reset: step; }
 .steps li { display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 20px 0; border-top: 1px solid rgba(255, 255, 255, 0.24); counter-increment: step; }
-.steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--mono); font-size: 15px; font-weight: 500; letter-spacing: 0.08em; padding-top: 3px; color: var(--on-blue-soft); }
+.steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--mono); font-size: 15px; font-weight: 500; letter-spacing: 0.08em; padding-top: 3px; color: var(--on-dark-soft); }
 .steps strong { display: block; font-size: 21px; font-weight: 500; line-height: 1.3; }
-.steps span { display: block; margin-top: 2px; font-size: 17px; color: var(--on-blue-soft); }
+.steps span { display: block; margin-top: 2px; font-size: 17px; color: var(--on-dark-soft); }
 
 .getting-there { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.24); }
-.getting-there p:not(.kicker-on-blue) { margin: 8px 0 0; font-size: 18px; color: var(--on-blue); }
+.getting-there p:not(.kicker-on-dark) { margin: 8px 0 0; font-size: 18px; color: var(--on-dark); }
 .getting-there a { font-weight: 500; color: var(--white); }
 
 /* The form is the guest's half of the ticket. */
@@ -226,7 +226,7 @@ h2 { margin: 16px 0 0; font-size: clamp(40px, 4.8vw, 64px); line-height: 1.04; f
 .ft-perf { --notch: 18px; position: relative; height: 0; border-top: 3px dashed var(--perf); }
 .ft-perf::before, .ft-perf::after {
   content: ''; position: absolute; top: calc(-1 * var(--notch) - 1.5px);
-  width: calc(2 * var(--notch)); height: calc(2 * var(--notch)); border-radius: 50%; background: var(--blue);
+  width: calc(2 * var(--notch)); height: calc(2 * var(--notch)); border-radius: 50%; background: var(--bg);
 }
 .ft-perf::before { left: calc(-1 * var(--notch)); }
 .ft-perf::after { right: calc(-1 * var(--notch)); }
@@ -249,7 +249,7 @@ input[type="text"], input[type="email"], textarea {
 textarea { min-height: 104px; resize: vertical; }
 input::placeholder, textarea::placeholder { color: #8a8d92; }
 input:hover, textarea:hover { border-color: var(--ink-soft); }
-input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; border-color: var(--blue); }
+input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 1px; border-color: var(--accent-ink); }
 [aria-invalid="true"] { border-color: var(--error) !important; box-shadow: 0 0 0 1px var(--error); }
 
 .hint { font-size: 14px; color: var(--ink-soft); }
@@ -266,11 +266,11 @@ input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); ou
   content: ''; width: 12px; height: 7px; border: solid var(--white); border-width: 0 0 2px 2px;
   transform: translateY(-2px) rotate(-45deg); opacity: 0;
 }
-.consent input:checked { background: var(--blue); border-color: var(--blue); }
+.consent input:checked { background: var(--accent-strong); border-color: var(--accent-strong); }
 .consent input:checked::after { opacity: 1; }
-.consent input:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.consent input:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 2px; }
 .consent label { font-size: 15px; line-height: 1.5; color: var(--ink-soft); cursor: pointer; }
-.consent label a { color: var(--blue); font-weight: 500; }
+.consent label a { color: var(--accent-ink); font-weight: 500; }
 .consent .error-text { grid-column: 2; }
 
 .honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
@@ -285,7 +285,7 @@ input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); ou
 
 .stamp {
   position: absolute; right: clamp(18px, 3vw, 40px); top: clamp(20px, 3vw, 36px);
-  padding: 8px 14px; border: 3px solid var(--blue); border-radius: 8px; color: var(--blue);
+  padding: 8px 14px; border: 3px solid var(--accent-ink); border-radius: 8px; color: var(--accent-ink);
   font-family: var(--mono); font-size: 15px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.25; text-align: center;
   transform: rotate(-9deg);
   animation: stamp-in 420ms cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
@@ -303,7 +303,7 @@ input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); ou
 
 /* ---------- Footer ---------- */
 
-.site-footer { padding-block: 36px 44px; border-top: 1px solid rgba(255, 255, 255, 0.24); font-size: 15px; color: var(--on-blue-soft); }
+.site-footer { padding-block: 36px 44px; border-top: 1px solid rgba(255, 255, 255, 0.24); font-size: 15px; color: var(--on-dark-soft); }
 .site-footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
 .footer-brand { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
 .footer-brand img { height: 20px; width: auto; }
@@ -353,7 +353,7 @@ input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); ou
         <img src="assets/vionlabs-logo-white.png" width="520" height="112" alt="Vionlabs">
       </div>
 
-      <h1 id="event-title">Your seat for<br> an evening in the City.</h1>
+      <h1 id="event-title">Your seat for<br> an evening in the City<span class="dot">.</span></h1>
       <p class="lead">For the people who run media operations. Good wine, a short walk from Bank. No slides, no stand.</p>
 
       <div class="ticket-stage">
@@ -383,7 +383,7 @@ input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); ou
           <p class="cta-title">Monday 16 November, the night before DPP</p>
           <p class="cta-sub">By invitation. The hosts confirm every spot.</p>
         </div>
-        <a class="pill pill-white" href="#request">Request your place<svg viewBox="0 0 48 28" aria-hidden="true"><path d="M2 14h42M32 3l12 11-12 11" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="pill pill-accent" href="#request">Request your place<svg viewBox="0 0 48 28" aria-hidden="true"><path d="M2 14h42M32 3l12 11-12 11" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </section>
@@ -391,7 +391,7 @@ input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); ou
   <section class="request" id="request" aria-labelledby="request-title">
     <div class="wrap request-grid">
       <div class="request-intro">
-        <p class="kicker-on-blue">How it works</p>
+        <p class="kicker-on-dark">How it works</p>
         <h2 id="request-title">Request your place</h2>
         <p class="intro">Places are limited, so the hosts read every request and confirm each place personally.</p>
         <ol class="steps">
@@ -400,7 +400,7 @@ input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); ou
           <li><div><strong>We confirm by email</strong><span>Your seat is held once the confirmation arrives.</span></div></li>
         </ol>
         <div class="getting-there">
-          <p class="kicker-on-blue">Getting there</p>
+          <p class="kicker-on-dark">Getting there</p>
           <p>Vinoteca di Sartoria, 21 Bloomberg Arcade, London. A short walk from Bank.</p>
           <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Vinoteca+di+Sartoria%2C+21+Bloomberg+Arcade%2C+London" target="_blank" rel="noopener">Open in Google Maps<span class="visually-hidden"> (opens in a new tab)</span></a></p>
         </div>
@@ -468,7 +468,7 @@ input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); ou
             </div>
 
             <div class="form-footer">
-              <button class="pill pill-blue submit" type="submit">Request my place<svg viewBox="0 0 48 28" aria-hidden="true"><path d="M2 14h42M32 3l12 11-12 11" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <button class="pill pill-accent submit" type="submit">Request my place<svg viewBox="0 0 48 28" aria-hidden="true"><path d="M2 14h42M32 3l12 11-12 11" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
               <p class="form-note">All fields are required unless marked optional.</p>
             </div>
             <p class="form-status" id="form-status" role="alert"></p>

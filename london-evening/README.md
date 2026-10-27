@@ -4,10 +4,18 @@ Landing page for the Embrace × Vionlabs reception on Monday 16 November 2026, 1
 Vinoteca di Sartoria, 21 Bloomberg Arcade, London. Guests request a place through the form, the
 request goes to HubSpot, and the hosts confirm each place by email.
 
-The page is built on the "K3 · Ticket (bright blue)" social post: blue `#2343C4`, Space Grotesk
+The page is built on the "K2 · Ticket (navy)" social post: navy `#111B2C` with a pink accent, Space Grotesk
 with JetBrains Mono labels, and the paper ticket with the St Paul's drawing in its navy stub. The
 form is the guest's half of the ticket: their name and company appear on it as they type, and it
 gets a "Requested" stamp once the request is sent.
+
+## Live version in Webflow
+
+The page is also built natively in the Vionlabs Webflow site as the page "An evening in the City" at
+`/london`, using classes prefixed `lon-` and a native Webflow form named "London evening request".
+Fonts, animations and the ticket script (live guest name, "Requested" stamp, tilt) are in that page's
+custom code. Its form submissions land in Webflow under Forms, and reach HubSpot the same way as the
+site's other Webflow forms. This folder is the standalone version of the same design.
 
 ## Files
 
