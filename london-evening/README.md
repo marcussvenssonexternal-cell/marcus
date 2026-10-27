@@ -1,18 +1,19 @@
 # An evening in the City: request-a-place page
 
-Landing page for the Embrace × Vionlabs reception on Monday 16 November 2026, 18:30 – 22:00, at
+Landing page for the Vionlabs × Embrace reception on Monday 16 November 2026, 18:30 – 22:00, at
 Vinoteca di Sartoria, 21 Bloomberg Arcade, London. Guests request a place through the form, the
 request goes to HubSpot, and the hosts confirm each place by email.
 
-The look follows the "An evening in the City – socials" design: charcoal `#222426`, Poppins, the
-St Paul's line drawing, and the magenta `#C63268` line that runs in from the left edge and up the dome.
+The page is in the Vionlabs look, taken from the vionlabs.com Webflow styles: Inter, black
+backgrounds with the blue and amber glows, `#0068E0` pill buttons, the gradient-outlined section
+label, and the form card and fields from the Book a Demo page. Embrace is named as co-host in the copy.
 
 ## Files
 
 | File | What it is |
 | --- | --- |
 | `index.html` | The whole page: markup, styles, form logic and settings. No build step |
-| `assets/` | Logos, the illustration (WebP with a PNG fallback) and `og-image.jpg` for link previews |
+| `assets/` | The Vionlabs logo and `og-image.jpg` for link previews |
 | `og/og-image.html` | Source of the 1200×627 link preview. `node og/render_og.cjs` re-renders `assets/og-image.jpg` |
 
 To preview, open `index.html` in a browser. Until HubSpot is connected the form runs in preview

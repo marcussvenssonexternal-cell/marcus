@@ -3,43 +3,47 @@
 <head>
 <meta charset="utf-8">
 <title>An evening in the City – link preview</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
-/* 1200×627 link preview, after the "Link / X · 1.91:1" social card. Rendered by render_og.cjs. */
+/* 1200×627 link preview in the landing page's look. Rendered by render_og.cjs. */
 body { margin: 0; }
 .card {
-  position: relative; width: 1200px; height: 627px; overflow: hidden;
-  background: #222426; color: #f4f4f2;
-  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif; font-weight: 300;
+  position: relative; width: 1200px; height: 627px; overflow: hidden; box-sizing: border-box;
+  padding: 56px 64px; display: flex; flex-direction: column;
+  color: #ffffff; font-family: 'Inter', Arial, sans-serif;
+  background:
+    radial-gradient(ellipse 55% 60% at 30% 55%, rgba(0, 104, 224, 0.22), rgba(0, 104, 224, 0) 70%),
+    radial-gradient(circle farthest-corner at 110% -20%, hsla(216, 57%, 34%, 0.45), rgba(0, 0, 0, 0) 45%),
+    radial-gradient(circle farthest-corner at 105% 115%, hsla(29, 100%, 44%, 0.2), rgba(0, 0, 0, 0) 30%),
+    #000000;
 }
-.art { position: absolute; right: 0; bottom: 30px; width: 430px; height: 500px; }
-.bar { position: absolute; left: 0; top: 527px; width: 774px; height: 5px; background: #c63268; }
-.logos { position: absolute; left: 56px; top: 48px; display: flex; align-items: center; gap: 40px; }
-.logos img { height: 34px; width: auto; }
-.copy { position: absolute; left: 56px; top: 116px; width: 720px; }
-.copy p { margin: 0; }
-.kicker { font-size: 28px; }
-h1 { margin: 6px 0 0; font-size: 88px; font-weight: 200; line-height: 1.02; letter-spacing: -0.5px; }
-.when { margin-top: 30px !important; font-size: 30px; font-weight: 400; }
-.where { margin-top: 6px !important; font-size: 26px; }
-.cta { position: absolute; left: 56px; bottom: 30px; display: flex; align-items: center; gap: 12px; font-size: 28px; font-weight: 400; }
+.top { display: flex; align-items: center; justify-content: space-between; }
+.logo { height: 30px; width: auto; }
+.label { display: inline-flex; padding: 1px; border-radius: 100px; background: linear-gradient(90deg, #506ac0, #ffffff); }
+.label span { padding: 7px 16px; border-radius: 100px; background: #000; font-size: 18px; font-weight: 500; }
+h1 { margin: auto 0 0; font-size: 112px; line-height: 0.96; font-weight: 800; letter-spacing: -0.035em; }
+.accent { background-image: linear-gradient(90deg, #3d9bff, #5ee1ff); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: 0.06em; }
+.bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-top: 40px; }
+.when { margin: 0; font-size: 30px; line-height: 38px; font-weight: 700; }
+.where { margin: 4px 0 0; font-size: 24px; line-height: 32px; color: rgba(255, 255, 255, 0.72); }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 18px 30px; border-radius: 40px; background: #0068e0; font-size: 24px; font-weight: 600; white-space: nowrap; }
+.btn svg { width: 24px; height: 24px; }
 </style>
 </head>
 <body>
 <div class="card">
-  <img class="art" src="../assets/st-pauls-evening.png" alt="">
-  <div class="bar"></div>
-  <div class="logos">
-    <img src="../assets/embrace-logo-white.png" alt="Embrace">
-    <img src="../assets/vionlabs-logo-white.png" alt="Vionlabs">
+  <div class="top">
+    <img class="logo" src="../assets/vionlabs-logo-white.png" alt="Vionlabs">
+    <span class="label"><span>Private reception · London</span></span>
   </div>
-  <div class="copy">
-    <p class="kicker">Would like to invite you to</p>
-    <h1>An evening<br>in the City</h1>
-    <p class="when">Monday 16 November · 18:30 – 22:00</p>
-    <p class="where">Vinoteca di Sartoria, 21 Bloomberg Arcade</p>
+  <h1>An evening<br><span class="accent">in the City</span></h1>
+  <div class="bottom">
+    <div>
+      <p class="when">Monday 16 November · 18:30 – 22:00</p>
+      <p class="where">Vinoteca di Sartoria · with Embrace</p>
+    </div>
+    <span class="btn">Request your place<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </div>
-  <div class="cta">Request your place<svg width="32" height="20" viewBox="0 0 48 28" aria-hidden="true"><path d="M2 14h42M32 3l12 11-12 11" fill="none" stroke="#f4f4f2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 </div>
 </body>
 </html>
