@@ -1,19 +1,20 @@
 # An evening in the City: request-a-place page
 
-Landing page for the Vionlabs × Embrace reception on Monday 16 November 2026, 18:30 – 22:00, at
+Landing page for the Embrace × Vionlabs reception on Monday 16 November 2026, 18:30 – 22:00, at
 Vinoteca di Sartoria, 21 Bloomberg Arcade, London. Guests request a place through the form, the
 request goes to HubSpot, and the hosts confirm each place by email.
 
-The page is in the Vionlabs look, taken from the vionlabs.com Webflow styles: Inter, black
-backgrounds with the blue and amber glows, `#0068E0` pill buttons, the gradient-outlined section
-label, and the form card and fields from the Book a Demo page. Embrace is named as co-host in the copy.
+The page is built on the "K3 · Ticket (bright blue)" social post: blue `#2343C4`, Space Grotesk
+with JetBrains Mono labels, and the paper ticket with the St Paul's drawing in its navy stub. The
+form is the guest's half of the ticket: their name and company appear on it as they type, and it
+gets a "Requested" stamp once the request is sent.
 
 ## Files
 
 | File | What it is |
 | --- | --- |
 | `index.html` | The whole page: markup, styles, form logic and settings. No build step |
-| `assets/` | The Vionlabs logo and `og-image.jpg` for link previews |
+| `assets/` | Both logos, the St Paul's drawing and `og-image.jpg` for link previews |
 | `og/og-image.html` | Source of the 1200×627 link preview. `node og/render_og.cjs` re-renders `assets/og-image.jpg` |
 
 To preview, open `index.html` in a browser. Until HubSpot is connected the form runs in preview
@@ -60,7 +61,7 @@ All in `window.EVENT_PAGE` in `index.html`:
 | `hubspot.loadTrackingCode` | `false` | Adds the HubSpot tracking code. Leave off where the site loads it already (for example through Google Tag Manager) |
 | `hubspot.trackingHost` | `js.hs-scripts.com` | Use `js-eu1.hs-scripts.com` for an EU data centre account |
 | `privacyUrl` | `https://www.vionlabs.com/legal` | Where both "privacy notice" links go. Point it at the notice that covers both hosts |
-| `lastFewPlaces` | `false` | Shows a "Last few places" badge above the headline, to match the reminder post |
+| `lastFewPlaces` | `false` | Shows a "Last few places" badge on the ticket, for the reminder post |
 
 A successful request also pushes `event_place_requested` to `dataLayer`, if Google Tag Manager is on the page.
 
@@ -68,5 +69,5 @@ A successful request also pushes `event_place_requested` to `dataLayer`, if Goog
 
 The folder is a static site: upload it as is. Then:
 
-- Make sure the address on the social posts (`embrace.fr/london` in the current drafts) serves or redirects to this page.
+- The ticket post points to `vionlabs.com/london`, so publish the page there (or redirect that address to it).
 - Change `og:image` in `index.html` to the image's absolute URL, so LinkedIn and other link previews show it.

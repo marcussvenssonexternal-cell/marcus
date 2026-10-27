@@ -3,30 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>An evening in the City · Vionlabs × Embrace · London, 16 November</title>
-<meta name="description" content="A private reception for the people who run media operations, hosted by Vionlabs and Embrace. Monday 16 November 2026, 18:30 – 22:00, Vinoteca di Sartoria, 21 Bloomberg Arcade, London. Request your place.">
-<meta name="theme-color" content="#000000">
+<title>Your seat for an evening in the City · Embrace × Vionlabs · London, 16 November</title>
+<meta name="description" content="A private reception for the people who run media operations, hosted by Embrace and Vionlabs. Monday 16 November 2026, 18:30 – 22:00, Vinoteca di Sartoria, 21 Bloomberg Arcade, London. Request your place.">
+<meta name="theme-color" content="#2343c4">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="An evening in the City · Vionlabs × Embrace">
-<meta property="og:description" content="A private reception for the people who run media operations, the night before DPP. Monday 16 November, London. Request your place.">
+<meta property="og:title" content="Your seat for an evening in the City">
+<meta property="og:description" content="For the people who run media operations. Good wine, a short walk from Bank. No slides, no stand. Monday 16 November, London.">
 <!-- LinkedIn and other link previews need an absolute og:image URL: change this once the page has its final address. -->
 <meta property="og:image" content="assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
-<meta property="og:image:alt" content="An evening in the City. Vionlabs and Embrace, Monday 16 November, Vinoteca di Sartoria, London.">
+<meta property="og:image:alt" content="Your seat for an evening in the City. A ticket for Monday 16 November, 18:30 – 22:00, Vinoteca di Sartoria, hosted by Embrace and Vionlabs.">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Event",
   "name": "An evening in the City",
-  "description": "A private reception for the people who run media operations, hosted by Vionlabs and Embrace the night before DPP.",
+  "description": "A private reception for the people who run media operations, hosted by Embrace and Vionlabs. Good wine, a short walk from Bank. No slides, no stand.",
   "startDate": "2026-11-16T18:30:00+00:00",
   "endDate": "2026-11-16T22:00:00+00:00",
   "eventStatus": "https://schema.org/EventScheduled",
@@ -42,54 +42,54 @@
     }
   },
   "organizer": [
-    { "@type": "Organization", "name": "Vionlabs", "url": "https://www.vionlabs.com" },
-    { "@type": "Organization", "name": "Embrace" }
+    { "@type": "Organization", "name": "Embrace" },
+    { "@type": "Organization", "name": "Vionlabs", "url": "https://www.vionlabs.com" }
   ]
 }
 </script>
 
 <style>
-/* Vionlabs site tokens (Webflow "Base collection" and the Book a Demo form styles). */
+/* Colours and type from the "K3 · Ticket (bright blue)" social post. */
 :root {
-  --black: #000000;
-  --surface: #0f0f0f;
-  --card: #161616;
-  --field: #323232;
-  --line: rgba(255, 255, 255, 0.12);
-  --line-soft: rgba(255, 255, 255, 0.08);
+  --blue: #2343c4;
+  --blue-deep: #1b35a3;
+  --paper: #f7f7f5;
+  --ink: #16171a;
+  --ink-soft: #5a5c61;
+  --navy: #111b2c;
+  --perf: #c9cbcf;
+  --field-line: #8a8d92;
   --white: #ffffff;
-  --text: rgba(255, 255, 255, 0.72);
-  --text-dim: rgba(255, 255, 255, 0.64);
-  --text-faint: rgba(255, 255, 255, 0.56);
-  --blue: #0068e0;
-  --blue-hover: hsla(212, 100%, 44%, 0.9);
-  --blue-light: #4d9bff;
-  --error: #ff8f8f;
-  --container: 1240px;
-  --side: 5%;
+  --on-blue: rgba(255, 255, 255, 0.88);
+  --on-blue-soft: rgba(255, 255, 255, 0.76);
+  --error: #b3261e;
+  --error-on-blue: #ffd2d2;
+
+  --side: clamp(20px, 5vw, 72px);
+  --max: 1180px;
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
   margin: 0;
-  background: var(--black);
+  background: var(--blue);
   color: var(--white);
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 img { display: block; max-width: 100%; }
-a { color: var(--blue-light); text-underline-offset: 0.2em; }
-a:hover { color: #7ab4ff; }
-:focus-visible { outline: 2px solid var(--blue-light); outline-offset: 3px; }
+a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
 
 .visually-hidden {
   position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0;
@@ -98,218 +98,246 @@ a:hover { color: #7ab4ff; }
 
 .skip-link {
   position: absolute; left: 16px; top: -100px; z-index: 20;
-  padding: 10px 18px; background: var(--white); color: var(--black); border-radius: 12px;
-  font-weight: 600; text-decoration: none;
+  padding: 12px 20px; border-radius: 999px; background: var(--white); color: var(--ink);
+  font-weight: 500; text-decoration: none;
 }
 .skip-link:focus { top: 16px; }
 
-.container { width: 100%; max-width: calc(var(--container) + 2 * var(--side)); margin: 0 auto; padding-inline: var(--side); }
+.wrap { width: 100%; max-width: calc(var(--max) + 2 * var(--side)); margin: 0 auto; padding-inline: var(--side); }
+.mono { font-family: var(--mono); }
 
-/* ---------- Buttons ---------- */
+/* ---------- Pills ---------- */
 
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 48px; padding: 15px 24px; border: 0; border-radius: 24px;
-  font: inherit; font-size: 16px; font-weight: 600; line-height: 18px;
-  text-decoration: none; cursor: pointer;
-  transition: background-color 200ms ease, border-color 200ms ease;
+.pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 56px; padding: 0 28px; border: 0; border-radius: 999px;
+  font: inherit; font-size: 19px; font-weight: 500; line-height: 1.2;
+  text-decoration: none; white-space: nowrap; cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
 }
-.btn svg { width: 18px; height: 18px; flex: none; }
-.btn-primary { background: var(--blue); color: var(--white); }
-.btn-primary:hover { background: var(--blue-hover); color: var(--white); }
-.btn-secondary { background: var(--card); color: var(--white); box-shadow: inset 0 0 0 1px #2b2b2b; }
-.btn-secondary:hover { background: #1f1f1f; color: var(--white); }
-.btn:focus-visible { outline: 2px solid var(--blue-light); outline-offset: 3px; }
+.pill svg { width: 26px; height: auto; flex: none; transition: transform 200ms ease; }
+.pill:hover svg { transform: translateX(4px); }
+.pill:active { transform: translateY(1px); }
+.pill-white { background: var(--white); color: var(--ink); }
+.pill-white:hover { background: #e9ecf9; }
+.pill-blue { background: var(--blue); color: var(--white); }
+.pill-blue:hover { background: var(--blue-deep); }
+.pill-blue:focus-visible { outline-color: var(--blue); }
 
-.nav-btn {
-  display: inline-flex; align-items: center; min-height: 40px; padding: 8px 18px;
-  border-radius: 12px; background: #0078e0; color: var(--white);
-  font-size: 15px; font-weight: 600; line-height: 22px; text-decoration: none;
-  transition: background-color 200ms ease;
-}
-.nav-btn:hover { background: hsla(208, 100%, 44%, 0.9); color: var(--white); }
+/* ---------- Header ---------- */
 
-/* Gradient-outlined pill, as the site's "Section Label". */
-.label { display: inline-flex; padding: 1px; border-radius: 100px; background: linear-gradient(90deg, #506ac0, #ffffff); }
-.label span {
-  display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 100px;
-  background: var(--black); color: var(--white);
-  font-size: 14px; font-weight: 500; line-height: 20px;
-}
-.label-solid {
-  display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 100px;
-  background: rgba(0, 104, 224, 0.14); box-shadow: inset 0 0 0 1px rgba(0, 104, 224, 0.5);
-  color: #9cc7ff; font-size: 14px; font-weight: 600; line-height: 20px;
-}
-.label-solid::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--blue-light); }
-
-/* ---------- Nav ---------- */
-
-.nav { position: relative; z-index: 2; }
-.nav .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 80px; }
-.nav-logo img { height: 24px; width: auto; }
+.masthead { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-block: clamp(24px, 4vw, 56px) 0; }
+.masthead img { height: clamp(24px, 3vw, 40px); width: auto; }
 
 /* ---------- Hero ---------- */
 
 .hero {
-  position: relative; overflow: hidden; margin-top: -80px; padding: 168px 0 96px;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0) 72%, var(--black)),
-    radial-gradient(ellipse 60% 50% at 50% 38%, rgba(0, 104, 224, 0.2), rgba(0, 104, 224, 0) 70%),
-    radial-gradient(circle farthest-corner at 110% -20%, hsla(216, 57%, 34%, 0.35), rgba(0, 0, 0, 0) 43%),
-    radial-gradient(circle farthest-corner at -10% 90%, hsla(29, 100%, 44%, 0.16), hsla(29, 100%, 24%, 0.12) 14%, rgba(0, 0, 0, 0) 28%),
-    var(--black);
+  position: relative; overflow: hidden; padding-bottom: clamp(56px, 8vw, 112px);
+  background: radial-gradient(ellipse 70% 45% at 50% 72%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 70%);
 }
-.hero-head { max-width: 960px; margin: 0 auto; text-align: center; }
-.hero-labels { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 
 h1 {
-  margin: 28px 0 0;
-  font-size: clamp(48px, 7.4vw, 84px); line-height: 0.98; font-weight: 800; letter-spacing: -0.035em;
+  margin: clamp(40px, 6vw, 88px) 0 0;
+  font-size: clamp(40px, 6.6vw, 88px); line-height: 1.04; font-weight: 500; letter-spacing: -0.02em;
+  text-wrap: balance;
 }
-.accent {
-  background-image: linear-gradient(90deg, #3d9bff, #5ee1ff);
-  -webkit-background-clip: text; background-clip: text;
-  color: transparent; -webkit-text-fill-color: transparent;
-  padding-bottom: 0.06em;
-}
-.lead { max-width: 600px; margin: 28px auto 0; color: var(--text); font-size: 19px; line-height: 30px; }
-.btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px; }
+.lead { margin: clamp(20px, 2.4vw, 32px) 0 0; max-width: 33em; font-size: clamp(19px, 2vw, 26px); line-height: 1.45; color: var(--on-blue); }
 
-.facts {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 32px;
-  max-width: 960px; margin: 72px auto 0; padding-top: 28px; border-top: 1px solid var(--line);
+.status-pill {
+  display: inline-flex; align-items: center; gap: 10px; margin: 0 0 16px;
+  padding: 6px 14px; border-radius: 999px; background: var(--white); color: var(--blue);
+  font-family: var(--mono); font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
 }
-.fact { display: flex; flex-direction: column; gap: 6px; }
-.fact-kicker { font-size: 14px; line-height: 18px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue-light); }
-.fact-title { font-size: 20px; line-height: 28px; font-weight: 700; }
-.fact-text { margin: 0; font-size: 15px; line-height: 22px; color: var(--text-dim); }
+
+/* ---------- Ticket ---------- */
+
+.ticket-stage { margin-top: clamp(36px, 5vw, 64px); perspective: 1600px; }
+
+.ticket {
+  --notch: 18px;
+  position: relative; display: grid; grid-template-columns: 31% minmax(0, 1fr) clamp(96px, 12vw, 150px);
+  min-height: clamp(400px, 46vw, 560px);
+  border-radius: 18px; overflow: hidden;
+  background: var(--paper); color: var(--ink);
+  box-shadow: 0 50px 90px -30px rgba(6, 16, 64, 0.6), 0 18px 36px -18px rgba(6, 16, 64, 0.45);
+  transform-style: preserve-3d; will-change: transform;
+  animation: ticket-in 900ms cubic-bezier(0.2, 0.75, 0.2, 1) 120ms both;
+}
+@keyframes ticket-in {
+  from { opacity: 0; transform: translateY(40px) rotate(-1.5deg); }
+  to { opacity: 1; transform: none; }
+}
+
+.ticket-art { position: relative; background: var(--navy); overflow: hidden; }
+.ticket-art img { position: absolute; left: -12%; bottom: 0; width: 121%; height: auto; }
+
+.ticket-main { display: flex; flex-direction: column; padding: clamp(28px, 4vw, 48px) clamp(24px, 3.6vw, 44px); }
+.t-kicker { margin: 0; font-family: var(--mono); font-size: clamp(13px, 1.5vw, 18px); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.t-title { margin: clamp(14px, 1.8vw, 22px) 0 0; font-size: clamp(32px, 4.1vw, 48px); line-height: 1.06; font-weight: 500; letter-spacing: -0.015em; }
+.t-rows { margin: auto 0 0; padding-top: 28px; display: grid; gap: 18px; }
+.t-rows dt { font-family: var(--mono); font-size: clamp(12px, 1.3vw, 15px); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.t-rows dd { margin: 4px 0 0; font-size: clamp(20px, 2.5vw, 28px); line-height: 1.25; font-weight: 500; }
+
+.ticket-stub { position: relative; display: grid; place-items: center; border-left: 3px dashed var(--perf); }
+.ticket-stub::before, .ticket-stub::after {
+  content: ''; position: absolute; left: calc(-1 * var(--notch) - 1.5px);
+  width: calc(2 * var(--notch)); height: calc(2 * var(--notch)); border-radius: 50%; background: var(--blue);
+}
+.ticket-stub::before { top: calc(-1 * var(--notch)); }
+.ticket-stub::after { bottom: calc(-1 * var(--notch)); }
+.ticket-stub span {
+  writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap;
+  font-family: var(--mono); font-size: clamp(16px, 2vw, 24px); font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+}
+
+.hero-cta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px 40px; margin-top: clamp(36px, 5vw, 56px); }
+.hero-cta p { margin: 0; }
+.cta-title { font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; line-height: 1.25; }
+.cta-sub { margin-top: 4px !important; font-size: clamp(17px, 1.8vw, 21px); color: var(--on-blue); }
 
 /* ---------- Request ---------- */
 
-.request {
-  position: relative; padding: 120px 0;
-  background:
-    radial-gradient(ellipse 50% 45% at 72% 45%, rgba(0, 104, 224, 0.16), rgba(0, 104, 224, 0) 70%),
-    linear-gradient(180deg, var(--black), var(--surface));
-}
-.request-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 88px); align-items: start; }
+.request { padding-block: clamp(72px, 9vw, 128px); border-top: 1px solid rgba(255, 255, 255, 0.24); }
+.request-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
 
-h2 { margin: 24px 0 0; font-size: clamp(36px, 4.2vw, 48px); line-height: 1.2; font-weight: 800; letter-spacing: -0.025em; }
-.request-intro > p { margin: 20px 0 0; max-width: 30em; color: var(--text); }
+.kicker-on-blue { margin: 0; font-family: var(--mono); font-size: 14px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--on-blue-soft); }
+h2 { margin: 16px 0 0; font-size: clamp(40px, 4.8vw, 64px); line-height: 1.04; font-weight: 500; letter-spacing: -0.02em; }
+.request-intro > p.intro { margin: 20px 0 0; max-width: 28em; font-size: 20px; color: var(--on-blue); }
 
 .steps { list-style: none; margin: 40px 0 0; padding: 0; counter-reset: step; }
-.steps li { display: flex; flex-direction: column; gap: 6px; padding: 22px 0; border-top: 1px solid var(--line); counter-increment: step; }
-.steps li::before { content: counter(step, decimal-leading-zero); font-size: 14px; line-height: 18px; font-weight: 700; letter-spacing: 0.06em; color: var(--blue-light); }
-.steps strong { font-size: 20px; line-height: 28px; font-weight: 700; }
-.steps span { font-size: 15px; line-height: 22px; color: var(--text-dim); }
+.steps li { display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 20px 0; border-top: 1px solid rgba(255, 255, 255, 0.24); counter-increment: step; }
+.steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--mono); font-size: 15px; font-weight: 500; letter-spacing: 0.08em; padding-top: 3px; color: var(--on-blue-soft); }
+.steps strong { display: block; font-size: 21px; font-weight: 500; line-height: 1.3; }
+.steps span { display: block; margin-top: 2px; font-size: 17px; color: var(--on-blue-soft); }
 
-/* As the site's Book a Demo card. */
-.card {
-  padding: 48px; border-radius: 36px;
-  background:
-    linear-gradient(225deg, hsla(216, 57%, 34%, 0.2), rgba(0, 0, 0, 0) 43%),
-    linear-gradient(45deg, hsla(23, 60%, 31%, 0.1), rgba(0, 0, 0, 0) 38%),
-    var(--card);
-  box-shadow: inset 0 0 0 1px var(--line-soft), 0 40px 120px rgba(0, 104, 224, 0.18);
+.getting-there { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.24); }
+.getting-there p:not(.kicker-on-blue) { margin: 8px 0 0; font-size: 18px; color: var(--on-blue); }
+.getting-there a { font-weight: 500; color: var(--white); }
+
+/* The form is the guest's half of the ticket. */
+.form-ticket { position: relative; border-radius: 18px; background: var(--paper); color: var(--ink); box-shadow: 0 50px 90px -40px rgba(6, 16, 64, 0.6); }
+.ft-head { position: relative; padding: clamp(24px, 3.4vw, 40px) clamp(22px, 3.4vw, 44px) 26px; }
+.ft-head .t-kicker { font-size: 14px; }
+.ft-guest-label { margin: 18px 0 0; font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.ft-guest { margin: 4px 0 0; min-height: 1.2em; font-size: clamp(26px, 3vw, 34px); line-height: 1.2; font-weight: 500; letter-spacing: -0.01em; overflow-wrap: anywhere; }
+.ft-guest.is-empty { color: #9a9ca1; }
+.ft-company { margin: 2px 0 0; min-height: 1.4em; font-size: 17px; color: var(--ink-soft); overflow-wrap: anywhere; }
+
+.ft-perf { --notch: 18px; position: relative; height: 0; border-top: 3px dashed var(--perf); }
+.ft-perf::before, .ft-perf::after {
+  content: ''; position: absolute; top: calc(-1 * var(--notch) - 1.5px);
+  width: calc(2 * var(--notch)); height: calc(2 * var(--notch)); border-radius: 50%; background: var(--blue);
 }
-.card-title { margin: 0; font-size: 24px; line-height: 32px; font-weight: 700; }
-.card-sub { margin: 4px 0 28px; font-size: 15px; line-height: 22px; color: var(--text-dim); }
+.ft-perf::before { left: calc(-1 * var(--notch)); }
+.ft-perf::after { right: calc(-1 * var(--notch)); }
+
+.ft-body { padding: 30px clamp(22px, 3.4vw, 44px) clamp(28px, 3.4vw, 44px); }
 
 .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
 .field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .field.full { grid-column: 1 / -1; }
-
-.field > label { font-size: 13px; line-height: 16px; font-weight: 500; color: var(--white); }
-.optional { color: var(--text-faint); font-weight: 400; }
+.field > label { font-size: 15px; font-weight: 500; line-height: 1.3; color: var(--ink); }
+.optional { font-weight: 400; color: var(--ink-soft); }
 
 input[type="text"], input[type="email"], textarea {
-  width: 100%; height: 48px; padding: 0 16px;
-  border: 0; border-radius: 16px; background: var(--field); color: var(--white);
-  font: inherit; font-size: 16px; line-height: 22px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-  transition: box-shadow 150ms ease;
+  width: 100%; min-height: 52px; padding: 12px 14px;
+  background: var(--white); color: var(--ink);
+  border: 1px solid var(--field-line); border-radius: 10px;
+  font: inherit; font-weight: 400; font-size: 17px; line-height: 1.4;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
 }
-textarea { height: auto; min-height: 104px; padding: 13px 16px; resize: vertical; }
-input::placeholder, textarea::placeholder { color: #8c8c8c; }
-input:hover, textarea:hover { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22); }
-input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue-light); outline-offset: 2px; }
-[aria-invalid="true"] { box-shadow: inset 0 0 0 1px var(--error) !important; }
+textarea { min-height: 104px; resize: vertical; }
+input::placeholder, textarea::placeholder { color: #8a8d92; }
+input:hover, textarea:hover { border-color: var(--ink-soft); }
+input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; border-color: var(--blue); }
+[aria-invalid="true"] { border-color: var(--error) !important; box-shadow: 0 0 0 1px var(--error); }
 
-.hint { font-size: 13px; line-height: 18px; color: var(--text-faint); }
-.error-text { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--error); }
+.hint { font-size: 14px; color: var(--ink-soft); }
+.error-text { font-size: 14px; font-weight: 500; color: var(--error); }
 .error-text:empty { display: none; }
 
-.consent { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; }
+.consent { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; }
 .consent input {
-  appearance: none; -webkit-appearance: none; margin: 0; width: 20px; height: 20px;
-  border-radius: 6px; background: var(--field); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+  appearance: none; -webkit-appearance: none; margin: 1px 0 0; width: 24px; height: 24px;
+  border: 1px solid var(--field-line); border-radius: 6px; background: var(--white);
   display: grid; place-items: center; cursor: pointer;
 }
 .consent input::after {
-  content: ''; width: 10px; height: 6px; border: solid var(--white); border-width: 0 0 2px 2px;
-  transform: translateY(-1px) rotate(-45deg); opacity: 0;
+  content: ''; width: 12px; height: 7px; border: solid var(--white); border-width: 0 0 2px 2px;
+  transform: translateY(-2px) rotate(-45deg); opacity: 0;
 }
-.consent input:checked { background: var(--blue); box-shadow: none; }
+.consent input:checked { background: var(--blue); border-color: var(--blue); }
 .consent input:checked::after { opacity: 1; }
-.consent label { font-size: 14px; line-height: 20px; color: rgba(255, 255, 255, 0.6); cursor: pointer; }
+.consent input:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.consent label { font-size: 15px; line-height: 1.5; color: var(--ink-soft); cursor: pointer; }
+.consent label a { color: var(--blue); font-weight: 500; }
 .consent .error-text { grid-column: 2; }
 
 .honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
-.submit { width: 100%; margin-top: 28px; }
+.form-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 28px; }
 .submit[aria-busy="true"] { cursor: progress; opacity: 0.75; }
-.form-note { margin: 14px 0 0; font-size: 13px; line-height: 18px; color: var(--text-faint); text-align: center; }
-
-.form-status { margin: 16px 0 0; font-size: 14px; line-height: 20px; font-weight: 500; color: var(--error); text-align: center; }
+.form-note { margin: 0; font-size: 14px; color: var(--ink-soft); }
+.form-status { margin: 18px 0 0; font-size: 15px; font-weight: 500; color: var(--error); }
 .form-status:empty { display: none; }
 
-.preview-note {
-  margin: 0 0 24px; padding: 10px 14px; border-radius: 12px;
-  border: 1px dashed rgba(255, 255, 255, 0.24);
-  font-size: 13px; line-height: 18px; color: var(--text-dim);
+.preview-note { margin: 0 0 24px; padding: 10px 14px; border: 1px dashed var(--field-line); border-radius: 10px; font-size: 14px; color: var(--ink-soft); }
+
+.stamp {
+  position: absolute; right: clamp(18px, 3vw, 40px); top: clamp(20px, 3vw, 36px);
+  padding: 8px 14px; border: 3px solid var(--blue); border-radius: 8px; color: var(--blue);
+  font-family: var(--mono); font-size: 15px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.25; text-align: center;
+  transform: rotate(-9deg);
+  animation: stamp-in 420ms cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
 }
+.stamp small { display: block; font-size: 11px; letter-spacing: 0.12em; }
+@keyframes stamp-in { from { opacity: 0; transform: rotate(-9deg) scale(1.6); } to { opacity: 1; transform: rotate(-9deg) scale(1); } }
 
 .success:focus { outline: none; }
-.success-mark { width: 56px; height: 56px; }
-.success h3 { margin: 24px 0 0; font-size: clamp(28px, 3vw, 36px); line-height: 1.22; font-weight: 700; letter-spacing: -0.02em; }
-.success p { margin: 14px 0 0; color: var(--text); }
-.success strong { color: var(--white); font-weight: 600; }
-.recap {
-  margin-top: 28px !important; padding: 20px 24px; border-radius: 16px;
-  background: rgba(0, 104, 224, 0.12); box-shadow: inset 0 0 0 1px rgba(0, 104, 224, 0.4);
-  font-size: 15px; line-height: 22px;
-}
-.recap b { display: block; color: var(--white); font-weight: 700; font-size: 16px; }
+.success h3 { margin: 0; font-size: clamp(26px, 3vw, 34px); line-height: 1.2; font-weight: 500; letter-spacing: -0.01em; }
+.success p { margin: 14px 0 0; color: var(--ink-soft); }
+.success p strong { color: var(--ink); font-weight: 500; }
+.recap { display: grid; gap: 14px; margin-top: 28px; padding-top: 24px; border-top: 1px solid #dfe0e3; }
+.recap dt { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.recap dd { margin: 2px 0 0; font-size: 19px; font-weight: 500; line-height: 1.35; }
 
 /* ---------- Footer ---------- */
 
-.footer { padding: 40px 0 48px; background: var(--surface); border-top: 1px solid var(--line-soft); font-size: 14px; line-height: 20px; color: var(--text-faint); }
-.footer .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
-.footer-brand { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
-.footer-brand img { height: 18px; width: auto; }
-.footer p { margin: 0; }
-.footer nav { display: flex; gap: 24px; }
-.footer a { color: rgba(255, 255, 255, 0.8); text-decoration: none; }
-.footer a:hover { color: var(--white); text-decoration: underline; }
+.site-footer { padding-block: 36px 44px; border-top: 1px solid rgba(255, 255, 255, 0.24); font-size: 15px; color: var(--on-blue-soft); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
+.footer-brand { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
+.footer-brand img { height: 20px; width: auto; }
+.site-footer p { margin: 0; }
+.site-footer nav { display: flex; gap: 24px; }
+.site-footer a { color: var(--white); }
 
 /* ---------- Narrow screens ---------- */
 
 @media (max-width: 900px) {
   .request-grid { grid-template-columns: minmax(0, 1fr); }
-  .request { padding: 88px 0; }
 }
 
 @media (max-width: 720px) {
-  .hero { padding: 136px 0 72px; }
-  .facts { grid-template-columns: minmax(0, 1fr); margin-top: 56px; text-align: left; }
-  .card { padding: 28px 20px; border-radius: 24px; }
+  h1 br { display: none; }
+  .ticket { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .ticket-art { height: 236px; }
+  .ticket-art img { left: auto; right: 7%; width: 56%; bottom: 0; }
+  .ticket-main { padding: 26px 24px 28px; }
+  .t-rows { padding-top: 24px; }
+  .ticket-stub { border-left: 0; border-top: 3px dashed var(--perf); padding: 18px 24px; }
+  .ticket-stub::before { top: calc(-1 * var(--notch) - 1.5px); left: calc(-1 * var(--notch)); }
+  .ticket-stub::after { top: calc(-1 * var(--notch) - 1.5px); bottom: auto; left: auto; right: calc(-1 * var(--notch)); }
+  .ticket-stub span { writing-mode: horizontal-tb; transform: none; font-size: 16px; }
+  .hero-cta .pill { width: 100%; }
   .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .submit { width: 100%; }
+  .stamp { font-size: 13px; padding: 6px 10px; }
 }
 
-@media (max-width: 420px) {
-  .btn-row .btn { width: 100%; }
-  .nav-btn { padding: 8px 14px; font-size: 14px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ticket, .stamp { animation: none; }
+  .pill, .pill svg { transition: none; }
 }
 </style>
 </head>
@@ -317,133 +345,155 @@ input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue-ligh
 
 <a class="skip-link" href="#request">Skip to the request form</a>
 
-<header class="nav">
-  <div class="container">
-    <a class="nav-logo" href="https://www.vionlabs.com" aria-label="Vionlabs home"><img src="assets/vionlabs-logo-white.png" width="520" height="112" alt="Vionlabs"></a>
-    <a class="nav-btn" href="#request">Request your place</a>
-  </div>
-</header>
-
 <main>
   <section class="hero" aria-labelledby="event-title">
-    <div class="container">
-      <div class="hero-head">
-        <div class="hero-labels">
-          <span class="label"><span>Private reception · London</span></span>
-          <span class="label-solid" data-last-few hidden>Last few places</span>
-        </div>
-        <h1 id="event-title">An evening<br> <span class="accent">in the City</span></h1>
-        <p class="lead">Join Vionlabs and Embrace for an evening with the people who run media operations, the night before DPP. Good wine, a short walk from Bank. No slides, no stand.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="#request">Request your place<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&amp;query=Vinoteca+di+Sartoria%2C+21+Bloomberg+Arcade%2C+London" target="_blank" rel="noopener">Get directions<span class="visually-hidden"> (opens in a new tab)</span></a>
-        </div>
+    <div class="wrap">
+      <div class="masthead">
+        <img src="assets/embrace-logo-white.png" width="536" height="112" alt="Embrace">
+        <img src="assets/vionlabs-logo-white.png" width="520" height="112" alt="Vionlabs">
       </div>
 
-      <div class="facts">
-        <div class="fact">
-          <span class="fact-kicker">When</span>
-          <span class="fact-title"><time datetime="2026-11-16">Monday 16 November 2026</time></span>
-          <p class="fact-text"><time datetime="2026-11-16T18:30">18:30</time> – <time datetime="2026-11-16T22:00">22:00</time>, the night before DPP</p>
+      <h1 id="event-title">Your seat for<br> an evening in the City.</h1>
+      <p class="lead">For the people who run media operations. Good wine, a short walk from Bank. No slides, no stand.</p>
+
+      <div class="ticket-stage">
+        <p class="status-pill" data-last-few hidden>Last few places</p>
+        <article class="ticket" aria-label="Your ticket">
+          <div class="ticket-art"><img src="assets/st-pauls.png" width="1088" height="1264" alt="Line drawing of St Paul's dome, with guests and a glass of wine at a lit doorway" fetchpriority="high"></div>
+          <div class="ticket-main">
+            <p class="t-kicker">Admit one · By invitation</p>
+            <p class="t-title">An evening<br> in the City</p>
+            <dl class="t-rows">
+              <div>
+                <dt>Date</dt>
+                <dd><time datetime="2026-11-16T18:30">Mon 16 Nov · 18:30 – 22:00</time></dd>
+              </div>
+              <div>
+                <dt>Venue</dt>
+                <dd>Vinoteca di Sartoria<br>21 Bloomberg Arcade</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="ticket-stub"><span>16·11 · No slides</span></div>
+        </article>
+      </div>
+
+      <div class="hero-cta">
+        <div>
+          <p class="cta-title">Monday 16 November, the night before DPP</p>
+          <p class="cta-sub">By invitation. The hosts confirm every spot.</p>
         </div>
-        <div class="fact">
-          <span class="fact-kicker">Where</span>
-          <span class="fact-title">Vinoteca di Sartoria</span>
-          <p class="fact-text">21 Bloomberg Arcade, London</p>
-        </div>
-        <div class="fact">
-          <span class="fact-kicker">Hosted by</span>
-          <span class="fact-title">Vionlabs &amp; Embrace</span>
-          <p class="fact-text">By invitation. The hosts confirm every place.</p>
-        </div>
+        <a class="pill pill-white" href="#request">Request your place<svg viewBox="0 0 48 28" aria-hidden="true"><path d="M2 14h42M32 3l12 11-12 11" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </section>
 
   <section class="request" id="request" aria-labelledby="request-title">
-    <div class="container request-grid">
+    <div class="wrap request-grid">
       <div class="request-intro">
-        <span class="label"><span>By invitation</span></span>
+        <p class="kicker-on-blue">How it works</p>
         <h2 id="request-title">Request your place</h2>
-        <p>Places are limited, so every request is reviewed by the hosts and each place is confirmed personally.</p>
+        <p class="intro">Places are limited, so the hosts read every request and confirm each place personally.</p>
         <ol class="steps">
-          <li><strong>Send your request</strong><span>It takes a minute.</span></li>
-          <li><strong>We review it</strong><span>Every request is read by the Vionlabs and Embrace teams.</span></li>
-          <li><strong>You get a confirmation</strong><span>Your place is held once our confirmation email arrives.</span></li>
+          <li><div><strong>Fill in your half of the ticket</strong><span>It takes a minute.</span></div></li>
+          <li><div><strong>The hosts review it</strong><span>Embrace and Vionlabs read every request.</span></div></li>
+          <li><div><strong>We confirm by email</strong><span>Your seat is held once the confirmation arrives.</span></div></li>
         </ol>
+        <div class="getting-there">
+          <p class="kicker-on-blue">Getting there</p>
+          <p>Vinoteca di Sartoria, 21 Bloomberg Arcade, London. A short walk from Bank.</p>
+          <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Vinoteca+di+Sartoria%2C+21+Bloomberg+Arcade%2C+London" target="_blank" rel="noopener">Open in Google Maps<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+        </div>
       </div>
 
-      <div class="card">
-        <form id="request-form" novalidate>
-          <p class="preview-note" data-preview-note hidden>Preview: this form isn't connected to HubSpot yet, so requests are not sent anywhere.</p>
-          <h3 class="card-title">Your details</h3>
-          <p class="card-sub">All fields are required unless marked optional.</p>
+      <div class="form-ticket">
+        <div class="ft-head">
+          <p class="t-kicker">Admit one · By invitation</p>
+          <div aria-hidden="true">
+            <p class="ft-guest-label">Guest</p>
+            <p class="ft-guest is-empty" data-guest>Your name</p>
+            <p class="ft-company" data-guest-company></p>
+          </div>
+          <div class="stamp" data-stamp aria-hidden="true" hidden>Requested<small>16·11</small></div>
+        </div>
+        <div class="ft-perf" aria-hidden="true"></div>
 
-          <div class="form-grid">
-            <div class="field">
-              <label for="firstname">First name</label>
-              <input id="firstname" name="firstname" type="text" autocomplete="given-name" required aria-describedby="firstname-error">
-              <span class="error-text" id="firstname-error"></span>
-            </div>
-            <div class="field">
-              <label for="lastname">Last name</label>
-              <input id="lastname" name="lastname" type="text" autocomplete="family-name" required aria-describedby="lastname-error">
-              <span class="error-text" id="lastname-error"></span>
-            </div>
-            <div class="field full">
-              <label for="email">Work email</label>
-              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="name@company.com" required aria-describedby="email-error">
-              <span class="error-text" id="email-error"></span>
-            </div>
-            <div class="field">
-              <label for="company">Company</label>
-              <input id="company" name="company" type="text" autocomplete="organization" required aria-describedby="company-error">
-              <span class="error-text" id="company-error"></span>
-            </div>
-            <div class="field">
-              <label for="jobtitle">Job title</label>
-              <input id="jobtitle" name="jobtitle" type="text" autocomplete="organization-title" required aria-describedby="jobtitle-error">
-              <span class="error-text" id="jobtitle-error"></span>
-            </div>
-            <div class="field full">
-              <label for="message">Anything we should know? <span class="optional">(optional)</span></label>
-              <textarea id="message" name="message" rows="3" aria-describedby="message-hint"></textarea>
-              <span class="hint" id="message-hint">Dietary requirements, or who invited you.</span>
-            </div>
-            <div class="field full">
-              <div class="consent">
-                <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-error">
-                <label for="consent" id="consent-label">I agree that Vionlabs and Embrace may use these details to handle my request for this event. See the <a href="https://www.vionlabs.com/legal" target="_blank" rel="noopener" data-privacy-link>privacy notice<span class="visually-hidden"> (opens in a new tab)</span></a>.</label>
-                <span class="error-text" id="consent-error"></span>
+        <div class="ft-body">
+          <form id="request-form" novalidate>
+            <p class="preview-note" data-preview-note hidden>Preview: this form isn't connected to HubSpot yet, so requests are not sent anywhere.</p>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="firstname">First name</label>
+                <input id="firstname" name="firstname" type="text" autocomplete="given-name" required aria-describedby="firstname-error">
+                <span class="error-text" id="firstname-error"></span>
+              </div>
+              <div class="field">
+                <label for="lastname">Last name</label>
+                <input id="lastname" name="lastname" type="text" autocomplete="family-name" required aria-describedby="lastname-error">
+                <span class="error-text" id="lastname-error"></span>
+              </div>
+              <div class="field full">
+                <label for="email">Work email</label>
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="name@company.com" required aria-describedby="email-error">
+                <span class="error-text" id="email-error"></span>
+              </div>
+              <div class="field">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" autocomplete="organization" required aria-describedby="company-error">
+                <span class="error-text" id="company-error"></span>
+              </div>
+              <div class="field">
+                <label for="jobtitle">Job title</label>
+                <input id="jobtitle" name="jobtitle" type="text" autocomplete="organization-title" required aria-describedby="jobtitle-error">
+                <span class="error-text" id="jobtitle-error"></span>
+              </div>
+              <div class="field full">
+                <label for="message">Anything the hosts should know? <span class="optional">(optional)</span></label>
+                <textarea id="message" name="message" rows="3" aria-describedby="message-hint"></textarea>
+                <span class="hint" id="message-hint">Dietary requirements, or who invited you.</span>
+              </div>
+              <div class="field full">
+                <div class="consent">
+                  <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-error">
+                  <label for="consent" id="consent-label">I agree that Embrace and Vionlabs may use these details to handle my request for this event. See the <a href="https://www.vionlabs.com/legal" target="_blank" rel="noopener" data-privacy-link>privacy notice<span class="visually-hidden"> (opens in a new tab)</span></a>.</label>
+                  <span class="error-text" id="consent-error"></span>
+                </div>
               </div>
             </div>
+
+            <div class="honeypot" aria-hidden="true">
+              <label for="website">Leave this field empty</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-footer">
+              <button class="pill pill-blue submit" type="submit">Request my place<svg viewBox="0 0 48 28" aria-hidden="true"><path d="M2 14h42M32 3l12 11-12 11" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <p class="form-note">All fields are required unless marked optional.</p>
+            </div>
+            <p class="form-status" id="form-status" role="alert"></p>
+          </form>
+
+          <div class="success" id="request-success" tabindex="-1" hidden>
+            <h3>Thank you, <span data-success-name></span>.<br> Your request is in.</h3>
+            <p>The hosts review every request and will confirm your place by email to <strong data-success-email></strong>.</p>
+            <dl class="recap">
+              <div><dt>Date</dt><dd>Monday 16 November 2026 · 18:30 – 22:00</dd></div>
+              <div><dt>Venue</dt><dd>Vinoteca di Sartoria, 21 Bloomberg Arcade, London</dd></div>
+            </dl>
           </div>
-
-          <div class="honeypot" aria-hidden="true">
-            <label for="website">Leave this field empty</label>
-            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
-          </div>
-
-          <button class="btn btn-primary submit" type="submit">Request my place</button>
-          <p class="form-status" id="form-status" role="alert"></p>
-        </form>
-
-        <div class="success" id="request-success" tabindex="-1" hidden>
-          <svg class="success-mark" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27.5" fill="rgba(0,104,224,0.15)" stroke="rgba(0,104,224,0.6)"/><path d="M18 28.5l7 7L39 21.5" fill="none" stroke="#4d9bff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3>Thanks, <span data-success-name></span>.<br> Your request is in.</h3>
-          <p>We review every request and will confirm your place by email to <strong data-success-email></strong>.</p>
-          <p class="recap"><b>Monday 16 November 2026</b><b>18:30 – 22:00</b>Vinoteca di Sartoria, 21 Bloomberg Arcade, London</p>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="footer">
-  <div class="container">
+<footer class="site-footer">
+  <div class="wrap">
     <div class="footer-brand">
+      <img src="assets/embrace-logo-white.png" width="536" height="112" alt="Embrace">
       <img src="assets/vionlabs-logo-white.png" width="520" height="112" alt="Vionlabs">
-      <p>An evening in the City is hosted by Vionlabs and Embrace.</p>
+      <p>An evening in the City, hosted by Embrace and Vionlabs.</p>
     </div>
     <nav aria-label="Footer">
       <a href="https://www.vionlabs.com">vionlabs.com</a>
@@ -466,18 +516,21 @@ window.EVENT_PAGE = {
     trackingHost: 'js.hs-scripts.com' // EU data centre accounts: 'js-eu1.hs-scripts.com'
   },
   privacyUrl: 'https://www.vionlabs.com/legal',
-  lastFewPlaces: false        // true shows the "Last few places" badge in the hero
+  lastFewPlaces: false        // true shows a "Last few places" badge on the ticket
 };
 
 (function () {
   var settings = window.EVENT_PAGE;
   var hubspot = settings.hubspot;
   var isPreview = !hubspot.portalId || !hubspot.formId;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var form = document.getElementById('request-form');
   var statusEl = document.getElementById('form-status');
   var submitBtn = form.querySelector('.submit');
   var success = document.getElementById('request-success');
+  var guestEl = document.querySelector('[data-guest]');
+  var guestCompanyEl = document.querySelector('[data-guest-company]');
   var attempted = false;
   var sending = false;
 
@@ -492,6 +545,28 @@ window.EVENT_PAGE = {
     s.defer = true;
     s.src = 'https://' + hubspot.trackingHost + '/' + encodeURIComponent(hubspot.portalId) + '.js';
     document.head.appendChild(s);
+  }
+
+  // The hero ticket leans towards the pointer, a little.
+  var ticket = document.querySelector('.ticket');
+  if (ticket && !reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var frame = null;
+    ticket.addEventListener('animationend', function () { ticket.style.animation = 'none'; }, { once: true });
+    ticket.addEventListener('pointermove', function (e) {
+      var r = ticket.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(function () {
+        ticket.style.transition = 'transform 80ms linear';
+        ticket.style.transform = 'rotateY(' + (x * 6).toFixed(2) + 'deg) rotateX(' + (-y * 5).toFixed(2) + 'deg)';
+      });
+    });
+    ticket.addEventListener('pointerleave', function () {
+      if (frame) cancelAnimationFrame(frame);
+      ticket.style.transition = 'transform 500ms cubic-bezier(0.2, 0.75, 0.2, 1)';
+      ticket.style.transform = '';
+    });
   }
 
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -510,6 +585,17 @@ window.EVENT_PAGE = {
   var HUBSPOT_FIELDS = ['firstname', 'lastname', 'email', 'company', 'jobtitle', 'message'];
 
   function value(name) { return form.elements[name].value.trim(); }
+
+  // The guest's name and company appear on their half of the ticket as they type.
+  function updateGuest() {
+    var name = [value('firstname'), value('lastname')].filter(Boolean).join(' ');
+    guestEl.textContent = name || 'Your name';
+    guestEl.classList.toggle('is-empty', !name);
+    guestCompanyEl.textContent = value('company');
+  }
+  ['firstname', 'lastname', 'company'].forEach(function (name) {
+    form.elements[name].addEventListener('input', updateGuest);
+  });
 
   function setError(name, message) {
     var el = form.elements[name];
@@ -587,10 +673,12 @@ window.EVENT_PAGE = {
   }
 
   function showSuccess() {
+    updateGuest();
     success.querySelector('[data-success-name]').textContent = value('firstname');
     success.querySelector('[data-success-email]').textContent = value('email');
     form.hidden = true;
     success.hidden = false;
+    document.querySelector('[data-stamp]').hidden = false;
     success.focus();
     if (window.dataLayer) window.dataLayer.push({ event: 'event_place_requested', event_name: 'An evening in the City' });
   }

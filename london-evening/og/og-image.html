@@ -3,46 +3,59 @@
 <head>
 <meta charset="utf-8">
 <title>An evening in the City – link preview</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* 1200×627 link preview in the landing page's look. Rendered by render_og.cjs. */
+/* 1200×627 link preview, a landscape take on the K3 ticket post. Rendered by render_og.cjs. */
 body { margin: 0; }
 .card {
   position: relative; width: 1200px; height: 627px; overflow: hidden; box-sizing: border-box;
-  padding: 56px 64px; display: flex; flex-direction: column;
-  color: #ffffff; font-family: 'Inter', Arial, sans-serif;
-  background:
-    radial-gradient(ellipse 55% 60% at 30% 55%, rgba(0, 104, 224, 0.22), rgba(0, 104, 224, 0) 70%),
-    radial-gradient(circle farthest-corner at 110% -20%, hsla(216, 57%, 34%, 0.45), rgba(0, 0, 0, 0) 45%),
-    radial-gradient(circle farthest-corner at 105% 115%, hsla(29, 100%, 44%, 0.2), rgba(0, 0, 0, 0) 30%),
-    #000000;
+  padding: 48px 56px; background: #2343c4; color: #ffffff;
+  font-family: 'Space Grotesk', Arial, sans-serif; font-weight: 300;
 }
-.top { display: flex; align-items: center; justify-content: space-between; }
-.logo { height: 30px; width: auto; }
-.label { display: inline-flex; padding: 1px; border-radius: 100px; background: linear-gradient(90deg, #506ac0, #ffffff); }
-.label span { padding: 7px 16px; border-radius: 100px; background: #000; font-size: 18px; font-weight: 500; }
-h1 { margin: auto 0 0; font-size: 112px; line-height: 0.96; font-weight: 800; letter-spacing: -0.035em; }
-.accent { background-image: linear-gradient(90deg, #3d9bff, #5ee1ff); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: 0.06em; }
-.bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-top: 40px; }
-.when { margin: 0; font-size: 30px; line-height: 38px; font-weight: 700; }
-.where { margin: 4px 0 0; font-size: 24px; line-height: 32px; color: rgba(255, 255, 255, 0.72); }
-.btn { display: inline-flex; align-items: center; gap: 10px; padding: 18px 30px; border-radius: 40px; background: #0068e0; font-size: 24px; font-weight: 600; white-space: nowrap; }
-.btn svg { width: 24px; height: 24px; }
+.logos { display: flex; justify-content: space-between; align-items: center; }
+.logos img { height: 32px; width: auto; }
+.sub { margin: 14px 0 0; font-size: 26px; color: rgba(255, 255, 255, 0.88); }
+h1 { margin: 34px 0 0; font-size: 64px; line-height: 1.04; font-weight: 500; letter-spacing: -1px; }
+.ticket {
+  --notch: 16px;
+  position: absolute; left: 56px; right: 56px; bottom: 48px; height: 268px;
+  display: grid; grid-template-columns: 250px 1fr 110px;
+  border-radius: 16px; overflow: hidden; background: #f7f7f5; color: #16171a;
+  box-shadow: 0 30px 60px -24px rgba(6, 16, 64, 0.6);
+}
+.art { position: relative; background: #111b2c; overflow: hidden; }
+.art img { position: absolute; left: 6%; bottom: -4%; width: 92%; }
+.main { display: grid; grid-template-columns: 1fr 1fr; align-content: center; gap: 18px 32px; padding: 30px 36px; }
+.mono { font-family: 'JetBrains Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; color: #5a5c61; }
+.kicker { grid-column: 1 / -1; margin: 0; font-size: 15px; }
+.title { grid-column: 1 / -1; margin: -6px 0 6px; font-size: 40px; line-height: 1.05; font-weight: 500; }
+.row p { margin: 0; }
+.row .mono { font-size: 13px; }
+.row .val { margin-top: 2px; font-size: 22px; line-height: 1.25; font-weight: 500; }
+.stub { position: relative; display: grid; place-items: center; border-left: 3px dashed #c9cbcf; }
+.stub::before, .stub::after { content: ''; position: absolute; left: calc(-1 * var(--notch) - 1.5px); width: calc(2 * var(--notch)); height: calc(2 * var(--notch)); border-radius: 50%; background: #2343c4; }
+.stub::before { top: calc(-1 * var(--notch)); }
+.stub::after { bottom: calc(-1 * var(--notch)); }
+.stub span { writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: #16171a; }
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="top">
-    <img class="logo" src="../assets/vionlabs-logo-white.png" alt="Vionlabs">
-    <span class="label"><span>Private reception · London</span></span>
+  <div class="logos">
+    <img src="../assets/embrace-logo-white.png" alt="Embrace">
+    <img src="../assets/vionlabs-logo-white.png" alt="Vionlabs">
   </div>
-  <h1>An evening<br><span class="accent">in the City</span></h1>
-  <div class="bottom">
-    <div>
-      <p class="when">Monday 16 November · 18:30 – 22:00</p>
-      <p class="where">Vinoteca di Sartoria · with Embrace</p>
+  <h1>Your seat for an evening in the City.</h1>
+  <p class="sub">For the people who run media operations. Request your place.</p>
+  <div class="ticket">
+    <div class="art"><img src="../assets/st-pauls.png" alt=""></div>
+    <div class="main">
+      <p class="kicker mono">Admit one · By invitation</p>
+      <p class="title">An evening in the City</p>
+      <div class="row"><p class="mono">Date</p><p class="val">Mon 16 Nov · 18:30 – 22:00</p></div>
+      <div class="row"><p class="mono">Venue</p><p class="val">Vinoteca di Sartoria<br>21 Bloomberg Arcade</p></div>
     </div>
-    <span class="btn">Request your place<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <div class="stub"><span>16·11 · No slides</span></div>
   </div>
 </div>
 </body>
