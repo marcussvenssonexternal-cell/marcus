@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An evening in the City · Embrace × Vionlabs · London, 16 November</title>
+<meta name="description" content="A private reception for the people who run media operations. Monday 16 November 2026, 18:30 – 22:00, Vinoteca di Sartoria, 21 Bloomberg Arcade, London. Request your place.">
+<meta name="theme-color" content="#222426">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="An evening in the City · Embrace × Vionlabs">
+<meta property="og:description" content="A private reception for the people who run media operations. Good wine, a short walk from Bank. No slides, no stand. Monday 16 November, London.">
+<!-- LinkedIn and other link previews need an absolute og:image URL: change this once the page has its final address. -->
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="An evening in the City. Embrace and Vionlabs, Monday 16 November, Vinoteca di Sartoria, London.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "An evening in the City",
+  "description": "A private reception for the people who run media operations, hosted by Embrace and Vionlabs. Good wine, a short walk from Bank. No slides, no stand.",
+  "startDate": "2026-11-16T18:30:00+00:00",
+  "endDate": "2026-11-16T22:00:00+00:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Vinoteca di Sartoria",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "21 Bloomberg Arcade",
+      "addressLocality": "London",
+      "addressCountry": "GB"
+    }
+  },
+  "organizer": [
+    { "@type": "Organization", "name": "Embrace" },
+    { "@type": "Organization", "name": "Vionlabs", "url": "https://www.vionlabs.com" }
+  ]
+}
+</script>
+
+<style>
+:root {
+  --bg: #222426;
+  --panel: #2a2d30;
+  --field: #1c1e20;
+  --hairline: #3d4044;
+  --field-line: #7c7f84;
+  --text: #f4f4f2;
+  --muted: #cfcfcf;
+  --subtle: #a9abae;
+  --accent: #c63268;
+  --accent-hover: #ad2a5a;
+  --error: #ff9dbb;
+
+  --side: clamp(20px, 5.5vw, 80px);
+  --max: 1360px;
+
+  /* The illustration's accent line leaves its left edge at 1089–1099 of 1264 px (1088 px wide).
+     The page draws the rest of that line, so every offset below is a ratio of --art-w. */
+  --art-w: clamp(300px, 34vw, 540px);
+  --art-line-top: calc(var(--art-w) * 1088.5 / 1088);
+  --art-line-h: calc(var(--art-w) * 12 / 1088);
+  --art-below: calc(var(--art-w) * 165 / 1088);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { display: block; max-width: 100%; }
+a { color: var(--text); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { color: #ffffff; }
+:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; left: 16px; top: -100px; z-index: 10;
+  padding: 12px 18px; background: var(--text); color: var(--bg); border-radius: 4px;
+  font-weight: 500; text-decoration: none;
+}
+.skip-link:focus { top: 16px; }
+
+.wrap { width: 100%; max-width: calc(var(--max) + 2 * var(--side)); margin: 0 auto; padding-inline: var(--side); }
+
+/* ---------- Hero ---------- */
+
+.hero { position: relative; overflow: hidden; padding-bottom: clamp(48px, 7vw, 96px); }
+
+.masthead {
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  padding-block: clamp(24px, 3.6vw, 52px) 0;
+}
+.masthead img { height: clamp(26px, 3vw, 44px); width: auto; }
+
+.hero-top {
+  max-width: min(760px, calc(100% - var(--art-w) + var(--side) - 24px));
+  min-height: calc(var(--art-line-top) + 40px);
+  padding-top: clamp(32px, 4.6vw, 72px);
+  padding-bottom: clamp(32px, 4vw, 48px);
+}
+
+.status-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin: 0 0 20px; padding: 6px 14px 6px 12px;
+  border: 1px solid var(--accent); border-radius: 999px;
+  font-size: 15px; font-weight: 400; letter-spacing: 0.02em;
+}
+.status-pill::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+.kicker { margin: 0; font-size: clamp(20px, 2.1vw, 30px); }
+
+h1 {
+  margin: 10px 0 0;
+  font-size: clamp(56px, 8.2vw, 120px);
+  font-weight: 200; line-height: 1.02; letter-spacing: -0.01em;
+}
+
+.lede { margin: clamp(24px, 3vw, 36px) 0 0; max-width: 34em; font-size: clamp(18px, 1.7vw, 24px); line-height: 1.5; color: var(--muted); }
+
+.facts {
+  display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); gap: 20px clamp(32px, 5vw, 72px);
+  margin: clamp(32px, 4vw, 48px) 0 0;
+}
+.facts div { min-width: 0; }
+.facts dt { font-size: 14px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--subtle); }
+.facts dd { margin: 6px 0 0; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.45; }
+.facts strong { font-weight: 400; }
+.facts .aside { display: block; margin-top: 4px; font-size: 16px; color: var(--subtle); }
+.facts a { font-size: 16px; color: var(--muted); }
+
+.horizon { position: relative; height: var(--art-line-h); margin-inline: calc(-1 * var(--side)); }
+/* The bar starts at the page's left edge and runs under the illustration, which then carries
+   the same line up the dome. */
+.horizon::before {
+  content: ''; position: absolute; left: calc((100% - 100vw) / 2); right: calc(var(--art-w) - 8px);
+  top: 0; height: 100%; background: var(--accent);
+}
+.horizon picture { position: absolute; right: calc((100% - 100vw) / 2); top: calc(-1 * var(--art-line-top)); width: var(--art-w); }
+.horizon img { width: 100%; height: auto; aspect-ratio: 1088 / 1264; }
+
+.hero-bottom { min-height: var(--art-below); padding-top: clamp(28px, 3.4vw, 44px); }
+
+.cta {
+  display: inline-flex; align-items: center; gap: 16px; min-height: 44px;
+  font-size: clamp(26px, 2.8vw, 40px); font-weight: 400; text-decoration: none;
+}
+.cta svg { width: 1.05em; height: auto; transition: transform 0.2s ease; }
+.cta:hover svg { transform: translateX(6px); }
+.cta:hover { text-decoration: underline; text-decoration-thickness: 1px; }
+.invite-note { margin: 8px 0 0; font-size: 16px; color: var(--subtle); }
+
+/* ---------- Request ---------- */
+
+.request { padding-block: clamp(64px, 9vw, 128px); border-top: 1px solid var(--hairline); }
+.request-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+
+.request h2 { margin: 0; font-size: clamp(40px, 4.6vw, 64px); font-weight: 200; line-height: 1.08; letter-spacing: -0.01em; }
+.request-intro > p { margin: 20px 0 0; max-width: 30em; color: var(--muted); }
+
+.steps { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 24px; counter-reset: step; }
+.steps li { display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; counter-increment: step; color: var(--muted); }
+.steps li::before {
+  content: counter(step); display: grid; place-items: center; width: 40px; height: 40px;
+  border: 1px solid var(--field-line); border-radius: 50%;
+  font-size: 16px; font-weight: 400; color: var(--text);
+}
+.steps strong { display: block; font-weight: 400; color: var(--text); }
+
+.panel { background: var(--panel); border: 1px solid var(--hairline); border-radius: 10px; padding: clamp(24px, 3.6vw, 48px); }
+
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 20px; }
+.field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+
+label, .label { font-size: 15px; font-weight: 400; color: var(--muted); }
+.optional { color: var(--subtle); font-weight: 300; }
+
+input[type="text"], input[type="email"], textarea {
+  width: 100%; min-height: 52px; padding: 12px 14px;
+  background: var(--field); color: var(--text);
+  border: 1px solid var(--field-line); border-radius: 6px;
+  font: inherit; font-size: 17px; line-height: 1.4;
+  transition: border-color 0.15s ease;
+}
+textarea { min-height: 112px; resize: vertical; }
+input::placeholder, textarea::placeholder { color: #8d9094; }
+input:hover, textarea:hover { border-color: #a3a6ab; }
+input:focus-visible, textarea:focus-visible { outline: 2px solid var(--text); outline-offset: 1px; border-color: var(--text); }
+[aria-invalid="true"] { border-color: var(--error) !important; }
+
+.hint { font-size: 14px; color: var(--subtle); }
+.error-text { font-size: 14px; font-weight: 400; color: var(--error); }
+.error-text:empty { display: none; }
+
+.consent { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; }
+.consent input {
+  appearance: none; -webkit-appearance: none; margin: 1px 0 0; width: 24px; height: 24px;
+  border: 1px solid var(--field-line); border-radius: 4px; background: var(--field); cursor: pointer;
+  display: grid; place-items: center;
+}
+.consent input::after {
+  content: ''; width: 12px; height: 7px; border: solid var(--text); border-width: 0 0 2px 2px;
+  transform: translateY(-2px) rotate(-45deg); opacity: 0;
+}
+.consent input:checked { background: var(--accent); border-color: var(--accent); }
+.consent input:checked::after { opacity: 1; }
+.consent label { font-size: 15px; font-weight: 300; line-height: 1.5; cursor: pointer; }
+.consent .error-text { grid-column: 2; }
+
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+.form-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 30px; }
+.submit {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 56px; padding: 0 30px;
+  background: var(--accent); color: #ffffff; border: 0; border-radius: 999px;
+  font: inherit; font-size: 18px; font-weight: 500; cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.submit:hover { background: var(--accent-hover); }
+.submit:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+.submit[aria-busy="true"] { cursor: progress; opacity: 0.8; }
+.submit svg { width: 22px; height: auto; }
+.form-note { margin: 0; font-size: 14px; color: var(--subtle); }
+
+.form-status { margin: 20px 0 0; font-size: 15px; font-weight: 400; color: var(--error); }
+.form-status:empty { display: none; }
+
+.preview-note {
+  margin: 0 0 24px; padding: 12px 16px; border: 1px dashed var(--field-line); border-radius: 6px;
+  font-size: 14px; color: var(--muted);
+}
+
+.success:focus { outline: none; }
+.success-mark { width: 56px; height: 56px; }
+.success h3 { margin: 24px 0 0; font-size: clamp(30px, 3vw, 40px); font-weight: 200; line-height: 1.15; }
+.success p { margin: 16px 0 0; color: var(--muted); }
+.success .recap { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--hairline); font-size: 16px; color: var(--subtle); }
+.success .recap strong { display: block; font-weight: 400; color: var(--text); }
+
+/* ---------- Footer ---------- */
+
+.site-footer { padding-block: 40px 48px; border-top: 1px solid var(--hairline); font-size: 15px; color: var(--subtle); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
+.site-footer p { margin: 0; }
+.site-footer a { color: var(--muted); }
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 860px) {
+  :root { --art-w: min(62vw, 380px); }
+  .hero-top { max-width: none; min-height: 0; padding-bottom: 0; }
+  .horizon { margin-top: calc(var(--art-line-top) + 32px); }
+  .request-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .facts { grid-template-columns: minmax(0, 1fr); }
+  .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .submit { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#request">Skip to the request form</a>
+
+<main>
+  <section class="hero" aria-label="Invitation">
+  <div class="wrap">
+    <div class="masthead">
+      <img src="assets/embrace-logo-white.png" width="536" height="112" alt="Embrace">
+      <img src="assets/vionlabs-logo-white.png" width="520" height="112" alt="Vionlabs">
+    </div>
+
+    <div class="hero-top">
+      <p class="status-pill" data-last-few hidden>Last few places</p>
+      <p class="kicker"><span class="visually-hidden">Embrace and Vionlabs </span>Would like to invite you to</p>
+      <h1>An evening<br> in the City</h1>
+      <p class="lede">A private reception for the people who run media operations. Good wine, a short walk from Bank. No slides, no stand.</p>
+
+      <dl class="facts">
+        <div>
+          <dt>When</dt>
+          <dd>
+            <strong><time datetime="2026-11-16">Monday 16 November 2026</time></strong><br>
+            <time datetime="2026-11-16T18:30">18:30</time> – <time datetime="2026-11-16T22:00">22:00</time>
+            <span class="aside">The night before DPP</span>
+          </dd>
+        </div>
+        <div>
+          <dt>Where</dt>
+          <dd>
+            <strong>Vinoteca di Sartoria</strong><br>
+            21 Bloomberg Arcade, London<br>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Vinoteca+di+Sartoria%2C+21+Bloomberg+Arcade%2C+London" target="_blank" rel="noopener">Directions<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="horizon">
+      <picture>
+        <source srcset="assets/st-pauls-evening.webp" type="image/webp">
+        <img src="assets/st-pauls-evening.png" width="1088" height="1264" alt="" fetchpriority="high">
+      </picture>
+    </div>
+
+    <div class="hero-bottom">
+      <a class="cta" href="#request">Request your place<svg viewBox="0 0 48 28" aria-hidden="true"><path d="M2 14h42M32 3l12 11-12 11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="invite-note">By invitation. The hosts confirm every spot.</p>
+    </div>
+  </div>
+  </section>
+
+  <section class="request" id="request" aria-labelledby="request-title">
+    <div class="wrap request-grid">
+      <div class="request-intro">
+        <h2 id="request-title">Request your place</h2>
+        <p>The evening is by invitation and places are limited, so Embrace and Vionlabs review every request themselves.</p>
+        <ol class="steps">
+          <li><span><strong>Send your request</strong>It takes a minute.</span></li>
+          <li><span><strong>The hosts review it</strong>Every request is read by the Embrace and Vionlabs teams.</span></li>
+          <li><span><strong>We confirm by email</strong>Your place is held once you have our confirmation.</span></li>
+        </ol>
+      </div>
+
+      <div class="panel">
+        <form id="request-form" novalidate>
+          <p class="preview-note" data-preview-note hidden>Preview: this form isn't connected to HubSpot yet, so requests are not sent anywhere.</p>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="firstname">First name</label>
+              <input id="firstname" name="firstname" type="text" autocomplete="given-name" required aria-describedby="firstname-error">
+              <span class="error-text" id="firstname-error"></span>
+            </div>
+            <div class="field">
+              <label for="lastname">Last name</label>
+              <input id="lastname" name="lastname" type="text" autocomplete="family-name" required aria-describedby="lastname-error">
+              <span class="error-text" id="lastname-error"></span>
+            </div>
+            <div class="field full">
+              <label for="email">Work email</label>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" required aria-describedby="email-error">
+              <span class="error-text" id="email-error"></span>
+            </div>
+            <div class="field">
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" autocomplete="organization" required aria-describedby="company-error">
+              <span class="error-text" id="company-error"></span>
+            </div>
+            <div class="field">
+              <label for="jobtitle">Job title</label>
+              <input id="jobtitle" name="jobtitle" type="text" autocomplete="organization-title" required aria-describedby="jobtitle-error">
+              <span class="error-text" id="jobtitle-error"></span>
+            </div>
+            <div class="field full">
+              <label for="message">Anything the hosts should know? <span class="optional">(optional)</span></label>
+              <textarea id="message" name="message" rows="3" aria-describedby="message-hint"></textarea>
+              <span class="hint" id="message-hint">Dietary requirements, or who invited you.</span>
+            </div>
+            <div class="field full">
+              <div class="consent">
+                <input id="consent" name="consent" type="checkbox" required aria-describedby="consent-error">
+                <label for="consent" id="consent-label">I agree that Embrace and Vionlabs may use these details to handle my request for this event. See the <a href="https://www.vionlabs.com/legal" target="_blank" rel="noopener" data-privacy-link>privacy notice<span class="visually-hidden"> (opens in a new tab)</span></a>.</label>
+                <span class="error-text" id="consent-error"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-footer">
+            <button class="submit" type="submit">Request my place<svg viewBox="0 0 48 28" aria-hidden="true"><path d="M2 14h42M32 3l12 11-12 11" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <p class="form-note">All fields are required unless marked optional.</p>
+          </div>
+          <p class="form-status" id="form-status" role="alert"></p>
+        </form>
+
+        <div class="success" id="request-success" tabindex="-1" hidden>
+          <svg class="success-mark" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="none" stroke="#c63268" stroke-width="2"/><path d="M17 29l7.5 7.5L40 21" fill="none" stroke="#f4f4f2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Thank you, <span data-success-name></span>.<br> Your request is in.</h3>
+          <p>The hosts review every request and will confirm your place by email to <strong data-success-email></strong>.</p>
+          <p class="recap"><strong>Monday 16 November 2026</strong><strong>18:30 – 22:00</strong>Vinoteca di Sartoria, 21 Bloomberg Arcade, London</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>An evening in the City, hosted by Embrace and Vionlabs.</p>
+    <p><a href="https://www.vionlabs.com/legal" target="_blank" rel="noopener" data-privacy-link>Privacy notice</a></p>
+  </div>
+</footer>
+
+<script>
+/* ------------------------------------------------------------------
+   Settings. See README.md for where to find each HubSpot value.
+   While portalId or formId is empty the page runs in preview mode:
+   the form works, but nothing is sent.
+   ------------------------------------------------------------------ */
+window.EVENT_PAGE = {
+  hubspot: {
+    portalId: '',             // HubSpot account ID, e.g. '1234567'
+    formId: '',               // Form ID (GUID) of the HubSpot form that collects the requests
+    loadTrackingCode: false,  // true adds the HubSpot tracking code, if the site doesn't load it already
+    trackingHost: 'js.hs-scripts.com' // EU data centre accounts: 'js-eu1.hs-scripts.com'
+  },
+  privacyUrl: 'https://www.vionlabs.com/legal',
+  lastFewPlaces: false        // true shows the "Last few places" badge in the hero
+};
+
+(function () {
+  var settings = window.EVENT_PAGE;
+  var hubspot = settings.hubspot;
+  var isPreview = !hubspot.portalId || !hubspot.formId;
+
+  var form = document.getElementById('request-form');
+  var statusEl = document.getElementById('form-status');
+  var submitBtn = form.querySelector('.submit');
+  var success = document.getElementById('request-success');
+  var attempted = false;
+  var sending = false;
+
+  document.querySelector('[data-last-few]').hidden = !settings.lastFewPlaces;
+  document.querySelector('[data-preview-note]').hidden = !isPreview;
+  document.querySelectorAll('[data-privacy-link]').forEach(function (a) { a.href = settings.privacyUrl; });
+
+  if (!isPreview && hubspot.loadTrackingCode) {
+    var s = document.createElement('script');
+    s.id = 'hs-script-loader';
+    s.async = true;
+    s.defer = true;
+    s.src = 'https://' + hubspot.trackingHost + '/' + encodeURIComponent(hubspot.portalId) + '.js';
+    document.head.appendChild(s);
+  }
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var CHECKS = {
+    firstname: function (v) { return v ? '' : 'Please enter your first name.'; },
+    lastname: function (v) { return v ? '' : 'Please enter your last name.'; },
+    email: function (v) {
+      if (!v) return 'Please enter your work email.';
+      return EMAIL_RE.test(v) ? '' : 'Please check your email address.';
+    },
+    company: function (v) { return v ? '' : 'Please enter your company.'; },
+    jobtitle: function (v) { return v ? '' : 'Please enter your job title.'; },
+    consent: function (v, el) { return el.checked ? '' : 'Please tick the box so we can handle your request.'; }
+  };
+  // Field names are HubSpot's default contact properties, so the HubSpot form needs no custom properties.
+  var HUBSPOT_FIELDS = ['firstname', 'lastname', 'email', 'company', 'jobtitle', 'message'];
+
+  function value(name) { return form.elements[name].value.trim(); }
+
+  function setError(name, message) {
+    var el = form.elements[name];
+    var msg = document.getElementById(name + '-error');
+    if (message) el.setAttribute('aria-invalid', 'true');
+    else el.removeAttribute('aria-invalid');
+    msg.textContent = message;
+  }
+
+  function validate() {
+    var firstInvalid = null;
+    Object.keys(CHECKS).forEach(function (name) {
+      var el = form.elements[name];
+      var message = CHECKS[name](value(name), el);
+      setError(name, message);
+      if (message && !firstInvalid) firstInvalid = el;
+    });
+    return firstInvalid;
+  }
+
+  Object.keys(CHECKS).forEach(function (name) {
+    var el = form.elements[name];
+    el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', function () {
+      if (attempted) setError(name, CHECKS[name](value(name), el));
+    });
+  });
+
+  // The wording the visitor agreed to, without screen-reader-only text such as "(opens in a new tab)".
+  function consentText() {
+    var label = document.getElementById('consent-label').cloneNode(true);
+    label.querySelectorAll('.visually-hidden').forEach(function (el) { el.remove(); });
+    return label.textContent.replace(/\s+/g, ' ').trim();
+  }
+
+  function hubspotCookie() {
+    var match = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+
+  function send() {
+    var context = { pageUri: window.location.href, pageName: document.title };
+    var hutk = hubspotCookie();
+    if (hutk) context.hutk = hutk;
+
+    var body = {
+      submittedAt: Date.now(),
+      fields: HUBSPOT_FIELDS
+        .map(function (name) { return { objectTypeId: '0-1', name: name, value: value(name) }; })
+        .filter(function (field) { return field.value !== ''; }),
+      context: context,
+      legalConsentOptions: {
+        consent: {
+          consentToProcess: true,
+          text: consentText(),
+          communications: []
+        }
+      }
+    };
+
+    var url = 'https://api.hsforms.com/submissions/v3/integration/submit/' +
+      encodeURIComponent(hubspot.portalId) + '/' + encodeURIComponent(hubspot.formId);
+
+    return fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    }).then(function (res) {
+      if (res.ok) return;
+      return res.json().catch(function () { return {}; }).then(function (data) {
+        var err = new Error((data && data.message) || ('HubSpot returned ' + res.status));
+        err.hubspotErrors = (data && data.errors) || [];
+        throw err;
+      });
+    });
+  }
+
+  function showSuccess() {
+    success.querySelector('[data-success-name]').textContent = value('firstname');
+    success.querySelector('[data-success-email]').textContent = value('email');
+    form.hidden = true;
+    success.hidden = false;
+    success.focus();
+    if (window.dataLayer) window.dataLayer.push({ event: 'event_place_requested', event_name: 'An evening in the City' });
+  }
+
+  function showFailure(err) {
+    var types = (err.hubspotErrors || []).map(function (e) { return e.errorType; });
+    if (types.indexOf('INVALID_EMAIL') !== -1 || types.indexOf('BLOCKED_EMAIL') !== -1) {
+      setError('email', 'Please use a different email address, ideally your work email.');
+      form.elements.email.focus();
+      statusEl.textContent = '';
+      return;
+    }
+    statusEl.textContent = 'Sorry, your request didn’t go through. Please try again in a moment.';
+    if (window.console) console.error('Request form:', err.message, err.hubspotErrors || '');
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (sending) return;
+    attempted = true;
+    statusEl.textContent = '';
+
+    var firstInvalid = validate();
+    if (firstInvalid) { firstInvalid.focus(); return; }
+
+    // Bots fill the hidden field; give them the success screen and send nothing.
+    if (form.elements.website.value) { showSuccess(); return; }
+
+    sending = true;
+    submitBtn.setAttribute('aria-busy', 'true');
+    var request = isPreview
+      ? new Promise(function (resolve) { setTimeout(resolve, 600); })
+      : send();
+
+    request.then(showSuccess, showFailure).then(function () {
+      sending = false;
+      submitBtn.removeAttribute('aria-busy');
+    });
+  });
+})();
+</script>
+</body>
+</html>
