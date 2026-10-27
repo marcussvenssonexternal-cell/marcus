@@ -24,8 +24,14 @@ site's other Webflow forms. This folder is the standalone version of the same de
 | File | What it is |
 | --- | --- |
 | `index.html` | The whole page: markup, styles, form logic and settings. No build step |
-| `assets/` | Both logos, the St Paul's drawing and `og-image.jpg` for link previews |
+| `assets/` | Both logos as SVG, the St Paul's drawing and `og-image.jpg` for link previews |
 | `og/og-image.html` | Source of the 1200×627 link preview. `node og/render_og.cjs` re-renders `assets/og-image.jpg` |
+
+The Vionlabs logo is the official wordmark from the brand files, without the tagline. The Embrace
+logo is a vector redraw of the PNG supplied with the social post, since no vector file was at hand:
+swap in Embrace's own SVG when they send it, here and in Webflow (`london-embrace-logo-white.svg`).
+Both SVGs keep the frame of the PNGs they replaced (536×112 and 520×112), so their sizes on the page
+did not change.
 
 To preview, open `index.html` in a browser. Until HubSpot is connected the form runs in preview
 mode: it validates and shows the thank-you screen, but sends nothing, and says so above the fields.
