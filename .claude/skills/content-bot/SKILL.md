@@ -194,6 +194,11 @@ send anything.
    - Two verification agents check every claim against two sources or the primary source.
      Resolve each `[check]`: confirm it, credit the single source in the sentence (for example
      "reported by PPC Land"), or cut it. Rewrite around every `[Arash: …]` and `[Team: …]`.
+   - Check every company the piece names against "Names we keep out of public content" in
+     `brand.md` and the radar's competitor groups in `watchlist.yaml`. Competitors, customers we
+     no longer work with and companies that won business from us are never named: make the point
+     in general terms or use our own work as the evidence. When Arash flags a new name, add it to
+     that list. `gdoc.py --approval` and `webflow.py` refuse to build while a listed name appears.
    - A pass with the `human-prose` skill, then a professional editor's read for a founder's
      byline: the opening line is his view, then something concrete; paragraphs average under
      35 words; Vionlabs' own view leads every section and the text has four or five links at
@@ -232,8 +237,12 @@ send anything.
    "Kör", "ok", "godkänt" or "approved" means approved: set `status` "approved" and put the
    post live. Set `original-published-on-date` to now with `update_collection_items`, then
    `publish_collection_items` for `website.itemId`, and check the result lists no errors. Set
-   `website.status` "live" and `publishedAt`, commit and push, and send Marcus the link with
-   `linkedin.shareText` so he can share it on LinkedIn. If Arash asked for changes, set `status`
+   `website.status` "live" and `publishedAt`, commit and push. Then reply to Arash in the thread he
+   answered in, in Swedish as Marcus: what changed from his feedback (and, when his feedback was a
+   rule, that we now check for it on every post), the live link, the LinkedIn image and the LinkedIn
+   text. LinkedIn goes out the day after he approves: the image is the piece's `social` field
+   (1080x1350, drawn by `social.html`, rendered by `cover.js`), and a `send_later` at 08:30 Stockholm
+   the next day hands Marcus the text and image to post. If Arash asked for changes, set `status`
    "changes" and list them for Marcus. Apply agreed changes to the piece, update the draft item and
    send a new Doc; never edit a shared Doc without the Google Docs connector. Never post to
    LinkedIn yourself: no connected tool can, so Marcus shares the link.

@@ -19,7 +19,7 @@ import re
 import sys
 from datetime import datetime, timezone
 
-from gdoc import OPEN, TOPICS, inline
+from gdoc import OPEN, TOPICS, inline, kept_out, public_text
 
 SITE_ID = "67978ee27d95b7ff0119d2ea"        # Vionlabs Video AI (vionlabs.com)
 NEWS_COLLECTION = "67978ee27d95b7ff0119d37e"  # "News": the blog at vionlabs.com/news/<slug>
@@ -68,6 +68,9 @@ def field_data(piece_id, published=None):
             left = sorted(set(OPEN.findall(p["body"])))
             if left:
                 sys.exit(f"{piece_id} still has open markers: {', '.join(left)}")
+            named = kept_out(public_text(p))
+            if named:
+                sys.exit(f"{piece_id} names {', '.join(named)}, which we keep out of public content (brand.md)")
             assets = web.get("assets") or {}
             data = {"name": web["title"], "slug": web["slug"], "post-summary": web["summary"],
                     "post-body": rich_text(p["body"], assets),

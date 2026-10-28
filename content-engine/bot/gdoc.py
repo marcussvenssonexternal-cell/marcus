@@ -22,11 +22,25 @@ import sys
 from pathlib import Path
 
 TOPICS = Path(__file__).resolve().parent.parent / "deep-dives"
+BRAND = Path(__file__).resolve().parent.parent / "config" / "brand.md"
 RAW = "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/{branch}/content-engine/deep-dives/{image}"
 P = '<p style="margin-top:0pt;margin-bottom:12pt;line-height:1.5">'
 H = 'style="margin-top:20pt;margin-bottom:8pt;page-break-after:avoid"'
 CHK = '<span style="background-color:#fff2cc">[check]</span>'
 OPEN = re.compile(r"\[check\]|\[(?:Arash|Team):[^\]]*\]")
+
+
+def kept_out(text):
+    """Names from brand.md's "Names we keep out of public content" list that appear in text."""
+    m = re.search(r"^### Names we keep out of public content\n(.*?)(?=^#)", BRAND.read_text(), re.S | re.M)
+    names = [l[2:].split(":")[0].strip() for l in (m.group(1) if m else "").splitlines() if l.startswith("- ")]
+    return sorted(n for n in names if re.search(rf"(?<!\w){re.escape(n)}(?!\w)", text, re.I))
+
+
+def public_text(p):
+    """Everything in a piece that readers will see."""
+    web, li = p.get("website") or {}, p.get("linkedin") or {}
+    return "\n".join([p.get("title", ""), p["body"], web.get("title", ""), web.get("summary", ""), li.get("shareText", "")])
 
 
 def inline(s):
@@ -94,6 +108,9 @@ def piece_html(piece_id, approval=False, branch="claude/practical-fermi-gatt4t")
                 left = sorted(set(OPEN.findall(p["body"])))
                 if left:
                     sys.exit(f"{piece_id} still has open markers, so it isn't ready for Arash: {', '.join(left)}")
+                named = kept_out(public_text(p))
+                if named:
+                    sys.exit(f"{piece_id} names {', '.join(named)}, which we keep out of public content (brand.md)")
                 h.append(f"{P}<i>Draft for approval. {kind} by Arash Pendari, about {max(1, round(words / 230))} minutes to read."
                          + (f" When it's approved it goes live at {html.escape(url)}." if url else "") + "</i></p>")
                 if p.get("rationale"):  # why we publish this: for Arash, not part of the post

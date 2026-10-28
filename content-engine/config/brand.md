@@ -29,7 +29,7 @@ telco / cable operators, broadcasters, news broadcasters, ad-funded streamers (A
 ## Partners and proof points worth naming
 
 AWS and Google Cloud (marketplaces), SDVI, Cinesys, Embrace / IVORY, Innotech (Hulu Japan),
-SeaOvers (i-CABLE, live in 30 days), Plex, Zeam Media. Memberships and networks: DPP, IAMT.
+SeaOvers, Plex, Zeam Media. Memberships and networks: DPP, IAMT.
 Only name a customer in public content if it has already been announced publicly.
 
 ## Core theses (things we believe and can defend)
@@ -68,6 +68,23 @@ with a "Book a demo" line. LinkedIn gets the posts, the carousels and a post sha
   "it's important to note", or other generic corporate AI copy
 
 Gut check: would this sound like Arash saying it to a friend at a conference bar?
+
+### Names we keep out of public content
+
+Our blog posts and LinkedIn content never name competitors, customers we no longer work with, or
+companies that have won business from us, even when they are in the news. Naming them gives them
+attention and can embarrass a former customer. Make the point about the market in general terms
+("several ad-tech companies now…") or leave it out, and lean on our own work for evidence instead.
+Arash set this on 28 Oct 2026. Before a draft goes to him, check every company it names against this
+list and the radar's competitor groups in `watchlist.yaml`; when unsure, leave the name out.
+`gdoc.py --approval` and `webflow.py` refuse to build while a name below appears. Add names as we
+learn them, one per line:
+
+- Bitmovin: competitor that has won a customer from us
+- i-CABLE: former customer
+- Wurl: competitor in contextual CTV advertising
+- Anoki: competitor in contextual CTV advertising
+- Peer39: competitor in contextual CTV advertising
 
 ### Our take first (long reads and articles)
 
