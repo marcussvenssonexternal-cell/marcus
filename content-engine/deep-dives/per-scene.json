@@ -1,0 +1,289 @@
+{
+  "id": "per-scene",
+  "order": 7,
+  "title": "The next per-title moment: a scene-level content layer",
+  "lens": "streaming technology",
+  "audience": [
+    "tier-1 streamers",
+    "telco / cable operators",
+    "broadcasters",
+    "ad-funded streamers (AVOD / FAST)"
+  ],
+  "thesis": "Streaming made delivery content-aware with per-title and per-shot encoding. Ad breaks, artwork, previews and discovery still run on content-blind defaults; the next step is a scene-level content layer computed once at ingest that every downstream system reads.",
+  "whyNow": "Ad-supported streaming is 46.6% of ad-supported TV viewing (Nielsen, Q1 2026), ad loads rose about 18% this year (Ampere), and library titles are about 80% of US streaming hours (Luminate, H1 2026). StreamingMeme invited Vionlabs to publish in its new Industry Voices section.",
+  "questions": [
+    "Why did per-title encoding spread so fast, and what does that teach us?",
+    "Which decisions after delivery are still content-blind?",
+    "What does a scene-level content layer contain and where does it sit?",
+    "What are the honest objections?",
+    "What should a platform measure first?"
+  ],
+  "bring": "Ad-break detection run in SDVI's Rally with operator validation; Fingerprint+ metadata (v11.15 vocabulary rebuild); Curio personalization on multimodal embeddings, live with Great American Pure Flix; the AWS Marketplace listing.",
+  "needs": [
+    "StreamingMeme's Industry Voices rules: length, images, exclusivity and canonical links (we couldn't open the site from this session)",
+    "Arash to confirm the webinar anecdote and the per-team section read the way he'd say them"
+  ],
+  "events": [],
+  "evidence": [
+    {
+      "label": "Netflix: Per-Title Encode Optimization (via The Register)",
+      "url": "https://www.theregister.com/2015/12/16/netflix_per_title_encode_optimization/",
+      "date": "2015-12-16"
+    },
+    {
+      "label": "Netflix: The Power of a Picture",
+      "url": "https://about.netflix.com/en/news/the-power-of-a-picture",
+      "date": "2016-05-03"
+    },
+    {
+      "label": "Luminate 2026 Midyear Report",
+      "url": "https://luminatedata.com/wp-content/uploads/2026/07/Midyear-REPORT-2026-0714-compressed.pdf",
+      "date": "2026-07-14"
+    },
+    {
+      "label": "Nielsen Q1 2026 Ad Supported Gauge",
+      "url": "https://www.nielsen.com/news-center/2026/nielsens-q1-2026-ad-supported-gauge/",
+      "date": "2026"
+    },
+    {
+      "label": "MovieLabs: The 10 principles of the 2030 Vision",
+      "url": "https://movielabs.com/the-10-principles-of-the-2030-vision/",
+      "date": "2019"
+    }
+  ],
+  "series": [
+    {
+      "kind": "article",
+      "pillar": "Industry Trend Commentary",
+      "format": "Guest article (StreamingMeme)",
+      "working": "Streaming's next per-title moment won't happen in the encoder"
+    }
+  ],
+  "pack": {
+    "generated": "2026-10-28",
+    "summary": "One guest article for StreamingMeme's Industry Voices, under Arash's byline: the encoding industry's per-title lesson applied to everything after delivery.",
+    "pieces": [
+      {
+        "kind": "article",
+        "slot": "StreamingMeme Industry Voices, after Arash approves",
+        "pillar": "Industry Trend Commentary",
+        "format": "Guest article (StreamingMeme)",
+        "outlet": "StreamingMeme (Industry Voices)",
+        "title": "Streaming's next per-title moment won't happen in the encoder",
+        "subtitle": "Ten years ago the encoder learned to read the content. Ad breaks, artwork, previews and discovery still treat every minute the same.",
+        "body": "Ten years ago streaming learned that the content should decide how it gets treated. We applied that lesson to bits and to very little else.\n\nIn December 2015, Netflix described per-title encoding on its engineering blog. Until then every title got the same bitrate ladder, topping out at 5,800 kbps for 1080p, whatever was in the picture. A cartoon and an action film were encoded as if they were equally hard to compress.\n\nPer-title gave each title \"a unique bitrate ladder, tailored to its specific complexity characteristics\", and Netflix put the saving at about 20% of bandwidth.\n\nThe idea then moved down to smaller units. Netflix demonstrated shot-based encoding in 2017 and wrote up its Dynamic Optimizer in 2018, choosing resolution and quality shot by shot against a perceptual target.\n\nWhen it moved 4K to optimized shot-based encoding in 2020, it reported roughly half the bitrate for the same quality and about 65% fewer rebuffers per hour.\n\nThe rest of the industry followed quickly. AWS added quality-defined variable bitrate to MediaConvert in August 2018, and per-title optimization has since become a standard feature of cloud encoding services.\n\nI think the reason it spread so fast matters more than the encoding itself, because that's the part we haven't copied yet.\n\n## Why per-title worked\n\nPer-title encoding succeeded because four things lined up:\n\n- The analysis happened once, when the title came in.\n- The result was stored as data (the ladder) and travelled with the asset in the manifest.\n- Every player used it automatically, without anyone deciding title by title.\n- There was a metric people trusted. Netflix open-sourced VMAF in June 2016, and arguments about picture quality turned into arguments about numbers.\n\nEverything after delivery is missing at least one of those four, and usually all of them.\n\n## The fixed ladder is still everywhere else\n\nLook at what happens to a title once it's encoded. Most of the decisions are still made the way we encoded video before 2015, with one rule for everything.\n\nAd breaks are placed on a timer, by a rule that looks for black frames and silence, or by an editor scrubbing through the timeline. In the workflow we've shown with SDVI, a single 40-minute episode can take 20 to 60 minutes to segment by hand.\n\nThat number grows with the ad business. Streaming reached 46.6% of ad-supported TV viewing in Nielsen's Q1 2026 Gauge, and Ampere puts the average ad load across the big US services up about 18% between January and August, so the hours of manual work grow with every title that moves into an ad tier.\n\nArtwork is often a frame grab or a quick manual pick, even though it may be the most important image on the service.\n\nNetflix's research from early 2014 found that artwork was the biggest influence on what members chose and took \"over 82% of their focus while browsing\", with about 1.8 seconds spent on each title.\n\nA single one-hour episode of Stranger Things contains nearly 86,000 still frames, which is why Netflix built tooling to rank them for its editors. On a service without that tooling, those 1.8 seconds go to whichever frame someone happened to grab.\n\nPreviews and clips need someone to find the moment worth showing. When that someone is an editor working title by title, the long tail of the catalogue rarely gets one.\n\nDiscovery leans on genre tags and viewing history. Netflix's own researchers wrote in 2015 that a typical member loses interest after 60 to 90 seconds of choosing, having looked at 10 to 20 titles.\n\nTags decay as well. When we rebuilt the vocabularies in Fingerprint+, our metadata product, this autumn we removed 833 terms. Labels like \"calm\" and \"calming\" had split one idea in two, so every filter built on one of them saw only part of the titles.\n\nThe cost of all this lands on the library. Luminate's midyear report counts 42.2 billion hours of library TV streamed in the US in the first half of 2026, against 11.5 billion for original series, and 10.8 billion hours of library film against 2.1 billion for originals.\n\nBy my count that puts library titles at about 80% of the hours. I'd expect them to be the titles least likely to get hand-picked artwork, a hand-cut preview or carefully placed breaks.\n\n![Two pipelines. Today: ingest, then content-aware encoding, then package and deliver, after which ad breaks, artwork, previews and discovery all run on content-blind defaults. Next: ingest, then a scene-level content layer computed once, which feeds encoding, ad markers, artwork, clips and previews, and discovery.](figures/per-scene-01-pipeline.png)\n\n## What a scene-level content layer contains\n\nThe equivalent of the bitrate ladder for everything after delivery is a scene-level description of the title, computed once at ingest and stored next to the mezzanine file. At Vionlabs this is what we build. In practice it holds:\n\n- Scene and shot boundaries, and how similar each shot is to the ones around it\n- Where people speak, where it goes quiet and where the picture goes to black\n- Intros, recaps and end credits\n- An emotion and tension curve across the runtime, showing where the story builds and where it rests\n- Break candidates, each rated by how many of those signals agree on the spot\n- Key moments: the frames and short ranges most likely to work as artwork, previews or clips\n- An embedding of each title's visual composition, pacing, dialogue, tone and emotional arc, so systems can compare how titles feel to watch instead of which genre label they share\n\nMost of that isn't new. Plenty of media teams already have a script for black frames or a spreadsheet of credit timestamps. What changes is producing it once, in one schema, so that ad decisioning, artwork tools and recommenders all read the same answer.\n\nThat's also where the industry's own plans point. In 2019 the major studios, through MovieLabs, set out ten principles for how media will be made by 2030.\n\nThe first says assets are \"created or ingested straight into the cloud and do not need to be moved\". The second says \"applications come to the media\".\n\nA content layer applies the same principle to understanding. Analyse the file where it lives, once, and let every system that needs to know what's in it come to the result.\n\n## Where it sits in the pipeline\n\nThe layer belongs at ingest, next to the encode job, run by whatever orchestrates the media supply chain.\n\nOur ad-break work with SDVI is a public example. Content lands in SDVI's Rally platform, which routes it to our analysis without a manual handoff. Ranked break candidates come back in minutes.\n\nAn operator then reviews them on a frame-accurate timeline in Codemill's validation tool and approves or adjusts each one. The final markers go downstream as SCTE markers or sidecar files to ad insertion.\n\nThat last step shows where the understanding currently stops. SCTE-35 can say a good deal about a point in time: a time_signal with a segmentation descriptor can mark a chapter start or a provider placement opportunity.\n\nVMAP gives each break a time offset, and OpenRTB 2.6 can say whether an ad pod is the first, a middle or the last one in the programme.\n\nNone of them has a field for where the break falls in the story or how good a break point it is, and I couldn't find one in any of the ad standards.\n\nSo the scene layer knows a break sits at a natural pause after a resolved scene, while the bid request downstream only knows a timestamp.\n\nI think break quality should travel with the cue, the same way the bitrate ladder travels in the manifest. **Publishers would then have a way to prove a break respects the story, and buyers would have a reason to pay for it.**\n\n## What changes for each team\n\nFor ad operations, break placement becomes a review job. The team checks ranked candidates instead of scrubbing through every title, and the work grows with the number of titles to review rather than with the hours of video.\n\nFor editorial and marketing, artwork and previews start from moments the layer has already found. An editor chooses between strong options instead of hunting through tens of thousands of frames.\n\nFor product and discovery, rows and recommendations can use how a title feels to watch. That helps most with new and long-tail titles, which have little viewing history to learn from.\n\nFor engineering, it is one more job at ingest with a versioned output. I would run it the way teams run the encoding ladder, with a schema, a version number and a test before a new model goes live.\n\n## What we got wrong on the way\n\nModels make confident mistakes. In the SDVI webinar this summer I described one: a camera panning across a wall into darkness can look like a black frame to the model, so it gets flagged as a break. That's why the operator stays in the workflow.\n\nA rested, focused editor still makes very good calls. The model wins on speed and consistency across thousands of titles, and the two together beat either one alone.\n\nVocabularies rot if nobody owns them. Every new tag looks like extra coverage until two tags mean the same thing.\n\nOur genre list had grown to 152 terms, including compound labels such as \"action comedy\" that forced a choice nobody downstream could see. The fix was to treat the vocabulary as a product with a schema and versions, and to cut hard.\n\nGeneral-purpose video models see more than they understand. Recognising objects, faces and speech is largely solved.\n\nTelling whether tension is building or releasing, or whether a scene is the end of a marriage or the start of a romance, is a different problem. It's the one that matters most for ads, artwork and discovery, and it needs models trained on entertainment.\n\n## The case against\n\nThe strongest objection comes from recommendation research. In 2009, Pilászy and Tikk showed on Netflix Prize data that even ten ratings for a new film predicted what users would think of it better than its metadata did. Where you have viewing history, collaborative filtering is hard to beat.\n\nI agree, and it tells you where content signals earn their place. They matter most where history is thin: new titles, the long tail and the library titles nobody has opened in years.\n\nThat's the case Curio, our personalization layer, was built for. It runs on embeddings learned from more than a million analysed assets, and Great American Pure Flix became its first partner in October.\n\nAd breaks and artwork aren't recommendation problems at all. A film with a million views still needs its breaks placed and its artwork chosen, and its viewing history says nothing about where the story pauses.\n\nThe second objection is accuracy. On the Video-MME benchmark published in 2024, the best commercial model at the time answered about 75% of questions about videos correctly, and it did worse on longer videos.\n\nA content layer will be wrong some of the time. That's an argument for review where judgment matters and for measuring everything, which is how encoding got there too.\n\n## Where I'd start\n\nIf you run a streaming service, the encoding history suggests starting where there's a number. Pick one use case, measure it before and after, and let the result decide whether you do the next one:\n\n- Time to segment a title for ads, by hand against reviewed AI markers\n- Drop-off in the 30 seconds after a break, split by whether it landed at a natural pause or mid-scene\n- Click-through on artwork chosen from key moments, against the frame grab it replaces\n- How many library titles get started each week once they have a real preview and real artwork\n\nPer-title spread once VMAF gave everyone the same number to argue about. I think content understanding needs its own version of that: an agreed way to score a break, a thumbnail or a preview, so that a platform can compare one approach with another.\n\nWhat would you need to see measured before you trusted a scene-level layer to place your breaks or pick your artwork?\n\n*Arash Pendari is the founder and CEO of Vionlabs, which builds AI that understands how video content feels to watch, for streaming services, broadcasters and telcos. [vionlabs.com](https://www.vionlabs.com)*\n",
+        "rationale": [
+          "It reaches the people who run media supply chains and ad insertion at tier-1 streamers, telcos and broadcasters. StreamingMeme says Industry Voices reaches more than 40,000 unique visitors a month, and our own blog mostly reaches people who already know us.",
+          "It frames content understanding as a pipeline layer, the way content-adaptive encoding went from a Netflix blog post in 2015 to a standard cloud-encoder feature within a few years. That puts Vionlabs in infrastructure conversations, not feature comparisons.",
+          "The timing is right: streaming is 46.6% of ad-supported TV viewing (Nielsen, Q1 2026), ad loads rose about 18% this year (Ampere), and library titles are about 80% of US streaming hours (Luminate), so break placement and catalogue discovery at scale are live problems.",
+          "Every proof point is already public: the SDVI ad-break workflow, the Fingerprint+ v11.15 rebuild and Curio live with Great American Pure Flix."
+        ],
+        "linkedin": {
+          "shareText": "Ten years ago streaming taught the encoder to read the content. Per-title, then per-shot, because a cartoon and an action film shouldn't get the same bitrate ladder.\n\nMost of what happens after delivery still runs on one rule for everything: breaks on a timer, artwork from a frame grab, discovery from genre tags. I wrote for StreamingMeme about why I think the next per-title moment is a scene-level content layer, computed once at ingest, and what to measure first.\n\n[StreamingMeme link once live]\n\nWhat would you need to see measured before you trusted it to place your breaks?"
+        },
+        "sources": [
+          {
+            "label": "Netflix per-title encoding (The Register)",
+            "url": "https://www.theregister.com/2015/12/16/netflix_per_title_encode_optimization/",
+            "date": "2015-12-16"
+          },
+          {
+            "label": "Netflix 4K optimized shot-based encoding (Hackaday)",
+            "url": "https://hackaday.com/2020/09/16/decoding-the-netflix-announcement-explaining-optimized-shot-based-encoding-for-4k",
+            "date": "2020-09-16"
+          },
+          {
+            "label": "AWS MediaConvert adds QVBR",
+            "url": "https://aws.amazon.com/about-aws/whats-new/2018/08/aws-elemental-mediaconvert-now-supports-quality-defined-variable-bitrate-qvbr-encoding",
+            "date": "2018-08"
+          },
+          {
+            "label": "Netflix: The Power of a Picture",
+            "url": "https://about.netflix.com/en/news/the-power-of-a-picture",
+            "date": "2016-05-03"
+          },
+          {
+            "label": "Netflix: AVA, the art and science of image discovery",
+            "url": "https://medium.com/netflix-techblog/ava-the-art-and-science-of-image-discovery-at-netflix-a442f163af6",
+            "date": "2018"
+          },
+          {
+            "label": "Gomez-Uribe and Hunt, The Netflix Recommender System (ACM TMIS)",
+            "url": "https://gwern.net/doc/reinforcement-learning/exploration/2015-gomezuribe.pdf",
+            "date": "2015-12"
+          },
+          {
+            "label": "Luminate 2026 Midyear Report",
+            "url": "https://luminatedata.com/wp-content/uploads/2026/07/Midyear-REPORT-2026-0714-compressed.pdf",
+            "date": "2026-07-14"
+          },
+          {
+            "label": "Nielsen Q1 2026 Ad Supported Gauge",
+            "url": "https://www.nielsen.com/news-center/2026/nielsens-q1-2026-ad-supported-gauge/",
+            "date": "2026"
+          },
+          {
+            "label": "MovieLabs 2030 Vision principles",
+            "url": "https://movielabs.com/the-10-principles-of-the-2030-vision/",
+            "date": "2019"
+          },
+          {
+            "label": "AWS MediaTailor: SCTE-35 messages",
+            "url": "https://docs.aws.amazon.com/mediatailor/latest/ug/ca-scte-35-messages.html",
+            "date": "current docs"
+          },
+          {
+            "label": "IAB VMAP",
+            "url": "https://iab.com/vmap",
+            "date": "2014"
+          },
+          {
+            "label": "Pilászy and Tikk, RecSys 2009",
+            "url": "https://bibtex.github.io/RecSys-2009-PilaszyT.html",
+            "date": "2009"
+          },
+          {
+            "label": "Video-MME benchmark",
+            "url": "https://arxiv.org/pdf/2405.21075",
+            "date": "2024-05"
+          },
+          {
+            "label": "Vionlabs and SDVI ad-break webinar",
+            "url": "https://www.vionlabs.com/news/accelerating-ad-breaks-detection-and-insertion-webinar-with-sdvi",
+            "date": "2026-08-19"
+          },
+          {
+            "label": "Vionlabs: What's new in Fingerprint+ v11.15",
+            "url": "https://www.vionlabs.com/news/whats-new-in-fingerprint-v11-15",
+            "date": "2026-10-09"
+          },
+          {
+            "label": "Vionlabs launches Curio with Great American Pure Flix",
+            "url": "https://www.vionlabs.com/news/vionlabs-launches-curio",
+            "date": "2026-10-01"
+          },
+          {
+            "label": "Ampere ad load data (Android Authority)",
+            "url": "https://www.androidauthority.com/streaming-services-more-ads-2026-3708866/",
+            "date": "2026-09"
+          }
+        ],
+        "figures": [
+          {
+            "image": "figures/per-scene-01-pipeline.png",
+            "template": "pipeline",
+            "alt": "Two rows of a streaming pipeline. Today: ingest, then encode, which reads the content per title and per shot, then package and deliver, after which ad breaks, artwork, previews and discovery all run on content-blind defaults. Next: a scene-level content layer computed once at ingest feeds encode, ad markers, artwork, clips and previews, and discovery.",
+            "kicker": "Where the pipeline reads the content",
+            "title": "Encoding learned to read the content.\nThe rest hasn't yet.",
+            "legend": [
+              {
+                "tone": "good",
+                "text": "Reads the content"
+              },
+              {
+                "tone": "bad",
+                "text": "Content-blind default"
+              }
+            ],
+            "rows": [
+              {
+                "label": "Today",
+                "steps": [
+                  {
+                    "text": "Ingest",
+                    "tone": "plain"
+                  },
+                  {
+                    "text": "Encode",
+                    "sub": "per-title and per-shot",
+                    "tone": "good"
+                  },
+                  {
+                    "text": "Package and deliver",
+                    "tone": "plain"
+                  }
+                ],
+                "fan": [
+                  {
+                    "text": "Ad breaks",
+                    "sub": "on a timer or a black frame",
+                    "tone": "bad"
+                  },
+                  {
+                    "text": "Artwork",
+                    "sub": "a frame grab",
+                    "tone": "bad"
+                  },
+                  {
+                    "text": "Previews",
+                    "sub": "cut by hand",
+                    "tone": "bad"
+                  },
+                  {
+                    "text": "Discovery",
+                    "sub": "genre tags",
+                    "tone": "bad"
+                  }
+                ]
+              },
+              {
+                "label": "Next",
+                "steps": [
+                  {
+                    "text": "Ingest",
+                    "tone": "plain"
+                  },
+                  {
+                    "text": "Scene-level content layer",
+                    "sub": "computed once at ingest",
+                    "tone": "good",
+                    "em": true,
+                    "span": 2
+                  }
+                ],
+                "fan": [
+                  {
+                    "text": "Encode",
+                    "tone": "good"
+                  },
+                  {
+                    "text": "Ad markers",
+                    "sub": "SCTE-35 or sidecar",
+                    "tone": "good"
+                  },
+                  {
+                    "text": "Artwork",
+                    "tone": "good"
+                  },
+                  {
+                    "text": "Clips and previews",
+                    "tone": "good"
+                  },
+                  {
+                    "text": "Discovery",
+                    "tone": "good"
+                  }
+                ]
+              }
+            ],
+            "source": "Source: Vionlabs"
+          }
+        ],
+        "checks": [],
+        "cover": {
+          "image": "covers/per-scene-01.png",
+          "kicker": "Industry Voices",
+          "by": "Arash Pendari, Vionlabs",
+          "headline": "Streaming’s next per‑title moment won’t happen in the encoder",
+          "marks": [],
+          "alt": "A story's tension curve across a film's runtime under the headline: Streaming's next per-title moment won't happen in the encoder."
+        },
+        "id": "per-scene-01"
+      }
+    ],
+    "factcheck": [],
+    "coverage": [
+      "Two research agents (encoding and artwork history; pipeline standards and market data) and one verification agent, 28 Oct 2026. Primary sites (Netflix, MovieLabs, StreamingMeme) were blocked by the session's network, so facts were confirmed across search results and secondary reports."
+    ]
+  }
+}
