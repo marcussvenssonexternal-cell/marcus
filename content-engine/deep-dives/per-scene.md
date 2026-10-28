@@ -96,7 +96,7 @@ Tags decay as well. When we rebuilt the vocabularies in Fingerprint+, our metada
 
 The cost of all this lands on the library. Luminate's midyear report counts 42.2 billion hours of library TV streamed in the US in the first half of 2026, against 11.5 billion for original series, and library film added another 10.8 billion hours.
 
-By my count that makes library almost four in five hours of TV streaming. I'd expect them to be the titles least likely to get hand-picked artwork, a hand-cut preview or carefully placed breaks.
+By my count that makes library almost four in five hours of TV streaming. I'd expect those library titles to be the least likely to get hand-picked artwork, a hand-cut preview or carefully placed breaks.
 
 ![Two pipelines. Today: ingest, then content-aware encoding, then package and deliver, after which ad breaks, artwork, previews and discovery all run on content-blind defaults. Next: ingest, then a scene-level content layer computed once, which feeds encoding, ad markers, artwork, clips and previews, and discovery.](figures/per-scene-01-pipeline.png)
 

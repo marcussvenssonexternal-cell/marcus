@@ -132,6 +132,9 @@ def piece_html(piece_id, approval=False, branch="claude/practical-fermi-gatt4t")
             else:
                 checks = p.get("checks") or []  # what is still open in this piece, one line each
                 h.append(f"<hr><h2 {H}>Notes for review</h2>")
+                if checks and "[check]" not in p["body"]:
+                    h.append(f"{P}<b>Open points:</b></p>"
+                             + "<ol>" + "".join(f'<li style="margin-bottom:6pt">{inline(c)}</li>' for c in checks) + "</ol>")
                 if "[check]" in p["body"]:
                     h.append(f"{P}<b>Before posting:</b> facts marked {CHK} still need a look at their source."
                              + ("" if checks else " The fact-check list is on the Deep Dives page.") + "</p>")
