@@ -100,23 +100,32 @@ function curve(marks) {
     var X = X0 + x * (X1 - X0);
     h += '<line x1="' + X + '" y1="' + (BASE - 14) + '" x2="' + X + '" y2="' + (BASE + 14) + '" stroke="#2a3843" stroke-width="4"/>';
   });
-  h += '<text x="' + M + '" y="' + (BASE + 84) + '" fill="#93a3ae" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="28">Story tension across a 90-minute film</text>';
-  // Labels go above the curve anywhere under their text (Plex Mono is 0.6em a character), stay inside the margins,
-  // and step up when they would run into the label before them.
-  var placed = [];
+  ["0:00", "1:30"].forEach(function (t, i) {
+    h += '<text x="' + (i ? W - M : M) + '" y="' + (BASE + 84) + '" fill="#93a3ae" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="28" text-anchor="' + (i ? "end" : "start") + '">' + t + "</text>";
+  });
+  // Labels sit over their own line but slide sideways off a neighbouring mark's line, stay inside the margins,
+  // go above the curve anywhere under their text (Plex Mono is 0.6em a character) and step up when they would
+  // run into the label before them. AD tags stay on the canvas.
+  var placed = [], xs = marks.map(function (m) { return X0 + m.at * (X1 - X0); });
   marks.slice().sort(function (a, b) { return a.at - b.at; }).forEach(function (m) {
-    var X = X0 + m.at * (X1 - X0), Y = yAt(m.at), good = m.tone === "good";
+    var X = X0 + m.at * (X1 - X0), Y = yAt(m.at), good = m.tone === "good", TX = Math.max(70, Math.min(W - 70, X));
     var c = good ? "#4fc1c8" : "#ff7a5c", text = String(m.label || "").toUpperCase().replace(/[<&>]/g, "");
-    var half = (text.length * 0.6 * FS + (text.length - 1) * LS) / 2;
-    var LX = Math.max(M + half, Math.min(W - M - half, X)), top = Y;
+    var half = (text.length * 0.6 * FS + (text.length - 1) * LS) / 2, LX = X;
+    xs.forEach(function (o) {
+      if (o < X && LX - half < o + 24) LX = o + 24 + half;
+      if (o > X && LX + half > o - 24) LX = o - 24 - half;
+    });
+    LX = Math.max(X - half, Math.min(X + half, LX));
+    LX = Math.max(M + half, Math.min(W - M - half, LX));
+    var top = Y;
     for (var x = LX - half - 16; x <= LX + half + 16; x += 4) top = Math.min(top, yAt(Math.max(0, Math.min(1, (x - X0) / (X1 - X0)))));
     var LY = top - 64;
     placed.forEach(function (q) { if (LX - half < q.x1 + 24 && LY > q.y - FS - 20) LY = q.y - FS - 20; });
     LY = Math.max(FS, LY);
     placed.push({ x1: LX + half, y: LY });
     h += '<line x1="' + X + '" y1="' + (LY + 22) + '" x2="' + X + '" y2="' + (BASE - 34) + '" stroke="' + c + '" stroke-width="5"' + (good ? "" : ' stroke-dasharray="12 12"') + "/>";
-    h += '<rect x="' + (X - 46) + '" y="' + (BASE - 34) + '" width="92" height="68" rx="10" fill="' + c + '"/>';
-    h += '<text x="' + X + '" y="' + (BASE + 11) + '" fill="#14212b" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="30" text-anchor="middle">AD</text>';
+    h += '<rect x="' + (TX - 46) + '" y="' + (BASE - 34) + '" width="92" height="68" rx="10" fill="' + c + '"/>';
+    h += '<text x="' + TX + '" y="' + (BASE + 11) + '" fill="#14212b" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="30" text-anchor="middle">AD</text>';
     h += '<circle cx="' + X + '" cy="' + Y + '" r="15" fill="#14212b" stroke="' + c + '" stroke-width="7"/>';
     h += '<text x="' + LX + '" y="' + LY + '" fill="' + c + '" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="' + FS + '" text-anchor="middle" letter-spacing="' + LS + '">' + text + "</text>";
   });
