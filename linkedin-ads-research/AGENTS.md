@@ -6,9 +6,9 @@ other and what each one owns.
 | Agent | Session | Owns | Branch |
 | --- | --- | --- | --- |
 | **Creative** | `session_015zQo2DxndqXYRPj5MCGL5s` | Images, videos, copy, the review page and share links (`creatives/`) | `claude/exciting-cerf-d0xnu7` |
-| **Optimization** | see the line below | Performance data, tests, recommendations (`optimization/`) | `claude/linkedin-ads-optimization` |
+| **Optimization** | `session_01V9gwdqJSbDxs4Z7JKFuXKZ` | Performance data, tests, recommendations (`optimization/`) | `claude/linkedin-ads-optimization` |
 
-Optimization session: `(filled in when the session is created)`
+Optimization session: `session_01V9gwdqJSbDxs4Z7JKFuXKZ` ("Vionlabs LinkedIn ads optimization")
 
 ## Talking to each other
 
