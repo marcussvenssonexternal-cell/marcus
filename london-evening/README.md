@@ -1,6 +1,6 @@
 # An evening in the City: request-a-place page
 
-Landing page for the Embrace × Vionlabs reception on Monday 16 November 2026, 18:30 – 22:00, at
+Landing page for the Embrace × Codemill × Vionlabs reception on Monday 16 November 2026, 18:30 – 22:00, at
 Vinoteca di Sartoria, 21 Bloomberg Arcade, London. Guests request a place through the form, the
 request goes to HubSpot, and the hosts confirm each place by email.
 
@@ -27,11 +27,14 @@ site's other Webflow forms. This folder is the standalone version of the same de
 | `assets/` | Both logos as SVG, the St Paul's drawing and `og-image.jpg` for link previews |
 | `og/og-image.html` | Source of the 1200×627 link preview. `node og/render_og.cjs` re-renders `assets/og-image.jpg` |
 
-The Vionlabs logo is the official wordmark from the brand files, without the tagline. The Embrace
-logo is a vector redraw of the PNG supplied with the social post, since no vector file was at hand:
-swap in Embrace's own SVG when they send it, here and in Webflow (`london-embrace-logo-white.svg`).
-Both SVGs keep the frame of the PNGs they replaced (536×112 and 520×112), so their sizes on the page
-did not change.
+All three logos are white SVGs, 112 units high so they line up at one height:
+
+- Vionlabs: the official wordmark from the brand files, without the tagline.
+- Embrace: a vector redraw of the PNG supplied with the social post, since no vector file was at
+  hand. Swap in Embrace's own SVG when they send it, here and in Webflow (`london-embrace-logo-white.svg`).
+- Codemill: a vector trace of the Codemill PNG on the vionlabs.com Partners page, with its cap height
+  matched to the Vionlabs wordmark. Swap in Codemill's own SVG the same way if they send one
+  (`london-codemill-logo-white.svg`).
 
 To preview, open `index.html` in a browser. Until HubSpot is connected the form runs in preview
 mode: it validates and shows the thank-you screen, but sends nothing, and says so above the fields.
