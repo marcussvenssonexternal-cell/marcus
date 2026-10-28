@@ -1,0 +1,482 @@
+<!-- Source of the live Supermetrics Studio dashboard: https://studio.supermetrics.com/d/7d9cd28a-d5e0-48e0-8289-ce2a3f27afdf (runs only inside Studio, which provides smQuery) -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vionlabs LinkedIn Ads</title>
+<!-- #region styles -->
+<style>
+:root{
+  --bg:#f6f7f9;--panel:#ffffff;--ink:#14171f;--muted:#5b6475;--line:#e3e6ec;
+  --accent:#3b5bdb;--accent-soft:#e7ecff;--good:#1f8a4c;--good-soft:#e3f5ea;
+  --bad:#c92a2a;--bad-soft:#fde8e8;--warn:#b25e09;--warn-soft:#fff1de;
+  --s1:#3b5bdb;--s2:#94a3b8;--s3:#0ca678;--s4:#f08c00;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1218;--panel:#171b23;--ink:#e8ebf1;--muted:#98a2b3;--line:#2a303c;
+    --accent:#7b93ff;--accent-soft:#1f2747;--good:#4cc38a;--good-soft:#16301f;
+    --bad:#ff8787;--bad-soft:#3a1c1c;--warn:#ffb454;--warn-soft:#3a2a12;
+    --s1:#7b93ff;--s2:#64748b;--s3:#38d9a9;--s4:#ffa94d;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:16px}
+h1{font-size:22px;margin:0}
+.sub{color:var(--muted);font-size:13px}
+h2{font-size:15px;margin:0 0 10px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+select,input[type=date],button{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+button{cursor:pointer}
+button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;border-radius:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px}
+.grid{display:grid;gap:12px}
+.kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.kpi .l{color:var(--muted);font-size:12px}
+.kpi .v{font-size:22px;font-weight:650;margin-top:2px;font-variant-numeric:tabular-nums}
+.kpi .r{font-size:12px;margin-top:4px;color:var(--muted)}
+.up{color:var(--good)}.down{color:var(--bad)}
+.two{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.three{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.tbl{width:100%;overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{color:var(--muted);font-weight:600;font-size:12px;cursor:pointer;user-select:none}
+th:first-child,td:first-child,th.t,td.t{text-align:left}
+tr:hover td{background:var(--accent-soft)}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:600}
+.p-good{background:var(--good-soft);color:var(--good)}.p-bad{background:var(--bad-soft);color:var(--bad)}
+.p-warn{background:var(--warn-soft);color:var(--warn)}.p-info{background:var(--accent-soft);color:var(--accent)}
+.alerts{display:flex;flex-direction:column;gap:6px}
+.alert{padding:8px 12px;border-radius:8px;font-size:13px}
+.a-bad{background:var(--bad-soft);color:var(--bad)}.a-warn{background:var(--warn-soft);color:var(--warn)}.a-ok{background:var(--good-soft);color:var(--good)}
+.bar{height:8px;background:var(--accent-soft);border-radius:4px;overflow:hidden;min-width:60px}
+.bar>i{display:block;height:100%;background:var(--s1)}
+.loading{color:var(--muted);padding:20px;text-align:center}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--muted);margin-bottom:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+svg text{fill:var(--muted);font-size:11px}
+.foot{color:var(--muted);font-size:12px;line-height:1.6}
+.muted{color:var(--muted)}
+</style>
+<!-- #endregion styles -->
+</head>
+<body>
+<div class="wrap">
+<!-- #region header -->
+<header>
+  <div>
+    <h1>Vionlabs LinkedIn Ads</h1>
+    <div class="sub">AI built for entertainment (AIBFE) vs legacy campaigns · LinkedIn Ads account 507013260 · live data, USD</div>
+  </div>
+  <div class="controls">
+    <div class="seg" data-sm="scope">
+      <button data-scope="aibfe" class="on">AIBFE</button><button data-scope="legacy">Legacy</button><button data-scope="all">All</button>
+    </div>
+    <select id="range" data-sm="filter-date">
+      <option value="launch">Since AIBFE launch (28 Oct)</option>
+      <option value="last_7_days_inc">Last 7 days</option>
+      <option value="last_14_days_inc">Last 14 days</option>
+      <option value="last_30_days_inc">Last 30 days</option>
+      <option value="this_month_inc">This month</option>
+      <option value="last_90_days_inc">Last 90 days</option>
+      <option value="custom">Custom…</option>
+    </select>
+    <span id="customBox" style="display:none"><input type="date" id="from"> – <input type="date" id="to"></span>
+    <button id="refresh">Refresh</button>
+  </div>
+</header>
+<!-- #endregion header -->
+
+<!-- #region alerts -->
+<div class="panel"><h2>Checks</h2><div id="alerts" class="alerts"><div class="loading">Loading…</div></div></div>
+<!-- #endregion alerts -->
+
+<!-- #region kpis -->
+<div id="kpis" class="grid kpis" style="margin-bottom:16px"></div>
+<!-- #endregion kpis -->
+
+<!-- #region trend -->
+<div class="panel">
+  <h2>Daily delivery</h2>
+  <div class="legend"><span><i style="background:var(--s1)"></i>Spend (AIBFE)</span><span><i style="background:var(--s2)"></i>Spend (legacy)</span><span><i style="background:var(--s4)"></i>CTR, selected scope</span></div>
+  <div id="trend"><div class="loading">Loading…</div></div>
+</div>
+<!-- #endregion trend -->
+
+<!-- #region groups -->
+<div class="panel"><h2>AIBFE vs legacy</h2><div class="tbl" id="groups"></div></div>
+<!-- #endregion groups -->
+
+<!-- #region campaigns -->
+<div class="panel"><h2>Campaigns</h2><div class="tbl" id="campaigns"></div>
+<div class="foot" style="margin-top:8px">Stage comes from the AIBFE naming scheme: ad0 = brand, ad1–ad3 = audience, m/c/o = follow-ups, v = video series. Baseline = the account's last 90 days before AIBFE (see baseline.md).</div></div>
+<!-- #endregion campaigns -->
+
+<!-- #region ads -->
+<div class="panel"><h2>Ads and A/B tests</h2><div class="tbl" id="ads"></div>
+<div class="foot" style="margin-top:8px">Test readout compares each ad with the campaign's leader on CTR (two-proportion z-test). Call a winner only at p &lt; 0.05, ≥ 20 clicks per ad and ≥ 14 days (plan.md). Video ads are judged on 50% completion.</div></div>
+<!-- #endregion ads -->
+
+<!-- #region placement -->
+<div class="grid two">
+  <div class="panel"><h2>Placement: LinkedIn feed vs Audience Network</h2><div class="tbl" id="placement"></div></div>
+  <div class="panel"><h2>Video funnel</h2><div class="tbl" id="video"></div></div>
+</div>
+<!-- #endregion placement -->
+
+<!-- #region audience -->
+<div class="panel">
+  <h2>Who the ads reach</h2>
+  <div class="sub" style="margin-bottom:10px">LinkedIn demographic data is approximate, hides small groups and needs a few days of delivery. Rows don't add up to totals.</div>
+  <div class="grid three">
+    <div><h2 class="muted" style="font-size:13px">Seniority</h2><div class="tbl" id="aud-sen"></div></div>
+    <div><h2 class="muted" style="font-size:13px">Job function</h2><div class="tbl" id="aud-fun"></div></div>
+    <div><h2 class="muted" style="font-size:13px">Companies (top 20)</h2><div class="tbl" id="aud-co"></div></div>
+  </div>
+</div>
+<!-- #endregion audience -->
+
+<!-- #region footer -->
+<div class="foot">
+  Baselines (last 90 days to 27 Oct 2026, LinkedIn feed only): CTR 0.32% · CPC $14.49 · CPM $45.84 · cold single image CTR 0.30–0.46% · warm 0.40–0.55% · video 50% completion 36.2% (mostly Audience Network).
+  Targets: Manager+ seniority, no Audience Network, one demo-booking conversion rule ("Booked a meeting").
+</div>
+<!-- #endregion footer -->
+</div>
+
+<script>
+// #region config
+const ACCOUNT = "507013260";
+const LAUNCH = "2026-10-28";
+const BASE = {ctr:0.0032, cpc:14.49, cpm:45.84, coldCtr:0.0035, warmCtr:0.0050, vid50:0.362};
+// Known AIBFE creatives (API-created ads have no names in LinkedIn)
+const ADMAP = {
+  "1617623704":"ad0/a0-L/h1-i1","1617564934":"ad1/a1-L/h1-i1","1617623694":"ad1/a1b-L/h1-i1",
+  "1617584374":"ad2/a2-L/h1-i1","1617459574":"ad3/a3-L/h2-i4","1617525044":"o1/o1-L/h1-i2"
+};
+const HEADMAP = {
+  "Generic AI sees pixels. Ours understands stories.":"ad0","Same genre. Completely different movie.":"ad1",
+  "Your whole library. Searchable by mood.":"ad2","Skip Intro is table stakes. Tagging by hand shouldn’t be.":"ad3",
+  "From one genre tag to full metadata. For every title.":"m1/m1-L/h1-i1","Every title in a list. Every list a reason to watch.":"m2/m2b-L/h1-i4",
+  "Search your library by mood, not by title.":"m3/m3-L/h1-i1","Thumbnails and clips for every title. Automatically.":"c1/c1-L/h1-i2",
+  "One recipe. Thumbnails for your whole catalogue.":"c2/c2-L/h1-i1","Every sword fight in your library. In seconds.":"c3/c3-L/h1-i1",
+  "Every second of your library, QC’d.":"o1/o1-L/h1-i2"
+};
+let scope = "aibfe";
+// #endregion config
+
+// #region query
+async function q(fields, range, filters){
+  const p = {ds_id:"LIA", ds_accounts:[ACCOUNT], fields:fields.join(","), max_rows:2000};
+  Object.assign(p, range);
+  if (filters) p.filters = filters;
+  let res = await smQuery("data_query", p);
+  if (typeof res === "string") { try { res = JSON.parse(res); } catch(e){} }
+  if (res && res.success === false) throw new Error(res.error || "Query failed");
+  let d = res && res.data !== undefined ? res.data : res;
+  let tries = 0;
+  while (d && d.status && d.status !== "completed" && d.schedule_id && tries < 20) {
+    let r2 = await smQuery("get_async_query_results", {schedule_id:d.schedule_id});
+    if (typeof r2 === "string") { try { r2 = JSON.parse(r2); } catch(e){} }
+    d = r2 && r2.data !== undefined ? r2.data : r2; tries++;
+  }
+  const ids = (d && (d.requested_field_ids || d.canonical_field_ids)) || fields;
+  const raw = (d && Array.isArray(d.data)) ? d.data : [];
+  if (!raw.length) return [];
+  // row 0 = display-label headers; map columns by requested_field_ids
+  const body = Array.isArray(raw[0]) ? raw.slice(1) : raw;
+  return body.map(r => Array.isArray(r) ? Object.fromEntries(ids.map((f,i) => [f, r[i]])) : r);
+}
+function rangeParams(){
+  const v = document.getElementById("range").value;
+  const today = new Date().toISOString().slice(0,10);
+  if (v === "launch") return {date_range_type:"custom", start_date:LAUNCH, end_date:today};
+  if (v === "custom") {
+    const f = document.getElementById("from").value || LAUNCH, t = document.getElementById("to").value || today;
+    return {date_range_type:"custom", start_date:f, end_date:t};
+  }
+  return {date_range_type:v};
+}
+// #endregion query
+
+// #region helpers
+const n = x => (x === null || x === undefined || x === "") ? 0 : Number(x);
+const fmt = {
+  int: x => Math.round(n(x)).toLocaleString("en-US"),
+  usd: x => "$" + n(x).toLocaleString("en-US",{minimumFractionDigits:2, maximumFractionDigits:2}),
+  pct: x => (n(x)*100).toFixed(2) + "%",
+  pct1: x => (n(x)*100).toFixed(1) + "%"
+};
+const div = (a,b) => b ? a/b : 0;
+const isA = name => /AIBFE/i.test(name||"");
+const inScope = g => scope === "all" ? true : scope === "aibfe" ? isA(g) : !isA(g);
+function stageOf(c){
+  const m = /AIBFE \| ([^|]+) \|/.exec(c||""); if (!m) return "Legacy";
+  const id = m[1].trim();
+  if (id === "ad0") return "Brand";
+  if (/^ad[123]$/.test(id)) return "Audience";
+  if (/^[mco]/.test(id)) return "Follow-up";
+  if (/^v/.test(id)) return "Video";
+  return id;
+}
+function zp(c1,n1,c2,n2){
+  if (!n1 || !n2) return 1;
+  const p = (c1+c2)/(n1+n2); const se = Math.sqrt(p*(1-p)*(1/n1+1/n2)); if (!se) return 1;
+  const z = Math.abs(c1/n1 - c2/n2)/se;
+  // two-sided p from z (Abramowitz-Stegun erfc approximation)
+  const t = 1/(1+0.5*z/Math.SQRT2*1); const x = z/Math.SQRT2;
+  const tt = 1/(1+0.5*x);
+  const erfc = tt*Math.exp(-x*x-1.26551223+tt*(1.00002368+tt*(0.37409196+tt*(0.09678418+tt*(-0.18628806+tt*(0.27886807+tt*(-1.13520398+tt*(1.48851587+tt*(-0.82215223+tt*0.17087277)))))))));
+  return Math.min(1, erfc);
+}
+function table(el, cols, rows, sortKey){
+  let key = sortKey || cols[1].k, dir = -1;
+  const draw = () => {
+    const rs = [...rows].sort((a,b) => {
+      const va = a[key], vb = b[key];
+      return (typeof va === "number" && typeof vb === "number") ? (va - vb)*dir : String(va).localeCompare(String(vb))*dir;
+    });
+    el.innerHTML = rows.length ? `<table><thead><tr>${cols.map(c => `<th class="${c.t?'t':''}" data-k="${c.k}">${c.h}${c.k===key?(dir<0?' ↓':' ↑'):''}</th>`).join("")}</tr></thead><tbody>${
+      rs.map(r => `<tr>${cols.map(c => `<td class="${c.t?'t':''}">${c.f ? c.f(r[c.k], r) : (r[c.k] ?? "")}</td>`).join("")}</tr>`).join("")
+    }</tbody></table>` : `<div class="loading">No data for this range yet.</div>`;
+    el.querySelectorAll("th").forEach(th => th.onclick = () => { const k = th.dataset.k; if (k === key) dir = -dir; else { key = k; dir = -1; } draw(); });
+  };
+  draw();
+}
+const pill = (txt, cls) => `<span class="pill ${cls}">${txt}</span>`;
+function vsBase(val, base, higherIsGood){
+  if (!val) return "";
+  const good = higherIsGood ? val >= base : val <= base;
+  return `<span class="${good?'up':'down'}">${good?'▲':'▼'}</span>`;
+}
+// #endregion helpers
+
+// #region render-kpis
+function renderKpis(camps){
+  const s = camps.filter(r => inScope(r.campaignGroupName));
+  const t = s.reduce((a,r) => { ["impressions","clicks","landingPageClicks","spend","conversions","videoViews","videoMidpointCompletions","oneClickLeads","totalEngagements"].forEach(k => a[k]=(a[k]||0)+n(r[k])); return a; }, {});
+  const ctr = div(t.clicks, t.impressions), cpc = div(t.spend, t.clicks), cpm = div(t.spend, t.impressions)*1000;
+  const tiles = [
+    ["Spend", fmt.usd(t.spend), ""],
+    ["Impressions", fmt.int(t.impressions), ""],
+    ["Clicks", fmt.int(t.clicks), `${fmt.int(t.landingPageClicks)} to landing page`],
+    ["CTR", fmt.pct(ctr), `${vsBase(ctr, BASE.ctr, true)} baseline ${fmt.pct(BASE.ctr)}`],
+    ["CPC", t.clicks ? fmt.usd(cpc) : "–", `${vsBase(cpc, BASE.cpc, false)} baseline ${fmt.usd(BASE.cpc)}`],
+    ["CPM", t.impressions ? fmt.usd(cpm) : "–", `${vsBase(cpm, BASE.cpm, false)} baseline ${fmt.usd(BASE.cpm)}`],
+    ["Demo bookings", fmt.int(t.conversions), t.conversions ? `${fmt.usd(div(t.spend,t.conversions))} each` : "conversion: Booked a meeting"],
+    ["Engagement rate", fmt.pct(div(t.totalEngagements, t.impressions)), `${fmt.int(t.totalEngagements)} engagements`],
+    ["Video views", fmt.int(t.videoViews), t.videoViews ? `${fmt.pct1(div(t.videoMidpointCompletions,t.videoViews))} reach 50% · baseline ${fmt.pct1(BASE.vid50)}` : ""]
+  ];
+  document.getElementById("kpis").innerHTML = tiles.map(([l,v,r]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="r">${r}</div></div>`).join("");
+}
+// #endregion render-kpis
+
+// #region render-trend
+function renderTrend(daily){
+  const el = document.getElementById("trend");
+  const days = [...new Set(daily.map(r => r.date))].sort();
+  if (!days.length) { el.innerHTML = `<div class="loading">No data yet.</div>`; return; }
+  const by = days.map(d => {
+    const rs = daily.filter(r => r.date === d);
+    const sum = (f, k) => rs.filter(f).reduce((a,r) => a + n(r[k]), 0);
+    return {d, a:sum(r=>isA(r.campaignGroupName),"spend"), l:sum(r=>!isA(r.campaignGroupName),"spend"),
+      ci:sum(r=>inScope(r.campaignGroupName),"impressions"), cc:sum(r=>inScope(r.campaignGroupName),"clicks")};
+  });
+  const W = Math.max(el.clientWidth || 800, 320), H = 220, P = {l:44, r:44, t:10, b:28};
+  const iw = W-P.l-P.r, ih = H-P.t-P.b;
+  const maxS = Math.max(1, ...by.map(x => x.a + x.l));
+  const ctrs = by.map(x => div(x.cc, x.ci)); const maxC = Math.max(0.005, ...ctrs);
+  const bw = iw/by.length;
+  let svg = `<svg width="100%" viewBox="0 0 ${W} ${H}" role="img" aria-label="Daily spend and CTR">`;
+  for (let i=0;i<=4;i++){ const y = P.t + ih*i/4; svg += `<line x1="${P.l}" x2="${W-P.r}" y1="${y}" y2="${y}" stroke="var(--line)"/><text x="${P.l-6}" y="${y+4}" text-anchor="end">$${Math.round(maxS*(1-i/4))}</text><text x="${W-P.r+6}" y="${y+4}">${(maxC*(1-i/4)*100).toFixed(2)}%</text>`; }
+  by.forEach((x,i) => {
+    const x0 = P.l + i*bw + bw*0.15, w = bw*0.7;
+    const ha = ih*x.a/maxS, hl = ih*x.l/maxS;
+    svg += `<rect x="${x0}" y="${P.t+ih-hl}" width="${w}" height="${hl}" fill="var(--s2)" rx="2"><title>${x.d} legacy ${fmt.usd(x.l)}</title></rect>`;
+    svg += `<rect x="${x0}" y="${P.t+ih-hl-ha}" width="${w}" height="${ha}" fill="var(--s1)" rx="2"><title>${x.d} AIBFE ${fmt.usd(x.a)}</title></rect>`;
+    if (by.length <= 31 && (i % Math.ceil(by.length/10) === 0)) svg += `<text x="${x0+w/2}" y="${H-8}" text-anchor="middle">${x.d.slice(5)}</text>`;
+  });
+  const pts = by.map((x,i) => `${P.l + i*bw + bw/2},${P.t + ih - ih*div(x.cc,x.ci)/maxC}`).join(" ");
+  svg += `<polyline points="${pts}" fill="none" stroke="var(--s4)" stroke-width="2"/>`;
+  by.forEach((x,i) => { svg += `<circle cx="${P.l + i*bw + bw/2}" cy="${P.t + ih - ih*div(x.cc,x.ci)/maxC}" r="3" fill="var(--s4)"><title>${x.d} CTR ${fmt.pct(div(x.cc,x.ci))} (${x.cc} / ${x.ci})</title></circle>`; });
+  el.innerHTML = svg + "</svg>";
+}
+// #endregion render-trend
+
+// #region render-groups
+function renderGroups(camps){
+  const g = {};
+  camps.forEach(r => { const k = isA(r.campaignGroupName) ? "AIBFE (new)" : "Legacy"; const o = g[k] = g[k] || {name:k, impressions:0, clicks:0, spend:0, conversions:0, campaigns:0};
+    o.impressions += n(r.impressions); o.clicks += n(r.clicks); o.spend += n(r.spend); o.conversions += n(r.conversions); o.campaigns++; });
+  const rows = Object.values(g).map(o => ({...o, ctr:div(o.clicks,o.impressions), cpc:div(o.spend,o.clicks), cpm:div(o.spend,o.impressions)*1000}));
+  table(document.getElementById("groups"), [
+    {k:"name",h:"Set",t:1},{k:"campaigns",h:"Campaigns with delivery"},{k:"impressions",h:"Impr.",f:fmt.int},{k:"clicks",h:"Clicks",f:fmt.int},
+    {k:"ctr",h:"CTR",f:fmt.pct},{k:"cpc",h:"CPC",f:(v,r)=>r.clicks?fmt.usd(v):"–"},{k:"cpm",h:"CPM",f:fmt.usd},{k:"spend",h:"Spend",f:fmt.usd},{k:"conversions",h:"Bookings",f:fmt.int}
+  ], rows, "spend");
+}
+// #endregion render-groups
+
+// #region render-campaigns
+function renderCampaigns(camps){
+  const rows = camps.filter(r => inScope(r.campaignGroupName)).map(r => {
+    const imp = n(r.impressions), cl = n(r.clicks), sp = n(r.spend);
+    const st = stageOf(r.campaignName);
+    const base = st === "Follow-up" ? BASE.warmCtr : BASE.coldCtr;
+    return {name:r.campaignName, stage:st, status:r.campaignStatus, budget:n(r.campaignDailyBudget), impressions:imp, clicks:cl,
+      ctr:div(cl,imp), cpc:div(sp,cl), cpm:div(sp,imp)*1000, spend:sp, conversions:n(r.conversions),
+      vv:n(r.videoViews), v50:div(n(r.videoMidpointCompletions), n(r.videoViews)), dwell:n(r.average_dwell_time), base};
+  });
+  table(document.getElementById("campaigns"), [
+    {k:"name",h:"Campaign",t:1},{k:"stage",h:"Stage",t:1,f:v=>pill(v, v==="Legacy"?"p-warn":"p-info")},
+    {k:"status",h:"Status",t:1,f:v=>pill(v, v==="ACTIVE"?"p-good":"p-warn")},{k:"budget",h:"Daily",f:v=>v?fmt.usd(v):"–"},
+    {k:"impressions",h:"Impr.",f:fmt.int},{k:"clicks",h:"Clicks",f:fmt.int},
+    {k:"ctr",h:"CTR",f:(v,r)=>r.impressions?`${fmt.pct(v)} ${r.impressions>=1000?vsBase(v,r.base,true):""}`:"–"},
+    {k:"cpc",h:"CPC",f:(v,r)=>r.clicks?fmt.usd(v):"–"},{k:"cpm",h:"CPM",f:(v,r)=>r.impressions?fmt.usd(v):"–"},{k:"spend",h:"Spend",f:fmt.usd},
+    {k:"conversions",h:"Bookings",f:fmt.int},{k:"vv",h:"Video views",f:v=>v?fmt.int(v):"–"},{k:"v50",h:"50% rate",f:(v,r)=>r.vv?fmt.pct1(v):"–"},
+    {k:"dwell",h:"Dwell (s)",f:v=>v?n(v).toFixed(1):"–"}
+  ], rows, "spend");
+}
+// #endregion render-campaigns
+
+// #region render-ads
+function adLabel(r){
+  if (ADMAP[r.creativeId]) return ADMAP[r.creativeId];
+  if (r.creativeDscName) return r.creativeDscName;
+  const h = (r.creativeTitle||"").trim();
+  if (HEADMAP[h]) return HEADMAP[h];
+  return h || ("Ad " + r.creativeId);
+}
+function renderAds(ads){
+  const s = ads.filter(r => inScope(r.campaignGroupName));
+  const rows = s.map(r => {
+    const imp=n(r.impressions), cl=n(r.clicks), sp=n(r.spend), vv=n(r.videoViews);
+    return {campaign:r.campaignName, ad:adLabel(r), id:r.creativeId, type:(r.creativeType||"").replace("SPONSORED_","").replace("_"," ").toLowerCase(),
+      headline:r.creativeTitle||"", status:r.creativeStatus, impressions:imp, clicks:cl, ctr:div(cl,imp), cpc:div(sp,cl), spend:sp,
+      vv, v25:div(n(r.videoFirstQuartileCompletions),vv), v50:div(n(r.videoMidpointCompletions),vv), v100:div(n(r.videoCompletions),vv), test:""};
+  });
+  // A/B readout within each campaign
+  const byC = {}; rows.forEach(r => (byC[r.campaign] = byC[r.campaign] || []).push(r));
+  Object.values(byC).forEach(list => {
+    if (list.length < 2) { list.forEach(r => r.test = pill("single ad","p-info")); return; }
+    const isVid = list.some(r => r.vv > 0);
+    const rate = r => isVid ? r.v50 : r.ctr;
+    const lead = [...list].sort((a,b) => rate(b) - rate(a))[0];
+    list.forEach(r => {
+      if (r === lead) { r.test = pill("leader","p-good"); return; }
+      const p = isVid ? zp(n(lead.v50*lead.vv), lead.vv, n(r.v50*r.vv), r.vv) : zp(lead.clicks, lead.impressions, r.clicks, r.impressions);
+      const enough = isVid ? true : (lead.clicks >= 20 && r.clicks >= 20);
+      r.test = (p < 0.05 && enough) ? pill(`behind, p=${p.toFixed(3)}`,"p-bad") : pill(`no call yet (p=${p.toFixed(2)})`,"p-warn");
+    });
+  });
+  table(document.getElementById("ads"), [
+    {k:"ad",h:"Ad",t:1,f:(v,r)=>`<b>${v}</b><div class="muted" style="font-size:11px">${r.headline?r.headline.slice(0,60):""} · ID ${r.id}</div>`},
+    {k:"campaign",h:"Campaign",t:1,f:v=>`<span class="muted">${(v||"").replace("AIBFE | ","")}</span>`},
+    {k:"type",h:"Format",t:1},{k:"impressions",h:"Impr.",f:fmt.int},{k:"clicks",h:"Clicks",f:fmt.int},
+    {k:"ctr",h:"CTR",f:(v,r)=>r.impressions?fmt.pct(v):"–"},{k:"cpc",h:"CPC",f:(v,r)=>r.clicks?fmt.usd(v):"–"},{k:"spend",h:"Spend",f:fmt.usd},
+    {k:"vv",h:"Views",f:v=>v?fmt.int(v):"–"},{k:"v50",h:"50%",f:(v,r)=>r.vv?fmt.pct1(v):"–"},{k:"v100",h:"100%",f:(v,r)=>r.vv?fmt.pct1(v):"–"},
+    {k:"test",h:"Test",t:1}
+  ], rows, "impressions");
+  return rows;
+}
+// #endregion render-ads
+
+// #region render-placement
+function renderPlacement(pl){
+  const rows = pl.filter(r => inScope(r.campaignGroupName)).map(r => ({campaign:r.campaignName, loc:r.servingLocation, impressions:n(r.impressions), clicks:n(r.clicks), spend:n(r.spend), ctr:div(n(r.clicks),n(r.impressions))}));
+  table(document.getElementById("placement"), [
+    {k:"campaign",h:"Campaign",t:1,f:v=>(v||"").replace("AIBFE | ","")},{k:"loc",h:"Placement",t:1,f:v=>pill(v, /Audience/i.test(v||"")?"p-bad":"p-good")},
+    {k:"impressions",h:"Impr.",f:fmt.int},{k:"clicks",h:"Clicks",f:fmt.int},{k:"ctr",h:"CTR",f:fmt.pct},{k:"spend",h:"Spend",f:fmt.usd}
+  ], rows, "impressions");
+  return rows;
+}
+function renderVideo(ads){
+  const rows = ads.filter(r => r.vv > 0).map(r => ({ad:r.ad, vv:r.vv, v25:r.v25, v50:r.v50, v100:r.v100}));
+  table(document.getElementById("video"), [
+    {k:"ad",h:"Video ad",t:1},{k:"vv",h:"Views",f:fmt.int},
+    {k:"v25",h:"25%",f:v=>`<div style="display:flex;gap:6px;align-items:center;justify-content:flex-end">${fmt.pct1(v)}<div class="bar"><i style="width:${Math.min(100,v*100)}%"></i></div></div>`},
+    {k:"v50",h:"50%",f:v=>`${fmt.pct1(v)} ${vsBase(v,BASE.vid50,true)}`},{k:"v100",h:"Complete",f:fmt.pct1}
+  ], rows, "vv");
+}
+// #endregion render-placement
+
+// #region render-audience
+function renderAud(el, rows, key, label){
+  const max = Math.max(1, ...rows.map(r => n(r.impressions)));
+  const rs = rows.map(r => ({k:r[key]||"(unknown)", impressions:n(r.impressions), clicks:n(r.clicks), ctr:div(n(r.clicks), n(r.impressions))}));
+  table(el, [
+    {k:"k",h:label,t:1,f:(v,r)=>`${v}<div class="bar" style="margin-top:3px"><i style="width:${100*r.impressions/max}%"></i></div>`},
+    {k:"impressions",h:"Impr.",f:fmt.int},{k:"ctr",h:"CTR",f:fmt.pct}
+  ], rs, "impressions");
+}
+// #endregion render-audience
+
+// #region alerts-logic
+function renderAlerts(camps, ads, pl, sen){
+  const out = [];
+  const a = camps.filter(r => isA(r.campaignGroupName)), l = camps.filter(r => !isA(r.campaignGroupName));
+  const lSpend = l.reduce((s,r)=>s+n(r.spend),0);
+  if (a.length && lSpend > 0) out.push(["warn", `Legacy campaigns are still spending alongside AIBFE (${fmt.usd(lSpend)} in this range). Plan: pause legacy once AIBFE is delivering.`]);
+  const anImp = pl.filter(r => /Audience/i.test(r.loc||"")).reduce((s,r)=>s+r.impressions,0), allImp = pl.reduce((s,r)=>s+r.impressions,0);
+  if (anImp > 0) out.push(["bad", `Audience Network delivered ${fmt.int(anImp)} of ${fmt.int(allImp)} impressions (${fmt.pct1(div(anImp,allImp))}) in this view. Untick it in the campaign's placement settings.`]);
+  ads.filter(r => r.impressions >= 3000 && r.clicks === 0).forEach(r => out.push(["bad", `${r.ad} has 0 clicks after ${fmt.int(r.impressions)} impressions. Flag to pause (plan guardrail).`]));
+  const entry = sen.filter(r => /Entry|Training|Unpaid/i.test(r.memberSeniority||"")).reduce((s,r)=>s+n(r.impressions),0), senAll = sen.reduce((s,r)=>s+n(r.impressions),0);
+  if (senAll > 0 && entry/senAll > 0.1) out.push(["warn", `${fmt.pct1(entry/senAll)} of impressions reached Entry/Training seniority. Targeting should be Manager+.`]);
+  const conv = camps.filter(r => inScope(r.campaignGroupName)).reduce((s,r)=>s+n(r.conversions),0);
+  const clicks = camps.filter(r => inScope(r.campaignGroupName)).reduce((s,r)=>s+n(r.clicks),0);
+  if (clicks >= 100 && conv === 0) out.push(["warn", `${fmt.int(clicks)} clicks and 0 demo bookings. Check the "Booked a meeting" Insight Tag conversion fires.`]);
+  const lowCtr = camps.filter(r => isA(r.campaignGroupName) && n(r.impressions) >= 3000 && div(n(r.clicks), n(r.impressions)) < 0.002);
+  lowCtr.forEach(r => out.push(["warn", `${r.campaignName}: CTR ${fmt.pct(div(n(r.clicks),n(r.impressions)))} after ${fmt.int(r.impressions)} impressions, below 0.20%.`]));
+  if (!out.length) out.push(["ok", "No issues: no Audience Network delivery, no dead ads, seniority on target for the data available."]);
+  document.getElementById("alerts").innerHTML = out.map(([c,t]) => `<div class="alert a-${c}">${t}</div>`).join("");
+}
+// #endregion alerts-logic
+
+// #region main
+async function load(){
+  const R = rangeParams();
+  ["alerts","groups","campaigns","ads","placement","video","aud-sen","aud-fun","aud-co"].forEach(id => document.getElementById(id).innerHTML = `<div class="loading">Loading…</div>`);
+  try {
+    const [camps, daily, ads, plRaw] = await Promise.all([
+      q(["campaignGroupName","campaignName","campaignId","campaignStatus","campaignDailyBudget","impressions","clicks","landingPageClicks","spend","conversions","oneClickLeads","totalEngagements","videoViews","videoMidpointCompletions","average_dwell_time"], R),
+      q(["date","campaignGroupName","impressions","clicks","spend"], R),
+      q(["campaignGroupName","campaignName","creativeId","creativeStatus","creativeType","creativeDscName","creativeTitle","impressions","clicks","spend","videoViews","videoFirstQuartileCompletions","videoMidpointCompletions","videoCompletions"], R),
+      q(["campaignGroupName","campaignName","servingLocation","impressions","clicks","spend"], R)
+    ]);
+    renderKpis(camps); renderTrend(daily); renderGroups(camps); renderCampaigns(camps);
+    const adRows = renderAds(ads); const pl = renderPlacement(plRaw); renderVideo(adRows);
+    const ids = camps.filter(r => inScope(r.campaignGroupName)).map(r => r.campaignId).filter(Boolean);
+    const f = ids.length ? `campaignId [] ${ids.join(",")}` : null;
+    let sen = [], fun = [], co = [];
+    if (f) {
+      [sen, fun, co] = await Promise.all([
+        q(["memberSeniority","impressions","clicks"], R, f).catch(()=>[]),
+        q(["memberJobFunction","impressions","clicks"], R, f).catch(()=>[]),
+        q(["memberCompanyName","impressions","clicks"], R, f).catch(()=>[])
+      ]);
+    }
+    renderAud(document.getElementById("aud-sen"), sen, "memberSeniority", "Seniority");
+    renderAud(document.getElementById("aud-fun"), fun.sort((a,b)=>n(b.impressions)-n(a.impressions)).slice(0,15), "memberJobFunction", "Function");
+    renderAud(document.getElementById("aud-co"), co.sort((a,b)=>n(b.impressions)-n(a.impressions)).slice(0,20), "memberCompanyName", "Company");
+    renderAlerts(camps, adRows, pl, sen);
+  } catch(e) {
+    document.getElementById("alerts").innerHTML = `<div class="alert a-bad">Could not load data: ${e.message || e}</div>`;
+  }
+}
+document.querySelectorAll("[data-scope]").forEach(b => b.onclick = () => {
+  document.querySelectorAll("[data-scope]").forEach(x => x.classList.remove("on")); b.classList.add("on"); scope = b.dataset.scope; load();
+});
+document.getElementById("range").onchange = e => { document.getElementById("customBox").style.display = e.target.value === "custom" ? "inline" : "none"; if (e.target.value !== "custom") load(); };
+document.getElementById("from").onchange = load; document.getElementById("to").onchange = load;
+document.getElementById("refresh").onclick = load;
+load();
+// #endregion main
+</script>
+</body>
+</html>
