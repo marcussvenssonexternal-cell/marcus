@@ -83,6 +83,9 @@ Manager. That includes wave 2, plus new manual campaigns: "ad0 video 2", "ad0 ca
 group start date, **2 Nov 2026**. Unless the rights are cleared before then, pause the group, or move its start
 date, by 1 Nov.
 
+**Marcus's decision (28 Oct):** keep the group enabled; he clears the rights before 2 Nov. Wave 2 runs from day one
+at the $10,950 lifetime budget (about $120 a day), not the $91-a-day plan.
+
 Once cleared:
 1. Switch on the wave 1 campaigns. Keep wave 2 paused until week 4.
 2. Pause the legacy campaign groups (897508034, 897508214, 800105584) and the seven empty Boost_Post groups.
