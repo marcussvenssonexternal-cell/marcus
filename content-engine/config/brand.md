@@ -69,6 +69,14 @@ with a "Book a demo" line. LinkedIn gets the posts, the carousels and a post sha
 
 Gut check: would this sound like Arash saying it to a friend at a conference bar?
 
+### The logo
+
+Never draw, recreate or approximate the Vionlabs logo. Every image uses the official files in
+`content-engine/bot/assets/`: `vionlabs-logo-white.svg` (the VIONLABS wordmark whose O is an eye)
+on dark backgrounds, `vionlabs-logo-black.png` on light ones, and `vionlabs-eye-icon.png` when only
+a small icon fits. Don't recolour or redraw them. If a format needs a version we don't have, ask
+Marcus for it. Marcus set this on 28 Oct 2026.
+
 ### Names we keep out of public content
 
 Our blog posts and LinkedIn content never name competitors, customers we no longer work with, or

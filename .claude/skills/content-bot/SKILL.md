@@ -204,6 +204,8 @@ send anything.
      35 words; Vionlabs' own view leads every section and the text has four or five links at
      most ("Our take first" in `brand.md`); numbers go in short bullet lists; at most a couple of company names per
      sentence; one bold line at most; ends with one specific question.
+   - Images use the official Vionlabs logo files in `content-engine/bot/assets/` and never a
+     drawn or approximated logo ("The logo" in `brand.md`).
    - Images: the cover and at least one in-article figure (`figures`, drawn by `figure.html`,
      with a source line), rendered with `node content-engine/bot/cover.js <topic>` and looked at
      once. Place the figure in the body as `![alt](figures/<file>.png)`.
