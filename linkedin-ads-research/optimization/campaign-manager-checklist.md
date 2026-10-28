@@ -68,7 +68,7 @@ come from `launch.csv` (match the `ad_name` column).
 ## 6. Switch on (in this order)
 
 1. Clear the claims first. Ad 3 (905856444) can't run until the 278-vs-7-days claim is cleared; its copy depends on
-   it. If you want to launch without it, set its daily budget to $0 and move the $15 to ad1 and ad2.
+   it. If you launch without it, leave that campaign paused and give its $15 to ad1 and ad2 (for example ad1 $24, ad2 image $17).
 2. Switch on the campaign group, then the wave 1 campaigns: ad0 ×3, ad1, ad2 ×2, ad3 and v1, at $91 a day.
 3. Then pause the legacy campaign groups: 897508034, 897508214, 800105584, plus the 7 empty Boost_Post groups.
 4. Leave the wave 2 campaigns paused until week 4.
