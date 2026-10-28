@@ -14,6 +14,7 @@ targeting and a source check on every claim.
 | `creatives/share/` | One page per campaign ad, each published as its own link so a single ad can be sent on its own; `links.json` holds the links |
 | `creatives/brief.html`, `creatives/brief-anim.html` | Sources for the campaign images and videos; `ads.html` for the drafts; `img/` holds the website images they use |
 | `references/` | Notes on reference ads, such as the TwelveLabs videos the series is modelled on |
+| `AGENTS.md` | How the creative and optimization agents work together: sessions, ad IDs, naming and UTMs |
 | `fetch_ads.py` | Pulls ads from the LinkedIn Ad Library through Apify (needs `APIFY_TOKEN`) |
 
 ## Changing an ad
