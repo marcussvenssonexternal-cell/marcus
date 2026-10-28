@@ -32,9 +32,9 @@ All three logos are white SVGs, 112 units high so they line up at one height:
 - Vionlabs: the official wordmark from the brand files, without the tagline.
 - Embrace: a vector redraw of the PNG supplied with the social post, since no vector file was at
   hand. Swap in Embrace's own SVG when they send it, here and in Webflow (`london-embrace-logo-white.svg`).
-- Codemill: a vector trace of the Codemill PNG on the vionlabs.com Partners page, with its cap height
-  matched to the Vionlabs wordmark. Swap in Codemill's own SVG the same way if they send one
-  (`london-codemill-logo-white.svg`).
+- Codemill: Codemill's own white logo, as they supplied it, set in the same frame. Its strokes are
+  lighter than the Vionlabs wordmark's, so its letters sit a little taller (65 of 112 units, against
+  61 for Vionlabs and 68.5 for Embrace) to look the same size in the lockup.
 
 To preview, open `index.html` in a browser. Until HubSpot is connected the form runs in preview
 mode: it validates and shows the thank-you screen, but sends nothing, and says so above the fields.
