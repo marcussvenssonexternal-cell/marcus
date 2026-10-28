@@ -235,7 +235,32 @@
           "a0-c4",
           "a0-c5"
         ],
-        "label": "Carousel · 5 cards · 1080×1080"
+        "label": "Carousel · 5 cards · 1080×1080",
+        "cards": [
+          "Founded in Stockholm by film and VFX people",
+          "We analysed content by hand first",
+          "Our own AI models, built since 2019",
+          "Trained on 1M+ entertainment assets",
+          "In production in 60+ countries"
+        ]
+      },
+      {
+        "carousel": [
+          "a0-c1",
+          "a0-c2",
+          "a0-c3",
+          "a0-c4",
+          "a0-c5b"
+        ],
+        "cid": "a0b-carousel",
+        "label": "Carousel B, end card without logo placeholders · 5 cards · 1080×1080",
+        "cards": [
+          "Founded in Stockholm by film and VFX people",
+          "We analysed content by hand first",
+          "Our own AI models, built since 2019",
+          "Trained on 1M+ entertainment assets",
+          "In production in 60+ countries"
+        ]
       },
       {
         "video": "ad0-S",
@@ -359,7 +384,14 @@
           "a2-c4",
           "a2-c5"
         ],
-        "label": "Carousel · 5 cards · 1080×1080"
+        "label": "Carousel · 5 cards · 1080×1080",
+        "cards": [
+          "Most of your catalogue is never found",
+          "Search the whole library by mood",
+          "Search down to the scene",
+          "One recipe, assets for every title",
+          "Metadata, thumbnails and clips"
+        ]
       },
       {
         "id": "a2-L",
@@ -437,7 +469,8 @@
     "intros": [
       "65,000 episodes: 278 days of manual marking, or 7 days with Vionlabs.\n\nOur AI time-codes every episode: intro, recap, credits, chapters and natural ad breaks, so Skip Intro, autoplay to the next episode and ad insertion run automatically across the whole catalogue.\n\nMarkers and breaks are story-aware. The AI understands scenes and narrative, so breaks land between moments, not in the middle of them.\n\nVionlabs. AI built for entertainment.",
       "Netflix viewers press Skip Intro 136 million times a day. Your viewers expect it on every episode.\n\nVionlabs detects intros, recaps and credits automatically. Customers have seen 2x more episodes watched and 15% higher retention with skip intro, recap and credits.\n\nWe started by marking content by hand, so we know how heavy this work is. Now the AI takes the repetitive work and your team gets its time back.\n\nVionlabs. AI built for entertainment.",
-      "Intro, recap and credit markers still set by hand or by vendors? That’s slow, inconsistent and can’t keep up with new content.\n\nVionlabs time-codes every second of your library and places ad breaks at natural scene breaks. Customers have seen 80% fewer manual tasks in ad-break creation.\n\nVionlabs. AI built for entertainment."
+      "Intro, recap and credit markers still set by hand or by vendors? That’s slow, inconsistent and can’t keep up with new content.\n\nVionlabs time-codes every second of your library and places ad breaks at natural scene breaks. Customers have seen 80% fewer manual tasks in ad-break creation.\n\nVionlabs. AI built for entertainment.",
+      "Intro, recap and credit markers set by hand can’t keep up with a growing catalogue.\n\nVionlabs time-codes every episode automatically: intros, recaps, credits, chapters and natural ad breaks, so Skip Intro, autoplay and ad insertion work across the whole library.\n\nBreaks are story-aware. Our AI understands scenes and narrative, so breaks land between moments, not in the middle of them.\n\nVionlabs. AI built for entertainment."
     ],
     "claims": [
       {
@@ -461,7 +494,8 @@
         "status": "example"
       }
     ],
-    "destination": "https://www.vionlabs.com/operations-lab"
+    "destination": "https://www.vionlabs.com/operations-lab",
+    "note": "Intro 4 has no unverified numbers, so ad3 can run as h2-i4 on a3-L before sales confirms the 278-vs-7-days claim."
   },
   {
     "id": "m1",
@@ -523,12 +557,39 @@
         "label": "Single image · 1080×1080"
       },
       {
+        "id": "m2b-L",
+        "label": "Single image B, without the 90% claim · 1200×627"
+      },
+      {
+        "id": "m2b-S",
+        "label": "Single image B, without the 90% claim · 1080×1080"
+      },
+      {
         "carousel": [
           "m2-c1",
           "m2-c2",
           "m2-c3"
         ],
-        "label": "Carousel · 3 cards · 1080×1080"
+        "label": "Carousel · 3 cards · 1080×1080",
+        "cards": [
+          "Your library, unsorted",
+          "Lists, curated by AI",
+          "Every title in front of viewers"
+        ]
+      },
+      {
+        "carousel": [
+          "m2-c1",
+          "m2-c2",
+          "m2-c3b"
+        ],
+        "cid": "m2b-carousel",
+        "label": "Carousel B, without the 90% claim · 3 cards · 1080×1080",
+        "cards": [
+          "Your library, unsorted",
+          "Lists, curated by AI",
+          "Every title in front of viewers"
+        ]
       }
     ],
     "headlines": [
@@ -539,7 +600,8 @@
     "intros": [
       "Your top 10 gets all the rows. The rest of the catalogue waits.\n\nEditorial Lab turns your whole library into AI-curated Smart Lists at scale, like “Feel-good Sunday” or “Edge-of-your-seat thrillers”. With 90% library coverage, you monetise the whole catalogue, not just the top 10.\n\nThe AI understands mood and story, so the lists feel curated by an editor, not keyword-matched.\n\nVionlabs. AI built for entertainment.",
       "Building editorial lists by hand doesn’t scale. Keyword matching doesn’t feel curated.\n\nVionlabs Smart Lists group titles by mood and story across 90% of your library, ready for your editors to review and publish.\n\nVionlabs. AI built for entertainment.",
-      "Hidden gems only earn when someone sees them.\n\nVionlabs puts 90% of your library into AI-curated editorial lists, from “Feel-good Sunday” to “Underdog stories”. Built by people from entertainment, trained on 1M+ entertainment assets.\n\nVionlabs. AI built for entertainment."
+      "Hidden gems only earn when someone sees them.\n\nVionlabs puts 90% of your library into AI-curated editorial lists, from “Feel-good Sunday” to “Underdog stories”. Built by people from entertainment, trained on 1M+ entertainment assets.\n\nVionlabs. AI built for entertainment.",
+      "Your top 10 gets all the rows. The rest of the catalogue waits to be found.\n\nEditorial Lab turns your whole library into AI-curated Smart Lists at scale, like “Feel-good Sunday” or “Edge-of-your-seat thrillers”, ready for your editors to review and publish.\n\nThe AI understands mood and story, so lists feel curated by an editor, not keyword-matched. Built by people from entertainment, trained on 1M+ entertainment assets.\n\nVionlabs. AI built for entertainment."
     ],
     "claims": [
       {
@@ -553,7 +615,8 @@
         "status": "example"
       }
     ],
-    "destination": "https://www.vionlabs.com/editorial-lab"
+    "destination": "https://www.vionlabs.com/editorial-lab",
+    "note": "Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which has no source yet."
   },
   {
     "id": "m3",
@@ -579,7 +642,13 @@
           "m3-c3",
           "m3-c4"
         ],
-        "label": "Carousel · 4 cards · 1080×1080"
+        "label": "Carousel · 4 cards · 1080×1080",
+        "cards": [
+          "Search “underdog stories”",
+          "Search “feel-good romantic comedies”",
+          "Search “tense true stories”",
+          "Type a feeling. Get a list."
+        ]
       }
     ],
     "headlines": [
@@ -715,7 +784,13 @@
           "c3-c3",
           "c3-c4"
         ],
-        "label": "Carousel · 4 cards · 1080×1080"
+        "label": "Carousel · 4 cards · 1080×1080",
+        "cards": [
+          "Every sword fight in your library",
+          "Every matching moment, timecoded",
+          "16:9 in. 9:16 out.",
+          "Your archive is full of shorts"
+        ]
       },
       {
         "id": "c3-L",
@@ -763,7 +838,14 @@
           "o1-c4",
           "o1-c5"
         ],
-        "label": "Carousel · 5 cards · 1080×1080"
+        "label": "Carousel · 5 cards · 1080×1080",
+        "cards": [
+          "Binge markers for every episode",
+          "Ad breaks that respect the story",
+          "Chapters, generated",
+          "Compliance flags, frame by frame",
+          "Every second of your library, QC’d"
+        ]
       },
       {
         "id": "o1-L",

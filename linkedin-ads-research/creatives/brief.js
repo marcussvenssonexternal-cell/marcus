@@ -164,6 +164,10 @@
     <div class="abs row" style="left:72px;top:450px;gap:80px"><div class="stat"><b style="font-size:130px;color:var(--blue-hi)">60+</b><span style="font-size:28px">countries</span></div>
       <div class="stat"><b style="font-size:130px;color:var(--blue-hi)">500M</b><span style="font-size:28px">viewers</span></div></div>
     <div class="abs" style="left:72px;right:72px;top:730px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px">${Array.from({ length: 4 }, () => '<div class="placeholder-logo" style="height:100px;font-size:17px">Approved logo</div>').join("")}</div>`, { size: 72, cta: true }));
+  // a0-c5b: the same end card without the logo placeholders, for launch until there is an approved logo list
+  add("a0-c5b", "ad0", "S", card(5, 5, "Our story", "In production with <span class=\"hl\">global entertainment leaders.</span>", "", `
+    <div class="abs row" style="left:72px;top:520px;gap:80px"><div class="stat"><b style="font-size:150px;color:var(--blue-hi)">60+</b><span style="font-size:30px">countries</span></div>
+      <div class="stat"><b style="font-size:150px;color:var(--blue-hi)">500M</b><span style="font-size:30px">viewers</span></div></div>`, { size: 72, cta: true }));
 
   // ======================================================================== AD 1  Same genre. Different movie.
   const comedy = (name, title, vals, emph, w, h, rs, fs, light) => `<div class="col" style="align-items:center;gap:12px">
@@ -328,6 +332,22 @@
   add("m2-c1", "m2", "S", card(1, 3, "For editorial teams", "Your library, <span class=\"hl\">unsorted.</span>", "", `<div class="abs" style="left:72px;top:330px">${chaos(44, 936, 600, 150, 84, 7)}</div>`));
   add("m2-c2", "m2", "S", card(2, 3, "For editorial teams", "Lists, <span class=\"hl\">curated by AI.</span>", "", `<div class="abs" style="left:72px;top:320px">${rows(5, 210, 82, 22, 14, true)}</div>`));
   add("m2-c3", "m2", "S", card(3, 3, "For editorial teams", "90% of your library, <span class=\"hl\">in front of viewers.</span>", "", `<div class="abs" style="left:72px;top:404px">${rows(3, 210, 100, 24, 18)}</div><div class="abs" style="left:72px;top:884px">${coverage(22)}</div>`, { cta: true, size: 72 }));
+  // m2b-L, m2b-S, m2-c3b: the same without the 90% coverage claim, which has no source yet
+  add("m2b-L", "m2", "L", `
+    ${top("For editorial teams")}
+    <h1 style="margin-top:40px;width:400px">Every title <span class="hl">in a list.</span></h1>
+    <div class="abs" style="left:56px;top:250px">${chaos(18, 360, 230, 96, 54, 3)}</div>
+    ${arrow(440, 360)}
+    <div class="abs" style="left:520px;top:92px">${rows(5, 112, 56, 14, 10)}</div>
+    ${foot()}`);
+  add("m2b-S", "m2", "S", `
+    ${top("For editorial teams")}
+    <h1 style="margin-top:44px">Every title <span class="hl">in a list.</span></h1>
+    <div class="abs" style="left:56px;top:270px">${chaos(26, 340, 600, 120, 68, 4)}</div>
+    ${arrow(400, 560)}
+    <div class="abs" style="left:470px;top:260px">${rows(5, 125, 70, 19, 15)}</div>
+    ${foot()}`);
+  add("m2-c3b", "m2", "S", card(3, 3, "For editorial teams", "Every title, <span class=\"hl\">in front of viewers.</span>", "", `<div class="abs" style="left:72px;top:330px">${rows(3, 210, 100, 24, 18)}</div>`, { cta: true, size: 72 }));
 
   // ======================================================================== M3  Search by feeling
   const Q = [

@@ -2,7 +2,8 @@
 campaign ad (share/<id>.html, each published as its own artifact so a single ad can be sent on its own),
 and the copy decks (brief/copy.md for the campaign, copy.md for the earlier drafts) from the two copy.json
 files. share/links.json holds each share page's published link; the review page shows them per ad.
-brief/launch.csv lists every LinkedIn ad to build (asset × headline × intro) with its ad name and tracked URL.
+brief/launch.csv lists every LinkedIn ad to build (asset × headline × intro) with its ad name and tracked URL;
+brief/carousel-cards.csv gives each carousel card its headline and tracked URL.
 
     python3 build_gallery.py
 """
@@ -42,6 +43,10 @@ def check_brief():
             assert len(h) <= 70, (ad["id"], h)
         for i in ad["intros"]:
             assert len(i) <= 600 and i.endswith(SIGNOFF), (ad["id"], i[:40])
+        for a in ad["assets"]:
+            # LinkedIn carousel cards: one headline each, at most 45 characters
+            if "carousel" in a:
+                assert len(a["cards"]) == len(a["carousel"]) and all(len(c) <= 45 for c in a["cards"]), (ad["id"], a["carousel"][0])
 
 
 def quote(text):
@@ -73,14 +78,19 @@ def build_brief_markdown():
 
 
 def linkedin_ads(ad):
-    # One LinkedIn ad per single image, carousel or video; a carousel's ID is its card prefix plus "-carousel".
+    # One LinkedIn ad per single image, carousel or video. A carousel's ID is its card prefix plus "-carousel",
+    # unless it sets its own ("cid"), as a revised card set does.
     for a in ad["assets"]:
         if "id" in a:
             yield a["id"], a["label"]
         elif "carousel" in a:
-            yield a["carousel"][0].rsplit("-c", 1)[0] + "-carousel", a["label"]
+            yield carousel_id(a), a["label"]
         else:
             yield a["video"], a["label"]
+
+
+def carousel_id(a):
+    return a.get("cid") or a["carousel"][0].rsplit("-c", 1)[0] + "-carousel"
 
 
 def build_launch_csv():
@@ -95,6 +105,24 @@ def build_launch_csv():
                         first = (ad["id"], asset) in FIRST_WAVE and h == 1 and i == 1
                         w.writerow([ad["id"], asset, label, f"h{h}", f"i{i}", f"{ad['id']}/{asset}/h{h}-i{i}", headline,
                                     f"{ad['destination']}?{UTM}&utm_content={tag}", "yes" if first else ""])
+
+
+def build_carousel_cards_csv():
+    # LinkedIn carousels have no ad-level headline: each card carries its own headline and URL. The ad name keeps
+    # "h1" so it matches the carousel's row in launch.csv; utm_content adds the card number.
+    with open(HERE / "brief" / "carousel-cards.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["ad", "carousel", "intro_id", "ad_name", "card", "card_asset", "card_headline", "card_url"])
+        for ad in BRIEF:
+            for a in ad["assets"]:
+                if "carousel" not in a:
+                    continue
+                cid = carousel_id(a)
+                for i in range(1, len(ad["intros"]) + 1):
+                    for n, (card, headline) in enumerate(zip(a["carousel"], a["cards"]), 1):
+                        tag = f"{ad['id']}-{cid}-h1-i{i}-c{n}"
+                        w.writerow([ad["id"], cid, f"i{i}", f"{ad['id']}/{cid}/h1-i{i}", n, card, headline,
+                                    f"{ad['destination']}?{UTM}&utm_content={tag}"])
 
 
 def build_drafts_markdown():
@@ -153,5 +181,6 @@ if __name__ == "__main__":
     build_gallery()
     build_share_pages()
     build_launch_csv()
+    build_carousel_cards_csv()
     print(f"built gallery.html, index.html, {len(BRIEF)} share pages, brief/copy.md and copy.md "
           f"for {len(BRIEF)} campaign ads and {len(ADS)} drafts ({len(LINKS)} share links)")

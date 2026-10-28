@@ -94,6 +94,8 @@
   figcaption a:hover { color: var(--accent); }
   .strip { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
   .strip img { width: min(250px, 72%); flex: none; scroll-snap-align: start; aspect-ratio: 1; }
+  .cards { margin: 2px 0 0; padding-left: 20px; font-size: 13px; color: var(--muted); display: grid; gap: 2px; }
+  .cards::before { content: "Card headlines"; margin-left: -20px; font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
   .videos { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; }
   .videos figure { flex: 1 1 200px; max-width: 300px; }
   .videos figure.vert { flex-basis: 150px; max-width: 220px; }
@@ -239,7 +241,8 @@
       ${singles.length ? `<div class="singles">${singles.map(fig).join("")}</div>` : ""}
       ${carousels.map((c) => `<figure><div class="strip" tabindex="0" aria-label="${esc(c.label)}">${c.carousel.map((id, i) =>
         `<img src="brief/png/${id}.png" alt="${esc(ad.name)}, card ${i + 1} of ${c.carousel.length}" loading="lazy" width="1080" height="1080">`).join("")}</div>
-        <figcaption><span>${esc(c.label)}</span><span class="id">${c.carousel[0]} … ${c.carousel[c.carousel.length - 1]}</span></figcaption></figure>`).join("")}
+        <figcaption><span>${esc(c.label)}</span><span class="id">${c.carousel.join(" · ")}</span></figcaption>
+        ${c.cards ? `<ol class="cards">${c.cards.map((h) => `<li>${esc(h)}</li>`).join("")}</ol>` : ""}</figure>`).join("")}
       ${videos.length ? `<div class="videos">${videos.map((v) => { const vert = v.video.endsWith("-V");
         return `<figure${vert ? ' class="vert"' : ""}><video src="brief/video/${v.video}.mp4" poster="brief/video/${v.video}.png" controls muted loop playsinline preload="none" width="1080" height="${vert ? 1920 : 1080}" aria-label="${esc(v.label)}"></video>
         <figcaption><span>${esc(v.label)}</span><a href="brief/video/${v.video}.mp4" target="_blank" rel="noopener">${v.video}.mp4</a></figcaption></figure>`; }).join("")}</div>` : ""}

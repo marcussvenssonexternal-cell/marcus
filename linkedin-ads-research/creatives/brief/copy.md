@@ -240,6 +240,7 @@ _Run first or in parallel, so the audience ads reach people who already know who
 - Single image · 1200×627: `png/a0-L.png`
 - Single image · 1080×1080 (contrast option): `png/a0-S.png`
 - Carousel · 5 cards · 1080×1080: `png/a0-c1.png`, `png/a0-c2.png`, `png/a0-c3.png`, `png/a0-c4.png`, `png/a0-c5.png`
+- Carousel B, end card without logo placeholders · 5 cards · 1080×1080: `png/a0-c1.png`, `png/a0-c2.png`, `png/a0-c3.png`, `png/a0-c4.png`, `png/a0-c5b.png`
 - Video · 12 s · 1:1: `video/ad0-S.mp4`
 - Video · 12 s · 9:16: `video/ad0-V.mp4`
 
@@ -408,6 +409,8 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 **Targeting:** Job titles: Head of Media Operations, Media Supply Chain Manager, MAM Manager, Head of Ad Operations, Monetization Manager, Automation Engineer, Player Product Owner · Functions: Operations, Engineering, Product Management · Seniority: Manager and up  
 **Destination:** https://www.vionlabs.com/operations-lab
 
+_Intro 4 has no unverified numbers, so ad3 can run as h2-i4 on a3-L before sales confirms the 278-vs-7-days claim._
+
 **Assets**
 
 - Visual A · 1200×627: `png/a3-L.png`
@@ -448,6 +451,16 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 > Intro, recap and credit markers still set by hand or by vendors? That’s slow, inconsistent and can’t keep up with new content.
 >
 > Vionlabs time-codes every second of your library and places ad breaks at natural scene breaks. Customers have seen 80% fewer manual tasks in ad-break creation.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 4** (426 characters)
+
+> Intro, recap and credit markers set by hand can’t keep up with a growing catalogue.
+>
+> Vionlabs time-codes every episode automatically: intros, recaps, credits, chapters and natural ad breaks, so Skip Intro, autoplay and ad insertion work across the whole library.
+>
+> Breaks are story-aware. Our AI understands scenes and narrative, so breaks land between moments, not in the middle of them.
 >
 > Vionlabs. AI built for entertainment.
 
@@ -514,11 +527,16 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 **Targeting:** Retarget: engaged with Ad 0 or Ad 2 · plus Head of Editorial, Head of Programming, Content Strategy  
 **Destination:** https://www.vionlabs.com/editorial-lab
 
+_Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which has no source yet._
+
 **Assets**
 
 - Single image · 1200×627: `png/m2-L.png`
 - Single image · 1080×1080: `png/m2-S.png`
+- Single image B, without the 90% claim · 1200×627: `png/m2b-L.png`
+- Single image B, without the 90% claim · 1080×1080: `png/m2b-S.png`
 - Carousel · 3 cards · 1080×1080: `png/m2-c1.png`, `png/m2-c2.png`, `png/m2-c3.png`
+- Carousel B, without the 90% claim · 3 cards · 1080×1080: `png/m2-c1.png`, `png/m2-c2.png`, `png/m2-c3b.png`
 
 **Headlines**
 
@@ -549,6 +567,16 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 > Hidden gems only earn when someone sees them.
 >
 > Vionlabs puts 90% of your library into AI-curated editorial lists, from “Feel-good Sunday” to “Underdog stories”. Built by people from entertainment, trained on 1M+ entertainment assets.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 4** (462 characters)
+
+> Your top 10 gets all the rows. The rest of the catalogue waits to be found.
+>
+> Editorial Lab turns your whole library into AI-curated Smart Lists at scale, like “Feel-good Sunday” or “Edge-of-your-seat thrillers”, ready for your editors to review and publish.
+>
+> The AI understands mood and story, so lists feel curated by an editor, not keyword-matched. Built by people from entertainment, trained on 1M+ entertainment assets.
 >
 > Vionlabs. AI built for entertainment.
 
