@@ -69,7 +69,8 @@ function curve(marks) {
   // The cover's illustrative tension curve for a 90-minute film: rises, a resolved valley, a long climb to the climax.
   var P = [[0, .22], [.05, .30], [.10, .26], [.16, .44], [.22, .38], [.28, .60], [.315, .70], [.37, .16], [.43, .30], [.49, .52],
            [.54, .46], [.60, .60], [.66, .64], [.70, .74], [.74, .86], [.80, .62], [.86, .92], [.92, .40], [1, .24]];
-  var X0 = 84, X1 = W - 84, BASE = H - 112, TOP = 150, FS = 36, LS = 2;
+  // The film runs edge to edge; labels stay inside the page margins (M).
+  var X0 = 0, X1 = W, M = 84, BASE = H - 112, TOP = 150, FS = 40, LS = 2;
   function px(p) { return [X0 + p[0] * (X1 - X0), BASE - 26 - p[1] * (BASE - 26 - TOP)]; }
   var pts = P.map(px);
   function path(ps) {
@@ -99,9 +100,7 @@ function curve(marks) {
     var X = X0 + x * (X1 - X0);
     h += '<line x1="' + X + '" y1="' + (BASE - 14) + '" x2="' + X + '" y2="' + (BASE + 14) + '" stroke="#2a3843" stroke-width="4"/>';
   });
-  ["0:00", "1:30"].forEach(function (t, i) {
-    h += '<text x="' + (i ? X1 : X0) + '" y="' + (BASE + 84) + '" fill="#93a3ae" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="28" text-anchor="' + (i ? "end" : "start") + '">' + t + "</text>";
-  });
+  h += '<text x="' + M + '" y="' + (BASE + 84) + '" fill="#93a3ae" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="28">Story tension across a 90-minute film</text>';
   // Labels go above the curve anywhere under their text (Plex Mono is 0.6em a character), stay inside the margins,
   // and step up when they would run into the label before them.
   var placed = [];
@@ -109,7 +108,7 @@ function curve(marks) {
     var X = X0 + m.at * (X1 - X0), Y = yAt(m.at), good = m.tone === "good";
     var c = good ? "#4fc1c8" : "#ff7a5c", text = String(m.label || "").toUpperCase().replace(/[<&>]/g, "");
     var half = (text.length * 0.6 * FS + (text.length - 1) * LS) / 2;
-    var LX = Math.max(X0 + half, Math.min(X1 - half, X)), top = Y;
+    var LX = Math.max(M + half, Math.min(W - M - half, X)), top = Y;
     for (var x = LX - half - 16; x <= LX + half + 16; x += 4) top = Math.min(top, yAt(Math.max(0, Math.min(1, (x - X0) / (X1 - X0)))));
     var LY = top - 64;
     placed.forEach(function (q) { if (LX - half < q.x1 + 24 && LY > q.y - FS - 20) LY = q.y - FS - 20; });

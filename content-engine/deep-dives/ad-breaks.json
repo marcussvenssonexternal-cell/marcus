@@ -233,6 +233,25 @@
             "source": "Source: FreeWheel, 17 September 2026"
           }
         ],
+        "social": {
+          "image": "social/ad-breaks-01.png",
+          "kicker": "Where the break lands",
+          "headline": "These two ad breaks are priced the same",
+          "by": "Arash Pendari, CEO of Vionlabs",
+          "alt": "A story's tension curve across a 90-minute film with two ad breaks marked. One lands in a valley where the story pauses; the other cuts in on the climb to a reveal. Headline: These two ad breaks are priced the same.",
+          "marks": [
+            {
+              "at": 0.37,
+              "label": "Natural pause",
+              "tone": "good"
+            },
+            {
+              "at": 0.7,
+              "label": "Mid-reveal",
+              "tone": "bad"
+            }
+          ]
+        },
         "slot": "On vionlabs.com when Arash approves",
         "website": {
           "title": "The Most Expensive Second in Streaming Is the One Before the Break",
