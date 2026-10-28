@@ -55,6 +55,10 @@ From Viktor's ad brief:
 - Every intro ends "Vionlabs. AI built for entertainment."
 - Only use the brief's numbers. Claims marked "Check before launch" in `copy.json` need a source before they run.
 
+Once an asset or URL is in a campaign draft (from commit `2954e0d` on), it never changes: a revised image, video or
+copy line gets a new ID (e.g. `a3-L` becomes `a3c-L`, a new intro becomes `i5`) and new rows in `launch.csv`, so
+every result stays traceable to exactly what ran.
+
 ## Data
 
 LinkedIn Ads is connected through Supermetrics (source `LIA`). LinkedIn Pages is not connected yet.
