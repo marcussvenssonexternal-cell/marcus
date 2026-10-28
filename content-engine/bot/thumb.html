@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Deep Dives thumbnail</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* A 1600x1260 grid thumbnail for vionlabs.com/news, where the cards are about 1.27:1 and show it near 563px wide, so every size here is
+   chosen to read at roughly 35%. The landscape sibling of social.html: kicker and logo, a short headline, the tension curve with the
+   piece's break marks across the bottom. Rendered to PNG by cover.js. */
+:root {
+  --ink: #14212b;
+  --paper: #f4f6f7;
+  --muted: #93a3ae;
+  --line: #2a3843;
+  --accent: #4fc1c8;
+  --warn: #ff7a5c;
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1600px; height: 1260px; overflow: hidden; background: var(--ink); color: var(--paper); }
+.thumb { width: 1600px; height: 1260px; padding-top: 104px; display: grid; grid-template-rows: auto auto 1fr; }
+.top { display: flex; justify-content: space-between; align-items: center; height: 46px; margin: 0 120px; }
+.kicker { font: 500 34px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+h1 { margin: 68px 120px 0; font: 800 116px/1.02 var(--display); letter-spacing: -0.03em; text-wrap: balance; }
+#chart { position: relative; min-height: 0; }
+#chart svg { position: absolute; left: 0; top: 0; }
+/* The official wordmark (assets/vionlabs-logo-white.svg, never redrawn), cropped to its ink because the file's viewBox pads it. --h is the ink height. */
+.logo { --h: 46px; flex: none; overflow: hidden; height: var(--h); width: calc(var(--h) * 391.56 / 53.74); }
+.logo img { display: block; height: calc(var(--h) * 93.333 / 53.74); margin: calc(var(--h) * -22.28 / 53.74) 0 0 calc(var(--h) * -19.875 / 53.74); }
+</style>
+</head>
+<body>
+<div class="thumb">
+  <div class="top"><span class="kicker" id="kicker"></span><span class="logo"><img src="assets/vionlabs-logo-white.svg" alt="Vionlabs"></span></div>
+  <h1 id="headline"></h1>
+  <div id="chart"></div>
+</div>
+<script>
+// Spec comes from cover.js: {kicker, headline, marks: [{at: 0..1, label, tone: "good"|"bad"}]}.
+// The headline is sized to the largest size (116px down) that fits in three lines, so drawing runs again once the fonts are in.
+function draw(spec) {
+  document.getElementById("kicker").textContent = spec.kicker || "";
+  // Keep one- and two-letter words on the line with the word after them ("in streaming", "is the").
+  var h1 = document.getElementById("headline");
+  h1.textContent = (spec.headline || "").replace(/ (\S{1,2}) /g, " $1 ");
+  for (var size = 116; size > 64; size -= 2) {
+    h1.style.fontSize = size + "px";
+    if (h1.scrollWidth <= h1.clientWidth && h1.offsetHeight <= 3 * 1.02 * size + 2) break;
+  }
+  curve(spec.marks || []);
+}
+
+function curve(marks) {
+  var box = document.getElementById("chart"), W = box.clientWidth, H = box.clientHeight;
+  // The cover's illustrative tension curve for a 90-minute film: rises, a resolved valley, a long climb to the climax.
+  var P = [[0, .22], [.05, .30], [.10, .26], [.16, .44], [.22, .38], [.28, .60], [.315, .70], [.37, .16], [.43, .30], [.49, .52],
+           [.54, .46], [.60, .60], [.66, .64], [.70, .74], [.74, .86], [.80, .62], [.86, .92], [.92, .40], [1, .24]];
+  // The film runs edge to edge; labels and time stay inside the page margins (M).
+  var X0 = 0, X1 = W, M = 120, BASE = H - 186, TOP = 170, FS = 44, LS = 2;
+  function px(p) { return [X0 + p[0] * (X1 - X0), BASE - 32 - p[1] * (BASE - 32 - TOP)]; }
+  var pts = P.map(px);
+  function path(ps) {
+    var d = "M" + ps[0][0].toFixed(1) + " " + ps[0][1].toFixed(1);
+    for (var i = 0; i < ps.length - 1; i++) {
+      var p0 = ps[i - 1] || ps[i], p1 = ps[i], p2 = ps[i + 1], p3 = ps[i + 2] || p2;
+      var c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+      var c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      d += " C" + c1.map(function (v) { return v.toFixed(1); }).join(" ") + " " + c2.map(function (v) { return v.toFixed(1); }).join(" ") + " " + p2[0].toFixed(1) + " " + p2[1].toFixed(1);
+    }
+    return d;
+  }
+  function yAt(x) {
+    for (var i = 0; i < P.length - 1; i++) if (x >= P[i][0] && x <= P[i + 1][0]) {
+      var t = (x - P[i][0]) / (P[i + 1][0] - P[i][0]), s = t * t * (3 - 2 * t);
+      return px([x, P[i][1] + (P[i + 1][1] - P[i][1]) * s])[1];
+    }
+    return BASE;
+  }
+  var line = path(pts);
+  var h = '<defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4fc1c8" stop-opacity="0.30"/><stop offset="1" stop-color="#4fc1c8" stop-opacity="0"/></linearGradient></defs>';
+  h += '<path d="' + line + ' L' + X1 + ' ' + BASE + ' L' + X0 + ' ' + BASE + ' Z" fill="url(#fill)"/>';
+  h += '<path d="' + line + '" fill="none" stroke="#4fc1c8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>';
+  // Runtime ruler with scene boundaries.
+  h += '<line x1="' + X0 + '" y1="' + BASE + '" x2="' + X1 + '" y2="' + BASE + '" stroke="#2a3843" stroke-width="5"/>';
+  [.04, .09, .13, .19, .25, .3, .35, .41, .46, .51, .57, .63, .68, .72, .77, .83, .89, .95].forEach(function (x) {
+    var X = X0 + x * (X1 - X0);
+    h += '<line x1="' + X + '" y1="' + (BASE - 16) + '" x2="' + X + '" y2="' + (BASE + 16) + '" stroke="#2a3843" stroke-width="5"/>';
+  });
+  ["0:00", "1:30"].forEach(function (t, i) {
+    h += '<text x="' + (i ? W - M : M) + '" y="' + (BASE + 90) + '" fill="#93a3ae" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="32" text-anchor="' + (i ? "end" : "start") + '">' + t + "</text>";
+  });
+  // Labels sit over their own line but slide sideways off a neighbouring mark's line, stay inside the margins,
+  // go above the curve anywhere under their text (Plex Mono is 0.6em a character) and step up when they would
+  // run into the label before them. AD tags stay on the canvas.
+  var placed = [], xs = marks.map(function (m) { return X0 + m.at * (X1 - X0); });
+  marks.slice().sort(function (a, b) { return a.at - b.at; }).forEach(function (m) {
+    var X = X0 + m.at * (X1 - X0), Y = yAt(m.at), good = m.tone === "good", TX = Math.max(84, Math.min(W - 84, X));
+    var c = good ? "#4fc1c8" : "#ff7a5c", text = String(m.label || "").toUpperCase().replace(/[<&>]/g, "");
+    var half = (text.length * 0.6 * FS + (text.length - 1) * LS) / 2, LX = X;
+    xs.forEach(function (o) {
+      if (o < X && LX - half < o + 28) LX = o + 28 + half;
+      if (o > X && LX + half > o - 28) LX = o - 28 - half;
+    });
+    LX = Math.max(X - half, Math.min(X + half, LX));
+    LX = Math.max(M + half, Math.min(W - M - half, LX));
+    var top = Y;
+    for (var x = LX - half - 18; x <= LX + half + 18; x += 4) top = Math.min(top, yAt(Math.max(0, Math.min(1, (x - X0) / (X1 - X0)))));
+    var LY = top - 72;
+    placed.forEach(function (q) { if (LX - half < q.x1 + 28 && LY > q.y - FS - 22) LY = q.y - FS - 22; });
+    LY = Math.max(FS, LY);
+    placed.push({ x1: LX + half, y: LY });
+    h += '<line x1="' + X + '" y1="' + (LY + 24) + '" x2="' + X + '" y2="' + (BASE - 42) + '" stroke="' + c + '" stroke-width="6"' + (good ? "" : ' stroke-dasharray="14 14"') + "/>";
+    h += '<rect x="' + (TX - 60) + '" y="' + (BASE - 42) + '" width="120" height="84" rx="12" fill="' + c + '"/>';
+    h += '<text x="' + TX + '" y="' + (BASE + 13) + '" fill="#14212b" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="38" text-anchor="middle">AD</text>';
+    h += '<circle cx="' + X + '" cy="' + Y + '" r="18" fill="#14212b" stroke="' + c + '" stroke-width="8"/>';
+    h += '<text x="' + LX + '" y="' + LY + '" fill="' + c + '" font-family="IBM Plex Mono, monospace" font-weight="500" font-size="' + FS + '" text-anchor="middle" letter-spacing="' + LS + '">' + text + "</text>";
+  });
+  box.innerHTML = '<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + " " + H + '" aria-hidden="true">' + h + "</svg>";
+}
+
+if (window.THUMB) {
+  draw(window.THUMB);
+  Promise.all(['800 116px "Schibsted Grotesk"', '500 34px "IBM Plex Mono"'].map(function (f) { return document.fonts.load(f); }))
+    .then(function () { draw(window.THUMB); });
+}
+</script>
+</body>
+</html>

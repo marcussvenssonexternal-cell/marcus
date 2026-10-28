@@ -1,11 +1,13 @@
 #!/usr/bin/env node
-// Render the images for the Deep Dives packs: blog post covers, in-article figures and LinkedIn images.
+// Render the images for the Deep Dives packs: blog post covers, news grid thumbnails, in-article figures
+// and LinkedIn images.
 //
-//   node content-engine/bot/cover.js            # every piece with a "cover", "figures" or "social" in deep-dives/*.json
+//   node content-engine/bot/cover.js            # every piece with a "cover", "figures", "social" or "thumb" in deep-dives/*.json
 //   node content-engine/bot/cover.js ad-breaks  # one topic
 //
-// Covers are drawn by cover.html at 1920x1080, figures by figure.html at 1600x900 and the LinkedIn feed
-// image that shares a long read by social.html at 1080x1350, then saved to deep-dives/<image>. The
+// Covers are drawn by cover.html at 1920x1080, figures by figure.html at 1600x900, the LinkedIn feed
+// image that shares a long read by social.html at 1080x1350 and the thumbnail for the vionlabs.com/news
+// grid (cards are about 1.27:1) by thumb.html at 1600x1260, then saved to deep-dives/<image>. The
 // publish step uploads them next to the page, and the Google Doc loads them from GitHub, so push before
 // exporting. Needs Playwright (installed globally in the cloud sessions).
 const fs = require("fs");
@@ -44,6 +46,10 @@ function playwright() {
       if (p.social && p.social.image) {
         jobs.push({ image: p.social.image, html: "social.html", w: 1080, h: 1350, key: "SOCIAL",
           spec: { kicker: p.social.kicker || t.title, by: p.social.by || "", headline: p.social.headline || p.title, cta: p.social.cta || "Read on vionlabs.com", marks: p.social.marks || [] } });
+      }
+      if (p.thumb && p.thumb.image) {
+        jobs.push({ image: p.thumb.image, html: "thumb.html", w: 1600, h: 1260, key: "THUMB",
+          spec: { kicker: p.thumb.kicker || t.title, headline: p.thumb.headline || p.title, marks: p.thumb.marks || [] } });
       }
     }
   }

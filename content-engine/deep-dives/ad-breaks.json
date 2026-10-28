@@ -255,6 +255,24 @@
             }
           ]
         },
+        "thumb": {
+          "image": "thumbs/ad-breaks-01.png",
+          "kicker": "Where the break lands",
+          "headline": "The most expensive second in streaming",
+          "marks": [
+            {
+              "at": 0.37,
+              "label": "Natural pause",
+              "tone": "good"
+            },
+            {
+              "at": 0.7,
+              "label": "Mid-reveal",
+              "tone": "bad"
+            }
+          ],
+          "alt": "A story's tension curve across a 90-minute film with two ad breaks marked. One lands in a valley where the story pauses; the other cuts in on the climb to a reveal. Headline: The most expensive second in streaming."
+        },
         "slot": "On vionlabs.com when Arash approves",
         "website": {
           "title": "The Most Expensive Second in Streaming Is the One Before the Break",
@@ -270,12 +288,16 @@
             "figures/ad-breaks-01-signals.png": {
               "fileId": "6ae1ccc6b71128ba9032ad29",
               "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d362/6ae1ccc6b71128ba9032ad29_6ae1cc8d392dd7e623454881_where-the-break-lands-signals-v2.png"
+            },
+            "thumbs/ad-breaks-01.png": {
+              "fileId": "6ae1d4976e1775d8797b16f3",
+              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d362/6ae1d4976e1775d8797b16f3_6ae1d4825909a5a12d44e776_where-the-break-lands-thumb.png"
             }
           },
           "status": "live",
           "itemId": "6adfc93f6a0204578a5fe84b",
           "publishedAt": "2026-10-28T10:09:42Z",
-          "note": "Cover and figure replaced at 10:22 UTC with versions carrying the official Vionlabs logo."
+          "note": "Cover and figure replaced at 10:22 UTC with versions carrying the official Vionlabs logo. Grid thumbnail replaced at 10:55 UTC with a 1600x1260 version that fills the /news card."
         },
         "rationale": [
           "The question is live. In September FreeWheel started selling attention and emotional resonance as CTV buying signals, but where in the story a break lands still isn't priced, and that is where we have something of our own to say.",
