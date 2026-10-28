@@ -5,7 +5,8 @@
 //   node content-engine/bot/cover.js            # every piece with a "cover", "figures", "social" or "thumb" in deep-dives/*.json
 //   node content-engine/bot/cover.js ad-breaks  # one topic
 //
-// Covers are drawn by cover.html at 1920x1080, figures by figure.html at 1600x900, the LinkedIn feed
+// Covers are drawn by cover.html at 1920x1080, figures by figure.html at 1600x900 (or by the template a
+// figure names, e.g. "template": "pipeline" for pipeline.html's step-and-fan-out diagram), the LinkedIn feed
 // image that shares a long read by social.html at 1080x1350 and the thumbnail for the vionlabs.com/news
 // grid (cards are about 1.27:1) by thumb.html at 1600x1260, then saved to deep-dives/<image>. The
 // publish step uploads them next to the page, and the Google Doc loads them from GitHub, so push before
@@ -42,7 +43,7 @@ function playwright() {
         jobs.push({ image: p.cover.image, html: "cover.html", w: 1920, h: 1080, key: "COVER",
           spec: { kicker: p.cover.kicker || t.title, by: p.cover.by || "", headline: p.cover.headline || p.title, marks: p.cover.marks || [] } });
       }
-      for (const f of p.figures || []) if (f.image) jobs.push({ image: f.image, html: "figure.html", w: 1600, h: 900, key: "FIGURE", spec: f });
+      for (const f of p.figures || []) if (f.image) jobs.push({ image: f.image, html: (f.template || "figure") + ".html", w: 1600, h: 900, key: "FIGURE", spec: f });
       if (p.social && p.social.image) {
         jobs.push({ image: p.social.image, html: "social.html", w: 1080, h: 1350, key: "SOCIAL",
           spec: { kicker: p.social.kicker || t.title, by: p.social.by || "", headline: p.social.headline || p.title, cta: p.social.cta || "Read on vionlabs.com", marks: p.social.marks || [] } });

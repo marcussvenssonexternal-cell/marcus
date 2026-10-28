@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Deep Dives pipeline figure</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* A 1600x900 in-article diagram in the figure's visual language: rows of pipeline steps, each row able to fan out from its
+   last step to a stack of consumer boxes. Teal reads the content, coral runs on a content-blind default, grey is plumbing.
+   It shows at about 700 to 800px wide, so no text is under 26px. Rendered to PNG by cover.js from a figure with "template": "pipeline". */
+:root {
+  --ink: #14212b;
+  --panel: #1b2b37;
+  --paper: #f4f6f7;
+  --muted: #93a3ae;
+  --line: #2a3843;
+  --wire: #4d5e6a;
+  --accent: #4fc1c8;
+  --warn: #ff7a5c;
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1600px; height: 900px; overflow: hidden; background: var(--ink); color: var(--paper); }
+.fig { position: relative; width: 1600px; height: 900px; padding: 56px 110px 0; display: grid; grid-template-rows: auto auto 1fr auto; }
+.kicker { font: 500 26px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.legend { display: flex; gap: 32px; white-space: nowrap; }
+.legend span { display: flex; align-items: center; gap: 12px; }
+.legend i { width: 20px; height: 20px; border-radius: 5px; border: 3px solid var(--wire); }
+.legend .good i { border-color: var(--accent); background: rgba(79, 193, 200, 0.16); }
+.legend .bad i { border-color: var(--warn); background: rgba(255, 122, 92, 0.12); }
+h1 { margin: 18px 0 0; font: 800 50px/1.1 var(--display); letter-spacing: -0.02em; max-width: 1300px; white-space: pre-line; text-wrap: balance; }
+.rows { display: flex; flex-direction: column; justify-content: center; gap: 34px; padding-top: 20px; }
+.row { display: flex; align-items: center; }
+.row.bare { padding-top: 46px; }
+.chain { position: relative; flex: 1; min-width: 0; display: grid; column-gap: 48px; align-items: center; }
+/* The row label sits in the free space above the steps, which are centred on the taller fan. */
+.label { position: absolute; left: 0; bottom: calc(100% + 16px); font: 500 26px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.box { position: relative; z-index: 1; border: 3px solid var(--wire); border-radius: 12px; background: var(--panel); }
+.box b { display: block; font: 700 28px/1.15 var(--display); }
+.box small { display: block; font: 500 26px/1.15 var(--display); color: var(--muted); }
+.box.good { border-color: var(--accent); background: #1a3540; }
+.box.good small { color: var(--accent); }
+.box.bad { border-color: var(--warn); background: #2a2a31; }
+.box.bad small { color: var(--warn); }
+.box.em { border-color: var(--accent); background: var(--accent); color: var(--ink); }
+.box.em small { color: var(--ink); }
+.step { min-height: 112px; padding: 14px 18px; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+.step.em b { font-size: 32px; }
+.fan { flex: none; margin-left: 88px; display: flex; flex-direction: column; gap: 8px; }
+.fan .box { display: flex; align-items: baseline; gap: 16px; padding: 4px 20px 5px; white-space: nowrap; }
+.foot { display: flex; align-items: center; gap: 56px; padding: 22px 0 42px; font: 500 26px/1 var(--mono); color: var(--muted); }
+.foot .logo { margin-left: auto; }
+#wires { position: absolute; left: 0; top: 0; z-index: 0; }
+/* The official wordmark (assets/vionlabs-logo-white.svg, never redrawn), cropped to its ink because the file's viewBox pads it. --h is the ink height. */
+.logo { --h: 30px; flex: none; overflow: hidden; height: var(--h); width: calc(var(--h) * 391.56 / 53.74); }
+.logo img { display: block; height: calc(var(--h) * 93.333 / 53.74); margin: calc(var(--h) * -22.28 / 53.74) 0 0 calc(var(--h) * -19.875 / 53.74); }
+</style>
+</head>
+<body>
+<div class="fig" id="fig">
+  <svg id="wires" width="1600" height="900" viewBox="0 0 1600 900" aria-hidden="true"></svg>
+  <div class="kicker" id="kicker"></div>
+  <h1 id="title"></h1>
+  <div class="rows" id="rows"></div>
+  <div class="foot"><span id="source"></span><span class="legend" id="legend"></span><span class="logo"><img src="assets/vionlabs-logo-white.svg" alt="Vionlabs"></span></div>
+</div>
+<script>
+// Spec from cover.js (a figure with "template": "pipeline"):
+//   {kicker, title, legend: [{tone, text}], source,
+//    rows: [{label, steps: [{text, sub, tone, em, span}], fan: [{text, sub, tone}]}]}
+// tone is "good" (reads the content, teal), "bad" (content-blind default, coral) or "plain" (plumbing, grey); em fills a
+// step in teal; span widens a step over that many columns. Steps line up in columns across rows, and a row's fan hangs
+// off its last step. A "\n" in the title forces a line break.
+function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
+function box(s, cls) {
+  var d = el("div", "box " + cls + " " + (s.tone || "plain") + (s.em ? " em" : ""));
+  d.appendChild(el("b", "", s.text || ""));
+  if (s.sub) d.appendChild(el("small", "", s.sub));
+  return d;
+}
+
+function draw(s) {
+  document.getElementById("kicker").textContent = s.kicker || "";
+  document.getElementById("title").textContent = s.title || "";
+  document.getElementById("source").textContent = s.source || "";
+  var legend = document.getElementById("legend"); legend.innerHTML = "";
+  (s.legend || []).forEach(function (l) { var x = el("span", l.tone || "plain"); x.appendChild(el("i")); x.appendChild(document.createTextNode(l.text || "")); legend.appendChild(x); });
+
+  // Every row gets the same number of step columns and every fan the same width, so steps and fans line up
+  // across rows; a short row's last step stretches.
+  var rows = s.rows || [], cols = 1, wrap = document.getElementById("rows"), fans = [];
+  rows.forEach(function (r) { cols = Math.max(cols, (r.steps || []).reduce(function (n, st) { return n + (st.span || 1); }, 0)); });
+  wrap.innerHTML = "";
+  var made = rows.map(function (r) {
+    var row = el("div", "row" + ((r.fan || []).length ? "" : " bare")), chain = el("div", "chain"), fan = el("div", "fan");
+    var steps = r.steps || [], used = 0, out = { steps: [], fan: [], tone: "plain" };
+    chain.style.gridTemplateColumns = "repeat(" + cols + ", minmax(0, 1fr))";
+    if (r.label) chain.appendChild(el("div", "label", r.label));
+    steps.forEach(function (st, i) {
+      var b = box(st, "step"), span = st.span || 1;
+      if (i === steps.length - 1) span += cols - used - span;
+      used += span;
+      b.style.gridColumn = "span " + span;
+      chain.appendChild(b); out.steps.push(b);
+    });
+    if (steps.length) out.tone = steps[steps.length - 1].tone || "plain";
+    (r.fan || []).forEach(function (f) { var b = box(f, ""); fan.appendChild(b); out.fan.push(b); });
+    row.appendChild(chain); row.appendChild(fan); wrap.appendChild(row); fans.push(fan);
+    return out;
+  });
+  var fw = Math.max.apply(null, fans.map(function (f) { return f.offsetWidth; }).concat([0]));
+  fans.forEach(function (f) { f.style.width = fw + "px"; if (!fw) f.style.display = "none"; });
+
+  // Wires: grey arrows between steps; the fan curves take the colour of the step they leave.
+  var at = document.getElementById("fig").getBoundingClientRect(), h = "";
+  function rect(e) { var r = e.getBoundingClientRect(); return { l: r.left - at.left, r: r.right - at.left, m: (r.top + r.bottom) / 2 - at.top }; }
+  function head(x, y, c) { return '<path d="M' + x + " " + y + " L" + (x - 15) + " " + (y - 9) + " L" + (x - 15) + " " + (y + 9) + ' Z" fill="' + c + '"/>'; }
+  made.forEach(function (m) {
+    for (var i = 1; i < m.steps.length; i++) {
+      var a = rect(m.steps[i - 1]), b = rect(m.steps[i]);
+      h += '<line x1="' + (a.r + 6) + '" y1="' + a.m + '" x2="' + (b.l - 18) + '" y2="' + a.m + '" stroke="#4d5e6a" stroke-width="4"/>' + head(b.l - 5, a.m, "#4d5e6a");
+    }
+    if (!m.steps.length || !m.fan.length) return;
+    var src = rect(m.steps[m.steps.length - 1]), c = m.tone === "good" ? "#4fc1c8" : m.tone === "bad" ? "#ff7a5c" : "#4d5e6a";
+    m.fan.forEach(function (f) {
+      var t = rect(f), x0 = src.r + 6, x1 = t.l - 18, k = (x1 - x0) / 2;
+      h += '<path d="M' + x0 + " " + src.m + " C" + (x0 + k) + " " + src.m + " " + (x1 - k) + " " + t.m + " " + x1 + " " + t.m + '" fill="none" stroke="' + c + '" stroke-width="4"/>' + head(t.l - 5, t.m, c);
+    });
+  });
+  document.getElementById("wires").innerHTML = h;
+}
+
+if (window.FIGURE) {
+  draw(window.FIGURE);
+  Promise.all(['800 50px "Schibsted Grotesk"', '700 28px "Schibsted Grotesk"', '500 26px "Schibsted Grotesk"', '500 26px "IBM Plex Mono"'].map(function (f) { return document.fonts.load(f); }))
+    .then(function () { draw(window.FIGURE); });
+}
+</script>
+</body>
+</html>
