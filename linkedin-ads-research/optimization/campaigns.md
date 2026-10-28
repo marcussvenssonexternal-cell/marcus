@@ -4,10 +4,39 @@ This is the new account structure for the AI built for entertainment ads. It rep
 the same total budget: **$91 a day**, which is what the five active legacy campaigns' daily budgets add up to (see
 `baseline.md`). Marcus approved building it from scratch and pausing the legacy campaigns (2026-10-28).
 
-**Status: not created yet.** Supermetrics has campaign write access turned off for the Vionlabs Ad Account
-(507013260). Marcus turns it on at https://hub.supermetrics.com/write-settings?platform=LIA&team_id=1311511 . The
-build runs from `campaign-drafts.json` once that's done. Everything is created **paused**; nothing spends until
-Marcus switches it on.
+**Status: created in LinkedIn on 2026-10-28, everything paused.**
+- Campaign group: `AIBFE | AI built for entertainment` (ID 1243538664)
+- Dates: start 2026-11-02 (start-date hold), end 2027-01-31
+- Lifetime budget: $8,281
+
+Nothing can serve until Marcus switches the group and its campaigns on. Do the targeting steps in
+`campaign-manager-checklist.md` first: the API could only set countries and language, so without that checklist the
+cold campaigns would reach everyone in those 17 countries.
+
+| Campaign ID | Campaign | Daily | Ads in LinkedIn |
+| --- | --- | --- | --- |
+| 905768494 | AIBFE \| ad0 \| decision makers \| image | $10 | 1617623704 (`ad0/a0-L/h1-i1`) |
+| 905856434 | AIBFE \| ad0 \| decision makers \| carousel | $10 | none yet, add `a0-carousel` by hand |
+| 905738384 | AIBFE \| ad0 \| decision makers \| video | $10 | none yet, add `ad0-S` by hand |
+| 905846754 | AIBFE \| ad1 \| AI-ML and rec product | $16 | 1617564934 (`a1-L`), 1617623694 (`a1b-L`) |
+| 905787604 | AIBFE \| ad2 \| content ops and editorial \| carousel | $10 | none yet, add `a2-carousel` by hand |
+| 905768504 | AIBFE \| ad2 \| content ops and editorial \| image | $10 | 1617584374 (`a2-L`) |
+| 905856444 | AIBFE \| ad3 \| media ops and ad ops | $15 | 1617593874 (`a3-L`; copy carries the unverified 278-vs-7 claim) |
+| 905748934 | AIBFE \| v1 \| editorial search | $10 | none yet, add `v1-S` and `v1b-S` by hand |
+| 905748944 | AIBFE \| m1-m3 \| editorial retarget (wave 2) | $10 | 1617524904, 1617604014, 1617613374 (`m1`, `m2`, `m3`) |
+| 905891324 | AIBFE \| c1-c3 \| creative retarget (wave 2) | $10 | 1617516084, 1617604024, 1617613404 (`c1`, `c2`, `c3`) |
+| 905836864 | AIBFE \| o1 \| ops retarget (wave 2) | $10 | 1617574504 (`o1`) |
+| 905728574 | AIBFE \| v2-v4 \| video retarget (wave 2) | $10 | none yet, add `v2-S`, `v3-S`, `v4-S` by hand |
+
+Campaigns 905738364, 905846784 and 905875844 are removed duplicates; ignore them.
+
+**What the API set:** objective (Website visits, or Video views for the video campaigns), CPM bidding, daily
+budgets, countries, English, the Request demo CTA, and copy, images and UTM links. The ad IDs above map to ads by
+their UTM `utm_content`.
+
+**What it couldn't set:** LinkedIn's API (through Supermetrics) ignores ad names, so ads show by ID; report on them
+through `creativeUrl` / `utm_content` instead. It also can't set job function, seniority or industry targeting.
+Greece was rejected as a location, so it's 17 countries.
 
 ## Structure
 
