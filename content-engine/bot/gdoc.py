@@ -100,6 +100,8 @@ def piece_html(piece_id, approval=False, branch="claude/practical-fermi-gatt4t")
             if p.get("id") != piece_id:
                 continue
             kind = {"article": "Blog post for vionlabs.com", "post": "LinkedIn post", "carousel": "Carousel brief"}[p["kind"]]
+            if p.get("outlet"):  # a guest article written for another publication
+                kind = f"Guest article for {p['outlet']}"
             url = (p.get("website") or {}).get("url")
             words = len(re.sub(r"^!\[[^\]]*\]\([^)]*\)$", "", p["body"], flags=re.M).split())
             cover = p.get("cover") or {}
