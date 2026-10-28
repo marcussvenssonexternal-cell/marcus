@@ -18,12 +18,11 @@
     "Where does placement matter most: news, kids, slow-burn drama?",
     "What would it take for narrative position to become a signal buyers pay for?"
   ],
-  "bring": "Ad-Break Creation and Contextual Ad-Breaks; the SDVI ad-break detection demo on Rally (with Accurate.Video) shown at IBC; SeaOvers and i-CABLE going live in 30 days; scene-level emotion curves that show where a story pauses.",
+  "bring": "Ad-Break Creation and Contextual Ad-Breaks; the SDVI ad-break detection demo on Rally (with Accurate.Video) shown at IBC; scene-level emotion curves that show where a story pauses.",
   "needs": [
     "One before/after example of break placement on a real title, cleared with the rights holder",
     "An accuracy or time-saved number for ad-break detection that sales is happy to publish",
     "Where the '46% less churn' figure on vionlabs.com comes from (the AWS listing says 64%): method and customer, before anyone quotes it",
-    "What we may say publicly about the i-CABLE deployment beyond 'live in 30 days'",
     "Arash to confirm the webinar anecdote reads the way he said it"
   ],
   "events": [
@@ -105,7 +104,7 @@
         "format": "Blog post (vionlabs.com)",
         "title": "The most expensive second in streaming is the one before the break",
         "subtitle": "CTV now prices ad load, attention and emotion. Where a break lands in the story still goes unmeasured, and that's the part viewers feel.",
-        "body": "We price almost everything about a streaming ad break except the part viewers feel most: where it lands in the story.\n\nYou know the moment. You're an hour into a thriller, the detective has just pushed the door open, and the screen cuts to an ad for car insurance.\n\nThe rest of the break is getting priced. In September, [FreeWheel started selling attention, quality and emotional resonance](https://www.nasdaq.com/press-release/freewheel-brings-attention-quality-and-emotional-resonance-signals-ctv-buying-2026-09) as signals for CTV buying. Its scores also take in the number of breaks, how long the ads run, the time of day, live or on demand, and the device.\n\nA couple of years ago most of that wasn't priced at all, so this is real progress.\n\nEvery one of those inputs still describes how much interruption there is, though. To a buyer, a break at the end of a scene and a break in the middle of a reveal look the same: one break, two minutes.\n\n![What a CTV buyer can score an ad break on today: number of breaks, ad duration, time of day, live or on demand, device, attention, quality and emotional resonance. Where in the story the break lands is not priced yet.](figures/ad-breaks-01-signals.png)\n\n## Who pays for the second before the break\n\nThe second before a break decides how the viewer meets the ad. If the story has just come to rest, the ad arrives as a pause. If the detective is halfway through the door, the ad is what stands between the viewer and the reveal.\n\nThe publisher chooses that second. I think most of the cost of a bad choice lands on the advertiser, because theirs is the brand the viewer meets while annoyed. The platform pays later if people start giving up on episodes.\n\nWe already know advertisers lose out when the viewing experience gets worse. In a FreeWheel study with MediaScience, [reported by PPC Land](https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/), unaided recall was 41% in a lightly loaded programme and 26% next to nine minutes of ads per half hour.\n\nThat study measured the amount of advertising. I couldn't find an industry study that compares a mid-scene break with one at a natural pause, on recall or on drop-off, so nobody can yet put a price on the difference.\n\n## More breaks, and fewer of them planned\n\nAd tiers carry more ads this year. Ampere puts the average across the big US services up about 18% between January and August.\n\nEach of those extra minutes has to go somewhere in a story. Network dramas make that easy, because the writers build act breaks into the script.\n\nFilms and older catalogue titles were made to play straight through, so their breaks get added afterwards to a cut that was never meant to stop.\n\nUsually an editor finds them by scrubbing through the timeline, and that's slow. Nine said approving ad placements for Stan's catalogue had taken a lot of manual work before it moved to Bitmovin's scene analysis in September.\n\nThe faster option is a rule that looks for black frames and silence. In film that misses a lot, because a fade to black often has music or a voice running over it.\n\n## What a natural pause looks like\n\nWe've worked on this at Vionlabs for years. The main thing we've learned is that the picture and the story don't always pause in the same place.\n\nA story is resting when several things are true at once. The scene has ended, nobody is speaking, the next shot looks clearly different from the last one, and the tension has eased.\n\nNo single signal sees all of that, so our ad-break detection combines four models. One spots black frames and avoids cutting into speech, one follows the flow of the story, one finds scene boundaries, and one compares how similar the shots are.\n\nThe more of them agree on a spot, the higher it's rated (excellent, good or passable). An editor then reviews a ranked shortlist instead of the whole film.\n\nIt still makes mistakes. In [a webinar with SDVI](https://www.vionlabs.com/news/accelerating-ad-breaks-detection-and-insertion-webinar-with-sdvi) this summer I described one: a shot that pans into darkness can look like a black frame to the model, so it gets flagged as a break.\n\nThat's why we built it for a person to check the result. SDVI has shown our detection on its Rally platform with Codemill's Accurate.Video, where editors validate each suggested break frame by frame.\n\nIt's also quick to roll out. With our partner SeaOvers, [i-CABLE in Hong Kong](https://www.vionlabs.com/news/vionlabs-and-seaovers-announce-partnership-to-elevate-ad-supported-streaming-with-ai-i-cable-launches-first-deployment-in-asia) went from signed contract to live in 30 days.\n\n## The case for the break\n\nThe best argument against me comes from research I like. Across six studies, Nelson, Meyvis and Galak found that commercial breaks can make a programme more enjoyable, because the pause stops us getting used to it.\n\nThey didn't test where the break sat, so this part is my reading. I think the breaks that help are the ones a story can absorb, like the cliffhanger network TV has used on purpose for decades.\n\nThe breaks that worry me are the ones nobody designed. One gets dropped mid-conversation because the clock reached 14:00, another into a long, quiet scene because the picture went dark.\n\nYouTube seems to agree that position matters. Its Peak Points pilot, announced in May 2025, uses Gemini to place an ad right after a peak moment such as a marriage proposal. I haven't seen published results yet.\n\n## Placement should be priced\n\nContext is starting to travel with CTV ads. Wurl adds contextual data to bid requests, and FreeWheel and Anoki describe the tone of each scene so a matching ad can be picked.\n\nIt's early days. Peer39 finds that about 60% of CTV bid requests still carry no usable signal about the programme at all.\n\nAnd all of that describes the content around a break. Where the break itself sits is taken as given, and I couldn't find anything in the industry's ad standards that records it.\n\nDisplay advertising had a similar gap. For years ads were bought on served impressions, with no way to know whether anyone could see them. The Media Rating Council set a viewability standard in 2014, and buyers now sign viewable-only deals that don't pay for ads nobody could see.\n\nI expect break placement to go the same way. **A break-quality score, created where the content lives and carried with the cue point, would let buyers pay more for breaks that keep the story intact, and give publishers a way to prove it.**\n\nBitmovin is moving in a similar direction with an ad opportunity score for each scene boundary, based on the pacing and tension of the scenes on either side. I take that as a good sign that publishers want breaks that respect the story.\n\n## Where I'd start\n\nIf you run an ad tier or a FAST channel, these tests are cheap:\n\n- Drop-off in the 30 seconds after a break, split by whether it landed at a scene boundary or mid-scene\n- Completion of the first ad in the pod, with the same split\n- How often people finish a title when its breaks follow the story, compared with breaks on a timer\n\nAnd if you sell CTV inventory, I'd like to hear from you. Would you charge more for a break you could prove lands at a natural pause, or will buyers never pay for position?\n\n*Want to see where the natural pauses fall in your own catalogue?*\n\n[**Book a demo with Vionlabs →**](https://www.vionlabs.com/book-a-demo)\n",
+        "body": "We price almost everything about a streaming ad break except the part viewers feel most: where it lands in the story.\n\nYou know the moment. You're an hour into a thriller, the detective has just pushed the door open, and the screen cuts to an ad for car insurance.\n\nThe rest of the break is getting priced. In September, [FreeWheel started selling attention, quality and emotional resonance](https://www.nasdaq.com/press-release/freewheel-brings-attention-quality-and-emotional-resonance-signals-ctv-buying-2026-09) as signals for CTV buying. Its scores also take in the number of breaks, how long the ads run, the time of day, live or on demand, and the device.\n\nA couple of years ago most of that wasn't priced at all, so this is real progress.\n\nEvery one of those inputs still describes how much interruption there is, though. To a buyer, a break at the end of a scene and a break in the middle of a reveal look the same: one break, two minutes.\n\n![What a CTV buyer can score an ad break on today: number of breaks, ad duration, time of day, live or on demand, device, attention, quality and emotional resonance. Where in the story the break lands is not priced yet.](figures/ad-breaks-01-signals.png)\n\n## Who pays for the second before the break\n\nThe second before a break decides how the viewer meets the ad. If the story has just come to rest, the ad arrives as a pause. If the detective is halfway through the door, the ad is what stands between the viewer and the reveal.\n\nThe publisher chooses that second. I think most of the cost of a bad choice lands on the advertiser, because theirs is the brand the viewer meets while annoyed. The platform pays later if people start giving up on episodes.\n\nWe already know advertisers lose out when the viewing experience gets worse. In a FreeWheel study with MediaScience, [reported by PPC Land](https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/), unaided recall was 41% in a lightly loaded programme and 26% next to nine minutes of ads per half hour.\n\nThat study measured the amount of advertising. I couldn't find an independent industry study that compares a mid-scene break with one at a natural pause, on recall or on drop-off, so nobody can yet put a price on the difference.\n\n## More breaks, and fewer of them planned\n\nAd tiers carry more ads this year. Ampere puts the average across the big US services up about 18% between January and August.\n\nEach of those extra minutes has to go somewhere in a story. Network dramas make that easy, because the writers build act breaks into the script.\n\nFilms and older catalogue titles were made to play straight through, so their breaks get added afterwards to a cut that was never meant to stop.\n\nUsually an editor finds them by scrubbing through the timeline, and a single 40-minute episode can take 20 to 60 minutes to segment by hand.\n\nThe faster option is a rule that looks for black frames and silence. In film that misses a lot, because a fade to black often has music or a voice running over it.\n\n## What a natural pause looks like\n\nWe've worked on this at Vionlabs for years. The main thing we've learned is that the picture and the story don't always pause in the same place.\n\nA story is resting when several things are true at once. The scene has ended, nobody is speaking, the next shot looks clearly different from the last one, and the tension has eased.\n\nNo single signal sees all of that, so our ad-break detection combines four models. One spots black frames and avoids cutting into speech, one follows the flow of the story, one finds scene boundaries, and one compares how similar the shots are.\n\nThe more of them agree on a spot, the higher it's rated (excellent, good or passable). An editor then reviews a ranked shortlist instead of the whole film.\n\nIt still makes mistakes. In [a webinar with SDVI](https://www.vionlabs.com/news/accelerating-ad-breaks-detection-and-insertion-webinar-with-sdvi) this summer I described one: a shot that pans into darkness can look like a black frame to the model, so it gets flagged as a break.\n\nThat's why we built it for a person to check the result. SDVI has shown our detection on its Rally platform with Codemill's Accurate.Video, where editors validate each suggested break frame by frame.\n\n## The case for the break\n\nThe best argument against me comes from research I like. Across six studies, Nelson, Meyvis and Galak found that commercial breaks can make a programme more enjoyable, because the pause stops us getting used to it.\n\nThey didn't test where the break sat, so this part is my reading. I think the breaks that help are the ones a story can absorb, like the cliffhanger network TV has used on purpose for decades.\n\nThe breaks that worry me are the ones nobody designed. One gets dropped mid-conversation because the clock reached 14:00, another into a long, quiet scene because the picture went dark.\n\nYouTube seems to agree that position matters. Its Peak Points pilot, announced in May 2025, uses Gemini to place an ad right after a peak moment such as a marriage proposal. I haven't seen published results yet.\n\n## Placement should be priced\n\nContext is starting to travel with CTV ads. Several ad-tech companies now add contextual data to bid requests or describe the tone of each scene, so a matching ad can be picked.\n\nAll of that describes the content around a break. Where the break itself sits is taken as given, and I couldn't find anything in the industry's ad standards that records it.\n\nDisplay advertising had a similar gap. For years ads were bought on served impressions, with no way to know whether anyone could see them. The Media Rating Council set a viewability standard in 2014, and buyers now sign viewable-only deals that don't pay for ads nobody could see.\n\nI expect break placement to go the same way. **A break-quality score, created where the content lives and carried with the cue point, would let buyers pay more for breaks that keep the story intact, and give publishers a way to prove it.**\n\n## Where I'd start\n\nIf you run an ad tier or a FAST channel, these tests are cheap:\n\n- Drop-off in the 30 seconds after a break, split by whether it landed at a scene boundary or mid-scene\n- Completion of the first ad in the pod, with the same split\n- How often people finish a title when its breaks follow the story, compared with breaks on a timer\n\nAnd if you sell CTV inventory, I'd like to hear from you. Would you charge more for a break you could prove lands at a natural pause, or will buyers never pay for position?\n\n*Want to see where the natural pauses fall in your own catalogue?*\n\n[**Book a demo with Vionlabs →**](https://www.vionlabs.com/book-a-demo)\n",
         "sources": [
           {
             "label": "FreeWheel brings attention, quality and emotional resonance signals to CTV buying",
@@ -138,16 +137,6 @@
             "date": "current docs"
           },
           {
-            "label": "Nine deploys Bitmovin AI Scene Analysis on Stan (Señal News)",
-            "url": "https://senalnews.com/en/content/nine-entertainment-deploys-bitmovins-ai-scene-analysis-on-stan-to-boost-catalog-monetization",
-            "date": "2026-09-14"
-          },
-          {
-            "label": "Bitmovin: AI ad placement score at scene level",
-            "url": "https://bitmovin.com/blog/ai-ad-placement-score-scene-level-streaming/",
-            "date": "2026-Q1"
-          },
-          {
             "label": "Accelerating ad-break detection and insertion: webinar with SDVI",
             "url": "https://www.vionlabs.com/news/accelerating-ad-breaks-detection-and-insertion-webinar-with-sdvi",
             "date": "2026-08-19"
@@ -158,19 +147,9 @@
             "date": "2026-09"
           },
           {
-            "label": "Vionlabs and SeaOvers partnership; i-CABLE first deployment",
-            "url": "https://www.vionlabs.com/news/vionlabs-and-seaovers-announce-partnership-to-elevate-ad-supported-streaming-with-ai-i-cable-launches-first-deployment-in-asia",
-            "date": "2025-09-11"
-          },
-          {
             "label": "FreeWheel Context Engine (Business Wire)",
             "url": "https://www.businesswire.com/news/home/20260414782359/en/",
             "date": "2026-04-14"
-          },
-          {
-            "label": "Anoki ContextIQ via Index Exchange (Business Wire)",
-            "url": "https://www.businesswire.com/news/home/20251209200641/en",
-            "date": "2025-12-09"
           },
           {
             "label": "IAB Tech Lab defines six core CTV ad formats (NewscastStudio)",
@@ -181,16 +160,6 @@
             "label": "IAB Tech Lab: OpenRTB updates for your 2026 roadmap",
             "url": "https://iabtechlab.com/essential-openrtb-updates-you-cant-ignore-for-your-2026-roadmap/",
             "date": "2026"
-          },
-          {
-            "label": "Wurl launches Content Intelligence Platform (MediaPost)",
-            "url": "https://www.mediapost.com/publications/article/418319/",
-            "date": "2026-09-15"
-          },
-          {
-            "label": "Peer39 CTV Truths report, Q1 2026",
-            "url": "https://insights.peer39.com/ctv-truths-report-q1-2026",
-            "date": "2026-Q1"
           },
           {
             "label": "MRC Viewable Ad Impression Measurement Guidelines (IAB)",
@@ -223,7 +192,7 @@
           ]
         },
         "linkedin": {
-          "shareText": "We price almost everything about a CTV ad break except the part viewers feel most: where it lands in the story.\n\nThe publisher picks that moment, but the advertiser pays when it lands mid-scene. I think break placement will become something buyers pay for, the way viewability did for display. I wrote about why, and how we find the natural pauses at Vionlabs:\nhttps://www.vionlabs.com/news/the-most-expensive-second-in-streaming\n\nIf you sell CTV inventory, would you charge more for a break you could prove lands at a natural pause?"
+          "shareText": "We price almost everything about a CTV ad break except the part viewers feel most: where it lands in the story.\n\nThe publisher picks that moment, but the advertiser pays when the break lands mid-scene. And because a single 40-minute episode can take 20 to 60 minutes to segment by hand, a lot of breaks end up wherever a timer or a black frame puts them.\n\nI think break placement will become something buyers pay for, the way viewability did for display. I wrote about why, and how we find the natural pauses at Vionlabs:\nhttps://www.vionlabs.com/news/the-most-expensive-second-in-streaming\n\nIf you sell CTV inventory, would you charge more for a break you could prove lands at a natural pause?"
         },
         "final": "2026-10-20",
         "googleDoc": "https://docs.google.com/document/d/119qQlfEeBixGq85JSTnVvRpo30UI5mmYjM4bqfiKBjA/edit",
@@ -235,12 +204,13 @@
           "shareAt": "2026-10-28 10:00 Europe/Stockholm",
           "shareWith": "arash@vionlabs.com",
           "role": "commenter",
-          "status": "shared",
+          "status": "approved",
           "message": "Hej Arash!\n\nVeckans blogginlägg till vionlabs.com är klart för dig: https://docs.google.com/document/d/119qQlfEeBixGq85JSTnVvRpo30UI5mmYjM4bqfiKBjA/edit\n\nDet handlar om var reklamavbrotten hamnar i berättelsen. Branschen prissätter nu nästan allt kring en reklampaus utom just det, fast det är annonsören som betalar när avbrottet hamnar mitt i en scen. Vår poäng är att placeringen borde bli något köparna betalar för, ungefär som viewability blev för display, och texten visar hur vår ad-break-detektering hittar de naturliga pauserna.\n\nDärför tycker jag att vi ska publicera det nu:\n\n- Frågan är aktuell. FreeWheel började i september sälja attention och emotional resonance som signaler i CTV-köp, men var i storyn avbrottet landar är fortfarande inte prissatt, och där har vi något eget att säga.\n- Andra rör sig åt samma håll. Nine använder sedan september Bitmovins scenanalys för att placera reklam i Stans katalog, så det är bra att vi tar ställning nu med vår egen syn.\n- Det blir mer reklam i streaming. Enligt Ampere ökade reklamen hos de stora amerikanska tjänsterna med ungefär 18 procent mellan januari och augusti, och varje ny minut måste placeras någonstans i en berättelse.\n- Texten bygger vidare på SDVI-webinaret och i-CABLE och slutar med en länk för att boka demo, så säljteamet kan skicka den till kunder med reklamfinansierade tjänster.\n\nAllt är faktagranskat och skrivet i ditt namn. Det tar ungefär fem minuter att läsa.\n\nEn sak bara: jag använder exemplet du tog upp i SDVI-webinaret, där en panorering in i mörker kan se ut som en svart bild för modellen. Stämmer det som du minns det?\n\nSer det bra ut? Svara bara \"Kör\" så publicerar vi det på hemsidan. Vill du ändra något kan du kommentera direkt i dokumentet, så fixar jag resten.\n\n/Marcus",
           "note": "A blog post for vionlabs.com/news (not a LinkedIn article). Rewritten on 26 Oct after Marcus's feedback: Vionlabs' own take leads, four links instead of nineteen, other sources credited by name. Single-source facts are attributed to their source in the text (PPC Land for the FreeWheel/MediaScience study, Bitmovin's announcement for Nine). Arash confirms the webinar anecdote when he approves.",
           "sharedAt": "2026-10-28T09:01:20Z",
           "emailedAt": "2026-10-28T09:10:00Z",
-          "emailThread": "1a181db883e8585a"
+          "emailThread": "1a181db883e8585a",
+          "feedback": "Arash, 28 Oct by email: 'har lagt till lite kommentarer, annars ser den bra ut'. Doc comments: i-CABLE is a customer we have lost; Bitmovin is a competitor that took a customer from us, don't give them attention. Applied: cut i-CABLE and both Bitmovin mentions (incl. Nine/Stan), named no other competitors (Wurl, Anoki, Peer39 now unnamed), replaced the Nine evidence with our own SDVI webinar figure."
         },
         "figures": [
           {
@@ -285,9 +255,9 @@
         },
         "rationale": [
           "The question is live. In September FreeWheel started selling attention and emotional resonance as CTV buying signals, but where in the story a break lands still isn't priced, and that is where we have something of our own to say.",
-          "Others are moving the same way. Since September Nine has used Bitmovin's scene analysis to place ads in Stan's catalogue, so it's good that we take a position now with our own view.",
+          "We can speak from our own work: our webinar with SDVI showed a 40-minute episode can take 20 to 60 minutes to segment by hand, and our detection brings that down to minutes with a person checking the result.",
           "There's more advertising in streaming. Ampere puts ad load across the big US services up about 18% between January and August, and every new minute has to go somewhere in a story.",
-          "It builds on the SDVI webinar and i-CABLE and ends with a Book a demo link, so sales can send it to customers running ad-supported services."
+          "It ends with a Book a demo link, so sales can send it to customers running ad-supported services."
         ]
       },
       {
@@ -403,7 +373,6 @@
     "voiceNote": [
       "The shot that panned into darkness, from the SDVI webinar: is that how you'd put it, and do you have a real example you can share?",
       "Why did we keep a person in the loop for ad breaks instead of going fully automatic?",
-      "What did it take to get i-CABLE live in 30 days? Anything from that project we can say in public?",
       "An ad-sales person tells you interruptions don't hurt and the peak is premium inventory. What do you say?",
       "Where does placement matter most to you: news, kids, slow-burn drama? Give one example."
     ],
@@ -588,6 +557,13 @@
         "source": "MRC guidelines (IAB) and Pixalate's history of the standard",
         "url": "https://www.iab.com/wp-content/uploads/2015/06/MRC-Viewable-Ad-Impression-Measurement-Guideline.pdf",
         "date": "2014",
+        "status": "confirmed"
+      },
+      {
+        "claim": "A single 40-minute episode can take 20 to 60 minutes to segment manually for ad breaks",
+        "source": "Vionlabs' own webinar page with SDVI and Codemill",
+        "url": "https://www.vionlabs.com/news/accelerating-ad-breaks-detection-and-insertion-webinar-with-sdvi",
+        "date": "2026-08-19",
         "status": "confirmed"
       }
     ],
