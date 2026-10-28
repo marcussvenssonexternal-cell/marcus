@@ -47,9 +47,9 @@ come from `launch.csv` (match the `ad_name` column).
 
 | Campaign (ID) | Ad name | Files | Copy |
 | --- | --- | --- | --- |
-| ad0 carousel (905856434) | `ad0/a0-carousel/h1-i1` | `png/a0-c1…c5.png` | ad0 h1, i1 |
+| ad0 carousel (905856434) | `ad0/a0b-carousel/h1-i1` | `png/a0-c1…c4.png` + `png/a0-c5b.png` | ad0 i1; card headlines and URLs from `carousel-cards.csv` |
 | ad0 video (905738384) | `ad0/ad0-S/h1-i1` | `video/ad0-S.mp4` | ad0 h1, i1 |
-| ad2 carousel (905787604) | `ad2/a2-carousel/h1-i1` | `png/a2-c1…c5.png` | ad2 h1, i1 |
+| ad2 carousel (905787604) | `ad2/a2-carousel/h1-i1` | `png/a2-c1…c5.png` | ad2 i1; card headlines and URLs from `carousel-cards.csv` |
 | v1 (905748934) | `v1/v1-S/h1-i1`, `v1/v1b-S/h1-i1` | `video/v1-S.mp4`, `video/v1b-S.mp4` | v1 h1, i1 |
 | v2-v4 (905728574) | `v2/v2-S/h1-i1`, `v3/v3-S/h1-i1`, `v4/v4-S/h1-i1` | `video/v2-S.mp4` etc. | each video's h1, i1 |
 

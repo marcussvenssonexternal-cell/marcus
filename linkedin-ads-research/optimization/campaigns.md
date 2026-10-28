@@ -16,19 +16,20 @@ cold campaigns would reach everyone in those 17 countries.
 | Campaign ID | Campaign | Daily | Ads in LinkedIn |
 | --- | --- | --- | --- |
 | 905768494 | AIBFE \| ad0 \| decision makers \| image | $10 | 1617623704 (`ad0/a0-L/h1-i1`) |
-| 905856434 | AIBFE \| ad0 \| decision makers \| carousel | $10 | none yet, add `a0-carousel` by hand |
+| 905856434 | AIBFE \| ad0 \| decision makers \| carousel | $10 | none yet, add `a0b-carousel` by hand (not `a0-carousel`: card 5 has placeholder logos) |
 | 905738384 | AIBFE \| ad0 \| decision makers \| video | $10 | none yet, add `ad0-S` by hand |
 | 905846754 | AIBFE \| ad1 \| AI-ML and rec product | $16 | 1617564934 (`a1-L`), 1617623694 (`a1b-L`) |
 | 905787604 | AIBFE \| ad2 \| content ops and editorial \| carousel | $10 | none yet, add `a2-carousel` by hand |
 | 905768504 | AIBFE \| ad2 \| content ops and editorial \| image | $10 | 1617584374 (`a2-L`) |
-| 905856444 | AIBFE \| ad3 \| media ops and ad ops | $15 | 1617593874 (`a3-L`; copy carries the unverified 278-vs-7 claim) |
+| 905856444 | AIBFE \| ad3 \| media ops and ad ops | $15 | 1617459574 (`ad3/a3-L/h2-i4`, claim-free) |
 | 905748934 | AIBFE \| v1 \| editorial search | $10 | none yet, add `v1-S` and `v1b-S` by hand |
-| 905748944 | AIBFE \| m1-m3 \| editorial retarget (wave 2) | $10 | 1617524904, 1617604014, 1617613374 (`m1`, `m2`, `m3`) |
-| 905891324 | AIBFE \| c1-c3 \| creative retarget (wave 2) | $10 | 1617516084, 1617604024, 1617613404 (`c1`, `c2`, `c3`) |
-| 905836864 | AIBFE \| o1 \| ops retarget (wave 2) | $10 | 1617574504 (`o1`) |
+| 905748944 | AIBFE \| m1-m3 \| editorial retarget (wave 2) | $10 | 1617469714, 1617487564, 1617507394 (`m1/m1-L/h1-i1`, `m2/m2b-L/h1-i4`, `m3/m3-L/h1-i1`) |
+| 905891324 | AIBFE \| c1-c3 \| creative retarget (wave 2) | $10 | 1617487574, 1617604194, 1617623984 (`c1/c1-L/h1-i2`, `c2/c2-L/h1-i1`, `c3/c3-L/h1-i1`) |
+| 905836864 | AIBFE \| o1 \| ops retarget (wave 2) | $10 | 1617525044 (`o1/o1-L/h1-i2`, claim-free) |
 | 905728574 | AIBFE \| v2-v4 \| video retarget (wave 2) | $10 | none yet, add `v2-S`, `v3-S`, `v4-S` by hand |
 
-Campaigns 905738364, 905846784 and 905875844 are removed duplicates; ignore them.
+Campaigns 905738364, 905846784 and 905875844 are removed duplicates; ignore them. All drafted ad copy is now free of
+unverified claims (creative agent review, commit `8668ac6`); swapped ads use images pinned to that commit.
 
 **What the API set:** objective (Website visits, or Video views for the video campaigns), CPM bidding, daily
 budgets, countries, English, the Request demo CTA, and copy, images and UTM links. The ad IDs above map to ads by
