@@ -236,9 +236,11 @@
           "shareWith": "arash@vionlabs.com",
           "role": "commenter",
           "status": "shared",
-          "message": "Hej Arash! Veckans blogginlägg till vionlabs.com är klart för dig: https://docs.google.com/document/d/119qQlfEeBixGq85JSTnVvRpo30UI5mmYjM4bqfiKBjA/edit\n\nDen handlar om var reklamavbrotten hamnar i berättelsen. Branschen prissätter nu nästan allt kring en reklampaus utom just det, fast det är annonsören som betalar när avbrottet hamnar mitt i en scen. Vår poäng är att placeringen borde bli något köparna betalar för, ungefär som viewability blev för display, och texten visar hur vår ad-break-detektering hittar de naturliga pauserna.\n\nAllt är faktagranskat och skrivet i ditt namn. Det tar ungefär fem minuter att läsa.\n\nEn sak bara: jag använder exemplet du tog upp i SDVI-webinaret, där en panorering in i mörker kan se ut som en svart bild för modellen. Stämmer det som du minns det?\n\nSer det bra ut? Svara bara \"Kör\" så publicerar vi det på hemsidan. Vill du ändra något kan du kommentera direkt i dokumentet, så fixar jag resten.",
+          "message": "Hej Arash!\n\nVeckans blogginlägg till vionlabs.com är klart för dig: https://docs.google.com/document/d/119qQlfEeBixGq85JSTnVvRpo30UI5mmYjM4bqfiKBjA/edit\n\nDet handlar om var reklamavbrotten hamnar i berättelsen. Branschen prissätter nu nästan allt kring en reklampaus utom just det, fast det är annonsören som betalar när avbrottet hamnar mitt i en scen. Vår poäng är att placeringen borde bli något köparna betalar för, ungefär som viewability blev för display, och texten visar hur vår ad-break-detektering hittar de naturliga pauserna.\n\nDärför tycker jag att vi ska publicera det nu:\n\n- Frågan är aktuell. FreeWheel började i september sälja attention och emotional resonance som signaler i CTV-köp, men var i storyn avbrottet landar är fortfarande inte prissatt, och där har vi något eget att säga.\n- Andra rör sig åt samma håll. Nine använder sedan september Bitmovins scenanalys för att placera reklam i Stans katalog, så det är bra att vi tar ställning nu med vår egen syn.\n- Det blir mer reklam i streaming. Enligt Ampere ökade reklamen hos de stora amerikanska tjänsterna med ungefär 18 procent mellan januari och augusti, och varje ny minut måste placeras någonstans i en berättelse.\n- Texten bygger vidare på SDVI-webinaret och i-CABLE och slutar med en länk för att boka demo, så säljteamet kan skicka den till kunder med reklamfinansierade tjänster.\n\nAllt är faktagranskat och skrivet i ditt namn. Det tar ungefär fem minuter att läsa.\n\nEn sak bara: jag använder exemplet du tog upp i SDVI-webinaret, där en panorering in i mörker kan se ut som en svart bild för modellen. Stämmer det som du minns det?\n\nSer det bra ut? Svara bara \"Kör\" så publicerar vi det på hemsidan. Vill du ändra något kan du kommentera direkt i dokumentet, så fixar jag resten.\n\n/Marcus",
           "note": "A blog post for vionlabs.com/news (not a LinkedIn article). Rewritten on 26 Oct after Marcus's feedback: Vionlabs' own take leads, four links instead of nineteen, other sources credited by name. Single-source facts are attributed to their source in the text (PPC Land for the FreeWheel/MediaScience study, Bitmovin's announcement for Nine). Arash confirms the webinar anecdote when he approves.",
-          "sharedAt": "2026-10-28T09:01:20Z"
+          "sharedAt": "2026-10-28T09:01:20Z",
+          "emailedAt": "2026-10-28T09:10:00Z",
+          "emailThread": "1a181db883e8585a"
         },
         "figures": [
           {
@@ -280,7 +282,13 @@
           },
           "status": "draft",
           "itemId": "6adfc93f6a0204578a5fe84b"
-        }
+        },
+        "rationale": [
+          "The question is live. In September FreeWheel started selling attention and emotional resonance as CTV buying signals, but where in the story a break lands still isn't priced, and that is where we have something of our own to say.",
+          "Others are moving the same way. Since September Nine has used Bitmovin's scene analysis to place ads in Stan's catalogue, so it's good that we take a position now with our own view.",
+          "There's more advertising in streaming. Ampere puts ad load across the big US services up about 18% between January and August, and every new minute has to go somewhere in a story.",
+          "It builds on the SDVI webinar and i-CABLE and ends with a Book a demo link, so sales can send it to customers running ad-supported services."
+        ]
       },
       {
         "kind": "post",

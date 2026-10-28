@@ -186,6 +186,11 @@ send anything.
    stay drafts). Skip `ten-years` unless Arash's voice-note answers are in its notes. If every
    topic has a pack, run Mode 2 first.
 3. **Bring the long read up to the approval bar.**
+   - Write `rationale`: two to four reasons we're publishing this now, each a conviction with a
+     checked fact behind it (what's happening in the market, what's at stake for Vionlabs, what
+     we can claim that others can't, how the team will use it). No reason without evidence.
+     `gdoc.py --approval` puts it at the top of the Doc as "Why we're publishing this", set
+     apart from the post, and the Swedish message carries the same reasons.
    - Two verification agents check every claim against two sources or the primary source.
      Resolve each `[check]`: confirm it, credit the single source in the sentence (for example
      "reported by PPC Land"), or cut it. Rewrite around every `[Arash: …]` and `[Team: …]`.
@@ -238,7 +243,8 @@ send anything.
 
 **The Swedish message** is written as Marcus would write it: informal, warm, short, no emoji,
 no em dashes. It opens with "Hej Arash! Veckans blogginlägg till vionlabs.com är klart för dig:" and the link, gives two or three sentences on what the
-article argues and why it matters for Vionlabs, says "Allt är faktagranskat och skrivet i
+article argues, then "Därför tycker jag att vi ska publicera det nu:" with the `rationale` as short
+bullets in Swedish, says "Allt är faktagranskat och skrivet i
 ditt namn. Det tar ungefär N minuter att läsa.", asks at most one question
 (only to confirm something personal, like his own anecdote), and ends: 'Ser det bra ut? Svara
 bara "Kör" så publicerar vi det på hemsidan. Vill du ändra något kan du kommentera direkt i dokumentet, så
