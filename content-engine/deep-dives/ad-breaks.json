@@ -235,9 +235,10 @@
           "shareAt": "2026-10-28 10:00 Europe/Stockholm",
           "shareWith": "arash@vionlabs.com",
           "role": "commenter",
-          "status": "scheduled",
+          "status": "shared",
           "message": "Hej Arash! Veckans blogginlägg till vionlabs.com är klart för dig: https://docs.google.com/document/d/119qQlfEeBixGq85JSTnVvRpo30UI5mmYjM4bqfiKBjA/edit\n\nDen handlar om var reklamavbrotten hamnar i berättelsen. Branschen prissätter nu nästan allt kring en reklampaus utom just det, fast det är annonsören som betalar när avbrottet hamnar mitt i en scen. Vår poäng är att placeringen borde bli något köparna betalar för, ungefär som viewability blev för display, och texten visar hur vår ad-break-detektering hittar de naturliga pauserna.\n\nAllt är faktagranskat och skrivet i ditt namn. Det tar ungefär fem minuter att läsa.\n\nEn sak bara: jag använder exemplet du tog upp i SDVI-webinaret, där en panorering in i mörker kan se ut som en svart bild för modellen. Stämmer det som du minns det?\n\nSer det bra ut? Svara bara \"Kör\" så publicerar vi det på hemsidan. Vill du ändra något kan du kommentera direkt i dokumentet, så fixar jag resten.",
-          "note": "A blog post for vionlabs.com/news (not a LinkedIn article). Rewritten on 26 Oct after Marcus's feedback: Vionlabs' own take leads, four links instead of nineteen, other sources credited by name. Single-source facts are attributed to their source in the text (PPC Land for the FreeWheel/MediaScience study, Bitmovin's announcement for Nine). Arash confirms the webinar anecdote when he approves."
+          "note": "A blog post for vionlabs.com/news (not a LinkedIn article). Rewritten on 26 Oct after Marcus's feedback: Vionlabs' own take leads, four links instead of nineteen, other sources credited by name. Single-source facts are attributed to their source in the text (PPC Land for the FreeWheel/MediaScience study, Bitmovin's announcement for Nine). Arash confirms the webinar anecdote when he approves.",
+          "sharedAt": "2026-10-28T09:01:20Z"
         },
         "figures": [
           {
