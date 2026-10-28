@@ -192,7 +192,9 @@
           ]
         },
         "linkedin": {
-          "shareText": "We price almost everything about a CTV ad break except the part viewers feel most: where it lands in the story.\n\nThe publisher picks that moment, but the advertiser pays when the break lands mid-scene. And because a single 40-minute episode can take 20 to 60 minutes to segment by hand, a lot of breaks end up wherever a timer or a black frame puts them.\n\nI think break placement will become something buyers pay for, the way viewability did for display. I wrote about why, and how we find the natural pauses at Vionlabs:\nhttps://www.vionlabs.com/news/the-most-expensive-second-in-streaming\n\nIf you sell CTV inventory, would you charge more for a break you could prove lands at a natural pause?"
+          "shareText": "We price almost everything about a CTV ad break except the part viewers feel most: where it lands in the story.\n\nThe publisher picks that moment, but the advertiser pays when the break lands mid-scene. And because a single 40-minute episode can take 20 to 60 minutes to segment by hand, a lot of breaks end up wherever a timer or a black frame puts them.\n\nI think break placement will become something buyers pay for, the way viewability did for display. I wrote about why, and how we find the natural pauses at Vionlabs:\nhttps://www.vionlabs.com/news/the-most-expensive-second-in-streaming\n\nIf you sell CTV inventory, would you charge more for a break you could prove lands at a natural pause?",
+          "postOn": "2026-10-29 morning, Europe/Stockholm",
+          "imageUrl": "https://s3.amazonaws.com/webflow-prod-assets/67978ee27d95b7ff0119d2ea/6ae1cd626c3a72d5991df9a6_linkedin-most-expensive-second-in-streaming.png"
         },
         "final": "2026-10-20",
         "googleDoc": "https://docs.google.com/document/d/119qQlfEeBixGq85JSTnVvRpo30UI5mmYjM4bqfiKBjA/edit",
@@ -210,7 +212,8 @@
           "sharedAt": "2026-10-28T09:01:20Z",
           "emailedAt": "2026-10-28T09:10:00Z",
           "emailThread": "1a181db883e8585a",
-          "feedback": "Arash, 28 Oct by email: 'har lagt till lite kommentarer, annars ser den bra ut'. Doc comments: i-CABLE is a customer we have lost; Bitmovin is a competitor that took a customer from us, don't give them attention. Applied: cut i-CABLE and both Bitmovin mentions (incl. Nine/Stan), named no other competitors (Wurl, Anoki, Peer39 now unnamed), replaced the Nine evidence with our own SDVI webinar figure."
+          "feedback": "Arash, 28 Oct by email: 'har lagt till lite kommentarer, annars ser den bra ut'. Doc comments: i-CABLE is a customer we have lost; Bitmovin is a competitor that took a customer from us, don't give them attention. Applied: cut i-CABLE and both Bitmovin mentions (incl. Nine/Stan), named no other competitors (Wurl, Anoki, Peer39 now unnamed), replaced the Nine evidence with our own SDVI webinar figure.",
+          "repliedAt": "2026-10-28T10:26:00Z"
         },
         "figures": [
           {
