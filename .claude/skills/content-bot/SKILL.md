@@ -205,7 +205,9 @@ send anything.
      most ("Our take first" in `brand.md`); numbers go in short bullet lists; at most a couple of company names per
      sentence; one bold line at most; ends with one specific question.
    - Images use the official Vionlabs logo files in `content-engine/bot/assets/` and never a
-     drawn or approximated logo ("The logo" in `brand.md`).
+     drawn or approximated logo ("The logo" in `brand.md`). `cover.js` refuses to render a template
+     that doesn't show one, or when a logo file has changed. Look at every image before it goes
+     anywhere (Doc, website, LinkedIn, email) and check the logo is the VIONLABS wordmark.
    - Images: the cover and at least one in-article figure (`figures`, drawn by `figure.html`,
      with a source line), rendered with `node content-engine/bot/cover.js <topic>` and looked at
      once. Place the figure in the body as `![alt](figures/<file>.png)`.

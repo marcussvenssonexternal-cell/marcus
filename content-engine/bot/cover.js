@@ -10,7 +10,17 @@
 // exporting. Needs Playwright (installed globally in the cloud sessions).
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const { execSync } = require("child_process");
+
+// Every image carries the official Vionlabs logo, loaded from assets/ and never redrawn ("The logo" in
+// config/brand.md). These are the files as taken from the website; a render stops if one has changed or
+// a template doesn't show one.
+const LOGOS = {
+  "vionlabs-logo-white.svg": "d917a594a882f7928e581e1218b37477",
+  "vionlabs-logo-black.png": "3b518caf27b7da8b3fa05a57607e4a66",
+  "vionlabs-eye-icon.png": "a21b1ae9a5ca00ddfe85a3a98a48c544",
+};
 
 function playwright() {
   try { return require("playwright"); } catch (e) {
@@ -38,12 +48,19 @@ function playwright() {
     }
   }
   if (!jobs.length) { console.log("No pieces with images" + (only ? " in " + only : "")); return; }
+  for (const [f, md5] of Object.entries(LOGOS)) {
+    const got = crypto.createHash("md5").update(fs.readFileSync(path.join(__dirname, "assets", f))).digest("hex");
+    if (got !== md5) throw new Error("assets/" + f + " isn't the official logo file any more; restore it from the website's assets");
+  }
   const browser = await playwright().chromium.launch();
   for (const j of jobs) {
     const page = await browser.newPage({ viewport: { width: j.w, height: j.h } });
     await page.addInitScript(([k, s]) => { window[k] = s; }, [j.key, j.spec]);
     await page.goto("file://" + path.join(__dirname, j.html));
     await page.evaluate(() => document.fonts.ready);
+    const logo = await page.$$eval("img", (els, files) => els.some((e) => files.includes((e.getAttribute("src") || "").replace(/^assets\//, ""))
+      && (e.getAttribute("src") || "").startsWith("assets/") && e.complete && e.naturalWidth > 0), Object.keys(LOGOS));
+    if (!logo) throw new Error(j.html + " doesn't show an official Vionlabs logo from assets/");
     const out = path.join(dir, j.image);
     fs.mkdirSync(path.dirname(out), { recursive: true });
     await page.screenshot({ path: out });

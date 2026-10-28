@@ -261,16 +261,18 @@
           "summary": "CTV now prices ad load, attention and emotion, but not where a break lands in the story. Arash Pendari on why advertisers carry that cost, and why break placement should be priced next.",
           "assets": {
             "covers/ad-breaks-01.png": {
-              "fileId": "6adfc87e2aa46c39f1afec81",
-              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/6adfc87e2aa46c39f1afec81_where-the-break-lands-cover.png"
+              "fileId": "6ae1ccc6b71128ba9032ad04",
+              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d362/6ae1ccc6b71128ba9032ad04_6ae1cc8c1c1a9f383cd222af_where-the-break-lands-cover-v2.png"
             },
             "figures/ad-breaks-01-signals.png": {
-              "fileId": "6adfc87e6267ebd9e1fbfa53",
-              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/6adfc87e6267ebd9e1fbfa53_where-the-break-lands-signals.png"
+              "fileId": "6ae1ccc6b71128ba9032ad29",
+              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d362/6ae1ccc6b71128ba9032ad29_6ae1cc8d392dd7e623454881_where-the-break-lands-signals-v2.png"
             }
           },
-          "status": "draft",
-          "itemId": "6adfc93f6a0204578a5fe84b"
+          "status": "live",
+          "itemId": "6adfc93f6a0204578a5fe84b",
+          "publishedAt": "2026-10-28T10:09:42Z",
+          "note": "Cover and figure replaced at 10:22 UTC with versions carrying the official Vionlabs logo."
         },
         "rationale": [
           "The question is live. In September FreeWheel started selling attention and emotional resonance as CTV buying signals, but where in the story a break lands still isn't priced, and that is where we have something of our own to say.",
