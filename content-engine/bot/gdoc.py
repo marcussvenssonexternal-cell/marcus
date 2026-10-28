@@ -115,15 +115,15 @@ def piece_html(piece_id, approval=False, branch="claude/practical-fermi-gatt4t")
                     sys.exit(f"{piece_id} names {', '.join(named)}, which we keep out of public content (brand.md)")
                 h.append(f"{P}<i>Draft for approval. {kind} by Arash Pendari, about {max(1, round(words / 230))} minutes to read."
                          + (f" When it's approved it goes live at {html.escape(url)}." if url else "") + "</i></p>")
-                if p.get("rationale"):  # why we publish this: for Arash, not part of the post
-                    h.append('<table border="0" cellpadding="10" style="border-collapse:collapse;background-color:#eef5f4"><tr><td>'
-                             "<b>Why we're publishing this</b> (for you, not part of the post)<ul>"
-                             + "".join(f'<li style="margin-bottom:6pt;line-height:1.5">{inline(r)}</li>' for r in p["rationale"])
-                             + "</ul></td></tr></table>")
             else:
                 h.append(f"{P}<i>Draft for review. {kind} by Arash Pendari, part of the series “{html.escape(t['title'])}”"
                          + (f", scheduled for {html.escape(p['slot'])}" if p.get("slot") else "")
                          + f". {words:,} words. Notes for review are at the end.</i></p>")
+            if p.get("rationale"):  # why we publish this: for the reader of the Doc, not part of the post
+                h.append('<table border="0" cellpadding="10" style="border-collapse:collapse;background-color:#eef5f4"><tr><td>'
+                         "<b>Why we're publishing this</b> (for you, not part of the post)<ul>"
+                         + "".join(f'<li style="margin-bottom:6pt;line-height:1.5">{inline(r)}</li>' for r in p["rationale"])
+                         + "</ul></td></tr></table>")
             if cover.get("image"):
                 h.append(image(cover["image"], cover.get("alt", ""), branch))
             h.append(body(p["body"], branch))
