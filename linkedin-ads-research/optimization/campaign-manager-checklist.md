@@ -5,14 +5,16 @@ https://www.linkedin.com/campaignmanager/accounts/507013260/campaigns?campaignGr
 
 Everything is paused with a start date of 2 Nov. Do steps 1–4 in each campaign before switching anything on.
 
-## 1. Audience (per campaign → Audience → "Narrow audience further")
+## 1. Audience (per campaign → Audience)
 
-Add these three facets in each cold campaign. The countries (17) and English are already set; Greece is
-unsupported in the API, so add it by hand if you want it.
+All 8 wave 1 campaigns already target, through the API:
+- the **company audience the legacy cold campaigns used**, `Vionlabs – Cold v2 [11.11.25]` (60850047), so the
+  same companies as before;
+- the 17 countries and English.
 
-- **Industries,** all wave 1 campaigns: Entertainment Providers; Broadcast Media Production and Distribution;
-  Movies, Videos, and Sound; Telecommunications.
-- **Seniority,** all wave 1 campaigns: Manager, Director, VP, CXO, Partner, Owner. Ad 1 also gets Senior.
+In Campaign Manager, add on top of that:
+- **Seniority,** all 8: Manager, Director, VP, CXO, Partner, Owner. Ad 1 also gets Senior. This drops the Entry
+  level, which was a large share of the baseline.
 - **Job function,** per campaign:
 
 | Campaign (ID) | Job functions |
@@ -23,11 +25,15 @@ unsupported in the API, so add it by hand if you want it.
 | ad3 (905856444) | Operations, Engineering, Product Management |
 | v1 (905748934) | Product Management, Operations, Media and Communication |
 
-The **wave 2 retargeting** campaigns (905748944, 905891324, 905836864, 905728574) already target
-`[Warm] Website Visitors (all pages)`. When the AIBFE engagement audiences exist (step 5), add them as well.
+**No industry facet.** The company audience already decides which companies are in. Adding an industry filter
+would drop listed companies that LinkedIn files under, for example, "Technology, Information and Internet" (the
+second-largest industry in the baseline).
 
-**Check:** the forecast panel should show an audience well under 1M for each cold campaign. If it shows tens of
-millions, a facet is missing.
+The **wave 2 retargeting** campaigns (905748944, 905891324, 905836864, 905728574) target
+`[Warm] Website Visitors (all pages)`. Add the AIBFE engagement audiences when they exist (step 5).
+
+**Check:** the forecast audience for each cold campaign should be well under the 3M of the company audience on its
+own. Ad 1 will be the smallest.
 
 ## 2. Placement and expansion (per campaign)
 
