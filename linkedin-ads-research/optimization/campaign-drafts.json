@@ -1,1 +1,289 @@
-{"ad0": [{"name": "ad0/a0-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["Generic AI sees pixels. Ours understands stories."], "descriptions": ["Generic AI can tell you there are two men sitting by a wall. It can’t tell you it’s the moment hope comes back.\n\nVionlabs has built its own AI models for film and TV since 2019. Trained on 1M+ entertainment assets, they understand mood, emotion and story arc at scene and asset level, straight from the video.\n\nGlobal entertainment leaders run it in production in 60+ countries.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad0-a0-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/a0-L.png"}]}}], "ad1": [{"name": "ad1/a1-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["Same genre. Completely different movie."], "descriptions": ["Two comedies. One is a feel-good summer romp, the other a bittersweet dramedy. Your genre tags say they’re the same.\n\nOur AI, built and trained for entertainment, knows they’re not. Emotion-aware embeddings, from our own models trained on 1M+ entertainment assets, are what make recommendations and search work.\n\nOne embedding space feeds your existing recommender and search via API. We power your engine; we don’t replace it.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/editorial-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad1-a1-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/a1-L.png"}]}}, {"name": "ad1/a1b-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["Same genre. Completely different movie."], "descriptions": ["Two comedies. One is a feel-good summer romp, the other a bittersweet dramedy. Your genre tags say they’re the same.\n\nOur AI, built and trained for entertainment, knows they’re not. Emotion-aware embeddings, from our own models trained on 1M+ entertainment assets, are what make recommendations and search work.\n\nOne embedding space feeds your existing recommender and search via API. We power your engine; we don’t replace it.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/editorial-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad1-a1b-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/a1b-L.png"}]}}], "ad2": [{"name": "ad2/a2-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["Your whole library. Searchable by mood."], "descriptions": ["Thousands of titles. How many does anyone actually find?\n\nVionlabs gives every title rich metadata: mood, genre, theme, scene tags and summaries in 99+ languages. Search the whole library in plain language, like “feel-good comedies with a happy ending”, and turn the results into Smart Lists in minutes.\n\nIt works because our AI understands mood and story the way your editors do.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/editorial-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad2-a2-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/a2-L.png"}]}}], "ad3": [{"name": "ad3/a3-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["278 days of manual tagging. Or 7."], "descriptions": ["65,000 episodes: 278 days of manual marking, or 7 days with Vionlabs.\n\nOur AI time-codes every episode: intro, recap, credits, chapters and natural ad breaks, so Skip Intro, autoplay to the next episode and ad insertion run automatically across the whole catalogue.\n\nMarkers and breaks are story-aware. The AI understands scenes and narrative, so breaks land between moments, not in the middle of them.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/operations-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad3-a3-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/a3-L.png"}]}}, {"name": "ad3/a3b-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["278 days of manual tagging. Or 7."], "descriptions": ["65,000 episodes: 278 days of manual marking, or 7 days with Vionlabs.\n\nOur AI time-codes every episode: intro, recap, credits, chapters and natural ad breaks, so Skip Intro, autoplay to the next episode and ad insertion run automatically across the whole catalogue.\n\nMarkers and breaks are story-aware. The AI understands scenes and narrative, so breaks land between moments, not in the middle of them.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/operations-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad3-a3b-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/a3b-L.png"}]}}], "m": [{"name": "m1/m1-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["From one genre tag to full metadata. For every title."], "descriptions": ["Most titles arrive with a title, a year and one genre.\n\nVionlabs gives every asset in your library full metadata, straight from the video: genres, moods, keywords, themes, a summary and an emotion fingerprint.\n\nOur AI is trained on 1M+ entertainment assets and understands each title at asset and scene level, so moods and themes read like an editor wrote them.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/editorial-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=m1-m1-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/m1-L.png"}]}}, {"name": "m2/m2-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["Every title in a list. Every list a reason to watch."], "descriptions": ["Your top 10 gets all the rows. The rest of the catalogue waits.\n\nEditorial Lab turns your whole library into AI-curated Smart Lists at scale, like “Feel-good Sunday” or “Edge-of-your-seat thrillers”. With 90% library coverage, you monetise the whole catalogue, not just the top 10.\n\nThe AI understands mood and story, so the lists feel curated by an editor, not keyword-matched.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/editorial-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=m2-m2-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/m2-L.png"}]}}, {"name": "m3/m3-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["Search your library by mood, not by title."], "descriptions": ["“Underdog stories.” “Feel-good romantic comedies.” “Tense true stories.”\n\nSearch your library the way editors and viewers actually think. Type what you’re after and get every matching title.\n\nBecause our AI understands mood, emotion and theme, a query like “underdog stories” returns the right films even when no existing metadata says “underdog”.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/editorial-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=m3-m3-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/m3-L.png"}]}}], "c": [{"name": "c1/c1-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["Thumbnails and clips for every title. Automatically."], "descriptions": ["Thumbnails and preview clips for your top titles are easy. For the whole catalogue, they’re a production line.\n\nVionlabs generates high-quality thumbnails and clips for every title, in 16:9, 4:3, 1:1 and 9:16. API-first, it enriches your MAM and plugs into existing pipelines.\n\nThe AI picks frames by mood, character and composition, like a film editor, and filters out blur, on-screen text and nudity. Customers have seen 75% higher viewer engagement with custom preview clips.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/creative-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=c1-c1-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/c1-L.png"}]}}, {"name": "c2/c2-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["One recipe. Thumbnails for your whole catalogue."], "descriptions": ["Tell the AI what you want once, as a recipe: “lead character close-up, smiling, bright, no on-screen text, 16:9”.\n\nVionlabs extracts matching thumbnails and clips across the whole library. Endless creative possibilities, no manual scrubbing.\n\nYour team designs the recipe; the AI does the heavy lifting. People stay in charge of the creative call.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/creative-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=c2-c2-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/c2-L.png"}]}}, {"name": "c3/c3-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["Every sword fight in your library. In seconds."], "descriptions": ["Search every scene in your library, find every matching moment and turn them into vertical clips for social.\n\nVionlabs scene retrieval works in plain language across the entire library, in 99+ languages. Type “epic sword fights” and get every matching scene, with titles and timecodes.\n\nAutomatic vertical conversion with character tracking keeps the subject in frame. Clips arrive with summaries and tags, ready to publish.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/creative-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=c3-c3-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/c3-L.png"}]}}], "o1": [{"name": "o1/o1-L/h1-i1", "status": "PAUSED", "creative": {"headlines": ["Every second of your library, QC’d."], "descriptions": ["Every asset time-coded and QC’d automatically: binge markers, ad breaks, chapters and compliance flags. Frame-accurate and ready for your MAM and player.\n\nOur AI understands scenes and narrative, so ad breaks land between moments, not in the middle of them.\n\n65,000 episodes: 278 days of manual work, or 7 days with Vionlabs. Customers have seen 80% fewer manual tasks in ad-break creation.\n\nVionlabs. AI built for entertainment."], "final_urls": ["https://www.vionlabs.com/operations-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=o1-o1-L-h1-i1"], "call_to_action": "REQUEST_DEMO", "assets": [{"asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/1ef3350ff87a29437b54b0762f9d838844eb9733/linkedin-ads-research/creatives/brief/png/o1-L.png"}]}}]}
+{
+ "ad0": [
+  {
+   "name": "ad0/a0-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "Generic AI sees pixels. Ours understands stories."
+    ],
+    "descriptions": [
+     "Generic AI can tell you there are two men sitting by a wall. It can’t tell you it’s the moment hope comes back.\n\nVionlabs has built its own AI models for film and TV since 2019. Trained on 1M+ entertainment assets, they understand mood, emotion and story arc at scene and asset level, straight from the video.\n\nGlobal entertainment leaders run it in production in 60+ countries.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/our-ai?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad0-a0-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/a0-L.png"
+     }
+    ]
+   }
+  }
+ ],
+ "ad1": [
+  {
+   "name": "ad1/a1-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "Same genre. Completely different movie."
+    ],
+    "descriptions": [
+     "Two comedies. One is a feel-good summer romp, the other a bittersweet dramedy. Your genre tags say they’re the same.\n\nOur AI, built and trained for entertainment, knows they’re not. Emotion-aware embeddings, from our own models trained on 1M+ entertainment assets, are what make recommendations and search work.\n\nOne embedding space feeds your existing recommender and search via API. We power your engine; we don’t replace it.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/embeddings-api?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad1-a1-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/a1-L.png"
+     }
+    ]
+   }
+  },
+  {
+   "name": "ad1/a1b-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "Same genre. Completely different movie."
+    ],
+    "descriptions": [
+     "Two comedies. One is a feel-good summer romp, the other a bittersweet dramedy. Your genre tags say they’re the same.\n\nOur AI, built and trained for entertainment, knows they’re not. Emotion-aware embeddings, from our own models trained on 1M+ entertainment assets, are what make recommendations and search work.\n\nOne embedding space feeds your existing recommender and search via API. We power your engine; we don’t replace it.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/embeddings-api?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad1-a1b-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/a1b-L.png"
+     }
+    ]
+   }
+  }
+ ],
+ "ad2": [
+  {
+   "name": "ad2/a2-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "Your whole library. Searchable by mood."
+    ],
+    "descriptions": [
+     "Thousands of titles. How many does anyone actually find?\n\nVionlabs gives every title rich metadata: mood, genre, theme, scene tags and summaries in 99+ languages. Search the whole library in plain language, like “feel-good comedies with a happy ending”, and turn the results into Smart Lists in minutes.\n\nIt works because our AI understands mood and story the way your editors do.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/editorial-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad2-a2-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/a2-L.png"
+     }
+    ]
+   }
+  }
+ ],
+ "ad3": [
+  {
+   "name": "ad3/a3-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "278 days of manual tagging. Or 7."
+    ],
+    "descriptions": [
+     "65,000 episodes: 278 days of manual marking, or 7 days with Vionlabs.\n\nOur AI time-codes every episode: intro, recap, credits, chapters and natural ad breaks, so Skip Intro, autoplay to the next episode and ad insertion run automatically across the whole catalogue.\n\nMarkers and breaks are story-aware. The AI understands scenes and narrative, so breaks land between moments, not in the middle of them.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/operations-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad3-a3-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/a3-L.png"
+     }
+    ]
+   }
+  },
+  {
+   "name": "ad3/a3b-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "278 days of manual tagging. Or 7."
+    ],
+    "descriptions": [
+     "65,000 episodes: 278 days of manual marking, or 7 days with Vionlabs.\n\nOur AI time-codes every episode: intro, recap, credits, chapters and natural ad breaks, so Skip Intro, autoplay to the next episode and ad insertion run automatically across the whole catalogue.\n\nMarkers and breaks are story-aware. The AI understands scenes and narrative, so breaks land between moments, not in the middle of them.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/operations-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=ad3-a3b-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/a3b-L.png"
+     }
+    ]
+   }
+  }
+ ],
+ "m": [
+  {
+   "name": "m1/m1-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "From one genre tag to full metadata. For every title."
+    ],
+    "descriptions": [
+     "Most titles arrive with a title, a year and one genre.\n\nVionlabs gives every asset in your library full metadata, straight from the video: genres, moods, keywords, themes, a summary and an emotion fingerprint.\n\nOur AI is trained on 1M+ entertainment assets and understands each title at asset and scene level, so moods and themes read like an editor wrote them.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/editorial-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=m1-m1-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/m1-L.png"
+     }
+    ]
+   }
+  },
+  {
+   "name": "m2/m2-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "Every title in a list. Every list a reason to watch."
+    ],
+    "descriptions": [
+     "Your top 10 gets all the rows. The rest of the catalogue waits.\n\nEditorial Lab turns your whole library into AI-curated Smart Lists at scale, like “Feel-good Sunday” or “Edge-of-your-seat thrillers”. With 90% library coverage, you monetise the whole catalogue, not just the top 10.\n\nThe AI understands mood and story, so the lists feel curated by an editor, not keyword-matched.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/editorial-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=m2-m2-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/m2-L.png"
+     }
+    ]
+   }
+  },
+  {
+   "name": "m3/m3-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "Search your library by mood, not by title."
+    ],
+    "descriptions": [
+     "“Underdog stories.” “Feel-good romantic comedies.” “Tense true stories.”\n\nSearch your library the way editors and viewers actually think. Type what you’re after and get every matching title.\n\nBecause our AI understands mood, emotion and theme, a query like “underdog stories” returns the right films even when no existing metadata says “underdog”.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/editorial-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=m3-m3-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/m3-L.png"
+     }
+    ]
+   }
+  }
+ ],
+ "c": [
+  {
+   "name": "c1/c1-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "Thumbnails and clips for every title. Automatically."
+    ],
+    "descriptions": [
+     "Thumbnails and preview clips for your top titles are easy. For the whole catalogue, they’re a production line.\n\nVionlabs generates high-quality thumbnails and clips for every title, in 16:9, 4:3, 1:1 and 9:16. API-first, it enriches your MAM and plugs into existing pipelines.\n\nThe AI picks frames by mood, character and composition, like a film editor, and filters out blur, on-screen text and nudity. Customers have seen 75% higher viewer engagement with custom preview clips.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/creative-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=c1-c1-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/c1-L.png"
+     }
+    ]
+   }
+  },
+  {
+   "name": "c2/c2-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "One recipe. Thumbnails for your whole catalogue."
+    ],
+    "descriptions": [
+     "Tell the AI what you want once, as a recipe: “lead character close-up, smiling, bright, no on-screen text, 16:9”.\n\nVionlabs extracts matching thumbnails and clips across the whole library. Endless creative possibilities, no manual scrubbing.\n\nYour team designs the recipe; the AI does the heavy lifting. People stay in charge of the creative call.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/creative-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=c2-c2-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/c2-L.png"
+     }
+    ]
+   }
+  },
+  {
+   "name": "c3/c3-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "Every sword fight in your library. In seconds."
+    ],
+    "descriptions": [
+     "Search every scene in your library, find every matching moment and turn them into vertical clips for social.\n\nVionlabs scene retrieval works in plain language across the entire library, in 99+ languages. Type “epic sword fights” and get every matching scene, with titles and timecodes.\n\nAutomatic vertical conversion with character tracking keeps the subject in frame. Clips arrive with summaries and tags, ready to publish.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/creative-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=c3-c3-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/c3-L.png"
+     }
+    ]
+   }
+  }
+ ],
+ "o1": [
+  {
+   "name": "o1/o1-L/h1-i1",
+   "status": "PAUSED",
+   "creative": {
+    "headlines": [
+     "Every second of your library, QC’d."
+    ],
+    "descriptions": [
+     "Every asset time-coded and QC’d automatically: binge markers, ad breaks, chapters and compliance flags. Frame-accurate and ready for your MAM and player.\n\nOur AI understands scenes and narrative, so ad breaks land between moments, not in the middle of them.\n\n65,000 episodes: 278 days of manual work, or 7 days with Vionlabs. Customers have seen 80% fewer manual tasks in ad-break creation.\n\nVionlabs. AI built for entertainment."
+    ],
+    "final_urls": [
+     "https://www.vionlabs.com/operations-lab?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=o1-o1-L-h1-i1"
+    ],
+    "call_to_action": "REQUEST_DEMO",
+    "assets": [
+     {
+      "asset_url": "https://raw.githubusercontent.com/marcussvenssonexternal-cell/marcus/2954e0ddfd6913cfcacc41fbad753d1d75fbfd30/linkedin-ads-research/creatives/brief/png/o1-L.png"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -31,8 +31,8 @@ those as a LinkedIn **A/B test** (Campaign Manager → Test) so the arms don't s
 | `AIBFE \| ad1 \| AI-ML and rec product` | Single image | `ad1/a1-L/h1-i1`, `ad1/a1b-L/h1-i1` | $16 | Website visits | T2 concept A vs B (rotate evenly) |
 | `AIBFE \| ad2 \| content ops and editorial \| carousel` | Carousel | `ad2/a2-carousel/h1-i1` (cards `a2-c1`…`c5`) | $10 | Website visits | T3 format arm |
 | `AIBFE \| ad2 \| content ops and editorial \| image` | Single image | `ad2/a2-L/h1-i1` | $10 | Website visits | T3 format arm |
-| `AIBFE \| ad3 \| media ops and ad ops` | Single image | `ad3/a3-L/h1-i1`, `ad3/a3b-L/h1-i1` | $15 | Website visits | T4 visual A vs B (rotate evenly) |
-| `AIBFE \| v1 \| editorial search` | Video | `v1/v1-S/h1-i1`, `v1/v1-V/h1-i1` | $10 | Video views | T8 1:1 vs 9:16 |
+| `AIBFE \| ad3 \| media ops and ad ops` | Single image | `ad3/a3-L/h1-i1`; `ad3/a3b-L/h1-i1` is added once its 278-vs-7-days claim is cleared | $15 | Website visits | T4 visual A vs B (rotate evenly). Until then a3-L runs alone. |
+| `AIBFE \| v1 \| editorial search` | Video | `v1/v1-S/h1-i1`, `v1/v1b-S/h1-i1` | $10 | Video views | Hook test: v1 (first text at 3.6 s) vs v1b (opens on the failed search). 50% completion. If v1b wins, the creative agent makes v2b and v3b. 1:1 vs 9:16 comes next. |
 | **Total** | | | **$91** | | |
 
 ### Wave 2: drafts, switched on from week 4
@@ -82,22 +82,30 @@ purpose: titles AND functions AND industry would be too narrow for $10–16 a da
 - **Copy:** every ad uses `h1` and `i1` from `creatives/brief/copy.json`. Headline and intro tests come later
   (T5, T6).
 - **CTA:** **Request demo**. That's LinkedIn's closest button to the brief's "Book a demo".
-- **Images:** pinned to creative-branch commit `1ef3350`, so a later re-render doesn't change a running ad.
+- **Images:** pinned to creative-branch commit `2954e0d`, so a later re-render doesn't change a running ad.
 - **URLs:** `<landing page>?utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment&utm_content=<ad>-<asset>-h1-i1`.
 
 | Ads | Landing page |
 | --- | --- |
-| ad0 | vionlabs.com/ |
-| ad1, ad2, m1–m3, v1 | /editorial-lab |
-| ad3, o1 | /operations-lab |
-| c1–c3 | /creative-lab |
+| ad0 | /our-ai |
+| ad1 | /embeddings-api |
+| ad2, m1–m3, v1 | /editorial-lab |
+| ad3, o1, v2 | /operations-lab |
+| c1–c3, v3, v4 | /creative-lab |
+
+These pages come from the `destination` field in `copy.json`. Every ad's full URL is in `creatives/brief/launch.csv`
+(creative commit `2954e0d`). Check before launch that `/our-ai` and `/embeddings-api` load. This container can't
+reach vionlabs.com, so I couldn't check them myself.
+
+**Telco variant:** `ad0` now also has `i4`, written for pay-TV and telco operators. It's ready for a telco-only ad0
+cell, for example a later test splitting Telecommunications out of the ad0 audience.
 
 The exact payloads (names, copy, URLs, images) are in `campaign-drafts.json`.
 
 ## What the API can't do (manual in Campaign Manager)
 
 The Supermetrics LinkedIn connector creates **single-image ads only**. These steps are manual:
-1. Add the carousels (`a0-c1…c5`, `a2-c1…c5`) and videos (`ad0-S`, `v1-S`, `v1-V`) to their campaigns. The files
+1. Add the carousels (`a0-c1…c5`, `a2-c1…c5`) and videos (`ad0-S`, `v1-S`, `v1b-S`) to their campaigns. The files
    are in `creatives/brief/png/` and `creatives/brief/video/`. Use the names and UTMs above.
 2. Set up the A/B tests (T1 ad0 format, T3 ad2 format). Set ad rotation to **rotate evenly** in the ad1 and ad3
    campaigns.
@@ -124,5 +132,6 @@ tidy up.
 
 - "Check before launch" claims cleared: `ad0` (3), `ad3` (2, including the number-led `a3b`), and one each in `ad1`,
   `ad2`, `v1`. Most are title-art rights.
-- Demo booking conversion firing.
+- Demo booking conversion firing. The creative agent found no Google tag in the Webflow site settings, so check
+  that the LinkedIn Insight Tag is on the site at all.
 - Manual steps 1–3 above done.
