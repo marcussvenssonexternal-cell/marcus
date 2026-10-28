@@ -24,10 +24,9 @@ html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; backgro
 .kicker .by { color: var(--muted); }
 h1 { margin: 40px 0 0; font: 800 92px/1.04 var(--display); letter-spacing: -0.025em; max-width: 1420px; text-wrap: balance; }
 svg { position: absolute; left: 0; bottom: 0; }
-.mark { position: absolute; top: 128px; right: 132px; font: 700 34px/1 var(--display); letter-spacing: -0.01em; color: var(--paper); display: flex; align-items: center; gap: 14px; }
-.mark i { display: inline-grid; grid-template-columns: repeat(3, 8px); gap: 4px; align-items: end; height: 28px; }
-.mark i b { display: block; width: 8px; background: var(--accent); border-radius: 2px; }
-.mark i b:nth-child(1) { height: 12px; } .mark i b:nth-child(2) { height: 28px; } .mark i b:nth-child(3) { height: 20px; }
+/* The official wordmark (assets/vionlabs-logo-white.svg, never redrawn), cropped to its ink because the file's viewBox pads it. --h is the ink height. */
+.logo { --h: 40px; position: absolute; top: calc(146px - var(--h) / 2); right: 132px; overflow: hidden; height: var(--h); width: calc(var(--h) * 391.56 / 53.74); }
+.logo img { display: block; height: calc(var(--h) * 93.333 / 53.74); margin: calc(var(--h) * -22.28 / 53.74) 0 0 calc(var(--h) * -19.875 / 53.74); }
 </style>
 </head>
 <body>
@@ -35,7 +34,7 @@ svg { position: absolute; left: 0; bottom: 0; }
   <div class="kicker" id="kicker"></div>
   <h1 id="headline"></h1>
   <svg id="curve" width="1920" height="1080" viewBox="0 0 1920 1080" aria-hidden="true"></svg>
-  <div class="mark"><i><b></b><b></b><b></b></i>Vionlabs</div>
+  <div class="logo"><img src="assets/vionlabs-logo-white.svg" alt="Vionlabs"></div>
 </div>
 <script>
 // Spec comes from cover.js: {kicker, by, headline, marks: [{at: 0..1, label, tone: "good"|"bad"}]}.

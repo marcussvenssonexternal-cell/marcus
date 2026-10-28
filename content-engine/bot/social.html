@@ -19,9 +19,9 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; width: 1080px; height: 1350px; overflow: hidden; background: var(--ink); color: var(--paper); }
 .social { width: 1080px; height: 1350px; padding-top: 88px; display: grid; grid-template-rows: auto auto 1fr auto; }
-.top { display: flex; justify-content: space-between; align-items: center; height: 34px; margin: 0 84px; }
+.top { display: flex; justify-content: space-between; align-items: center; height: 38px; margin: 0 84px; }
 .kicker { font: 500 28px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
-h1 { margin: 64px 84px 0; font: 800 120px/1.02 var(--display); letter-spacing: -0.03em; text-wrap: balance; }
+h1 { margin: 60px 84px 0; font: 800 120px/1.02 var(--display); letter-spacing: -0.03em; text-wrap: balance; }
 #chart { position: relative; min-height: 0; }
 #chart svg { position: absolute; left: 0; top: 0; }
 .foot { display: flex; justify-content: space-between; align-items: center; gap: 32px; margin: 0 84px; padding: 40px 0 80px; border-top: 3px solid var(--line); }
@@ -29,15 +29,14 @@ h1 { margin: 64px 84px 0; font: 800 120px/1.02 var(--display); letter-spacing: -
 .by b { font-weight: 700; color: var(--paper); }
 .cta { display: inline-flex; align-items: center; gap: 14px; height: 72px; padding: 0 30px; border: 3px solid var(--accent); border-radius: 36px; font: 700 30px/1 var(--display); color: var(--accent); white-space: nowrap; }
 .cta svg { flex: none; }
-.mark { font: 700 34px/1 var(--display); letter-spacing: -0.01em; color: var(--paper); display: flex; align-items: center; gap: 14px; }
-.mark i { display: inline-grid; grid-template-columns: repeat(3, 8px); gap: 4px; align-items: end; height: 28px; }
-.mark i b { display: block; width: 8px; background: var(--accent); border-radius: 2px; }
-.mark i b:nth-child(1) { height: 12px; } .mark i b:nth-child(2) { height: 28px; } .mark i b:nth-child(3) { height: 20px; }
+/* The official wordmark (assets/vionlabs-logo-white.svg, never redrawn), cropped to its ink because the file's viewBox pads it. --h is the ink height. */
+.logo { --h: 38px; flex: none; overflow: hidden; height: var(--h); width: calc(var(--h) * 391.56 / 53.74); }
+.logo img { display: block; height: calc(var(--h) * 93.333 / 53.74); margin: calc(var(--h) * -22.28 / 53.74) 0 0 calc(var(--h) * -19.875 / 53.74); }
 </style>
 </head>
 <body>
 <div class="social">
-  <div class="top"><span class="kicker" id="kicker"></span><span class="mark"><i><b></b><b></b><b></b></i>Vionlabs</span></div>
+  <div class="top"><span class="kicker" id="kicker"></span><span class="logo"><img src="assets/vionlabs-logo-white.svg" alt="Vionlabs"></span></div>
   <h1 id="headline"></h1>
   <div id="chart"></div>
   <div class="foot"><span class="by" id="by"></span><span class="cta"><span id="cta"></span><svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true"><path d="M2 11H22M13 2L23 11L13 20" fill="none" stroke="#4fc1c8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
