@@ -1,12 +1,13 @@
 #!/usr/bin/env node
-// Render the images for the Deep Dives packs: blog post covers and in-article figures.
+// Render the images for the Deep Dives packs: blog post covers, in-article figures and LinkedIn images.
 //
-//   node content-engine/bot/cover.js            # every piece with a "cover" or "figures" in deep-dives/*.json
+//   node content-engine/bot/cover.js            # every piece with a "cover", "figures" or "social" in deep-dives/*.json
 //   node content-engine/bot/cover.js ad-breaks  # one topic
 //
-// Covers are drawn by cover.html at 1920x1080 and figures by figure.html at 1600x900, then saved to
-// deep-dives/<image>. The publish step uploads them next to the page, and the Google Doc loads them
-// from GitHub, so push before exporting. Needs Playwright (installed globally in the cloud sessions).
+// Covers are drawn by cover.html at 1920x1080, figures by figure.html at 1600x900 and the LinkedIn feed
+// image that shares a long read by social.html at 1080x1350, then saved to deep-dives/<image>. The
+// publish step uploads them next to the page, and the Google Doc loads them from GitHub, so push before
+// exporting. Needs Playwright (installed globally in the cloud sessions).
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
@@ -30,6 +31,10 @@ function playwright() {
           spec: { kicker: p.cover.kicker || t.title, by: p.cover.by || "", headline: p.cover.headline || p.title, marks: p.cover.marks || [] } });
       }
       for (const f of p.figures || []) if (f.image) jobs.push({ image: f.image, html: "figure.html", w: 1600, h: 900, key: "FIGURE", spec: f });
+      if (p.social && p.social.image) {
+        jobs.push({ image: p.social.image, html: "social.html", w: 1080, h: 1350, key: "SOCIAL",
+          spec: { kicker: p.social.kicker || t.title, by: p.social.by || "", headline: p.social.headline || p.title, cta: p.social.cta || "Read on vionlabs.com", marks: p.social.marks || [] } });
+      }
     }
   }
   if (!jobs.length) { console.log("No pieces with images" + (only ? " in " + only : "")); return; }
