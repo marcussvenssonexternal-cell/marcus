@@ -76,11 +76,14 @@ def field_data(piece_id, published=None):
                     "post-body": rich_text(p["body"], assets),
                     "author": AUTHORS[web.get("author", "Arash Pendari")],
                     "original-published-on-date": published or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")}
-            if cover.get("image"):
-                if cover["image"] not in assets:
-                    sys.exit(f"Upload {cover['image']} to Webflow and add it to website.assets first")
-                img = {"fileId": assets[cover["image"]]["fileId"], "url": assets[cover["image"]]["url"], "alt": cover.get("alt", "")}
-                data["main-image"] = data["thumbnail-image"] = img
+            # The post page shows the 16:9 cover; the /news grid crops to about 1.27:1, so it gets the
+            # piece's 1600x1260 "thumb" when there is one.
+            for field, image in (("main-image", cover), ("thumbnail-image", p.get("thumb") or cover)):
+                if not image.get("image"):
+                    continue
+                if image["image"] not in assets:
+                    sys.exit(f"Upload {image['image']} to Webflow and add it to website.assets first")
+                data[field] = {"fileId": assets[image["image"]]["fileId"], "url": assets[image["image"]]["url"], "alt": image.get("alt", "")}
             return data
     sys.exit(f"No piece with id {piece_id}")
 

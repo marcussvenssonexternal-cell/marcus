@@ -221,7 +221,10 @@ send anything.
    Europe/Stockholm", `shareWith`, `role` "commenter", `status` "ready", `message`), rebuild,
    republish the page with its images, commit and push.
    Then stage the post on the website as a draft (Webflow; call `webflow_guide_tool` once first).
-   Upload the cover and every figure with `data_assets_tool` `create_asset` (the file's MD5),
+   The post needs two images: the 16:9 `cover` (the post page's main image) and a 1600x1260 `thumb`
+   (drawn by `thumb.html`), because the vionlabs.com/news grid crops thumbnails to about 1.27:1 and a
+   16:9 image looks small there. Upload the cover, the thumb and every figure with `data_assets_tool`
+   `create_asset` (the file's MD5),
    then POST the file to the returned S3 `uploadUrl` as multipart form data: `acl`, `bucket`,
    `X-Amz-Algorithm`, `X-Amz-Credential`, `X-Amz-Date`, `key`, `Policy`, `X-Amz-Signature`,
    `success_action_status`, `Content-Type`, `Cache-Control` from `uploadDetails`, then `file`.
