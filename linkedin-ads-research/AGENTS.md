@@ -26,8 +26,11 @@ spend, budgets, targeting or what is live goes to Marcus first, never straight t
 Everything is keyed by the IDs in `creatives/brief/copy.json`:
 - **Ad IDs:** `ad0`–`ad3` (brand and audience ads), `m1`–`m3`, `c1`–`c3`, `o1` (feature follow-ups), `v1`–`v4` (video series).
 - **Asset IDs:** one file each, e.g. `a2-c3` (Ad 2, carousel card 3), `m1-L` (1200×627), `v2-S` / `v2-V` (video, 1:1 / 9:16).
+  A whole carousel, as one LinkedIn ad, is its card prefix plus `-carousel`, e.g. `a2-carousel`.
+  Variants get a letter, e.g. `v1b-S` (Video 1, variant B).
   Images are in `creatives/brief/png/<asset>.png`, videos in `creatives/brief/video/<asset>.mp4`.
 - **Copy variants:** headline `h1`–`h3` and intro text `i1`–`i3`, in the order they appear in `copy.json`.
+  Ad 0 also has `i4`, written for pay-TV and telco operators.
 
 Use these in LinkedIn so results can be traced:
 - **Ad name:** `<ad>/<asset>/<headline>-<intro>`, e.g. `v1/v1-S/h2-i1`.
@@ -36,7 +39,9 @@ Use these in LinkedIn so results can be traced:
 
 ## Where things are
 
-- `creatives/brief/copy.json`: every ad's assets, three headlines, three intro texts, targeting and claim checks
+- `creatives/brief/launch.csv`: every LinkedIn ad to build (asset × headline × intro), with its ad name, headline
+  and full tracked URL; `first_wave = yes` marks the first test wave in `optimization/plan.md`
+- `creatives/brief/copy.json`: every ad's assets, headlines, intro texts, targeting, destination page and claim checks
 - `creatives/share/links.json`: each ad's own share link; full review page: https://claude.ai/artifact/RedxbdkboDwKTX5Cm22UtR
 - `references/twelvelabs-videos.md`: what we took from TwelveLabs' video ads
 - `README.md`: how to re-render images and videos and rebuild the review page

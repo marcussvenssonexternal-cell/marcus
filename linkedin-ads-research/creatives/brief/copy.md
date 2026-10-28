@@ -6,14 +6,17 @@ From Viktor's ad brief. Images in `png/` (S = 1080×1080, L = 1200×627), videos
 
 **Lab:** Editorial Lab · search by mood  
 **Audience:** Editorial, search and discovery teams whose catalogue search only matches titles and genres.  
-**Targeting:** Job titles: Head of Editorial, Head of Search, Product Manager Discovery, Head of Content Operations, Metadata Manager · Functions: Product Management, Operations, Media and Communication · Seniority: Manager and up · Retarget: engaged with Ad 1 or Ad 2 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
+**Targeting:** Job titles: Head of Editorial, Head of Search, Product Manager Discovery, Head of Content Operations, Metadata Manager · Functions: Product Management, Operations, Media and Communication · Seniority: Manager and up · Retarget: engaged with Ad 1 or Ad 2 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications  
+**Destination:** https://www.vionlabs.com/editorial-lab
 
-_Modelled on the favourite TwelveLabs reference (DAM search), including its motion: blurred screens behind the catalogue, a rushing wall of results, an empty player a click fills, and a camera that pulls back over a canvas of searches. Our angle is entertainment language and mood, not objects on screen._
+_Modelled on the favourite TwelveLabs reference (DAM search), including its motion: blurred screens behind the catalogue, a rushing wall of results, an empty player a click fills, and a camera that pulls back over a canvas of searches. Our angle is entertainment language and mood, not objects on screen. Variant B (v1b) cuts the opening catalogue scroll and starts on the failing keyword search, so the problem lands in the first second; it is there to test the hook against v1._
 
 **Assets**
 
 - Video · 21 s · 1:1: `video/v1-S.mp4`
 - Video · 21 s · 9:16: `video/v1-V.mp4`
+- Variant B, opens on the failed search · 17 s · 1:1: `video/v1b-S.mp4`
+- Variant B, opens on the failed search · 17 s · 9:16: `video/v1b-V.mp4`
 
 **Headlines**
 
@@ -62,7 +65,8 @@ _Modelled on the favourite TwelveLabs reference (DAM search), including its moti
 
 **Lab:** Operations Lab · ad breaks  
 **Audience:** Ad ops, monetisation and media ops teams at AVOD, FAST and broadcast services whose breaks are set by a timer or by hand.  
-**Targeting:** Job titles: Head of Ad Operations, Monetization Manager, Head of AVOD/FAST, Ad Sales Operations Manager, Head of Media Operations · Functions: Operations, Sales, Business Development · Seniority: Manager and up · Retarget: engaged with Ad 3 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
+**Targeting:** Job titles: Head of Ad Operations, Monetization Manager, Head of AVOD/FAST, Ad Sales Operations Manager, Head of Media Operations · Functions: Operations, Sales, Business Development · Seniority: Manager and up · Retarget: engaged with Ad 3 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications  
+**Destination:** https://www.vionlabs.com/operations-lab
 
 _Modelled on the TwelveLabs ad-break reference: a jarring ad cuts into the story so the viewer feels the problem. Our angle: breaks land in the quiet valleys of the story arc with mood, IAB and brand-safety context, then the camera pulls back over every title with its breaks placed._
 
@@ -119,7 +123,8 @@ _Modelled on the TwelveLabs ad-break reference: a jarring ad cuts into the story
 
 **Lab:** Creative Lab · scene search and 9:16  
 **Audience:** Social, digital and marketing teams who need vertical clips from the archive every day, and the content ops teams who feed them.  
-**Targeting:** Job titles: Social Media Manager, Head of Digital, Head of Marketing, Promo Producer, Content Operations Manager · Functions: Marketing, Media and Communication, Operations · Seniority: Manager and up · Retarget: engaged with Ad 2 or C1 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
+**Targeting:** Job titles: Social Media Manager, Head of Digital, Head of Marketing, Promo Producer, Content Operations Manager · Functions: Marketing, Media and Communication, Operations · Seniority: Manager and up · Retarget: engaged with Ad 2 or C1 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications  
+**Destination:** https://www.vionlabs.com/creative-lab
 
 _Modelled on the TwelveLabs broadcast reference: scrubbing a long file, then segments appear and one is exported for social. Ours rushes through mood-tagged moments across a film archive, reframes one to 9:16, then pulls back over a feed's worth of shorts._
 
@@ -172,7 +177,8 @@ _Modelled on the TwelveLabs broadcast reference: scrubbing a long file, then seg
 
 **Lab:** Creative Lab · thumbnail recipes  
 **Audience:** Creative, design and marketing teams who still pick thumbnails by hand, title by title.  
-**Targeting:** Job titles: Creative Director, Head of Creative, Design Lead, Head of Marketing, Head of Content Operations · Functions: Arts and Design, Marketing, Operations · Seniority: Manager and up · Retarget: engaged with Ad 2 or C1 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
+**Targeting:** Job titles: Creative Director, Head of Creative, Design Lead, Head of Marketing, Head of Content Operations · Functions: Arts and Design, Marketing, Operations · Seniority: Manager and up · Retarget: engaged with Ad 2 or C1 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications  
+**Destination:** https://www.vionlabs.com/creative-lab
 
 _Modelled on the TwelveLabs editors reference: the manual hunt first, then the tool does it for the whole library. Ours rejects bad frames by hand, sets one recipe, and the whole catalogue rushes past with every thumbnail done._
 
@@ -224,9 +230,10 @@ _Modelled on the TwelveLabs editors reference: the manual hunt first, then the t
 
 **Lab:** All  
 **Audience:** All decision makers: product, engineering, AI/ML, content operations, editorial and ad ops at streaming services, broadcasters and telcos.  
-**Targeting:** Job functions: Product Management, Engineering, Operations, Media and Communication, Business Development · Seniority: Manager and up · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications
+**Targeting:** Job functions: Product Management, Engineering, Operations, Media and Communication, Business Development · Seniority: Manager and up · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications  
+**Destination:** https://www.vionlabs.com/our-ai
 
-_Run first or in parallel, so the audience ads reach people who already know who Vionlabs is._
+_Run first or in parallel, so the audience ads reach people who already know who Vionlabs is. Intro 4 speaks to pay-TV and telco operators, for the Telecommunications part of the audience (the baseline shows telcos clicking about a third as often as studios)._
 
 **Assets**
 
@@ -270,6 +277,16 @@ _Run first or in parallel, so the audience ads reach people who already know who
 >
 > Vionlabs. AI built for entertainment.
 
+**Intro text 4** (502 characters)
+
+> Pay-TV and telco platforms carry content from dozens of partners, each with its own metadata. Viewers just see a catalogue that’s hard to browse.
+>
+> Vionlabs gives every title the same rich metadata, straight from the video: mood, emotion and story arc, in 99+ languages. One consistent layer for search, rows and recommendations across every partner’s content, from our own AI models built for entertainment.
+>
+> In production in 60+ countries, reaching 500M viewers.
+>
+> Vionlabs. AI built for entertainment.
+
 **Claims**
 
 - Founded in Stockholm in 2016 by people from film and VFX; own models since 2019; 1M+ assets; 80+ expert networks; 99+ languages; 60+ countries; 500M viewers: Ad prompts, base context (From the brief)
@@ -282,7 +299,8 @@ _Run first or in parallel, so the audience ads reach people who already know who
 
 **Lab:** Editorial Lab, Embedding API  
 **Audience:** Heads of AI/ML, data science leads, CTOs, VP Engineering and product owners for recommendations, personalisation and search. Weighing build in-house, a general foundation model, or a specialist.  
-**Targeting:** Job titles: Head of AI, Director of Machine Learning, Head of Data Science, CTO, VP Engineering, Head of Personalization, Head of Search, Product Owner Recommendations · Functions: Engineering, Information Technology, Research, Product Management · Seniority: Senior and up
+**Targeting:** Job titles: Head of AI, Director of Machine Learning, Head of Data Science, CTO, VP Engineering, Head of Personalization, Head of Search, Product Owner Recommendations · Functions: Engineering, Information Technology, Research, Product Management · Seniority: Senior and up  
+**Destination:** https://www.vionlabs.com/embeddings-api
 
 _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies from the website. Concept B (embedding clusters) is an alternative to test against it._
 
@@ -335,7 +353,8 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 
 **Lab:** Editorial Lab + Creative Lab  
 **Audience:** Heads of content operations, editorial and programming leads, product managers for discovery and UX, and engineering leads. Large libraries with thin metadata, hand-built lists and manual thumbnails.  
-**Targeting:** Job titles: Head of Content Operations, Head of Editorial, Head of Programming, Product Manager Discovery, Head of Product, Metadata Manager, Engineering Lead · Functions: Operations, Product Management, Media and Communication, Engineering · Seniority: Manager and up
+**Targeting:** Job titles: Head of Content Operations, Head of Editorial, Head of Programming, Product Manager Discovery, Head of Product, Metadata Manager, Engineering Lead · Functions: Operations, Product Management, Media and Communication, Engineering · Seniority: Manager and up  
+**Destination:** https://www.vionlabs.com/editorial-lab
 
 **Assets**
 
@@ -386,7 +405,8 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 
 **Lab:** Operations Lab  
 **Audience:** Media operations managers, MAM and supply-chain leads, automation and engineering leads, ad ops and monetisation, player product owners. Markers and ad breaks still set by hand or by vendors.  
-**Targeting:** Job titles: Head of Media Operations, Media Supply Chain Manager, MAM Manager, Head of Ad Operations, Monetization Manager, Automation Engineer, Player Product Owner · Functions: Operations, Engineering, Product Management · Seniority: Manager and up
+**Targeting:** Job titles: Head of Media Operations, Media Supply Chain Manager, MAM Manager, Head of Ad Operations, Monetization Manager, Automation Engineer, Player Product Owner · Functions: Operations, Engineering, Product Management · Seniority: Manager and up  
+**Destination:** https://www.vionlabs.com/operations-lab
 
 **Assets**
 
@@ -442,7 +462,8 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 
 **Lab:** Editorial Lab · metadata  
 **Audience:** Follow-up and retargeting for people who engaged with Ad 2: content operations, metadata and product teams.  
-**Targeting:** Retarget: engaged with Ad 0 or Ad 2 (video views, opens, clicks) and website visitors · plus Ad 2 job titles
+**Targeting:** Retarget: engaged with Ad 0 or Ad 2 (video views, opens, clicks) and website visitors · plus Ad 2 job titles  
+**Destination:** https://www.vionlabs.com/editorial-lab
 
 **Assets**
 
@@ -490,7 +511,8 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 
 **Lab:** Editorial Lab · Smart Lists  
 **Audience:** Follow-up for editorial and programming leads who engaged with Ad 2.  
-**Targeting:** Retarget: engaged with Ad 0 or Ad 2 · plus Head of Editorial, Head of Programming, Content Strategy
+**Targeting:** Retarget: engaged with Ad 0 or Ad 2 · plus Head of Editorial, Head of Programming, Content Strategy  
+**Destination:** https://www.vionlabs.com/editorial-lab
 
 **Assets**
 
@@ -539,7 +561,8 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 
 **Lab:** Editorial Lab · natural-language search  
 **Audience:** Follow-up for editorial, product and search teams who engaged with Ad 1 or Ad 2.  
-**Targeting:** Retarget: engaged with Ad 1 or Ad 2 · plus Head of Search, Product Manager Discovery, Head of Editorial
+**Targeting:** Retarget: engaged with Ad 1 or Ad 2 · plus Head of Search, Product Manager Discovery, Head of Editorial  
+**Destination:** https://www.vionlabs.com/editorial-lab
 
 **Assets**
 
@@ -588,7 +611,8 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 
 **Lab:** Creative Lab · thumbnails and clips at scale  
 **Audience:** Content and marketing (the result) and engineering (the integration) at the same time.  
-**Targeting:** Retarget: engaged with Ad 2 · plus Head of Marketing, Creative Director, Head of Content Operations, Engineering Lead, MAM Manager
+**Targeting:** Retarget: engaged with Ad 2 · plus Head of Marketing, Creative Director, Head of Content Operations, Engineering Lead, MAM Manager  
+**Destination:** https://www.vionlabs.com/creative-lab
 
 **Assets**
 
@@ -637,7 +661,8 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 
 **Lab:** Creative Lab · recipe-based generation  
 **Audience:** Creative, marketing and content teams. The creative superpower: the team sets the recipe, the AI does the heavy lifting.  
-**Targeting:** Retarget: engaged with Ad 2 or C1 · plus Creative Director, Head of Creative, Head of Marketing, Promo Producer
+**Targeting:** Retarget: engaged with Ad 2 or C1 · plus Creative Director, Head of Creative, Head of Marketing, Promo Producer  
+**Destination:** https://www.vionlabs.com/creative-lab
 
 **Assets**
 
@@ -686,7 +711,8 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 
 **Lab:** Creative Lab · scene search and verticalisation  
 **Audience:** Social, digital and marketing teams who need vertical content, and the content ops teams who feed them.  
-**Targeting:** Retarget: engaged with Ad 2 or C1 · plus Social Media Manager, Head of Digital, Head of Marketing, Promo Producer
+**Targeting:** Retarget: engaged with Ad 2 or C1 · plus Social Media Manager, Head of Digital, Head of Marketing, Promo Producer  
+**Destination:** https://www.vionlabs.com/creative-lab
 
 **Assets**
 
@@ -734,7 +760,8 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 
 **Lab:** Operations Lab · time-based metadata  
 **Audience:** Follow-up for media ops, MAM, ad ops and compliance teams who engaged with Ad 3.  
-**Targeting:** Retarget: engaged with Ad 0 or Ad 3 · plus Head of Media Operations, QC Manager, Compliance Manager, Head of Ad Operations
+**Targeting:** Retarget: engaged with Ad 0 or Ad 3 · plus Head of Media Operations, QC Manager, Compliance Manager, Head of Ad Operations  
+**Destination:** https://www.vionlabs.com/operations-lab
 
 **Assets**
 

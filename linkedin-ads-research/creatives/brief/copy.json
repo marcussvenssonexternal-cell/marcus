@@ -7,7 +7,7 @@
     "lab": "Editorial Lab · search by mood",
     "audience": "Editorial, search and discovery teams whose catalogue search only matches titles and genres.",
     "targeting": "Job titles: Head of Editorial, Head of Search, Product Manager Discovery, Head of Content Operations, Metadata Manager · Functions: Product Management, Operations, Media and Communication · Seniority: Manager and up · Retarget: engaged with Ad 1 or Ad 2 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications",
-    "note": "Modelled on the favourite TwelveLabs reference (DAM search), including its motion: blurred screens behind the catalogue, a rushing wall of results, an empty player a click fills, and a camera that pulls back over a canvas of searches. Our angle is entertainment language and mood, not objects on screen.",
+    "note": "Modelled on the favourite TwelveLabs reference (DAM search), including its motion: blurred screens behind the catalogue, a rushing wall of results, an empty player a click fills, and a camera that pulls back over a canvas of searches. Our angle is entertainment language and mood, not objects on screen. Variant B (v1b) cuts the opening catalogue scroll and starts on the failing keyword search, so the problem lands in the first second; it is there to test the hook against v1.",
     "assets": [
       {
         "video": "v1-S",
@@ -16,6 +16,14 @@
       {
         "video": "v1-V",
         "label": "Video · 21 s · 9:16"
+      },
+      {
+        "video": "v1b-S",
+        "label": "Variant B, opens on the failed search · 17 s · 1:1"
+      },
+      {
+        "video": "v1b-V",
+        "label": "Variant B, opens on the failed search · 17 s · 9:16"
       }
     ],
     "headlines": [
@@ -44,7 +52,8 @@
         "source": "Same rights check as the rest of the campaign: confirm paid use",
         "status": "verify"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/editorial-lab"
   },
   {
     "id": "v2",
@@ -96,7 +105,8 @@
         "source": "Same rights check as the rest of the campaign: confirm paid use",
         "status": "verify"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/operations-lab"
   },
   {
     "id": "v3",
@@ -143,7 +153,8 @@
         "source": "Same rights check as the rest of the campaign: confirm paid use",
         "status": "verify"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/creative-lab"
   },
   {
     "id": "v4",
@@ -195,7 +206,8 @@
         "source": "Same rights check as the rest of the campaign: confirm paid use",
         "status": "verify"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/creative-lab"
   },
   {
     "id": "ad0",
@@ -205,7 +217,7 @@
     "lab": "All",
     "audience": "All decision makers: product, engineering, AI/ML, content operations, editorial and ad ops at streaming services, broadcasters and telcos.",
     "targeting": "Job functions: Product Management, Engineering, Operations, Media and Communication, Business Development · Seniority: Manager and up · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications",
-    "note": "Run first or in parallel, so the audience ads reach people who already know who Vionlabs is.",
+    "note": "Run first or in parallel, so the audience ads reach people who already know who Vionlabs is. Intro 4 speaks to pay-TV and telco operators, for the Telecommunications part of the audience (the baseline shows telcos clicking about a third as often as studios).",
     "assets": [
       {
         "id": "a0-L",
@@ -242,7 +254,8 @@
     "intros": [
       "Generic AI can tell you there are two men sitting by a wall. It can’t tell you it’s the moment hope comes back.\n\nVionlabs has built its own AI models for film and TV since 2019. Trained on 1M+ entertainment assets, they understand mood, emotion and story arc at scene and asset level, straight from the video.\n\nGlobal entertainment leaders run it in production in 60+ countries.\n\nVionlabs. AI built for entertainment.",
       "We come from entertainment. Founded in Stockholm in 2016 by people from film and VFX, we analysed content by hand before we automated anything.\n\nThat’s why our AI reads a film the way a storyteller does: mood, emotion and story arc, not just objects on screen. Built in-house since 2019, trained on 1M+ entertainment assets, in production with global entertainment leaders.\n\nVionlabs. AI built for entertainment.",
-      "Many media teams have tried generic AI and found it doesn’t understand their content.\n\nVionlabs is domain-specific AI for film and TV: our own models, 80+ specialised expert networks and 99+ languages, reading visuals, audio and dialogue together. Run it via API, our portal, or on-prem in your own cloud.\n\nIn production in 60+ countries, reaching 500M viewers.\n\nVionlabs. AI built for entertainment."
+      "Many media teams have tried generic AI and found it doesn’t understand their content.\n\nVionlabs is domain-specific AI for film and TV: our own models, 80+ specialised expert networks and 99+ languages, reading visuals, audio and dialogue together. Run it via API, our portal, or on-prem in your own cloud.\n\nIn production in 60+ countries, reaching 500M viewers.\n\nVionlabs. AI built for entertainment.",
+      "Pay-TV and telco platforms carry content from dozens of partners, each with its own metadata. Viewers just see a catalogue that’s hard to browse.\n\nVionlabs gives every title the same rich metadata, straight from the video: mood, emotion and story arc, in 99+ languages. One consistent layer for search, rows and recommendations across every partner’s content, from our own AI models built for entertainment.\n\nIn production in 60+ countries, reaching 500M viewers.\n\nVionlabs. AI built for entertainment."
     ],
     "claims": [
       {
@@ -270,7 +283,8 @@
         "source": "Illustrative, not live model output",
         "status": "example"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/our-ai"
   },
   {
     "id": "ad1",
@@ -325,7 +339,8 @@
         "source": "Real titles from vionlabs.com. Radar shapes and clusters are illustrative: swap in real fingerprints from the portal before launch",
         "status": "example"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/embeddings-api"
   },
   {
     "id": "ad2",
@@ -377,7 +392,8 @@
         "source": "Real titles from vionlabs.com; the matches and timecodes are illustrative",
         "status": "example"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/editorial-lab"
   },
   {
     "id": "ad3",
@@ -444,7 +460,8 @@
         "source": "Illustrative episode data on a Peaky Blinders frame from vionlabs.com",
         "status": "example"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/operations-lab"
   },
   {
     "id": "m1",
@@ -485,7 +502,8 @@
         "source": "Example from the Vionlabs sales deck, shown with the title art from vionlabs.com; radar shape illustrative",
         "status": "verify"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/editorial-lab"
   },
   {
     "id": "m2",
@@ -534,7 +552,8 @@
         "source": "List names from the brief; titles are vionlabs.com thumbnails, groupings illustrative",
         "status": "example"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/editorial-lab"
   },
   {
     "id": "m3",
@@ -584,7 +603,8 @@
         "source": "Queries adapted from the brief; titles from vionlabs.com, matches illustrative",
         "status": "example"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/editorial-lab"
   },
   {
     "id": "c1",
@@ -630,7 +650,8 @@
         "source": "Real frames from vionlabs.com, arranged to illustrate the output",
         "status": "example"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/creative-lab"
   },
   {
     "id": "c2",
@@ -675,7 +696,8 @@
         "source": "Example values in the UI; titles from vionlabs.com",
         "status": "example"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/creative-lab"
   },
   {
     "id": "c3",
@@ -721,7 +743,8 @@
         "source": "Titles from vionlabs.com; timecodes illustrative; generic feed with no platform logos",
         "status": "example"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/creative-lab"
   },
   {
     "id": "o1",
@@ -768,6 +791,7 @@
         "source": "Illustrative episode data on frames from vionlabs.com; flagged frames are abstract placeholders, as the brief requires",
         "status": "example"
       }
-    ]
+    ],
+    "destination": "https://www.vionlabs.com/operations-lab"
   }
 ]

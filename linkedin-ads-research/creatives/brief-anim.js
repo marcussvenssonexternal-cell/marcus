@@ -10,9 +10,9 @@
   const vertical = V.endsWith("-V");
   const W = 1080, H = vertical ? 1920 : 1080, PAD = 72;
   const KEY = V.split("-")[0];
-  const DUR = { ad0: 12, ad3: 8, v1: 21, v2: 21.5, v3: 22, v4: 21.5 }[KEY];
+  const DUR = { ad0: 12, ad3: 8, v1: 21, v1b: 16.8, v2: 21.5, v3: 22, v4: 21.5 }[KEY];
   // poster: the frame the review page shows before play
-  const POSTER = { ad0: 5.7, ad3: 7.2, v1: 15.9, v2: 15.4, v3: 15.9, v4: 11.2 }[KEY];
+  const POSTER = { ad0: 5.7, ad3: 7.2, v1: 15.9, v1b: 11.7, v2: 15.4, v3: 15.9, v4: 11.2 }[KEY];
   window.VIDEO = { id: V, w: W, h: H, duration: DUR, fps: 30, poster: POSTER };
 
   const clamp = (x) => Math.max(0, Math.min(1, x));
@@ -605,6 +605,10 @@
       end(t, 17.6);
     };
   }
+
+  // v1b: the same video, opening straight on the failing keyword search, so the problem lands in the first
+  // second (a tighter hook to test against v1)
+  if (KEY === "v1b") { const full = seek; seek = (t) => full(t + 4.2); }
 
   window.seek = seek;
   window.animReady = Promise.all([...document.images].map((i) => (i.complete ? 0 : new Promise((r) => (i.onload = i.onerror = r))))).then(() => seek(0));

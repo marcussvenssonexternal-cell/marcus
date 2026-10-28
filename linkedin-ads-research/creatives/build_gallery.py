@@ -2,10 +2,12 @@
 campaign ad (share/<id>.html, each published as its own artifact so a single ad can be sent on its own),
 and the copy decks (brief/copy.md for the campaign, copy.md for the earlier drafts) from the two copy.json
 files. share/links.json holds each share page's published link; the review page shows them per ad.
+brief/launch.csv lists every LinkedIn ad to build (asset × headline × intro) with its ad name and tracked URL.
 
     python3 build_gallery.py
 """
 
+import csv
 import json
 import pathlib
 
@@ -25,11 +27,17 @@ STATUS = {"site": "On the website", "verify": "Check before launch", "illustrati
           "brief": "From the brief", "example": "Example values"}
 SIGNOFF = "Vionlabs. AI built for entertainment."
 
+# Tracking, as agreed in ../AGENTS.md. The first test wave (optimization/plan.md) runs h1/i1 on these assets.
+UTM = "utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment"
+FIRST_WAVE = {("ad0", "a0-L"), ("ad0", "a0-carousel"), ("ad0", "ad0-S"), ("ad1", "a1-L"), ("ad1", "a1b-L"),
+              ("ad2", "a2-carousel"), ("ad2", "a2-L"), ("ad3", "a3-L"), ("ad3", "a3b-L"), ("ad3", "ad3-S")}
+
 
 def check_brief():
-    # The brief's copy rules: 3 headlines of max 70 characters, 3 intro texts of max 600 that end on the sign-off.
+    # The brief's copy rules: 3 headlines of max 70 characters, 3 intro texts (or more, for a targeted extra)
+    # of max 600 that end on the sign-off; every ad has a destination.
     for ad in BRIEF:
-        assert len(ad["headlines"]) == 3 and len(ad["intros"]) == 3, ad["id"]
+        assert len(ad["headlines"]) == 3 and len(ad["intros"]) >= 3 and ad["destination"].startswith("https://"), ad["id"]
         for h in ad["headlines"]:
             assert len(h) <= 70, (ad["id"], h)
         for i in ad["intros"]:
@@ -46,7 +54,7 @@ def build_brief_markdown():
              "sources in `../brief.html` and `../brief-anim.html`. CTA on every ad: **Book a demo**.", ""]
     for ad in BRIEF:
         lines += [f"## {ad['num']} · {ad['name']}", "", f"**Lab:** {ad['lab']}  ", f"**Audience:** {ad['audience']}  ",
-                  f"**Targeting:** {ad['targeting']}", ""]
+                  f"**Targeting:** {ad['targeting']}  ", f"**Destination:** {ad['destination']}", ""]
         if ad.get("note"):
             lines += [f"_{ad['note']}_", ""]
         lines += ["**Assets**", ""]
@@ -62,6 +70,31 @@ def build_brief_markdown():
             lines += [f"**Intro text {n}** ({len(intro)} characters)", "", *quote(intro), ""]
         lines += ["**Claims**", ""] + [f"- {c['text']}: {c['source']} ({STATUS[c['status']]})" for c in ad["claims"]] + [""]
     (HERE / "brief" / "copy.md").write_text("\n".join(lines))
+
+
+def linkedin_ads(ad):
+    # One LinkedIn ad per single image, carousel or video; a carousel's ID is its card prefix plus "-carousel".
+    for a in ad["assets"]:
+        if "id" in a:
+            yield a["id"], a["label"]
+        elif "carousel" in a:
+            yield a["carousel"][0].rsplit("-c", 1)[0] + "-carousel", a["label"]
+        else:
+            yield a["video"], a["label"]
+
+
+def build_launch_csv():
+    with open(HERE / "brief" / "launch.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["ad", "asset", "format", "headline_id", "intro_id", "ad_name", "headline", "url", "first_wave"])
+        for ad in BRIEF:
+            for asset, label in linkedin_ads(ad):
+                for h, headline in enumerate(ad["headlines"], 1):
+                    for i in range(1, len(ad["intros"]) + 1):
+                        tag = f"{ad['id']}-{asset}-h{h}-i{i}"
+                        first = (ad["id"], asset) in FIRST_WAVE and h == 1 and i == 1
+                        w.writerow([ad["id"], asset, label, f"h{h}", f"i{i}", f"{ad['id']}/{asset}/h{h}-i{i}", headline,
+                                    f"{ad['destination']}?{UTM}&utm_content={tag}", "yes" if first else ""])
 
 
 def build_drafts_markdown():
@@ -119,5 +152,6 @@ if __name__ == "__main__":
     build_drafts_markdown()
     build_gallery()
     build_share_pages()
+    build_launch_csv()
     print(f"built gallery.html, index.html, {len(BRIEF)} share pages, brief/copy.md and copy.md "
           f"for {len(BRIEF)} campaign ads and {len(ADS)} drafts ({len(LINKS)} share links)")
