@@ -71,10 +71,18 @@ come from `launch.csv` (match the `ad_name` column).
   - "AIBFE ad engagers", from all wave 1 campaigns.
 - **Insight Tag:** confirm it's on vionlabs.com, and that "Booked a meeting" fires on the demo booking confirmation.
 
-## 6. Switch on (in this order)
+## 6. Switch on: BLOCKED (rights check, 2026-10-28)
 
-1. Clear the claims first. Ad 3 (905856444) can't run until the 278-vs-7-days claim is cleared; its copy depends on
-   it. If you launch without it, leave that campaign paused and give its $15 to ad1 and ad2 (for example ad1 $24, ad2 image $17).
-2. Switch on the campaign group, then the wave 1 campaigns: ad0 ×3, ad1, ad2 ×2, ad3 and v1, at $91 a day.
-3. Then pause the legacy campaign groups: 897508034, 897508214, 800105584, plus the 7 empty Boost_Post groups.
-4. Leave the wave 2 campaigns paused until week 4.
+The board has flagged the film and TV imagery: frames and title art from Succession, Gladiator, Troy and others.
+54 of the 61 campaign assets use it, which covers every single image and every video in AIBFE. No ad should
+serve until Marcus confirms the rights are cleared, or the creative agent supplies replacement assets under new IDs.
+
+**State at 14:15 UTC on 28 Oct:** the campaign group and most AIBFE campaigns are already **enabled** in Campaign
+Manager. That includes wave 2, plus new manual campaigns: "ad0 video 2", "ad0 carousel 2", "ad2 carousel 2",
+"v1 video 2" and "v2-v4 video retarget 2". The group's lifetime budget is now $10,950. They are held only by the
+group start date, **2 Nov 2026**. Unless the rights are cleared before then, pause the group, or move its start
+date, by 1 Nov.
+
+Once cleared:
+1. Switch on the wave 1 campaigns. Keep wave 2 paused until week 4.
+2. Pause the legacy campaign groups (897508034, 897508214, 800105584) and the seven empty Boost_Post groups.
