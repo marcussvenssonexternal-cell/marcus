@@ -49,6 +49,9 @@ Use these in LinkedIn so results can be traced:
   "awaiting Marcus's approval" means don't build it yet
 - `creatives/brief/carousel-cards.csv`: each carousel card's headline (≤ 45 characters) and tracked URL, with the same `status`
 - `creatives/brief/rights-check.md`: the board's rule for film and TV imagery, what was retired and what replaced it
+- `creatives/approve.html`, published at https://claude.ai/artifact/LK5tRig3ZafiXWbs5te7dv: Marcus approves each
+  rights swap there. His decisions are in that artifact's `decisions` collection (ArtifactData), one document per
+  change, status `approved` or `changes` with a note. Only an approved change may be swapped in LinkedIn
 - `creatives/brief/copy.json`: every ad's assets, headlines, intro texts, targeting, destination page and claim checks
 - `creatives/share/links.json`: each ad's own share link; full review page: https://claude.ai/artifact/RedxbdkboDwKTX5Cm22UtR
 - `references/twelvelabs-videos.md`: what we took from TwelveLabs' video ads
