@@ -255,7 +255,8 @@ send anything.
    carries the `social` image as an attached image, so it shows full size in the feed. A bare link
    only gets LinkedIn's small preview card, so never post one. Never post to LinkedIn yourself.
    No connected tool can attach an image: Ahrefs' social posts are text only, and Supermetrics
-   publishes to Instagram only. Marcus posts the text and image himself.
+   publishes to Instagram only. Its LinkedIn Pages source (ds_id LIP, Vionlabs page 2632318) only
+   reads the company page's stats. Marcus posts the text and image himself.
 7. **Report to Marcus** (the Routine sends it as a push notification): what went to Arash and when,
    the Doc link, the Swedish message, any approvals or requested changes, and any post that went
    live (with its link).
