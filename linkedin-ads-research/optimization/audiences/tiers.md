@@ -22,7 +22,24 @@ Plan → Audiences → Create audience → Upload a list → Company list. Name 
 
 LinkedIn takes up to 48 hours to match a list, and needs at least 300 matched members to serve.
 
-**Before uploading,** check the 9 rows the sheet marks "Verify". The LinkedIn page URL may be wrong or point to a
+**Tier 1 file, verified 29 Oct.** `aibfe-tier1-companies.csv` (also in Google Sheets: https://docs.google.com/spreadsheets/d/17fe9LiddEGPdGUmz0IhshskfyzeV90z_SqpTP-5A8BY)
+has 34 rows: the 32 Tier 1 companies, plus Xfinity next to Comcast and two DPG Media pages (NL for Videoland/RTL
+Nederland, and BE). Every LinkedIn page URL was checked by search on 29 Oct. Fixes from Viktor's sheet:
+- NBCUniversal → `/company/nbcuniversal-inc-`
+- Banijay → `/company/banijay`
+- RTL Deutschland → `/company/rtl-deutschland`
+- AMC Networks → `/company/amc-global-media` (renamed AMC Global Media)
+- MFE → `/company/mfe-mediaforeurope`
+- Versant → `/company/versant-media`
+- M6 → `/company/groupem6`
+- DPG Media → `/company/dpg-media-nl` and `/company/dpg-media-belgie`
+
+Other enrichment: email domains, stock symbols where listed, LinkedIn industry, HQ city and two-letter country code.
+The file follows LinkedIn's template: exact headers, at least one identifier per row, vanity URLs. A short list is
+allowed; it needs 300 matched members to serve (LinkedIn recommends 1,000+ companies).
+
+**Tier 2 (not yet enriched):** check the 3 rows the sheet marks "Verify". The LinkedIn page URL may be wrong or point to a
+parent company. The original Tier 1 "Verify" rows below are now resolved: the sheet marks "Verify". The LinkedIn page URL may be wrong or point to a
 parent company:
 - Tier 1: Paramount Skydance, Tubi, Versant, ITV, M6, Telefónica.
 - Tier 2: Amazon MGM Studios, Starz, Sky Italia.
