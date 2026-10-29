@@ -180,6 +180,15 @@ Reply: send_message to session_01V9gwdoCjyZ2JYMtRftvuCt with what you made (link
 blocks you.
 ```
 
+## Known traps
+
+- **Firecrawl metadata includes embedded frames.** It merges the metadata of iframes (the HubSpot
+  meeting scheduler, the Cloudflare spam check on Webflow forms) into the page's own. A
+  `robots: noindex` there is not proof that the page is noindexed. Check the page's own head, or a
+  page without iframes, before you report it. On 29 Oct 2026 this produced a false alarm.
+- **A staging-only Webflow publish** means the next production publish also pushes those staged
+  edits live. Say so in any brief that could lead to a publish.
+
 ## When something is missing
 
 If a connector, repository or tool is missing, do the rest of the run. Put the missing piece
