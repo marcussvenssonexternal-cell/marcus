@@ -16,11 +16,12 @@ The page is also built natively in the Vionlabs Webflow site as the page "An eve
 It opens with the site's standard "Navbar Primary" component; the page's head code only gives it the
 page's navy background, so the component is unchanged on every other page.
 Fonts, animations and the ticket script (live guest name, "Requested" stamp, tilt) are in that page's
-custom code. Its form submissions land in Webflow under Forms. The page script
-"LondonEveningHubSpotSubmit" also sends each one to the HubSpot form "London evening request – 16 Nov
-2026", whose follow-up email thanks the guest. The form carries `data-hs-do-not-collect="true"` so
-HubSpot's collected forms don't record it a second time. This folder is the standalone version of the
-same design.
+custom code. Its form submissions land in Webflow under Forms. The page's footer code also sends each
+one to the HubSpot form "London evening request – 16 Nov 2026", whose follow-up email thanks the guest.
+The account is in HubSpot's EU data centre, so it posts to `api-eu1.hsforms.com` and falls back to
+`api.hsforms.com`. HubSpot's collected forms still record the Webflow form as "#london-request-form" too:
+HubSpot has no way to exclude one form, so the review list includes contacts from either form. This
+folder is the standalone version of the same design.
 
 ## Files
 
