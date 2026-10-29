@@ -25,11 +25,10 @@ agents:
     owns: Weekly ideas for Arash, gaps nobody covers, competitor themes, events, mentions of Vionlabs
     brief_to: session_01DTVGWZuSxeBbWteMmYJZ7B
     routines:
-      - name: Weekly Content Radar
-        trigger_id: trig_01XdQgnte4EyPc4WAWEwEAPz
+      - name: Weekly Content Radar (own session)
+        trigger_id: trig_01XDfG9Kngpb1QUgJ8jUWdKB
         when: Mon 07:41
-        runs_in: fresh session
-        needs: [Notion, Claude Docs, marcus repo]
+        runs_in: its own session (persistent); the old fresh-session trig_01XdQgnte4EyPc4WAWEwEAPz is paused
     procedure: .claude/skills/content-radar/SKILL.md on claude/jolly-keller-2i2w2b
     outputs:
       - https://claude.ai/artifact/UKwTmC8DtVMasqkdp3Xa2f   # radar page and the team's idea board
@@ -41,11 +40,10 @@ agents:
     owns: Deep-dive series, the weekly long read for Arash on vionlabs.com/news, LinkedIn packs, case study drafts
     brief_to: session_015Kf79uanNb7hZho8qrKdQy
     routines:
-      - name: Weekly blog draft for Arash
-        trigger_id: trig_01Rbm27dH6qQpxs3vDduDt2g
+      - name: Weekly blog draft for Arash (own session)
+        trigger_id: trig_01J74uv2c64GtDXJt93WirsX
         when: Wed 07:41 (shared with Arash at 10:00)
-        runs_in: fresh session
-        needs: [Google Drive, Webflow, Claude Code Remote, marcus repo]
+        runs_in: its own session (persistent); the old fresh-session trig_01Rbm27dH6qQpxs3vDduDt2g is paused
     procedure: .claude/skills/content-bot/SKILL.md on claude/practical-fermi-gatt4t
     outputs:
       - https://claude.ai/artifact/AkLbDNMUrD4qWSkDdHkR2L   # deep dives page
@@ -71,11 +69,11 @@ agents:
     owns: AI citations and buyer prompts, site readability, answer pages, listicles and directories, the playbook backlog
     brief_to: session_01QLh2M9tHRfmsxNNumL55Aw
     routines:
-      - name: Vionlabs AI visibility weekly
-        trigger_id: trig_013GagNaAaHDTsvStTfxwKhc
+      - name: Vionlabs AI visibility weekly (own session)
+        trigger_id: trig_019MvMPwkqEWHa9vsBx817SG
         when: Mon 06:33
-        runs_in: fresh session
-        needs: [Ahrefs, Webflow, Claude Docs, marcus repo]
+        runs_in: its own session (persistent); the old fresh-session trig_013GagNaAaHDTsvStTfxwKhc is paused
+        note: this session has no Supermetrics, so Atlas supplies the Search Console numbers
     procedure: ai-visibility/AGENT.md on claude/determined-goldberg-rmb6g1
     outputs:
       - https://claude.ai/artifact/6wcCXKjTxoMy6RRQRoMY5u   # AI Visibility Playbook (Tracking log + readouts)
