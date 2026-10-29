@@ -1,0 +1,532 @@
+{
+ "max_area": 0.075,
+ "a0-L": {
+  "area": 0.5364,
+  "name": "r-shaw",
+  "ok": false
+ },
+ "a0-S": {
+  "area": 0.5906,
+  "name": "r-shaw",
+  "ok": false
+ },
+ "a0-c1": {
+  "area": 0.4021,
+  "name": "r-skyfall-2",
+  "ok": false
+ },
+ "a0-c2": {
+  "area": 0.0406,
+  "name": "r-shaw",
+  "ok": true
+ },
+ "a0-c3": {
+  "area": 0.0263,
+  "name": "r-shaw",
+  "ok": true
+ },
+ "a0-c4": {
+  "area": 0.0825,
+  "name": "r-pap",
+  "ok": false
+ },
+ "a0-c5": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a0-c5b": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a1-L": {
+  "area": 0.0238,
+  "name": "t-vacation",
+  "ok": true
+ },
+ "a1-S": {
+  "area": 0.0713,
+  "name": "t-vacation",
+  "ok": true
+ },
+ "a1b-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a1b-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a2-c1": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a2-c2": {
+  "area": 0.0407,
+  "name": "t-ticket",
+  "ok": true
+ },
+ "a2-c3": {
+  "area": 0.0785,
+  "name": "r-troy",
+  "ok": false
+ },
+ "a2-c4": {
+  "area": 0.0196,
+  "name": "t-glad",
+  "ok": true
+ },
+ "a2-c5": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a2-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a3-L": {
+  "area": 0.1215,
+  "name": "r-peaky",
+  "ok": false
+ },
+ "a3-S": {
+  "area": 0.2728,
+  "name": "r-peaky",
+  "ok": false
+ },
+ "a3b-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a3b-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "m1-L": {
+  "area": 0.025,
+  "name": "t-lala",
+  "ok": true
+ },
+ "m1-S": {
+  "area": 0.0444,
+  "name": "t-lala",
+  "ok": true
+ },
+ "m2-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "m2-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "m2-c1": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "m2-c2": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "m2-c3": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "m2b-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "m2b-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "m2-c3b": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "m3-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "m3-S": {
+  "area": 0.0225,
+  "name": "t-king",
+  "ok": true
+ },
+ "m3-c1": {
+  "area": 0.0785,
+  "name": "t-king",
+  "ok": false
+ },
+ "m3-c2": {
+  "area": 0.0785,
+  "name": "t-ticket",
+  "ok": false
+ },
+ "m3-c3": {
+  "area": 0.0785,
+  "name": "t-argo",
+  "ok": false
+ },
+ "m3-c4": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "c1-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "c1-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "c2-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "c2-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "c2b-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "c3-c1": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "c3-c2": {
+  "area": 0.0508,
+  "name": "r-troy",
+  "ok": true
+ },
+ "c3-c3": {
+  "area": 0.1585,
+  "name": "r-glad",
+  "ok": false
+ },
+ "c3-c4": {
+  "area": 0.166,
+  "name": "r-troy",
+  "ok": false
+ },
+ "c3-L": {
+  "area": 0.0379,
+  "name": "r-glad",
+  "ok": true
+ },
+ "o1-c1": {
+  "area": 0.2619,
+  "name": "r-peaky",
+  "ok": false
+ },
+ "o1-c2": {
+  "area": 0.2374,
+  "name": "r-suc",
+  "ok": false
+ },
+ "o1-c3": {
+  "area": 0.2701,
+  "name": "r-secret",
+  "ok": false
+ },
+ "o1-c4": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "o1-c5": {
+  "area": 0.2157,
+  "name": "r-peaky",
+  "ok": false
+ },
+ "o1-L": {
+  "area": 0.1013,
+  "name": "r-peaky",
+  "ok": false
+ },
+ "ad0-S": {
+  "area": 0.6664487768102575,
+  "name": "r-shaw",
+  "w": 1,
+  "h": 0.6664487768102575,
+  "t": 6.4
+ },
+ "ad0-V": {
+  "area": 0.4819853146870931,
+  "name": "r-shaw",
+  "w": 1,
+  "h": 0.4819853146870931,
+  "t": 6.4
+ },
+ "ad3-S": {
+  "area": 0.27283950617283953,
+  "name": "r-peaky",
+  "w": 0.8666666666666667,
+  "h": 0.3148148148148148,
+  "t": 0
+ },
+ "ad3-V": {
+  "area": 0.2798611111111111,
+  "name": "r-peaky",
+  "w": 0.8666666666666667,
+  "h": 0.3229166666666667,
+  "t": 0
+ },
+ "v1-S": {
+  "area": 0.32098765432098764,
+  "name": "r-ticket",
+  "w": 0.8666666666666667,
+  "h": 0.37037037037037035,
+  "t": 11.4
+ },
+ "v1-V": {
+  "area": 0.23788194444444444,
+  "name": "r-ticket",
+  "w": 0.8666666666666667,
+  "h": 0.27447916666666666,
+  "t": 11.4
+ },
+ "v1b-S": {
+  "area": 0.32098765432098764,
+  "name": "r-ticket",
+  "w": 0.8666666666666667,
+  "h": 0.37037037037037035,
+  "t": 7.2
+ },
+ "v1b-V": {
+  "area": 0.23788194444444444,
+  "name": "r-ticket",
+  "w": 0.8666666666666667,
+  "h": 0.27447916666666666,
+  "t": 7.2
+ },
+ "v2-S": {
+  "area": 0.40720734520481877,
+  "name": "r-suc",
+  "w": 0.900527106391059,
+  "h": 0.4521877712673611,
+  "t": 4.2
+ },
+ "v2-V": {
+  "area": 0.30215651778255254,
+  "name": "r-suc",
+  "w": 0.900527106391059,
+  "h": 0.33553295135498046,
+  "t": 4.2
+ },
+ "v3-S": {
+  "area": 0.4163923182441701,
+  "name": "r-troy",
+  "w": 0.8648148148148148,
+  "h": 0.48148148148148145,
+  "t": 0.4
+ },
+ "v3-V": {
+  "area": 0.2792631172839506,
+  "name": "r-troy",
+  "w": 0.8648148148148148,
+  "h": 0.3229166666666667,
+  "t": 0.4
+ },
+ "v4-S": {
+  "area": 0.3995,
+  "name": "r-shaw",
+  "t": 3.6,
+  "ok": false
+ },
+ "v4-V": {
+  "area": 0.541,
+  "name": "r-shaw",
+  "t": 3.6,
+  "ok": false
+ },
+ "ad0r-S": {
+  "area": 0,
+  "ok": true
+ },
+ "ad0r-V": {
+  "area": 0.025,
+  "name": "t-candy",
+  "t": 8.6,
+  "ok": true
+ },
+ "ad3r-S": {
+  "area": 0,
+  "ok": true
+ },
+ "ad3r-V": {
+  "area": 0,
+  "ok": true
+ },
+ "v1r-S": {
+  "area": 0.0578,
+  "name": "t-ticket",
+  "t": 12.8,
+  "ok": true
+ },
+ "v1r-V": {
+  "area": 0.0697,
+  "name": "t-ticket",
+  "t": 9.4,
+  "ok": true
+ },
+ "v1br-S": {
+  "area": 0.0578,
+  "name": "t-ticket",
+  "t": 8.6,
+  "ok": true
+ },
+ "v1br-V": {
+  "area": 0.0697,
+  "name": "t-ticket",
+  "t": 5.2,
+  "ok": true
+ },
+ "v2r-S": {
+  "area": 0.0378,
+  "name": "t-reacher",
+  "t": 14.2,
+  "ok": true
+ },
+ "v2r-V": {
+  "area": 0.0436,
+  "name": "t-lala",
+  "t": 14.2,
+  "ok": true
+ },
+ "v3r-S": {
+  "area": 0.0499,
+  "name": "r-wick-2",
+  "t": 7.4,
+  "ok": true
+ },
+ "v3r-V": {
+  "area": 0.0714,
+  "name": "r-brave",
+  "t": 7.4,
+  "ok": true
+ },
+ "v4r-S": {
+  "area": 0.0497,
+  "name": "t-troy",
+  "t": 10.4,
+  "ok": true
+ },
+ "v4r-V": {
+  "area": 0.0701,
+  "name": "t-american",
+  "t": 12,
+  "ok": true
+ },
+ "a0r-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a0r-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a0-c1r": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a0-c4r": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a2-c3r": {
+  "area": 0.0412,
+  "name": "r-troy",
+  "ok": true
+ },
+ "a3r-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "a3r-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "m3-c1r": {
+  "area": 0.0439,
+  "name": "t-king",
+  "ok": true
+ },
+ "m3-c2r": {
+  "area": 0.0439,
+  "name": "t-ticket",
+  "ok": true
+ },
+ "m3-c3r": {
+  "area": 0.0439,
+  "name": "t-argo",
+  "ok": true
+ },
+ "c3-c3r": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "c3-c4r": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "o1-c1r": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "o1-c2r": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "o1-c3r": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "o1-c5r": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "o1r-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ }
+}
