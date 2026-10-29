@@ -4,13 +4,13 @@ Source: Viktor's "Vionlabs GTM – Big-deal focus accounts" sheet, refined 29 Oc
 (https://docs.google.com/spreadsheets/d/1lOaxMtlWE8bt1bFtQ3r2RL_-7IcvQ_MK5Rruv-1r3QU, tab "Focus accounts"). His rule:
 **70% of the budget goes to Tier 1.**
 
+**29 Oct: Marcus dropped APAC and LATAM.** The lists below are North America and EMEA only.
+
 | Market | Tier 1 | Tier 2 | Total |
 | --- | --- | --- | --- |
 | NA | 14 | 10 | 24 |
 | EMEA | 18 | 12 | 30 |
-| APAC | 8 | 7 | 15 |
-| LATAM | 5 | 0 | 5 |
-| **Total** | **45** | **29** | **74** |
+| **Total** | **32** | **22** | **54** |
 
 ## Upload files
 
@@ -22,32 +22,28 @@ Plan → Audiences → Create audience → Upload a list → Company list. Name 
 
 LinkedIn takes up to 48 hours to match a list, and needs at least 300 matched members to serve.
 
-**Before uploading,** check the 22 rows the sheet marks "Verify". The LinkedIn page URL may be wrong or point to a
+**Before uploading,** check the 9 rows the sheet marks "Verify". The LinkedIn page URL may be wrong or point to a
 parent company:
-- Tier 1: Paramount Skydance, Tubi, Versant, ITV, M6, Telefónica, JioStar, Zee, U-NEXT, Hulu Japan, Nine, Globo,
-  Record.
-- Tier 2: Amazon MGM Studios, Starz, Sky Italia, SonyLIV, TVer, ABEMA, Wavve, Astro, TVB.
+- Tier 1: Paramount Skydance, Tubi, Versant, ITV, M6, Telefónica.
+- Tier 2: Amazon MGM Studios, Starz, Sky Italia.
 
-## Proposed campaign changes (need Marcus's approval)
+## Agreed changes (Marcus, 29 Oct)
 
-1. **Swap the company list.** In every cold AIBFE campaign, replace `Vionlabs – Cold v2 [11.11.25]` (about 3M
-   members, Nov 2025) with the Tier 1 list. Job function and seniority stay as set in Campaign Manager.
-2. **Add Tier 2 campaigns** that carry 30% of the cold budget: one brand campaign (`ad0` image) and one audience
-   campaign (`ad1`–`ad3` image ads together), both on the Tier 2 list. Duplicating every campaign per tier would
-   mean many campaigns at LinkedIn's $10-a-day minimum, too thin to learn from.
-3. **Split the budget** so the Tier 1 campaigns carry 70% of the cold daily budget and the Tier 2 campaigns 30%,
-   within the current total.
-4. **Retargeting** (m, c, o1, v2–v4) stays on website visitors and ad engagers. These people already came from the
-   lists, so they sit outside the 70/30. Say if Viktor wants them restricted to the lists too.
-5. **Widen the countries to match the list.** Today's 17 (US plus Western Europe) miss most of APAC and LATAM.
-   - Add: Canada, Mexico, Brazil, Argentina, India, Japan, South Korea, Hong Kong, Australia, Malaysia, UAE, Saudi
-     Arabia, Qatar and Luxembourg.
-   - Keep the existing 17.
-   - The company list does the real filtering, so a wider country list doesn't widen the audience beyond these
-     companies.
-6. **Language.** Campaigns target English-interface members only, which drops people whose LinkedIn runs in
-   Japanese, Korean or Portuguese. Either remove the language filter for APAC and LATAM, or accept the loss: the ads
-   are in English.
+1. **Swap the company list.** Every cold AIBFE campaign switches from `Vionlabs – Cold v2 [11.11.25]` to the Tier 1
+   list once it has matched.
+2. **One Tier 2 campaign,** `AIBFE | ad1-ad2 | Tier 2 | image`, with `ad1/a1-L/h1-i1` and `ad2/a2-L/h1-i1` (assets
+   not affected by the rights rework), at $20 a day. It was created paused through the API on 29 Oct, pending
+   Supermetrics approval. The Tier 2 list and its job functions get added in Campaign Manager:
+   - functions: Engineering, Information Technology, Research, Product Management, Operations, Media and
+     Communication;
+   - seniority: Manager+.
+3. **70/30 budget.** Cold AIBFE image campaigns run $67 a day today (ad0 $17, ad1 $20, ad2 $14, ad3 $16). With
+   Tier 2 at $20, the split is $67 / $20 = 77/23. To land on 70/30 within the same total ($87), Tier 1 goes to $61
+   (ad0 $15, ad1 $18, ad2 $14, ad3 $14) and Tier 2 to $26. This is applied when Tier 2 goes live.
+4. **Retargeting:** no change (Marcus: "no need to do").
+5. **Countries:** add Canada, Luxembourg, UAE, Saudi Arabia and Qatar (Bell Media, RTL Group, MBC, OSN, beIN) to
+   the existing 17. Applied together with the list swap.
+6. **Language:** English stays. All remaining markets are NA and EMEA.
 
 ## Watch-outs
 
