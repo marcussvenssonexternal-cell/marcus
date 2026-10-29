@@ -1,6 +1,6 @@
 # An evening in the City: request-a-place page
 
-Landing page for the Embrace × Codemill × Vionlabs reception on Monday 16 November 2026, 18:30 – 22:00, at
+Landing page for the Embrace × Codemill × Vionlabs reception on Monday 16 November 2026, 17:30 – 20:00, at
 Vinoteca di Sartoria, 21 Bloomberg Arcade, London. Guests request a place through the form, the
 request goes to HubSpot, and the hosts confirm each place by email.
 
