@@ -124,6 +124,7 @@
   footer a { color: var(--accent); }
   .small a { color: var(--accent); }
   .note { font-size: 14px; border-left: 3px solid var(--accent); padding-left: 12px; }
+  .retired code { font-size: 12px; }
 
   .copy { font: 500 12px var(--body); color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; cursor: pointer; text-transform: none; letter-spacing: 0; white-space: nowrap; }
   .copy:hover { color: var(--ink); border-color: var(--muted); }
@@ -139,7 +140,7 @@
   .claims li { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px; align-items: start; font-size: 13.5px; }
   .claims .src { color: var(--muted); }
   .st { font-family: var(--mono); font-size: 11px; white-space: nowrap; border-radius: 5px; padding: 2px 7px; margin-top: 1px; }
-  .st.s-site, .st.s-brief { color: var(--ok); background: var(--ok-soft); }
+  .st.s-site, .st.s-brief, .st.s-board { color: var(--ok); background: var(--ok-soft); }
   .st.s-verify { color: var(--warn); background: var(--warn-soft); }
   .st.s-illustrative, .st.s-example { color: var(--ex); background: var(--ex-soft); }
 
@@ -183,7 +184,7 @@
     <section>
       <h2>Before any of these run</h2>
       <ul>
-        <li><b>On hold: film and TV imagery.</b> The board flagged the film frames and title art (Succession, Gladiator, Troy and others) for rights confirmation before any paid delivery. 54 of 61 assets are affected, so every campaign stays paused. Picking smaller films lowers the risk of a complaint but doesn’t clear the rights: recognisable actors also need consent under Swedish law. The proposal is licensed stock and Creative Commons open films; see <code>brief/rights-check.md</code>.</li>
+        <li><b>Film and TV imagery: the board’s rule.</b> Famous titles may appear as small posters among many, never as one big frame or close-up. Every asset that broke the rule has a rights-safe version (an “r” in its ID) with our own footage on the big screens; the originals are retired and listed under each ad. <code>rights-audit.cjs</code> checks every image and every video frame: no single title covers more than 7.5% of the frame, the size of the thumbnails in Video 4’s rushing wall. Small posters still show real titles and actors, so this lowers the risk rather than clearing the rights; see <code>brief/rights-check.md</code>.</li>
         <li><b>Customer results</b> (83%, 75%, 2x, 15%, 80%, and 278 days → 7 days for 65,000 episodes): confirm public use and how to credit them.</li>
         <li><b>90% library coverage</b> (M2): no source found. Define what it measures.</li>
         <li><b>97% vs 92%</b> retention with scene-matched breaks: left out until there’s a source.</li>
@@ -211,12 +212,12 @@
 </div>
 
 <script>
-  const BRIEF = [{"id": "v2", "num": "Video 2", "group": "videos", "name": "Ad breaks that respect the story", "lab": "Operations Lab · ad breaks", "audience": "Ad ops, monetisation and media ops teams at AVOD, FAST and broadcast services whose breaks are set by a timer or by hand.", "targeting": "Job titles: Head of Ad Operations, Monetization Manager, Head of AVOD/FAST, Ad Sales Operations Manager, Head of Media Operations · Functions: Operations, Sales, Business Development · Seniority: Manager and up · Retarget: engaged with Ad 3 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications", "note": "Modelled on the TwelveLabs ad-break reference: a jarring ad cuts into the story so the viewer feels the problem. Our angle: breaks land in the quiet valleys of the story arc with mood, IAB and brand-safety context, then the camera pulls back over every title with its breaks placed.", "assets": [{"video": "v2-S", "label": "Video · 21 s · 1:1"}, {"video": "v2-V", "label": "Video · 21 s · 9:16"}], "headlines": ["Ad breaks that respect the story.", "Nothing kills a climax like a badly timed ad break.", "Place every ad break between moments, not in them."], "intros": ["Nothing kills a climax like an ad landing in the middle of it.\n\nFixed timers don’t know where the story is. Vionlabs does: our AI follows the scenes and the emotional arc of every episode, so breaks land between moments, not inside them.\n\nEvery break also carries context:\n🎭 the mood around it\n🏷️ an IAB category\n✅ a brand-safety flag\n\nBetter for viewers. Better for advertisers.\n\nVionlabs. AI built for entertainment.", "Your viewers feel a badly placed ad break before they notice the ad.\n\nVionlabs places breaks at natural scene breaks, timed to the story’s emotional arc, and tags each one with mood and IAB context for better ad matching. Customers have seen 80% fewer manual tasks in ad-break creation.\n\nVionlabs. AI built for entertainment.", "Ad breaks every ten minutes, wherever the story happens to be? That interrupts the moments viewers came for.\n\nVionlabs reads every scene and story beat, then places breaks where the story pauses, ready for your player and ad server.\n\nVionlabs. AI built for entertainment."], "claims": [{"text": "Breaks at natural scene breaks, with mood and IAB context", "source": "Ad prompts, Ad 3 and O1", "status": "brief"}, {"text": "80% fewer manual tasks in ad-break creation", "source": "Sales-deck success story. Checklist: confirm public use and how to credit", "status": "verify"}, {"text": "S1 E4 label, story arc, chapters, break times and the “MEGA SALE” ad", "source": "Illustrative; the interrupting ad is a made-up placeholder with no brand", "status": "example"}, {"text": "Title art and frames from vionlabs.com (a Succession frame)", "source": "Same rights check as the rest of the campaign: confirm paid use", "status": "verify"}], "destination": "https://www.vionlabs.com/operations-lab"}];
+  const BRIEF = [{"id": "v2", "num": "Video 2", "group": "videos", "name": "Ad breaks that respect the story", "lab": "Operations Lab · ad breaks", "audience": "Ad ops, monetisation and media ops teams at AVOD, FAST and broadcast services whose breaks are set by a timer or by hand.", "targeting": "Job titles: Head of Ad Operations, Monetization Manager, Head of AVOD/FAST, Ad Sales Operations Manager, Head of Media Operations · Functions: Operations, Sales, Business Development · Seniority: Manager and up · Retarget: engaged with Ad 3 · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Telecommunications", "note": "Modelled on the TwelveLabs ad-break reference: a jarring ad cuts into the story so the viewer feels the problem. Our angle: breaks land in the quiet valleys of the story arc with mood, IAB and brand-safety context, then the camera pulls back over every title with its breaks placed.", "assets": [{"video": "v2r-S", "label": "Video · 21 s · 1:1 · rights-safe"}, {"video": "v2-S", "label": "Video · 21 s · 1:1", "retired": "Big film frame: retired under the board's rights rule (Oct 2026)", "replaced_by": "v2r-S"}, {"video": "v2r-V", "label": "Video · 21 s · 9:16 · rights-safe"}, {"video": "v2-V", "label": "Video · 21 s · 9:16", "retired": "Big film frame: retired under the board's rights rule (Oct 2026)", "replaced_by": "v2r-V"}], "headlines": ["Ad breaks that respect the story.", "Nothing kills a climax like a badly timed ad break.", "Place every ad break between moments, not in them."], "intros": ["Nothing kills a climax like an ad landing in the middle of it.\n\nFixed timers don’t know where the story is. Vionlabs does: our AI follows the scenes and the emotional arc of every episode, so breaks land between moments, not inside them.\n\nEvery break also carries context:\n🎭 the mood around it\n🏷️ an IAB category\n✅ a brand-safety flag\n\nBetter for viewers. Better for advertisers.\n\nVionlabs. AI built for entertainment.", "Your viewers feel a badly placed ad break before they notice the ad.\n\nVionlabs places breaks at natural scene breaks, timed to the story’s emotional arc, and tags each one with mood and IAB context for better ad matching. Customers have seen 80% fewer manual tasks in ad-break creation.\n\nVionlabs. AI built for entertainment.", "Ad breaks every ten minutes, wherever the story happens to be? That interrupts the moments viewers came for.\n\nVionlabs reads every scene and story beat, then places breaks where the story pauses, ready for your player and ad server.\n\nVionlabs. AI built for entertainment."], "claims": [{"text": "Breaks at natural scene breaks, with mood and IAB context", "source": "Ad prompts, Ad 3 and O1", "status": "brief"}, {"text": "80% fewer manual tasks in ad-break creation", "source": "Sales-deck success story. Checklist: confirm public use and how to credit", "status": "verify"}, {"text": "S1 E4 label, story arc, chapters, break times and the “MEGA SALE” ad", "source": "Illustrative; the interrupting ad is a made-up placeholder with no brand", "status": "example"}, {"text": "Title art and frames from vionlabs.com (a Succession frame)", "source": "Same rights check as the rest of the campaign: confirm paid use", "status": "verify"}, {"text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many", "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired", "status": "board"}], "destination": "https://www.vionlabs.com/operations-lab"}];
   const ADS = [];
   const ONLY = "v2"; // set on the one-ad share pages that build_gallery.py writes to share/
   const LINKS = {}; // each campaign ad's own share link (share/links.json)
   const HOME = "https://claude.ai/artifact/RedxbdkboDwKTX5Cm22UtR";
-  const STATUS = { site: "On the website", verify: "Check before launch", illustrative: "Example values", brief: "From the brief", example: "Example values" };
+  const STATUS = { site: "On the website", verify: "Check before launch", illustrative: "Example values", brief: "From the brief", example: "Example values", board: "Board decision" };
   const FOLD = 150, HEADLINE_MAX = 70, INTRO_MAX = 600;
 
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -233,8 +234,11 @@
 
   // ---------------------------------------------------------------- the brief campaign
   const size = (id) => (id.endsWith("-L") ? [1200, 627] : [1080, 1080]);
+  const assetId = (a) => a.id || a.video || a.cid || a.carousel[0].replace(/-c\d+$/, "") + "-carousel";
   function assetsHtml(ad) {
-    const singles = ad.assets.filter((a) => a.id), carousels = ad.assets.filter((a) => a.carousel), videos = ad.assets.filter((a) => a.video);
+    // retired assets (big film frames, replaced by their rights-safe "r" versions) are listed, not shown
+    const live = ad.assets.filter((a) => !a.retired), retired = ad.assets.filter((a) => a.retired);
+    const singles = live.filter((a) => a.id), carousels = live.filter((a) => a.carousel), videos = live.filter((a) => a.video);
     const fig = (a) => { const [w, h] = size(a.id); return `<figure><img src="brief/png/${a.id}.png" alt="${esc(ad.name)}, ${esc(a.label)}" loading="lazy" width="${w}" height="${h}">
       <figcaption><span>${esc(a.label)}</span><a href="brief/png/${a.id}.png" target="_blank" rel="noopener">${a.id}.png</a></figcaption></figure>`; };
     return `<div class="assets">
@@ -246,6 +250,7 @@
       ${videos.length ? `<div class="videos">${videos.map((v) => { const vert = v.video.endsWith("-V");
         return `<figure${vert ? ' class="vert"' : ""}><video src="brief/video/${v.video}.mp4" poster="brief/video/${v.video}.png" controls muted loop playsinline preload="none" width="1080" height="${vert ? 1920 : 1080}" aria-label="${esc(v.label)}"></video>
         <figcaption><span>${esc(v.label)}</span><a href="brief/video/${v.video}.mp4" target="_blank" rel="noopener">${v.video}.mp4</a></figcaption></figure>`; }).join("")}</div>` : ""}
+      ${retired.length ? `<p class="small retired">Retired (big film frames, don’t run): ${retired.map((a) => `<code>${esc(assetId(a))}</code> → <code>${esc(a.replaced_by)}</code>`).join(", ")}</p>` : ""}
     </div>`;
   }
   function adHtml(ad) {

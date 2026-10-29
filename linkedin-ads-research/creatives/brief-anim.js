@@ -5,14 +5,18 @@
 //   brief-anim.html?v=ad3-S | ad3-V   Ad 3, 8 s: the playhead scrubs an episode and markers snap in.
 //   brief-anim.html?v=v1-S … v4-V     The video series modelled on the TwelveLabs references: search by mood,
 //                                     ad breaks, shorts, thumbnail recipes (about 21 s each).
+//   ad0r, ad3r, v1r, v1br … v4r       The same videos under the board's rights rule (Oct 2026): film and TV titles
+//                                     only as small posters among many; every big screen shows our own footage
+//                                     (img/g-*, drawn by footage.js) or Vionlabs data instead. rights-audit.cjs checks it.
 (function () {
   const V = new URLSearchParams(location.search).get("v") || "ad0-S";
   const vertical = V.endsWith("-V");
   const W = 1080, H = vertical ? 1920 : 1080, PAD = 72;
   const KEY = V.split("-")[0];
-  const DUR = { ad0: 12, ad3: 8, v1: 21, v1b: 16.8, v2: 21.5, v3: 22, v4: 21.5 }[KEY];
+  const R = KEY.endsWith("r"), BASE = KEY.replace(/r$/, ""); // R: the rights-safe version of the same video
+  const DUR = { ad0: 12, ad3: 8, v1: 21, v1b: 16.8, v2: 21.5, v3: 22, v4: 21.5 }[BASE];
   // poster: the frame the review page shows before play
-  const POSTER = { ad0: 5.7, ad3: 7.2, v1: 15.9, v1b: 11.7, v2: 15.4, v3: 15.9, v4: 11.2 }[KEY];
+  const POSTER = { ad0: 5.7, ad3: 7.2, v1: 15.9, v1b: 11.7, v2: 15.4, v3: 15.9, v4: 11.2 }[BASE];
   window.VIDEO = { id: V, w: W, h: H, duration: DUR, fps: 30, poster: POSTER };
 
   const clamp = (x) => Math.max(0, Math.min(1, x));
@@ -49,7 +53,7 @@
   if (V.startsWith("ad0")) {
     const fh = vertical ? 900 : 700, arcTop = vertical ? 470 : 330, arcH = vertical ? 280 : 240, fs = vertical ? 17 : 15;
     const frame = el(`<div class="abs" style="left:0;top:0;width:${W}px;height:${fh}px;transform-origin:50% 40%">
-      ${pic("r-shaw", `position:absolute;inset:0;border-radius:0`, "50% 30%")}
+      ${R ? pic("g-dawn", `position:absolute;inset:0;border-radius:0`, "50% 55%") : pic("r-shaw", `position:absolute;inset:0;border-radius:0`, "50% 30%")}
       <div class="abs" style="inset:0;background:linear-gradient(0deg,var(--bg) 0%,rgba(11,19,28,0) 42%),linear-gradient(180deg,rgba(11,19,28,.8) 0%,rgba(11,19,28,0) 24%)"></div></div>`);
     const bar = topBar("For streamers & broadcasters");
     const { d, P } = curve(ARC, W, arcH);
@@ -64,11 +68,11 @@
     const row = (lab, text, y, col) => el(`<div class="abs row" style="left:${PAD}px;right:${PAD}px;top:${y}px;align-items:baseline;gap:0;opacity:0">
       <span style="width:${labW}px;flex:none;font-size:${vertical ? 21 : 19}px;font-weight:600;letter-spacing:.12em;color:${col}">${lab}</span>
       <span style="font-family:'Inter Display','Inter';font-weight:600;letter-spacing:-0.02em;font-size:${rowFs}px;line-height:1.15">${text}</span></div>`);
-    const generic = row("GENERIC AI", '<span style="color:var(--muted)">two men, wall, sitting.</span>', rowTop, "var(--muted)");
+    const generic = row("GENERIC AI", `<span style="color:var(--muted)">${R ? "person, hill, sky." : "two men, wall, sitting."}</span>`, rowTop, "var(--muted)");
     const rule = el(`<div class="abs" style="left:${PAD}px;right:${PAD}px;top:${rowTop + rowFs * 1.6}px;height:1px;background:var(--panel-edge);opacity:0"></div>`);
     const ours = row("VIONLABS", 'the moment <span style="color:var(--blue-hi)">hope comes back.</span>', rowTop + rowFs * 2.1, "var(--sky)");
     const tagRow = el(`<div class="abs row" style="left:${PAD}px;top:${vertical ? rowTop + rowFs * 4 : arcTop + 260}px;gap:12px;flex-wrap:wrap;width:${W - 2 * PAD}px">
-      ${["Mood: Hopeful", "Scene: Prison yard, day", "Emotion: Anticipation"].map((t) => `<span class="tag mood" style="font-size:${vertical ? 26 : 21}px;padding:9px 18px;opacity:0;transform-origin:left center">${t}</span>`).join("")}</div>`);
+      ${(R ? ["Mood: Hopeful", "Scene: Hilltop, dawn", "Emotion: Relief"] : ["Mood: Hopeful", "Scene: Prison yard, day", "Emotion: Anticipation"]).map((t) => `<span class="tag mood" style="font-size:${vertical ? 26 : 21}px;padding:9px 18px;opacity:0;transform-origin:left center">${t}</span>`).join("")}</div>`);
     const tags = [...tagRow.children];
     // vertical has room for the brief's Ad 0 headline under the frame
     const claim = vertical ? el(`<h1 class="abs" style="left:${PAD}px;top:1370px;width:${W - 2 * PAD}px;font-size:96px;opacity:0">Generic AI sees pixels. <span class="hl">Ours understands stories.</span></h1>`) : null;
@@ -122,7 +126,7 @@
     const tlTop = pTop + ph + (vertical ? 90 : 64), tlH = vertical ? 56 : 44;
     topBar("For content ops teams");
     const head = el(`<h1 class="abs" style="left:${PAD}px;top:${vertical ? 270 : 160}px;width:${pw}px;font-size:${vertical ? 96 : 80}px;opacity:0">Every second of your library, <span class="hl">time-coded.</span></h1>`);
-    el(pic("r-peaky", `position:absolute;left:${PAD}px;top:${pTop}px;width:${pw}px;height:${ph}px`, "50% 35%", `
+    el(pic(R ? "g-city" : "r-peaky", `position:absolute;left:${PAD}px;top:${pTop}px;width:${pw}px;height:${ph}px`, R ? "42% 72%" : "50% 35%", `
       <div class="abs tc" style="left:16px;top:14px;font-size:${fs - 2}px;letter-spacing:.06em;color:rgba(255,255,255,.9);text-shadow:0 1px 6px #000">S1 E4 · 43:00</div>
       <div class="abs" style="left:0;right:0;bottom:0;height:70px;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent)"></div>
       <div class="abs row" style="left:16px;right:16px;bottom:14px;align-items:center;gap:12px"><span style="color:#fff;font-size:${fs + 2}px">▶</span>
@@ -227,7 +231,9 @@
       <div class="abs" style="left:${w * 0.07}px;right:${w * 0.07}px;bottom:${w * 0.08}px;font-size:${w * 0.055}px;line-height:1.35;color:#fff"><b>@yourchannel</b><br>${caption}</div>`)}</div>`;
 
   // blurred screens drifting behind the main window, for depth
+  const OWN = ["g-dawn", "g-city", "g-road", "g-sea", "g-epic", "g-forest", "g-space", "g-aurora"];
   function floatHtml(names, seed) {
+    if (R) names = names.map((_, i) => OWN[(i + seed) % OWN.length]);
     const r = rand(seed);
     return names.map((n) => {
       const w = (vertical ? 320 : 270) + r() * 200, h = w * 9 / 16, x = r() * (W + 160) - 80 - w / 2, y = (vertical ? 160 : 90) + r() * (H - (vertical ? 320 : 180)) - h / 2;
@@ -304,10 +310,24 @@
     // D: an empty player, a row of results, a click, and the title plays with its moods
     const dTop = T1 + sH + (vertical ? 50 : 30), dH = vertical ? 527 : 400, rw = vertical ? 300 : 230, rTop = dTop + dH + (vertical ? 190 : 140);
     const RROW = ["ticket", "vacation", "any", "zoo", "women", "american", "king", "shaolin", "gethard"];
+    // rights-safe: the pick opens as a match card (a small poster and why it matched), not a big frame
+    function bestMatch() {
+      const pw = vertical ? 360 : 340, fsM = vertical ? 28 : 24, aw = CW - pw - 3 * 34 - 4;
+      const { d, P } = curve([[0, 0.55], [0.22, 0.3], [0.45, 0.62], [0.7, 0.85], [1, 0.08]], aw, 76);
+      return `<div class="abs big" style="left:${PAD}px;top:${dTop}px;width:${CW}px;height:${dH}px;opacity:0;border-radius:18px;background:#0f1824;box-shadow:${glowRing};display:flex;align-items:center;gap:34px;padding:0 34px">
+        ${pic("t-ticket", `position:relative;flex:none;width:${pw}px;height:${pw * 9 / 16}px;border-radius:12px`)}
+        <div class="col" style="gap:${fsM * 0.6}px;min-width:0"><span class="tc" style="font-size:${fsM - 6}px;letter-spacing:.12em;color:var(--blue-hi)">BEST MATCH</span>
+          <span style="font-family:'Inter Display','Inter';font-weight:700;font-size:${fsM + 13}px;letter-spacing:-0.02em;line-height:1.05">Ticket to Paradise</span>
+          <div class="row" style="gap:10px;flex-wrap:wrap">${tagsHtml(["Feel-good", "Romantic"], "mood", fsM - 3)}</div>
+          <svg width="${aw}" height="${76 + 34}" style="overflow:visible;margin-top:${fsM * 0.4}px"><text x="0" y="14" font-family="DejaVu Sans Mono" font-size="${fsM - 8}" letter-spacing="2" fill="#7d889b">STORY ARC</text>
+            <g transform="translate(0,30)"><path d="${d}" fill="none" stroke="#e07a6d" stroke-width="9" opacity=".4" style="filter:blur(5px)"/><path d="${d}" fill="none" stroke="#f0907f" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="${P[4][0]}" cy="${P[4][1]}" r="9" fill="#3ddc97" style="filter:drop-shadow(0 0 8px #3ddc97)"/>
+            <text x="${P[4][0] - 18}" y="${P[4][1] + 7}" text-anchor="end" font-family="Inter" font-weight="700" font-size="${fsM - 4}" letter-spacing="1.2" fill="#3ddc97">HAPPY ENDING ✓</text></g></svg></div></div>`;
+    }
     const D = layer(`<div class="abs" style="left:${PAD}px;top:${dTop}px;width:${CW}px;height:${dH}px;border-radius:18px;background:#141e2b;border:1.5px solid var(--panel-edge)"></div>
-      <div class="abs big" style="left:${PAD}px;top:${dTop}px;width:${CW}px;opacity:0">${pic("r-ticket", `position:relative;width:${CW}px;height:${dH}px;border-radius:18px`, "50% 35%")}
+      ${R ? bestMatch() : `<div class="abs big" style="left:${PAD}px;top:${dTop}px;width:${CW}px;opacity:0">${pic("r-ticket", `position:relative;width:${CW}px;height:${dH}px;border-radius:18px`, "50% 35%")}
         <div class="row" style="align-items:center;gap:14px;margin-top:18px;flex-wrap:wrap"><span style="font-family:'Inter Display','Inter';font-weight:700;font-size:${vertical ? 40 : 34}px;letter-spacing:-0.02em">Ticket to Paradise</span>
-        ${tagsHtml(["Feel-good", "Romantic", "Happy ending"], "mood", vertical ? 23 : 20)}</div></div>
+        ${tagsHtml(["Feel-good", "Romantic", "Happy ending"], "mood", vertical ? 23 : 20)}</div></div>`}
       <div class="abs row rrow" style="left:${PAD}px;top:${rTop}px;gap:16px">${RROW.map((n) => pic(`t-${n}`, `position:relative;flex:none;width:${rw}px;height:${rw * 9 / 16}px;border-radius:14px`)).join("")}</div>`);
     const big = D.querySelector(".big"), rrow = D.querySelector(".rrow");
     // E: the camera pulls back over a canvas of searches, each with its match
@@ -315,8 +335,17 @@
       ["tense true stories", "t-argo", ["Tense"]], ["bittersweet endings", "t-forrest", ["Bittersweet"]], ["cozy family movies", "t-zoo", ["Heartwarming"]], ["feel-good romcoms", "t-any", ["Romantic"]],
       ["prison escape stories", "t-pap", ["Tense"]], ["survival against the odds", "t-rescue", ["Gripping"]], ["spy thrillers", "t-spy", ["Suspense"]], ["road trip comedies", "t-fanboys", ["Funny"]],
       ["Vikings and revenge", "t-north", ["Intense"]], ["kung fu comedies", "t-shaolin", ["Funny"]], ["bittersweet romance", "t-lala", ["Bittersweet"]], ["relentless action", "t-wick-2", ["Intense"]]];
-    const cw = 320, chh = 54 + 12 + cw * 9 / 16 + 10 + 30;
-    const E = canvas(QS.map(([q, img, mood]) => `<div class="search" style="height:54px;padding:0 16px;gap:10px;border-radius:14px;box-shadow:0 0 0 2px rgba(61,155,255,.45),0 10px 30px rgba(0,0,0,.4)"><span style="color:var(--blue);font-size:22px">⌕</span><span class="q" style="font-size:19px">${q}</span></div>
+    // rights-safe: each search shows two small posters, so no title is ever big, even fully zoomed in
+    const QR = [["feel-good movie with a happy ending", ["ticket", "any"], ["Feel-good", "Happy ending"]], ["underdog stories", ["king", "friday"], ["Uplifting"]],
+      ["epic sword fights", ["glad", "troy"], ["Epic"]], ["tense true stories", ["argo", "kelly"], ["Tense"]], ["bittersweet endings", ["forrest", "lala"], ["Bittersweet"]],
+      ["romcoms with a twist", ["secret", "women"], ["Romantic"]], ["prison escape stories", ["pap", "shaw"], ["Tense"]], ["survival against the odds", ["rescue", "ind"], ["Gripping"]],
+      ["spy thrillers", ["spy", "skyfall"], ["Suspense"]], ["road trip comedies", ["fanboys", "vacation"], ["Funny"]], ["Vikings and revenge", ["north", "brave"], ["Intense"]],
+      ["over-the-top comedies", ["shaolin", "gethard"], ["Funny"]], ["relentless action", ["wick-2", "fast"], ["Intense"]], ["stunts and car chases", ["60", "fall"], ["Thrilling"]],
+      ["dark superhero stories", ["darkknight", "spider"], ["Dark"]]];
+    const cw = 320, tw2 = (cw - 10) / 2, chh = 54 + 12 + (R ? tw2 : cw) * 9 / 16 + 10 + 30;
+    const E = R ? canvas(QR.map(([q, imgs, mood]) => `<div class="search" style="height:54px;padding:0 16px;gap:10px;border-radius:14px;box-shadow:0 0 0 2px rgba(61,155,255,.45),0 10px 30px rgba(0,0,0,.4)"><span style="color:var(--blue);font-size:22px">⌕</span><span class="q" style="font-size:19px">${q}</span></div>
+      <div class="row" style="gap:10px;margin-top:12px">${imgs.map((n) => pic(`t-${n}`, `position:relative;width:${tw2}px;height:${tw2 * 9 / 16}px;border-radius:10px`)).join("")}</div><div class="row" style="gap:8px;margin-top:10px">${tagsHtml(mood, "mood", 16)}</div>`),
+      { cols: vertical ? 3 : 5, rows: vertical ? 5 : 3, dx: 370, dy: chh + 50, cw, ch: chh }) : canvas(QS.map(([q, img, mood]) => `<div class="search" style="height:54px;padding:0 16px;gap:10px;border-radius:14px;box-shadow:0 0 0 2px rgba(61,155,255,.45),0 10px 30px rgba(0,0,0,.4)"><span style="color:var(--blue);font-size:22px">⌕</span><span class="q" style="font-size:19px">${q}</span></div>
       ${pic(img, `position:relative;width:${cw}px;height:${cw * 9 / 16}px;border-radius:14px;margin-top:12px`, "50% 40%")}<div class="row" style="gap:8px;margin-top:10px">${tagsHtml(mood, "mood", 16)}</div>`),
       { cols: vertical ? 3 : 5, rows: vertical ? 5 : 3, dx: 370, dy: chh + 50, cw, ch: chh });
     const end = endCard('Search your library <span style="color:var(--blue-hi)">by mood</span>, with');
@@ -358,7 +387,7 @@
     // A: the episode builds to its climax, with other episodes floating behind
     const T2 = vertical ? 380 : TOP, ph = vertical ? 620 : 470, aTop = T2 + ph + (vertical ? 120 : 60), aH = vertical ? 300 : 200;
     const { d: dA, P: PA } = curve(ARC2, CW, aH);
-    const A = layer(floatHtml(["r-peaky", "r-reacher", "r-secret", "r-skyfall", "r-wick-2", "r-spy", "r-argo", "r-lord"], 11) + pic("r-suc", `position:absolute;left:${PAD}px;top:${T2}px;width:${CW}px;height:${ph}px;box-shadow:0 30px 80px rgba(0,0,0,.6)`, "50% 40%", `
+    const A = layer(floatHtml(["r-peaky", "r-reacher", "r-secret", "r-skyfall", "r-wick-2", "r-spy", "r-argo", "r-lord"], 11) + pic(R ? "g-city" : "r-suc", `position:absolute;left:${PAD}px;top:${T2}px;width:${CW}px;height:${ph}px;box-shadow:0 30px 80px rgba(0,0,0,.6)`, R ? "42% 72%" : "50% 40%", `
       <div class="abs tc" style="left:18px;top:16px;font-size:16px;letter-spacing:.06em;color:rgba(255,255,255,.9);text-shadow:0 1px 6px #000">S1 E4 · 43:00</div>
       <div class="abs" style="left:0;right:0;bottom:0;height:80px;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent)"></div>
       <div class="abs row" style="left:18px;right:18px;bottom:16px;align-items:center;gap:12px"><span style="color:#fff;font-size:20px">▶</span>
@@ -406,12 +435,18 @@
     // E: pull back over the whole catalogue, every episode with its arc and breaks
     const EPS = [["t-suc", "Succession"], ["t-peaky", "Peaky Blinders"], ["t-reacher", "Reacher"], ["t-skyfall", "Skyfall"], ["t-wick-2", "John Wick"], ["t-spy", "Spy Game"], ["t-argo", "Argo"],
       ["t-glad", "Gladiator"], ["t-lala", "La La Land"], ["t-ticket", "Ticket to Paradise"], ["t-king", "King Richard"], ["t-upgrade", "Upgrade"], ["t-candy", "Candyman"], ["t-lord", "Lord of War"], ["t-secret", "The Secret"]];
-    const ecw = 320, ech = ecw * 9 / 16 + 12 + 56 + 6 + 10 + 12 + 24;
+    // rights-safe: the centre card is the episode we just watched (our own footage); every other title is a small thumbnail
+    if (R) EPS[0] = ["g-city", "S1 E4"];
+    const ecw = 320, eth = 150, ech = R ? eth * 9 / 16 + 12 + 56 + 6 + 10 : ecw * 9 / 16 + 12 + 56 + 6 + 10 + 12 + 24;
     const epCard = ([img, title], k) => {
       const r = rand(101 + k * 7), pts = [[0, 0.55 + r() * 0.2]];
       for (let i = 1; i <= 6; i++) pts.push([Math.min(1, i / 6 + (i < 6 ? (r() - 0.5) * 0.06 : 0)), i % 2 ? 0.12 + r() * 0.25 : 0.68 + r() * 0.25]);
       const { d, P } = curve(pts, ecw, 56);
-      return `${pic(img, `position:relative;width:${ecw}px;height:${ecw * 9 / 16}px;border-radius:12px`, "50% 40%")}
+      const head = R ? `<div class="row" style="align-items:center;gap:14px">${pic(img, `position:relative;flex:none;width:${eth}px;height:${eth * 9 / 16}px;border-radius:10px`, "42% 60%")}
+          <div class="col" style="gap:6px;min-width:0"><span style="font-size:19px;font-weight:600;line-height:1.15">${title}</span><span class="tc" style="color:#f0907f;font-size:13px">2 BREAKS</span></div></div>` : "";
+      return R ? `${head}
+        <svg width="${ecw}" height="56" style="display:block;margin-top:12px;overflow:visible"><path d="${d}" fill="none" stroke="#f0907f" stroke-width="2.5"/>${[2, 4].map((i) => `<line x1="${P[i][0]}" x2="${P[i][0]}" y1="${P[i][1]}" y2="70" stroke="#e07a6d" stroke-width="3"/>`).join("")}</svg>
+        <div style="position:relative;height:10px;border-radius:5px;background:#1a2433;margin-top:6px">${[2, 4].map((i) => `<span class="abs" style="left:${P[i][0] - 3}px;top:-5px;width:6px;height:20px;border-radius:3px;background:#e07a6d;box-shadow:0 0 10px #e07a6d"></span>`).join("")}</div>` : `${pic(img, `position:relative;width:${ecw}px;height:${ecw * 9 / 16}px;border-radius:12px`, "50% 40%")}
         <svg width="${ecw}" height="56" style="display:block;margin-top:12px;overflow:visible"><path d="${d}" fill="none" stroke="#f0907f" stroke-width="2.5"/>${[2, 4].map((i) => `<line x1="${P[i][0]}" x2="${P[i][0]}" y1="${P[i][1]}" y2="70" stroke="#e07a6d" stroke-width="3"/>`).join("")}</svg>
         <div style="position:relative;height:10px;border-radius:5px;background:#1a2433;margin-top:6px">${[2, 4].map((i) => `<span class="abs" style="left:${P[i][0] - 3}px;top:-5px;width:6px;height:20px;border-radius:3px;background:#e07a6d;box-shadow:0 0 10px #e07a6d"></span>`).join("")}</div>
         <div class="row" style="justify-content:space-between;align-items:center;margin-top:12px"><span style="font-size:18px;font-weight:600">${title}</span><span class="tc" style="color:#f0907f;font-size:13px">2 BREAKS</span></div>`;
@@ -458,11 +493,15 @@
     const cursor = makeCursor(), cursor2 = makeCursor();
     const FR = [["troy", "Troy", "01:42:10", "Epic", "#3360d0"], ["glad", "Gladiator", "02:11:36", "Triumphant", "#e07a6d"], ["kingdom", "Kingdom of Heaven", "01:58:04", "Tense", "#c98a1b"],
       ["samurai", "The Last Samurai", "02:04:51", "Intense", "#7b5cd6"], ["north", "The Northman", "01:47:22", "Intense", "#7b5cd6"], ["brave", "Braveheart", "02:21:05", "Epic", "#3360d0"]];
+    // rights-safe: the archive and the moments are our own footage, named by what happens (the clicked one is the epic charge)
+    if (R) FR.splice(0, 6, ["dawn", "Sunrise on the ridge", "01:42:10", "Triumphant", "#e07a6d"], ["epic", "The charge", "02:11:36", "Epic", "#3360d0"], ["city", "The stakeout", "01:58:04", "Tense", "#c98a1b"],
+      ["forest", "Into the woods", "02:04:51", "Intense", "#7b5cd6"], ["road", "The getaway", "01:47:22", "Thrilling", "#17785f"], ["sea", "The goodbye", "02:21:05", "Bittersweet", "#5b6b8c"]);
+    const frm = (t) => (R ? `g-${t}` : `r-${t}`), frPos = (t) => ({ dawn: "64% 60%", epic: "50% 60%", city: "42% 70%", forest: "45% 70%", road: "52% 70%", sea: "60% 70%" }[t] || "50% 40%");
     // A: scrubbing the archive, with other films floating behind
     const fh = vertical ? 620 : 520, A3 = vertical ? 450 : TOP + 20;
     const A = layer(floatHtml(["r-lala", "r-ticket", "r-skyfall", "r-pap", "r-forrest", "r-shaw", "r-wick-2", "r-king"], 23) + `<div class="ui" style="left:${PAD}px;top:${A3}px;width:${CW}px;height:${fh + 130}px">
       <div class="ui-bar"><span>Archive</span><span class="ctx">Feature films</span></div>
-      <div class="abs" style="left:0;right:0;top:50px;height:${fh}px">${FR.map(([t]) => pic(`r-${t}`, `position:absolute;inset:0;opacity:0`, "50% 40%").replace('class="frame"', 'class="frame sf"')).join("")}
+      <div class="abs" style="left:0;right:0;top:50px;height:${fh}px">${FR.map(([t]) => pic(frm(t), `position:absolute;inset:0;opacity:0`, frPos(t)).replace('class="frame"', 'class="frame sf"')).join("")}
         <div class="abs tc lab" style="left:18px;top:16px;font-size:17px;color:#fff;text-shadow:0 1px 6px #000"></div></div>
       <div class="abs" style="left:24px;right:24px;top:${fh + 84}px;height:6px;border-radius:3px;background:rgba(255,255,255,.18)"><div class="fill" style="height:6px;border-radius:3px;background:#fff"></div>
         <div class="knob abs" style="top:-9px;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.7)"></div></div></div>`);
@@ -477,7 +516,7 @@
     // C2: six moments, ready to use
     const gc = vertical ? 2 : 3, gw = (CW - (gc - 1) * 24) / gc, gh = gw * 9 / 16, gTop = vertical ? 400 : TOP + 40, gPitch = gh + (vertical ? 110 : 84);
     const rectGrid = (i) => ({ x: PAD + (i % gc) * (gw + 24), y: gTop + Math.floor(i / gc) * gPitch, w: gw, h: gh });
-    const C2 = layer(FR.map(([t, name, tc, mood, col], i) => { const r = rectGrid(i); return `<div class="abs gi" style="left:${r.x}px;top:${r.y}px;width:${gw}px">${pic(`r-${t}`, `position:relative;width:${gw}px;height:${gh}px;border-radius:12px`, "50% 40%")}
+    const C2 = layer(FR.map(([t, name, tc, mood, col], i) => { const r = rectGrid(i); return `<div class="abs gi" style="left:${r.x}px;top:${r.y}px;width:${gw}px">${pic(frm(t), `position:relative;width:${gw}px;height:${gh}px;border-radius:12px`, frPos(t))}
       <div class="col" style="gap:6px;margin-top:10px"><span style="font-size:${vertical ? 24 : 20}px;font-weight:600;white-space:nowrap">${name}</span>
       <div class="row" style="align-items:center;gap:10px"><span class="tc" style="font-size:${vertical ? 17 : 15}px;color:var(--muted)">${tc}</span><span class="tag" style="font-size:${vertical ? 17 : 15}px;padding:4px 10px;background:${col};color:#fff">${mood}</span></div></div></div>`; }).join(""));
     const gis = [...C2.querySelectorAll(".gi")];
@@ -485,10 +524,10 @@
     const bw = vertical ? CW : 580, bh = bw * 9 / 16, bx = PAD, by = vertical ? TOP + 60 : TOP + 230;
     const pW = vertical ? 330 : 250, pX = vertical ? (W - pW) / 2 : W - PAD - pW - 10, pY = vertical ? by + bh + 90 : by + bh / 2 - (pW * 16 / 9 + 20) / 2;
     const eTop = vertical ? pY + pW * 16 / 9 + 60 : by + bh + 60, eX = vertical ? (W - 300) / 2 : bx;
-    const D = layer(`<div class="abs bigv" style="left:${bx}px;top:${by}px;width:${bw}px;height:${bh}px;overflow:hidden;border-radius:12px">${pic("r-glad", `position:absolute;inset:0`, "50% 40%")}
+    const D = layer(`<div class="abs bigv" style="left:${bx}px;top:${by}px;width:${bw}px;height:${bh}px;overflow:hidden;border-radius:12px">${R ? pic("g-epic", `position:absolute;inset:0`, "50% 50%") : pic("r-glad", `position:absolute;inset:0`, "50% 40%")}
         <div class="abs crop" style="top:0;width:${bh * 9 / 16}px;height:${bh}px;border:3px solid #3d9bff;box-shadow:0 0 0 2000px rgba(0,0,0,.5)"><span class="abs tc" style="left:8px;top:8px;font-size:14px;background:#fff;color:#0b131c;padding:2px 8px;border-radius:4px;white-space:nowrap">character tracked</span></div></div>
       <svg class="abs arw" style="left:${vertical ? W / 2 - 18 : bx + bw + 22}px;top:${vertical ? by + bh + 20 : by + bh / 2 - 18}px" width="${vertical ? 36 : 56}" height="${vertical ? 46 : 36}">${vertical ? '<path d="M18 0 V36 M8 26 L18 38 L28 26" stroke="#3d9bff" stroke-width="4" fill="none"/>' : '<path d="M0 18 H46 M36 8 L48 18 L36 28" stroke="#3d9bff" stroke-width="4" fill="none"/>'}</svg>
-      <div class="abs ph" style="left:${pX}px;top:${pY}px">${phoneHtml(pW, "r-glad", "62% 40%", "Are you not entertained? ⚔️")}</div>
+      <div class="abs ph" style="left:${pX}px;top:${pY}px">${R ? phoneHtml(pW, "g-epic", "50% 50%", "Wait for it… ⚔️") : phoneHtml(pW, "r-glad", "62% 40%", "Are you not entertained? ⚔️")}</div>
       <span class="abs btn exp" style="left:${eX}px;top:${eTop}px;width:${vertical ? 300 : 280}px;font-size:${vertical ? 26 : 23}px;padding:14px 22px;background:var(--blue);color:#fff">Export 9:16 clip</span>`);
     const bigv = D.querySelector(".bigv"), crop = D.querySelector(".crop"), arw = D.querySelector(".arw"), ph = D.querySelector(".ph"), exp = D.querySelector(".exp");
     // E: pull back over a feed's worth of shorts
@@ -496,6 +535,10 @@
       ["r-ticket", "50% 35%", "Tag your travel buddy 🌴"], ["r-wick-2", "50% 40%", "Iconic. 🔥"], ["r-skyfall", "50% 40%", "Best opening ever?"], ["r-peaky", "60% 35%", "Watch till the end 👀"],
       ["r-shaolin", "50% 40%", "😂😂😂"], ["r-king", "50% 40%", "Underdog energy."], ["r-north", "50% 40%", "Chills."], ["r-forrest", "50% 40%", "Classic."], ["r-samurai", "50% 40%", "The standoff."],
       ["r-kingdom", "50% 40%", "Epic."], ["r-pap", "50% 40%", "Hold your breath."]];
+    // rights-safe: a feed of shorts cut from our own footage
+    if (R) PH.splice(0, PH.length, ["g-epic", "50% 50%", "Wait for it… ⚔️"], ["g-dawn", "64% 50%", "Goosebumps."], ["g-road", "52% 50%", "Tag your travel buddy 🌴"], ["g-sea", "62% 50%", "This scene. 🌅"],
+      ["g-city", "42% 50%", "Watch till the end 👀"], ["g-forest", "45% 50%", "Don’t go in there…"], ["g-space", "33% 50%", "Chills."], ["g-aurora", "52% 50%", "Bucket list. ✨"], ["g-epic", "15% 50%", "The army arrives. 🔥"],
+      ["g-sea", "36% 50%", "Golden hour. 🌊"], ["g-dawn", "43% 50%", "Best opening ever?"], ["g-space", "72% 40%", "Iconic. 🪐"], ["g-city", "80% 50%", "Rainy night energy."], ["g-road", "80% 50%", "Windows down."], ["g-aurora", "25% 50%", "Hold your breath."]);
     const pcw = 250, pch = pcw * 16 / 9 + 20;
     const E = canvas(PH.map(([n, pos, cap]) => phoneHtml(pcw, n, pos, cap)), { cols: vertical ? 3 : 5, rows: vertical ? 5 : 3, dx: 320, dy: pch + 60, cw: pcw, ch: pch });
     const endless = say('One library. <span class="hl">Endless shorts.</span>');
@@ -507,7 +550,7 @@
       frames.forEach((f, i) => (f.style.opacity = i === k ? 1 : 0));
       const scrub = 0.5 + 0.42 * Math.sin(t * 2.3) * Math.cos(t * 0.9);
       fill.style.width = `${scrub * 100}%`; knob.style.left = `${scrub * 100}%`;
-      lab.textContent = `${FR[k][1]} · ${FR[k][2]}`;
+      lab.textContent = R ? `REEL ${k + 1} · ${FR[k][2]}` : `${FR[k][1]} · ${FR[k][2]}`;
       const kx = PAD + 24 + (CW - 48) * scrub, ky = A3 + fh + 84 + 3;
       cursor(t, [[0.2, kx, ky], [3.3, kx, ky]], []);
       sayAt(need, t, 3.8, 5.8);
@@ -540,7 +583,8 @@
     const cursor = makeCursor(), cursor2 = makeCursor();
     // A: rejecting frames by hand, with more titles waiting behind
     const B4 = vertical ? 420 : TOP, ph = vertical ? 620 : 440, sTop = B4 + ph + (vertical ? 120 : 90), sw = (CW - 3 * 16) / 4, sh = sw * 9 / 16;
-    const BAD = [["r-skyfall-2", "Blurry", "blur(7px)", ""], ["r-peaky", "Too dark", "brightness(.22)", ""], ["r-suc", "Text on screen", "", "PREVIOUSLY ON…"], ["r-shaw", "Motion blur", "blur(4px) brightness(.8)", ""]];
+    const BAD = R ? [["g-forest", "Blurry", "blur(7px)", ""], ["g-city", "Too dark", "brightness(.22)", ""], ["g-sea", "Text on screen", "", "PREVIOUSLY ON…"], ["g-road", "Motion blur", "blur(4px) brightness(.8)", ""]]
+      : [["r-skyfall-2", "Blurry", "blur(7px)", ""], ["r-peaky", "Too dark", "brightness(.22)", ""], ["r-suc", "Text on screen", "", "PREVIOUSLY ON…"], ["r-shaw", "Motion blur", "blur(4px) brightness(.8)", ""]];
     const A = layer(floatHtml(["r-lala", "r-ticket", "r-zoo", "r-king", "r-glad", "r-argo", "r-any", "r-forrest"], 41) + `
       <div class="abs tc" style="left:${PAD}px;top:${B4 - 8}px;font-size:${vertical ? 20 : 17}px;letter-spacing:.1em;color:#7d889b">PICK A THUMBNAIL · TITLE 1 OF 2,431</div>
       <div class="abs prev" style="left:${PAD}px;top:${B4 + 30}px;width:${CW}px;height:${ph}px;border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)">${BAD.map(([n, , f, txt]) => `<div class="pv abs" style="inset:0;opacity:0">${pic(n, `position:absolute;inset:0;filter:${f || "none"}`, "50% 40%")}${txt ? `<span class="abs" style="left:28px;bottom:26px;font-size:${vertical ? 44 : 36}px;font-weight:800;letter-spacing:.06em;color:#fff;text-shadow:0 2px 10px #000">${txt}</span>` : ""}</div>`).join("")}</div>
@@ -552,7 +596,7 @@
     const hand = say('Picking thumbnails by hand <span class="hl">doesn’t scale.</span>');
     // C: the recipe
     const rW = vertical ? CW : 820, rX = (W - rW) / 2, rY = vertical ? 560 : TOP + 40, fs = vertical ? 24 : 21;
-    const RROWS = [["Character", tagsHtml(["Leads"], "blue", fs - 2)], ["Mood", tagsHtml(["Warm", "Uplifting"], "mood", fs - 2)], ["Shot type", tagsHtml(["Medium close-up"], "ghost", fs - 2)],
+    const RROWS = [["Character", tagsHtml([R ? "Both leads" : "Leads"], "blue", fs - 2)], ["Mood", tagsHtml(["Warm", "Uplifting"], "mood", fs - 2)], ["Shot type", tagsHtml([R ? "Wide shot" : "Medium close-up"], "ghost", fs - 2)],
       ["Brightness", `<div style="width:${rW * 0.3}px;height:8px;border-radius:4px;background:#1a2433"><div style="width:72%;height:8px;border-radius:4px;background:var(--blue-hi)"></div></div>`],
       ["Format", tagsHtml(["16:9 ✓", "9:16 ✓"], "blue", fs - 2)], ["Title logo", tagsHtml(["Placed ✓"], "blue", fs - 2)], ["Filters", tagsHtml(["No blur", "No on-screen text", "No nudity"], "ok", fs - 4)]];
     const C = layer(`<div class="ui" style="left:${rX}px;top:${rY}px;width:${rW}px">
@@ -568,9 +612,13 @@
     const D = wall(mix(TPOOL, dwc * dwr, dwc), { cols: dwc, tw: vertical ? 330 : 300, rz: -7, radius: 24,
       extra: () => `<span class="abs" style="right:12px;top:12px;width:30px;height:30px;border-radius:50%;background:#17785f;color:#fff;font-size:18px;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.4)">✓</span>`,
       label: "RECIPE APPLIED" });
-    // E: one result up close, in both formats
+    // E: one result up close, in both formats. Rights-safe: our own footage with a made-up title placed on it.
     const zW = vertical ? CW : 640, zH = zW * 9 / 16, vW = vertical ? 300 : zH * 9 / 16, zY = vertical ? TOP + 100 : TOP + 120;
-    const E = layer(`<div class="abs" style="left:${PAD}px;top:${zY}px;width:${CW}px">
+    const logo = (fs, css) => `<div class="abs" style="${css};font-family:'Inter Display','Inter';font-weight:800;font-size:${fs}px;line-height:.92;letter-spacing:.14em;color:#fff7e6;text-shadow:0 2px 24px rgba(120,40,20,.6),0 1px 2px rgba(0,0,0,.5)">THE LONG<br>TIDE</div>`;
+    const E = R ? layer(`<div class="abs" style="left:${PAD}px;top:${zY}px;width:${CW}px">
+      <div class="row" style="gap:${vertical ? 0 : 22}px;align-items:flex-end;${vertical ? "flex-direction:column;align-items:center;gap:30px" : ""}">
+        ${pic("g-sea", `position:relative;width:${zW}px;height:${zH}px;border-radius:14px`, "50% 50%", logo(zW * 0.075, `left:${zW * 0.07}px;top:${zH * 0.12}px`))}${pic("g-sea", `position:relative;width:${vW}px;height:${vW * 16 / 9}px;border-radius:14px;flex:none`, "60% 50%", logo(vW * 0.13, `left:0;right:0;top:${vW * 0.16}px;text-align:center`))}</div>
+      <div class="row" style="gap:10px;margin-top:24px;flex-wrap:wrap;${vertical ? "justify-content:center" : ""}">${tagsHtml(["Both leads ✓", "Warm ✓", "Wide shot ✓", "Title placed ✓", "16:9 + 9:16 ✓"], "blue", vertical ? 23 : 20)}</div></div>`) : layer(`<div class="abs" style="left:${PAD}px;top:${zY}px;width:${CW}px">
       <div class="row" style="gap:${vertical ? 0 : 22}px;align-items:flex-end;${vertical ? "flex-direction:column;align-items:center;gap:30px" : ""}">
         ${pic("t-lala", `position:relative;width:${zW}px;height:${zH}px;border-radius:14px`)}${pic("r-lala", `position:relative;width:${vW}px;height:${vW * 16 / 9}px;border-radius:14px;flex:none`, "75% 30%")}</div>
       <div class="row" style="gap:10px;margin-top:24px;flex-wrap:wrap;${vertical ? "justify-content:center" : ""}">${tagsHtml(["Leads ✓", "Warm ✓", "Medium close-up ✓", "Title placed ✓", "16:9 + 9:16 ✓"], "blue", vertical ? 23 : 20)}</div></div>`);
@@ -608,7 +656,7 @@
 
   // v1b: the same video, opening straight on the failing keyword search, so the problem lands in the first
   // second (a tighter hook to test against v1)
-  if (KEY === "v1b") { const full = seek; seek = (t) => full(t + 4.2); }
+  if (BASE === "v1b") { const full = seek; seek = (t) => full(t + 4.2); }
 
   window.seek = seek;
   window.animReady = Promise.all([...document.images].map((i) => (i.complete ? 0 : new Promise((r) => (i.onload = i.onerror = r))))).then(() => seek(0));

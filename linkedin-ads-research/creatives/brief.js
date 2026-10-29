@@ -2,6 +2,8 @@
 // (Vionlabs_Ad_Prompts_AI_built_for_entertainment.pdf), in the same style as ads.html:
 // real product screenshots and title art from vionlabs.com, blue accent, audience label.
 // S = 1080x1080 single image or carousel card, L = 1200x627 single image.
+// Assets with an "r" in the ID (a0r-L, a3r-S, o1-c2r …) are the rights-safe revisions (board, Oct 2026): film and TV
+// titles only as small posters among many; every big frame shows our own footage (img/g-*, footage.js) instead.
 (function () {
   const WHITE = "logo/vionlabs-white.png", NAVY = "logo/vionlabs-navy.png";
   const ASSETS = [];
@@ -113,6 +115,27 @@
       <div class="row" style="align-items:baseline;gap:22px"><span class="panel-title" style="width:180px;flex:none;color:var(--sky)">Vionlabs</span><h1 style="font-size:50px">the moment <span class="hl">hope comes back.</span></h1></div></div>
     ${foot()}`);
 
+  // rights-safe: the same idea on our own footage
+  const DAWN_TAGS = (fs) => tags(["Mood: Hopeful", "Scene: Hilltop, dawn", "Emotion: Relief"], "mood", fs, `${fs * 0.4}px ${fs * 0.7}px`);
+  add("a0r-L", "ad0", "L", `
+    <div class="abs bg" data-img="g-dawn" data-pos="50% 50%" style="inset:0"></div>
+    <div class="abs bg" style="inset:0;background:linear-gradient(90deg,rgba(11,19,28,.95) 0%,rgba(11,19,28,.75) 40%,rgba(11,19,28,.1) 75%),linear-gradient(0deg,rgba(11,19,28,.9),rgba(11,19,28,0) 50%)"></div>
+    ${top("For streamers & broadcasters")}
+    <h1 style="margin-top:34px;width:560px">Generic AI sees pixels. <span class="hl">Ours understands stories.</span></h1>
+    <div class="abs" style="left:0;top:330px">${arc(1200, 150, 13, "lr")}</div>
+    <div class="abs row" style="left:470px;top:470px;gap:8px">${DAWN_TAGS(15)}</div>
+    ${foot()}`);
+  add("a0r-S", "ad0", "S", `
+    <div class="abs" style="left:0;top:0;width:1080px;height:640px">${img("g-dawn", "width:1080px;height:640px;border-radius:0", "50% 55%")}</div>
+    <div class="abs" style="left:0;top:0;width:1080px;height:640px;background:linear-gradient(180deg,rgba(11,19,28,.85),rgba(11,19,28,0) 26%,rgba(11,19,28,0) 55%,#0b131c 100%)"></div>
+    ${top("For streamers & broadcasters")}
+    <div class="abs" style="left:0;top:430px">${arc(1080, 170, 14, "sr")}</div>
+    <div class="abs" style="left:72px;right:72px;top:672px">
+      <div class="row" style="align-items:baseline;gap:22px"><span class="panel-title" style="width:180px;flex:none;color:var(--faint)">Generic AI</span><h1 style="font-size:50px;color:#7d889b;font-weight:600">person, hill, sky.</h1></div>
+      <div style="height:1px;background:var(--panel-edge);margin:24px 0"></div>
+      <div class="row" style="align-items:baseline;gap:22px"><span class="panel-title" style="width:180px;flex:none;color:var(--sky)">Vionlabs</span><h1 style="font-size:50px">the moment <span class="hl">hope comes back.</span></h1></div></div>
+    ${foot()}`);
+
   const card = (n, of, aud, head, fact, visual, { cta = false, size = 76, light = false } = {}) => `${top(aud, light)}
     <div class="count" style="margin-top:40px">${String(n).padStart(2, "0")} / ${String(of).padStart(2, "0")}</div>
     <h1 style="margin-top:12px;font-size:${size}px;width:930px">${head}</h1>
@@ -120,6 +143,15 @@
 
   add("a0-c1", "ad0", "S", card(1, 5, "Our story", "We’re from <span class=\"hl\">entertainment.</span>", "Founded in Stockholm in 2016 by people from film and VFX.", `
     <div class="abs" style="left:72px;top:420px;width:936px;height:500px">${img("r-skyfall-2", "width:936px;height:500px", "50% 35%", `
+      <div class="abs" style="inset:36px 54px;border:2px solid rgba(255,255,255,.6)"></div>
+      <div class="abs" style="left:50%;top:50%;width:70px;height:70px;transform:translate(-50%,-50%);border:2px solid rgba(255,255,255,.75)"></div>
+      <div class="abs tc row" style="left:72px;top:52px;gap:10px;align-items:center;color:#fff;font-size:20px"><span style="width:14px;height:14px;border-radius:50%;background:#ff4a4a;box-shadow:0 0 12px #ff4a4a"></span>REC</div>
+      <div class="abs tc" style="right:72px;top:52px;color:#fff;font-size:20px">TC 01:12:44:07</div>
+      <div class="abs tc" style="left:72px;bottom:52px;color:rgba(255,255,255,.85);font-size:18px">ISO 800 · 35mm · T2.8</div>
+      <div class="abs tc" style="right:72px;bottom:52px;color:rgba(255,255,255,.85);font-size:18px">2.39 : 1</div>`)}</div>`));
+  // a0-c1r: the same card on our own footage
+  add("a0-c1r", "ad0", "S", card(1, 5, "Our story", "We’re from <span class=\"hl\">entertainment.</span>", "Founded in Stockholm in 2016 by people from film and VFX.", `
+    <div class="abs" style="left:72px;top:420px;width:936px;height:500px">${img("g-city", "width:936px;height:500px", "50% 60%", `
       <div class="abs" style="inset:36px 54px;border:2px solid rgba(255,255,255,.6)"></div>
       <div class="abs" style="left:50%;top:50%;width:70px;height:70px;transform:translate(-50%,-50%);border:2px solid rgba(255,255,255,.75)"></div>
       <div class="abs tc row" style="left:72px;top:52px;gap:10px;align-items:center;color:#fff;font-size:20px"><span style="width:14px;height:14px;border-radius:50%;background:#ff4a4a;box-shadow:0 0 12px #ff4a4a"></span>REC</div>
@@ -157,6 +189,13 @@
     <div class="abs" style="left:72px;top:420px;width:936px;height:520px;overflow:hidden;border-radius:12px;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent)">${mosaic(9, 9, 96, 54, 8, 3)}</div>
     <div class="abs" style="left:420px;top:500px;width:430px;background:#0f1824;border:2px solid #3d9bff;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.75)">
       ${img("r-pap", "width:426px;height:220px;border-radius:0", "50% 40%")}
+      <div style="padding:16px 18px"><div style="font-size:21px;font-weight:600">Scene 14 · 01:31:08</div>
+      <div class="row" style="gap:8px;margin-top:12px;flex-wrap:wrap">${tags(["longing", "resolve"], "mood", 17)}${tags(["Turning point"], "genre", 17)}</div></div></div>`, { size: 72 }));
+  // a0-c4r: the highlighted scene is our own footage; the library around it stays small
+  add("a0-c4r", "ad0", "S", card(4, 5, "Our story", "Trained on 1M+ <span class=\"hl\">entertainment assets.</span>", "Mood, emotion and story arc, at scene and asset level.", `
+    <div class="abs" style="left:72px;top:420px;width:936px;height:520px;overflow:hidden;border-radius:12px;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent)">${mosaic(9, 9, 96, 54, 8, 3)}</div>
+    <div class="abs" style="left:420px;top:500px;width:430px;background:#0f1824;border:2px solid #3d9bff;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.75)">
+      ${img("g-sea", "width:426px;height:220px;border-radius:0", "62% 62%")}
       <div style="padding:16px 18px"><div style="font-size:21px;font-weight:600">Scene 14 · 01:31:08</div>
       <div class="row" style="gap:8px;margin-top:12px;flex-wrap:wrap">${tags(["longing", "resolve"], "mood", 17)}${tags(["Turning point"], "genre", 17)}</div></div></div>`, { size: 72 }));
 
@@ -227,6 +266,11 @@
   add("a2-c3", "ad2", "S", card(3, 5, "For product & content ops", "Search down <span class=\"hl\">to the scene.</span>", "", `
     <div class="abs" style="left:72px;right:72px;top:320px">${search("epic sword fights", 84, 27)}</div>
     <div class="abs" style="left:72px;right:72px;top:440px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px">${SWORD.map(([t, name, tc, pos]) => `<div>${img(`r-${t}`, "width:458px;height:200px;border-radius:12px", pos, `<span class="badge tc" style="font-size:16px">${tc}</span>`)}<div style="font-size:22px;font-weight:600;margin-top:9px">${name}</div></div>`).join("")}</div>`, { size: 70 }));
+  // a2-c3r: six smaller scenes, so no single title is big
+  const SWORD6 = [...SWORD, ["north", "The Northman", "01:47:22", "50% 40%"], ["brave", "Braveheart", "02:21:05", "50% 40%"]];
+  add("a2-c3r", "ad2", "S", card(3, 5, "For product & content ops", "Search down <span class=\"hl\">to the scene.</span>", "", `
+    <div class="abs" style="left:72px;right:72px;top:320px">${search("epic sword fights", 84, 27)}</div>
+    <div class="abs" style="left:72px;top:440px;display:grid;grid-template-columns:repeat(3,296px);gap:22px 24px">${SWORD6.map(([t, name, tc, pos]) => `<div>${img(`r-${t}`, "width:296px;height:166px;border-radius:12px", pos, `<span class="badge tc" style="font-size:15px">${tc}</span>`)}<div style="font-size:20px;font-weight:600;margin-top:8px">${name}</div></div>`).join("")}</div>`, { size: 70 }));
   add("a2-c4", "ad2", "S", card(4, 5, "For product & content ops", "Set the recipe once. <span class=\"hl\">Get every asset.</span>", "", `
     <div class="ui" style="left:72px;top:380px;width:400px;height:290px"><div class="ui-bar"><img src="${WHITE}" alt=""><span class="mod">Recipe</span></div>
       <div style="padding:18px"><div class="panel-title" style="font-size:14px">Hero thumbnails</div><div class="row" style="gap:8px;flex-wrap:wrap;margin-top:14px">${tags(["Lead close-up", "Title placed", "Bright", "16:9 + 9:16"], "ghost", 17, "7px 13px")}</div>
@@ -257,6 +301,19 @@
     ${top("For content ops teams")}
     <h1 style="margin-top:44px;width:930px">Every second of your library, <span class="hl">time-coded.</span></h1>
     <div class="abs" style="left:72px;top:362px">${player(936, 340, "r-peaky", { skip: true, at: "01:31", fs: 17 })}</div>
+    <div class="abs" style="left:72px;top:732px;width:936px">${zoom(936, 16)}<div style="height:18px"></div>${timeline(36, { segs: SEGS, marks: BREAKS, playhead: "01:31", fs: 14 })}<div style="margin-top:14px">${legend(16)}</div></div>
+    ${foot()}`);
+  // rights-safe: the episode in the player is our own footage
+  add("a3r-L", "ad3", "L", `
+    ${top("For content ops teams")}
+    <h1 style="margin-top:40px;width:430px;font-size:48px">Every second of<br>your library, <span class="hl">time&#8209;coded.</span></h1>
+    <div class="abs" style="left:510px;top:46px">${player(634, 270, "g-city", { skip: true, at: "01:31", fs: 14, pos: "42% 72%" })}</div>
+    <div class="abs" style="left:510px;top:340px;width:634px">${zoom(634, 13)}<div style="height:14px"></div>${timeline(26, { segs: SEGS, marks: BREAKS, playhead: "01:31", fs: 12 })}<div style="margin-top:10px">${legend(12)}</div></div>
+    ${foot()}`);
+  add("a3r-S", "ad3", "S", `
+    ${top("For content ops teams")}
+    <h1 style="margin-top:44px;width:930px">Every second of your library, <span class="hl">time-coded.</span></h1>
+    <div class="abs" style="left:72px;top:362px">${player(936, 340, "g-city", { skip: true, at: "01:31", fs: 17, pos: "42% 72%" })}</div>
     <div class="abs" style="left:72px;top:732px;width:936px">${zoom(936, 16)}<div style="height:18px"></div>${timeline(36, { segs: SEGS, marks: BREAKS, playhead: "01:31", fs: 14 })}<div style="margin-top:14px">${legend(16)}</div></div>
     ${foot()}`);
   add("a3b-L", "ad3", "L", `${glow("width:600px;height:400px;right:-100px;top:100px;background:rgba(51,96,208,.35)")}
@@ -374,6 +431,16 @@
     <div class="abs" style="left:72px;top:450px;display:grid;grid-template-columns:repeat(2,458px);gap:20px">${q[2].map((t) => img(`t-${t}`, "width:458px;height:200px;border-radius:12px")).join("")}</div>
     <p class="abs sub" style="left:72px;top:888px;font-size:24px">Matched on mood and theme, even when no metadata says “${q[3]}”.</p>
     ${foot(false)}`, true));
+  // m3-c1r … m3-c3r: six smaller posters per search instead of four big ones
+  const Q6 = { underdog: ["king", "friday", "shaolin", "rescue", "forrest", "shaw"], "feel-good": ["ticket", "any", "women", "lala", "secret", "american"],
+    "true story": ["argo", "rescue", "pap", "lord", "kelly", "friday"] };
+  Q.forEach((q, i) => add(`m3-c${i + 1}r`, "m3", "S", `${top("For editorial & search teams", true)}
+    <div class="count" style="margin-top:40px">0${i + 1} / 04</div>
+    <div class="abs" style="left:72px;right:72px;top:220px">${search(q[0], 96, 34)}</div>
+    <div class="abs row" style="left:72px;top:356px;gap:10px">${tags(q[1], "mood", 24, "10px 18px")}</div>
+    <div class="abs" style="left:72px;top:450px;display:grid;grid-template-columns:repeat(3,298px);gap:20px">${Q6[q[3]].map((t) => img(`t-${t}`, "width:298px;height:168px;border-radius:12px")).join("")}</div>
+    <p class="abs sub" style="left:72px;top:888px;font-size:24px">Matched on mood and theme, even when no metadata says “${q[3]}”.</p>
+    ${foot(false)}`, true));
   add("m3-c4", "m3", "S", `${top("For editorial & search teams", true)}
     <div class="count" style="margin-top:40px">04 / 04</div>
     <h1 style="margin-top:12px;font-size:110px">Type a feeling. <span class="hl">Get a list.</span></h1>
@@ -459,6 +526,20 @@
     <h1 style="margin-top:12px;width:560px;font-size:76px">Your archive is full of shorts. <span class="hl">Go find them.</span></h1>
     <div class="abs" style="left:660px;top:150px">${phone(320, "r-troy", "45% 40%", "The duel everyone waited for ⚔️ #epic")}</div>
     ${foot()}`);
+  // rights-safe: the reframed clip is our own footage
+  add("c3-c3r", "c3", "S", card(3, 4, "For social & digital teams", "16:9 in. <span class=\"hl\">9:16 out.</span>", "", `
+    <div class="abs" style="left:72px;top:330px;width:580px;height:326px;overflow:hidden;border-radius:12px">${img("g-epic", "width:580px;height:326px;border-radius:12px", "50% 50%")}
+      <div class="abs" style="left:198px;top:0;width:184px;height:326px;border:3px solid #3d9bff;box-shadow:0 0 0 2000px rgba(0,0,0,.5)"></div>
+      <div class="abs" style="left:238px;top:150px;width:104px;height:150px;border:2px dashed #fff;border-radius:6px"></div>
+      <span class="abs tc" style="left:212px;top:14px;font-size:14px;background:#fff;color:#0b131c;padding:2px 8px;border-radius:4px">character tracked</span></div>
+    ${arrow(672, 470)}
+    <div class="abs" style="left:752px;top:300px">${phone(250, "g-epic", "50% 50%", "Wait for it… ⚔️")}</div>
+    <p class="abs sub" style="left:72px;top:700px;width:580px;font-size:25px">Automatic vertical conversion with character tracking. Clips arrive with summaries and tags.</p>`, { size: 72 }));
+  add("c3-c4r", "c3", "S", `${top("For social & digital teams")}
+    <div class="count" style="margin-top:40px">04 / 04</div>
+    <h1 style="margin-top:12px;width:560px;font-size:76px">Your archive is full of shorts. <span class="hl">Go find them.</span></h1>
+    <div class="abs" style="left:660px;top:150px">${phone(320, "g-epic", "50% 50%", "The moment everyone waited for ⚔️ #epic")}</div>
+    ${foot()}`);
   add("c3-L", "c3", "L", `
     ${top("For social & digital teams")}
     <h1 style="margin-top:40px;width:440px">Every sword fight in your library. <span class="hl">In seconds.</span></h1>
@@ -497,6 +578,25 @@
     ${top("For media ops & automation")}
     <h1 style="margin-top:40px;width:430px">Every second of your library, <span class="hl">QC’d.</span></h1>
     <div class="abs" style="left:510px;top:46px">${player(634, 230, "r-peaky", { at: "36:40", fs: 13 })}</div>
+    <div class="abs" style="left:510px;top:300px;width:634px">${lanes(14, 10)}</div>
+    ${foot()}`);
+
+  // rights-safe: the same cards with our own footage in every player
+  add("o1-c1r", "o1", "S", oCard(1, "Binge markers <span class=\"hl\">for every episode.</span>", player(936, 320, "g-city", { skip: true, at: "01:31", fs: 17, pos: "42% 72%" }),
+    `${zoom(936, 16)}<div style="height:16px"></div>${timeline(34, { segs: SEGS, playhead: "01:31", fs: 14 })}<div class="row tc" style="gap:22px;margin-top:12px;font-size:16px;color:#c7cfdc"><span>RECAP 00:00–01:12</span><span>INTRO 01:12–02:05</span><span>CREDITS 41:20–43:00</span></div>`, "", { frTop: 380, tlTop: 740 }));
+  add("o1-c2r", "o1", "S", oCard(2, "Ad breaks that <span class=\"hl\">respect the story.</span>", player(936, 290, "g-road", { at: "14:37", fs: 17, pos: "52% 75%" }),
+    timeline(48, { chapters: CH, marks: BREAKS, fs: 14 }),
+    `<div class="abs" style="left:${72 + (936 * T("14:37")) / 100 - 100}px;top:700px">${tagPanel("14:37", 17)}</div><div class="abs" style="left:${72 + (936 * T("28:51")) / 100 - 100}px;top:700px">${tagPanel("28:51", 17)}</div>`, { frTop: 380, tlTop: 880 }));
+  add("o1-c3r", "o1", "S", oCard(3, "Chapters, <span class=\"hl\">generated.</span>", player(936, 330, "g-sea", { at: "24:00", fs: 17, pos: "60% 70%" }),
+    `${timeline(56, { chapters: CH, fs: 14 })}<div class="row" style="gap:14px;margin-top:20px">${[["The arrival", "She comes home after ten years."], ["The argument", "Old wounds open at dinner."], ["The storm", "The power goes out; no one leaves."], ["The confession", "She finally tells him the truth."]].map(([t, s]) => `<div class="panel" style="flex:1;padding:14px;border-radius:12px"><div style="font-size:19px;font-weight:600">${t}</div><div style="font-size:16px;color:var(--muted);margin-top:6px;line-height:1.35">${s}</div></div>`).join("")}</div>`, "", { tlTop: 700 }));
+  add("o1-c5r", "o1", "S", `${top("For media ops & automation")}
+    <div class="count" style="margin-top:40px">05 / 05</div><h1 style="margin-top:12px;font-size:76px;width:930px">Every second of your library, <span class="hl">QC’d.</span></h1>
+    <div class="abs" style="left:72px;top:385px">${player(936, 270, "g-forest", { at: "36:40", fs: 16, pos: "45% 80%" })}</div>
+    <div class="abs" style="left:72px;top:690px;width:936px">${lanes(18, 14)}</div>${foot()}`);
+  add("o1r-L", "o1", "L", `
+    ${top("For media ops & automation")}
+    <h1 style="margin-top:40px;width:430px">Every second of your library, <span class="hl">QC’d.</span></h1>
+    <div class="abs" style="left:510px;top:46px">${player(634, 230, "g-forest", { at: "36:40", fs: 13, pos: "45% 80%" })}</div>
     <div class="abs" style="left:510px;top:300px;width:634px">${lanes(14, 10)}</div>
     ${foot()}`);
 

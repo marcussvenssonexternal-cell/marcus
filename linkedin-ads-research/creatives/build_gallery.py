@@ -3,7 +3,9 @@ campaign ad (share/<id>.html, each published as its own artifact so a single ad 
 and the copy decks (brief/copy.md for the campaign, copy.md for the earlier drafts) from the two copy.json
 files. share/links.json holds each share page's published link; the review page shows them per ad.
 brief/launch.csv lists every LinkedIn ad to build (asset × headline × intro) with its ad name and tracked URL;
-brief/carousel-cards.csv gives each carousel card its headline and tracked URL.
+brief/carousel-cards.csv gives each carousel card its headline and tracked URL. Retired assets (copy.json "retired",
+e.g. the big film frames replaced by their rights-safe "r" versions) keep their rows, so past results stay traceable,
+with a status saying what to use instead; the review page folds them away.
 
     python3 build_gallery.py
 """
@@ -25,13 +27,16 @@ SHORT = {"ad0": "AI built for entertainment", "ad1": "Same genre, different movi
          "v1": "Search by mood", "v2": "Story-aware ad breaks", "v3": "Endless shorts", "v4": "One recipe"}
 
 STATUS = {"site": "On the website", "verify": "Check before launch", "illustrative": "Example values",
-          "brief": "From the brief", "example": "Example values"}
+          "brief": "From the brief", "example": "Example values", "board": "Board decision"}
 SIGNOFF = "Vionlabs. AI built for entertainment."
 
-# Tracking, as agreed in ../AGENTS.md. The first test wave (optimization/plan.md) runs h1/i1 on these assets.
+# Tracking, as agreed in ../AGENTS.md. The first test wave (optimization/plan.md) runs one headline and intro per asset:
+# h1/i1, except Ad 0's new hero image and video, whose i5 describes what they show. The rights-safe "r" assets
+# took the places of the retired ones (Oct 2026).
 UTM = "utm_source=linkedin&utm_medium=paid_social&utm_campaign=ai-built-for-entertainment"
-FIRST_WAVE = {("ad0", "a0-L"), ("ad0", "a0-carousel"), ("ad0", "ad0-S"), ("ad1", "a1-L"), ("ad1", "a1b-L"),
-              ("ad2", "a2-carousel"), ("ad2", "a2-L"), ("ad3", "a3-L"), ("ad3", "a3b-L"), ("ad3", "ad3-S")}
+FIRST_WAVE = {("ad0", "a0r-L"): (1, 5), ("ad0", "a0r-carousel"): (1, 1), ("ad0", "ad0r-S"): (1, 5), ("ad1", "a1-L"): (1, 1),
+              ("ad1", "a1b-L"): (1, 1), ("ad2", "a2r-carousel"): (1, 1), ("ad2", "a2-L"): (1, 1), ("ad3", "a3r-L"): (1, 1),
+              ("ad3", "a3b-L"): (1, 1), ("ad3", "ad3r-S"): (1, 1)}
 
 
 def check_brief():
@@ -43,7 +48,10 @@ def check_brief():
             assert len(h) <= 70, (ad["id"], h)
         for i in ad["intros"]:
             assert len(i) <= 600 and i.endswith(SIGNOFF), (ad["id"], i[:40])
+        live = {asset_id(a) for a in ad["assets"] if not a.get("retired")}
         for a in ad["assets"]:
+            # a retired asset names a live replacement in the same ad
+            assert not a.get("retired") or a.get("replaced_by") in live, (ad["id"], asset_id(a))
             # LinkedIn carousel cards: one headline each, at most 45 characters
             if "carousel" in a:
                 assert len(a["cards"]) == len(a["carousel"]) and all(len(c) <= 45 for c in a["cards"]), (ad["id"], a["carousel"][0])
@@ -65,11 +73,12 @@ def build_brief_markdown():
         lines += ["**Assets**", ""]
         for a in ad["assets"]:
             if "id" in a:
-                lines.append(f"- {a['label']}: `png/{a['id']}.png`")
+                line = f"- {a['label']}: `png/{a['id']}.png`"
             elif "carousel" in a:
-                lines.append(f"- {a['label']}: " + ", ".join(f"`png/{c}.png`" for c in a["carousel"]))
+                line = f"- {a['label']}: " + ", ".join(f"`png/{c}.png`" for c in a["carousel"])
             else:
-                lines.append(f"- {a['label']}: `video/{a['video']}.mp4`")
+                line = f"- {a['label']}: `video/{a['video']}.mp4`"
+            lines.append(f"- ~~{line[2:]}~~ retired, use `{a['replaced_by']}`" if a.get("retired") else line)
         lines += ["", "**Headlines**", ""] + [f"{n}. {h} ({len(h)})" for n, h in enumerate(ad["headlines"], 1)] + [""]
         for n, intro in enumerate(ad["intros"], 1):
             lines += [f"**Intro text {n}** ({len(intro)} characters)", "", *quote(intro), ""]
@@ -78,33 +87,36 @@ def build_brief_markdown():
 
 
 def linkedin_ads(ad):
-    # One LinkedIn ad per single image, carousel or video. A carousel's ID is its card prefix plus "-carousel",
-    # unless it sets its own ("cid"), as a revised card set does.
+    # One LinkedIn ad per single image, carousel or video, with its status ("" if it can run).
     for a in ad["assets"]:
-        if "id" in a:
-            yield a["id"], a["label"]
-        elif "carousel" in a:
-            yield carousel_id(a), a["label"]
-        else:
-            yield a["video"], a["label"]
+        yield asset_id(a), a["label"], status(a)
 
 
 def carousel_id(a):
+    # A carousel's ID is its card prefix plus "-carousel", unless it sets its own ("cid"), as a revised card set does.
     return a.get("cid") or a["carousel"][0].rsplit("-c", 1)[0] + "-carousel"
+
+
+def asset_id(a):
+    return a.get("id") or a.get("video") or carousel_id(a)
+
+
+def status(a):
+    return f"retired (big film frame): use {a['replaced_by']}" if a.get("retired") else ""
 
 
 def build_launch_csv():
     with open(HERE / "brief" / "launch.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["ad", "asset", "format", "headline_id", "intro_id", "ad_name", "headline", "url", "first_wave"])
+        w.writerow(["ad", "asset", "format", "headline_id", "intro_id", "ad_name", "headline", "url", "first_wave", "status"])
         for ad in BRIEF:
-            for asset, label in linkedin_ads(ad):
+            for asset, label, st in linkedin_ads(ad):
                 for h, headline in enumerate(ad["headlines"], 1):
                     for i in range(1, len(ad["intros"]) + 1):
                         tag = f"{ad['id']}-{asset}-h{h}-i{i}"
-                        first = (ad["id"], asset) in FIRST_WAVE and h == 1 and i == 1
+                        first = FIRST_WAVE.get((ad["id"], asset)) == (h, i)
                         w.writerow([ad["id"], asset, label, f"h{h}", f"i{i}", f"{ad['id']}/{asset}/h{h}-i{i}", headline,
-                                    f"{ad['destination']}?{UTM}&utm_content={tag}", "yes" if first else ""])
+                                    f"{ad['destination']}?{UTM}&utm_content={tag}", "yes" if first else "", st])
 
 
 def build_carousel_cards_csv():
@@ -112,7 +124,7 @@ def build_carousel_cards_csv():
     # "h1" so it matches the carousel's row in launch.csv; utm_content adds the card number.
     with open(HERE / "brief" / "carousel-cards.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["ad", "carousel", "intro_id", "ad_name", "card", "card_asset", "card_headline", "card_url"])
+        w.writerow(["ad", "carousel", "intro_id", "ad_name", "card", "card_asset", "card_headline", "card_url", "status"])
         for ad in BRIEF:
             for a in ad["assets"]:
                 if "carousel" not in a:
@@ -122,7 +134,7 @@ def build_carousel_cards_csv():
                     for n, (card, headline) in enumerate(zip(a["carousel"], a["cards"]), 1):
                         tag = f"{ad['id']}-{cid}-h1-i{i}-c{n}"
                         w.writerow([ad["id"], cid, f"i{i}", f"{ad['id']}/{cid}/h1-i{i}", n, card, headline,
-                                    f"{ad['destination']}?{UTM}&utm_content={tag}"])
+                                    f"{ad['destination']}?{UTM}&utm_content={tag}", status(a)])
 
 
 def build_drafts_markdown():

@@ -1,7 +1,7 @@
 // Records the brief campaign videos: renders brief-anim.html?v=<id> frame by frame and encodes MP4
 // to brief/video/, plus a poster PNG for the review page.
-//   node record.cjs                  (all of them)
-//   node record.cjs ad0-S ad3-V      (only these)
+//   node record.cjs                  (all of them: the rights-safe "r" versions, which are the ones to run)
+//   node record.cjs ad0-S ad3-V      (only these, e.g. a retired original)
 const path = require("path");
 const fs = require("fs");
 const { execFileSync } = require("child_process");
@@ -9,7 +9,7 @@ const { chromium } = require("playwright");
 
 (async () => {
   const ids = process.argv.slice(2).length ? process.argv.slice(2)
-    : ["ad0", "ad3", "v1", "v2", "v3", "v4"].flatMap((k) => [k + "-S", k + "-V"]);
+    : ["ad0r", "ad3r", "v1r", "v1br", "v2r", "v3r", "v4r"].flatMap((k) => [k + "-S", k + "-V"]);
   const outDir = path.join(__dirname, "brief", "video");
   fs.mkdirSync(outDir, { recursive: true });
   const browser = await chromium.launch();

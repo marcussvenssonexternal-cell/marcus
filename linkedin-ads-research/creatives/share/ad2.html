@@ -124,6 +124,7 @@
   footer a { color: var(--accent); }
   .small a { color: var(--accent); }
   .note { font-size: 14px; border-left: 3px solid var(--accent); padding-left: 12px; }
+  .retired code { font-size: 12px; }
 
   .copy { font: 500 12px var(--body); color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; cursor: pointer; text-transform: none; letter-spacing: 0; white-space: nowrap; }
   .copy:hover { color: var(--ink); border-color: var(--muted); }
@@ -139,7 +140,7 @@
   .claims li { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px; align-items: start; font-size: 13.5px; }
   .claims .src { color: var(--muted); }
   .st { font-family: var(--mono); font-size: 11px; white-space: nowrap; border-radius: 5px; padding: 2px 7px; margin-top: 1px; }
-  .st.s-site, .st.s-brief { color: var(--ok); background: var(--ok-soft); }
+  .st.s-site, .st.s-brief, .st.s-board { color: var(--ok); background: var(--ok-soft); }
   .st.s-verify { color: var(--warn); background: var(--warn-soft); }
   .st.s-illustrative, .st.s-example { color: var(--ex); background: var(--ex-soft); }
 
@@ -183,7 +184,7 @@
     <section>
       <h2>Before any of these run</h2>
       <ul>
-        <li><b>On hold: film and TV imagery.</b> The board flagged the film frames and title art (Succession, Gladiator, Troy and others) for rights confirmation before any paid delivery. 54 of 61 assets are affected, so every campaign stays paused. Picking smaller films lowers the risk of a complaint but doesn’t clear the rights: recognisable actors also need consent under Swedish law. The proposal is licensed stock and Creative Commons open films; see <code>brief/rights-check.md</code>.</li>
+        <li><b>Film and TV imagery: the board’s rule.</b> Famous titles may appear as small posters among many, never as one big frame or close-up. Every asset that broke the rule has a rights-safe version (an “r” in its ID) with our own footage on the big screens; the originals are retired and listed under each ad. <code>rights-audit.cjs</code> checks every image and every video frame: no single title covers more than 7.5% of the frame, the size of the thumbnails in Video 4’s rushing wall. Small posters still show real titles and actors, so this lowers the risk rather than clearing the rights; see <code>brief/rights-check.md</code>.</li>
         <li><b>Customer results</b> (83%, 75%, 2x, 15%, 80%, and 278 days → 7 days for 65,000 episodes): confirm public use and how to credit them.</li>
         <li><b>90% library coverage</b> (M2): no source found. Define what it measures.</li>
         <li><b>97% vs 92%</b> retention with scene-matched breaks: left out until there’s a source.</li>
@@ -211,12 +212,12 @@
 </div>
 
 <script>
-  const BRIEF = [{"id": "ad2", "num": "Ad 2", "group": "audience", "name": "Make every asset come alive", "lab": "Editorial Lab + Creative Lab", "audience": "Heads of content operations, editorial and programming leads, product managers for discovery and UX, and engineering leads. Large libraries with thin metadata, hand-built lists and manual thumbnails.", "targeting": "Job titles: Head of Content Operations, Head of Editorial, Head of Programming, Product Manager Discovery, Head of Product, Metadata Manager, Engineering Lead · Functions: Operations, Product Management, Media and Communication, Engineering · Seniority: Manager and up", "assets": [{"carousel": ["a2-c1", "a2-c2", "a2-c3", "a2-c4", "a2-c5"], "label": "Carousel · 5 cards · 1080×1080", "cards": ["Most of your catalogue is never found", "Search the whole library by mood", "Search down to the scene", "One recipe, assets for every title", "Metadata, thumbnails and clips"]}, {"id": "a2-L", "label": "Single image · 1200×627"}], "headlines": ["Your whole library. Searchable by mood.", "One recipe. Thumbnails for your entire catalogue.", "AI that watches like an editor. At catalogue scale."], "intros": ["Thousands of titles. How many does anyone actually find?\n\nVionlabs gives every title rich metadata: mood, genre, theme, scene tags and summaries in 99+ languages. Search the whole library in plain language, like “feel-good comedies with a happy ending”, and turn the results into Smart Lists in minutes.\n\nIt works because our AI understands mood and story the way your editors do.\n\nVionlabs. AI built for entertainment.", "Most of your catalogue is never surfaced: thin metadata, hand-built lists, thumbnails made one by one.\n\nVionlabs makes every asset come alive: metadata for every title, search down to the scene (“epic sword fights”), and thumbnails and clips from a recipe you set once.\n\nCustomers have seen 83% higher recommendation accuracy and 75% higher viewer engagement with custom preview clips.\n\nVionlabs. AI built for entertainment.", "Define a recipe once. Get thumbnails and clips for the whole catalogue.\n\nVionlabs picks scenes by mood, character and composition, the way an editor would, because it was built and trained for entertainment. Metadata, scene search, thumbnails and clips for every title.\n\nVionlabs. AI built for entertainment."], "claims": [{"text": "Metadata (mood, genre, theme, scene tags, summaries) in 99+ languages; plain-language and scene search; Smart Lists; recipes", "source": "Ad prompts, Ad 2 proof points", "status": "brief"}, {"text": "83% higher recommendation accuracy; 75% higher viewer engagement with custom preview clips", "source": "Sales-deck success stories. Checklist: confirm public use and how to credit", "status": "verify"}, {"text": "Search results, mood tags and scene timecodes", "source": "Real titles from vionlabs.com; the matches and timecodes are illustrative", "status": "example"}], "destination": "https://www.vionlabs.com/editorial-lab"}];
+  const BRIEF = [{"id": "ad2", "num": "Ad 2", "group": "audience", "name": "Make every asset come alive", "lab": "Editorial Lab + Creative Lab", "audience": "Heads of content operations, editorial and programming leads, product managers for discovery and UX, and engineering leads. Large libraries with thin metadata, hand-built lists and manual thumbnails.", "targeting": "Job titles: Head of Content Operations, Head of Editorial, Head of Programming, Product Manager Discovery, Head of Product, Metadata Manager, Engineering Lead · Functions: Operations, Product Management, Media and Communication, Engineering · Seniority: Manager and up", "assets": [{"carousel": ["a2-c1", "a2-c2", "a2-c3r", "a2-c4", "a2-c5"], "cid": "a2r-carousel", "label": "Carousel · 5 cards · 1080×1080 · rights-safe", "cards": ["Most of your catalogue is never found", "Search the whole library by mood", "Search down to the scene", "One recipe, assets for every title", "Metadata, thumbnails and clips"]}, {"carousel": ["a2-c1", "a2-c2", "a2-c3", "a2-c4", "a2-c5"], "label": "Carousel · 5 cards · 1080×1080", "cards": ["Most of your catalogue is never found", "Search the whole library by mood", "Search down to the scene", "One recipe, assets for every title", "Metadata, thumbnails and clips"], "retired": "Big film frame: retired under the board's rights rule (Oct 2026)", "replaced_by": "a2r-carousel"}, {"id": "a2-L", "label": "Single image · 1200×627"}], "headlines": ["Your whole library. Searchable by mood.", "One recipe. Thumbnails for your entire catalogue.", "AI that watches like an editor. At catalogue scale."], "intros": ["Thousands of titles. How many does anyone actually find?\n\nVionlabs gives every title rich metadata: mood, genre, theme, scene tags and summaries in 99+ languages. Search the whole library in plain language, like “feel-good comedies with a happy ending”, and turn the results into Smart Lists in minutes.\n\nIt works because our AI understands mood and story the way your editors do.\n\nVionlabs. AI built for entertainment.", "Most of your catalogue is never surfaced: thin metadata, hand-built lists, thumbnails made one by one.\n\nVionlabs makes every asset come alive: metadata for every title, search down to the scene (“epic sword fights”), and thumbnails and clips from a recipe you set once.\n\nCustomers have seen 83% higher recommendation accuracy and 75% higher viewer engagement with custom preview clips.\n\nVionlabs. AI built for entertainment.", "Define a recipe once. Get thumbnails and clips for the whole catalogue.\n\nVionlabs picks scenes by mood, character and composition, the way an editor would, because it was built and trained for entertainment. Metadata, scene search, thumbnails and clips for every title.\n\nVionlabs. AI built for entertainment."], "claims": [{"text": "Metadata (mood, genre, theme, scene tags, summaries) in 99+ languages; plain-language and scene search; Smart Lists; recipes", "source": "Ad prompts, Ad 2 proof points", "status": "brief"}, {"text": "83% higher recommendation accuracy; 75% higher viewer engagement with custom preview clips", "source": "Sales-deck success stories. Checklist: confirm public use and how to credit", "status": "verify"}, {"text": "Search results, mood tags and scene timecodes", "source": "Real titles from vionlabs.com; the matches and timecodes are illustrative", "status": "example"}, {"text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many", "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired", "status": "board"}], "destination": "https://www.vionlabs.com/editorial-lab"}];
   const ADS = [];
   const ONLY = "ad2"; // set on the one-ad share pages that build_gallery.py writes to share/
   const LINKS = {}; // each campaign ad's own share link (share/links.json)
   const HOME = "https://claude.ai/artifact/RedxbdkboDwKTX5Cm22UtR";
-  const STATUS = { site: "On the website", verify: "Check before launch", illustrative: "Example values", brief: "From the brief", example: "Example values" };
+  const STATUS = { site: "On the website", verify: "Check before launch", illustrative: "Example values", brief: "From the brief", example: "Example values", board: "Board decision" };
   const FOLD = 150, HEADLINE_MAX = 70, INTRO_MAX = 600;
 
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -233,8 +234,11 @@
 
   // ---------------------------------------------------------------- the brief campaign
   const size = (id) => (id.endsWith("-L") ? [1200, 627] : [1080, 1080]);
+  const assetId = (a) => a.id || a.video || a.cid || a.carousel[0].replace(/-c\d+$/, "") + "-carousel";
   function assetsHtml(ad) {
-    const singles = ad.assets.filter((a) => a.id), carousels = ad.assets.filter((a) => a.carousel), videos = ad.assets.filter((a) => a.video);
+    // retired assets (big film frames, replaced by their rights-safe "r" versions) are listed, not shown
+    const live = ad.assets.filter((a) => !a.retired), retired = ad.assets.filter((a) => a.retired);
+    const singles = live.filter((a) => a.id), carousels = live.filter((a) => a.carousel), videos = live.filter((a) => a.video);
     const fig = (a) => { const [w, h] = size(a.id); return `<figure><img src="brief/png/${a.id}.png" alt="${esc(ad.name)}, ${esc(a.label)}" loading="lazy" width="${w}" height="${h}">
       <figcaption><span>${esc(a.label)}</span><a href="brief/png/${a.id}.png" target="_blank" rel="noopener">${a.id}.png</a></figcaption></figure>`; };
     return `<div class="assets">
@@ -246,6 +250,7 @@
       ${videos.length ? `<div class="videos">${videos.map((v) => { const vert = v.video.endsWith("-V");
         return `<figure${vert ? ' class="vert"' : ""}><video src="brief/video/${v.video}.mp4" poster="brief/video/${v.video}.png" controls muted loop playsinline preload="none" width="1080" height="${vert ? 1920 : 1080}" aria-label="${esc(v.label)}"></video>
         <figcaption><span>${esc(v.label)}</span><a href="brief/video/${v.video}.mp4" target="_blank" rel="noopener">${v.video}.mp4</a></figcaption></figure>`; }).join("")}</div>` : ""}
+      ${retired.length ? `<p class="small retired">Retired (big film frames, don’t run): ${retired.map((a) => `<code>${esc(assetId(a))}</code> → <code>${esc(a.replaced_by)}</code>`).join(", ")}</p>` : ""}
     </div>`;
   }
   function adHtml(ad) {
