@@ -16,8 +16,11 @@ The page is also built natively in the Vionlabs Webflow site as the page "An eve
 It opens with the site's standard "Navbar Primary" component; the page's head code only gives it the
 page's navy background, so the component is unchanged on every other page.
 Fonts, animations and the ticket script (live guest name, "Requested" stamp, tilt) are in that page's
-custom code. Its form submissions land in Webflow under Forms, and reach HubSpot the same way as the
-site's other Webflow forms. This folder is the standalone version of the same design.
+custom code. Its form submissions land in Webflow under Forms. The page script
+"LondonEveningHubSpotSubmit" also sends each one to the HubSpot form "London evening request – 16 Nov
+2026", whose follow-up email thanks the guest. The form carries `data-hs-do-not-collect="true"` so
+HubSpot's collected forms don't record it a second time. This folder is the standalone version of the
+same design.
 
 ## Files
 
