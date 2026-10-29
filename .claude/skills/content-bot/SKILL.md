@@ -251,8 +251,11 @@ send anything.
    (1080x1350, drawn by `social.html`, rendered by `cover.js`), and a `send_later` at 08:30 Stockholm
    the next day hands Marcus the text and image to post. If Arash asked for changes, set `status`
    "changes" and list them for Marcus. Apply agreed changes to the piece, update the draft item and
-   send a new Doc; never edit a shared Doc without the Google Docs connector. Never post to
-   LinkedIn yourself: no connected tool can, so Marcus shares the link.
+   send a new Doc; never edit a shared Doc without the Google Docs connector. Every LinkedIn post
+   carries the `social` image as an attached image, so it shows full size in the feed. A bare link
+   only gets LinkedIn's small preview card, so never post one. Never post to LinkedIn yourself.
+   No connected tool can attach an image: Ahrefs' social posts are text only, and Supermetrics
+   publishes to Instagram only. Marcus posts the text and image himself.
 7. **Report to Marcus** (the Routine sends it as a push notification): what went to Arash and when,
    the Doc link, the Swedish message, any approvals or requested changes, and any post that went
    live (with its link).
