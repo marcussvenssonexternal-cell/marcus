@@ -12,7 +12,7 @@ targeting and a source check on every claim.
 | `creatives/png/`, `creatives/copy.md` | The earlier drafts (1200×1200) and their copy |
 | `creatives/index.html` | The review page: the campaign first, then the earlier drafts |
 | `creatives/share/` | One page per campaign ad, each published as its own link so a single ad can be sent on its own; `links.json` holds the links |
-| `creatives/brief.html`, `creatives/brief-anim.html` | Sources for the campaign images and videos; `ads.html` for the drafts; `img/` holds the website images they use, plus our own footage (`g-*`, drawn by `footage.js`) |
+| `creatives/brief.html`, `creatives/brief-anim.html` | Sources for the campaign images and videos; `ads.html` for the drafts; `img/` holds the website images they use |
 | `references/` | Notes on reference ads, such as the TwelveLabs videos the series is modelled on |
 | `AGENTS.md` | How the creative and optimization agents work together: sessions, ad IDs, naming and UTMs |
 | `fetch_ads.py` | Pulls ads from the LinkedIn Ad Library through Apify (needs `APIFY_TOKEN`) |
@@ -24,7 +24,6 @@ targeting and a source check on every claim.
 2. Re-render the images from `creatives/`:
    `PAGE=brief.html OUT=brief/png node render.cjs` (add ids such as `a1-S m2-c3` to render only those);
    `node render.cjs` for the drafts. `node record.cjs` re-records the videos (`node record.cjs ad3-V` for one).
-   `node footage.cjs` redraws our own footage (`img/g-*.jpg`, from `footage.js`) used on the big screens, and
    `node rights-audit.cjs` checks every image and video against the board's rule for film and TV imagery.
 3. `python3 creatives/build_gallery.py` rebuilds the review page and both `copy.md` files, and checks
    the brief's copy limits (headlines ≤ 70 characters, intro texts ≤ 600 ending on the sign-off).

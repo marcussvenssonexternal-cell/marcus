@@ -1,8 +1,9 @@
-// Rights audit. The rule from the board (Oct 2026): film and TV imagery may appear as small posters among many,
-// never as one big screen. This measures every film or TV image (img/t-*, img/r-*) as it is actually drawn,
-// in every campaign image and through every video (sampled every 0.2 s), and reports the largest area any single
-// one covers, as a share of a square the width of the ad (so a 9:16 video is held to the same on-screen size
-// as a 1:1 one). Our own footage (img/g-*, footage.js) and product screenshots don't count.
+// Rights audit. The rule from the board (Oct 2026): famous films and series may appear as small posters among many,
+// never as one big screen; a big screen shows a lesser-known title instead (Arash: "ta lite mindre kända filmer").
+// This measures every famous film or TV image (img/t-*, img/r-*, except the LESSER titles below) as it is actually
+// drawn, in every campaign image and through every video (sampled every 0.2 s), and reports the largest area any
+// single one covers, as a share of a square the width of the ad (so a 9:16 video is held to the same on-screen
+// size as a 1:1 one). Lesser-known titles and product screenshots don't count.
 //   node rights-audit.cjs                  (all images and videos)
 //   node rights-audit.cjs a3r-L ad3r-S     (only these)
 //   node rights-audit.cjs stills           (every image, no videos; "videos" for the reverse)
@@ -17,14 +18,15 @@ const MAX_AREA = 0.075;
 
 const VIDEOS = ["ad0", "ad3", "v1", "v1b", "v2", "v3", "v4", "ad0r", "ad3r", "v1r", "v1br", "v2r", "v3r", "v4r"].flatMap((k) => [k + "-S", k + "-V"]);
 
-// In the page: the largest film image on screen inside the given frame. Its true area is counted by hit-testing
+// In the page: the largest famous film image on screen inside the given frame. Its true area is counted by hit-testing
 // a grid of points, so tilted, scaled and clipped images count exactly as much as is drawn.
 function measure(frame) {
   const fr = frame.getBoundingClientRect(), base = fr.width * fr.width;
   let worst = { area: 0, name: null };
   for (const im of frame.querySelectorAll("img")) {
-    const m = (im.getAttribute("src") || "").match(/img\/((?:t|r)-[^/]+)\.jpg$/);
-    if (!m) continue;
+    const m = (im.getAttribute("src") || "").match(/img\/((?:t|r)-([^/]+))\.jpg$/);
+    // lesser-known titles may fill a screen; keep in step with LESSER in brief-anim.js and brief.js
+    if (!m || ["pap", "kelly", "upgrade", "rescue", "secret", "vacation", "shaolin", "fanboys", "burt"].includes(m[2])) continue;
     let op = 1, hidden = false;
     for (let e = im; e && e !== frame.parentElement; e = e.parentElement) {
       const cs = getComputedStyle(e);

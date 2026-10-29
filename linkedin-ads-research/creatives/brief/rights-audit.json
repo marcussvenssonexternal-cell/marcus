@@ -26,9 +26,9 @@
   "ok": true
  },
  "a0-c4": {
-  "area": 0.0825,
-  "name": "r-pap",
-  "ok": false
+  "area": 0,
+  "name": null,
+  "ok": true
  },
  "a0-c5": {
   "area": 0,
@@ -42,12 +42,12 @@
  },
  "a1-L": {
   "area": 0.0238,
-  "name": "t-vacation",
+  "name": "t-zoo",
   "ok": true
  },
  "a1-S": {
   "area": 0.0713,
-  "name": "t-vacation",
+  "name": "t-zoo",
   "ok": true
  },
  "a1b-L": {
@@ -251,9 +251,9 @@
   "ok": false
  },
  "o1-c3": {
-  "area": 0.2701,
-  "name": "r-secret",
-  "ok": false
+  "area": 0,
+  "name": null,
+  "ok": true
  },
  "o1-c4": {
   "area": 0,
@@ -373,9 +373,9 @@
   "ok": true
  },
  "v1r-S": {
-  "area": 0.0578,
-  "name": "t-ticket",
-  "t": 12.8,
+  "area": 0.0496,
+  "name": "t-zoo",
+  "t": 9.8,
   "ok": true
  },
  "v1r-V": {
@@ -385,27 +385,25 @@
   "ok": true
  },
  "v1br-S": {
-  "area": 0.0578,
-  "name": "t-ticket",
-  "t": 8.6,
+  "area": 0.0496,
+  "name": "t-zoo",
+  "t": 9.8,
   "ok": true
  },
  "v1br-V": {
   "area": 0.0697,
   "name": "t-ticket",
-  "t": 5.2,
+  "t": 9.4,
   "ok": true
  },
  "v2r-S": {
-  "area": 0.0378,
-  "name": "t-reacher",
-  "t": 14.2,
+  "area": 0,
   "ok": true
  },
  "v2r-V": {
-  "area": 0.0436,
-  "name": "t-lala",
-  "t": 14.2,
+  "area": 0.0649,
+  "name": "t-skyfall",
+  "t": 14.6,
   "ok": true
  },
  "v3r-S": {
@@ -447,13 +445,8 @@
   "name": null,
   "ok": true
  },
- "a0-c4r": {
-  "area": 0,
-  "name": null,
-  "ok": true
- },
  "a2-c3r": {
-  "area": 0.0412,
+  "area": 0.0724,
   "name": "r-troy",
   "ok": true
  },
@@ -468,17 +461,17 @@
   "ok": true
  },
  "m3-c1r": {
-  "area": 0.0439,
+  "area": 0.0724,
   "name": "t-king",
   "ok": true
  },
  "m3-c2r": {
-  "area": 0.0439,
+  "area": 0.0724,
   "name": "t-ticket",
   "ok": true
  },
  "m3-c3r": {
-  "area": 0.0439,
+  "area": 0.0724,
   "name": "t-argo",
   "ok": true
  },
@@ -498,11 +491,6 @@
   "ok": true
  },
  "o1-c2r": {
-  "area": 0,
-  "name": null,
-  "ok": true
- },
- "o1-c3r": {
   "area": 0,
   "name": null,
   "ok": true

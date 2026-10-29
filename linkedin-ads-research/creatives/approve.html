@@ -1,0 +1,241 @@
+<title>Rights Swap Approvals</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: a review queue. A sticky tally on top, then one row per change: what changed, then current vs new side by side. */
+  :root {
+    --bg: #f3f5f8; --surface: #ffffff; --ink: #0e1720; --muted: #5d6878; --line: #dde2ea;
+    --accent: #2f5bd0; --accent-soft: #e6ecfb;
+    --ok: #157a52; --ok-soft: #e1f3ea; --warn: #a3590c; --warn-soft: #fbeedd; --old: #8a94a6;
+    --body: "Figtree", "Segoe UI", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #0b131c; --surface: #121c27; --ink: #e7ecf3; --muted: #9aa5b5; --line: #24303e;
+    --accent: #7ea2ff; --accent-soft: #1a2a4a; --ok: #4fd39b; --ok-soft: #12302a; --warn: #f2b066; --warn-soft: #3a2a14; --old: #7d889b; color-scheme: dark } }
+  :root[data-theme="dark"] {
+    --bg: #0b131c; --surface: #121c27; --ink: #e7ecf3; --muted: #9aa5b5; --line: #24303e;
+    --accent: #7ea2ff; --accent-soft: #1a2a4a; --ok: #4fd39b; --ok-soft: #12302a; --warn: #f2b066; --warn-soft: #3a2a14; --old: #7d889b; color-scheme: dark }
+  body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding-block: 28px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 22px; }
+  h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
+  h2 { font-size: 20px; line-height: 1.25; margin: 0; text-wrap: balance; }
+  p { margin: 0; max-width: 72ch; }
+  .lede { display: grid; gap: 10px; }
+  .lede p { color: var(--muted); }
+  .lede b { color: var(--ink); }
+  code, .id { font-family: var(--mono); font-size: 12.5px; }
+  .bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+  .tally { display: flex; gap: 14px; flex-wrap: wrap; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .tally span { display: inline-flex; gap: 6px; align-items: center; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--old); }
+  .dot.approved { background: var(--ok); } .dot.changes { background: var(--warn); }
+  .filters { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip { font: 500 13px var(--body); color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+  .chip[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+  .note-signin { flex-basis: 100%; font-size: 13px; color: var(--warn); }
+  .change { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 16px; scroll-margin-top: 90px; }
+  .head { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; justify-content: space-between; }
+  .head .meta { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+  .ad { font: 500 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+  .status { font: 600 12px var(--body); border-radius: 999px; padding: 3px 10px; background: var(--bg); color: var(--muted); white-space: nowrap; }
+  .status.approved { background: var(--ok-soft); color: var(--ok); } .status.changes { background: var(--warn-soft); color: var(--warn); }
+  .what { display: grid; gap: 6px; }
+  .what .ids { color: var(--muted); font-size: 13px; }
+  .look { font-size: 13.5px; color: var(--muted); }
+  .compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 720px) { .compare { grid-template-columns: minmax(0, 1fr); } }
+  .side { display: grid; gap: 8px; min-width: 0; align-content: start; }
+  .side h3 { margin: 0; font: 600 12px var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+  .side.new h3 { color: var(--ok); }
+  .media { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; align-items: start; }
+  figure { margin: 0; display: grid; gap: 4px; min-width: 0; }
+  figure img, figure video { width: 100%; height: auto; max-width: 100%; display: block; border-radius: 8px; background: var(--line); }
+  figcaption { font: 12px var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+  .side.old figure img, .side.old figure video { opacity: .92; }
+  .decide { display: grid; gap: 10px; border-top: 1px solid var(--line); padding-top: 14px; }
+  .decide .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .decide label { font-size: 13px; color: var(--muted); }
+  textarea { width: 100%; min-height: 56px; resize: vertical; font: 14px/1.4 var(--body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; box-sizing: border-box; }
+  button.act { font: 600 14px var(--body); border-radius: 9px; padding: 8px 16px; cursor: pointer; border: 1.5px solid transparent; }
+  button.approve { background: var(--ok); color: var(--surface); }
+  button.reject { background: none; color: var(--warn); border-color: var(--warn); }
+  button.clear { background: none; color: var(--muted); border-color: var(--line); font-weight: 500; }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  button:focus-visible, .chip:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .by { font-size: 13px; color: var(--muted); }
+  .err { font-size: 13px; color: var(--warn); }
+  footer { color: var(--muted); font-size: 13px; }
+  footer a { color: var(--accent); }
+</style>
+
+<div class="wrap">
+  <header class="lede">
+    <span class="ad">Vionlabs · LinkedIn · AI built for entertainment</span>
+    <h1>Approve the rights swaps before anything changes on LinkedIn</h1>
+    <p>The board’s rule: famous films and series only as <b>small posters among many</b>, never as one big frame or close-up. Each change below keeps the original ad and only swaps the famous title on a big frame for a lesser-known one, or shrinks a grid of posters a little. <b>Nothing is swapped on LinkedIn until it’s approved here.</b></p>
+    <p>Left: the current version (some of these are live). Right: the new version. Approve it, or mark it “Needs changes” with a note, and the creative agent picks that up.</p>
+  </header>
+
+  <div class="bar" role="region" aria-label="Approval progress">
+    <div class="tally" id="tally"></div>
+    <div class="filters" id="filters" role="group" aria-label="Show">
+      <button class="chip" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" data-f="waiting" aria-pressed="false">Waiting</button>
+      <button class="chip" data-f="approved" aria-pressed="false">Approved</button>
+      <button class="chip" data-f="changes" aria-pressed="false">Needs changes</button>
+    </div>
+    <p class="note-signin" id="signin" hidden>Decisions can only be saved by Marcus or an editor, signed in at claude.ai. You can still look through every change.</p>
+  </div>
+
+  <main id="list" style="display:grid;gap:18px"></main>
+
+  <footer>
+    <p>Full campaign, copy and share links: <a href="https://claude.ai/artifact/RedxbdkboDwKTX5Cm22UtR" target="_blank" rel="noopener">the review page</a>. Rule, size limit and title lists: <code>creatives/brief/rights-check.md</code>.</p>
+  </footer>
+</div>
+
+<script>
+  // Every change waiting for approval. old/new: images (png/…) and videos (video/…).
+  const CHANGES = [
+    { id: "ad0-image", ad: "Ad 0 · Brand", title: "Hero image: Papillon instead of The Shawshank Redemption",
+      ids: "a0-L, a0-S → a0r-L, a0r-S", look: "Image text now reads “man, sea, cliff.” Intro 5 is intro 1 with the same words, to match the new frame.",
+      old: ["png/a0-L", "png/a0-S"], new: ["png/a0r-L", "png/a0r-S"] },
+    { id: "ad0-carousel", ad: "Ad 0 · Brand", title: "Carousel card 1: the viewfinder shows True History of the Kelly Gang instead of Skyfall",
+      ids: "a0-carousel, a0b-carousel → a0r-carousel (card a0-c1 → a0-c1r)", look: "Cards 2–5 are unchanged; card 5 is the version without logo placeholders.",
+      old: ["png/a0-c1"], new: ["png/a0-c1r"] },
+    { id: "ad0-video", ad: "Ad 0 · Brand", title: "Video: Papillon instead of The Shawshank Redemption",
+      ids: "ad0-S, ad0-V → ad0r-S, ad0r-V", look: "Look at 0–6 s. The library grid of small posters after it is unchanged.",
+      old: ["video/ad0-S", "video/ad0-V"], new: ["video/ad0r-S", "video/ad0r-V"] },
+    { id: "ad2-carousel", ad: "Ad 2 · Content ops", title: "Carousel card 3: the same four sword-fight scenes at 96% size",
+      ids: "a2-carousel → a2r-carousel (card a2-c3 → a2-c3r)", look: "Just under the size limit. The other cards are unchanged.",
+      old: ["png/a2-c3"], new: ["png/a2-c3r"] },
+    { id: "ad3-image", ad: "Ad 3 · Media ops", title: "Player: True History of the Kelly Gang instead of Peaky Blinders",
+      ids: "a3-L, a3-S → a3r-L, a3r-S", look: "Timeline, markers and copy are unchanged.",
+      old: ["png/a3-L", "png/a3-S"], new: ["png/a3r-L", "png/a3r-S"] },
+    { id: "ad3-video", ad: "Ad 3 · Media ops", title: "Animation: the Kelly Gang in the player instead of Peaky Blinders",
+      ids: "ad3-S, ad3-V → ad3r-S, ad3r-V", look: "The whole 8 s; only the frame in the player changes.",
+      old: ["video/ad3-S", "video/ad3-V"], new: ["video/ad3r-S", "video/ad3r-V"] },
+    { id: "m3-carousel", ad: "M3 · Search by feeling", title: "Carousel cards 1–3: the four posters at 96% size",
+      ids: "m3-carousel → m3r-carousel (m3-c1, c2, c3 → m3-c1r, c2r, c3r)", look: "Same searches, tags and posters. Card 4 is unchanged.",
+      old: ["png/m3-c1", "png/m3-c2", "png/m3-c3"], new: ["png/m3-c1r", "png/m3-c2r", "png/m3-c3r"] },
+    { id: "c3-carousel", ad: "C3 · Find the scene", title: "Cards 3 and 4: the Kelly Gang instead of Gladiator, Shaolin Soccer instead of Troy",
+      ids: "c3-carousel → c3r-carousel (c3-c3 → c3-c3r, c3-c4 → c3-c4r)", look: "New phone captions: “The moment it all changes. 🔥” and “The match everyone waited for ⚽ #epic”. Cards 1–2 are unchanged.",
+      old: ["png/c3-c3", "png/c3-c4"], new: ["png/c3-c3r", "png/c3-c4r"] },
+    { id: "o1", ad: "O1 · Automate QC", title: "Players: the Kelly Gang instead of Peaky Blinders, Vacation Friends instead of Succession",
+      ids: "o1-carousel → o1r-carousel (o1-c1, c2, c5 → o1-c1r, c2r, c5r); o1-L → o1r-L", look: "Card 3 already shows a lesser-known title and stays; card 4 has no film image.",
+      old: ["png/o1-c1", "png/o1-c2", "png/o1-c5", "png/o1-L"], new: ["png/o1-c1r", "png/o1-c2r", "png/o1-c5r", "png/o1r-L"] },
+    { id: "v1", ad: "Video 1 · Search by mood", title: "The chosen result is Vacation Friends instead of Ticket to Paradise",
+      ids: "v1-S, v1-V → v1r-S, v1r-V; v1b-S, v1b-V → v1br-S, v1br-V (the same change)", look: "Look at 10–13 s (the result) and 13.5–16.5 s (the pull-back, where the searches nearest the camera now show lesser-known titles).",
+      old: ["video/v1-S", "video/v1-V"], new: ["video/v1r-S", "video/v1r-V"] },
+    { id: "v2", ad: "Video 2 · Story-aware ad breaks", title: "The episode is Upgrade instead of Succession",
+      ids: "v2-S, v2-V → v2r-S, v2r-V", look: "Look at 0–4 s (the player) and 14–16 s (the pull-back over episodes).",
+      old: ["video/v2-S", "video/v2-V"], new: ["video/v2r-S", "video/v2r-V"] },
+    { id: "v3", ad: "Video 3 · Endless shorts", title: "Archive, moments, reframe and phones use lesser-known titles",
+      ids: "v3-S, v3-V → v3r-S, v3r-V", look: "Look at 0–3.5 s (archive), 7.5–10.5 s (six moments), 10.5–14.5 s (the reframe, now the Kelly Gang) and 14.5–16.5 s (phones). The rushing wall stays.",
+      old: ["video/v3-S", "video/v3-V"], new: ["video/v3r-S", "video/v3r-V"] },
+    { id: "v4", ad: "Video 4 · One recipe", title: "Rejected frames and the finished thumbnail use lesser-known titles",
+      ids: "v4-S, v4-V → v4r-S, v4r-V", look: "Look at 0–3.8 s (rejected frames) and 13.4–15.7 s (Can You Keep a Secret? instead of La La Land). The rushing wall you approved stays.",
+      old: ["video/v4-S", "video/v4-V"], new: ["video/v4r-S", "video/v4r-V"] },
+  ];
+
+  const LABEL = { waiting: "Waiting for approval", approved: "Approved", changes: "Needs changes" };
+  const decisions = {};             // id -> {status, note, by, at}
+  let db = null, user = null, canWrite = false, filter = "all";
+  const names = {};
+
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  function mediaHtml(path) {
+    const id = path.split("/")[1];
+    if (path.startsWith("video/")) {
+      const vert = id.endsWith("-V");
+      return `<figure><video src="brief/${path}.mp4" poster="brief/${path}.png" controls muted playsinline preload="none" width="1080" height="${vert ? 1920 : 1080}"></video><figcaption>${esc(id)}</figcaption></figure>`;
+    }
+    const L = id.endsWith("-L");
+    return `<figure><a href="brief/${path}.png" target="_blank" rel="noopener"><img src="brief/${path}.png" alt="${esc(id)}" loading="lazy" width="${L ? 1200 : 1080}" height="${L ? 627 : 1080}"></a><figcaption>${esc(id)}</figcaption></figure>`;
+  }
+  const statusOf = (id) => decisions[id]?.status || "waiting";
+
+  function cardHtml(c) {
+    return `<article class="change" id="${c.id}" data-id="${c.id}">
+      <div class="head"><div class="meta"><span class="ad">${esc(c.ad)}</span></div><span class="status" data-status></span></div>
+      <div class="what"><h2>${esc(c.title)}</h2><div class="ids"><code>${esc(c.ids)}</code></div><p class="look">${esc(c.look)}</p></div>
+      <div class="compare">
+        <section class="side old"><h3>Current</h3><div class="media">${c.old.map(mediaHtml).join("")}</div></section>
+        <section class="side new"><h3>New</h3><div class="media">${c.new.map(mediaHtml).join("")}</div></section>
+      </div>
+      <div class="decide">
+        <label for="note-${c.id}">Note for the creative agent (needed for “Needs changes”)</label>
+        <textarea id="note-${c.id}" placeholder="e.g. use a different frame for the player"></textarea>
+        <div class="row">
+          <button class="act approve" data-act="approved" type="button">Approve</button>
+          <button class="act reject" data-act="changes" type="button">Needs changes</button>
+          <button class="act clear" data-act="clear" type="button">Clear decision</button>
+          <span class="by" data-by></span><span class="err" data-err></span>
+        </div>
+      </div>
+    </article>`;
+  }
+
+  const list = document.getElementById("list");
+  list.innerHTML = CHANGES.map(cardHtml).join("");
+
+  function render() {
+    const counts = { waiting: 0, approved: 0, changes: 0 };
+    for (const c of CHANGES) {
+      const st = statusOf(c.id), d = decisions[c.id], el = document.getElementById(c.id);
+      counts[st]++;
+      const badge = el.querySelector("[data-status]");
+      badge.textContent = LABEL[st]; badge.className = "status " + st;
+      const by = el.querySelector("[data-by]");
+      by.textContent = d ? `${LABEL[st]} by ${names[d.by] || "Someone"}, ${new Date(d.at).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" })}` : "";
+      const ta = el.querySelector("textarea");
+      if (document.activeElement !== ta && d && ta.dataset.synced !== d.at) { ta.value = d.note || ""; ta.dataset.synced = d.at; }
+      el.querySelectorAll("button.act").forEach((b) => (b.disabled = !canWrite || (b.dataset.act === "clear" && !d)));
+      el.hidden = !(filter === "all" || filter === st);
+    }
+    document.getElementById("tally").innerHTML =
+      `<span><i class="dot approved"></i>${counts.approved} approved</span><span><i class="dot changes"></i>${counts.changes} need changes</span><span><i class="dot"></i>${counts.waiting} waiting</span><span style="color:var(--muted);font-weight:500">of ${CHANGES.length}</span>`;
+  }
+  render();
+
+  document.getElementById("filters").addEventListener("click", (e) => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    filter = b.dataset.f;
+    document.querySelectorAll("#filters .chip").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    render();
+  });
+
+  list.addEventListener("click", async (e) => {
+    const b = e.target.closest("button.act"); if (!b || !db) return;
+    const card = b.closest(".change"), id = card.dataset.id, err = card.querySelector("[data-err]");
+    const note = card.querySelector("textarea").value.trim();
+    err.textContent = "";
+    if (b.dataset.act === "changes" && !note) { err.textContent = "Add a note saying what to change."; card.querySelector("textarea").focus(); return; }
+    card.querySelectorAll("button.act").forEach((x) => (x.disabled = true));
+    try {
+      if (b.dataset.act === "clear") await db.doc("decisions/" + id).delete();
+      else await db.doc("decisions/" + id).set({ status: b.dataset.act, note, by: await user.id(), at: new Date().toISOString(), change: id });
+    } catch (x) {
+      err.textContent = x && x.code === "unavailable" ? "Couldn’t save that. Try again in a moment." : "Not saved: only Marcus or an editor, signed in, can record a decision.";
+    }
+    render();
+  });
+
+  (async () => {
+    db = await claude.use("db");
+    user = await claude.use("user");
+    canWrite = !!db && !!user && (await user.can("data.write")) !== false; // null: not told, let a refused write decide
+    document.getElementById("signin").hidden = canWrite;
+    render();
+    if (!db) return;
+    db.collection("decisions").onSnapshot(async (snap) => {
+      for (const k of Object.keys(decisions)) delete decisions[k];
+      for (const d of snap.docs) decisions[d.id] = d.data();
+      const ids = [...new Set(Object.values(decisions).map((d) => d.by).filter(Boolean))];
+      if (user && ids.length) { const ps = await user.profiles(ids); for (const i of ids) names[i] = (ps[i] && ps[i].name) || "Someone"; }
+      render();
+    }, () => { document.getElementById("signin").hidden = false; });
+  })();
+</script>

@@ -30,11 +30,11 @@ Everything is keyed by the IDs in `creatives/brief/copy.json`:
   gets its own ID, e.g. `a0b-carousel`. Carousels have no ad-level headline: their `h1` stands for their card
   headlines, which are in `carousel-cards.csv` with one tracked URL per card (`utm_content` ends `-c<card>`).
   Variants get a letter, e.g. `v1b-S` (Video 1, variant B). Rights-safe revisions get an `r`: `a3r-L`, `v1br-S`, card
-  `o1-c2r`, carousel `o1r-carousel` (see `creatives/brief/rights-check.md`).
+  `o1-c2r`, carousel `o1r-carousel` (see `creatives/brief/rights-check.md`); none has been in a LinkedIn draft yet.
   Images are in `creatives/brief/png/<asset>.png`, videos in `creatives/brief/video/<asset>.mp4`.
 - **Copy variants:** headline `h1`–`h3` and intro text `i1`–`i3`, in the order they appear in `copy.json`.
   Ad 0 also has `i4`, written for pay-TV and telco operators, and `i5`, the first intro rewritten for the new hero
-  image (`a0r-L`, `a0r-S`, `ad0r-*`). Ad 3 and M2 have an `i4` with no unverified claims.
+  frame from Papillon (`a0r-L`, `a0r-S`, `ad0r-*`). Ad 3 and M2 have an `i4` with no unverified claims.
 
 Use these in LinkedIn so results can be traced:
 - **Ad name:** `<ad>/<asset>/<headline>-<intro>`, e.g. `v1/v1-S/h2-i1`.
@@ -45,7 +45,8 @@ Use these in LinkedIn so results can be traced:
 
 - `creatives/brief/launch.csv`: every LinkedIn ad to build (asset × headline × intro), with its ad name, headline
   and full tracked URL; `first_wave = yes` marks the first test wave in `optimization/plan.md`. A `status` saying
-  "retired" means don't build it: the row stays for traceability and names the asset to use instead
+  "retired" means don't build it: the row stays for traceability and names the asset to use instead, once approved;
+  "awaiting Marcus's approval" means don't build it yet
 - `creatives/brief/carousel-cards.csv`: each carousel card's headline (≤ 45 characters) and tracked URL, with the same `status`
 - `creatives/brief/rights-check.md`: the board's rule for film and TV imagery, what was retired and what replaced it
 - `creatives/brief/copy.json`: every ad's assets, headlines, intro texts, targeting, destination page and claim checks
@@ -63,9 +64,11 @@ From Viktor's ad brief:
 - Only use the brief's numbers. Claims marked "Check before launch" in `copy.json` need a source before they run.
 
 From the board (Oct 2026):
-- Film and TV titles only as small posters among many, never as one big frame or close-up. Big screens (players,
-  phones, hero frames) show our own footage (`creatives/footage.js`). `node rights-audit.cjs` must pass: no single
-  title over 7.5% of a square the width of the ad.
+- Famous film and TV titles only as small posters among many, never as one big frame or close-up. A big frame
+  (player, phone, hero image) shows a lesser-known title (the list is in `creatives/brief/rights-check.md`).
+  `node rights-audit.cjs` must pass: no famous title over 7.5% of a square the width of the ad.
+- Marcus approves every new or changed creative before it goes to LinkedIn. New assets carry `"approval": "pending"`
+  in `copy.json`, and their `launch.csv` rows say "awaiting Marcus's approval" until then.
 
 Once an asset or URL is in a campaign draft (from commit `2954e0d` on), it never changes: a revised image, video or
 copy line gets a new ID (e.g. `a3-L` becomes `a3c-L`, a new intro becomes `i5`) and new rows in `launch.csv`, so

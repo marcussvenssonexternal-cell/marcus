@@ -1,45 +1,49 @@
 # Film and TV imagery in the LinkedIn ads: rights check
 
-**Status: rule set, assets revised (29 Oct 2026).** The board's decision: famous films and series may appear as
-**small posters among many, never as one big frame or close-up**. Every asset that broke that rule now has a
-rights-safe version (an `r` in its ID) with our own footage on the big screens, and the originals are retired.
-Small posters still show real title art and, in places, actors, so this lowers the risk rather than removing it;
-the board accepts that. A sign-off from whoever handles legal at Vionlabs is still worth having. This note is not
-legal advice.
+**Status: rule set; revised assets awaiting Marcus's approval (29 Oct 2026).** The board's decision: famous films
+and series may appear as **small posters among many, never as one big frame or close-up**; for a big frame, take a
+lesser-known film (Arash: "ta lite mindre kända filmer"). Every asset that broke that rule has a rights-safe version
+(an `r` in its ID) that keeps the original layout and only swaps the famous title on the big frame for a
+lesser-known one. Nothing changes on LinkedIn until Marcus has approved them. Lesser-known titles and small posters
+still show real films and actors, so this lowers the risk rather than removing it; a sign-off from whoever handles
+legal at Vionlabs is still worth having. This note is not legal advice.
 
 ## The rule, and how it is checked
 
 The board gave two examples from Video 4. The rushing wall of thumbnails ("RECIPE APPLIED · 1,646 / 2,431 TITLES")
 is fine. The La La Land frame with its 9:16 close-up is not.
 
-- **Limit:** no single film or TV image may cover more than **7.5% of a square the width of the ad**, about
-  390×220 px in a 1080 px wide ad. The wall's thumbnails peak at 5.0% (1:1) and 7.0% (9:16); the La La Land frame
-  is 19% and 41%. So the limit is the size of the thumbnails the board approved.
-- **How:** `node rights-audit.cjs` measures every film or TV image as it is actually drawn (tilted, scaled and
-  clipped), in every campaign image and every 0.2 s of every video, and writes `rights-audit.json`.
-- **Big screens** (players, phones, the hero frame, the chosen result) show original footage drawn in code:
-  `footage.js` renders `img/g-*.jpg` (a sunrise, a rainy city, a desert road, a beach, a battle line, a forest, a
-  planet, northern lights). No film, actor or stock licence is in them.
+- **Famous titles:** no single one may cover more than **7.5% of a square the width of the ad**, about 390×220 px
+  in a 1080 px wide ad. The wall's thumbnails peak at 5.0% (1:1) and 7.0% (9:16); the La La Land frame is 19% and
+  41%. So the limit is the size of the thumbnails the board approved.
+- **Lesser-known titles** may fill a big frame: Papillon (2017), True History of the Kelly Gang, Upgrade, Rescue
+  Dawn, Can You Keep a Secret?, Vacation Friends, Shaolin Soccer, Fanboys and The Incredible Burt Wonderstone. The
+  same list is in `rights-audit.cjs`, `brief-anim.js` and `brief.js`; change it in all three.
+- **How:** `node rights-audit.cjs` measures every famous film or TV image as it is actually drawn (tilted, scaled
+  and clipped), in every campaign image and every 0.2 s of every video, and writes `rights-audit.json`.
 
 ## What changed
 
-| Retired | Use instead | What changed |
+Each revision keeps the original layout, copy and motion; only the image on the big frame changes.
+
+| To be replaced | Rights-safe version | What changed |
 | --- | --- | --- |
-| `a0-L`, `a0-S` | `a0r-L`, `a0r-S` | Hero frame is our sunrise footage: "person, hill, sky." vs "the moment hope comes back". New intro `i5` matches it. |
-| `a0-carousel`, `a0b-carousel` | `a0r-carousel` | Card 1's viewfinder and card 4's highlighted scene show our footage (`a0-c1r`, `a0-c4r`). |
-| `ad0-S`, `ad0-V` | `ad0r-S`, `ad0r-V` | Same story arc over our sunrise footage; the library grid stays small. |
-| `a2-carousel` | `a2r-carousel` | Card 3 shows six smaller scenes instead of four big ones (`a2-c3r`). |
-| `a3-L`, `a3-S`, `ad3-S`, `ad3-V` | `a3r-L`, `a3r-S`, `ad3r-S`, `ad3r-V` | The episode in the player is our rainy-city footage. |
-| `m3-carousel` | `m3r-carousel` | Six smaller posters per search (`m3-c1r` to `m3-c3r`). |
-| `c3-carousel` | `c3r-carousel` | The 16:9-to-9:16 reframe and the phone show our footage (`c3-c3r`, `c3-c4r`). |
-| `o1-carousel`, `o1-L` | `o1r-carousel`, `o1r-L` | Every player shows our footage (`o1-c1r`, `o1-c2r`, `o1-c3r`, `o1-c5r`). |
-| `v1-S/V`, `v1b-S/V` | `v1r-S/V`, `v1br-S/V` | The pick opens a match card (small poster, moods, story arc ending "happy ending"); each search in the pull-back shows two small posters. |
-| `v2-S/V` | `v2r-S/V` | The episode is our footage; episode cards in the pull-back have small thumbnails. |
-| `v3-S/V` | `v3r-S/V` | Archive, six moments, reframe and the feed of shorts are our footage, named by what happens ("The charge"). |
-| `v4-S/V` | `v4r-S/V` | The rejected frames and the finished thumbnail are our footage, with a made-up title ("The Long Tide"). The wall stays. |
+| `a0-L`, `a0-S` | `a0r-L`, `a0r-S` | Hero frame: Papillon instead of The Shawshank Redemption. Image text "man, sea, cliff." New intro `i5` matches it. |
+| `a0-carousel`, `a0b-carousel` | `a0r-carousel` | Card 1's viewfinder shows the Kelly Gang instead of Skyfall (`a0-c1r`); the other cards are unchanged. |
+| `ad0-S`, `ad0-V` | `ad0r-S`, `ad0r-V` | Papillon instead of The Shawshank Redemption; the library grid of small posters stays. |
+| `a2-carousel` | `a2r-carousel` | Card 3's four sword-fight scenes at 96% size, just under the limit (`a2-c3r`). |
+| `a3-L`, `a3-S`, `ad3-S`, `ad3-V` | `a3r-L`, `a3r-S`, `ad3r-S`, `ad3r-V` | The player shows the Kelly Gang instead of Peaky Blinders. |
+| `m3-carousel` | `m3r-carousel` | Cards 1–3: the four posters at 96% size (`m3-c1r` to `m3-c3r`). |
+| `c3-carousel` | `c3r-carousel` | The reframe and its phone show the Kelly Gang instead of Gladiator (`c3-c3r`); the last phone shows Shaolin Soccer instead of Troy (`c3-c4r`). |
+| `o1-carousel`, `o1-L` | `o1r-carousel`, `o1r-L` | Players: the Kelly Gang instead of Peaky Blinders (`o1-c1r`, `o1-c5r`, `o1r-L`), Vacation Friends instead of Succession (`o1-c2r`). Card 3 already shows a lesser-known title and stays. |
+| `v1-S/V`, `v1b-S/V` | `v1r-S/V`, `v1br-S/V` | The chosen result is Vacation Friends instead of Ticket to Paradise; the searches nearest the camera in the pull-back show lesser-known titles. |
+| `v2-S/V` | `v2r-S/V` | The episode is Upgrade instead of Succession; the episodes nearest the camera in the pull-back are lesser-known titles. |
+| `v3-S/V` | `v3r-S/V` | Archive, six moments, reframe and the feed of shorts use lesser-known titles (the clip is the Kelly Gang). The rushing wall stays. |
+| `v4-S/V` | `v4r-S/V` | The rejected frames and the finished thumbnail use lesser-known titles (Can You Keep a Secret? instead of La La Land). The wall stays. |
 
 Unchanged, and within the rule: `a1-*`, `a2-L`, `a3b-*`, `m1-*`, `m2-*`, `m3-L`, `m3-S`, `c1-*`, `c2-*`, `c3-L`.
-Retired assets keep their rows in `launch.csv` and `carousel-cards.csv`, with a status naming the replacement.
+Replaced assets keep their rows in `launch.csv` and `carousel-cards.csv`; the new ones say "awaiting Marcus's
+approval" there until he approves them.
 
 Still open:
 - C2's intro 2 names Gladiator in the text ("finds a different film inside Gladiator"). That's no image, but it

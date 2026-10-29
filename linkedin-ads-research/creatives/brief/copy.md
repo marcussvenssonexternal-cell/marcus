@@ -64,7 +64,7 @@ _Modelled on the favourite TwelveLabs reference (DAM search), including its moti
 - Search by mood, theme and story arc, in 99+ languages: Ad prompts, M3 and base context (From the brief)
 - Catalogue genres, search results, mood tags and the query pairs: Real titles from vionlabs.com; genres simplified, matches and tags illustrative (Example values)
 - Title art and frames from vionlabs.com (Ticket to Paradise, Gladiator and others): Same rights check as the rest of the campaign: confirm paid use (Check before launch)
-- Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many: Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired (Board decision)
+- Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead: Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval (Board decision)
 
 ## Video 2 · Ad breaks that respect the story
 
@@ -125,7 +125,7 @@ _Modelled on the TwelveLabs ad-break reference: a jarring ad cuts into the story
 - 80% fewer manual tasks in ad-break creation: Sales-deck success story. Checklist: confirm public use and how to credit (Check before launch)
 - S1 E4 label, story arc, chapters, break times and the “MEGA SALE” ad: Illustrative; the interrupting ad is a made-up placeholder with no brand (Example values)
 - Title art and frames from vionlabs.com (a Succession frame): Same rights check as the rest of the campaign: confirm paid use (Check before launch)
-- Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many: Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired (Board decision)
+- Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead: Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval (Board decision)
 
 ## Video 3 · One library. Endless shorts.
 
@@ -182,7 +182,7 @@ _Modelled on the TwelveLabs broadcast reference: scrubbing a long file, then seg
 - Scene retrieval across the library; 16:9 to 9:16 with character tracking; clips with summaries and tags; 99+ languages: Ad prompts, C3 (From the brief)
 - Moods, timecodes and the social caption: Illustrative; generic feed with no platform logos (Example values)
 - Title art and frames from vionlabs.com (Gladiator, Troy and four other films): Same rights check as the rest of the campaign: confirm paid use (Check before launch)
-- Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many: Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired (Board decision)
+- Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead: Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval (Board decision)
 
 ## Video 4 · One recipe. Every title.
 
@@ -238,7 +238,7 @@ _Modelled on the TwelveLabs editors reference: the manual hunt first, then the t
 - “Title 1 of 2,431” and the progress count: Example values (Example values)
 - The rejected frames: Website frames with blur, darkening or a caption added to show bad picks (Example values)
 - Title art and frames from vionlabs.com (La La Land and the thumbnail wall): Same rights check as the rest of the campaign: confirm paid use (Check before launch)
-- Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many: Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired (Board decision)
+- Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead: Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval (Board decision)
 
 ## Ad 0 · AI built for entertainment
 
@@ -255,7 +255,7 @@ _Run first or in parallel, so the audience ads reach people who already know who
 - ~~Single image · 1200×627: `png/a0-L.png`~~ retired, use `a0r-L`
 - Single image · 1080×1080 (contrast option) · rights-safe: `png/a0r-S.png`
 - ~~Single image · 1080×1080 (contrast option): `png/a0-S.png`~~ retired, use `a0r-S`
-- Carousel · 5 cards · 1080×1080 · rights-safe, end card without logo placeholders: `png/a0-c1r.png`, `png/a0-c2.png`, `png/a0-c3.png`, `png/a0-c4r.png`, `png/a0-c5b.png`
+- Carousel · 5 cards · 1080×1080 · rights-safe, end card without logo placeholders: `png/a0-c1r.png`, `png/a0-c2.png`, `png/a0-c3.png`, `png/a0-c4.png`, `png/a0-c5b.png`
 - ~~Carousel · 5 cards · 1080×1080: `png/a0-c1.png`, `png/a0-c2.png`, `png/a0-c3.png`, `png/a0-c4.png`, `png/a0-c5.png`~~ retired, use `a0r-carousel`
 - ~~Carousel B, end card without logo placeholders · 5 cards · 1080×1080: `png/a0-c1.png`, `png/a0-c2.png`, `png/a0-c3.png`, `png/a0-c4.png`, `png/a0-c5b.png`~~ retired, use `a0r-carousel`
 - Video · 12 s · 1:1 · rights-safe: `video/ad0r-S.mp4`
@@ -307,9 +307,9 @@ _Run first or in parallel, so the audience ads reach people who already know who
 >
 > Vionlabs. AI built for entertainment.
 
-**Intro text 5** (419 characters)
+**Intro text 5** (417 characters)
 
-> Generic AI can tell you there’s a person on a hill at sunrise. It can’t tell you it’s the moment hope comes back.
+> Generic AI can tell you there’s a man on a cliff by the sea. It can’t tell you it’s the moment hope comes back.
 >
 > Vionlabs has built its own AI models for film and TV since 2019. Trained on 1M+ entertainment assets, they understand mood, emotion and story arc at scene and asset level, straight from the video.
 >
@@ -324,7 +324,7 @@ _Run first or in parallel, so the audience ads reach people who already know who
 - On-prem in your own cloud: Checklist: confirm the wording with the tech team (Check before launch)
 - Frames from The Shawshank Redemption and Skyfall; title thumbnails on card 4: Real imagery from vionlabs.com. The brief asks for no real stills or posters: confirm rights for paid use (Check before launch)
 - Mood, scene and emotion tags and the story-arc beats: Illustrative, not live model output (Example values)
-- Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many: Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired (Board decision)
+- Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead: Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval (Board decision)
 
 ## Ad 1 · Same genre. Different movie.
 
@@ -432,7 +432,7 @@ _Concept A (emotion fingerprints) follows sales-deck slide 4 with two comedies f
 - Metadata (mood, genre, theme, scene tags, summaries) in 99+ languages; plain-language and scene search; Smart Lists; recipes: Ad prompts, Ad 2 proof points (From the brief)
 - 83% higher recommendation accuracy; 75% higher viewer engagement with custom preview clips: Sales-deck success stories. Checklist: confirm public use and how to credit (Check before launch)
 - Search results, mood tags and scene timecodes: Real titles from vionlabs.com; the matches and timecodes are illustrative (Example values)
-- Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many: Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired (Board decision)
+- Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead: Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval (Board decision)
 
 ## Ad 3 · Every second, time-coded
 
@@ -506,7 +506,7 @@ _Intro 4 has no unverified numbers, so ad3 can run as h2-i4 on a3-L before sales
 - Netflix viewers press Skip Intro 136 million times a day: Netflix (2022), via TVBEurope. Text only, no Netflix logo or UI (From the brief)
 - 97% of viewers stay with scene-matched breaks vs 92% with standard breaks: Left out: the checklist says find the source before using it (Check before launch)
 - S1 E4 label, markers and ad-break timecodes: Illustrative episode data on a Peaky Blinders frame from vionlabs.com (Example values)
-- Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many: Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired (Board decision)
+- Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead: Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval (Board decision)
 
 ## M1 · From zero to hero
 
@@ -672,7 +672,7 @@ _Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which 
 
 - Natural-language search by mood, emotion and theme; 99+ languages: Ad prompts, M3 and base context (From the brief)
 - Queries and result titles: Queries adapted from the brief; titles from vionlabs.com, matches illustrative (Example values)
-- Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many: Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired (Board decision)
+- Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead: Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval (Board decision)
 
 ## C1 · Every asset, brought to life
 
@@ -823,7 +823,7 @@ _Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which 
 
 - Natural-language scene retrieval across the library; vertical conversion with character tracking; clips with summaries and tags; 99+ languages: Ad prompts, C3 (From the brief)
 - Sword-fight results, timecodes and the social feed: Titles from vionlabs.com; timecodes illustrative; generic feed with no platform logos (Example values)
-- Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many: Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired (Board decision)
+- Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead: Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval (Board decision)
 
 ## O1 · Automate QC
 
@@ -834,7 +834,7 @@ _Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which 
 
 **Assets**
 
-- Carousel · 5 cards · 1080×1080 · rights-safe: `png/o1-c1r.png`, `png/o1-c2r.png`, `png/o1-c3r.png`, `png/o1-c4.png`, `png/o1-c5r.png`
+- Carousel · 5 cards · 1080×1080 · rights-safe: `png/o1-c1r.png`, `png/o1-c2r.png`, `png/o1-c3.png`, `png/o1-c4.png`, `png/o1-c5r.png`
 - ~~Carousel · 5 cards · 1080×1080: `png/o1-c1.png`, `png/o1-c2.png`, `png/o1-c3.png`, `png/o1-c4.png`, `png/o1-c5.png`~~ retired, use `o1r-carousel`
 - Single image overview · 1200×627 · rights-safe: `png/o1r-L.png`
 - ~~Single image overview · 1200×627: `png/o1-L.png`~~ retired, use `o1r-L`
@@ -875,4 +875,4 @@ _Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which 
 
 - 278 days vs 7 days on 65,000 episodes; 80% fewer manual tasks in ad-break creation: Sales-deck success stories. Checklist: confirm public use and how to credit (Check before launch)
 - Episode label, markers, chapters and flags: Illustrative episode data on frames from vionlabs.com; flagged frames are abstract placeholders, as the brief requires (Example values)
-- Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many: Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired (Board decision)
+- Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead: Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval (Board decision)

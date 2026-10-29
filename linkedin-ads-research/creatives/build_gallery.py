@@ -5,7 +5,8 @@ files. share/links.json holds each share page's published link; the review page 
 brief/launch.csv lists every LinkedIn ad to build (asset × headline × intro) with its ad name and tracked URL;
 brief/carousel-cards.csv gives each carousel card its headline and tracked URL. Retired assets (copy.json "retired",
 e.g. the big film frames replaced by their rights-safe "r" versions) keep their rows, so past results stay traceable,
-with a status saying what to use instead; the review page folds them away.
+with a status saying what to use instead; the review page folds them away. New assets carry "approval": "pending" until
+Marcus approves them, and their rows say not to build them yet.
 
     python3 build_gallery.py
 """
@@ -102,7 +103,11 @@ def asset_id(a):
 
 
 def status(a):
-    return f"retired (big film frame): use {a['replaced_by']}" if a.get("retired") else ""
+    if a.get("retired"):
+        return f"retired (big film frame): use {a['replaced_by']} once approved"
+    if a.get("approval") == "pending":
+        return "awaiting Marcus's approval: don't build yet"
+    return ""
 
 
 def build_launch_csv():

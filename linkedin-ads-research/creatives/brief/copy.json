@@ -11,7 +11,8 @@
     "assets": [
       {
         "video": "v1r-S",
-        "label": "Video · 21 s · 1:1 · rights-safe"
+        "label": "Video · 21 s · 1:1 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "v1-S",
@@ -21,7 +22,8 @@
       },
       {
         "video": "v1r-V",
-        "label": "Video · 21 s · 9:16 · rights-safe"
+        "label": "Video · 21 s · 9:16 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "v1-V",
@@ -31,7 +33,8 @@
       },
       {
         "video": "v1br-S",
-        "label": "Variant B, opens on the failed search · 17 s · 1:1 · rights-safe"
+        "label": "Variant B, opens on the failed search · 17 s · 1:1 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "v1b-S",
@@ -41,7 +44,8 @@
       },
       {
         "video": "v1br-V",
-        "label": "Variant B, opens on the failed search · 17 s · 9:16 · rights-safe"
+        "label": "Variant B, opens on the failed search · 17 s · 9:16 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "v1b-V",
@@ -77,8 +81,8 @@
         "status": "verify"
       },
       {
-        "text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many",
-        "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired",
+        "text": "Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead",
+        "source": "Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval",
         "status": "board"
       }
     ],
@@ -96,7 +100,8 @@
     "assets": [
       {
         "video": "v2r-S",
-        "label": "Video · 21 s · 1:1 · rights-safe"
+        "label": "Video · 21 s · 1:1 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "v2-S",
@@ -106,7 +111,8 @@
       },
       {
         "video": "v2r-V",
-        "label": "Video · 21 s · 9:16 · rights-safe"
+        "label": "Video · 21 s · 9:16 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "v2-V",
@@ -147,8 +153,8 @@
         "status": "verify"
       },
       {
-        "text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many",
-        "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired",
+        "text": "Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead",
+        "source": "Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval",
         "status": "board"
       }
     ],
@@ -166,7 +172,8 @@
     "assets": [
       {
         "video": "v3r-S",
-        "label": "Video · 22 s · 1:1 · rights-safe"
+        "label": "Video · 22 s · 1:1 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "v3-S",
@@ -176,7 +183,8 @@
       },
       {
         "video": "v3r-V",
-        "label": "Video · 22 s · 9:16 · rights-safe"
+        "label": "Video · 22 s · 9:16 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "v3-V",
@@ -212,8 +220,8 @@
         "status": "verify"
       },
       {
-        "text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many",
-        "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired",
+        "text": "Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead",
+        "source": "Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval",
         "status": "board"
       }
     ],
@@ -231,7 +239,8 @@
     "assets": [
       {
         "video": "v4r-S",
-        "label": "Video · 21 s · 1:1 · rights-safe"
+        "label": "Video · 21 s · 1:1 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "v4-S",
@@ -241,7 +250,8 @@
       },
       {
         "video": "v4r-V",
-        "label": "Video · 21 s · 9:16 · rights-safe"
+        "label": "Video · 21 s · 9:16 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "v4-V",
@@ -282,8 +292,8 @@
         "status": "verify"
       },
       {
-        "text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many",
-        "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired",
+        "text": "Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead",
+        "source": "Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval",
         "status": "board"
       }
     ],
@@ -301,7 +311,8 @@
     "assets": [
       {
         "id": "a0r-L",
-        "label": "Single image · 1200×627 · rights-safe"
+        "label": "Single image · 1200×627 · rights-safe",
+        "approval": "pending"
       },
       {
         "id": "a0-L",
@@ -311,7 +322,8 @@
       },
       {
         "id": "a0r-S",
-        "label": "Single image · 1080×1080 (contrast option) · rights-safe"
+        "label": "Single image · 1080×1080 (contrast option) · rights-safe",
+        "approval": "pending"
       },
       {
         "id": "a0-S",
@@ -324,7 +336,7 @@
           "a0-c1r",
           "a0-c2",
           "a0-c3",
-          "a0-c4r",
+          "a0-c4",
           "a0-c5b"
         ],
         "cid": "a0r-carousel",
@@ -335,7 +347,8 @@
           "Our own AI models, built since 2019",
           "Trained on 1M+ entertainment assets",
           "In production in 60+ countries"
-        ]
+        ],
+        "approval": "pending"
       },
       {
         "carousel": [
@@ -378,7 +391,8 @@
       },
       {
         "video": "ad0r-S",
-        "label": "Video · 12 s · 1:1 · rights-safe"
+        "label": "Video · 12 s · 1:1 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "ad0-S",
@@ -388,7 +402,8 @@
       },
       {
         "video": "ad0r-V",
-        "label": "Video · 12 s · 9:16 · rights-safe"
+        "label": "Video · 12 s · 9:16 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "ad0-V",
@@ -407,7 +422,7 @@
       "We come from entertainment. Founded in Stockholm in 2016 by people from film and VFX, we analysed content by hand before we automated anything.\n\nThat’s why our AI reads a film the way a storyteller does: mood, emotion and story arc, not just objects on screen. Built in-house since 2019, trained on 1M+ entertainment assets, in production with global entertainment leaders.\n\nVionlabs. AI built for entertainment.",
       "Many media teams have tried generic AI and found it doesn’t understand their content.\n\nVionlabs is domain-specific AI for film and TV: our own models, 80+ specialised expert networks and 99+ languages, reading visuals, audio and dialogue together. Run it via API, our portal, or on-prem in your own cloud.\n\nIn production in 60+ countries, reaching 500M viewers.\n\nVionlabs. AI built for entertainment.",
       "Pay-TV and telco platforms carry content from dozens of partners, each with its own metadata. Viewers just see a catalogue that’s hard to browse.\n\nVionlabs gives every title the same rich metadata, straight from the video: mood, emotion and story arc, in 99+ languages. One consistent layer for search, rows and recommendations across every partner’s content, from our own AI models built for entertainment.\n\nIn production in 60+ countries, reaching 500M viewers.\n\nVionlabs. AI built for entertainment.",
-      "Generic AI can tell you there’s a person on a hill at sunrise. It can’t tell you it’s the moment hope comes back.\n\nVionlabs has built its own AI models for film and TV since 2019. Trained on 1M+ entertainment assets, they understand mood, emotion and story arc at scene and asset level, straight from the video.\n\nGlobal entertainment leaders run it in production in 60+ countries.\n\nVionlabs. AI built for entertainment."
+      "Generic AI can tell you there’s a man on a cliff by the sea. It can’t tell you it’s the moment hope comes back.\n\nVionlabs has built its own AI models for film and TV since 2019. Trained on 1M+ entertainment assets, they understand mood, emotion and story arc at scene and asset level, straight from the video.\n\nGlobal entertainment leaders run it in production in 60+ countries.\n\nVionlabs. AI built for entertainment."
     ],
     "claims": [
       {
@@ -436,8 +451,8 @@
         "status": "example"
       },
       {
-        "text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many",
-        "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired",
+        "text": "Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead",
+        "source": "Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval",
         "status": "board"
       }
     ],
@@ -524,7 +539,8 @@
           "Search down to the scene",
           "One recipe, assets for every title",
           "Metadata, thumbnails and clips"
-        ]
+        ],
+        "approval": "pending"
       },
       {
         "carousel": [
@@ -577,8 +593,8 @@
         "status": "example"
       },
       {
-        "text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many",
-        "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired",
+        "text": "Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead",
+        "source": "Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval",
         "status": "board"
       }
     ],
@@ -595,7 +611,8 @@
     "assets": [
       {
         "id": "a3r-L",
-        "label": "Visual A · 1200×627 · rights-safe"
+        "label": "Visual A · 1200×627 · rights-safe",
+        "approval": "pending"
       },
       {
         "id": "a3-L",
@@ -605,7 +622,8 @@
       },
       {
         "id": "a3r-S",
-        "label": "Visual A · 1080×1080 · rights-safe"
+        "label": "Visual A · 1080×1080 · rights-safe",
+        "approval": "pending"
       },
       {
         "id": "a3-S",
@@ -623,7 +641,8 @@
       },
       {
         "video": "ad3r-S",
-        "label": "Animation · 8 s · 1:1 · rights-safe"
+        "label": "Animation · 8 s · 1:1 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "ad3-S",
@@ -633,7 +652,8 @@
       },
       {
         "video": "ad3r-V",
-        "label": "Animation · 8 s · 9:16 · rights-safe"
+        "label": "Animation · 8 s · 9:16 · rights-safe",
+        "approval": "pending"
       },
       {
         "video": "ad3-V",
@@ -675,8 +695,8 @@
         "status": "example"
       },
       {
-        "text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many",
-        "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired",
+        "text": "Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead",
+        "source": "Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval",
         "status": "board"
       }
     ],
@@ -835,7 +855,8 @@
           "Search “feel-good romantic comedies”",
           "Search “tense true stories”",
           "Type a feeling. Get a list."
-        ]
+        ],
+        "approval": "pending"
       },
       {
         "carousel": [
@@ -877,8 +898,8 @@
         "status": "example"
       },
       {
-        "text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many",
-        "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired",
+        "text": "Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead",
+        "source": "Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval",
         "status": "board"
       }
     ],
@@ -1000,7 +1021,8 @@
           "Every matching moment, timecoded",
           "16:9 in. 9:16 out.",
           "Your archive is full of shorts"
-        ]
+        ],
+        "approval": "pending"
       },
       {
         "carousel": [
@@ -1046,8 +1068,8 @@
         "status": "example"
       },
       {
-        "text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many",
-        "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired",
+        "text": "Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead",
+        "source": "Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval",
         "status": "board"
       }
     ],
@@ -1066,7 +1088,7 @@
         "carousel": [
           "o1-c1r",
           "o1-c2r",
-          "o1-c3r",
+          "o1-c3",
           "o1-c4",
           "o1-c5r"
         ],
@@ -1078,7 +1100,8 @@
           "Chapters, generated",
           "Compliance flags, frame by frame",
           "Every second of your library, QC’d"
-        ]
+        ],
+        "approval": "pending"
       },
       {
         "carousel": [
@@ -1101,7 +1124,8 @@
       },
       {
         "id": "o1r-L",
-        "label": "Single image overview · 1200×627 · rights-safe"
+        "label": "Single image overview · 1200×627 · rights-safe",
+        "approval": "pending"
       },
       {
         "id": "o1-L",
@@ -1132,8 +1156,8 @@
         "status": "example"
       },
       {
-        "text": "Assets with an “r” in the ID: our own footage on every big frame; film and TV titles only as small posters among many",
-        "source": "Board, Oct 2026: small posters among many are fine, big frames are not. Checked frame by frame by rights-audit.cjs; the originals are retired",
+        "text": "Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead",
+        "source": "Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval",
         "status": "board"
       }
     ],
