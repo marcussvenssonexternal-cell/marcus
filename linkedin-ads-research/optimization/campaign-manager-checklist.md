@@ -47,11 +47,11 @@ come from `launch.csv` (match the `ad_name` column).
 
 | Campaign (ID) | Ad name | Files | Copy |
 | --- | --- | --- | --- |
-| ad0 carousel (905856434) | `ad0/a0b-carousel/h1-i1` | `png/a0-c1…c4.png` + `png/a0-c5b.png` | ad0 i1; card headlines and URLs from `carousel-cards.csv` |
-| ad0 video (905738384) | `ad0/ad0-S/h1-i1` | `video/ad0-S.mp4` | ad0 h1, i1 |
-| ad2 carousel (905787604) | `ad2/a2-carousel/h1-i1` | `png/a2-c1…c5.png` | ad2 i1; card headlines and URLs from `carousel-cards.csv` |
-| v1 (905748934) | `v1/v1-S/h1-i1`, `v1/v1b-S/h1-i1` | `video/v1-S.mp4`, `video/v1b-S.mp4` | v1 h1, i1 |
-| v2-v4 (905728574) | `v2/v2-S/h1-i1`, `v3/v3-S/h1-i1`, `v4/v4-S/h1-i1` | `video/v2-S.mp4` etc. | each video's h1, i1 |
+| ad0 carousel (905856434) | `ad0/a0r-carousel/h1-i1` | the `a0r-carousel` cards in `carousel-cards.csv` | ad0 i1; card headlines and URLs from `carousel-cards.csv` |
+| ad0 video (905738384) | `ad0/ad0r-S/h1-i5` | `video/ad0r-S.mp4` | ad0 h1, i5 |
+| ad2 carousel (905787604) | `ad2/a2r-carousel/h1-i1` | the `a2r-carousel` cards in `carousel-cards.csv` | ad2 i1; card headlines and URLs from `carousel-cards.csv` |
+| v1 (905748934) | `v1/v1r-S/h1-i1`, `v1/v1br-S/h1-i1` | `video/v1r-S.mp4`, `video/v1br-S.mp4` | v1 h1, i1 |
+| v2-v4 (905728574) | `v2/v2r-S/h1-i1`, `v3/v3r-S/h1-i1`, `v4/v4r-S/h1-i1` | `video/v2r-S.mp4` etc. | each video's h1, i1 |
 
 - **CTA:** Request demo.
 - **Name every ad** exactly as in the table. Ads created through the API show only their IDs; you can rename those
@@ -89,3 +89,21 @@ at the $10,950 lifetime budget (about $120 a day), not the $91-a-day plan.
 Once cleared:
 1. Switch on the wave 1 campaigns. Keep wave 2 paused until week 4.
 2. Pause the legacy campaign groups (897508034, 897508214, 800105584) and the seven empty Boost_Post groups.
+
+## 7. Rights swap: live ads that use retired assets (29 Oct)
+
+These ads are live in AIBFE and use assets the creative agent retired under the board's imagery rule. Each one
+needs swapping to its replacement (pause the old ad, add the new one):
+
+| Live ad (LinkedIn ID) | Campaign | Retired asset | Replace with |
+| --- | --- | --- | --- |
+| 1617623704 | ad0 image (905768494) | a0-L, h1-i1 | `ad0/a0r-L/h1-i5` |
+| 1617459574 | ad3 (905856444) | a3-L, h2-i4 | `ad3/a3r-L/h2-i4` |
+| 1617525044 | o1 retarget (905836864) | o1-L, h1-i2 | `o1/o1r-L/h1-i2` |
+| 1617597024, 1617702364 ("ad0 video") | ad0 video 2 (905921624) | ad0-S | `ad0/ad0r-S/h1-i5` |
+| 1617547294 ("ad0 carousel B") | ad0 carousel 2 (905950544) | a0b-carousel | `ad0/a0r-carousel/h1-i1` |
+| 1617636544 ("ad2 carousel") | ad2 carousel 2 (905828814) | a2-carousel | `ad2/a2r-carousel/h1-i1` |
+| 1617568034, 1617645524 ("v1 search by mood") | v1 video 2 (905857914) | v1-S / v1b-S | `v1/v1r-S/h1-i1`, `v1/v1br-S/h1-i1` |
+| 1617607544, 1617702784, 1617597344 | v2-v4 video retarget 2 (905779864) | v2-S, v3-S, v4-S | `v2r-S`, `v3r-S`, `v4r-S`, each h1-i1 |
+
+Fine as they are: ad1 (a1-L, a1b-L), ad2 image (a2-L), m1–m3 (m1-L, m2b-L, m3-L), c1–c3 (c1-L, c2-L, c3-L).

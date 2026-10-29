@@ -24,6 +24,13 @@ The baseline shows that, as things stand, we couldn't tell which new ad works. T
 6. **Hit Manager-and-up targeting.** Entry level was the second-largest seniority group in the baseline. The brief
    targets Manager and up (Senior and up for Ad 1).
 
+**Asset IDs (29 Oct rights update).** The board allows famous titles only as small posters, so every asset with a big
+film frame was retired and replaced by an `r` version: a0-L/S → a0r-L/S, a0-carousel and a0b-carousel →
+a0r-carousel, ad0-S/V → ad0r-S/V (Ad 0 copy moves to intro i5), a2-carousel → a2r-carousel, a3-L/S → a3r-L/S,
+ad3-S/V → ad3r-S/V, m3/c3/o1 carousels → m3r/c3r/o1r-carousel, o1-L → o1r-L, v1/v1b/v2–v4 videos → v1r, v1br,
+v2r–v4r. Unchanged: a1-*, a1b-*, a2-L, a3b-*, m1-*, m2-*, m3-L/S, c1-*, c2-*, c3-L. Source: `creatives/brief/launch.csv`
+(status column) on the creative branch.
+
 ## 1. KPIs by stage
 
 The funnel follows the brief: Ad 0 builds awareness, Ads 1–3 qualify by audience, follow-ups and the video series
@@ -88,14 +95,14 @@ spread between the cold image ads, 0.30%–0.46%, was mostly not significant.
 
 | # | When | Test | Arms | Held constant | Metric | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| T1 | Weeks 1–3 | **Ad 0 format:** single image `a0-L` vs carousel `a0-c1…c5` vs video `ad0-S` | 3 | `h1`/`i1`, the Ad 0 audience | Cost per engaged member in target seniority; CTR | Also starts filling the retargeting pools. Video gets a view-rate readout on the feed for the first time. |
+| T1 | Weeks 1–3 | **Ad 0 format:** single image `a0r-L` vs carousel `a0r-carousel` vs video `ad0r-S` (h1/i5 for image and video) | 3 | `h1`/`i1`, the Ad 0 audience | Cost per engaged member in target seniority; CTR | Also starts filling the retargeting pools. Video gets a view-rate readout on the feed for the first time. |
 | T2 | Weeks 1–3, in parallel | **Ad 1 concept:** A (`a1-L`) vs B (`a1b-L`) | 2 | `h1`/`i1`, Ad 1 audience | Landing-page CTR | Each audience ad is its own campaign, so T2–T4 run side by side. |
-| T3 | Weeks 1–3 | **Ad 2 format:** carousel `a2-c1…c5` vs single image `a2-L` | 2 | `h1`/`i1`, Ad 2 audience | Landing-page CTR | |
-| T4 | Weeks 1–3 | **Ad 3 visual:** A (`a3-L`) vs B, number-led (`a3b-L`), plus video `ad3-S` as a third arm if the budget allows | 2–3 | `h1`/`i1`, Ad 3 audience | Landing-page CTR | The number-led visual depends on the 278-vs-7-days claim being verified. Ops copy was the weakest in the baseline (0.28%), so this one matters. |
+| T3 | Weeks 1–3 | **Ad 2 format:** carousel `a2r-carousel` vs single image `a2-L` | 2 | `h1`/`i1`, Ad 2 audience | Landing-page CTR | |
+| T4 | Weeks 1–3 | **Ad 3 visual:** A (`a3r-L`) vs B, number-led (`a3b-L`), plus video `ad3r-S` as a third arm if the budget allows | 2–3 | `h1`/`i1`, Ad 3 audience | Landing-page CTR | The number-led visual depends on the 278-vs-7-days claim being verified. Ops copy was the weakest in the baseline (0.28%), so this one matters. |
 | T5 | Weeks 4–6 | **Headlines** `h1` vs `h2` vs `h3` on each audience ad's winning asset | 3 per ad | Winning asset, `i1` | CTR | Rotate evenly. Needs about 22k impressions per arm to read +50%, so run it only on the ad with the most delivery, or accept that only big differences will show. |
 | T6 | Weeks 7–9 | **Intros** `i1` vs `i2` vs `i3` with the winning headline | 3 | Winning asset and headline | CTR, dwell time | |
 | T7 | From week 3, once pools ≥ 300 members | **Follow-ups:** each one goes to its own pool from `targeting` in `copy.json`. Inside each, test 1:1 vs 1200×627 or carousel vs single image (one test per ad). | 2 | `h1`/`i1` | CTR, then bookings | Follow-up audiences are small. Read them together by angle (editorial `m*`, creative `c*`, ops `o1`) as well as by ad. |
-| T8 | From week 3 | **Video series:** 1:1 (`vN-S`) vs 9:16 (`vN-V`) on one video first, then compare the four themes on 50% completion | 2, then 4 | Copy `h1`/`i1` | 50% completion, cost per 50% view, CTR | 9:16 only serves on mobile. Check the `impressionDeviceType` split before calling a winner. |
+| T8 | From week 3 | **Video series:** 1:1 (`vNr-S`) vs 9:16 (`vNr-V`) on one video first, then compare the four themes on 50% completion | 2, then 4 | Copy `h1`/`i1` | 50% completion, cost per 50% view, CTR | 9:16 only serves on mobile. Check the `impressionDeviceType` split before calling a winner. |
 
 ### Budget split (proposal for Marcus)
 
