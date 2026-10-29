@@ -48,7 +48,7 @@ parent company:
 ## Watch-outs
 
 - **Giant companies.** Samsung Electronics, LG Electronics, Comcast, Telefónica, Deutsche Telekom, Orange, Apple,
-  Amazon, YouTube, Mercado Libre and América Móvil each employ tens of thousands of people outside video. The job
+  Amazon and YouTube each employ tens of thousands of people outside video. The job
   function and Manager+ filters are what keep spend on the right people. The dashboard's company and function
   breakdown will show whether that holds.
 - **Existing customers.** Paramount and Sony Pictures (via Crunchyroll) are on Tier 1 deliberately, to expand.
