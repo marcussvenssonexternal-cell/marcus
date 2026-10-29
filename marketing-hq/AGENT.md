@@ -147,12 +147,20 @@ into it, and Marcus talks to you there between runs.
 2. For each brief, check the agent's latest summary and any reply sent to you. Set Status to In
    progress, Done or Blocked. For Blocked, name what it needs and from whom.
 3. Re-check fleet health for routines that ran since Monday (Monday plan, step 2).
-4. Append a **Friday wrap** section to the week's tab:
+4. **Feed the AI visibility agent.** Its session has no Supermetrics, and its run (Mon 06:33) comes
+   before your Monday plan. Pull Search Console (Supermetrics `GW`, account
+   `https://www.vionlabs.com/`) for the last 7 complete days:
+   - the query "vionlabs" in the US and in Sweden;
+   - all queries matching `(?i)vion`;
+   - the top 10 non-branded queries.
+
+   Send the numbers to its `brief_to` session for Monday's readout.
+5. Append a **Friday wrap** section to the week's tab:
    - **Shipped:** with links.
    - **Slipped:** each with the reason.
    - **Blocked:** each with what it needs.
    - **Early signals:** a KPI that moved, with its source.
-5. Message Marcus in at most 8 lines, covering shipped, slipped, blocked and what you will
+6. Message Marcus in at most 8 lines, covering shipped, slipped, blocked and what you will
    propose on Monday. Send a PushNotification only if something needs him before Monday.
 
 ## Between runs
