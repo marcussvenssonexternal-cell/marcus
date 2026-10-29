@@ -285,5 +285,15 @@
     }
   ],
   "site_changes": [],
-  "ahrefs_units_used": 0
+  "ahrefs_units_used": 0,
+  "known_issues": [
+    {
+      "found": "2026-10-29",
+      "issue": "Home page (/) and /book-a-demo serve a robots meta tag with \"noindex, nofollow\"",
+      "source": "Reported by Atlas (session_01V9gwdoCjyZ2JYMtRftvuCt) from lead-gen research and a live Firecrawl fetch; not verified from this session because the network blocks www.vionlabs.com",
+      "impact": "Likely why no vionlabs.com page ranks for any of the 21 buyer prompts",
+      "owner": "Lead-gen session (session_01V9gwdphcbBDwWmJsT9ftFj) with Marcus",
+      "status": "open, fix in progress"
+    }
+  ]
 }

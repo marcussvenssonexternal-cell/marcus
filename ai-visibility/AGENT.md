@@ -125,7 +125,15 @@ write a short readout.
      and any without an author.
    - If the network allows, fetch `https://www.vionlabs.com/robots.txt` and
      check that OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-SearchBot,
-     Claude-User, Bingbot and Googlebot are not blocked.
+     Claude-User, Bingbot and Googlebot are not blocked. Fetch every page you
+     audit (at least the home page, /book-a-demo, /agentic-layer, /curio, the
+     three Labs, /pricing and /trust-center) and report any `noindex` or
+     `nofollow` in a robots meta tag or an `X-Robots-Tag` header. If the
+     network blocks www.vionlabs.com, list this check as skipped under setup
+     issues.
+   - Re-check every open item under `known_issues` in the previous snapshot
+     and carry it into yours as open or fixed. An item with an `owner` is
+     being fixed by them: report it, never change the site for it.
 
 8. **Do the approved tasks.** Read the whole Task backlog table
    (`read` with `{"kind":"view","parentId":"mqyntvf91dz.14175"}`; keep its
@@ -177,7 +185,8 @@ write a short readout.
 
 11. **Save the run.** Write `results/<date>/snapshot.json` with the KPIs, the
     AI citation counts for every tracked domain, the buyer-prompt results (in
-    the baseline's `prompts` format), the outreach targets found,
+    the baseline's `prompts` format), `known_issues` (open and fixed), the
+    outreach targets found,
     the numbers of the tasks added, and every site change with its before and
     after values. Commit as "AI visibility run <date>" and push to the branch
     the routine prompt names. If the push fails, say so in the readout.
