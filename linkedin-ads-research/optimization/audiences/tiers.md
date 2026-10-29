@@ -78,3 +78,12 @@ Enriched the same way as Tier 1.
   breakdown will show whether that holds.
 - **Existing customers.** Paramount and Sony Pictures (via Crunchyroll) are on Tier 1 deliberately, to expand.
 - **Sports excluded.** The sheet has no sports companies. Foxtel's note says lead with entertainment, not Kayo.
+
+## Decision (Marcus, 29 Oct)
+
+"Once the new ones are approved, change the campaigns and only focus on the new ones." When both tier lists are
+ready:
+1. The cold campaigns switch to Tier 1.
+2. The Tier 2 campaign goes live.
+3. Budgets go to 70/30.
+4. The legacy campaign groups (897508034, 897508214, 800105584) and the 7 empty Boost_Post groups are paused.
