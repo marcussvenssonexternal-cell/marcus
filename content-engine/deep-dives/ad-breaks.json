@@ -194,7 +194,9 @@
         "linkedin": {
           "shareText": "We price almost everything about a CTV ad break except the part viewers feel most: where it lands in the story.\n\nThe publisher picks that moment, but the advertiser pays when the break lands mid-scene. And because a single 40-minute episode can take 20 to 60 minutes to segment by hand, a lot of breaks end up wherever a timer or a black frame puts them.\n\nI think break placement will become something buyers pay for, the way viewability did for display. I wrote about why, and how we find the natural pauses at Vionlabs:\nhttps://www.vionlabs.com/news/the-most-expensive-second-in-streaming\n\nIf you sell CTV inventory, would you charge more for a break you could prove lands at a natural pause?",
           "postOn": "2026-10-29 morning, Europe/Stockholm",
-          "imageUrl": "https://s3.amazonaws.com/webflow-prod-assets/67978ee27d95b7ff0119d2ea/6ae1cd626c3a72d5991df9a6_linkedin-most-expensive-second-in-streaming.png"
+          "imageUrl": "https://s3.amazonaws.com/webflow-prod-assets/67978ee27d95b7ff0119d2ea/6ae1cd626c3a72d5991df9a6_linkedin-most-expensive-second-in-streaming.png",
+          "approved": "2026-10-28",
+          "approvalNote": "Arash confirmed the blog post and this LinkedIn text to Marcus on 28 Oct (outside the email thread), so the text goes out as written."
         },
         "final": "2026-10-20",
         "googleDoc": "https://docs.google.com/document/d/119qQlfEeBixGq85JSTnVvRpo30UI5mmYjM4bqfiKBjA/edit",
