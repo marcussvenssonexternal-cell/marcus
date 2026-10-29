@@ -14,6 +14,9 @@ orchestrator:
   session_id: session_01V9gwdoCjyZ2JYMtRftvuCt
   procedure: marketing-hq/AGENT.md
   branch: claude/eager-knuth-ilc8g5
+  routines:
+    - { name: Marketing HQ weekly plan, trigger_id: trig_019Xs9724TSBH3UoWkNjRq9u, when: Mon 08:38, runs_in: this session }
+    - { name: Marketing HQ Friday wrap, trigger_id: trig_01Fx9qSjkhYqADhtS3R8epx2, when: Fri 14:38, runs_in: this session }
 
 agents:
   - id: iris

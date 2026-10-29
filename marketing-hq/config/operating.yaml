@@ -29,12 +29,17 @@ strategy_doc:
     strategy:       { file: 7cb56691-56f4, body: 55f3b937-27eb }
     weekly_plans:   { file: e230eb38-60c4, body: 031c795a-3e9e }   # parent of one tab per week
     scoreboard_log: { file: 1d3ca912-e251, body: 4bcd5511-1057 }
+    one_story:      { file: ed215ca2-259d, body: f2e412e7-4bd1 }   # draft until Marcus and Arash approve
+    event_kits:     { file: 4113bb56-ef40, body: 9c08c9bf-d83c }   # parent of one tab per event
   scoreboard_table: mw6ang9zdnk.168
   # Brief status dropdown, by index: 0 Proposed, 1 Sent, 2 In progress, 3 Done, 4 Blocked
   brief_status_enum: 07e0fbd8-9c4b
   # Weekly plan tabs sort newest first: order = "r" + str(30000000 - YYYYMMDD of the week's Monday).zfill(8)
   weeks:
     - { week: 2026-W44, monday: 2026-10-26, file: 577a3b6a-f5ff, body: 47f75af9-cae3 }
+  # Event kit tabs, ordered by date: "b01", "b02", ...
+  event_kits:
+    - { event: Satis, dates: 2026-11-04 to 2026-11-05, file: 744de004-56b2, body: 741f35e8-637f }
 
 sources:
   notion_event_calendar: collection://3890081c-16a0-806d-b61d-000b128f5c41
