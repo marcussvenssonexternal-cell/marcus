@@ -84,6 +84,9 @@ into it, and Marcus talks to you there between runs.
    - **LinkedIn ads:** the newest AIBFE daily check result: rolling spend against the cap, CTR,
      best and worst ads. Query Supermetrics only for what that result lacks.
    - **Content bot:** whether Wednesday's long read reached Arash, its status, and the next piece.
+   - **Search Console** (Supermetrics `GW`): a weekly query (`yearweekiso_daterange`,
+     `impressions`, `clicks`, `position`) for queries matching `(?i)vion`, which gives the
+     branded-search KPI. Run it again for all queries, which gives organic clicks.
    - **Events:** the Notion Event Calendar for the next 6 weeks (status `going` and `tbd`), with
      the fallback in `operating.yaml`.
    - **Other sessions:** each roster session's latest summary, and any messages sent to you.
@@ -186,6 +189,11 @@ blocks you.
   meeting scheduler, the Cloudflare spam check on Webflow forms) into the page's own. A
   `robots: noindex` there is not proof that the page is noindexed. Check the page's own head, or a
   page without iframes, before you report it. On 29 Oct 2026 this produced a false alarm.
+- **Ahrefs rank and traffic figures are estimates.** For low-volume queries such as our own name,
+  they can be far off. Google Search Console (Supermetrics data source `GW`) is the source of
+  truth for clicks, impressions and positions, so check it before you report a ranking or traffic
+  change. On 29 Oct 2026, an Ahrefs "out of the top 100" for "vionlabs" in the US turned out to be
+  position 1.0 in Search Console.
 - **A staging-only Webflow publish** means the next production publish also pushes those staged
   edits live. Say so in any brief that could lead to a publish.
 

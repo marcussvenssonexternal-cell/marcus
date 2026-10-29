@@ -47,3 +47,4 @@ sources:
   brand_brief: content-engine/config/brand.md on claude/practical-fermi-gatt4t
   facts: ai-visibility/config/facts.json on claude/determined-goldberg-rmb6g1
   supermetrics_linkedin_ads: data source LIA, the account named in the AIBFE daily check routine
+  search_console: Supermetrics data source GW, account https://www.vionlabs.com/ (connected 2026-10-29)
