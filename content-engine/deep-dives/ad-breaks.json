@@ -196,7 +196,9 @@
           "postOn": "2026-10-29 morning, Europe/Stockholm",
           "imageUrl": "https://s3.amazonaws.com/webflow-prod-assets/67978ee27d95b7ff0119d2ea/6ae1cd626c3a72d5991df9a6_linkedin-most-expensive-second-in-streaming.png",
           "approved": "2026-10-28",
-          "approvalNote": "Arash confirmed the blog post and this LinkedIn text to Marcus on 28 Oct (outside the email thread), so the text goes out as written."
+          "approvalNote": "Arash confirmed the blog post and this LinkedIn text to Marcus on 28 Oct (outside the email thread), so the text goes out as written.",
+          "postedAt": "2026-10-29",
+          "postUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7521549414323363840"
         },
         "final": "2026-10-20",
         "googleDoc": "https://docs.google.com/document/d/119qQlfEeBixGq85JSTnVvRpo30UI5mmYjM4bqfiKBjA/edit",
