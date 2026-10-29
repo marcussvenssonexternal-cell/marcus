@@ -61,7 +61,11 @@ LINEUP = [
     ("sunshine", "Sunshine", "sci-fi • thriller", ["suspenseful", "intense"], 90),
     ("2001", "2001: A Space Odyssey", "sci-fi • adventure", ["hypnotic", "awe-inspiring"], 87),
 ]
-SIZE = {"interstellar_wide": (960, 540), "topgun_hero": (960, 540)}   # every other image is 410x231
+SIZE = {"interstellar_wide": (960, 540), "topgun_hero": (960, 540),
+        # cut from the Agentic Layer image on vionlabs.com/ibc-2026; About Fate's clips are cut off there
+        "romcom_donorparty": (46, 68), "romcom_aboutfate": (46, 69),
+        **{f"romcom_donorparty_{k}": (176, 316) for k in range(1, 5)},
+        **{f"romcom_aboutfate_{k}": (176, 116) for k in range(1, 5)}}   # every other image is 410x231
 PRECOMPS = []                                   # comps made by media() for the Lottie being built
 
 
@@ -474,53 +478,38 @@ def build_hero():
 # straight on the page. The request is typed one letter at a time and each
 # suggestion lights up as its words are typed. On send the input grows into the
 # chat, still alone in the middle; then the chat docks right and the workspace
-# opens out to its left (the Creative Agent's own layout). There, each film's
-# most intense scenes arrive as 16:9 shots that reframe to 9:16 vertical clips.
-# Transparent background, so it sits on the page; loops on its own.
+# opens out to its left (the Creative Agent's own layout) and fills with the
+# clips. It ends on the Agentic Layer image from vionlabs.com/ibc-2026: same
+# request, same answer, same titles and clips, so every image is one the site
+# already shows. Transparent background, so it sits on the page; loops on its own.
 
-PROMPT3 = "Find the most intense scenes in 3 sci-fi films and cut them for every screen"
-REPLIES3 = ["I found 3 sci-fi titles: Arrival, Sunshine and The Martian. Pulled their most intense scenes "
-            "and cut each one in 16:9 and 9:16.",
-            "Added the top clips to your campaign list. Open a title in Creative Lab to fine-tune."]
+PROMPT3 = "Give me all the scenes for 3 romantic comedies where a couple are kissing and make them in TikTok format"
+REPLIES3 = ["I found 3 catalog titles: Honeymoon, The Donor Party and About Fate. Pulled kissing/couple scene "
+            "clips for TikTok format. The cards below will render them as 9:16 vertical clips."]
 
 # Material Design icons (Apache 2.0)
 I_MOVIE = ("M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 "
            "2-.9 2-2V4h-4z")
 I_PORTRAIT = ("M17 3H7c-1.1 0-1.99.9-1.99 2L5 19c0 1.1.89 2 1.99 2H17c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 "
               "16H7V5h10v14z")
-I_PHONE = ("M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 "
-           "19H7V5h10v14z")
-I_DEVICES = ("M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 "
-             "1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z")
 I_ARROW = "M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
 I_CLOSE = ("M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 "
            "13.41 12z")
-I_EXPAND = "M21 11V3h-8l3.29 3.29-10 10L3 13v8h8l-3.29-3.29 10-10z"
 I_GRID = ("M3 3v8h8V3H3zm6 6H5V5h4v4zm-6 4v8h8v-8H3zm6 6H5v-4h4v4zm4-16v8h8V3h-8zm6 6h-4V5h4v4zm-6 "
           "4v8h8v-8h-8zm6 6h-4v-4h4v4z")
 # (icon, label, the word in the request that picks it)
-SUGGESTIONS = [(I_MOVIE, "Scenes by mood", "intense"),
-               (I_GRID, "Titles by genre", "sci-fi"),
-               (I_DEVICES, "Clips for every screen", "screen")]
+SUGGESTIONS = [(I_GRID, "Titles by genre", "romantic"),
+               (I_MOVIE, "Scenes by moment", "kissing"),
+               (I_PORTRAIT, "Vertical 9:16 clips", "TikTok")]
 
-# (title, meta, poster crop, clips); a clip is (image, 9:16 crop as cx, cy, height in image px,
-# where in the film, relevance, length, added to the list)
+# (title, meta, poster, clips); a clip is (image, where in the film, relevance), the caption under it
+# (None where the image on the site cuts it off). Each clip image already carries its list chip and play bar.
 TITLES3 = [
-    ("Arrival", "2016  ·  Sci-fi  ·  1h 56m", ("arrival", (290, 100, 140, 200)), [
-        ("arrival", (128, 115.5, 231), "17m 05s", 96, "0:28", True),
-        ("arrival", (290, 100, 200), "81m 40s", 93, "0:24", True),
-        ("arrival", (352, 120, 200), "94m 12s", 91, "0:31", False),
-        ("arrival", (300, 140, 180), "106m 30s", 88, "0:19", False)]),
-    ("Sunshine", "2007  ·  Sci-fi  ·  1h 47m", ("sunshine", (205, 115.5, 161.7, 231)), [
-        ("sunshine", (205, 115.5, 231), "72m 18s", 95, "0:26", True),
-        ("sunshine", (70, 115.5, 231), "48m 30s", 92, "0:22", True),
-        ("sunshine", (205, 120, 170), "91m 05s", 89, "0:30", False),
-        ("sunshine", (340, 115.5, 231), "98m 44s", 86, "0:18", False)]),
-    ("The Martian", "2015  ·  Sci-fi  ·  2h 21m", ("martian", (205, 115.5, 161.7, 231)), [
-        ("martian", (205, 115.5, 231), "38m 12s", 94, "0:27", False),
-        ("martian", (70, 115.5, 231), "72m 40s", 90, "0:21", False),
-        ("martian", (220, 95, 180), "111m 05s", 87, "0:25", False),
-        ("martian", (140, 115.5, 231), "124m 20s", 85, "0:23", False)]),
+    ("The Donor Party", "2023  ·  Comedy  ·  1h 33m", "romcom_donorparty", [
+        ("romcom_donorparty_1", "44m 12s", 56), ("romcom_donorparty_2", "51m 42s", 44),
+        ("romcom_donorparty_3", "61m 12s", 49), ("romcom_donorparty_4", "61m 12s", 49)]),
+    ("About Fate", "2022  ·  Comedy  ·  1h 40m", "romcom_aboutfate", [
+        (f"romcom_aboutfate_{k}", None, None) for k in range(1, 5)]),
 ]
 
 CHAT = (1280, 100, 600, 944)                    # the docked chat
@@ -532,7 +521,6 @@ X0, TOP, GAP = 80, 132, 20                      # workspace content: left edge, 
 CARD_W = (WORK[2] - 2 * (X0 - WORK[0]) - 3 * GAP) / 4
 CARD_H = CARD_W * 16 / 9
 ROW_H = 104 + CARD_H + 92                       # header, cards, caption and the gap below
-SCROLL = 500
 
 
 def type_times(text, t0, char=1.25, space=2.25):
@@ -692,67 +680,17 @@ def hero3_chat(m, T, cam, lines):
         y += h + 16
 
 
-def clip_card(m, imgs, name, img, crop, box, t_in, parent):
-    """A 16:9 shot that reframes to a 9:16 vertical clip around its subject, then plays."""
-    x, y, w, h = box
+def site_clip(m, imgs, name, img, box, t_in, parent):
+    """A finished 9:16 clip as the site shows it; it drifts a little, as if playing."""
+    x, y, w, _ = box
     iw, ih = isize(img)
-    cx, cy, ch = crop
-    s_wide, s_tall = 100 * w / iw, 100 * h / ch
-    hw = w * ih / iw                            # the 16:9 shot's height in the card
-    r0, r1 = t_in + 12, t_in + 34
-    c = Comp(round(w), round(h), m.op, f"comp_{name}")
-    PRECOMPS.append(c)
-    c.image("img", imgs(img), ks=layer_ks(
-        p=(w / 2, h / 2),
-        a=anim([(0, [iw / 2, ih / 2], "hold"), (r0, [iw / 2, ih / 2], "smooth"), (r1, [cx, cy], "linear"),
-                (m.op, [cx + 4, cy])]),
-        s=anim([(0, [s_wide, s_wide], "hold"), (r0, [s_wide, s_wide], "smooth"), (r1, [s_tall, s_tall], "linear"),
-                (m.op, [s_tall * 1.05, s_tall * 1.05])])))
-    m.precomp(name, c, ip=t_in, parent=parent, ks=layer_ks(p=(x, y), o=vis(t_in, ramp=8)),
-              masks=[mask(anim([(r0, rrect(0, (h - hw) / 2, w, hw, 14), "smooth"), (r1, rrect(0, 0, w, h, 14))]))])
-    return r1
-
-
-def card_ui(m, name, box, t_on, when, score, length, added, t_added, parent):
-    """What sits on a clip once it's vertical: list chip, expand, play bar, and the caption below."""
-    x, y, w, h = box
-    bar_y, bar_w = y + h - 24, w - 32
-    m.shape(f"{name} ui", bf([
-        group([rect(w, h, x + w / 2, y + h / 2, 14), gfill([(0, "#000000", 0.35), (0.25, "#000000", 0),
-                                                           (0.7, "#000000", 0), (1, "#000000", 0.7)],
-                                                          (0, y), (0, y + h))]),
-        group([rect(40, 40, x + w - 32, y + 36, 12), fill("#ffffff", 16)]),
-        icon(I_EXPAND, 18, x + w - 32, y + 36),
-        icon(I_PLAY, 26, x + 28, bar_y - 26),
-        MED.text(length, 15, x + w - 16, bar_y - 20, align="right", o=90),
-        group([rect(bar_w, 4, x + 16 + bar_w / 2, bar_y, 2), fill("#ffffff", 30)]),
-        group([rect(anim([(t_on, [0.1, 4], "linear"), (m.op, [bar_w * 0.62, 4])]), 0,
-                    anim([(t_on, [x + 16, bar_y], "linear"), (m.op, [x + 16 + bar_w * 0.31, bar_y])]), 0, 2),
-               fill("#ffffff")]),
-    ]), parent=parent, ip=t_on, ks=layer_ks(o=vis(t_on, ramp=8)))
-    m.shape(f"{name} caption", [REG.text(f"{when}  ·  Relevance {score}%", 17, x + 4, y + h + 32, MUTED)],
-            parent=parent, ip=t_on, ks=layer_ks(o=vis(t_on, ramp=8)))
-    # "Add to list", which the agent then ticks
-    off_w = MED.width("Add to list", 15) + 28
-    m.shape(f"{name} add", bf([group([rect(off_w, 34, x + 16 + off_w / 2, y + 36, 17), fill("#ffffff", 16)]),
-                               MED.text("Add to list", 15, x + 30, y + 41.5, o=85)]), parent=parent, ip=t_on,
-            ks=layer_ks(o=anim([(t_on, [0]), (t_on + 8, [100])] + ([(t_added, [100]), (t_added + 4, [0])]
-                                                                    if added else []))))
-    if added:
-        on_w = MED.width("Added to list", 15) + 50
-        c = (x + 16 + on_w / 2, y + 36)
-        m.shape(f"{name} added", bf([group([rect(on_w, 34, c[0], c[1], 17), fill(BLUE)]),
-                                     icon(I_CHECK, 18, x + 32, c[1]),
-                                     MED.text("Added to list", 15, x + 46, y + 41.5)]), parent=parent,
-                ip=t_added, ks=layer_ks(a=c, p=c, o=vis(t_added, ramp=4),
-                                        s=anim([(t_added, [80, 80], "out"), (t_added + 6, [108, 108]),
-                                                (t_added + 14, [100, 100])])))
+    media(m, name, imgs(img), (iw / 2, ih / 2, iw, ih), (x, y, w, ih * w / iw), 20, t_in,
+          drift=(1.04, 0), parent=parent)
 
 
 def title_header(m, imgs, k, title, meta, poster, y, t_in, parent):
     """A film's row header: poster, title and year, and the way into Creative Lab."""
-    img, crop = poster
-    media(m, f"poster {k}", imgs(img), crop, (X0, y, 56, 80), 8, t_in, parent=parent)
+    media(m, f"poster {k}", imgs(poster), full(poster, (0, 0, 56, 80)), (X0, y, 56, 80), 8, t_in, parent=parent)
     right = WORK[0] + WORK[2] - (X0 - WORK[0])
     tw = MED.width("Open in Creative Lab", 19) + 48
     m.shape(f"head {k}", bf([
@@ -794,18 +732,19 @@ def hero3_workspace(m, imgs, T, cam):
         sk.append(group([rect(CARD_W, CARD_H, x + CARD_W / 2, TOP + 104 + CARD_H / 2, 14), fill("#ffffff", 5)]))
     ws.shape("skeleton", sk, ip=t_sk, op=r + 10, ks=layer_ks(o=anim(pulse + [(r, [100]), (r + 10, [0])])))
 
-    s0, s1 = T["scroll"]
-    feed = ws.null("feed", ks=layer_ks(p=anim([(0, [0, 0], "hold"), (s0, [0, 0], "smooth"), (s1, [0, -SCROLL])])))
+    # the second film sits below the fold, cut off by the workspace as in the image on the site
     for k, (title, meta, poster, clips) in enumerate(TITLES3):
         y = TOP + k * ROW_H
         t_row = r + 44 * k
-        title_header(ws, imgs, k, title, meta, poster, y, t_row, feed)
-        for j, (img, crop, when, score, length, added) in enumerate(clips):
+        title_header(ws, imgs, k, title, meta, poster, y, t_row, None)
+        for j, (img, when, score) in enumerate(clips):
             box = (X0 + j * (CARD_W + GAP), y + 104, CARD_W, CARD_H)
             t_in = t_row + 6 + 9 * j
-            t_on = clip_card(ws, imgs, f"clip {k}-{j}", img, crop, box, t_in, feed)
-            card_ui(ws, f"clip {k}-{j}", box, t_on + 2, when, score, length, added,
-                    T["added"] + 8 * j + 16 * k, feed)
+            site_clip(ws, imgs, f"clip {k}-{j}", img, box, t_in, None)
+            if when:
+                ws.shape(f"clip {k}-{j} caption", [REG.text(f"{when}  ·  Relevance {score}%", 17, box[0] + 4,
+                                                            box[1] + CARD_H + 32, MUTED)],
+                         ks=layer_ks(o=vis(t_in + 8, ramp=8)))
 
 
 def build_hero_v3():
@@ -817,9 +756,8 @@ def build_hero_v3():
     send = t_typed + 10
     T.update(send=send, grow=(send + 4, send + 44), open=(send + 62, send + 102))
     T["results"] = T["open"][1] + 20
-    T["added"] = T["results"] + 120
-    T["scroll"] = (T["added"] + 44, T["added"] + 92)
-    OP = T["scroll"][1] + 78
+    T["added"] = T["results"] + 120             # a second answer would come in here; the site's image has one
+    OP = T["results"] + 44 + 6 + 27 + 150         # both rows in, then a five-second hold on the finished view
     scene = Comp(W, H, OP, "comp_scene")        # no background: it sits on the page
     g0, g1 = T["grow"]                          # the opening fills the frame, then the view pulls back
     cam = scene.null("camera", ks=layer_ks(p=(W / 2, H / 2), a=(W / 2, H / 2), s=anim(
