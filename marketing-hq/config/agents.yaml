@@ -1,0 +1,144 @@
+# The Vionlabs marketing agent team that Atlas coordinates. Atlas reads this file at the start
+# of every run and updates it when an agent, session or routine changes.
+#
+# This repo is public. Keep budgets, spend, MQLs, ad account IDs and target companies out of
+# this file: they live in the private strategy doc (see operating.yaml).
+#
+# brief_to: the session Atlas sends briefs to with send_message. For agents whose routine runs
+#   in a fresh session each time, the home session owns the routine's procedure and config, so
+#   it changes those files and the next run picks the brief up.
+# health: how Atlas checks the agent is working (see AGENT.md, "Fleet health").
+
+orchestrator:
+  name: Atlas
+  session_id: session_01V9gwdoCjyZ2JYMtRftvuCt
+  procedure: marketing-hq/AGENT.md
+  branch: claude/eager-knuth-ilc8g5
+
+agents:
+  - id: iris
+    name: Iris, Content Radar
+    play: founder-voice
+    owns: Weekly ideas for Arash, gaps nobody covers, competitor themes, events, mentions of Vionlabs
+    brief_to: session_01DTVGWZuSxeBbWteMmYJZ7B
+    routines:
+      - name: Weekly Content Radar
+        trigger_id: trig_01XdQgnte4EyPc4WAWEwEAPz
+        when: Mon 07:41
+        runs_in: fresh session
+        needs: [Notion, Claude Docs, marcus repo]
+    procedure: .claude/skills/content-radar/SKILL.md on claude/jolly-keller-2i2w2b
+    outputs:
+      - https://claude.ai/artifact/UKwTmC8DtVMasqkdp3Xa2f   # radar page and the team's idea board
+    health: A run each Monday that publishes the week to the radar page and pushes content-engine/reports/<week>.*
+
+  - id: content-bot
+    name: Content bot
+    play: founder-voice, proof
+    owns: Deep-dive series, the weekly long read for Arash on vionlabs.com/news, LinkedIn packs, case study drafts
+    brief_to: session_015Kf79uanNb7hZho8qrKdQy
+    routines:
+      - name: Weekly blog draft for Arash
+        trigger_id: trig_01Rbm27dH6qQpxs3vDduDt2g
+        when: Wed 07:41 (shared with Arash at 10:00)
+        runs_in: fresh session
+        needs: [Google Drive, Webflow, Claude Code Remote, marcus repo]
+    procedure: .claude/skills/content-bot/SKILL.md on claude/practical-fermi-gatt4t
+    outputs:
+      - https://claude.ai/artifact/AkLbDNMUrD4qWSkDdHkR2L   # deep dives page
+    health: Each Wednesday the week's Doc is shared with Arash, or a reason is given
+
+  - id: guest-posts
+    name: Guest-post agent
+    play: earned-media
+    owns: Bylines by Arash in trade press, pitches and follow-ups, the fact-check register; news pitches and podcasts from W45
+    brief_to: session_01Na1ZStLK5UULzsNEJgCEiR
+    routines:
+      - name: Guest post daily run
+        trigger_id: trig_01WqRa2tbhpbpk5CjRzigMKn
+        when: Weekdays 07:39, with reply checks at 10:39, 12:39, 14:39 and 16:39
+        runs_in: its own session (persistent)
+    outputs:
+      - https://claude.ai/artifact/LXQXYFkKNR41baGvXGbPBm   # outreach dashboard
+    health: A summary after each 07:39 run; pitches, replies and fact checks move on the dashboard
+
+  - id: ai-visibility
+    name: AI visibility agent
+    play: search-and-ai
+    owns: AI citations and buyer prompts, site readability, answer pages, listicles and directories, the playbook backlog
+    brief_to: session_01QLh2M9tHRfmsxNNumL55Aw
+    routines:
+      - name: Vionlabs AI visibility weekly
+        trigger_id: trig_013GagNaAaHDTsvStTfxwKhc
+        when: Mon 06:33
+        runs_in: fresh session
+        needs: [Ahrefs, Webflow, Claude Docs, marcus repo]
+    procedure: ai-visibility/AGENT.md on claude/determined-goldberg-rmb6g1
+    outputs:
+      - https://claude.ai/artifact/6wcCXKjTxoMy6RRQRoMY5u   # AI Visibility Playbook (Tracking log + readouts)
+    health: A new KPI row and readout tab in the playbook's Tracking log each Monday
+
+  - id: vera
+    name: Vera, ads creative
+    play: paid
+    owns: LinkedIn ad images, videos, copy, the ads review page and share links
+    brief_to: session_015zQo2DxndqXYRPj5MCGL5s
+    procedure: linkedin-ads-research/AGENTS.md on claude/exciting-cerf-d0xnu7
+    outputs:
+      - https://claude.ai/artifact/RedxbdkboDwKTX5Cm22UtR   # ads review page
+    health: On request; check the session's latest summary
+
+  - id: ads-optimization
+    name: Ads optimization
+    play: paid
+    owns: LinkedIn performance data, tests and recommendations; never changes spend without Marcus
+    brief_to: session_01V9gwdqJSbDxs4Z7JKFuXKZ
+    routines:
+      - name: AIBFE daily LinkedIn ads check
+        trigger_id: trig_01R9MraeEBTTweuirt5VTfGq
+        when: Weekdays 08:40
+        runs_in: fresh session
+      - name: AIBFE launch-day check
+        trigger_id: trig_018mNiwodEAudWoZ4L6BTFdm
+        when: 2026-11-02 11:00 (one-off)
+        runs_in: its own session
+    procedure: linkedin-ads-research/AGENTS.md on claude/linkedin-ads-optimization
+    health: A message to Marcus each weekday; it depends on Supermetrics, whose trial ends 2026-11-09
+
+  - id: ads-account
+    name: LinkedIn ads account planning
+    play: paid
+    owns: The LinkedIn Ads Account Plan and the quarterly marketing summary
+    brief_to: session_01XRS2WbhMERjh33Sf4y5WYN
+    outputs:
+      - https://claude.ai/artifact/QEGUZBRY5JNuihCgQGAEGh   # LinkedIn Ads Account Plan
+    health: On request
+
+  - id: mason
+    name: Mason, Webflow builder
+    play: foundation
+    owns: Pages, copy and SEO settings on vionlabs.com
+    brief_to: session_01GHTiyy8QvdLJJFHnK5p9ot
+    health: On request
+
+  - id: lead-gen
+    name: Lead-gen research
+    play: paid
+    owns: Competitor lead-generation tactics teardown (one-off)
+    brief_to: session_01V9gwdphcbBDwWmJsT9ftFj
+    health: One-off; done when it reports its findings
+
+  - id: events
+    name: Events agent
+    play: events-and-partners
+    owns: A before, during and after kit for every event, partner co-marketing
+    brief_to: null   # not created yet; Atlas covers events until it exists
+    health: Proposed in the strategy doc
+
+# Project sessions Atlas can reopen for one-off work instead of starting new ones.
+projects:
+  - { name: Agentic Layer landing page, session_id: session_012QC1LJxwzo9vpKQ1nFzm7o }
+  - { name: London evening request-a-place page, session_id: session_01V9gwdrkNLaaoDA4qaBabtP, branch: claude/trusting-allen-514b67 }
+  - { name: Lottie creation (Curio and Vionlabs), session_id: session_011uiNc8SPr2Vi1YuaUXMt3A, branch: claude/confident-carson-szeesj }
+  - { name: Blog section restyling, session_id: session_016QfwkhNpJ1kSmziqxzGFQk }
+  - { name: Fingerprint Plus 11.15 blog post, session_id: session_011wdoF2o2UhYbS2JFa1va23 }

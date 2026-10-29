@@ -1,0 +1,44 @@
+# How Atlas operates. Change a value here (or ask Atlas in its session to change it) and the
+# next run follows it. Public repo: no budgets, spend or pipeline numbers in this file.
+
+# propose:       Atlas writes the briefs into the week's plan and waits for Marcus's go.
+# auto-internal: Atlas sends internal briefs (research, drafts, assets, analysis) straight to the
+#                agents. Anything public, paid or sent outside still goes to Marcus first.
+# Marcus approved the strategy and switched to auto-internal on 2026-10-29.
+dispatch_mode: auto-internal
+
+approver: Marcus Svensson
+timezone: Europe/Stockholm
+
+schedule:
+  weekly_plan: Mon 08:38      # after AI visibility (06:33) and the Content Radar (07:41)
+  friday_wrap: Fri 14:38
+
+limits:
+  priorities_per_week: 3
+  new_briefs_per_agent_per_week: 2
+  needs_marcus_items: 5
+  message_to_marcus_lines: 15
+
+# The private strategy doc: goals, KPIs and targets, weekly plans and the scoreboard log.
+# If an id stops resolving, read the doc and find the tab or table by name.
+strategy_doc:
+  url: https://claude.ai/artifact/Lwk7SRf92iaZpJZdWzDTuZ
+  doc_id: a1825dc0-af55-4e9d-b82f-ab90feed5720
+  tabs:
+    strategy:       { file: 7cb56691-56f4, body: 55f3b937-27eb }
+    weekly_plans:   { file: e230eb38-60c4, body: 031c795a-3e9e }   # parent of one tab per week
+    scoreboard_log: { file: 1d3ca912-e251, body: 4bcd5511-1057 }
+  scoreboard_table: mw6ang9zdnk.168
+  # Brief status dropdown, by index: 0 Proposed, 1 Sent, 2 In progress, 3 Done, 4 Blocked
+  brief_status_enum: 07e0fbd8-9c4b
+  # Weekly plan tabs sort newest first: order = "r" + str(30000000 - YYYYMMDD of the week's Monday).zfill(8)
+  weeks:
+    - { week: 2026-W44, monday: 2026-10-26, file: 577a3b6a-f5ff, body: 47f75af9-cae3 }
+
+sources:
+  notion_event_calendar: collection://3890081c-16a0-806d-b61d-000b128f5c41
+  events_fallback: content-engine/config/events.yaml on claude/practical-fermi-gatt4t
+  brand_brief: content-engine/config/brand.md on claude/practical-fermi-gatt4t
+  facts: ai-visibility/config/facts.json on claude/determined-goldberg-rmb6g1
+  supermetrics_linkedin_ads: data source LIA, the account named in the AIBFE daily check routine
