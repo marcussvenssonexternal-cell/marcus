@@ -293,85 +293,31 @@
       "issue": "Reported: home page (/) and /book-a-demo serve robots \"noindex, nofollow\"",
       "status": "closed, false positive",
       "why": "The tags belong to iframes (HubSpot Meetings scheduler on / and /book-a-demo, Cloudflare Turnstile on Webflow forms); the crawler merged their metadata into the page. Correction from Atlas (session_01V9gwdoCjyZ2JYMtRftvuCt), 29 Oct."
+    },
+    {
+      "found": "2026-10-29",
+      "issue": "Search Console still lists sitemap_index.xml (September 2025) with 1 error, and the property is URL-prefix (www) only",
+      "owner": "People (task 48)",
+      "status": "open"
     }
   ],
   "brand_search": {
-    "summary": "vionlabs.com dropped out of the US top 100 for \"vionlabs\" (was #1 with 5 sitelinks on 2026-07-20; lost at the 2026-10-04 check) and from #1 to #2 in Sweden (allabolag.se now #1, 2026-10-24). \"vion labs\" in the US still #1 on 2026-09-15.",
-    "serps": [
-      {
-        "keyword": "vionlabs",
-        "country": "US",
-        "checked": "2026-07-20",
-        "vionlabs_position": 1,
-        "sitelinks": 5
-      },
-      {
-        "keyword": "vionlabs",
-        "country": "US",
-        "checked": "2026-10-04",
-        "vionlabs_position": null,
-        "top10": [
-          "thehub.io/startups/vion-labs",
-          "cloud.google.com/find-a-partner/partner/vionlabs-ab",
-          "instagram.com (Vionlabs AB location)",
-          "medium.com/vionlabs-tech-blog",
-          "advanced-television.com (2022)",
-          "getlatka.com/companies/vionlabs",
-          "vion-labs.com (smart buildings)",
-          "tvbeurope.com",
-          "rankmyai.com",
-          "linkedin.com post"
-        ]
-      },
-      {
-        "keyword": "vionlabs",
-        "country": "SE",
-        "checked": "2026-07-22",
-        "vionlabs_position": 1
-      },
-      {
-        "keyword": "vionlabs",
-        "country": "SE",
-        "checked": "2026-10-24",
-        "vionlabs_position": 2,
-        "above": "allabolag.se"
-      },
-      {
-        "keyword": "vion labs",
-        "country": "US",
-        "checked": "2026-09-15",
-        "vionlabs_position": 1
+    "status": "false alarm",
+    "summary": "Ahrefs SERP snapshots suggested vionlabs.com left the US top 100 for \"vionlabs\" (4 Oct check) and fell to #2 in Sweden. Google Search Console (via Supermetrics, account https://www.vionlabs.com/, as reported by Atlas) shows no drop.",
+    "search_console": {
+      "vionlabs_US": "average position 1.0 in October, 22 clicks to 27 Oct; monthly clicks Jun-Oct 28, 20, 23, 28, 22 at positions 1.0-5.1",
+      "vionlabs_SE": "19 clicks in October, same as September",
+      "queries_containing_vion": "about 150-300 impressions and 30-65 clicks a week, Jun-Oct",
+      "home_page_brand_clicks": {
+        "2026-08": 162,
+        "2026-09": 186,
+        "2026-10 (to 27th)": 120
       }
-    ],
-    "weekly_org_traffic_all_countries": {
-      "2026-07-27": 221,
-      "2026-08-31": 221,
-      "2026-09-07": 144,
-      "2026-09-14": 90,
-      "2026-09-28": 80,
-      "2026-10-05": 12,
-      "2026-10-26": 22
     },
-    "traffic_by_keyword_aug20_vs_oct28": {
-      "vionlabs SE": [
-        122,
-        9
-      ],
-      "vionlabs US": [
-        82,
-        0
-      ],
-      "vion labs US": [
-        17,
-        9
-      ]
-    },
-    "suspects": [
-      "2026-09-02 15:19 site-wide page update in Webflow",
-      "duplicate home pages /home-copy and /old-home with the old home title",
-      "second company named Vion Labs (vion-labs.com) in the results",
-      "paid-link spam since April (task 33)"
-    ],
-    "status": "open; Search Console checks for a person in the \"Brand search drop 29 Oct 2026\" tab (task 48)"
-  }
+    "lesson": "Use Search Console for brand searches; Ahrefs re-checks low-volume queries only every few weeks."
+  },
+  "notes": [
+    "/efficiency-suite still ranked #1 for some brand searches in October (27 impressions): supports task 3",
+    "The Search Console sitemap 'indexed' count reads 0; that API field is deprecated, not a problem"
+  ]
 }

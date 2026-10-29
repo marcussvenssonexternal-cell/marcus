@@ -8,7 +8,8 @@ Monday at 06:33 Stockholm time and follows [AGENT.md](AGENT.md).
 
 Each run it:
 
-1. Measures AI citations for Vionlabs and six competitors, plus Domain
+1. Measures brand and non-branded searches (Search Console, through
+   Supermetrics), and AI citations for Vionlabs and six competitors, Domain
    Rating, referring domains and non-branded rankings (Ahrefs).
 2. Finds outreach targets: sites that started linking to competitors but not
    to us, and pages ranking for our buyer prompts that leave us out (Ahrefs
@@ -22,8 +23,9 @@ Each run it:
 7. Adds up to 8 new tasks to the backlog and writes a readout tab plus a KPI
    row in the Tracking log, listing every site change so it can be undone.
 
-It needs no API keys. The routine needs three connectors attached (Ahrefs,
-Webflow and Claude Docs) and this repository. `.claude/settings.json` at the
+It needs no API keys. The routine needs four connectors attached (Ahrefs,
+Webflow, Claude Docs and Supermetrics, for Google Search Console) and this
+repository. `.claude/settings.json` at the
 repository root pre-approves the tools it uses, so an unattended run does not
 stop at permission prompts, and denies the Webflow Designer and element tools. A run uses about 6,000 of the
 200,000 monthly units on the Ahrefs Lite plan.

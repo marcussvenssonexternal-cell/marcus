@@ -22,6 +22,8 @@ write a short readout.
   5 Owner, 6 Done when, 7 Status, 8 Agent. Row 0 is the header, so task N is
   normally row N; check the # cell before you change a row.
 - Webflow site "Vionlabs Video AI", site id `67978ee27d95b7ff0119d2ea`.
+- Google Search Console, read through the Supermetrics connector: data source
+  `GW`, account `https://www.vionlabs.com/`.
 - This folder: `config/brands.json` (us and the tracked competitors),
   `config/prompts.json` (the 21 buyer prompts), `config/facts.json`
   (canonical facts and red flags), and `results/<date>/` (one folder per run).
@@ -65,16 +67,21 @@ write a short readout.
    (free). If fewer than 20,000 units are left this month, skip steps 3 and 4
    and say so in the readout.
 
-2. **Measure (Ahrefs, about 900 units).**
+2. **Measure (Search Console, then Ahrefs, about 900 units).**
+   - Search Console (Supermetrics, `GW`), last 7 days against the 7 before:
+     clicks, impressions and average position for the query "vionlabs" in
+     the US and in Sweden, and for all queries containing "vion"; and the 10
+     non-branded queries (not containing "vion") with the most impressions.
+     Put the brand clicks and position in the KPI row's notes, for example
+     "Brand: US pos 1.0, 6 clicks; SE 5 clicks". Use these for brand
+     searches, not Ahrefs SERP snapshots, which are weeks old for queries
+     this small and reported a false drop on 29 Oct. If Supermetrics is not
+     attached, say so under setup issues.
    - `site-explorer-ai-responses-count` (mode `subdomains`, select
      `all_platforms,chatgpt,perplexity,gemini,google_ai_overviews,google_ai_mode,copilot`)
      for vionlabs.com and each tracked competitor in `config/brands.json`.
    - `site-explorer-backlinks-stats` and `site-explorer-domain-rating` for
      vionlabs.com (yesterday's date).
-   - `serp-overview` for "vionlabs" in the US and in Sweden (top 10, type
-     `organic`, about 100 units): our position and what ranks above us. Put
-     both in the KPI row's notes, for example "Brand search: US #1, SE #2".
-     A drop here comes before everything else in the readout.
    - `site-explorer-organic-keywords` for vionlabs.com: non-branded
      (`is_branded` false), `best_position` 40 or better, ordered by volume,
      limit 50, with `date_compared` set to the previous run's date.
