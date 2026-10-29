@@ -98,7 +98,10 @@ write a short readout.
    weeks. For each one, note whether Vionlabs appears in the top results and
    which listicles, comparisons, directories or articles rank. Those pages are
    what AI engines read: each one that names competitors but not Vionlabs is
-   an outreach target.
+   an outreach target. Compare each prompt with its last result: the baseline
+   is `results/2026-10-29/snapshot.json` (also the "Prompt baseline 29 Oct
+   2026" tab), and later runs' snapshots supersede it. Put the count in the KPI
+   row's notes, for example "Prompts naming Vionlabs: 2 of 7 (was 1)".
 
 6. **Scan the news** with about 10 web searches: Vionlabs coverage in the past
    7 days; new "best X" lists or comparisons in the category; launches by the
@@ -173,7 +176,8 @@ write a short readout.
    only; never Approved). Number new rows on from the last #.
 
 11. **Save the run.** Write `results/<date>/snapshot.json` with the KPIs, the
-    AI citation counts for every tracked domain, the outreach targets found,
+    AI citation counts for every tracked domain, the buyer-prompt results (in
+    the baseline's `prompts` format), the outreach targets found,
     the numbers of the tasks added, and every site change with its before and
     after values. Commit as "AI visibility run <date>" and push to the branch
     the routine prompt names. If the push fails, say so in the readout.

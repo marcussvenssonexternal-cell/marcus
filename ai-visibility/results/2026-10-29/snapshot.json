@@ -1,0 +1,289 @@
+{
+  "date": "2026-10-29",
+  "kind": "prompt baseline (backlog task 30), one web search per prompt, US results",
+  "summary": {
+    "unbranded_prompts_naming_vionlabs": "3 of 18 (prompts 3, 8, 12)",
+    "prompts_where_vionlabs_com_ranks": 0,
+    "branded_prompts": "19 described from directories only; 20 CB Insights only; 21 nothing about Vionlabs"
+  },
+  "prompts": [
+    {
+      "id": 1,
+      "text": "What are the best recommendation engines for a streaming service?",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "spyro-soft.com",
+        "maginepro.com",
+        "muvi.com",
+        "algolia.com",
+        "theiabm.org"
+      ]
+    },
+    {
+      "id": 2,
+      "text": "How can a streaming platform improve content discovery beyond collaborative filtering?",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "robosoftin.com",
+        "mediagenix.tv",
+        "tavant.com",
+        "streamingmedia.com"
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Which companies offer mood- or emotion-based recommendations for video?",
+      "vionlabs_named": "yes",
+      "via": "Canela.TV coverage: tvtechnology.com, advanced-television.com, mobilemarketingmagazine.com",
+      "pages_that_rank": [
+        "406ventures.com (Digitalsmiths)",
+        "moveme.tv on g2.com",
+        "broadcastnow.co.uk (Vevo)",
+        "campaignasia.com (Prime Video)"
+      ]
+    },
+    {
+      "id": 4,
+      "text": "How do streaming services solve the cold-start problem for new titles?",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "arxiv.org",
+        "xroadmedia.com",
+        "forasoft.com",
+        "mwaretv.com"
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Best video embeddings API for media catalogue similarity search",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "docs.twelvelabs.io",
+        "twelvelabs.io",
+        "mixpeek.com",
+        "aws.amazon.com/blogs",
+        "zilliz.com"
+      ]
+    },
+    {
+      "id": 6,
+      "text": "AI video metadata tagging tools for broadcasters and streamers",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "streamingmediaglobal.com (Mobile Viewpoint)",
+        "blogs.nvidia.com (Valossa)",
+        "streamtvinsider.com (Comcast)",
+        "thebroadcastbridge.com (Mobius Labs)",
+        "brightcove.com",
+        "mixpeek.com",
+        "ottbusiness.com"
+      ]
+    },
+    {
+      "id": 7,
+      "text": "How do I enrich metadata for a large back catalogue automatically?",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "pro.europeana.eu",
+        "ibm.com",
+        "docs.cloud.google.com",
+        "theiabm.org"
+      ]
+    },
+    {
+      "id": 8,
+      "text": "Alternatives to Gracenote for video metadata",
+      "vionlabs_named": "yes",
+      "via": "cbinsights.com/compare/gracenote-vs-vionlabs",
+      "pages_that_rank": [
+        "en.wikipedia.org",
+        "cbinsights.com",
+        "trustradius.com",
+        "alternativeto.net",
+        "sugggest.com"
+      ]
+    },
+    {
+      "id": 9,
+      "text": "AI tools that generate thumbnails and artwork for streaming titles",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "streamyard.com (12 posts)",
+        "futuretools.io",
+        "topai.tools"
+      ]
+    },
+    {
+      "id": 10,
+      "text": "How to automatically cut vertical clips from long-form TV and film",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "klap.app",
+        "agent.vizard.ai",
+        "firecut.ai",
+        "chatcut.io"
+      ]
+    },
+    {
+      "id": 11,
+      "text": "AI agent that searches a video library in plain language",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "momentslab.com",
+        "broadcastnow.co.uk",
+        "tvbeurope.com",
+        "runtimewire.com (TwelveLabs Jockey)",
+        "docs.nvidia.com"
+      ]
+    },
+    {
+      "id": 12,
+      "text": "Automatic intro, recap and credits detection for streaming",
+      "vionlabs_named": "yes",
+      "via": "AWS Marketplace listing prodview-bcy4p6gwu3r44",
+      "pages_that_rank": [
+        "openaccess.thecvf.com",
+        "arxiv.org",
+        "plex.tv",
+        "getchannels.com"
+      ]
+    },
+    {
+      "id": 13,
+      "text": "How to find ad-break points in films and series automatically",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "patents",
+        "studio.support.brightcove.com",
+        "aws.amazon.com (Media2Cloud, Nomalab)",
+        "aws.amazon.com/marketplace/pp/prodview-xmfajvapsnwsg (vendor not named)"
+      ]
+    },
+    {
+      "id": 14,
+      "text": "Which vendors do scene-level contextual advertising for CTV?",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "tvtechnology.com (Viant, Wurl)",
+        "martechvibe.com (Anoki, Amagi)",
+        "wurl.com",
+        "businesswire.com (Anoki)",
+        "ppc.land (Magnite, Anoki)"
+      ]
+    },
+    {
+      "id": 15,
+      "text": "How can FAST channels grow ad revenue with AI?",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "advanced-television.com (Amagi)",
+        "tvtechnology.com",
+        "aws.amazon.com/blogs (ThinkAnalytics)",
+        "streamingmedia.com"
+      ]
+    },
+    {
+      "id": 16,
+      "text": "Should we build video AI on AWS Rekognition or Twelve Labs, or buy a media-specific tool?",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "press.aboutamazon.com (TwelveLabs)",
+        "twelvelabs.io",
+        "toolradar.com",
+        "slashdot.org"
+      ]
+    },
+    {
+      "id": 17,
+      "text": "Which AI companies specialise in video understanding for media and entertainment?",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "twelvelabs.io",
+        "siliconcanals.com (Media Distillery)",
+        "tvtechnology.com (Comcast VideoAI)",
+        "cbinsights.com",
+        "get.caylent.com"
+      ]
+    },
+    {
+      "id": 18,
+      "text": "AI tools for streaming services on AWS Marketplace",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "streamingmedia.com (Quickplay)",
+        "nagra.com",
+        "tvtechnology.com (Veritone)",
+        "technode.global (Prime Focus)",
+        "anyclip.com"
+      ]
+    },
+    {
+      "id": 19,
+      "text": "What is Vionlabs and who uses it?",
+      "vionlabs_named": "described",
+      "via": "zoftwarehub.com, cbinsights.com, zoominfo.com, vodprofessional.com, everybodywiki.com",
+      "pages_that_rank": [
+        "toolspedia.io/ai-tool/visionlabs (different company)"
+      ]
+    },
+    {
+      "id": 20,
+      "text": "Vionlabs vs Gracenote: which is better for video metadata and content discovery?",
+      "vionlabs_named": "described",
+      "via": "cbinsights.com compare pages only; answer says Gracenote wins on breadth",
+      "pages_that_rank": []
+    },
+    {
+      "id": 21,
+      "text": "Is Vionlabs GDPR compliant, can it run on-premise, and how is it priced?",
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "GDPR software vendors (legiscope.com, capterra.com, trustradius.com)"
+      ]
+    }
+  ],
+  "missed_runs": [
+    {
+      "date": "2026-10-26",
+      "why": "routine had no Ahrefs, Webflow or Claude Docs connectors and the repo was not in its sources; it checked prompts 1-7 by web search (Vionlabs only on prompt 3) but could not push or write to the doc"
+    }
+  ],
+  "webflow_read_only": {
+    "custom_domains_last_published": "2026-10-28T16:59:14Z",
+    "staging_last_published": "2026-10-29T09:13:03Z",
+    "pages_changed_since_custom_domain_publish": [
+      "agentic-layer (2026-10-29T09:12:46Z)"
+    ],
+    "agentic_layer_live": "yes, not draft at the 2026-10-28 custom-domain publish"
+  },
+  "tasks_added": [
+    45,
+    46,
+    47
+  ],
+  "status_changes": [
+    {
+      "task": 30,
+      "from": "Not started",
+      "to": "In progress"
+    }
+  ],
+  "site_changes": [],
+  "ahrefs_units_used": 0
+}
