@@ -92,8 +92,11 @@ Once cleared:
 
 ## 7. Rights swap: live ads that use retired assets (29 Oct)
 
-These ads are live in AIBFE and use assets the creative agent retired under the board's imagery rule. Each one
-needs swapping to its replacement (pause the old ad, add the new one):
+These ads are live in AIBFE and use assets the creative agent retired under the board's imagery rule.
+
+**Replacements pending Marcus's approval (29 Oct).** Marcus wants to approve every new or changed creative first.
+The creative agent is redoing the `r` assets to stay closer to the originals, and Ad 0 may go back to intro i1.
+Swap nothing until the creative agent sends the approved list. The "Replace with" column is provisional:
 
 | Live ad (LinkedIn ID) | Campaign | Retired asset | Replace with |
 | --- | --- | --- | --- |
