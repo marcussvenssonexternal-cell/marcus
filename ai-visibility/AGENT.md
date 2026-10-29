@@ -71,6 +71,10 @@ write a short readout.
      for vionlabs.com and each tracked competitor in `config/brands.json`.
    - `site-explorer-backlinks-stats` and `site-explorer-domain-rating` for
      vionlabs.com (yesterday's date).
+   - `serp-overview` for "vionlabs" in the US and in Sweden (top 10, type
+     `organic`, about 100 units): our position and what ranks above us. Put
+     both in the KPI row's notes, for example "Brand search: US #1, SE #2".
+     A drop here comes before everything else in the readout.
    - `site-explorer-organic-keywords` for vionlabs.com: non-branded
      (`is_branded` false), `best_position` 40 or better, ordered by volume,
      limit 50, with `date_compared` set to the previous run's date.
@@ -128,7 +132,10 @@ write a short readout.
      Claude-User, Bingbot and Googlebot are not blocked. Fetch every page you
      audit (at least the home page, /book-a-demo, /agentic-layer, /curio, the
      three Labs, /pricing and /trust-center) and report any `noindex` or
-     `nofollow` in a robots meta tag or an `X-Robots-Tag` header. If the
+     `nofollow` in a robots meta tag in the page's own `<head>` or in an
+     `X-Robots-Tag` header. Ignore tags inside iframes: the HubSpot Meetings
+     scheduler and Cloudflare Turnstile frames carry their own noindex, and
+     crawlers that merge frame metadata report it as the page's. If the
      network blocks www.vionlabs.com, list this check as skipped under setup
      issues.
    - Re-check every open item under `known_issues` in the previous snapshot
