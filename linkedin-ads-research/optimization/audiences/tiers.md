@@ -38,11 +38,19 @@ Other enrichment: email domains, stock symbols where listed, LinkedIn industry, 
 The file follows LinkedIn's template: exact headers, at least one identifier per row, vanity URLs. A short list is
 allowed; it needs 300 matched members to serve (LinkedIn recommends 1,000+ companies).
 
-**Tier 2 (not yet enriched):** check the 3 rows the sheet marks "Verify". The LinkedIn page URL may be wrong or point to a
-parent company. The original Tier 1 "Verify" rows below are now resolved: the sheet marks "Verify". The LinkedIn page URL may be wrong or point to a
-parent company:
-- Tier 1: Paramount Skydance, Tubi, Versant, ITV, M6, Telefónica.
-- Tier 2: Amazon MGM Studios, Starz, Sky Italia.
+**Tier 2 file, verified 29 Oct.** `aibfe-tier2-companies.csv`, 22 companies (also in Google Sheets, "AIBFE Tier 2 –
+LinkedIn company list upload"). Every page URL was checked. Fixes from Viktor's sheet:
+- Amazon → `/company/primevideoamazonstudios`
+- A+E → `/company/aeglobalmedia`
+- Bell Media → `/company/bell-media-`
+- ARD → `/company/ard-wir-sind-deins`
+
+Enriched the same way as Tier 1.
+
+**Status:**
+- Tier 1 uploaded by Marcus as `AIBFE Tier 1 [29.10.26]` (audience 100292544, matching).
+- Tier 2 campaign `AIBFE | ad1-ad2 | Tier 2 | image` created (906054044, paused, $20/day). Luxembourg, Saudi Arabia
+  and Qatar couldn't be set through the API; add them in Campaign Manager.
 
 ## Agreed changes (Marcus, 29 Oct)
 
