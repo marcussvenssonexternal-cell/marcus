@@ -1215,7 +1215,8 @@
         "status": "example"
       }
     ],
-    "destination": "https://www.vionlabs.com/our-ai"
+    "destination": "https://www.vionlabs.com/our-ai",
+    "note": "Creative agent's pick for the first test arms (pending Marcus and Viktor): ai1, ai6 and ai2. Their h1/i1 carry no unverified claims, and together they test the hook types Viktor suggests (contrast, emotion, sound)."
   },
   {
     "id": "ai2",
@@ -1264,7 +1265,8 @@
         "status": "example"
       }
     ],
-    "destination": "https://www.vionlabs.com/our-ai"
+    "destination": "https://www.vionlabs.com/our-ai",
+    "note": "Creative agent's pick for the first test arms (pending Marcus and Viktor): ai1, ai6 and ai2. Their h1/i1 carry no unverified claims, and together they test the hook types Viktor suggests (contrast, emotion, sound)."
   },
   {
     "id": "ai3",
@@ -1435,7 +1437,8 @@
         "status": "example"
       }
     ],
-    "destination": "https://www.vionlabs.com/deployment-options"
+    "destination": "https://www.vionlabs.com/deployment-options",
+    "note": "Needs its own job-title and function targeting (see Targeting), which the API can't set: a manual step in Campaign Manager."
   },
   {
     "id": "ai6",
@@ -1479,7 +1482,8 @@
         "status": "example"
       }
     ],
-    "destination": "https://www.vionlabs.com/our-ai"
+    "destination": "https://www.vionlabs.com/our-ai",
+    "note": "Creative agent's pick for the first test arms (pending Marcus and Viktor): ai1, ai6 and ai2. Their h1/i1 carry no unverified claims, and together they test the hook types Viktor suggests (contrast, emotion, sound)."
   },
   {
     "id": "ai7",
@@ -1582,6 +1586,7 @@
         "status": "example"
       }
     ],
-    "destination": "https://www.vionlabs.com/operations-lab"
+    "destination": "https://www.vionlabs.com/operations-lab",
+    "note": "Needs its own job-title and function targeting (see Targeting), which the API can't set: a manual step in Campaign Manager."
   }
 ]

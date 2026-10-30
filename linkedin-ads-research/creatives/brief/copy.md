@@ -884,6 +884,8 @@ _Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which 
 **Targeting:** Cold: job titles CTO, CPO, VP Engineering, Head of AI / Data / ML, Head of Content Operations · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications · Company size 200+  
 **Destination:** https://www.vionlabs.com/our-ai
 
+_Creative agent's pick for the first test arms (pending Marcus and Viktor): ai1, ai6 and ai2. Their h1/i1 carry no unverified claims, and together they test the hook types Viktor suggests (contrast, emotion, sound)._
+
 **Assets**
 
 - Single image · 1200×627: `png/ai1-L.png`
@@ -936,6 +938,8 @@ _Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which 
 **Audience:** AI, product and tech leaders at streaming platforms, broadcasters and media companies (CTO, CPO, Head of AI, Head of Content Operations). Sceptical of AI buzzwords; want concrete differences and proof.  
 **Targeting:** Cold: job titles CTO, CPO, VP Engineering, Head of AI / Data / ML, Head of Content Operations · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications · Company size 200+  
 **Destination:** https://www.vionlabs.com/our-ai
+
+_Creative agent's pick for the first test arms (pending Marcus and Viktor): ai1, ai6 and ai2. Their h1/i1 carry no unverified claims, and together they test the hook types Viktor suggests (contrast, emotion, sound)._
 
 **Assets**
 
@@ -1086,6 +1090,8 @@ _Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which 
 **Targeting:** Cold: job titles CTO, CISO, VP Engineering, Head of Infrastructure, Head of Media Operations · same industries as the other AI ads · Company size 500+  
 **Destination:** https://www.vionlabs.com/deployment-options
 
+_Needs its own job-title and function targeting (see Targeting), which the API can't set: a manual step in Campaign Manager._
+
 **Assets**
 
 - Single image · 1200×627: `png/ai5-L.png`
@@ -1135,6 +1141,8 @@ _Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which 
 **Audience:** AI, product and tech leaders at streaming platforms, broadcasters and media companies (CTO, CPO, Head of AI, Head of Content Operations). Sceptical of AI buzzwords; want concrete differences and proof.  
 **Targeting:** Cold: job titles CTO, CPO, VP Engineering, Head of AI / Data / ML, Head of Content Operations · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications · Company size 200+  
 **Destination:** https://www.vionlabs.com/our-ai
+
+_Creative agent's pick for the first test arms (pending Marcus and Viktor): ai1, ai6 and ai2. Their h1/i1 carry no unverified claims, and together they test the hook types Viktor suggests (contrast, emotion, sound)._
 
 **Assets**
 
@@ -1231,6 +1239,8 @@ _Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which 
 **Audience:** Product and monetisation leaders at AVOD, FAST and CTV services; ad ops.  
 **Targeting:** Cold: job titles CPO, VP Product, Head of Monetisation, Head of Ad Operations, Head of Ad Sales · same industries · Company size 200+  
 **Destination:** https://www.vionlabs.com/operations-lab
+
+_Needs its own job-title and function targeting (see Targeting), which the API can't set: a manual step in Campaign Manager._
 
 **Assets**
 
