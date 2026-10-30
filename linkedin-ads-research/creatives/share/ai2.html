@@ -1,0 +1,409 @@
+<title>AI 2 · AI that listens</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: a review board. The brief campaign comes first, one block per ad: its assets on the
+     left, the copy exactly as LinkedIn shows it on the right, then targeting and claim checks.
+     The earlier single-image drafts follow as a contact-sheet grid. */
+  :root {
+    --bg: #f2f4f8;
+    --surface: #ffffff;
+    --ink: #111823;
+    --muted: #5a6476;
+    --line: #dde2ec;
+    --accent: #3360d0;
+    --accent-soft: #e6ecfb;
+    --ok: #17785f;   --ok-soft: #e1f3ed;
+    --warn: #9a6200; --warn-soft: #fbefd9;
+    --ex: #5b6170;   --ex-soft: #eceef2;
+    --fold: #a3abb9;
+    --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b1118; --surface: #131b26; --ink: #e8edf4; --muted: #96a2b5; --line: #243042;
+      --accent: #7ea2ff; --accent-soft: #1b2a4a;
+      --ok: #5fd1ac; --ok-soft: #12302a; --warn: #f2bd5c; --warn-soft: #33270f; --ex: #a9b1bf; --ex-soft: #222b38;
+      --fold: #5d697c; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1118; --surface: #131b26; --ink: #e8edf4; --muted: #96a2b5; --line: #243042;
+    --accent: #7ea2ff; --accent-soft: #1b2a4a;
+    --ok: #5fd1ac; --ok-soft: #12302a; --warn: #f2bd5c; --warn-soft: #33270f; --ex: #a9b1bf; --ex-soft: #222b38;
+    --fold: #5d697c; color-scheme: dark;
+  }
+
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.55; }
+  h1, h2, h3, p, ol, ul, figure { margin: 0; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding-block: 40px 72px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+  header { display: grid; gap: 14px; max-width: 780px; }
+  .kicker { font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  h1 { font-family: var(--display); font-weight: 800; font-size: clamp(34px, 5vw, 54px); line-height: 1.02; letter-spacing: -0.025em; text-wrap: balance; }
+  h2 { font-family: var(--display); font-weight: 700; font-size: 21px; letter-spacing: -0.01em; }
+  .lede { font-size: 17px; color: var(--muted); max-width: 66ch; }
+
+  .brief { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 32px; }
+  .brief section { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+  .brief ol, .brief ul { padding-left: 20px; display: grid; gap: 6px; color: var(--ink); }
+  .brief li::marker { color: var(--muted); }
+
+  .bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); margin-top: 36px; padding-block: 12px;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center; border-bottom: 1px solid var(--line); }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+  .bar .count { margin-left: auto; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+  .chip { font: 500 13.5px var(--body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; cursor: pointer; }
+  .chip:hover { border-color: var(--accent); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  :root[data-theme="dark"] .chip[aria-pressed="true"] { color: #0b1118; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .chip[aria-pressed="true"] { color: #0b1118; } }
+  button:focus-visible, .chip:focus-visible, video:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* section headings */
+  .group { margin-top: 48px; display: grid; gap: 20px; }
+  .group-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 18px 32px; align-items: start; }
+  @media (max-width: 860px) { .group-head { grid-template-columns: minmax(0, 1fr); } }
+  .group-head h2 { font-size: 30px; line-height: 1.1; letter-spacing: -0.02em; }
+  .group-head .pitch { margin-top: 8px; color: var(--muted); font-size: 16px; max-width: 62ch; }
+  .group-head .n { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+  /* one campaign ad */
+  .ad { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px; display: grid; gap: 20px; min-width: 0; }
+  .ad-head { display: grid; gap: 6px; }
+  .ad-head .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+  .num { font-family: var(--mono); font-size: 12.5px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+  .lab { font-size: 13.5px; color: var(--muted); }
+  .ad-head h3 { font-family: var(--display); font-weight: 700; font-size: 26px; line-height: 1.15; letter-spacing: -0.015em; }
+  .ad-head .aud { color: var(--muted); max-width: 90ch; }
+  .ad-cols { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+  @media (max-width: 1000px) { .ad-cols { grid-template-columns: minmax(0, 1fr); } }
+
+  .assets { display: grid; gap: 18px; min-width: 0; }
+  .singles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+  @media (max-width: 560px) { .singles { grid-template-columns: minmax(0, 1fr); } .ad { padding: 18px 16px; } }
+  figure { display: grid; gap: 6px; min-width: 0; }
+  figure img, figure video { display: block; width: 100%; height: auto; max-width: 100%; border-radius: 8px; background: var(--line); }
+  figcaption { font-size: 12.5px; color: var(--muted); display: flex; gap: 8px; justify-content: space-between; flex-wrap: wrap; }
+  figcaption .id, figcaption a { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+  figcaption a:hover { color: var(--accent); }
+  .strip { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  .strip img { width: min(250px, 72%); flex: none; scroll-snap-align: start; aspect-ratio: 1; }
+  .cards { margin: 2px 0 0; padding-left: 20px; font-size: 13px; color: var(--muted); display: grid; gap: 2px; }
+  .cards::before { content: "Card headlines"; margin-left: -20px; font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .videos { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; }
+  .videos figure { flex: 1 1 200px; max-width: 300px; }
+  .videos figure.vert { flex-basis: 150px; max-width: 220px; }
+
+  .copy-col { display: grid; gap: 18px; min-width: 0; }
+  .field { display: grid; gap: 8px; min-width: 0; }
+  .label { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .n { font-family: var(--mono); font-weight: 400; letter-spacing: 0; text-transform: none; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .n.over { color: var(--warn); }
+  .heads { list-style: none; padding: 0; display: grid; gap: 8px; }
+  .heads li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 10px; align-items: baseline; font-weight: 600; font-size: 15.5px; }
+  .tabs { display: inline-flex; gap: 4px; }
+  .tabs button { font: 500 12px var(--mono); color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 6px; padding: 2px 9px; cursor: pointer; }
+  .tabs button[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+  .intro { white-space: pre-line; font-size: 14.5px; overflow-wrap: anywhere; background: var(--bg); border-radius: 10px; padding: 14px 16px; }
+  .intro .after { color: var(--fold); }
+  .intro .see { font-family: var(--mono); font-size: 11.5px; color: var(--muted); background: var(--ex-soft); border-radius: 4px; padding: 1px 5px; margin: 0 2px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .cta { font-weight: 600; font-size: 13.5px; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 999px; padding: 3px 12px; }
+  .small { font-size: 13.5px; color: var(--muted); }
+  .share { margin-left: auto; display: inline-flex; gap: 10px; align-items: center; }
+  .share a { font-size: 13px; font-weight: 500; color: var(--accent); }
+  main > .ad { margin-top: 28px; }
+  .one .videos figure { max-width: 440px; flex-basis: 300px; }
+  .one .videos figure.vert { max-width: 300px; flex-basis: 220px; }
+  footer a { color: var(--accent); }
+  .small a { color: var(--accent); }
+  .note { font-size: 14px; border-left: 3px solid var(--accent); padding-left: 12px; }
+  .retired code { font-size: 12px; }
+
+  .copy { font: 500 12px var(--body); color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; cursor: pointer; text-transform: none; letter-spacing: 0; white-space: nowrap; }
+  .copy:hover { color: var(--ink); border-color: var(--muted); }
+
+  .targeting { background: var(--bg); border-radius: 12px; padding: 14px 16px; display: grid; gap: 6px; font-size: 14px; min-width: 0; }
+  .t-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); }
+  .group-head .targeting { background: var(--surface); border: 1px solid var(--line); padding: 16px 18px; }
+  .targeting dl { display: grid; grid-template-columns: 110px 1fr; gap: 6px 12px; margin: 0; }
+  .targeting dd { margin: 0; }
+  .targeting dt { color: var(--muted); }
+
+  .claims { list-style: none; padding: 0; display: grid; gap: 8px; border-top: 1px dashed var(--line); padding-top: 14px; }
+  .claims li { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px; align-items: start; font-size: 13.5px; }
+  .claims .src { color: var(--muted); }
+  .st { font-family: var(--mono); font-size: 11px; white-space: nowrap; border-radius: 5px; padding: 2px 7px; margin-top: 1px; }
+  .st.s-site, .st.s-brief, .st.s-board { color: var(--ok); background: var(--ok-soft); }
+  .st.s-verify { color: var(--warn); background: var(--warn-soft); }
+  .st.s-illustrative, .st.s-example { color: var(--ex); background: var(--ex-soft); }
+
+  /* earlier drafts */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 22px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+  .card > img { display: block; width: 100%; height: auto; aspect-ratio: 1; max-width: 100%; background: var(--line); }
+  .card .body { padding: 18px 20px 20px; display: grid; gap: 14px; }
+  .card .meta { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+  .product { font-family: var(--mono); font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); }
+  .card .id { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .name { font-family: var(--display); font-weight: 700; font-size: 20px; line-height: 1.2; letter-spacing: -0.01em; margin-top: -6px; }
+  .card .intro { background: none; padding: 0; }
+  .headline { font-weight: 600; font-size: 15.5px; }
+  .subgroup { display: grid; gap: 14px; margin-top: 18px; }
+  .subgroup h3 { font-family: var(--display); font-weight: 700; font-size: 21px; }
+
+  footer { margin-top: 48px; color: var(--muted); font-size: 13.5px; max-width: 75ch; }
+  code { font-family: var(--mono); font-size: .92em; }
+  @media (prefers-reduced-motion: no-preference) { .card, .ad { transition: border-color .15s; } .card:hover, .ad:hover { border-color: var(--accent); } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="kicker">LinkedIn campaign · from Viktor’s ad brief · Oct 2026</div>
+    <h1>AI built for entertainment</h1>
+    <p class="lede">The campaign from Viktor’s ad brief, built in our own ad style with real title art and product screenshots from vionlabs.com. 11 ads: one brand ad, three audience ads, and seven feature follow-ups for the people who engage. Each ad has its images, carousels and videos, three headlines, three intro texts, targeting, and where every claim comes from. New at the top: a four-video series modelled on TwelveLabs’ video ads.</p>
+  </header>
+
+  <div class="brief">
+    <section>
+      <h2>How the campaign runs</h2>
+      <ol>
+        <li><b>Ad 0</b> (brand) runs first or in parallel, so people already know who Vionlabs is.</li>
+        <li><b>Ads 1–3</b> each speak to one audience: AI and engineering, product and content ops, and media ops and automation.</li>
+        <li><b>Follow-ups</b> (Editorial Lab M1–M3, Creative Lab C1–C3, Operations Lab O1) retarget people who engaged with Ads 0–3.</li>
+        <li><b>Video series</b> (Videos 1–4) can run as follow-ups too, or as video versions of the feature ads for the same audiences.</li>
+        <li>Every ad: “Book a demo”, at most 8 words on the image, a hook in the first 150 characters, and the sign-off “Vionlabs. AI built for entertainment.”</li>
+      </ol>
+    </section>
+    <section>
+      <h2>Before any of these run</h2>
+      <ul>
+        <li><b>Film and TV imagery: the board’s rule.</b> Famous films and series may appear as small posters among many, never as one big frame or close-up. The rights-safe versions (an “r” in the ID) keep every original layout and only swap the famous title on a big frame for a lesser-known one (Papillon, True History of the Kelly Gang, Upgrade, Vacation Friends, Can You Keep a Secret? and a few more). <code>rights-audit.cjs</code> checks every image and video frame: no famous title covers more than 7.5% of the frame, the size of the thumbnails in Video 4’s wall. <b>They wait for Marcus’s approval</b>; nothing changes on LinkedIn until then. See <code>brief/rights-check.md</code>.</li>
+        <li><b>Customer results</b> (83%, 75%, 2x, 15%, 80%, and 278 days → 7 days for 65,000 episodes): confirm public use and how to credit them.</li>
+        <li><b>90% library coverage</b> (M2): no source found. Define what it measures.</li>
+        <li><b>97% vs 92%</b> retention with scene-matched breaks: left out until there’s a source.</li>
+        <li><b>“On-prem in your own cloud”</b>: confirm the wording with the tech team.</li>
+        <li><b>Customer logos</b> on Ad 0 card 5: needs the approved logo list (yellow placeholders).</li>
+      </ul>
+    </section>
+    <section>
+      <h2>How to read an ad</h2>
+      <ul>
+        <li>Switch between the three intro texts with <b>1 2 3</b>. Grey text is hidden behind “…see more” on desktop (after about 150 characters).</li>
+        <li>Counts turn amber past 70 characters for headlines and 600 for intro texts.</li>
+        <li><span class="st s-brief">From the brief</span> facts are from Viktor’s brief. <span class="st s-example">Example values</span> are mock-up data, not claims.</li>
+        <li>Carousels scroll sideways. Videos play muted, as they do in the feed.</li>
+      </ul>
+    </section>
+  </div>
+
+  <nav class="bar" id="filters" aria-label="Filter ads"></nav>
+  <main id="groups"></main>
+
+  <footer>
+    Sources for every ad (HTML), the PNGs, MP4s and this copy live in <code>linkedin-ads-research/creatives/</code> on the <code>claude/exciting-cerf-d0xnu7</code> branch: the campaign in <code>brief.html</code>, <code>brief-anim.html</code> and <code>brief/</code>, the earlier drafts in <code>ads.html</code> and <code>png/</code>.
+  </footer>
+</div>
+
+<script>
+  const BRIEF = [{"id": "ai2", "num": "AI 2", "group": "ai", "name": "AI that listens", "lab": "Our AI · sound (A2)", "audience": "AI, product and tech leaders at streaming platforms, broadcasters and media companies (CTO, CPO, Head of AI, Head of Content Operations). Sceptical of AI buzzwords; want concrete differences and proof.", "targeting": "Cold: job titles CTO, CPO, VP Engineering, Head of AI / Data / ML, Head of Content Operations · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications · Company size 200+", "assets": [{"id": "ai2-L", "label": "Single image · 1200×627", "approval": "pending"}, {"id": "ai2-S", "label": "Single image · 1080×1080", "approval": "pending"}], "headlines": ["AI that listens. Not just watches.", "Close your eyes. You still know what kind of scene it is.", "Half of a scene’s emotion is in its sound. We hear it."], "intros": ["Close your eyes during a thriller. You still know when the scare is coming.\n\nMuch of a scene’s emotion lives in its sound: the soundtrack, sound effects, silence, a voice dropping. Vionlabs models are trained on how people perceive sound, so they catch the rising strings before the scare and the silence before the reveal.\n\nVideo-only models miss half the story.\n\nVionlabs. AI built for entertainment.", "Most video AI only looks. Ours listens too.\n\nPicture, soundtrack and dialogue (transcribed in 99+ languages) sit on one timeline, so our AI takes in a scene the way a viewer does. That gives you more accurate mood, tension and pacing signals for every title.\n\nVionlabs. AI built for entertainment.", "Run the mute test: the same scene with sound and without. It’s a different scene.\n\nVionlabs builds its own models for film and TV, trained on how humans perceive sound, soundtracks and sound effects. That’s where much of the emotional signal comes from, and where general video models go quiet.\n\nVionlabs. AI built for entertainment."], "claims": [{"text": "Models trained on how humans perceive sound, sound effects and soundtracks", "source": "Viktor's ad prompts (master prompt, A2)", "status": "brief"}, {"text": "Picture, soundtrack and dialogue on one timeline; dialogue in 99+ languages", "source": "Viktor's ad prompts (master prompt); Our AI page", "status": "brief"}, {"text": "Emotion curve, tags, clusters, timelines and labels in the images", "source": "Illustrative, not live model output; frames from lesser-known titles (board rule, Oct 2026)", "status": "example"}], "destination": "https://www.vionlabs.com/our-ai"}];
+  const ADS = [];
+  const ONLY = "ai2"; // set on the one-ad share pages that build_gallery.py writes to share/
+  const LINKS = {}; // each campaign ad's own share link (share/links.json)
+  const HOME = "https://claude.ai/artifact/RedxbdkboDwKTX5Cm22UtR";
+  const STATUS = { site: "On the website", verify: "Check before launch", illustrative: "Example values", brief: "From the brief", example: "Example values", board: "Board decision" };
+  const FOLD = 150, HEADLINE_MAX = 70, INTRO_MAX = 600;
+
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  function introHtml(text) {
+    if (text.length <= FOLD) return esc(text);
+    let cut = text.lastIndexOf(" ", FOLD);
+    if (cut < 100) cut = FOLD;
+    return esc(text.slice(0, cut)) + '<span class="see">…see more</span><span class="after">' + esc(text.slice(cut)) + "</span>";
+  }
+  const claimsHtml = (claims) => `<ul class="claims">${claims.map((c) =>
+    `<li><span class="st s-${c.status}">${STATUS[c.status]}</span><span>${esc(c.text)} <span class="src">· ${esc(c.source)}</span></span></li>`).join("")}</ul>`;
+  const copyBtn = (kind, id, i = 0) => `<button class="copy" data-kind="${kind}" data-id="${id}" data-i="${i}">Copy</button>`;
+
+  // ---------------------------------------------------------------- the brief campaign
+  const size = (id) => (id.endsWith("-L") ? [1200, 627] : [1080, 1080]);
+  const assetId = (a) => a.id || a.video || a.cid || a.carousel[0].replace(/-c\d+$/, "") + "-carousel";
+  function assetsHtml(ad) {
+    // retired assets (big film frames, replaced by their rights-safe "r" versions) are listed, not shown
+    const live = ad.assets.filter((a) => !a.retired), retired = ad.assets.filter((a) => a.retired);
+    const singles = live.filter((a) => a.id), carousels = live.filter((a) => a.carousel), videos = live.filter((a) => a.video);
+    const pend = (a) => (a.approval === "pending" ? ' <span class="st s-verify">Awaiting approval</span>' : "");
+    const fig = (a) => { const [w, h] = size(a.id); return `<figure><img src="brief/png/${a.id}.png" alt="${esc(ad.name)}, ${esc(a.label)}" loading="lazy" width="${w}" height="${h}">
+      <figcaption><span>${esc(a.label)}${pend(a)}</span><a href="brief/png/${a.id}.png" target="_blank" rel="noopener">${a.id}.png</a></figcaption></figure>`; };
+    return `<div class="assets">
+      ${singles.length ? `<div class="singles">${singles.map(fig).join("")}</div>` : ""}
+      ${carousels.map((c) => `<figure><div class="strip" tabindex="0" aria-label="${esc(c.label)}">${c.carousel.map((id, i) =>
+        `<img src="brief/png/${id}.png" alt="${esc(ad.name)}, card ${i + 1} of ${c.carousel.length}" loading="lazy" width="1080" height="1080">`).join("")}</div>
+        <figcaption><span>${esc(c.label)}${pend(c)}</span><span class="id">${c.carousel.join(" · ")}</span></figcaption>
+        ${c.cards ? `<ol class="cards">${c.cards.map((h) => `<li>${esc(h)}</li>`).join("")}</ol>` : ""}</figure>`).join("")}
+      ${videos.length ? `<div class="videos">${videos.map((v) => { const vert = v.video.endsWith("-V");
+        return `<figure${vert ? ' class="vert"' : ""}><video src="brief/video/${v.video}.mp4" poster="brief/video/${v.video}.png" controls muted loop playsinline preload="none" width="1080" height="${vert ? 1920 : 1080}" aria-label="${esc(v.label)}"></video>
+        <figcaption><span>${esc(v.label)}${pend(v)}</span><a href="brief/video/${v.video}.mp4" target="_blank" rel="noopener">${v.video}.mp4</a></figcaption></figure>`; }).join("")}</div>` : ""}
+      ${retired.length ? `<p class="small retired">To be replaced (big film frames), once the new versions are approved: ${retired.map((a) => `<code>${esc(assetId(a))}</code> → <code>${esc(a.replaced_by)}</code>`).join(", ")}</p>` : ""}
+    </div>`;
+  }
+  function adHtml(ad) {
+    return `<article class="ad" id="${ad.id}">
+      <div class="ad-head"><div class="meta"><span class="num">${esc(ad.num)}</span><span class="lab">${esc(ad.lab)}</span>
+        ${!ONLY && LINKS[ad.id] ? `<span class="share"><a href="${LINKS[ad.id]}" target="_blank" rel="noopener">Open on its own</a><button class="copy" data-kind="link" data-id="${ad.id}">Copy share link</button></span>` : ""}</div>
+        <h3>${esc(ad.name)}</h3><p class="aud">${esc(ad.audience)}</p></div>
+      <div class="ad-cols">
+        ${assetsHtml(ad)}
+        <div class="copy-col">
+          <div class="field"><div class="label"><span>Headlines</span><span class="n">max ${HEADLINE_MAX}</span></div>
+            <ol class="heads">${ad.headlines.map((h, i) => `<li><span>${esc(h)}</span><span class="n${h.length > HEADLINE_MAX ? " over" : ""}">${h.length}</span>${copyBtn("bh", ad.id, i)}</li>`).join("")}</ol></div>
+          <div class="field" data-intro="${ad.id}"><div class="label"><span class="row" style="gap:10px">Intro text <span class="tabs">${ad.intros.map((_, i) =>
+              `<button data-tab="${i}" aria-pressed="${i === 0}" aria-label="Intro ${i + 1}">${i + 1}</button>`).join("")}</span></span>
+              <span class="row" style="gap:8px"><span class="n" data-count></span>${copyBtn("bi", ad.id, 0)}</span></div>
+            <div class="intro" data-text></div></div>
+          <div class="row"><span class="cta">Book a demo</span><span class="small">Sign-off: Vionlabs. AI built for entertainment.</span></div>
+          ${ad.destination ? `<div class="small">Links to <a href="${esc(ad.destination)}" target="_blank" rel="noopener">${esc(ad.destination.replace("https://www.", ""))}</a>, with UTMs per ad in <code>brief/launch.csv</code></div>` : ""}
+          <div class="targeting"><span class="t-label">LinkedIn targeting</span><div>${esc(ad.targeting)}</div></div>
+          ${ad.note ? `<p class="note">${esc(ad.note)}</p>` : ""}
+          ${claimsHtml(ad.claims)}
+        </div>
+      </div>
+    </article>`;
+  }
+  function showIntro(field, i) {
+    const ad = BRIEF.find((a) => a.id === field.dataset.intro), text = ad.intros[i];
+    field.querySelector("[data-text]").innerHTML = introHtml(text);
+    const n = field.querySelector("[data-count]");
+    n.textContent = `${text.length}/${INTRO_MAX}`; n.classList.toggle("over", text.length > INTRO_MAX);
+    field.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-pressed", String(+b.dataset.tab === i)));
+    field.querySelector(".copy").dataset.i = i;
+  }
+
+  const SECTIONS = [
+    { key: "ai", name: "How our AI stands out", pitch: "New, from Viktor’s ad prompts (A1–A8): what makes Vionlabs’ own AI different, for AI, product and tech leaders. Cold audiences. Every ad is awaiting Marcus’s approval." },
+    { key: "videos", name: "Video series", pitch: "New: four videos built on what works in TwelveLabs’ video ads (open on the problem, one line at a time, show the click that fixes it). Each one is about a different Vionlabs product, in our own style and with our own angle." },
+    { key: "audience", name: "Brand and audience ads", pitch: "Ad 0 introduces Vionlabs to everyone. Ads 1–3 each speak to one of the three audiences sales sells to." },
+    { key: "editorial", name: "Editorial Lab follow-ups", pitch: "Metadata, Smart Lists and search by mood, for people who engaged with Ads 0–2." },
+    { key: "creative", name: "Creative Lab follow-ups", pitch: "Thumbnails and clips at scale, recipes, and scene search into vertical shorts." },
+    { key: "operations", name: "Operations Lab follow-up", pitch: "Binge markers, ad breaks, chapters and compliance flags, for people who engaged with Ad 3." },
+  ];
+  const countAssets = (list) => list.reduce((n, a) => n + a.assets.reduce((m, x) => m + (x.carousel ? x.carousel.length : 1), 0), 0);
+
+  // ---------------------------------------------------------------- earlier drafts (single image, 1200x1200)
+  function card(ad) {
+    const over = ad.headline.length > HEADLINE_MAX ? " over" : "";
+    return `<article class="card">
+      <img src="png/${ad.id}.png" alt="${esc(ad.name)} ad for ${esc(ad.product)}" loading="lazy" width="1200" height="1200">
+      <div class="body">
+        <div class="meta"><span class="product">${esc(ad.product)}</span><span class="id">${ad.id}</span></div>
+        <div class="name">${esc(ad.name)}</div>
+        <div class="small">${esc(ad.inspired)}</div>
+        <div class="field">
+          <div class="label"><span>Intro text <span class="n">${ad.intro.length} chars</span></span>${copyBtn("intro", ad.id)}</div>
+          <div class="intro">${introHtml(ad.intro)}</div>
+        </div>
+        <div class="field">
+          <div class="label"><span>Headline <span class="n${over}">${ad.headline.length}/${HEADLINE_MAX}</span></span>${copyBtn("headline", ad.id)}</div>
+          <div class="headline">${esc(ad.headline)}</div>
+        </div>
+        <div class="row"><span class="cta">${esc(ad.cta)}</span><span class="small">${esc(ad.audience)}</span></div>
+        ${claimsHtml(ad.claims)}
+      </div>
+    </article>`;
+  }
+  // Draft audiences come from sales feedback; targeting uses LinkedIn Campaign Manager's own field names.
+  const INDUSTRIES = "Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications";
+  const DRAFT_GROUPS = [
+    { key: "ai", name: "AI, ML & engineering",
+      titles: "Head of AI, Director of Machine Learning, ML Engineer, Data Scientist, Head of Data, VP Engineering, CTO, Head of Personalization; CISO and Head of Security for the two trust ads",
+      functions: "Engineering, Information Technology, Research", seniority: "Senior, Manager, Director, VP, CXO" },
+    { key: "product", name: "Product, editorial & content",
+      titles: "Head of Product, Product Manager, Head of Content Operations, Metadata Manager, Head of Editorial, Head of Programming, Creative Director, Head of Marketing, Social Media Manager",
+      functions: "Product Management, Operations, Media and Communication, Marketing, Arts and Design", seniority: "Manager, Director, VP, CXO" },
+    { key: "ops", name: "Content ops & automation",
+      titles: "Head of Media Operations, Media Supply Chain Manager, Broadcast Operations Manager, Head of Ad Operations, Head of AVOD/FAST, Monetization Manager, Compliance Manager, Automation Engineer",
+      functions: "Operations, Engineering, Business Development", seniority: "Manager, Director, VP" },
+    { key: "all", name: "Everyone: proof & retargeting",
+      titles: "Website visitors (last 90 days), company page followers, people who watched or opened earlier ads, and your target account list",
+      functions: "Any of the three audiences above", seniority: "Manager and up" },
+  ];
+  const draftTargeting = (g) => `<div class="targeting"><span class="t-label">LinkedIn targeting</span>
+    <dl><dt>${g.key === "all" ? "Audiences" : "Job titles"}</dt><dd>${esc(g.titles)}</dd><dt>Functions</dt><dd>${esc(g.functions)}</dd>
+    <dt>Seniority</dt><dd>${esc(g.seniority)}</dd><dt>Industries</dt><dd>${esc(INDUSTRIES)}</dd></dl></div>`;
+
+  const groups = document.getElementById("groups");
+  if (ONLY) {
+    // a share page: just this one ad
+    document.body.classList.add("one");
+    document.querySelector("header").innerHTML = `<div class="kicker">Vionlabs · LinkedIn ad draft · “AI built for entertainment” campaign</div>`;
+    document.querySelector(".brief").remove();
+    document.getElementById("filters").remove();
+    document.querySelector("footer").innerHTML = `One ad from the Vionlabs LinkedIn ad review. <a href="${HOME}" target="_blank" rel="noopener">Open the full review page</a>.`;
+    groups.innerHTML = adHtml(BRIEF.find((a) => a.id === ONLY));
+    groups.querySelectorAll("[data-intro]").forEach((f) => showIntro(f, 0));
+  } else {
+    groups.innerHTML = SECTIONS.map((g) => {
+      const ads = BRIEF.filter((a) => a.group === g.key);
+      return `<section class="group" data-view="${g.key}">
+        <div class="group-head"><div><h2>${esc(g.name)}</h2><p class="pitch">${esc(g.pitch)}</p>
+          <div class="n">${ads.length} ${ads.length === 1 ? "ad" : "ads"} · ${countAssets(ads)} assets</div></div></div>
+        ${ads.map(adHtml).join("")}
+      </section>`;
+    }).join("") + `<section class="group" data-view="drafts">
+        <div class="group-head"><div><h2>Earlier drafts</h2>
+          <p class="pitch">The first round: 34 single-image ads (1200 × 1200) modelled on TwelveLabs’ LinkedIn ads, grouped by audience. Same style as the campaign above, so the strongest can run next to it.</p>
+          <div class="n">${ADS.length} ads</div></div></div>
+        ${DRAFT_GROUPS.map((g) => `<div class="subgroup"><h3>${esc(g.name)}</h3>${draftTargeting(g)}<div class="grid">${ADS.filter((a) => a.audience === g.key).map(card).join("")}</div></div>`).join("")}
+      </section>`;
+    groups.querySelectorAll("[data-intro]").forEach((f) => showIntro(f, 0));
+
+    const VIEWS = [{ key: "campaign", name: "Whole campaign" }, ...SECTIONS.map(({ key, name }) => ({ key, name: name.replace(" follow-ups", "").replace(" follow-up", "") })), { key: "drafts", name: "Earlier drafts" }];
+    const bar = document.getElementById("filters");
+    bar.innerHTML = VIEWS.map((v) => `<button class="chip" aria-pressed="false" data-p="${v.key}">${esc(v.name)}</button>`).join("") + `<span class="count" id="count"></span>`;
+
+    function applyFilter(key) {
+      let ads = 0;
+      groups.querySelectorAll(".group").forEach((s) => {
+        const on = key === "campaign" ? s.dataset.view !== "drafts" : s.dataset.view === key;
+        s.hidden = !on; if (on) ads += s.querySelectorAll(".ad, .card").length;
+      });
+      bar.querySelectorAll(".chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.p === key)));
+      document.getElementById("count").textContent = key === "drafts" ? `${ads} drafts` : `${ads} of ${BRIEF.length} ads`;
+      try { localStorage.setItem("ad-view", key); } catch (e) {}
+    }
+    bar.addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) applyFilter(b.dataset.p); });
+    let saved = "campaign";
+    try { saved = localStorage.getItem("ad-view") || "campaign"; } catch (e) {}
+    applyFilter(VIEWS.some((v) => v.key === saved) ? saved : "campaign");
+  }
+
+  groups.addEventListener("click", async (e) => {
+    const tab = e.target.closest("[data-tab]");
+    if (tab) { showIntro(tab.closest("[data-intro]"), +tab.dataset.tab); return; }
+    const b = e.target.closest(".copy");
+    if (!b) return;
+    const { kind, id, i } = b.dataset;
+    const text = kind === "link" ? LINKS[id]
+      : kind === "bh" ? BRIEF.find((a) => a.id === id).headlines[i]
+      : kind === "bi" ? BRIEF.find((a) => a.id === id).intros[i]
+      : ADS.find((a) => a.id === id)[kind];
+    try {
+      await navigator.clipboard.writeText(text);
+      b.textContent = "Copied";
+    } catch (err) {
+      if (kind === "link") { b.textContent = "Can’t copy here: use Open on its own"; setTimeout(() => (b.textContent = "Copy share link"), 2600); return; }
+      const target = kind === "bh" ? b.closest("li").firstElementChild : b.closest(".field").querySelector(".intro, .headline");
+      const range = document.createRange(); range.selectNodeContents(target);
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      b.textContent = "Selected, press ⌘C";
+    }
+    setTimeout(() => (b.textContent = kind === "link" ? "Copy share link" : "Copy"), 1800);
+  });
+</script>

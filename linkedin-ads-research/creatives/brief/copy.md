@@ -876,3 +876,401 @@ _Intro 4, m2b-L, m2b-S and card m2-c3b leave out the 90% coverage figure, which 
 - 278 days vs 7 days on 65,000 episodes; 80% fewer manual tasks in ad-break creation: Sales-deck success stories. Checklist: confirm public use and how to credit (Check before launch)
 - Episode label, markers, chapters and flags: Illustrative episode data on frames from vionlabs.com; flagged frames are abstract placeholders, as the brief requires (Example values)
 - Assets with an “r” in the ID: famous films and series only as small posters among many; a big frame shows a lesser-known title instead: Board, Oct 2026: small posters among many are fine, big frames are not (Arash: take lesser-known films). Checked frame by frame by rights-audit.cjs; awaiting Marcus’s approval (Board decision)
+
+## AI 1 · Mood tags guess. Emotion curves know.
+
+**Lab:** Our AI · emotion (A1)  
+**Audience:** AI, product and tech leaders at streaming platforms, broadcasters and media companies (CTO, CPO, Head of AI, Head of Content Operations). Sceptical of AI buzzwords; want concrete differences and proof.  
+**Targeting:** Cold: job titles CTO, CPO, VP Engineering, Head of AI / Data / ML, Head of Content Operations · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications · Company size 200+  
+**Destination:** https://www.vionlabs.com/our-ai
+
+**Assets**
+
+- Single image · 1200×627: `png/ai1-L.png`
+- Single image · 1080×1080: `png/ai1-S.png`
+
+**Headlines**
+
+1. Your AI sees the scene. Ours predicts how it lands. (51)
+2. Mood tags guess. Emotion curves know. (37)
+3. Metadata that follows the viewer’s pulse, scene by scene. (57)
+
+**Intro text 1** (456 characters)
+
+> A mood tag gives a whole film one word. Viewers don’t watch in one word.
+>
+> Vionlabs predicts how viewers respond, moment by moment. Our emotion model is built on the arousal model from psychology: how activation of the nervous system drives energy, motivation and emotion. Every title gets an emotional curve, not just a tag.
+>
+> That curve powers better recommendations, thumbnails, preview clips and ad-break placement.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (349 characters)
+
+> Emotion decides what people pick, how long they watch and how much interruption they’ll accept.
+>
+> Our models map that emotion across every scene, using the arousal model from psychology, so your metadata shows where a story builds, peaks and releases. Trained only on entertainment content, in-house since 2019.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (316 characters)
+
+> Genre tells you what a title is. Its emotional curve tells you how it plays.
+>
+> Vionlabs predicts how viewers respond to each scene. At Plex, A/B tests showed a significant uplift in viewing minutes from our mood data.
+>
+> See the emotional curve of a title from your own catalogue.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- Emotion prediction built on the arousal model from psychology; moment-by-moment curve per title: Viktor's ad prompts (master prompt, A1) (From the brief)
+- Own models since 2019, trained on 1M+ entertainment videos: Viktor's ad prompts (master prompt). Not on vionlabs.com yet: add them to the Our AI page before the ads run (Check before launch)
+- Plex: significant uplift in viewing minutes from mood data (intro 3): Plex customer story on vionlabs.com; confirm the agreement allows naming Plex in paid ads (Check before launch)
+- Emotion curve, tags, clusters, timelines and labels in the images: Illustrative, not live model output; frames from lesser-known titles (board rule, Oct 2026) (Example values)
+
+## AI 2 · AI that listens
+
+**Lab:** Our AI · sound (A2)  
+**Audience:** AI, product and tech leaders at streaming platforms, broadcasters and media companies (CTO, CPO, Head of AI, Head of Content Operations). Sceptical of AI buzzwords; want concrete differences and proof.  
+**Targeting:** Cold: job titles CTO, CPO, VP Engineering, Head of AI / Data / ML, Head of Content Operations · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications · Company size 200+  
+**Destination:** https://www.vionlabs.com/our-ai
+
+**Assets**
+
+- Single image · 1200×627: `png/ai2-L.png`
+- Single image · 1080×1080: `png/ai2-S.png`
+
+**Headlines**
+
+1. AI that listens. Not just watches. (34)
+2. Close your eyes. You still know what kind of scene it is. (57)
+3. Half of a scene’s emotion is in its sound. We hear it. (54)
+
+**Intro text 1** (402 characters)
+
+> Close your eyes during a thriller. You still know when the scare is coming.
+>
+> Much of a scene’s emotion lives in its sound: the soundtrack, sound effects, silence, a voice dropping. Vionlabs models are trained on how people perceive sound, so they catch the rising strings before the scare and the silence before the reveal.
+>
+> Video-only models miss half the story.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (297 characters)
+
+> Most video AI only looks. Ours listens too.
+>
+> Picture, soundtrack and dialogue (transcribed in 99+ languages) sit on one timeline, so our AI takes in a scene the way a viewer does. That gives you more accurate mood, tension and pacing signals for every title.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (333 characters)
+
+> Run the mute test: the same scene with sound and without. It’s a different scene.
+>
+> Vionlabs builds its own models for film and TV, trained on how humans perceive sound, soundtracks and sound effects. That’s where much of the emotional signal comes from, and where general video models go quiet.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- Models trained on how humans perceive sound, sound effects and soundtracks: Viktor's ad prompts (master prompt, A2) (From the brief)
+- Picture, soundtrack and dialogue on one timeline; dialogue in 99+ languages: Viktor's ad prompts (master prompt); Our AI page (From the brief)
+- Emotion curve, tags, clusters, timelines and labels in the images: Illustrative, not live model output; frames from lesser-known titles (board rule, Oct 2026) (Example values)
+
+## AI 3 · 1688 ways to describe a scene
+
+**Lab:** Embeddings API (A3)  
+**Audience:** AI, product and tech leaders at streaming platforms, broadcasters and media companies (CTO, CPO, Head of AI, Head of Content Operations). Sceptical of AI buzzwords; want concrete differences and proof.  
+**Targeting:** Cold: job titles CTO, CPO, VP Engineering, Head of AI / Data / ML, Head of Content Operations · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications · Company size 200+  
+**Destination:** https://www.vionlabs.com/embeddings-api
+
+**Assets**
+
+- Single image · 1200×627: `png/ai3-L.png`
+- Single image · 1080×1080: `png/ai3-S.png`
+
+**Headlines**
+
+1. 1688 ways to describe a scene. (30)
+2. Search your library by feeling, not by title. (45)
+3. Content understanding as a vector. Plug it into your own stack. (63)
+
+**Intro text 1** (391 characters)
+
+> Every scene, episode and title in your catalogue, encoded as a 1688-dimensional vector: picture, sound and dialogue in one embedding space.
+>
+> Content with a similar style, mood or story sits close together. Use the Embeddings API for semantic search, similar titles, recommendations without user history, clustering, and as features for your own models.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (354 characters)
+
+> Search for “tense interrogation scene” and get tense interrogation scenes, across your whole library.
+>
+> Vionlabs multimodal embeddings encode what actually happens on screen, so semantic search, similarity and clustering work on meaning, not on whatever metadata was typed in. No need to train your own video models.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (321 characters)
+
+> New titles have no viewing history. They still have a story.
+>
+> Our embeddings understand a title from day one, so recommendations work before anyone has pressed play. Curio, our recommendation product built on them, is live with Great American Pure Flix.
+>
+> Explore the Embeddings API.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- 1688-dimensional multimodal embeddings: Viktor's ad prompts. The Embeddings API page says about 512–1024 dimensions: update the page or the ads so they match (Check before launch)
+- Curio is live with Great American Pure Flix (intro 3): Viktor's ad prompts (master prompt); confirm naming the customer in paid ads (Check before launch)
+- Emotion curve, tags, clusters, timelines and labels in the images: Illustrative, not live model output; frames from lesser-known titles (board rule, Oct 2026) (Example values)
+
+## AI 4 · It reads a film like an editor
+
+**Lab:** Our AI · storytelling (A4)  
+**Audience:** AI, product and tech leaders at streaming platforms, broadcasters and media companies (CTO, CPO, Head of AI, Head of Content Operations). Sceptical of AI buzzwords; want concrete differences and proof.  
+**Targeting:** Cold: job titles CTO, CPO, VP Engineering, Head of AI / Data / ML, Head of Content Operations · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications · Company size 200+  
+**Destination:** https://www.vionlabs.com/our-ai
+
+**Assets**
+
+- Single image · 1200×627: `png/ai4-L.png`
+- Single image · 1080×1080: `png/ai4-S.png`
+- Carousel · 8 cards · 1080×1080: `png/ai4-c1.png`, `png/ai4-c2.png`, `png/ai4-c3.png`, `png/ai4-c4.png`, `png/ai4-c5.png`, `png/ai4-c6.png`, `png/ai4-c7.png`, `png/ai4-c8.png`
+
+**Headlines**
+
+1. It reads a film like an editor. (31)
+2. Most AI describes. Ours reads stories. (38)
+3. Six things our AI reads in every scene. (39)
+
+**Intro text 1** (361 characters)
+
+> “Two people in a kitchen” describes a scene. “The moment she realises he lied” understands it.
+>
+> Vionlabs AI is trained on stories. It reads emotional flow, narrative structure, character dynamics, scene pacing, look and sound, and genre, themes and editorial signals. The result is metadata your editors would sign off on.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (328 characters)
+
+> Most AI is built for general tasks. Ours is trained on film and TV, and nothing else.
+>
+> That’s why it reads a title the way an editor does: where the story turns, who drives each scene, how fast it moves, how it looks and sounds. Six layers of understanding for every title in your library.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (348 characters)
+
+> Your recommendations are only as good as what your system understands about a title.
+>
+> Vionlabs reads six things in every scene: emotional flow, narrative structure, character dynamics, scene pacing, look and sound, and genre and themes. One layer of story understanding for search, rows, thumbnails and clips.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- Six dimensions: emotional flow, narrative structure, character dynamics, scene pacing, visual and audio aesthetics, genre/themes/editorial signals: Viktor's ad prompts (master prompt, A4) (From the brief)
+- Own models since 2019, trained on 1M+ entertainment videos: Viktor's ad prompts (master prompt). Not on vionlabs.com yet: add them to the Our AI page before the ads run (Check before launch)
+- Emotion curve, tags, clusters, timelines and labels in the images: Illustrative, not live model output; frames from lesser-known titles (board rule, Oct 2026) (Example values)
+
+## AI 5 · Your content never leaves the building
+
+**Lab:** Deployment · on-prem (A5)  
+**Audience:** CTOs, CISOs, Heads of Engineering and Media Operations with strict security, compliance or data-residency requirements.  
+**Targeting:** Cold: job titles CTO, CISO, VP Engineering, Head of Infrastructure, Head of Media Operations · same industries as the other AI ads · Company size 500+  
+**Destination:** https://www.vionlabs.com/deployment-options
+
+**Assets**
+
+- Single image · 1200×627: `png/ai5-L.png`
+- Single image · 1080×1080: `png/ai5-S.png`
+
+**Headlines**
+
+1. Your content never leaves the building. (39)
+2. We bring the AI to your content. Not the other way round. (57)
+3. Deploys like infrastructure. Reads like an editor. (50)
+
+**Intro text 1** (314 characters)
+
+> Uploading your catalogue to an outside AI service isn’t an option for everyone.
+>
+> Vionlabs runs on-prem or at the edge, inside your environment. Feature extraction happens locally; original video never leaves. Only derived data (features, embeddings, metadata) is transferred.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (307 characters)
+
+> Built for teams with strict security, compliance or data-residency rules.
+>
+> Deploy Vionlabs on VMs or Kubernetes, in GCP or AWS, with Terraform modules, GPU acceleration, autoscaling and automatic model updates. Your originals stay where they are; our AI comes to them.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (293 characters)
+
+> We bring the AI to your content, not your content to the AI.
+>
+> Plex runs Vionlabs inside its own environment and scales processing up or down with demand. Original video stays put; only features, embeddings and metadata leave.
+>
+> See the deployment options.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- On-prem/edge: originals never leave; only features, embeddings and metadata are transferred; VM or Kubernetes, GCP or AWS, Terraform, GPU, autoscaling, automatic model updates: Deployment Options page on vionlabs.com; confirm wording with the tech team (Check before launch)
+- Plex runs Vionlabs inside its own environment (intro 3): Plex customer story; confirm naming Plex in paid ads (Check before launch)
+- The diagram: Illustrative (Example values)
+
+## AI 6 · Built for one industry. On purpose.
+
+**Lab:** Our AI · specialist vs general (A6)  
+**Audience:** AI, product and tech leaders at streaming platforms, broadcasters and media companies (CTO, CPO, Head of AI, Head of Content Operations). Sceptical of AI buzzwords; want concrete differences and proof.  
+**Targeting:** Cold: job titles CTO, CPO, VP Engineering, Head of AI / Data / ML, Head of Content Operations · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications · Company size 200+  
+**Destination:** https://www.vionlabs.com/our-ai
+
+**Assets**
+
+- Single image · 1200×627: `png/ai6-L.png`
+- Single image · 1080×1080: `png/ai6-S.png`
+
+**Headlines**
+
+1. Built for one industry. On purpose. (35)
+2. A general model knows a little about everything. Ours knows film. (65)
+3. You wouldn’t hire a generalist to cut your trailer. (51)
+
+**Intro text 1** (325 characters)
+
+> General AI: “Two men sitting outside.” Vionlabs: “Hope returns. Turning point.”
+>
+> General-purpose models are trained on the whole internet and describe what they see. Ours are trained only on entertainment, so they understand what a scene means: tension, pacing, character arcs and tone.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (286 characters)
+
+> A general model knows a little about everything. Ours knows entertainment.
+>
+> Vionlabs has built its own AI models for film and TV since 2019, on more than a million entertainment videos. That focus is why our metadata reads like an editor wrote it.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (272 characters)
+
+> You wouldn’t hire a generalist to cut your trailer. Why use one to understand your catalogue?
+>
+> Vionlabs models are trained only on film and TV. They read story, emotion, sound and structure, scene by scene, across your whole library.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- Own models since 2019, trained on 1M+ entertainment videos: Viktor's ad prompts (master prompt). Not on vionlabs.com yet: add them to the Our AI page before the ads run (Check before launch)
+- General AI vs Vionlabs descriptions of the same frame (from Rescue Dawn): Illustrative contrast of categories, no vendor named; frame from a lesser-known title (Example values)
+
+## AI 7 · Entertainment AI since 2019
+
+**Lab:** Our AI · since 2019 (A7)  
+**Audience:** AI, product and tech leaders at streaming platforms, broadcasters and media companies (CTO, CPO, Head of AI, Head of Content Operations). Sceptical of AI buzzwords; want concrete differences and proof.  
+**Targeting:** Cold: job titles CTO, CPO, VP Engineering, Head of AI / Data / ML, Head of Content Operations · Industries: Entertainment Providers; Broadcast Media Production and Distribution; Movies, Videos, and Sound; Online Audio and Video Media; Telecommunications · Company size 200+  
+**Destination:** https://www.vionlabs.com/our-ai
+
+**Assets**
+
+- Single image · 1200×627: `png/ai7-L.png`
+- Single image · 1080×1080: `png/ai7-S.png`
+
+**Headlines**
+
+1. Entertainment AI, since 2019. (29)
+2. We didn’t add AI last year. We started in 2019. (47)
+3. Our AI has watched over a million videos. Professionally. (57)
+
+**Intro text 1** (322 characters)
+
+> We didn’t add AI last year. We’ve been building our own entertainment AI since 2019.
+>
+> Vionlabs was founded in Stockholm in 2016 by people from film and VFX. Our in-house models are trained on more than a million entertainment videos and refined with media companies around the world.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (250 characters)
+
+> Our AI has watched over a million videos. Professionally.
+>
+> In-house models, trained only on film and TV since 2019, reading picture, sound and dialogue in 99+ languages. Not a wrapper on a general-purpose model.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (282 characters)
+
+> Long before AI became a bullet point in every vendor deck, we were training models on film and TV.
+>
+> Since 2019, Vionlabs has built its own entertainment AI, trained on 1M+ videos. It’s in production with media companies reaching 300M+ viewers.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- Own models since 2019, trained on 1M+ entertainment videos: Viktor's ad prompts (master prompt). Not on vionlabs.com yet: add them to the Our AI page before the ads run (Check before launch)
+- Founded in Stockholm in 2016 by people from film and VFX: Ad prompts, base context (From the brief)
+- Picture, soundtrack and dialogue on one timeline; dialogue in 99+ languages: Viktor's ad prompts (master prompt); Our AI page (From the brief)
+- 20+ media companies, 300M+ viewers (intro 3): Viktor's new ad prompts. The earlier brief and the Ad 0 copy say 500M viewers in 60+ countries: pick one set of numbers before launch (Check before launch)
+
+## AI 8 · Your ad server doesn’t know the plot
+
+**Lab:** Operations Lab · ad breaks (A8)  
+**Audience:** Product and monetisation leaders at AVOD, FAST and CTV services; ad ops.  
+**Targeting:** Cold: job titles CPO, VP Product, Head of Monetisation, Head of Ad Operations, Head of Ad Sales · same industries · Company size 200+  
+**Destination:** https://www.vionlabs.com/operations-lab
+
+**Assets**
+
+- Single image · 1200×627: `png/ai8-L.png`
+- Single image · 1080×1080: `png/ai8-S.png`
+
+**Headlines**
+
+1. Your ad server doesn’t know the plot. We do. (44)
+2. The costliest second in streaming is the one before the break. (62)
+3. Same ads. Better moments. (25)
+
+**Intro text 1** (281 characters)
+
+> Your ad server doesn’t know the plot. We do.
+>
+> Our arousal-based emotion model gives every title a tension curve, so ad breaks land where the story breathes, not on the climb to the climax. Operations Lab uses the same curve for binge markers.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 2** (273 characters)
+
+> The most expensive second in streaming is the one before the break.
+>
+> Put a break on the climb to the climax and viewers leave. Put it in a natural pause and they stay. Vionlabs finds those pauses in every title, from the story itself.
+>
+> Vionlabs. AI built for entertainment.
+
+**Intro text 3** (255 characters)
+
+> Same ads. Better moments.
+>
+> Plex uses Vionlabs to place ad breaks where the story naturally pauses: “Bad ad breaks can destroy engagement, and we have proven that Vionlabs improves it.”
+>
+> See where your titles breathe.
+>
+> Vionlabs. AI built for entertainment.
+
+**Claims**
+
+- Tension curve from the arousal-based model; ad breaks and binge markers in Operations Lab: Viktor's ad prompts (A8) (From the brief)
+- Plex quote and engagement result (intro 3): Plex customer story; confirm the agreement allows the quote in paid ads (Check before launch)
+- The tension curve and break markers: Illustrative (Example values)

@@ -49,6 +49,7 @@
   .side { display: grid; gap: 8px; min-width: 0; align-content: start; }
   .side h3 { margin: 0; font: 600 12px var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: flex; gap: 8px; align-items: center; }
   .side.new h3 { color: var(--ok); }
+  .media.wide { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
   .media { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; align-items: start; }
   figure { margin: 0; display: grid; gap: 4px; min-width: 0; }
   figure img, figure video { width: 100%; height: auto; max-width: 100%; display: block; border-radius: 8px; background: var(--line); }
@@ -73,9 +74,9 @@
 <div class="wrap">
   <header class="lede">
     <span class="ad">Vionlabs · LinkedIn · AI built for entertainment</span>
-    <h1>Approve the rights swaps before anything changes on LinkedIn</h1>
+    <h1>Approve the rights swaps and new ads before anything changes on LinkedIn</h1>
     <p>The board’s rule: famous films and series only as <b>small posters among many</b>, never as one big frame or close-up. Each change below keeps the original ad and only swaps the famous title on a big frame for a lesser-known one, or shrinks a grid of posters a little. <b>Nothing is swapped on LinkedIn until it’s approved here.</b></p>
-    <p>Left: the current version (some of these are live). Right: the new version. Approve it, or mark it “Needs changes” with a note, and the creative agent picks that up.</p>
+    <p>Left: the current version (some of these are live). Right: the new version. Further down are eight new ads on how our AI stands out, from Viktor’s ad prompts. Approve each one, or mark it “Needs changes” with a note, and the creative agent picks that up.</p>
   </header>
 
   <div class="bar" role="region" aria-label="Approval progress">
@@ -138,6 +139,15 @@
     { id: "v4", ad: "Video 4 · One recipe", title: "Rejected frames and the finished thumbnail use lesser-known titles",
       ids: "v4-S, v4-V → v4r-S, v4r-V", look: "Look at 0–3.8 s (rejected frames) and 13.4–15.7 s (Can You Keep a Secret? instead of La La Land). The rushing wall you approved stays.",
       old: ["video/v4-S", "video/v4-V"], new: ["video/v4r-S", "video/v4r-V"] },
+    // new ads from Viktor's ad prompts (A1–A8): nothing to compare, only the new version
+    { id: "ai1", ad: "New · How our AI stands out", title: "A1 · Mood tags guess. Emotion curves know.", ids: "ai1-L, ai1-S", look: "Frame from True History of the Kelly Gang. Intro 3 names Plex’s viewing-minutes result: check that the agreement allows it.", old: [], new: ["png/ai1-L", "png/ai1-S"] },
+    { id: "ai2", ad: "New · How our AI stands out", title: "A2 · AI that listens. Not just watches.", ids: "ai2-L, ai2-S", look: "Frame from Papillon, with the soundtrack turning into the emotion curve.", old: [], new: ["png/ai2-L", "png/ai2-S"] },
+    { id: "ai3", ad: "New · How our AI stands out", title: "A3 · 1688 ways to describe a scene.", ids: "ai3-L, ai3-S", look: "Check first: the Embeddings API page says about 512–1024 dimensions. Intro 3 names Great American Pure Flix.", old: [], new: ["png/ai3-L", "png/ai3-S"] },
+    { id: "ai4", ad: "New · How our AI stands out", title: "A4 · It reads a film like an editor (single images and an 8-card carousel)", ids: "ai4-L, ai4-S, ai4-carousel (ai4-c1 … ai4-c8)", look: "The carousel takes the six things the AI reads one card at a time.", old: [], new: ["png/ai4-L", "png/ai4-S", "png/ai4-c1", "png/ai4-c2", "png/ai4-c3", "png/ai4-c4", "png/ai4-c5", "png/ai4-c6", "png/ai4-c7", "png/ai4-c8"] },
+    { id: "ai5", ad: "New · How our AI stands out", title: "A5 · Your content never leaves the building.", ids: "ai5-L, ai5-S", look: "Deployment details: confirm the wording with the tech team. Intro 3 names Plex.", old: [], new: ["png/ai5-L", "png/ai5-S"] },
+    { id: "ai6", ad: "New · How our AI stands out", title: "A6 · Built for one industry. On purpose.", ids: "ai6-L, ai6-S", look: "Frame from Rescue Dawn. Contrasts categories (general AI), never a named vendor.", old: [], new: ["png/ai6-L", "png/ai6-S"] },
+    { id: "ai7", ad: "New · How our AI stands out", title: "A7 · Entertainment AI, since 2019.", ids: "ai7-L, ai7-S", look: "Check first: 2019 and 1M+ videos aren’t on the website yet, and intro 3’s 300M+ viewers differs from Ad 0’s 500M.", old: [], new: ["png/ai7-L", "png/ai7-S"] },
+    { id: "ai8", ad: "New · How our AI stands out", title: "A8 · Your ad server doesn’t know the plot.", ids: "ai8-L, ai8-S", look: "Intro 3 quotes Plex: check that the agreement allows it.", old: [], new: ["png/ai8-L", "png/ai8-S"] },
   ];
 
   const LABEL = { waiting: "Waiting for approval", approved: "Approved", changes: "Needs changes" };
@@ -161,10 +171,10 @@
     return `<article class="change" id="${c.id}" data-id="${c.id}">
       <div class="head"><div class="meta"><span class="ad">${esc(c.ad)}</span></div><span class="status" data-status></span></div>
       <div class="what"><h2>${esc(c.title)}</h2><div class="ids"><code>${esc(c.ids)}</code></div><p class="look">${esc(c.look)}</p></div>
-      <div class="compare">
+      ${c.old.length ? `<div class="compare">
         <section class="side old"><h3>Current</h3><div class="media">${c.old.map(mediaHtml).join("")}</div></section>
         <section class="side new"><h3>New</h3><div class="media">${c.new.map(mediaHtml).join("")}</div></section>
-      </div>
+      </div>` : `<section class="side new"><h3>New ad · copy, headlines and targeting on the review page</h3><div class="media wide">${c.new.map(mediaHtml).join("")}</div></section>`}
       <div class="decide">
         <label for="note-${c.id}">Note for the creative agent (needed for “Needs changes”)</label>
         <textarea id="note-${c.id}" placeholder="e.g. use a different frame for the player"></textarea>

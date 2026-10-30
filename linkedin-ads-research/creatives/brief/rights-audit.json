@@ -504,5 +504,125 @@
   "area": 0,
   "name": null,
   "ok": true
+ },
+ "ai1-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai1-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai2-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai2-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai3-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai3-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai4-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai4-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai4-c1": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai4-c2": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai4-c3": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai4-c4": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai4-c5": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai4-c6": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai4-c7": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai4-c8": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai5-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai5-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai6-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai6-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai7-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai7-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai8-S": {
+  "area": 0,
+  "name": null,
+  "ok": true
+ },
+ "ai8-L": {
+  "area": 0,
+  "name": null,
+  "ok": true
  }
 }

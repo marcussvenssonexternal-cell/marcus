@@ -595,6 +595,136 @@
     <div class="abs" style="left:510px;top:300px;width:634px">${lanes(14, 10)}</div>
     ${foot()}`);
 
+
+  // ======================================================================== HOW OUR AI STANDS OUT (Viktor's ad prompts, A1–A8)
+  // Dark, cinematic, with a thin signal showing what the AI understands. Frames only from lesser-known titles (board, Oct 2026).
+  const AI_AUD = "For AI, product & tech leaders";
+  // a glowing curve with labelled beats; pts in 0..1, beats: [[index, label], …]
+  function pulse(w, h, id, pts, beats = [], { fs = 15, col = "#f0907f", glowCol = "#e07a6d", dots = true } = {}) {
+    const { d, P } = curve(pts, w, h);
+    return `<svg class="abs" width="${w}" height="${h}" style="left:0;top:0;overflow:visible"><defs><filter id="pg-${id}"><feGaussianBlur stdDeviation="7"/></filter></defs>
+      <path d="${d}" fill="none" stroke="${glowCol}" stroke-width="10" opacity=".55" filter="url(#pg-${id})"/><path d="${d}" fill="none" stroke="${col}" stroke-width="3.5" stroke-linecap="round"/>
+      ${beats.map(([i, t]) => `${dots ? `<circle cx="${P[i][0]}" cy="${P[i][1]}" r="7" fill="${glowCol}"/><circle cx="${P[i][0]}" cy="${P[i][1]}" r="15" fill="${glowCol}" opacity=".25"/>` : ""}
+        <text x="${P[i][0]}" y="${P[i][1] - fs * 1.4}" text-anchor="middle" font-family="Inter" font-size="${fs}" font-weight="700" letter-spacing="1.4" fill="#fff" style="paint-order:stroke" stroke="rgba(0,0,0,.6)" stroke-width="3">${t.toUpperCase()}</text>`).join("")}</svg>`;
+  }
+  // a frame with a dark wash so overlays read, and the overlay drawn at the frame's size
+  const film = (name, w, h, pos, overlay = "", wash = ".45") => img(name, `width:${w}px;height:${h}px;border-radius:14px`, pos, `
+    <div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(11,19,28,${wash}) 0%,rgba(11,19,28,.15) 45%,rgba(11,19,28,.75) 100%)"></div>${overlay}`);
+  // the two layouts every A ad uses: S = headline on top, visual below; L = headline left, visual right
+  const aiS = (id, ad, head, visual, below = "", { size = 76 } = {}) => add(id, ad, "S", `${top(AI_AUD)}
+    <h1 style="margin-top:44px;width:936px;font-size:${size}px">${head}</h1>
+    <div class="abs" style="left:72px;top:${size > 76 ? 360 : 330}px;width:936px">${visual(936, 440)}</div>
+    ${below ? `<div class="abs" style="left:72px;right:72px;top:800px">${below}</div>` : ""}${foot()}`);
+  const aiL = (id, ad, head, visual) => add(id, ad, "L", `${top(AI_AUD)}
+    <h1 style="margin-top:40px;width:440px;font-size:48px">${head}</h1>
+    <div class="abs" style="left:532px;top:100px;width:612px">${visual(612, 380)}</div>${foot()}`);
+  const both = (n, ad, head, visual, below) => { aiS(`ai${n}-S`, ad, head, visual, below); aiL(`ai${n}-L`, ad, head, visual); };
+  const kicker = (label, text, col = "var(--muted)") => `<div class="row" style="align-items:baseline;gap:18px"><span class="panel-title" style="width:220px;flex:none;color:${col}">${label}</span><span style="font-size:30px;font-weight:600;line-height:1.25">${text}</span></div>`;
+
+  // A1: emotional understanding. A mood tag is one word; the emotion curve follows the viewer's arousal through the scene.
+  const EMO = [[0, 0.78], [0.14, 0.72], [0.33, 0.46], [0.5, 0.6], [0.7, 0.14], [0.85, 0.55], [1, 0.62]];
+  both(1, "ai1", 'Mood tags guess. <span class="hl">Emotion curves know.</span>', (w, h) => `<div style="position:relative;width:${w}px;height:${h}px">
+      ${film("r-kelly", w, h, "50% 30%", `<div class="abs" style="left:0;right:0;top:${h * 0.22}px;height:${h * 0.62}px">${pulse(w, h * 0.62, `e${w}`, EMO, [[2, "Tension builds"], [4, "Peak"], [5, "Release"]], { fs: w > 700 ? 15 : 12 })}</div>
+        <span class="abs tc" style="left:18px;top:16px;font-size:${w > 700 ? 15 : 12}px;letter-spacing:.12em;color:#fff;text-shadow:0 1px 6px #000">AROUSAL · MOMENT BY MOMENT</span>
+        <span class="abs" style="right:18px;bottom:16px;opacity:.85">${tags(["Mood: Tense"], "ghost", w > 700 ? 18 : 14, "5px 12px", "color:#c7cfdc;text-decoration:line-through;text-decoration-color:#e07a6d")}</span>`)}</div>`,
+    `<div class="col" style="gap:18px">${kicker("A mood tag", '<span style="color:var(--muted)">one word for the whole title.</span>', "var(--faint)")}${kicker("Vionlabs", 'how viewers respond, <span style="color:var(--blue-hi)">scene by scene.</span>', "var(--sky)")}</div>`);
+
+  // A2: AI that listens. The soundtrack's waveform turns into the emotion curve.
+  const soundWave = (w, h, n, seed) => { let s = seed, out = ""; for (let i = 0; i < n; i++) { s = (s * 16807) % 2147483647; const x = (i / n) * w, env = i > n * 0.42 && i < n * 0.5 ? 0.06 : 0.25 + 0.75 * Math.abs(Math.sin(i / 7)) * (i / n < 0.42 ? i / n / 0.42 : 1), bh = Math.max(3, h * env * (0.45 + 0.55 * (s / 2147483647)));
+    out += `<rect x="${x}" y="${(h - bh) / 2}" width="${(w / n) * 0.55}" height="${bh}" rx="1.5" fill="#6fb4ff" opacity="${0.55 + 0.4 * (i / n)}"/>`; } return out; };
+  both(2, "ai2", 'AI that listens. <span class="hl">Not just watches.</span>', (w, h) => `<div style="position:relative;width:${w}px;height:${h}px">
+      ${film("r-pap", w, h, "55% 30%", `<svg class="abs" width="${w * 0.56}" height="${h * 0.34}" style="left:0;top:${h * 0.5}px">${soundWave(w * 0.56, h * 0.34, 70, 7)}</svg>
+        <div class="abs" style="left:${w * 0.5}px;right:0;top:${h * 0.2}px;height:${h * 0.5}px">${pulse(w * 0.5, h * 0.5, `w${w}`, [[0, 0.75], [0.3, 0.68], [0.6, 0.35], [0.82, 0.08], [1, 0.4]], [[3, "The reveal"]], { fs: w > 700 ? 15 : 12 })}</div>
+        <span class="abs tc" style="left:${w * 0.07}px;top:${h * 0.42}px;font-size:${w > 700 ? 15 : 12}px;letter-spacing:.1em;color:#cfe4ff;text-shadow:0 1px 6px #000">RISING STRINGS</span>
+        <span class="abs tc" style="left:${w * 0.42}px;top:${h * 0.86}px;font-size:${w > 700 ? 15 : 12}px;letter-spacing:.1em;color:#cfe4ff;text-shadow:0 1px 6px #000">SILENCE</span>`, ".55")}</div>`,
+    `<div class="row" style="gap:12px;flex-wrap:wrap">${tags(["Soundtrack", "Sound effects", "Silence", "Tone of voice", "Dialogue, 99+ languages"], "ghost", 24, "10px 18px", "color:var(--text)")}</div>`);
+
+  // A3: 1688 dimensions. Scenes as points in one embedding space; similar scenes cluster.
+  const cloud = (w, h, seed) => { let s = seed; const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
+    const C = [[0.22, 0.3, "#e07a6d", "Tense interrogations"], [0.7, 0.26, "#6fb4ff", "Feel-good road trips"], [0.3, 0.75, "#c9a2ff", "Quiet goodbyes"], [0.76, 0.72, "#3ddc97", "Underdog wins"]];
+    let dots = ""; C.forEach(([cx, cy, col]) => { for (let i = 0; i < 46; i++) { const a = r() * 6.283, d = Math.pow(r(), 0.7) * 0.13; dots += `<circle cx="${(cx + Math.cos(a) * d * 1.2) * w}" cy="${(cy + Math.sin(a) * d) * h}" r="${2 + r() * 3.5}" fill="${col}" opacity="${0.45 + r() * 0.5}"/>`; } });
+    for (let i = 0; i < 40; i++) dots += `<circle cx="${r() * w}" cy="${r() * h}" r="${1.5 + r() * 2}" fill="#9aa3b5" opacity=".3"/>`;
+    const fs = w > 700 ? 17 : 13;
+    return `<svg class="abs" width="${w}" height="${h}" style="left:0;top:0">${dots}</svg>${C.map(([cx, cy, col, t]) => `<span class="abs tag" style="left:${cx * w - 20}px;top:${cy * h + h * 0.13 + 6}px;font-size:${fs}px;padding:4px 10px;background:rgba(11,19,28,.8);border:1.5px solid ${col};color:#fff">${t}</span>`).join("")}`; };
+  both(3, "ai3", '1688 ways to <span class="hl">describe a scene.</span>', (w, h) => `<div class="panel" style="position:relative;width:${w}px;height:${h}px;padding:0;overflow:hidden;background:#0d1620">
+      <div class="abs" style="inset:0">${cloud(w, h * 0.86, 11)}</div>
+      <div class="abs tc" style="left:16px;right:16px;bottom:14px;font-size:${w > 700 ? 17 : 12}px;color:#c7cfdc;white-space:nowrap;overflow:hidden">scene_0412 → [0.12, −0.48, 0.91, 0.07, … ] <span style="color:var(--sky)">1688 dims · picture + sound + dialogue</span></div></div>`,
+    `<div class="row" style="gap:12px;flex-wrap:wrap">${tags(["Semantic search", "Similar titles", "Cold start, day one", "Features for your own models"], "ghost", 23, "10px 18px", "color:var(--text)")}</div>`);
+
+  // A4: it reads a film like an editor. Six layers over one frame; the carousel takes them one at a time.
+  const LAYERS = [["Emotional flow", "Recommend by how a title lands, not its genre.", "#e07a6d"], ["Narrative structure", "Know the setup, the turn and the payoff.", "#6fb4ff"],
+    ["Character dynamics", "See who drives each scene, and who loses ground.", "#c9a2ff"], ["Scene pacing", "Spot the slow burn and the rush.", "#f5c451"],
+    ["Look & sound", "Match a title’s look and sound, not just its tags.", "#3ddc97"], ["Genre, themes & editorial signals", "Build rows an editor would.", "#9aa3b5"]];
+  const layerStack = (w, h, on = -1) => `<div class="abs col" style="right:${w * 0.03}px;top:${h * 0.08}px;gap:${h * 0.022}px;width:${w * 0.42}px">${LAYERS.map(([t, , col], i) =>
+    `<div style="display:flex;align-items:center;gap:10px;padding:${h * 0.016}px ${w * 0.018}px;border-radius:10px;background:rgba(11,19,28,${on === -1 || on === i ? 0.82 : 0.5});border:1.5px solid ${on === i ? col : "rgba(255,255,255,.14)"};opacity:${on === -1 || on === i ? 1 : 0.45}">
+      <span style="width:10px;height:10px;border-radius:50%;background:${col};box-shadow:0 0 10px ${col};flex:none"></span><span style="font-size:${w > 700 ? 20 : 15}px;font-weight:600;color:#fff;white-space:nowrap">${t}</span></div>`).join("")}</div>`;
+  both(4, "ai4", 'It reads a film <span class="hl">like an editor.</span>', (w, h) => `<div style="position:relative;width:${w}px;height:${h}px">${film("r-upgrade", w, h, "35% 30%", layerStack(w, h), ".3")}</div>`,
+    kicker("Not “two people talking”", 'but <span style="color:var(--blue-hi)">the moment he decides to act.</span>', "var(--faint)"));
+  // the carousel: hook, one card per layer, then the CTA
+  const layerVisual = (i, w, h) => {
+    const fs = 15;
+    if (i === 0) return film("r-kelly", w, h, "50% 30%", `<div class="abs" style="left:0;right:0;top:${h * 0.25}px;height:${h * 0.55}px">${pulse(w, h * 0.55, "c0", EMO, [[2, "Tension builds"], [4, "Peak"], [5, "Release"]], { fs })}</div>`);
+    if (i === 1) return `<div class="panel" style="position:relative;width:${w}px;height:${h}px;padding:0;background:#0d1620"><div class="abs" style="left:0;top:${h * 0.22}px">${arc(w, h * 0.55, fs, "c1")}</div></div>`;
+    if (i === 2) { const N = [[0.2, 0.3, "Lead"], [0.75, 0.25, "Rival"], [0.5, 0.75, "Mentor"], [0.18, 0.78, "Sister"]], E = [[0, 1, "rivalry", "#e07a6d"], [0, 2, "trust", "#3ddc97"], [1, 2, "betrayal", "#c9a2ff"], [0, 3, "protects", "#6fb4ff"]];
+      return `<div class="panel" style="position:relative;width:${w}px;height:${h}px;padding:0;background:#0d1620"><svg class="abs" width="${w}" height="${h}" style="left:0;top:0">${E.map(([a, b, t, c]) => `<line x1="${N[a][0] * w}" y1="${N[a][1] * h}" x2="${N[b][0] * w}" y2="${N[b][1] * h}" stroke="${c}" stroke-width="3" opacity=".8"/><text x="${(N[a][0] + N[b][0]) / 2 * w}" y="${(N[a][1] + N[b][1]) / 2 * h - 8}" text-anchor="middle" font-family="Inter" font-size="16" font-weight="600" fill="${c}">${t}</text>`).join("")}</svg>
+        ${N.map(([x, y, t]) => `<span class="abs tag blue" style="left:${x * w}px;top:${y * h}px;transform:translate(-50%,-50%);font-size:18px;padding:8px 16px">${t}</span>`).join("")}</div>`; }
+    if (i === 3) { let x = 0, out = "", k = 0; const cuts = [9, 7, 8, 6, 7, 5, 4, 4, 3, 3, 2, 2, 2, 1.5, 1.5, 1, 1, 1, 6, 8, 9]; const tot = cuts.reduce((a, b) => a + b, 0);
+      cuts.forEach((c) => { const cw = (c / tot) * (w - 40); out += `<div class="abs" style="left:${20 + x}px;top:${h * 0.35}px;width:${cw - 3}px;height:${h * 0.3}px;border-radius:4px;background:${c < 3 ? "#f5c451" : "#2c4270"}"></div>`; x += cw; k++; });
+      return `<div class="panel" style="position:relative;width:${w}px;height:${h}px;padding:0;background:#0d1620">${out}<span class="abs tc" style="left:20px;top:${h * 0.7}px;font-size:16px;color:#9aa3b5">SLOW BURN</span><span class="abs tc" style="left:${w * 0.52}px;top:${h * 0.7}px;font-size:16px;color:#f5c451">THE RUSH: CUTS UNDER 2 S</span><span class="abs tc" style="left:20px;top:${h * 0.2}px;font-size:16px;color:#9aa3b5">SHOT LENGTHS, ONE SCENE</span></div>`; }
+    if (i === 4) return film("r-upgrade", w, h, "35% 30%", `<div class="abs row" style="left:18px;top:18px;gap:8px">${["#7a1d1d", "#b8322b", "#2a1a17", "#d9a074", "#14181d"].map((c) => `<span style="width:56px;height:56px;border-radius:10px;background:${c};border:2px solid rgba(255,255,255,.5)"></span>`).join("")}</div>
+      <svg class="abs" width="${w}" height="${h * 0.25}" style="left:0;bottom:${h * 0.06}px">${soundWave(w, h * 0.25, 90, 3)}</svg><span class="abs tc" style="right:18px;top:24px;font-size:15px;color:#fff;text-shadow:0 1px 6px #000">PALETTE · SCORE · SOUND</span>`, ".2");
+    return `<div class="panel" style="position:relative;width:${w}px;height:${h}px;padding:${h * 0.12}px ${w * 0.05}px;background:#0d1620;display:flex;flex-wrap:wrap;gap:14px;align-content:center">${tags(["Crime drama", "Revenge", "Redemption", "Slow burn", "Dark", "Ensemble cast", "Based on a true story", "Award-season"], "genre", 24, "10px 18px")}</div>`;
+  };
+  add("ai4-c1", "ai4", "S", card(1, 8, AI_AUD, 'Most AI describes. <span class="hl">Ours reads stories.</span>', "Six things it reads in every scene, the way an editor does.",
+    `<div class="abs" style="left:72px;top:440px">${film("r-upgrade", 936, 470, "35% 30%", layerStack(936, 470), ".3")}</div>`, { size: 72 }));
+  LAYERS.forEach(([t, line], i) => add(`ai4-c${i + 2}`, "ai4", "S", card(i + 2, 8, AI_AUD, t.replace(/^(\S+)/, '<span class="hl">$1</span>'), line,
+    `<div class="abs" style="left:72px;top:440px;width:936px;height:470px">${layerVisual(i, 936, 470)}</div>`, { size: t.length > 24 ? 64 : 76 })));
+  add("ai4-c8", "ai4", "S", card(8, 8, AI_AUD, 'See how our AI <span class="hl">reads a story.</span>', "Built in-house since 2019, for film and TV only.",
+    `<div class="abs" style="left:72px;top:470px;width:936px;height:380px">${film("r-kelly", 936, 380, "50% 30%", `<div class="abs" style="left:0;right:0;top:110px;height:200px">${pulse(936, 200, "c8", EMO, [], {})}</div>`)}</div>`, { size: 76, cta: true }));
+
+  // A5: on-prem. The AI runs inside the customer's environment; only derived data leaves.
+  both(5, "ai5", 'Your content never <span class="hl">leaves the building.</span>', (w, h) => { const fs = w > 700 ? 20 : 14, box = (t, sub, css) => `<div class="abs" style="${css};border-radius:14px;background:#13202f;border:1.5px solid var(--panel-edge);padding:${fs * 0.7}px ${fs}px;display:grid;gap:4px"><b style="font-size:${fs + 2}px">${t}</b><span style="font-size:${fs - 2}px;color:var(--muted)">${sub}</span></div>`;
+    return `<div style="position:relative;width:${w}px;height:${h}px">
+      <div class="abs" style="left:0;top:0;width:${w * 0.64}px;height:${h}px;border-radius:18px;border:2px dashed rgba(61,155,255,.55);background:rgba(61,155,255,.05)"><span class="abs tc" style="left:${fs}px;top:${fs * 0.8}px;font-size:${fs - 3}px;letter-spacing:.12em;color:var(--sky)">YOUR ENVIRONMENT · GCP OR AWS</span></div>
+      ${box("Your video library", "originals stay here", `left:${w * 0.04}px;top:${h * 0.16}px;width:${w * 0.25}px`)}
+      ${box("Vionlabs AI", "feature extraction · GPU", `left:${w * 0.04}px;top:${h * 0.56}px;width:${w * 0.25}px;border-color:rgba(61,155,255,.7)`)}
+      <svg class="abs" style="left:0;top:0;overflow:visible" width="${w}" height="${h}"><path d="M${w * 0.165} ${h * 0.4} V${h * 0.53}" stroke="#3d9bff" stroke-width="3" marker-end="url(#ah${w})"/>
+        <defs><marker id="ah${w}" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#3d9bff"/></marker><marker id="ar${w}" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#3ddc97"/></marker></defs>
+        <path d="M${w * 0.31} ${h * 0.7} H${w * 0.69}" stroke="#3ddc97" stroke-width="3.5" marker-end="url(#ar${w})"/>
+        <path d="M${w * 0.31} ${h * 0.27} H${w * 0.6}" stroke="#e07a6d" stroke-width="3" stroke-dasharray="8 7"/><text x="${w * 0.62}" y="${h * 0.27 + fs * 0.4}" font-family="Inter" font-size="${fs + 8}" font-weight="700" fill="#e07a6d">✕</text></svg>
+      <span class="abs" style="left:${w * 0.33}px;top:${h * 0.27 - fs * 2}px;font-size:${fs - 2}px;color:#f0907f">original video</span>
+      ${box("Only derived data", "features · embeddings · metadata", `left:${w * 0.7}px;top:${h * 0.56}px;width:${w * 0.28}px;border-color:rgba(61,220,151,.6)`)}
+      <div class="abs row" style="left:${w * 0.04}px;bottom:${h * 0.05}px;gap:8px;flex-wrap:wrap;width:${w * 0.58}px">${tags(["VM or Kubernetes", "Terraform", "Autoscaling"], "ghost", fs - 4, "4px 10px", "color:var(--text)")}</div></div>`; },
+    kicker("We bring the AI", 'to your content. <span style="color:var(--blue-hi)">Not your content to the AI.</span>', "var(--sky)"));
+
+  // A6: specialist vs generalist. The same frame, described two ways.
+  both(6, "ai6", 'Built for one industry. <span class="hl">On purpose.</span>', (w, h) => { const half = (w - 16) / 2, fs = w > 700 ? 22 : 15;
+    return `<div class="row" style="gap:16px;align-items:stretch">
+      <div class="col" style="gap:12px;width:${half}px">${img("r-rescue", `width:${half}px;height:${h * 0.62}px;border-radius:14px;filter:grayscale(1) brightness(.75)`, "35% 30%")}
+        <span class="panel-title" style="font-size:${fs - 6}px;color:var(--faint)">General AI</span><span style="font-size:${fs + 4}px;color:var(--muted);font-weight:600">“Two men sitting outside.”</span></div>
+      <div class="col" style="gap:12px;width:${half}px">${img("r-rescue", `width:${half}px;height:${h * 0.62}px;border-radius:14px;box-shadow:0 0 0 2px #3d9bff,0 0 40px rgba(61,155,255,.35)`, "35% 30%")}
+        <span class="panel-title" style="font-size:${fs - 6}px;color:var(--sky)">Vionlabs</span><div class="row" style="gap:8px;flex-wrap:wrap">${tags(["Hope returns", "Turning point", "Rising tension"], "mood", fs - 5, "5px 12px")}</div></div></div>`; },
+    kicker("Trained only on", '<span style="color:var(--blue-hi)">entertainment.</span> Not the whole internet.', "var(--sky)"));
+
+  // A7: building entertainment AI since 2019. A timeline, and the size of what the models have seen.
+  both(7, "ai7", 'Entertainment AI, <span class="hl">since 2019.</span>', (w, h) => { const fs = w > 700 ? 20 : 14, M = [[0.06, "2016", "Founded in Stockholm by people from film and VFX"], [0.4, "2019", "Our first in-house models"], [0.86, "Today", "Trained on 1M+ entertainment videos"]];
+    return `<div class="panel" style="position:relative;width:${w}px;height:${h}px;padding:0;background:#0d1620">
+      <div class="abs stat" style="left:${w * 0.05}px;top:${h * 0.08}px"><b style="font-size:${w > 700 ? 120 : 76}px;color:var(--blue-hi)">1,000,000+</b><span style="font-size:${fs + 2}px">entertainment videos our models have learned from</span></div>
+      <div class="abs" style="left:${w * 0.05}px;right:${w * 0.05}px;top:${h * 0.66}px;height:4px;border-radius:2px;background:linear-gradient(90deg,#2c4270,#3d9bff)"></div>
+      ${M.map(([x, y, t], i) => `<div class="abs" style="left:${x * w}px;top:${h * 0.66 - 8}px;width:20px;height:20px;border-radius:50%;background:${i === 1 ? "#3d9bff" : "#13202f"};border:3px solid #3d9bff;box-shadow:${i === 1 ? "0 0 18px #3d9bff" : "none"}"></div>
+        <div class="abs" style="left:${Math.min(x * w, w * 0.7)}px;top:${h * 0.66 + 26}px;width:${w * 0.28}px"><b class="tc" style="font-size:${fs + 2}px;color:${i === 1 ? "var(--sky)" : "#fff"}">${y}</b><div style="font-size:${fs - 2}px;color:var(--muted);line-height:1.3;margin-top:4px">${t}</div></div>`).join("")}</div>`; },
+    kicker("We didn’t add AI", '<span style="color:var(--blue-hi)">last year.</span>', "var(--sky)"));
+
+  // A8: the tension curve shows where the story breathes, so ad breaks land in the pauses.
+  both(8, "ai8", 'Your ad server doesn’t <span class="hl">know the plot.</span>', (w, h) => { const pts = [[0, 0.7], [0.12, 0.5], [0.25, 0.78], [0.42, 0.42], [0.55, 0.15], [0.68, 0.6], [0.82, 0.25], [1, 0.55]], fs = w > 700 ? 18 : 13, { P } = curve(pts, w, h * 0.6);
+    const mark = (x, y, ok) => `<div class="abs" style="left:${x - 3}px;top:${h * 0.12 + y}px;width:6px;height:${h * 0.62 - y}px;border-radius:3px;background:${ok ? "#3ddc97" : "#e07a6d"};box-shadow:0 0 14px ${ok ? "#3ddc97" : "#e07a6d"}"></div>
+      <span class="abs tag" style="left:${x}px;top:${h * 0.78}px;transform:translateX(-50%);font-size:${fs}px;padding:6px 12px;background:${ok ? "rgba(61,220,151,.15)" : "rgba(224,122,109,.15)"};border:1.5px solid ${ok ? "#3ddc97" : "#e07a6d"};color:${ok ? "#3ddc97" : "#f0907f"}">${ok ? "✓ Break in a natural pause" : "✕ Break on the climb"}</span>`;
+    return `<div class="panel" style="position:relative;width:${w}px;height:${h}px;padding:0;background:#0d1620">
+      <span class="abs tc" style="left:20px;top:18px;font-size:${fs - 2}px;letter-spacing:.12em;color:#9aa3b5">TENSION · S1 E4</span>
+      <div class="abs" style="left:0;right:0;top:${h * 0.12}px;height:${h * 0.6}px">${pulse(w, h * 0.6, `t${w}`, pts, [], {})}</div>
+      ${mark(P[2][0], P[2][1], true)}${mark((P[5][0] + P[6][0]) / 2, (P[5][1] + P[6][1]) / 2, false)}</div>`; },
+    kicker("Same ads.", '<span style="color:var(--blue-hi)">Better moments.</span>', "var(--sky)"));
+
   // ---------------------------------------------------------------- mount
   const only = new URLSearchParams(location.search).get("only");
   const list = only ? ASSETS.filter((a) => only.split(",").includes(a.id)) : ASSETS;

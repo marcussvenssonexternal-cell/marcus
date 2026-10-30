@@ -24,7 +24,8 @@ spend, budgets, targeting or what is live goes to Marcus first, never straight t
 ## IDs: how a result maps back to a creative
 
 Everything is keyed by the IDs in `creatives/brief/copy.json`:
-- **Ad IDs:** `ad0`–`ad3` (brand and audience ads), `m1`–`m3`, `c1`–`c3`, `o1` (feature follow-ups), `v1`–`v4` (video series).
+- **Ad IDs:** `ad0`–`ad3` (brand and audience ads), `m1`–`m3`, `c1`–`c3`, `o1` (feature follow-ups), `v1`–`v4` (video series),
+  `ai1`–`ai8` (how our AI stands out, from Viktor's ad prompts A1–A8; cold audiences; awaiting Marcus's approval).
 - **Asset IDs:** one file each, e.g. `a2-c3` (Ad 2, carousel card 3), `m1-L` (1200×627), `v2-S` / `v2-V` (video, 1:1 / 9:16).
   A whole carousel, as one LinkedIn ad, is its card prefix plus `-carousel`, e.g. `a2-carousel`; a revised card set
   gets its own ID, e.g. `a0b-carousel`. Carousels have no ad-level headline: their `h1` stands for their card

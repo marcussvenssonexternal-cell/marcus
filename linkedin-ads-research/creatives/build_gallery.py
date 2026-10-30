@@ -25,7 +25,9 @@ LINKS = json.loads(LINKS_FILE.read_text()) if LINKS_FILE.exists() else {}
 SHORT = {"ad0": "AI built for entertainment", "ad1": "Same genre, different movie", "ad2": "Every asset, alive",
          "ad3": "Every second, time-coded", "m1": "From zero to hero", "m2": "Editorial lists", "m3": "Search by feeling",
          "c1": "Assets brought to life", "c2": "Thumbnail recipes", "c3": "Find the scene", "o1": "Automate QC",
-         "v1": "Search by mood", "v2": "Story-aware ad breaks", "v3": "Endless shorts", "v4": "One recipe"}
+         "v1": "Search by mood", "v2": "Story-aware ad breaks", "v3": "Endless shorts", "v4": "One recipe",
+         "ai1": "Emotion curves", "ai2": "AI that listens", "ai3": "1688 dimensions", "ai4": "Reads like an editor",
+         "ai5": "Never leaves the building", "ai6": "Built for one industry", "ai7": "Since 2019", "ai8": "Knows the plot"}
 
 STATUS = {"site": "On the website", "verify": "Check before launch", "illustrative": "Example values",
           "brief": "From the brief", "example": "Example values", "board": "Board decision"}
