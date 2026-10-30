@@ -76,7 +76,8 @@ write a short readout.
      "Brand: US pos 1.0, 6 clicks; SE 5 clicks". Use these for brand
      searches, not Ahrefs SERP snapshots, which are weeks old for queries
      this small and reported a false drop on 29 Oct. If Supermetrics is not
-     attached, say so under setup issues.
+     attached, use `results/<run date>/search_console.json` when Atlas has
+     saved one there, and say so under setup issues.
    - `site-explorer-ai-responses-count` (mode `subdomains`, select
      `all_platforms,chatgpt,perplexity,gemini,google_ai_overviews,google_ai_mode,copilot`)
      for vionlabs.com and each tracked competitor in `config/brands.json`.

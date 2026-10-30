@@ -1,0 +1,98 @@
+{
+  "source": "Google Search Console via Supermetrics (GW), property https://www.vionlabs.com/, sent by Atlas (session_01V9gwdoCjyZ2JYMtRftvuCt) on 2026-10-30. Use as given; do not estimate.",
+  "period": "2026-10-22 to 2026-10-28",
+  "whole_site": {
+    "impressions": 997,
+    "clicks": 32,
+    "position": 11.6
+  },
+  "brand_queries_matching_vion": {
+    "impressions": 140,
+    "clicks": 19,
+    "position": 4.0
+  },
+  "query_vionlabs": {
+    "US": {
+      "impressions": 11,
+      "clicks": 1,
+      "position": 1.0
+    },
+    "SE": {
+      "impressions": 23,
+      "clicks": 1,
+      "position": 3.1
+    }
+  },
+  "top_non_branded_by_impressions": [
+    {
+      "query": "vlyby",
+      "impressions": 136,
+      "clicks": 0,
+      "position": 5.1
+    },
+    {
+      "query": "zeam",
+      "impressions": 16,
+      "clicks": 0,
+      "position": 19.8
+    },
+    {
+      "query": "aws marketplace logo",
+      "impressions": 15,
+      "clicks": 0,
+      "position": 32.7
+    },
+    {
+      "query": "vertical video trend",
+      "impressions": 14,
+      "clicks": 0,
+      "position": 56.8
+    },
+    {
+      "query": "aws marketplace",
+      "impressions": 12,
+      "clicks": 0,
+      "position": 44.8
+    },
+    {
+      "query": "what are the best tools for ethnographic research in retail?",
+      "impressions": 8,
+      "clicks": 0,
+      "position": 15.0
+    },
+    {
+      "query": "ivory labs",
+      "impressions": 7,
+      "clicks": 0,
+      "position": 18.0
+    },
+    {
+      "query": "ai enhanced media operations",
+      "impressions": 5,
+      "clicks": 0,
+      "position": 40.4
+    },
+    {
+      "query": "streaming content discovery",
+      "impressions": 5,
+      "clicks": 0,
+      "position": 23.6
+    },
+    {
+      "query": "ai driven ott content discovery",
+      "impressions": 4,
+      "clicks": 0,
+      "position": 23.8
+    },
+    {
+      "query": "semantic video search api",
+      "impressions": 4,
+      "clicks": 0,
+      "position": 14.0
+    }
+  ],
+  "notes": [
+    "Quiet week for brand clicks, matching the dip on 19-25 Oct, at unchanged positions.",
+    "For the readout: find which vionlabs.com page ranks #5 for \"vlyby\" (136 impressions, 0 clicks) and why."
+  ]
+}
