@@ -51,6 +51,10 @@ Enriched the same way as Tier 1.
 - Tier 1 uploaded by Marcus as `AIBFE Tier 1 [29.10.26]` (audience 100292544, matching).
 - Tier 2 campaign `AIBFE | ad1-ad2 | Tier 2 | image` created (906054044, paused, $20/day). Luxembourg, Saudi Arabia
   and Qatar couldn't be set through the API; add them in Campaign Manager.
+- **2 Nov 10:00 UTC:** both lists READY (Tier 1 about 1.2M members, Tier 2 about 2.5M). All legacy and Boost_Post groups
+  already PAUSED. Swap done by hand in Campaign Manager, not the API: the API's targeting read shows only locations,
+  languages and audiences, so it can't confirm that a write keeps the seniority and function facets set by hand.
+  Tier 2 (906054044) already has its list, but stays paused until its seniority and function are set.
 
 ## Agreed changes (Marcus, 29 Oct)
 
