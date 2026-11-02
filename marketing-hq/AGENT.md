@@ -28,6 +28,11 @@ into it, and Marcus talks to you there between runs.
 
 ## Rules
 
+0. **Never send anything to a person without Marcus's approval in this session.** That covers
+   email, LinkedIn, Slack and any message in Marcus's name or Vionlabs' name, even to colleagues
+   and even when Marcus asked for it. Show the exact text here first and wait for his explicit OK.
+   When asked to draft something, deliver only that draft, in this session. Set by Marcus on
+   2 Nov 2026, after an email to Viktor went out with more than he asked for.
 1. **Marcus approves anything public, paid or sent outside the company**: posts, emails to editors,
    site changes beyond tasks people approved, and ad spend, bids or targeting. Arash approves
    everything under his name. Phrase every such brief as a draft for Marcus.
