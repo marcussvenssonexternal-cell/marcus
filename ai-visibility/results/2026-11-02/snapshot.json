@@ -1,0 +1,459 @@
+{
+  "date": "2026-11-02",
+  "kind": "weekly run",
+  "kpis": {
+    "ai_citations_all_platforms": 1,
+    "ai_pages_cited": 1,
+    "domain_rating": 30,
+    "live_referring_domains": 1039,
+    "live_backlinks": 3260,
+    "nonbranded_keywords_top40": 2,
+    "nonbranded_keywords": [
+      {
+        "keyword": "ai vertical video",
+        "country": "US",
+        "position": 10,
+        "url": "/news/why-everyone-is-talking-about-vertical-video-and-how-ai-is-going-to-play-an-instrumental-role-in-enabling-it"
+      },
+      {
+        "keyword": "viewer experience",
+        "country": "US",
+        "position": 1,
+        "url": "/news/ai-that-feels-the-new-era-of-streaming-discovery"
+      }
+    ],
+    "buyer_prompts_naming_vionlabs": "3 of 7 (prompts 8, 12, 13); same 7 on 29 Oct: 2"
+  },
+  "previous_kpis_2026-10-22": {
+    "ai_citations_all_platforms": 1,
+    "domain_rating": 30,
+    "live_referring_domains": 1054,
+    "live_backlinks": 3943,
+    "nonbranded_keywords_top40": 1
+  },
+  "search_console": {
+    "source": "Google Search Console via Supermetrics (GW), property https://www.vionlabs.com/, sent by Atlas (session_01V9gwdoCjyZ2JYMtRftvuCt) on 2026-10-30. Use as given; do not estimate.",
+    "period": "2026-10-22 to 2026-10-28",
+    "whole_site": {
+      "impressions": 997,
+      "clicks": 32,
+      "position": 11.6
+    },
+    "brand_queries_matching_vion": {
+      "impressions": 140,
+      "clicks": 19,
+      "position": 4.0
+    },
+    "query_vionlabs": {
+      "US": {
+        "impressions": 11,
+        "clicks": 1,
+        "position": 1.0
+      },
+      "SE": {
+        "impressions": 23,
+        "clicks": 1,
+        "position": 3.1
+      }
+    },
+    "top_non_branded_by_impressions": [
+      {
+        "query": "vlyby",
+        "impressions": 136,
+        "clicks": 0,
+        "position": 5.1
+      },
+      {
+        "query": "zeam",
+        "impressions": 16,
+        "clicks": 0,
+        "position": 19.8
+      },
+      {
+        "query": "aws marketplace logo",
+        "impressions": 15,
+        "clicks": 0,
+        "position": 32.7
+      },
+      {
+        "query": "vertical video trend",
+        "impressions": 14,
+        "clicks": 0,
+        "position": 56.8
+      },
+      {
+        "query": "aws marketplace",
+        "impressions": 12,
+        "clicks": 0,
+        "position": 44.8
+      },
+      {
+        "query": "what are the best tools for ethnographic research in retail?",
+        "impressions": 8,
+        "clicks": 0,
+        "position": 15.0
+      },
+      {
+        "query": "ivory labs",
+        "impressions": 7,
+        "clicks": 0,
+        "position": 18.0
+      },
+      {
+        "query": "ai enhanced media operations",
+        "impressions": 5,
+        "clicks": 0,
+        "position": 40.4
+      },
+      {
+        "query": "streaming content discovery",
+        "impressions": 5,
+        "clicks": 0,
+        "position": 23.6
+      },
+      {
+        "query": "ai driven ott content discovery",
+        "impressions": 4,
+        "clicks": 0,
+        "position": 23.8
+      },
+      {
+        "query": "semantic video search api",
+        "impressions": 4,
+        "clicks": 0,
+        "position": 14.0
+      }
+    ],
+    "notes": [
+      "Quiet week for brand clicks, matching the dip on 19-25 Oct, at unchanged positions.",
+      "For the readout: find which vionlabs.com page ranks #5 for \"vlyby\" (136 impressions, 0 clicks) and why."
+    ]
+  },
+  "ai_citations": {
+    "vionlabs.com": {
+      "all": 1,
+      "pages": 1,
+      "perplexity": 1
+    },
+    "mixpeek.com": {
+      "all": 344,
+      "pages": 66,
+      "chatgpt": 14,
+      "perplexity": 49,
+      "gemini": 34,
+      "google_ai_overviews": 14,
+      "google_ai_mode": 13,
+      "copilot": 40
+    },
+    "twelvelabs.io": {
+      "all": 140,
+      "pages": 69,
+      "chatgpt": 7,
+      "perplexity": 7,
+      "gemini": 12,
+      "google_ai_overviews": 0,
+      "google_ai_mode": 13,
+      "copilot": 5
+    },
+    "gracenote.com": {
+      "all": 71,
+      "pages": 51,
+      "perplexity": 3,
+      "google_ai_overviews": 1,
+      "google_ai_mode": 1
+    },
+    "momentslab.com": {
+      "all": 22,
+      "pages": 13,
+      "perplexity": 5,
+      "gemini": 1,
+      "google_ai_mode": 3,
+      "copilot": 1
+    },
+    "coactive.ai": {
+      "all": 8,
+      "pages": 9
+    },
+    "thinkanalytics.com": {
+      "all": 2,
+      "pages": 4
+    }
+  },
+  "prompts": [
+    {
+      "id": 8,
+      "vionlabs_named": "yes",
+      "via": "cbinsights.com/compare/gracenote-vs-vionlabs",
+      "pages_that_rank": [
+        "en.wikipedia.org",
+        "cbinsights.com",
+        "trustradius.com",
+        "alternativeto.net",
+        "sugggest.com"
+      ]
+    },
+    {
+      "id": 9,
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "streamyard.com (blog posts)",
+        "ai.g2.com",
+        "futuretools.io",
+        "topai.tools"
+      ]
+    },
+    {
+      "id": 10,
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "firecut.ai",
+        "agent.vizard.ai",
+        "klap.app",
+        "chatcut.io",
+        "frameo.ai"
+      ]
+    },
+    {
+      "id": 11,
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "momentslab.com",
+        "tvbeurope.com",
+        "runtimewire.com (TwelveLabs Jockey)",
+        "huggingface Space"
+      ]
+    },
+    {
+      "id": 12,
+      "vionlabs_named": "yes",
+      "via": "AWS Marketplace listing prodview-bcy4p6gwu3r44 (now quoted with 98% accuracy claim)",
+      "pages_that_rank": [
+        "openaccess.thecvf.com",
+        "arxiv.org",
+        "mlanthology.org"
+      ]
+    },
+    {
+      "id": 13,
+      "vionlabs_named": "yes (new)",
+      "via": "Vionlabs ad-break detector description (Black Frame and Speech Avoidance, Story Flow Analysis, Scene Boundary, Shot-Similarity)",
+      "pages_that_rank": [
+        "aws.amazon.com/blogs (Nomalab)",
+        "doras.dcu.ie",
+        "tvbeurope.com",
+        "sdvi.com",
+        "patents.justia.com"
+      ]
+    },
+    {
+      "id": 14,
+      "vionlabs_named": "no",
+      "via": null,
+      "pages_that_rank": [
+        "tvtechnology.com (Viant, Wurl)",
+        "martechvibe.com (Anoki, Amagi)",
+        "wurl.com",
+        "mixpeek.com/guides (new)",
+        "ppc.land (Magnite, Anoki)"
+      ]
+    }
+  ],
+  "new_referring_domains": [
+    {
+      "domain": "glassdoor.sg",
+      "dr": 63
+    },
+    {
+      "domain": "avbeat.com",
+      "dr": 24
+    },
+    {
+      "domain": "tweekly.ru",
+      "dr": 16
+    },
+    {
+      "domain": "118700.se",
+      "dr": 0.6
+    }
+  ],
+  "lost_referring_domains": {
+    "real": [
+      {
+        "domain": "svta.org",
+        "dr": 65,
+        "lost": "2026-11-01"
+      },
+      {
+        "domain": "screenvoice.cz",
+        "dr": 41,
+        "lost": "2026-10-27"
+      }
+    ],
+    "spam_dropped": [
+      "paramount-collective-outrank-hq-dr-90.store",
+      "outrank-hq-dr-90-paramount-system.store",
+      "37486321.xyz",
+      "37486328.xyz",
+      "37486422.xyz",
+      "37486400.xyz",
+      "indexaward.com",
+      "websitescrawl.art"
+    ]
+  },
+  "outreach_targets": [
+    {
+      "domain": "apievangelist.com",
+      "dr": 71,
+      "covers": [
+        "twelvelabs.io",
+        "coactive.ai"
+      ],
+      "kind": "API directory",
+      "task": 40
+    },
+    {
+      "domain": "europeantechmap.eu",
+      "dr": 43,
+      "covers": [
+        "momentslab.com",
+        "thinkanalytics.com"
+      ],
+      "kind": "startup map",
+      "task": 34
+    },
+    {
+      "domain": "latent.space",
+      "dr": 77,
+      "covers": [
+        "twelvelabs.io"
+      ],
+      "kind": "AI podcast and newsletter",
+      "task": 38
+    },
+    {
+      "domain": "zencastr.com",
+      "dr": 76,
+      "covers": [
+        "momentslab.com"
+      ],
+      "kind": "podcast",
+      "task": 38
+    },
+    {
+      "domain": "thenewstack.io",
+      "dr": 85,
+      "covers": [
+        "mixpeek.com"
+      ],
+      "kind": "tech press",
+      "task": 35
+    },
+    {
+      "domain": "awn.com",
+      "dr": 76,
+      "covers": [
+        "gracenote.com"
+      ],
+      "kind": "media trade press",
+      "task": 36
+    },
+    {
+      "domain": "toolskit.net",
+      "dr": 39,
+      "covers": [
+        "mixpeek.com",
+        "twelvelabs.io"
+      ],
+      "kind": "AI tool directory",
+      "task": 40
+    },
+    {
+      "domain": "urwatools.com, aiwizard.ai, tipsheet.ai, openaimaster.com, toools.design",
+      "dr": "31-48",
+      "covers": [
+        "twelvelabs.io"
+      ],
+      "kind": "AI tool directories",
+      "task": 40
+    },
+    {
+      "domain": "svta.org",
+      "dr": 65,
+      "covers": [],
+      "kind": "lost link to win back",
+      "task": 51
+    },
+    {
+      "domain": "screenvoice.cz",
+      "dr": 41,
+      "covers": [],
+      "kind": "lost link to win back",
+      "task": 51
+    }
+  ],
+  "content_gaps": {
+    "mixpeek.com": "glossary and 'best X tools' pages rank: #1 'what is cosine similarity', #4 'what is optical flow', #9 'video reverse search' (1,500/mo), #1 IN 'video analysis' glossary",
+    "twelvelabs.io": "product pages on plain terms: #2 'ai video analyzer' (2,000/mo), #1 'video analysis ai' (700), #1 'video intelligence platform' (150), #2 'ai video search' (250)"
+  },
+  "site_audit": {
+    "custom_domains_last_published": "2026-10-29T14:31:18Z",
+    "staged_changes": "none at audit time",
+    "still_open": [
+      "template SEO text on /401, /checkout, /paypal-checkout, /order-confirmation, /efficiency-suite",
+      "legacy pages live: /old-home, /home-copy, /company-old, /contact-sales-old, /discovery-suite-archived, /efficiency-suite, /broadcast-asia-2025",
+      "self-made aggregateRating on Home (Organization + 3 products), Editorial Lab, Creative Lab, Operations Lab",
+      "Efficiency Suite in home schema",
+      "no schema on /curio, /company, /api, /embeddings-api, /pricing",
+      "Operations Lab schema uses non-www URLs"
+    ],
+    "new": [
+      "News post 2026-10-28 'The Most Expensive Second in Streaming Is the One Before the Break' (has author)",
+      "no Agentic Layer launch post in News"
+    ],
+    "robots_check": "skipped: network blocks www.vionlabs.com"
+  },
+  "news": [
+    "No Vionlabs coverage found in the past week; search for 'Vionlabs Agentic Layer' returns nothing",
+    "TwelveLabs Pegasus 1.6 (6 Oct, first-person footage)",
+    "CES 2027 Innovation Awards entries closed; honorees 9 Nov",
+    "NAB Show 2027 is 3-7 April; 2027 call for speakers not yet found"
+  ],
+  "site_changes": [
+    {
+      "what": "CMS item created as draft (not published)",
+      "collection": "News 67978ee27d95b7ff0119d37e",
+      "item_id": "6ae8221558a98f3beb071745",
+      "name": "How to choose a content discovery and recommendation engine for streaming",
+      "before": "did not exist",
+      "after": "draft",
+      "live": false,
+      "task": 41
+    }
+  ],
+  "tasks_added": [
+    49,
+    50,
+    51
+  ],
+  "status_changes": [
+    {
+      "task": 41,
+      "from": "Not started",
+      "to": "In progress"
+    },
+    {
+      "task": 45,
+      "from": "Not started",
+      "to": "In progress"
+    }
+  ],
+  "approved_tasks_done": [],
+  "setup_issues": [
+    "Supermetrics not attached: used Atlas's Search Console figures (results/2026-11-02/search_console.json)",
+    "www.vionlabs.com blocked by network: robots.txt and robots tags not checked"
+  ],
+  "ahrefs_units_used": 2463
+}
