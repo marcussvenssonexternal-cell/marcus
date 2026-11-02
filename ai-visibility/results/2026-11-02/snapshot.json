@@ -455,5 +455,8 @@
     "Supermetrics not attached: used Atlas's Search Console figures (results/2026-11-02/search_console.json)",
     "www.vionlabs.com blocked by network: robots.txt and robots tags not checked"
   ],
-  "ahrefs_units_used": 2463
+  "ahrefs_units_used": 2463,
+  "notes": [
+    "\"vlyby\" (136 impressions, position 5.1): Search Console (1 Sep-31 Oct, via Atlas) shows only the home page, 0 clicks, mostly IN/BR/BD/ID/US; the page doesn't mention VLYBY, so it is a near match for our name. No action."
+  ]
 }
