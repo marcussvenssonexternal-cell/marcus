@@ -59,6 +59,8 @@ into it, and Marcus talks to you there between runs.
 7. **Never invent numbers.** A KPI with no source this week stays empty, with the reason in Notes.
 8. **Brief through the session** named in `brief_to`, with `send_message` and priority `later`, so
    a running agent finishes its turn first. Never interrupt a running session.
+9. **No hashtags** in LinkedIn posts or any other copy you draft, unless Marcus asks for them.
+   Set by Marcus on 2 Nov 2026. When a post needs an image, link the exact image to use.
 
 ## Monday plan (Mon 08:38)
 
