@@ -159,7 +159,7 @@ Ad minutes per hour on the big US ad tiers rose about 18% between January and Au
 
 Paramount+ went from 7.9 to 9.0 minutes an hour. Netflix is still the lightest at around 2.4, and Prime Video was the only major service to cut.
 
-I understand why it's happening. Ad tiers are where the growth is, and Netflix now says its ad tier reaches more than 250 million monthly viewers [check], so there is more inventory to sell every month.
+I understand why it's happening. Ad tiers are where the growth is, and Netflix told advertisers in May that its ad tier reaches more than 250 million monthly active viewers, so there is more inventory to sell every month.
 
 All of those extra minutes have to land somewhere in a story. Network dramas have act breaks written into the script. Films and older catalogue titles don't, so their breaks go where the clock says or where the picture happens to go black.
 
@@ -169,7 +169,7 @@ I wrote a longer piece on where breaks land and why nobody prices it yet. The li
 
 If you run an ad tier: do you know your drop-off in the 30 seconds after a break, split by where in the scene it landed?
 
-**Sources:** [Streaming services are showing more ads in 2026 (Ampere data, Android Authority)](https://www.androidauthority.com/streaming-services-more-ads-2026-3708866/) (2026-09); [Streamers add ad minutes: do viewers mind? (MediaPost)](https://www.mediapost.com/publications/article/417824/streamers-add-ad-minutes-do-viewers-mind.html) (2026-09-14); [Netflix ad tier passes 250M monthly active viewers (Streaming Media Blog)](https://www.streamingmediablog.com/2026/05/netflix-adtier-150million.html) (2026-05); [More ads cut streaming brand recall from 41% to 26% (FreeWheel + MediaScience)](https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/) (2026-09-15)
+**Sources:** [Streaming services are showing more ads in 2026 (Ampere data, Android Authority)](https://www.androidauthority.com/streaming-services-more-ads-2026-3708866/) (2026-09); [Streamers add ad minutes: do viewers mind? (MediaPost)](https://www.mediapost.com/publications/article/417824/streamers-add-ad-minutes-do-viewers-mind.html) (2026-09-14); [More ads cut streaming brand recall from 41% to 26% (FreeWheel + MediaScience)](https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/) (2026-09-15); [Netflix ad tier reaches 250 million viewers, up from 190 million (Variety)](https://variety.com/2026/tv/news/netflix-claims-ad-tier-reaches-250-million-viewers-1236746219/) (2026-05)
 
 ## How a machine finds the place where a story pauses
 
@@ -260,7 +260,7 @@ What's the worst-placed ad break you've ever sat through?
 | 436 participants; unaided recall 41% in a lightly loaded programme vs 26% alongside nine minutes of commercials per half hour (FreeWheel + MediaScience) | [ppc.land (only source found)](https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/) 2026-09-15 | check |
 | Ad minutes per hour on major US ad tiers up about 18%, Jan to Aug 2026; Paramount+ 7.87 to 9.01; Netflix 1.40 to 2.44; Prime Video the only major service to cut | [Ampere via Android Authority, MediaPost, eMarketer](https://www.androidauthority.com/streaming-services-more-ads-2026-3708866/) 2026-09 | confirmed |
 | Hulu's January figure (6.78) was not found anywhere, so Hulu was dropped from the pack | [Fact-check note](https://www.mediapost.com/publications/article/418721/) 2026-09 | unconfirmed |
-| Netflix ad tier reaches more than 250 million monthly active viewers (Netflix's own definition), used in the ad-load post | [Streaming Media Blog](https://www.streamingmediablog.com/2026/05/netflix-adtier-150million.html) 2026-05 | check |
+| Netflix ad tier reaches more than 250 million monthly active viewers (Netflix's own definition), used in the ad-load post | [Netflix 2026 upfront, reported by Variety, TheWrap and Forbes](https://variety.com/2026/tv/news/netflix-claims-ad-tier-reaches-250-million-viewers-1236746219/) 2026-05 | confirmed |
 | Attention rose from 27% to 66% of a 30-second ad when ad and content emotion matched; 50+ campaigns (Wurl is a vendor of emotion matching) | [Business Wire; Wurl report PDF](https://www.businesswire.com/news/home/20250731423150/en) 2025-07-31 | confirmed |
 | Recall about 20% higher when programme and ad share one of their top three keywords; up to 38% when the top keyword matches (FreeWheel's own research, measured by Mediaprobe) | [FreeWheel VX Lab report and blog](https://www.freewheel.com/wp-content/uploads/2025/09/FreeWheel_VX_Lab_Maximizing_Brand_Recall_Report.pdf) 2025-09 | confirmed |
 | Wang & Calder (JCR 33(2), 2006): transportation can help ads; intrusion of the ad into the experience mediates the negative effect | [Kellogg research page; JCR abstract](https://www.kellogg.northwestern.edu/academics-research/research/detail/2006/media-trasportation-and-advertising/) 2006 | confirmed |

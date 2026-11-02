@@ -317,7 +317,7 @@
         "pillar": "Industry Trend Commentary",
         "format": "Text",
         "title": "Ad minutes per hour rose 18% this year. Every extra minute has to land somewhere.",
-        "body": "Ad minutes per hour on the big US ad tiers rose about 18% between January and August, according to Ampere.\n\nParamount+ went from 7.9 to 9.0 minutes an hour. Netflix is still the lightest at around 2.4, and Prime Video was the only major service to cut.\n\nI understand why it's happening. Ad tiers are where the growth is, and Netflix now says its ad tier reaches more than 250 million monthly viewers [check], so there is more inventory to sell every month.\n\nAll of those extra minutes have to land somewhere in a story. Network dramas have act breaks written into the script. Films and older catalogue titles don't, so their breaks go where the clock says or where the picture happens to go black.\n\nThe research on load is fairly clear: lighter loads are remembered better. Research on where in the story a break should go barely exists, and I'd want that gap closed before anyone adds the next minute.\n\nI wrote a longer piece on where breaks land and why nobody prices it yet. The link is in the comments.\n\nIf you run an ad tier: do you know your drop-off in the 30 seconds after a break, split by where in the scene it landed?",
+        "body": "Ad minutes per hour on the big US ad tiers rose about 18% between January and August, according to Ampere.\n\nParamount+ went from 7.9 to 9.0 minutes an hour. Netflix is still the lightest at around 2.4, and Prime Video was the only major service to cut.\n\nI understand why it's happening. Ad tiers are where the growth is, and Netflix told advertisers in May that its ad tier reaches more than 250 million monthly active viewers, so there is more inventory to sell every month.\n\nAll of those extra minutes have to land somewhere in a story. Network dramas have act breaks written into the script. Films and older catalogue titles don't, so their breaks go where the clock says or where the picture happens to go black.\n\nThe research on load is fairly clear: lighter loads are remembered better. Research on where in the story a break should go barely exists, and I'd want that gap closed before anyone adds the next minute.\n\nI wrote a longer piece on where breaks land and why nobody prices it yet. The link is in the comments.\n\nIf you run an ad tier: do you know your drop-off in the 30 seconds after a break, split by where in the scene it landed?",
         "sources": [
           {
             "label": "Streaming services are showing more ads in 2026 (Ampere data, Android Authority)",
@@ -330,14 +330,14 @@
             "date": "2026-09-14"
           },
           {
-            "label": "Netflix ad tier passes 250M monthly active viewers (Streaming Media Blog)",
-            "url": "https://www.streamingmediablog.com/2026/05/netflix-adtier-150million.html",
-            "date": "2026-05"
-          },
-          {
             "label": "More ads cut streaming brand recall from 41% to 26% (FreeWheel + MediaScience)",
             "url": "https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/",
             "date": "2026-09-15"
+          },
+          {
+            "label": "Netflix ad tier reaches 250 million viewers, up from 190 million (Variety)",
+            "url": "https://variety.com/2026/tv/news/netflix-claims-ad-tier-reaches-250-million-viewers-1236746219/",
+            "date": "2026-05"
           }
         ],
         "id": "ad-breaks-02"
@@ -465,10 +465,10 @@
       },
       {
         "claim": "Netflix ad tier reaches more than 250 million monthly active viewers (Netflix's own definition), used in the ad-load post",
-        "source": "Streaming Media Blog",
-        "url": "https://www.streamingmediablog.com/2026/05/netflix-adtier-150million.html",
+        "source": "Netflix 2026 upfront, reported by Variety, TheWrap and Forbes",
+        "url": "https://variety.com/2026/tv/news/netflix-claims-ad-tier-reaches-250-million-viewers-1236746219/",
         "date": "2026-05",
-        "status": "check"
+        "status": "confirmed"
       },
       {
         "claim": "Attention rose from 27% to 66% of a 30-second ad when ad and content emotion matched; 50+ campaigns (Wurl is a vendor of emotion matching)",
