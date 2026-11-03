@@ -41,7 +41,9 @@ write a short readout.
    - Never delete pages, CMS items or assets. To take a page down, set it to
      draft. Never use the Designer or element tools (they are denied in
      `.claude/settings.json`).
-2. **Publishing.** Publish CMS items one by one with `publish_collection_items`.
+2. **Publishing.** If `PUBLISH_HOLD.md` exists in this folder, follow it: no
+   site-wide publish, whatever else this rule allows.
+   Publish CMS items one by one with `publish_collection_items`.
    Publish the whole site (`publish_site` to the custom domains) only when no
    page other than those you changed this run was updated after the custom
    domains' last publish (compare `list_pages` `lastUpdated` with `get_site`).
