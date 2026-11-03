@@ -1,0 +1,166 @@
+{
+  "date": "2026-11-03",
+  "approved_by": "Marcus, in chat on 2026-11-03 (tasks 4, 8 and 42 set to 'Approved: agent does it'; task 7 set to Done)",
+  "published": {
+    "at": "2026-11-03T09:40:13Z",
+    "domains": [
+      "www.vionlabs.com",
+      "vionlabs.com"
+    ],
+    "scope": "full site",
+    "rule_2_check": "no page or CMS item had edits after the previous custom-domain publish (2026-11-02T22:03:55Z) other than these changes"
+  },
+  "before_values": "results/2026-11-03/before.json",
+  "changes": [
+    {
+      "task": 8,
+      "page": "/",
+      "field": "JSON-LD",
+      "after": "Organization (legalName Vionlabs AB, Stockholm address, sameAs LinkedIn, Twitter, Crunchbase, Medium; no aggregateRating or review), WebSite, Service nodes for Curio, Agentic Layer, Editorial Lab, Creative Lab, Operations Lab, Embeddings API, BreadcrumbList",
+      "live": true
+    },
+    {
+      "task": 8,
+      "page": "/editorial-lab, /creative-lab, /operations-lab",
+      "field": "JSON-LD",
+      "after": "Service + BreadcrumbList, no aggregateRating; Operations Lab URLs on www",
+      "live": true,
+      "verified_live": "/operations-lab via Firecrawl: Service + BreadcrumbList, no aggregateRating"
+    },
+    {
+      "task": 8,
+      "page": "/curio, /api, /embeddings-api",
+      "field": "JSON-LD",
+      "before": null,
+      "after": "Service + BreadcrumbList",
+      "live": true
+    },
+    {
+      "task": 8,
+      "page": "/company",
+      "field": "JSON-LD",
+      "before": null,
+      "after": "AboutPage + Organization + BreadcrumbList",
+      "live": true
+    },
+    {
+      "task": 8,
+      "page": "/agentic-layer",
+      "field": "JSON-LD about.@type",
+      "before": "SoftwareApplication",
+      "after": "Service (text unchanged)",
+      "live": true
+    },
+    {
+      "task": 42,
+      "page": "/operations-lab",
+      "field": "SEO title",
+      "before": "Operations Lab – Vionlabs",
+      "after": "Ad Break & Skip Intro Detection – Operations Lab | Vionlabs",
+      "live": true,
+      "verified_live": true
+    },
+    {
+      "task": 42,
+      "page": "/operations-lab",
+      "field": "SEO description",
+      "before": "Operations Lab automates media operations with AI – intro/recap/credit detection, ad-break creation, and contextual ads – to improve retention and unlock revenue.",
+      "after": "Operations Lab automates media operations with AI: ad break detection, skip intro, recap and credit detection, and scene-level contextual ad metadata for streaming.",
+      "live": true
+    },
+    {
+      "task": 42,
+      "page": "/creative-lab",
+      "field": "SEO title",
+      "before": "Creative Lab – Vionlabs",
+      "after": "AI Thumbnail Generator for Streaming – Creative Lab | Vionlabs",
+      "live": true
+    },
+    {
+      "task": 42,
+      "page": "/creative-lab",
+      "field": "SEO description",
+      "before": "Create engaging visuals, custom thumbnails and preview clips that make users interact. Streamline creative workflows at scale and unlock your team’s true creativity. Every asset gets the visual it deserves.",
+      "after": "Creative Lab is an AI thumbnail generator for streaming: on-brand thumbnails and preview clips built from each title's mood, characters and key moments.",
+      "live": true
+    },
+    {
+      "task": 42,
+      "page": "/editorial-lab",
+      "field": "SEO title",
+      "before": "Editorial Lab – Vionlabs",
+      "after": "Metadata Automation for Streaming – Editorial Lab | Vionlabs",
+      "live": true
+    },
+    {
+      "task": 42,
+      "page": "/editorial-lab",
+      "field": "SEO description",
+      "before": "Access accurate, searchable metadata across every title to spark creativity and power endless curation. Create engaging carousels and monetize your entire library today.",
+      "after": "Editorial Lab automates metadata for every title, with searchable mood, genre and plot tags, and turns it into editorial lists and carousels at scale.",
+      "live": true
+    },
+    {
+      "task": 4,
+      "page": "/401",
+      "field": "SEO title and description",
+      "before": "Calson - Webflow Ecommerce website template / Zentro text",
+      "after": "Password protected – Vionlabs / This page is password protected.",
+      "live": true
+    },
+    {
+      "task": 4,
+      "page": "/checkout, /paypal-checkout, /order-confirmation",
+      "field": "draft",
+      "attempted": "draft true",
+      "result": "refused by Webflow (400 validation_error): e-commerce utility pages cannot be drafted"
+    },
+    {
+      "task": 4,
+      "page": "/checkout, /paypal-checkout",
+      "field": "SEO title and description",
+      "before": "Monospace - Webflow Ecommerce website template / coding-tool text",
+      "after": "Checkout – Vionlabs / Vionlabs checkout.",
+      "live": true
+    },
+    {
+      "task": 4,
+      "page": "/order-confirmation",
+      "field": "SEO title and description",
+      "before": "Monospace - Webflow Ecommerce website template / coding-tool text",
+      "after": "Order confirmation – Vionlabs / Vionlabs order confirmation.",
+      "live": true
+    },
+    {
+      "task": 4,
+      "page": "/old-home, /home-copy, /company-old, /contact-sales-old",
+      "field": "includeInSitemap",
+      "before": true,
+      "after": false,
+      "live": true
+    }
+  ],
+  "left_for_people": [
+    "Task 4: 301 redirects /old-home -> /, /home-copy -> /, /company-old -> /company, /contact-sales-old -> /book-a-demo; turn off E-commerce to remove the checkout pages",
+    "Task 42: H1 and first paragraph on the three Labs (copy in the 2 Nov readout)",
+    "Task 8: run Google's Rich Results Test on / and /operations-lab"
+  ],
+  "status_changes": [
+    {
+      "task": 7,
+      "to": "Done"
+    },
+    {
+      "task": 8,
+      "to": "Done"
+    },
+    {
+      "task": 4,
+      "to": "In progress"
+    },
+    {
+      "task": 42,
+      "to": "In progress"
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "saved": "2026-11-03, before approved tasks 4, 8 and 42",
+  "schema": {
+    "68efb1a5caae6fe99744d13e": {
+      "path": "/",
+      "jsonLdSchema": null,
+      "rawJsonLdSchema": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"Organization\",\n      \"@id\": \"https://www.vionlabs.com/#organization\",\n      \"name\": \"Vionlabs\",\n      \"url\": \"https://www.vionlabs.com/\",\n      \"logo\": {\n        \"@type\": \"ImageObject\",\n        \"url\": \"https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/693a99f61790a9fae708b6aa_100x22_Vionlabs%20logo%20(1).png\"\n      },\n      \"description\": \"AI-powered video metadata and content discovery platform that helps media companies boost engagement and retention through cognitive AI technology.\",\n      \"sameAs\": [\n        \"https://www.linkedin.com/company/vionlabs\",\n        \"https://twitter.com/vionlabs\"\n      ],\n      \"slogan\": \"AI That Transforms How Audiences Engage\",\n      \"knowsAbout\": [\n        \"Video Metadata\",\n        \"Content Discovery\",\n        \"Artificial Intelligence\",\n        \"Media Operations\",\n        \"Video Analytics\",\n        \"Contextual Advertising\"\n      ],\n      \"areaServed\": {\n        \"@type\": \"Place\",\n        \"name\": \"Worldwide\"\n      },\n      \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": \"5\",\n        \"reviewCount\": \"3\"\n      },\n      \"review\": [\n        {\n          \"@type\": \"Review\",\n          \"author\": {\n            \"@type\": \"Person\",\n            \"name\": \"Shawn Eldridge\",\n            \"jobTitle\": \"VP of Business Development\",\n            \"worksFor\": {\n              \"@type\": \"Organization\",\n              \"name\": \"Plex\"\n            }\n          },\n          \"reviewBody\": \"At Plex, we're always looking for ways to improve the media experience for our user experience and engagements. Vionlabs' technology provides some truly unique capabilities that we believe will be invaluable in helping us achieve our goal of making streaming content even more accessible and enjoyable.\",\n          \"reviewRating\": {\n            \"@type\": \"Rating\",\n            \"ratingValue\": \"5\"\n          }\n        },\n        {\n          \"@type\": \"Review\",\n          \"author\": {\n            \"@type\": \"Person\",\n            \"name\": \"Dr. Jörg Richartz\",\n            \"jobTitle\": \"Head of TV Strategy\",\n            \"worksFor\": {\n              \"@type\": \"Organization\",\n              \"name\": \"Deutsche Telekom\"\n            }\n          },\n          \"reviewBody\": \"The ability to better serve our audiences based on understanding key content characteristics, like mood, will change the way we deliver content to our subscribers. Given Vionlabs' industry-first technology, we've signed up to work with this platform for years to come.\",\n          \"reviewRating\": {\n            \"@type\": \"Rating\",\n            \"ratingValue\": \"5\"\n          }\n        },\n        {\n          \"@type\": \"Review\",\n          \"author\": {\n            \"@type\": \"Person\",\n            \"name\": \"Kip Schauer\",\n            \"jobTitle\": \"Global Head of Media\",\n            \"worksFor\": {\n              \"@type\": \"Organization\",\n              \"name\": \"Google Cloud\"\n            }\n          },\n          \"reviewBody\": \"As the amount of video content expands exponentially, using Vionlabs' AI tools to understand what is in the video and make contextual advertising decisions is critical for increased monetization and customers will be able to leverage its cognitive AI solutions to enhance the viewing experience.\",\n          \"reviewRating\": {\n            \"@type\": \"Rating\",\n            \"ratingValue\": \"5\"\n          }\n        }\n      ],\n      \"makesOffer\": [\n        {\n          \"@type\": \"Offer\",\n          \"itemOffered\": {\n            \"@id\": \"https://www.vionlabs.com/editorial-lab#product\"\n          }\n        },\n        {\n          \"@type\": \"Offer\",\n          \"itemOffered\": {\n            \"@id\": \"https://www.vionlabs.com/creative-lab#product\"\n          }\n        },\n        {\n          \"@type\": \"Offer\",\n          \"itemOffered\": {\n            \"@id\": \"https://www.vionlabs.com/efficiency-suite#product\"\n          }\n        }\n      ]\n    },\n    {\n      \"@type\": \"WebSite\",\n      \"@id\": \"https://www.vionlabs.com/#website\",\n      \"url\": \"https://www.vionlabs.com/\",\n      \"name\": \"Vionlabs\",\n      \"description\": \"AI-powered video metadata and content discovery platform that helps media companies boost engagement and retention through cognitive AI technology.\",\n      \"publisher\": {\n        \"@id\": \"https://www.vionlabs.com/#organization\"\n      }\n    },\n    {\n      \"@type\": \"SoftwareApplication\",\n      \"@id\": \"https://www.vionlabs.com/editorial-lab#product\",\n      \"name\": \"Editorial Lab\",\n      \"url\": \"https://www.vionlabs.com/editorial-lab\",\n      \"applicationCategory\": \"BusinessApplication\",\n      \"operatingSystem\": \"Cloud\",\n      \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n    \t\t\"ratingValue\": \"5\",\n    \t\t\"reviewCount\": \"3\"\n      },\n      \"description\": \"AI-powered editorial curation platform that analyzes mood, genre, keywords, and plot to automatically generate collections and smart lists at scale.\",\n      \"featureList\": [\n        \"AI-curated editorial lists at scale\",\n        \"Mood-, genre-, and plot-based collections\",\n        \"Smart lists by mood, genre, or keywords\",\n        \"Reduced manual effort with increased editorial reach and consistency\"\n      ],\n      \"creator\": {\n        \"@id\": \"https://www.vionlabs.com/#organization\"\n      },\n      \"publisher\": {\n        \"@id\": \"https://www.vionlabs.com/#organization\"\n      },\n      \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://www.vionlabs.com/editorial-lab\"\n      }\n    },\n    {\n      \"@type\": \"SoftwareApplication\",\n      \"@id\": \"https://www.vionlabs.com/creative-lab#product\",\n      \"name\": \"Creative Lab\",\n      \"url\": \"https://www.vionlabs.com/creative-lab\",\n      \"applicationCategory\": \"BusinessApplication\",\n      \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n    \t\t\"ratingValue\": \"5\",\n    \t\t\"reviewCount\": \"3\"\n      },\n      \"operatingSystem\": \"Cloud\",\n      \"description\": \"AI-powered creative workspace for generating on-brand thumbnails and preview clips using mood, keywords, characters, and key story moments.\",\n      \"featureList\": [\n        \"Generate thumbnails and preview clips based on mood, tone, or key character tracking\",\n        \"Use natural language queries to find and generate preview clips\",\n        \"Collaborate, preview, and refine creative outputs with your team\",\n        \"Support for personalized preview clips and shorts to boost engagement\"\n      ],\n      \"creator\": {\n        \"@id\": \"https://www.vionlabs.com/#organization\"\n      },\n      \"publisher\": {\n        \"@id\": \"https://www.vionlabs.com/#organization\"\n      },\n      \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://www.vionlabs.com/creative-lab\"\n      }\n    },\n    {\n      \"@type\": \"SoftwareApplication\",\n      \"@id\": \"https://www.vionlabs.com/efficiency-suite#product\",\n      \"name\": \"Efficiency Suite\",\n      \"url\": \"https://www.vionlabs.com/efficiency-suite\",\n      \"applicationCategory\": \"BusinessApplication\",\n      \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n    \t\t\"ratingValue\": \"5\",\n    \t\t\"reviewCount\": \"3\"\n      },\n      \"operatingSystem\": \"Cloud\",\n      \"description\": \"AI-powered suite that automates media operations workflows like intro and credit detection, ad-break inventory creation, and contextual ad placement.\",\n      \"featureList\": [\n        \"Intro, recap, and credit detection\",\n        \"Ad-break inventory creation and placement\",\n        \"Contextual ad decisioning\",\n        \"API-driven integration with existing CMS platforms\"\n      ],\n      \"creator\": {\n        \"@id\": \"https://www.vionlabs.com/#organization\"\n      },\n      \"publisher\": {\n        \"@id\": \"https://www.vionlabs.com/#organization\"\n      },\n      \"offers\": {\n        \"@type\": \"Offer\",\n        \"url\": \"https://www.vionlabs.com/efficiency-suite\"\n      }\n    }\n  ]\n}\n</script>\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://www.vionlabs.com/\"\n    }\n  ]\n}\n</script>"
+    },
+    "6ac8a2fa2b1827414ffa8ccd": {
+      "path": "/curio",
+      "jsonLdSchema": null,
+      "rawJsonLdSchema": null
+    },
+    "6ad7c61f0fd7f8310c8d1afb": {
+      "path": "/agentic-layer",
+      "jsonLdSchema": {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "about": {
+          "@type": "SoftwareApplication",
+          "applicationCategory": "BusinessApplication",
+          "description": "An agent that gets daily editorial work done in minutes: the Curation Agent builds ranked lists, and the Creative Agent finds scenes from a description, cuts them in every ratio and creates branded thumbnails.",
+          "name": "Vionlabs Agentic Layer",
+          "operatingSystem": "Web",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Vionlabs",
+            "url": "https://www.vionlabs.com"
+          }
+        },
+        "description": "Get daily editorial work done in minutes. Describe what you need and the Vionlabs Agentic Layer curates lists, cuts clips for every screen and brands thumbnails.",
+        "image": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/6ae3150fc753fbd0acfca958_agentic-og-4.jpg",
+        "name": "Agentic Layer by Vionlabs",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Vionlabs",
+          "url": "https://www.vionlabs.com"
+        },
+        "url": "https://www.vionlabs.com/agentic-layer"
+      },
+      "rawJsonLdSchema": null
+    },
+    "68efbe2422b8b3f5e003e9f9": {
+      "path": "/company",
+      "jsonLdSchema": null,
+      "rawJsonLdSchema": null
+    },
+    "69a974dfc8eb3ea3acf30ad3": {
+      "path": "/api",
+      "jsonLdSchema": null,
+      "rawJsonLdSchema": null
+    },
+    "69b1830de293e8a43e57e8c5": {
+      "path": "/embeddings-api",
+      "jsonLdSchema": null,
+      "rawJsonLdSchema": null
+    },
+    "6937de86de7e5340400cd025": {
+      "path": "/pricing",
+      "jsonLdSchema": null,
+      "rawJsonLdSchema": null
+    },
+    "68ee5bfa4895b30459f61128": {
+      "path": "/editorial-lab",
+      "jsonLdSchema": null,
+      "rawJsonLdSchema": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"SoftwareApplication\",\n  \"@id\": \"https://www.vionlabs.com/editorial-lab#product\",\n  \"name\": \"Editorial Lab\",\n  \"url\": \"https://www.vionlabs.com/editorial-lab\",\n  \"applicationCategory\": \"BusinessApplication\",\n  \"aggregateRating\": {\n    \"@type\": \"AggregateRating\",\n    \"ratingValue\": \"5\",\n    \"reviewCount\": \"3\"\n  },\n  \"operatingSystem\": \"Cloud\",\n  \"creator\": {\n    \"@id\": \"https://www.vionlabs.com/#organization\"\n  },\n  \"publisher\": {\n    \"@id\": \"https://www.vionlabs.com/#organization\"\n  },\n  \"description\": \"Editorial Lab analyzes mood, genre, keywords, and plot to automatically generate mood-, genre-, and plot-based editorial collections and smart lists at scale.\",\n  \"featureList\": [\n    \"AI-curated editorial lists across the full catalog\",\n    \"Transform thousands of assets into ready-to-use editorial lists automatically\",\n    \"Generate mood-, genre-, and plot-based collections in seconds\",\n    \"Create targeted collections for campaigns, events, and seasonal themes\",\n    \"Reduce manual effort while increasing editorial reach and consistency\"\n  ],\n  \"isPartOf\": {\n    \"@id\": \"https://www.vionlabs.com/#website\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"url\": \"https://www.vionlabs.com/editorial-lab\"\n  }\n}\n</script>\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://www.vionlabs.com/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Editorial Lab\",\n      \"item\": \"https://www.vionlabs.com/editorial-lab\"\n    }\n  ]\n}\n</script>\n"
+    },
+    "68f74d33565120dcfb9d8b6b": {
+      "path": "/creative-lab",
+      "jsonLdSchema": null,
+      "rawJsonLdSchema": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"SoftwareApplication\",\n  \"@id\": \"https://www.vionlabs.com/creative-lab#product\",\n  \"name\": \"Creative Lab\",\n  \"url\": \"https://www.vionlabs.com/creative-lab\",\n  \"applicationCategory\": \"BusinessApplication\",\n  \"operatingSystem\": \"Cloud\",\n  \"aggregateRating\": {\n    \"@type\": \"AggregateRating\",\n    \"ratingValue\": \"5\",\n    \"reviewCount\": \"3\"\n  },\n  \"creator\": {\n    \"@id\": \"https://www.vionlabs.com/#organization\"\n  },\n  \"publisher\": {\n    \"@id\": \"https://www.vionlabs.com/#organization\"\n  },\n  \"description\": \"Creative Lab turns stories into on-brand thumbnails and preview clips using AI-driven recipes based on mood, keywords, characters, and key moments.\",\n  \"featureList\": [\n    \"Produce thumbnails, preview clips, and shorts based on mood, tone, or key character tracking\",\n    \"Use natural language queries to find and generate the right preview clips\",\n    \"Collaborate with editorial and creative teams to preview and refine outputs\",\n    \"Connect editorial curation with AI-generated clips and artwork for complete campaigns\",\n    \"Boost engagement with personalized preview clips tailored to viewer tastes\"\n  ],\n  \"isPartOf\": {\n    \"@id\": \"https://www.vionlabs.com/#website\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"url\": \"https://www.vionlabs.com/creative-lab\"\n  }\n}\n</script>\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://www.vionlabs.com/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Creative Lab\",\n      \"item\": \"https://www.vionlabs.com/creative-lab\"\n    }\n  ]\n}\n</script>"
+    },
+    "6949570f5373358b4ce70d83": {
+      "path": "/operations-lab",
+      "jsonLdSchema": null,
+      "rawJsonLdSchema": "<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"SoftwareApplication\",\n  \"@id\": \"https://vionlabs.com/operations-lab#product\",\n  \"name\": \"Operations Lab\",\n  \"url\": \"https://vionlabs.com/operations-lab\",\n  \"applicationCategory\": \"BusinessApplication\",\n  \"operatingSystem\": \"Cloud\",\n  \"description\": \"Operations Lab helps media companies streamline workflows, improve viewer experience, and unlock monetization through intelligent automation.\",\n  \"featureList\": [\n    \"Intro, recap & credit detection across your catalog\",\n    \"AI-based ad-break creation using natural pause points\",\n    \"Scene-level contextual advertising metadata (mood, keywords, compliance)\",\n    \"API-first integration with CMS, MAM, and ad tech stacks\",\n    \"Automate operations at scale with consistent accuracy\"\n  ],\n  \"aggregateRating\": {\n    \"@type\": \"AggregateRating\",\n    \"ratingValue\": \"5\",\n    \"reviewCount\": \"3\"\n  },\n  \"creator\": {\n    \"@id\": \"https://www.vionlabs.com/#organization\"\n  },\n  \"publisher\": {\n    \"@id\": \"https://www.vionlabs.com/#organization\"\n  },\n  \"isPartOf\": {\n    \"@id\": \"https://www.vionlabs.com/#website\"\n  },\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"url\": \"https://vionlabs.com/operations-lab\"\n  }\n}\n</script>\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"BreadcrumbList\",\n  \"itemListElement\": [\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 1,\n      \"name\": \"Home\",\n      \"item\": \"https://www.vionlabs.com/\"\n    },\n    {\n      \"@type\": \"ListItem\",\n      \"position\": 2,\n      \"name\": \"Operations Lab\",\n      \"item\": \"https://vionlabs.com/operations-lab\"\n    }\n  ]\n}\n</script>\n"
+    }
+  },
+  "seo": {
+    "6949570f5373358b4ce70d83": {
+      "path": "/operations-lab",
+      "draft": false,
+      "seo": {
+        "title": "Operations Lab – Vionlabs",
+        "description": "Operations Lab automates media operations with AI – intro/recap/credit detection, ad-break creation, and contextual ads – to improve retention and unlock revenue."
+      },
+      "openGraph": {
+        "titleCopied": true,
+        "descriptionCopied": true,
+        "imageUrl": null,
+        "imageAssetId": null
+      }
+    },
+    "6911f3ea2dcac5d3c93dbbfc": {
+      "path": "/home-copy",
+      "draft": false,
+      "seo": {
+        "title": "Vionlabs | AI-Powered Video Metadata & Content Discovery",
+        "description": "Boost engagement and retention with Vionlabs' cognitive AI that powers smarter content discovery and personalized video experiences."
+      },
+      "openGraph": {
+        "titleCopied": true,
+        "descriptionCopied": true,
+        "imageUrl": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/67d1ba502ebc026c1d56c53a_Vionlabs%20banner-min.png",
+        "imageAssetId": null
+      }
+    },
+    "68f74d33565120dcfb9d8b6b": {
+      "path": "/creative-lab",
+      "draft": false,
+      "seo": {
+        "title": "Creative Lab – Vionlabs",
+        "description": "Create engaging visuals, custom thumbnails and preview clips that make users interact. Streamline creative workflows at scale and unlock your team’s true creativity. Every asset gets the visual it deserves."
+      },
+      "openGraph": {
+        "titleCopied": true,
+        "descriptionCopied": true,
+        "imageUrl": null,
+        "imageAssetId": "68fa09d426aadc5dfba497a3"
+      }
+    },
+    "68ee5bfa4895b30459f61128": {
+      "path": "/editorial-lab",
+      "draft": false,
+      "seo": {
+        "title": "Editorial Lab – Vionlabs",
+        "description": "Access accurate, searchable metadata across every title to spark creativity and power endless curation. Create engaging carousels and monetize your entire library today."
+      },
+      "openGraph": {
+        "titleCopied": true,
+        "descriptionCopied": true,
+        "imageUrl": null,
+        "imageAssetId": "68fa1462ade0c8c6653ad36c"
+      }
+    },
+    "67978ee27d95b7ff0119d349": {
+      "path": "/contact-sales-old",
+      "draft": false,
+      "seo": {
+        "title": "Vionlabs Contact Sales",
+        "description": "Contact Vionlabs team to get a personal demo on the AI technology on your own content."
+      },
+      "openGraph": {
+        "titleCopied": true,
+        "descriptionCopied": true,
+        "imageUrl": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/67d1ba502ebc026c1d56c53a_Vionlabs%20banner-min.png",
+        "imageAssetId": null
+      }
+    },
+    "67978ee27d95b7ff0119d33e": {
+      "path": "/order-confirmation",
+      "draft": false,
+      "seo": {
+        "title": "Monospace - Webflow Ecommerce website template",
+        "description": "Unlock the power of assistance with this product. Our AI-powered software revolutionises the coding experience, providing developers with seamless access to advanced tools and features."
+      },
+      "openGraph": {
+        "titleCopied": false,
+        "descriptionCopied": false,
+        "imageUrl": null,
+        "imageAssetId": null
+      }
+    },
+    "67978ee27d95b7ff0119d33d": {
+      "path": "/paypal-checkout",
+      "draft": false,
+      "seo": {
+        "title": "Monospace - Webflow Ecommerce website template",
+        "description": "Unlock the power of assistance with this product. Our AI-powered software revolutionises the coding experience, providing developers with seamless access to advanced tools and features"
+      },
+      "openGraph": {
+        "titleCopied": false,
+        "descriptionCopied": false,
+        "imageUrl": null,
+        "imageAssetId": null
+      }
+    },
+    "67978ee27d95b7ff0119d33c": {
+      "path": "/checkout",
+      "draft": false,
+      "seo": {
+        "title": "Monospace - Webflow Ecommerce website template",
+        "description": "Unlock the power of intelligent code assistance with This app. Our AI-powered software revolutionises the coding experience, providing developers with seamless access to advanced tools and features."
+      },
+      "openGraph": {
+        "titleCopied": false,
+        "descriptionCopied": false,
+        "imageUrl": null,
+        "imageAssetId": null
+      }
+    },
+    "67978ee27d95b7ff0119d32f": {
+      "path": "/company-old",
+      "draft": false,
+      "seo": {
+        "title": "Vionlabs Company",
+        "description": "Founded in the heart of Stockholm in 2016, Vionlabs is now at the forefront of leveraging AI and data analytics to revolutionize content discovery and media optimization."
+      },
+      "openGraph": {
+        "titleCopied": true,
+        "descriptionCopied": true,
+        "imageUrl": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/67d1ba502ebc026c1d56c53a_Vionlabs%20banner-min.png",
+        "imageAssetId": null
+      }
+    },
+    "67978ee27d95b7ff0119d32d": {
+      "path": "/401",
+      "draft": false,
+      "seo": {
+        "title": "Calson - Webflow Ecommerce website template",
+        "description": "Elevate your business with cutting-edge AI solution Zentro. Boost marketing strategies, streamline operations, and enhance customer interactions seamlessly. Unleash the power of Zentro for intelligent automation and strategic insights."
+      },
+      "openGraph": {
+        "titleCopied": true,
+        "descriptionCopied": true,
+        "imageUrl": null,
+        "imageAssetId": null
+      }
+    },
+    "67978ee27d95b7ff0119d32c": {
+      "path": "/old-home",
+      "draft": false,
+      "seo": {
+        "title": "Vionlabs | AI-Powered Video Metadata & Content Discovery",
+        "description": "Boost engagement and retention with Vionlabs' cognitive AI that powers smarter content discovery and personalized video experiences."
+      },
+      "openGraph": {
+        "titleCopied": true,
+        "descriptionCopied": true,
+        "imageUrl": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/67d1ba502ebc026c1d56c53a_Vionlabs%20banner-min.png",
+        "imageAssetId": null
+      }
+    }
+  },
+  "sitemap": {
+    "6911f3ea2dcac5d3c93dbbfc": true,
+    "67978ee27d95b7ff0119d32c": true,
+    "67978ee27d95b7ff0119d32f": true,
+    "67978ee27d95b7ff0119d349": true
+  }
+}

@@ -162,6 +162,12 @@ write a short readout.
    - Anything the task needs that you cannot do (a login, a redirect,
      robots.txt, which Webflow only lets people edit) goes in the readout as
      the remaining step for a person.
+   - Lessons from 3 Nov: describe products in JSON-LD as `Service`, not
+     `SoftwareApplication` or `Product`, because those rich results need
+     prices or reviews we don't publish. Webflow refuses to draft e-commerce
+     utility pages (/checkout and similar); fix their SEO text instead. To
+     drop a duplicate page from search without breaking links, exclude it
+     from the sitemap (`data_sitemap_tool`) until a person adds the 301.
    Then set the Status cell: replace the cell
    `{"kind":"cell","table":"mqyntvf91dz.14175","row":<row>,"col":7}` with
    `"ifRev":<the rev of your read>` and
