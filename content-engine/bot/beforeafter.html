@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Deep Dives before/after</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* The vionlabs.com blog's own thumbnail style (see "Your AI Can See the Scene", "The library you own", Fingerprint+ v11.15):
+   a deep blue gradient, a short headline with one word underlined in bright blue, and a before/after product panel.
+   One page draws the cover (1920x1080), the grid thumbnail (1600x1260) and the LinkedIn image (1080x1350); cover.js sets
+   window.COVER, THUMB or SOCIAL. The panel shows an illustrative title, never a real one with invented data. */
+:root {
+  --navy: #061433;
+  --blue: #2f7bff;
+  --paper: #ffffff;
+  --muted: #9fb0cc;
+  --card: rgba(255, 255, 255, 0.06);
+  --edge: rgba(255, 255, 255, 0.16);
+  --font: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; overflow: hidden; color: var(--paper); font-family: var(--font); }
+.page { position: relative; overflow: hidden;
+  background: radial-gradient(120% 90% at 85% 0%, #1a4fb8 0%, rgba(26, 79, 184, 0) 55%),
+              radial-gradient(90% 70% at 0% 100%, #0d2a6b 0%, rgba(13, 42, 107, 0) 60%), var(--navy); }
+.page::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px); background-size: 28px 28px; }
+.inner { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+h1 { margin: 0; font-weight: 800; letter-spacing: -0.03em; line-height: 1.06; text-wrap: balance; }
+h1 u { text-decoration: none; background: linear-gradient(var(--blue), var(--blue)) left 96% / 100% 0.12em no-repeat; padding-bottom: 0.06em; }
+.sub { margin: 0; color: #d4def0; font-weight: 400; line-height: 1.35; }
+.panel { display: flex; align-items: center; }
+.card { flex: 1 1 0; min-width: 0; background: var(--card); border: 2px solid var(--edge); border-radius: 26px; }
+.card.after { background: linear-gradient(180deg, rgba(47, 123, 255, 0.22), rgba(47, 123, 255, 0.08)); border-color: var(--blue); box-shadow: 0 0 60px rgba(47, 123, 255, 0.35); }
+.card h3 { margin: 0; font-weight: 700; }
+.card .note { color: var(--muted); font-weight: 500; margin-top: 6px; }
+.title { display: flex; align-items: baseline; gap: 14px; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--edge); font-weight: 700; }
+.title span { color: var(--muted); font-weight: 500; }
+.rows { margin-top: 18px; display: grid; gap: 14px; }
+.row { display: flex; gap: 12px; color: #c9d5ea; }
+.row b { color: var(--muted); font-weight: 600; flex: none; }
+.row.dim { color: #6f7f9c; }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.tags span { font-weight: 600; border-radius: 999px; background: var(--paper); color: #0b1e45; white-space: nowrap; }
+.card.before .tags span { background: rgba(255, 255, 255, 0.1); color: #c9d5ea; }
+.join { flex: none; display: flex; align-items: center; justify-content: center; position: relative; }
+.join::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px solid var(--edge); }
+.join.v::before { left: 50%; right: auto; top: 0; bottom: 0; border-top: 0; border-left: 2px solid var(--edge); }
+.join span { position: relative; background: var(--paper); color: #0b1e45; font-weight: 700; border-radius: 999px; white-space: nowrap; }
+.foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; }
+.by { color: #d4def0; font-weight: 500; }
+.by b { color: var(--paper); font-weight: 700; }
+.cta { display: inline-flex; align-items: center; gap: 14px; border-radius: 999px; background: var(--blue); color: var(--paper); font-weight: 700; white-space: nowrap; }
+/* The official wordmark (assets/vionlabs-logo-white.svg, never redrawn), cropped to its ink because the file's viewBox pads it. --h is the ink height. */
+.logo { --h: 34px; flex: none; overflow: hidden; height: var(--h); width: calc(var(--h) * 391.56 / 53.74); }
+.logo img { display: block; height: calc(var(--h) * 93.333 / 53.74); margin: calc(var(--h) * -22.28 / 53.74) 0 0 calc(var(--h) * -19.875 / 53.74); }
+</style>
+</head>
+<body>
+<div class="page" id="page"><div class="inner" id="inner"></div></div>
+<script>
+// Spec: {headline (one word in *stars* gets the underline), sub, before: {label, note, title, meta, rows: [[k, v]], tags},
+// after: {label, note, tags, rows: [[k, v]]}, join, by, cta}
+function esc(s) { return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+function card(c, kind, S) {
+  var h = '<div class="card ' + kind + '" style="padding:' + S.cp + 'px"><h3 style="font-size:' + S.h3 + 'px">' + esc(c.label) + '</h3>' +
+    '<div class="note" style="font-size:' + S.small + 'px">' + esc(c.note) + '</div>';
+  if (c.title) h += '<div class="title" style="font-size:' + S.body + 'px">' + esc(c.title) + ' <span style="font-size:' + S.small + 'px">' + esc(c.meta) + '</span></div>';
+  if (c.rows) h += '<div class="rows">' + c.rows.map(function (r) {
+    return '<div class="row' + (r[2] ? " dim" : "") + '" style="font-size:' + S.small + 'px"><b>' + esc(r[0]) + '</b><span>' + esc(r[1]) + '</span></div>';
+  }).join("") + '</div>';
+  if (c.tags) h += '<div class="tags">' + c.tags.map(function (t) {
+    return '<span style="font-size:' + S.tag + 'px;padding:' + Math.round(S.tag * 0.5) + 'px ' + Math.round(S.tag * 0.8) + 'px">' + esc(t) + '</span>';
+  }).join("") + '</div>';
+  return h + '</div>';
+}
+function draw(spec, W, H, mode) {
+  var S = { cover: { pad: 110, top: 92, h1: 100, sub: 36, gap: 60, cp: 44, h3: 42, body: 36, small: 30, tag: 30, join: 26, vertical: false },
+            thumb: { pad: 96, top: 96, h1: 96, sub: 36, gap: 70, cp: 44, h3: 40, body: 34, small: 29, tag: 29, join: 24, vertical: false },
+            social: { pad: 72, top: 84, h1: 84, sub: 30, gap: 44, cp: 32, h3: 32, body: 29, small: 24, tag: 24, join: 21, vertical: true } }[mode];
+  var page = document.getElementById("page"); page.style.width = W + "px"; page.style.height = H + "px";
+  document.body.style.width = W + "px"; document.body.style.height = H + "px";
+  var inner = document.getElementById("inner");
+  inner.style.padding = S.top + "px " + S.pad + "px " + (mode === "social" ? 64 : S.top - 20) + "px";
+  var head = esc(spec.headline).replace(/\*(.+?)\*/g, "<u>$1</u>");
+  var html = '<h1 style="font-size:' + S.h1 + 'px;max-width:' + (mode === "cover" ? 1450 : W - 2 * S.pad) + 'px">' + head + '</h1>';
+  if (spec.sub && mode !== "social") html += '<p class="sub" style="font-size:' + S.sub + 'px;margin-top:22px;max-width:1300px">' + esc(spec.sub) + '</p>';
+  var join = '<div class="join" style="' + (S.vertical ? "height:64px;width:100%" : "width:150px;align-self:stretch") + '"><span style="font-size:' + S.join + 'px;padding:10px 20px">' + esc(spec.join) + '</span></div>';
+  html += '<div class="panel" style="margin-top:' + S.gap + 'px;' + (S.vertical ? "flex-direction:column;align-items:stretch" : "align-items:stretch") + '">' +
+    card(spec.before, "before", S) + join + card(spec.after, "after", S) + '</div>';
+  var logo = '<span class="logo"><img src="assets/vionlabs-logo-white.svg" alt="Vionlabs"></span>';
+  if (mode === "social") {
+    var name = (spec.by || "").split(",")[0];
+    html = '<div style="display:flex;justify-content:flex-end;margin-bottom:44px">' + logo + '</div>' + html +
+      '<div class="foot" style="padding-top:28px"><span class="by" style="font-size:28px"><b>' + esc(name) + '</b>' + esc((spec.by || "").slice(name.length)) + '</span>' +
+      '<span class="cta" style="font-size:26px;padding:18px 30px">' + esc(spec.cta) + ' →</span></div>';
+  } else {
+    html += '<div class="foot" style="padding-top:28px"><span></span>' + logo + '</div>';
+  }
+  inner.innerHTML = html;
+  if (S.vertical) inner.querySelector(".join").classList.add("v");
+}
+document.fonts.ready.then(function () {
+  if (window.COVER) draw(window.COVER, 1920, 1080, "cover");
+  else if (window.THUMB) draw(window.THUMB, 1600, 1260, "thumb");
+  else if (window.SOCIAL) draw(window.SOCIAL, 1080, 1350, "social");
+});
+</script>
+</body>
+</html>

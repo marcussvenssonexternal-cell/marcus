@@ -207,48 +207,149 @@
           "image": "covers/catalogue-01.png",
           "kicker": "The catalogue you already own",
           "by": "A long read by Arash Pendari",
-          "headline": "The catalogue you already own is the cheapest answer to churn",
-          "alt": "A wall of streaming catalogue posters, most of them older titles shown dimmed. One title from 2009 is lit up with mood tags (tense, slow-burn, family secrets, coastal noir) under the headline: The catalogue you already own is the cheapest answer to churn.",
-          "template": "shelf",
-          "tags": [
-            "Tense",
-            "Slow-burn",
-            "Family secrets",
-            "Coastal noir"
-          ],
-          "tagLabel": "Described, and found",
-          "litYear": 2009
+          "headline": "Your churn fix is already in your *catalogue*",
+          "alt": "Headline: Your churn fix is already in your catalogue. Below, one 2009 crime drama shown two ways: as it arrives in a partner's app (one genre, a one-line synopsis, one press still) and as Vionlabs describes it (tense, slow-burn, family secrets, coastal noir, a chosen preview moment, and the rows it shows up in).",
+          "template": "beforeafter",
+          "join": "Vionlabs",
+          "before": {
+            "label": "As it arrives",
+            "note": "In a partner's app: one genre, one image",
+            "title": "A 2009 crime drama",
+            "meta": "1h 52m",
+            "rows": [
+              [
+                "Genre",
+                "Drama"
+              ],
+              [
+                "Synopsis",
+                "A detective returns home."
+              ],
+              [
+                "Artwork",
+                "One press still"
+              ]
+            ]
+          },
+          "after": {
+            "label": "As we describe it",
+            "note": "The same title, read scene by scene",
+            "tags": [
+              "Tense",
+              "Slow-burn",
+              "Family secrets",
+              "Coastal noir"
+            ],
+            "rows": [
+              [
+                "Preview",
+                "The harbour reveal, 47 min in"
+              ],
+              [
+                "Shows up in",
+                "Because You Watched, mood rows"
+              ]
+            ]
+          },
+          "sub": "Inside someone else's app, the description is what you still control."
         },
         "thumb": {
           "image": "thumbs/catalogue-01.png",
           "kicker": "The catalogue you already own",
-          "headline": "The cheapest answer to churn is already in your catalogue",
-          "alt": "A wall of dimmed catalogue posters with one 2009 title lit up by its mood tags. Headline: The cheapest answer to churn is already in your catalogue.",
-          "template": "shelf",
-          "tags": [
-            "Tense",
-            "Slow-burn",
-            "Family secrets",
-            "Coastal noir"
-          ],
-          "tagLabel": "Described, and found",
-          "litYear": 2009
+          "headline": "Your churn fix is already in your *catalogue*",
+          "alt": "Headline: Your churn fix is already in your catalogue. Below, one 2009 crime drama shown two ways: as it arrives in a partner's app (one genre, a one-line synopsis, one press still) and as Vionlabs describes it (tense, slow-burn, family secrets, coastal noir, a chosen preview moment, and the rows it shows up in).",
+          "template": "beforeafter",
+          "join": "Vionlabs",
+          "before": {
+            "label": "As it arrives",
+            "note": "One genre, one image",
+            "title": "A 2009 crime drama",
+            "meta": "1h 52m",
+            "rows": [
+              [
+                "Genre",
+                "Drama"
+              ],
+              [
+                "Synopsis",
+                "A detective returns home."
+              ],
+              [
+                "Artwork",
+                "One press still"
+              ]
+            ]
+          },
+          "after": {
+            "label": "As we describe it",
+            "note": "The same title, read scene by scene",
+            "tags": [
+              "Tense",
+              "Slow-burn",
+              "Family secrets",
+              "Coastal noir"
+            ],
+            "rows": [
+              [
+                "Preview",
+                "The harbour reveal, 47 min in"
+              ],
+              [
+                "Shows up in",
+                "Because You Watched, mood rows"
+              ]
+            ]
+          },
+          "sub": "Inside someone else's app, the description is what you still control."
         },
         "social": {
           "image": "social/catalogue-01.png",
           "kicker": "The catalogue you already own",
-          "headline": "Your library is already paid for. Can anyone find it?",
+          "headline": "Your library is already paid for. Can anyone *find* it?",
           "by": "Arash Pendari, CEO of Vionlabs",
-          "alt": "A wall of dimmed catalogue posters with one 2009 title lit up by its mood tags. Headline: Your library is already paid for. Can anyone find it? A long read by Arash Pendari, CEO of Vionlabs, on vionlabs.com.",
-          "template": "shelf",
-          "tags": [
-            "Tense",
-            "Slow-burn",
-            "Family secrets",
-            "Coastal noir"
-          ],
-          "tagLabel": "Described, and found",
-          "litYear": 2009
+          "alt": "Headline: Your library is already paid for. Can anyone find it? One 2009 crime drama shown as it arrives in a partner's app and as Vionlabs describes it, with mood tags. Arash Pendari, CEO of Vionlabs. Read on vionlabs.com.",
+          "template": "beforeafter",
+          "join": "Vionlabs",
+          "before": {
+            "label": "As it arrives",
+            "note": "In a partner's app: one genre, one image",
+            "title": "A 2009 crime drama",
+            "meta": "1h 52m",
+            "rows": [
+              [
+                "Genre",
+                "Drama"
+              ],
+              [
+                "Synopsis",
+                "A detective returns home."
+              ],
+              [
+                "Artwork",
+                "One press still"
+              ]
+            ]
+          },
+          "after": {
+            "label": "As we describe it",
+            "note": "The same title, read scene by scene",
+            "tags": [
+              "Tense",
+              "Slow-burn",
+              "Family secrets",
+              "Coastal noir"
+            ],
+            "rows": [
+              [
+                "Preview",
+                "The harbour reveal, 47 min in"
+              ],
+              [
+                "Shows up in",
+                "Because You Watched, mood rows"
+              ]
+            ]
+          }
         },
         "website": {
           "title": "The Catalogue You Already Own Is the Cheapest Answer to Churn",
@@ -259,19 +360,20 @@
           "summary": "Broadcasters are moving their catalogues into other companies' apps. Arash Pendari on why the library is the cheapest answer to churn, and what a catalogue owner still controls when the home screen isn't theirs.",
           "assets": {
             "covers/catalogue-01.png": {
-              "fileId": "6aead68373b8b69a9f106d67",
-              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/6aead68373b8b69a9f106d67_catalogue-you-already-own-cover.png"
+              "fileId": "6aeb08456fef18625f10a681",
+              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/6aeb08456fef18625f10a681_catalogue-you-already-own-cover-v2.png"
             },
             "thumbs/catalogue-01.png": {
-              "fileId": "6aead68497323bc47d636649",
-              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/6aead68497323bc47d636649_catalogue-you-already-own-thumb.png"
+              "fileId": "6aeb084694f4311bc9582225",
+              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/6aeb084694f4311bc9582225_catalogue-you-already-own-thumb-v2.png"
             },
             "figures/catalogue-01-controls.png": {
               "fileId": "6aead68456a210883e5717a1",
               "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/6aead68456a210883e5717a1_catalogue-you-already-own-controls.png"
             }
           },
-          "itemId": "6aead6c2f44d5bf9ae788e77"
+          "itemId": "6aead6c2f44d5bf9ae788e77",
+          "note": "Cover and thumb restyled on 4 Nov (catalogue wall, shelf.html) after Marcus asked for a more compelling image; the draft item's images were swapped at 10:26 UTC."
         },
         "linkedin": {
           "shareText": "The cheapest thing a streaming service can do about churn is make the catalogue it already paid for easier to find.\n\nWhen TF1's catalogue went onto Netflix in France, viewing among people who saw TF1 titles rose 140% between July and August once those titles were part of Netflix's search and recommendations, and archive series came back with them. And Channel 4 has just agreed to bring its channel and catalogue to Disney+.\n\nInside someone else's app you give up the home screen. What you keep is how each title is described, its artwork and its preview, and that matters most for the oldest titles. I wrote about why:\nhttps://www.vionlabs.com/news/the-catalogue-you-already-own\n\nHow much of your catalogue got any play in the last 30 days?"
