@@ -208,23 +208,47 @@
           "kicker": "The catalogue you already own",
           "by": "A long read by Arash Pendari",
           "headline": "The catalogue you already own is the cheapest answer to churn",
-          "marks": [],
-          "alt": "A tension curve across a title's runtime under the headline: The catalogue you already own is the cheapest answer to churn."
+          "alt": "A wall of streaming catalogue posters, most of them older titles shown dimmed. One title from 2009 is lit up with mood tags (tense, slow-burn, family secrets, coastal noir) under the headline: The catalogue you already own is the cheapest answer to churn.",
+          "template": "shelf",
+          "tags": [
+            "Tense",
+            "Slow-burn",
+            "Family secrets",
+            "Coastal noir"
+          ],
+          "tagLabel": "Described, and found",
+          "litYear": 2009
         },
         "thumb": {
           "image": "thumbs/catalogue-01.png",
           "kicker": "The catalogue you already own",
           "headline": "The cheapest answer to churn is already in your catalogue",
-          "marks": [],
-          "alt": "Headline: The cheapest answer to churn is already in your catalogue."
+          "alt": "A wall of dimmed catalogue posters with one 2009 title lit up by its mood tags. Headline: The cheapest answer to churn is already in your catalogue.",
+          "template": "shelf",
+          "tags": [
+            "Tense",
+            "Slow-burn",
+            "Family secrets",
+            "Coastal noir"
+          ],
+          "tagLabel": "Described, and found",
+          "litYear": 2009
         },
         "social": {
           "image": "social/catalogue-01.png",
           "kicker": "The catalogue you already own",
           "headline": "Your library is already paid for. Can anyone find it?",
           "by": "Arash Pendari, CEO of Vionlabs",
-          "marks": [],
-          "alt": "Headline: Your library is already paid for. Can anyone find it? A long read by Arash Pendari, CEO of Vionlabs, on vionlabs.com."
+          "alt": "A wall of dimmed catalogue posters with one 2009 title lit up by its mood tags. Headline: Your library is already paid for. Can anyone find it? A long read by Arash Pendari, CEO of Vionlabs, on vionlabs.com.",
+          "template": "shelf",
+          "tags": [
+            "Tense",
+            "Slow-burn",
+            "Family secrets",
+            "Coastal noir"
+          ],
+          "tagLabel": "Described, and found",
+          "litYear": 2009
         },
         "website": {
           "title": "The Catalogue You Already Own Is the Cheapest Answer to Churn",

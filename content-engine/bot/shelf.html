@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Deep Dives shelf</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* A catalogue wall for covers, grid thumbnails and LinkedIn images: rows of abstract posters, most of them old and dimmed, one old title lit up with the mood tags that get it found. The same page draws all three sizes (cover.js sets the viewport and window.COVER, THUMB or SOCIAL). Posters are abstract shapes, never real artwork or titles. */
+:root {
+  --ink: #14212b;
+  --paper: #f4f6f7;
+  --muted: #93a3ae;
+  --line: #2a3843;
+  --accent: #4fc1c8;
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; overflow: hidden; background: var(--ink); color: var(--paper); }
+.page { position: relative; overflow: hidden; }
+.wall { position: absolute; inset: 0; }
+.poster { position: absolute; border-radius: 14px; overflow: hidden; filter: grayscale(0.75) brightness(0.55); }
+.poster .yr { position: absolute; left: 14px; bottom: 12px; font: 500 20px/1 var(--mono); letter-spacing: 0.06em; color: rgba(244, 246, 247, 0.75); }
+.poster.lit { filter: none; box-shadow: 0 0 0 5px var(--accent), 0 0 70px rgba(79, 193, 200, 0.55); z-index: 3; }
+.poster.lit .yr { color: var(--paper); }
+.fade { position: absolute; left: 0; right: 0; pointer-events: none; z-index: 2; }
+.card { position: absolute; z-index: 4; background: #1b2b37; border: 2px solid var(--accent); border-radius: 18px; padding: 22px 24px 24px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45); }
+.card .lab { font: 500 19px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+.card .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.card .tags span { font: 700 24px/1 var(--display); padding: 11px 16px; border-radius: 999px; background: rgba(79, 193, 200, 0.16); color: var(--paper); white-space: nowrap; }
+.head { position: absolute; z-index: 5; }
+.top { display: flex; justify-content: space-between; align-items: center; }
+.kicker { font: 500 28px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); display: flex; gap: 22px; align-items: center; }
+.kicker span + span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--line); margin-right: 22px; vertical-align: middle; }
+.kicker .by { color: var(--muted); }
+h1 { margin: 34px 0 0; font: 800 92px/1.04 var(--display); letter-spacing: -0.025em; text-wrap: balance; }
+.foot[hidden] { display: none; }
+.foot { position: absolute; z-index: 5; display: flex; justify-content: space-between; align-items: center; }
+.byline { font: 500 30px/36px var(--display); color: var(--muted); white-space: nowrap; }
+.byline b { font-weight: 700; color: var(--paper); }
+.cta { display: inline-flex; align-items: center; gap: 14px; height: 72px; padding: 0 30px; border: 3px solid var(--accent); border-radius: 36px; font: 700 30px/1 var(--display); color: var(--accent); white-space: nowrap; background: var(--ink); }
+/* The official wordmark (assets/vionlabs-logo-white.svg, never redrawn), cropped to its ink because the file's viewBox pads it. --h is the ink height. */
+.logo { --h: 40px; flex: none; overflow: hidden; height: var(--h); width: calc(var(--h) * 391.56 / 53.74); }
+.logo img { display: block; height: calc(var(--h) * 93.333 / 53.74); margin: calc(var(--h) * -22.28 / 53.74) 0 0 calc(var(--h) * -19.875 / 53.74); }
+</style>
+</head>
+<body>
+<div class="page" id="page">
+  <div class="wall" id="wall"></div>
+  <div class="head" id="head">
+    <div class="top"><span class="kicker" id="kicker"></span><span class="logo"><img src="assets/vionlabs-logo-white.svg" alt="Vionlabs"></span></div>
+    <h1 id="headline"></h1>
+  </div>
+  <div class="foot" id="foot" hidden><span class="byline" id="byline"></span><span class="cta"><span id="cta"></span><svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true"><path d="M2 11H22M13 2L23 11L13 20" fill="none" stroke="#4fc1c8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+</div>
+<script>
+// Spec from cover.js: {kicker, by, headline, cta, tags: [...], tagLabel, litYear}. The layout follows the viewport:
+// 1920x1080 cover, 1600x1260 grid thumbnail, 1080x1350 LinkedIn image (with byline and button).
+var PALETTE = [["#2f5d73", "#d9a441"], ["#5b3a5e", "#e07a5f"], ["#26453c", "#9fc5a8"], ["#6b3f2a", "#f2c57c"],
+  ["#2b3a67", "#8fb3ff"], ["#4a4a2e", "#d6c86a"], ["#3d2f4f", "#c39bd3"], ["#1f4e5f", "#f28f6b"], ["#553333", "#e8b4a0"]];
+var YEARS = [1998, 2003, 2011, 2006, 2001, 2014, 1995, 2008, 2017, 2004, 2012, 1999, 2010, 2002, 2016, 2007, 2000, 2013];
+
+function rnd(seed) { var x = Math.sin(seed * 9301 + 49297) * 233280; return x - Math.floor(x); }
+
+function poster(i, x, y, w, h, year, lit) {
+  var p = document.createElement("div"); p.className = "poster" + (lit ? " lit" : "");
+  p.style.cssText = "left:" + x + "px;top:" + y + "px;width:" + w + "px;height:" + h + "px";
+  // The lit title looks the same in every size: a warm dusk landscape.
+  var c = lit ? ["#6b3f2a", "#f2c57c"] : PALETTE[i % PALETTE.length], r1 = lit ? 0.5 : rnd(i), r2 = lit ? 0.4 : rnd(i + 50), r3 = lit ? 0.5 : rnd(i + 99);
+  var shape = lit ? 1 : Math.floor(r3 * 3);
+  var svg = '<svg width="' + w + '" height="' + h + '" viewBox="0 0 100 150" preserveAspectRatio="none">' +
+    '<defs><linearGradient id="g' + i + '" x1="0" y1="0" x2="' + r1.toFixed(2) + '" y2="1"><stop offset="0" stop-color="' + c[0] + '"/><stop offset="1" stop-color="#101a22"/></linearGradient></defs>' +
+    '<rect width="100" height="150" fill="url(#g' + i + ')"/>';
+  if (shape === 0) svg += '<circle cx="' + (30 + r2 * 40).toFixed(1) + '" cy="' + (40 + r1 * 30).toFixed(1) + '" r="' + (14 + r2 * 12).toFixed(1) + '" fill="' + c[1] + '" opacity="0.85"/>';
+  if (shape === 1) svg += '<path d="M0 ' + (95 + r1 * 15).toFixed(1) + ' L' + (35 + r2 * 30).toFixed(1) + ' ' + (60 + r2 * 20).toFixed(1) + ' L100 ' + (90 + r2 * 20).toFixed(1) + ' L100 150 L0 150Z" fill="' + c[1] + '" opacity="0.7"/>';
+  if (shape === 2) svg += '<rect x="' + (18 + r1 * 20).toFixed(1) + '" y="' + (30 + r2 * 20).toFixed(1) + '" width="' + (30 + r2 * 25).toFixed(1) + '" height="' + (50 + r1 * 25).toFixed(1) + '" rx="3" fill="' + c[1] + '" opacity="0.75"/>';
+  svg += '<rect y="' + (112 + r3 * 10).toFixed(1) + '" width="100" height="1.2" fill="#f4f6f7" opacity="0.25"/></svg>';
+  p.innerHTML = svg + '<span class="yr">' + year + '</span>';
+  return p;
+}
+
+function draw(spec, W, H, social) {
+  var page = document.getElementById("page"); page.style.width = W + "px"; page.style.height = H + "px";
+  document.body.style.width = W + "px"; document.body.style.height = H + "px";
+  var pad = W >= 1900 ? 132 : W >= 1500 ? 120 : 84;
+  var head = document.getElementById("head");
+  head.style.cssText = "left:" + pad + "px;right:" + pad + "px;top:" + (W >= 1900 ? 112 : 96) + "px";
+  document.getElementById("headline").style.maxWidth = (W >= 1900 ? 1500 : W - 2 * pad) + "px";
+  var k = document.getElementById("kicker"); k.innerHTML = "";
+  [spec.kicker, W >= 1900 ? spec.by : ""].filter(Boolean).forEach(function (t, i) {
+    var s = document.createElement("span"); s.textContent = t; if (i) s.className = "by"; k.appendChild(s);
+  });
+  document.getElementById("headline").textContent = spec.headline || "";
+
+  // The wall starts below the headline and runs off the bottom (or stops above the LinkedIn footer).
+  var headBottom = head.getBoundingClientRect().bottom;
+  var footH = social ? 190 : 0;
+  var top = headBottom + (W >= 1900 ? 56 : 60), bottom = H - footH;
+  var th = W >= 1900 ? 300 : W >= 1500 ? 330 : 300, tw = Math.round(th * 2 / 3), gap = 26;
+  var wall = document.getElementById("wall"); wall.innerHTML = "";
+  var rows = Math.max(1, Math.ceil((bottom - top + 40) / (th + gap)));
+  var cols = Math.ceil(W / (tw + gap)) + 2;
+  var litRow = 0, litCol = W >= 1900 ? 2 : 1, litBox = null, n = 0;
+  for (var r = 0; r < rows; r++) {
+    var off = (r % 2 ? -(tw + gap) / 2 : 0) - 40;
+    for (var c = 0; c < cols; c++) {
+      var x = Math.round(off + c * (tw + gap)), y = Math.round(top + r * (th + gap));
+      var lit = r === litRow && c === litCol + 1;
+      var year = lit ? (spec.litYear || 2009) : YEARS[n % YEARS.length];
+      wall.appendChild(poster(n + 1, x, y, tw, th, year, lit));
+      if (lit) litBox = { x: x, y: y };
+      n++;
+    }
+  }
+  // Fade the wall out under the headline and towards the bottom edge.
+  var f1 = document.createElement("div"); f1.className = "fade";
+  f1.style.cssText = "top:0;height:" + (top + 30) + "px;background:linear-gradient(to bottom, var(--ink) " + Math.round(top - 20) + "px, rgba(20,33,43,0))";
+  wall.appendChild(f1);
+  var f2 = document.createElement("div"); f2.className = "fade";
+  f2.style.cssText = "bottom:0;height:" + (H - bottom + 170) + "px;background:linear-gradient(to top, var(--ink) " + (H - bottom + 10) + "px, rgba(20,33,43,0))";
+  wall.appendChild(f2);
+
+  // The tag card sits beside the lit poster: what a description adds to an old title.
+  if (litBox && (spec.tags || []).length) {
+    var card = document.createElement("div"); card.className = "card";
+    card.innerHTML = '<div class="lab"></div><div class="tags"></div>';
+    card.querySelector(".lab").textContent = spec.tagLabel || "";
+    spec.tags.forEach(function (t) { var s = document.createElement("span"); s.textContent = t; card.querySelector(".tags").appendChild(s); });
+    card.style.left = (litBox.x + tw + 34) + "px"; card.style.top = (litBox.y + 34) + "px";
+    card.style.maxWidth = Math.min(560, W - (litBox.x + tw + 34) - pad) + "px";
+    wall.appendChild(card);
+  }
+
+  var foot = document.getElementById("foot");
+  if (social) {
+    foot.hidden = false; foot.style.cssText = "left:" + pad + "px;right:" + pad + "px;bottom:84px";
+    var b = document.getElementById("byline"), cut = (spec.by || "").indexOf(",");
+    b.innerHTML = ""; var nm = document.createElement("b"); nm.textContent = cut < 0 ? spec.by || "" : spec.by.slice(0, cut);
+    b.appendChild(nm); if (cut >= 0) b.appendChild(document.createTextNode(spec.by.slice(cut)));
+    document.getElementById("cta").textContent = spec.cta || "";
+  }
+}
+// Wait for the fonts, because the wall starts where the headline ends.
+document.fonts.ready.then(function () {
+  if (window.COVER) draw(window.COVER, 1920, 1080, false);
+  else if (window.THUMB) draw(window.THUMB, 1600, 1260, false);
+  else if (window.SOCIAL) draw(window.SOCIAL, 1080, 1350, true);
+});
+</script>
+</body>
+</html>
