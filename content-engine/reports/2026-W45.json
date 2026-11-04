@@ -1,0 +1,1077 @@
+{
+  "week": "2026-W45",
+  "generated": "2026-11-02",
+  "window": "2026-10-26 → 2026-11-02",
+  "headline": "Broadcasters spent the week moving their catalogues into other companies' apps, and nobody said how a title gets found once it is one tile among thousands there.",
+  "summary": [
+    "Channel 4 will put its channel and catalogue on Disney+ from early 2027 (27 Oct), TF1 credits Netflix for 20.5% TF1+ ad growth (29 Oct), and Versant built four more FAST channels from existing shows (28 Oct).",
+    "Microdrama money went into new vertical content: Fox and Endemol Shine's 30-episode Fear Factor (28 Oct), JLA Play licensing about 30 DramaBox series (27 Oct) and a Korean webtoon slate. None of the deals mines existing long-form.",
+    "Asking the TV for something by mood is becoming standard (Apple TV with Siri AI on sale 13 Nov), and no launch says where the mood data comes from.",
+    "Competitors were quiet: the only vendor item in the window was Veritone's Q3 call notice. The search index seems to lag about ten days, so read this as 'not surfaced'.",
+    "Zero new third-party mentions for the second week running. The TVBEurope Best of Show listing for the Agentic Layer now has two search quotes but still needs a first-hand check. Satis starts Wednesday."
+  ],
+  "ideas": [
+    {
+      "hook": "Channel 4 is moving its channel and catalogue into Disney+ next year, and I keep wondering how a Disney+ viewer will come across a Channel 4 drama they weren't looking for.",
+      "pillar": "Industry Trend Commentary",
+      "format": "Text",
+      "timing": "This week",
+      "angle": "Broadcasters are putting their catalogues inside apps they don't run: Channel 4 on Disney+ in the UK and Ireland from early 2027, and TF1 crediting its Netflix partnership for TF1+ growth. Inside someone else's interface the broadcaster no longer controls the home screen. What it still controls is how each title is described, the artwork that represents it and the preview that plays when someone pauses on it. Write this for the broadcasters in the DPP audience.",
+      "proof": "Metadata Enrichment and Custom Thumbnails for broadcasters; the IVORY partnership for France and Benelux is public.",
+      "event": "DPP Leaders' Briefing (17–18 Nov)",
+      "reactsTo": [
+        {
+          "label": "Channel 4 joins Disney+ as broadcaster partnerships gather pace (Broadband TV News)",
+          "url": "https://www.broadbandtvnews.com/2026/10/27/channel-4-joins-disney-as-broadcaster-partnerships-gather-pace/",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "Channel 4 and The Walt Disney Company strike landmark deal (Channel 4 press)",
+          "url": "https://www.channel4.com/press/news/channel-4-and-walt-disney-company-strike-landmark-deal-bring-channel-4-disney",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "TF1 nine-month results: TF1+ advertising up 20.5% in Q3 (Advanced Television)",
+          "url": "https://www.advanced-television.com/?p=294980",
+          "date": "2026-10-29"
+        }
+      ],
+      "id": "2026-W45-01"
+    },
+    {
+      "hook": "If I ran a Nordic broadcaster, I would be reading TF1's third-quarter numbers very closely this week.",
+      "pillar": "Founder POV / Build Lessons",
+      "format": "Text",
+      "timing": "This week",
+      "angle": "TF1 reports TF1+ advertising up 20.5% in the third quarter and streaming consumption up 25%, and credits the Netflix partnership. A view from Stockholm on what SVT, NRK, Yle or TV4 could take from that: partner for reach, and keep tight hold of how the catalogue is described and shown wherever it appears. Check both figures on TF1's official release before posting.",
+      "proof": "Arash's own view as a Stockholm founder; broadcaster ICP.",
+      "reactsTo": [
+        {
+          "label": "TF1 nine-month results: TF1+ advertising up 20.5% in Q3 (Advanced Television)",
+          "url": "https://www.advanced-television.com/?p=294980",
+          "date": "2026-10-29"
+        },
+        {
+          "label": "TF1 9M 2026 results (official release)",
+          "url": "https://www.webdisclosure.com/press-release/tf1-9m-2026-results-consolidated-financial-statements-and-appendix-9O01uoSrPKG",
+          "date": "2026-10-29"
+        }
+      ],
+      "id": "2026-W45-02"
+    },
+    {
+      "hook": "This week Fox ordered a 30-episode vertical Fear Factor and a new French streamer licensed about 30 vertical series. All of that money went into new content, while scenes that already work on a phone sit unused in film archives.",
+      "pillar": "Industry Trend Commentary",
+      "format": "Text",
+      "timing": "This week",
+      "angle": "Three deals in one week (Fox and Endemol Shine for My Drama, JLA Play and DramaBox, a Korean webtoon slate) all buy content made for vertical from the start. Long-form libraries already hold short, self-contained scenes that could feed a vertical feed; the work is choosing which ones. Same thesis as 2026-W44-06 with fresh news, so post one of the two.",
+      "proof": "Preview Clips & Shorts, selecting moments by emotional arc.",
+      "event": "Content London (30 Nov–3 Dec), Vertical Programming & Microdrama Summit",
+      "reactsTo": [
+        {
+          "label": "Fox and Endemol Shine take Fear Factor into vertical scripted drama (Señal News)",
+          "url": "https://senalnews.com/en/content/fox-and-endemol-shine-take-fear-factor-into-vertical-scripted-drama",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "JLA Play licenses DramaBox microdramas (Deadline)",
+          "url": "https://deadline.com/2026/10/jla-play-dramabox-microdrama-deal-1237173084/",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "COL Group 2027 microdrama slate from Korean webtoons (Variety)",
+          "url": "https://variety.com/2026/tv/news/korean-webtoon-adaptations-col-group-2027-microdrama-slate-1236932643",
+          "date": "2026-10-27"
+        }
+      ],
+      "id": "2026-W45-03"
+    },
+    {
+      "hook": "From 13 November you can ask the new Apple TV for a film by mood. Someone who signed up yesterday will ask too, and for them the only thing the system can go on is what's inside the films.",
+      "pillar": "Product & AI Insight",
+      "format": "Text",
+      "timing": "This month",
+      "angle": "Mood and plot requests are now a standard TV feature (Apple TV with Siri AI on sale 13 Nov, TiVo, Samsung, EE). For a viewer with a long history, behaviour fills the gaps. For a new viewer there is no history, so the answer depends entirely on metadata about the content. A 30-second screen recording of day-one mood rows makes the point better than words.",
+      "proof": "Curio: mood rows for a viewer with two titles watched (the Curio landing-page visual).",
+      "reactsTo": [
+        {
+          "label": "Apple unveils new Apple TV 4K with Siri AI (Broadband TV News)",
+          "url": "https://www.broadbandtvnews.com/2026/10/16/apple-unveils-new-apple-tv-4k-with-siri-ai-and-av1-support/",
+          "date": "2026-10-16"
+        },
+        {
+          "label": "Agent TiVo conversational discovery assistant (Advanced Television)",
+          "url": "https://www.advanced-television.com/?p=291935",
+          "date": "2026-09-11"
+        }
+      ],
+      "id": "2026-W45-04"
+    },
+    {
+      "hook": "AI agents have started buying TV ads from other AI agents. From what I can see, neither side knows much about what happens inside the shows being bought.",
+      "pillar": "Opinion / Contrarian Take",
+      "format": "Text",
+      "timing": "This month",
+      "angle": "Fox is reported to have extended agent-based buying to linear and live TV with several agency groups, and CNN International is testing how language models read its inventory. Both stories are about how the deal gets done. An agent can only weigh what it can read, and today that is mostly show titles and genres. Check both articles' dates before posting.",
+      "proof": "Scene and emotion metadata as structured input that buying agents can read.",
+      "event": "The Future of TV Advertising Global (8–9 Dec)",
+      "reactsTo": [
+        {
+          "label": "Fox expands AI-powered linear TV ad buying with agencies (The Desk; date unconfirmed)",
+          "url": "https://thedesk.net/2026/10/fox-expands-ai-powered-linear-tv-ad-buying-with-agencies/",
+          "date": "2026-10"
+        },
+        {
+          "label": "Why CNN International is building for an agentic ad market that barely exists yet (Digiday; date unconfirmed)",
+          "url": "https://digiday.com/media/why-cnn-international-is-building-for-agentic-ad-market-that-barely-exists-yet/",
+          "date": "2026-10"
+        }
+      ],
+      "id": "2026-W45-05"
+    },
+    {
+      "hook": "The US TV industry won't get its monthly Nielsen scoreboard for September and October until later this year. I doubt many streamers will notice in their product decisions, because the signals behind those decisions come from their own apps.",
+      "pillar": "Opinion / Contrarian Take",
+      "format": "Text",
+      "timing": "This month",
+      "angle": "Nielsen is publishing September and October together after a change in method (partly verified). The Gauge tells you share of viewing. It can't tell you which title a viewer scrolled past or which preview made them press play. Those answers come from first-party data joined to an understanding of the content itself.",
+      "proof": "Viewer-outcome measurement around thumbnails, previews and Curio rows.",
+      "reactsTo": [
+        {
+          "label": "Nielsen The Gauge: September and October to be published together later this year",
+          "url": "https://www.nielsen.com/data-center/the-gauge/",
+          "date": "2026-10"
+        },
+        {
+          "label": "YouTube, Netflix, Disney TV viewership in the August Gauge (TheWrap)",
+          "url": "https://www.thewrap.com/media-platforms/tv/youtube-netflix-disney-tv-viewership-nielsen-gauge-august-2026/",
+          "date": "2026-10-22"
+        }
+      ],
+      "id": "2026-W45-06"
+    },
+    {
+      "hook": "Versant launched four FAST channels this week built entirely from shows that already exist. I would love to know how much of the episode picking and ad-break placement was done by hand.",
+      "pillar": "Founder POV / Build Lessons",
+      "format": "Text",
+      "timing": "This week",
+      "angle": "Turning a library into a channel means choosing episodes that sit well next to each other, placing breaks that don't cut through a scene, and making art that reads as a channel. Vionlabs automates most of that work for FAST and AVOD services. Ask the question with genuine curiosity rather than as a pitch.",
+      "proof": "Ad-Break Creation and Custom Thumbnails; the FAST/AVOD ICP.",
+      "reactsTo": [
+        {
+          "label": "Versant launches new FAST channels from CNBC, Oxygen and E! shows (NewscastStudio)",
+          "url": "https://www.newscaststudio.com/2026/10/28/versant-new-fast-channels-cnbc-oxygen-snapped-botched/",
+          "date": "2026-10-28"
+        }
+      ],
+      "id": "2026-W45-07"
+    },
+    {
+      "hook": "Choosing one frame to represent a two-hour film sounds like a small job. Here is how we approach it, including the frames we throw away.",
+      "pillar": "Behind the Scenes",
+      "format": "Carousel",
+      "timing": "Evergreen",
+      "angle": "Thumbnails haven't come up in the radar's ideas yet. Show four or five candidate frames from one public-domain or licensed title, which ones the model rejected and why (closed eyes, motion blur, a spoiler, a mood that doesn't match the film), and the one it picked. HBO Max still has editors choose its Shorts moments, which shows how much judgement this takes.",
+      "proof": "Custom Thumbnails; needs real examples from the product team. Don't invent numbers.",
+      "reactsTo": [
+        {
+          "label": "HBO Max embraces vertical video with a Shorts feed (TechCrunch)",
+          "url": "https://techcrunch.com/2026/07/28/hbo-max-embraces-vertical-video-with-a-new-shorts-feed/",
+          "date": "2026-07-28"
+        }
+      ],
+      "id": "2026-W45-08"
+    },
+    {
+      "hook": "YouTube now takes 15.8% of all US TV viewing and is bringing Shorts to the living-room screen. As far as we can find, every streamer's clip feed still lives only on the phone.",
+      "pillar": "Industry Trend Commentary",
+      "format": "Image + text",
+      "timing": "This month",
+      "angle": "The August Gauge put YouTube at a record 15.8% of US TV time, and more than a third of YouTube's ad revenue now comes from TV screens. Streamers' vertical feeds are built for phones. The previews and clips that would compete on the TV itself have to be cut from the long-form catalogue, in landscape.",
+      "proof": "Preview Clips & Shorts in both orientations.",
+      "reactsTo": [
+        {
+          "label": "Nielsen Gauge: YouTube record 15.8% of US TV time (Tubefilter)",
+          "url": "https://www.tubefilter.com/2026/10/22/nielsen-the-gauge-youtube-record-watch-time-share-us-tv/",
+          "date": "2026-10-22"
+        },
+        {
+          "label": "Alphabet Q3 2026 earnings: YouTube ads (TheWrap)",
+          "url": "https://thewrap.com/industry-news/business/alphabet-earnings-q3-2026/",
+          "date": "2026-10-28"
+        }
+      ],
+      "id": "2026-W45-09"
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Being found inside someone else's app",
+      "detail": "This week's broadcaster deals (Channel 4 on Disney+, TF1 with Netflix) are covered as distribution and revenue stories. Nobody asks how a broadcaster's title gets noticed once it is one tile in a partner's interface, where metadata, artwork and previews are the levers left.",
+      "evidence": [
+        {
+          "label": "Channel 4 joins Disney+ as broadcaster partnerships gather pace (Broadband TV News)",
+          "url": "https://www.broadbandtvnews.com/2026/10/27/channel-4-joins-disney-as-broadcaster-partnerships-gather-pace/",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "TF1 nine-month results: TF1+ advertising up 20.5% in Q3 (Advanced Television)",
+          "url": "https://www.advanced-television.com/?p=294980",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "title": "Long-form libraries as a source for vertical",
+      "detail": "All three microdrama deals this week buy or commission new vertical content. None mines existing films or series for scenes that already work as short stories. A Variety headline about A+E adapting library titles for microdrama distribution is the one exception, and its date is unconfirmed.",
+      "evidence": [
+        {
+          "label": "Fox and Endemol Shine take Fear Factor into vertical scripted drama (Señal News)",
+          "url": "https://senalnews.com/en/content/fox-and-endemol-shine-take-fear-factor-into-vertical-scripted-drama",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "JLA Play licenses DramaBox microdramas (Deadline)",
+          "url": "https://deadline.com/2026/10/jla-play-dramabox-microdrama-deal-1237173084/",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "COL Group 2027 microdrama slate from Korean webtoons (Variety)",
+          "url": "https://variety.com/2026/tv/news/korean-webtoon-adaptations-col-group-2027-microdrama-slate-1236932643",
+          "date": "2026-10-27"
+        }
+      ]
+    },
+    {
+      "title": "Where the mood data behind mood search comes from",
+      "detail": "Apple TV, TiVo, Samsung and EE all take requests by mood or plot. None of the launches says where per-title mood data comes from, or how a new viewer with no history gets a good answer.",
+      "evidence": [
+        {
+          "label": "Apple unveils new Apple TV 4K with Siri AI (Broadband TV News)",
+          "url": "https://www.broadbandtvnews.com/2026/10/16/apple-unveils-new-apple-tv-4k-with-siri-ai-and-av1-support/",
+          "date": "2026-10-16"
+        },
+        {
+          "label": "Agent TiVo conversational discovery assistant (Advanced Television)",
+          "url": "https://www.advanced-television.com/?p=291935",
+          "date": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "title": "What buying agents can read about content",
+      "detail": "Coverage of agent-to-agent TV ad buying (Fox, CNN International) is about deal mechanics. Nothing covers what the agents know about the programmes they are buying around. Dates on both stories are unconfirmed.",
+      "evidence": [
+        {
+          "label": "Fox expands AI-powered linear TV ad buying with agencies (The Desk; date unconfirmed)",
+          "url": "https://thedesk.net/2026/10/fox-expands-ai-powered-linear-tv-ad-buying-with-agencies/",
+          "date": "2026-10"
+        },
+        {
+          "label": "Why CNN International is building for an agentic ad market that barely exists yet (Digiday; date unconfirmed)",
+          "url": "https://digiday.com/media/why-cnn-international-is-building-for-agentic-ad-market-that-barely-exists-yet/",
+          "date": "2026-10"
+        }
+      ]
+    },
+    {
+      "title": "FAST channels built from libraries",
+      "detail": "Versant's four new channels are made from existing shows. The coverage lists the channels but not the work behind them: choosing episodes, placing breaks and making channel art.",
+      "evidence": [
+        {
+          "label": "Versant launches new FAST channels from CNBC, Oxygen and E! shows (NewscastStudio)",
+          "url": "https://www.newscaststudio.com/2026/10/28/versant-new-fast-channels-cnbc-oxygen-snapped-botched/",
+          "date": "2026-10-28"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "title": "Broadcasters move inside global streamers",
+      "who": [
+        "Channel 4",
+        "Disney+",
+        "TF1",
+        "Netflix"
+      ],
+      "detail": "Channel 4 puts its linear channel and catalogue on Disney+ in the UK and Ireland from early 2027 (27 Oct). Disney+ now has 10+ local-content partnerships in EMEA. TF1 credits Netflix for TF1+ advertising growth (29 Oct).",
+      "sources": [
+        {
+          "label": "Channel 4 joins Disney+ as broadcaster partnerships gather pace (Broadband TV News)",
+          "url": "https://www.broadbandtvnews.com/2026/10/27/channel-4-joins-disney-as-broadcaster-partnerships-gather-pace/",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "TF1 nine-month results: TF1+ advertising up 20.5% in Q3 (Advanced Television)",
+          "url": "https://www.advanced-television.com/?p=294980",
+          "date": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "title": "Microdrama money goes to new vertical content",
+      "who": [
+        "Fox",
+        "Endemol Shine",
+        "My Drama",
+        "JLA Play",
+        "DramaBox",
+        "COL Group"
+      ],
+      "detail": "Three deals in the window, all for content made for phones. Fox has committed to 200+ vertical titles.",
+      "sources": [
+        {
+          "label": "Fear Factor microdrama for My Drama (Variety)",
+          "url": "https://variety.com/2026/tv/news/fear-factor-microdrama-fox-my-drama-holywater-endemol-1236932245/",
+          "date": "2026-10-28"
+        },
+        {
+          "label": "JLA Play licenses DramaBox microdramas (Deadline)",
+          "url": "https://deadline.com/2026/10/jla-play-dramabox-microdrama-deal-1237173084/",
+          "date": "2026-10-27"
+        },
+        {
+          "label": "COL Group 2027 microdrama slate from Korean webtoons (Variety)",
+          "url": "https://variety.com/2026/tv/news/korean-webtoon-adaptations-col-group-2027-microdrama-slate-1236932643",
+          "date": "2026-10-27"
+        }
+      ]
+    },
+    {
+      "title": "Mood and plot search becomes standard on TV hardware",
+      "who": [
+        "Apple TV",
+        "TiVo",
+        "Samsung",
+        "EE"
+      ],
+      "detail": "Apple TV with Siri AI goes on sale 13 Nov. The interfaces are arriving faster than the metadata that makes their answers good.",
+      "sources": [
+        {
+          "label": "Apple unveils new Apple TV 4K with Siri AI (Broadband TV News)",
+          "url": "https://www.broadbandtvnews.com/2026/10/16/apple-unveils-new-apple-tv-4k-with-siri-ai-and-av1-support/",
+          "date": "2026-10-16"
+        },
+        {
+          "label": "Agent TiVo conversational discovery assistant (Advanced Television)",
+          "url": "https://www.advanced-television.com/?p=291935",
+          "date": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "title": "Agent-to-agent ad buying reaches linear and live",
+      "who": [
+        "Fox",
+        "CNN International"
+      ],
+      "detail": "Reported, dates unconfirmed. The stories are about protocols and deal flow, not about content signals.",
+      "sources": [
+        {
+          "label": "Fox expands AI-powered linear TV ad buying with agencies (The Desk; date unconfirmed)",
+          "url": "https://thedesk.net/2026/10/fox-expands-ai-powered-linear-tv-ad-buying-with-agencies/",
+          "date": "2026-10"
+        },
+        {
+          "label": "Why CNN International is building for an agentic ad market that barely exists yet (Digiday; date unconfirmed)",
+          "url": "https://digiday.com/media/why-cnn-international-is-building-for-agentic-ad-market-that-barely-exists-yet/",
+          "date": "2026-10"
+        }
+      ]
+    },
+    {
+      "title": "Vendors quiet between trade shows",
+      "who": [
+        "Veritone",
+        "ThinkAnalytics",
+        "Moments Lab",
+        "Wurl",
+        "FreeWheel"
+      ],
+      "detail": "Across ~35 tracked vendors the only in-window item was Veritone's Q3 call notice (results 12 Nov). The search index appears to lag about ten days, so treat this as 'not surfaced'. Discovery vendors keep consolidating: 24i sold in March, Accedo One and Magine Pro merged as Leyra, Synamedia sold a business unit in June.",
+      "sources": [
+        {
+          "label": "Veritone to hold Q3 2026 results call on 12 Nov (Finviz / Business Wire)",
+          "url": "https://finviz.com/news/411550/veritone-to-hold-third-quarter-2026-results-conference-call-on-november-12th",
+          "date": "2026-10-29"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "Satis",
+      "start": "2026-11-04",
+      "end": "2026-11-05",
+      "city": "Paris",
+      "status": "going",
+      "role": "Booth together with Embrace (Viktor, David, Nancy tbc). The physical stand is probably IVORY's E10 in Dock Eiffel: confirm before posting.",
+      "agenda": "Docks de Paris, La Plaine Saint-Denis. 60+ conferences, ~220 speakers, ~200 exhibitors, and an AI route through the show floor ('Parcours IA') pointing to AI exhibitors and talks. A Mediakwest activation powered by Embrace runs on the IVORY stand (E10): visitors become a magazine cover and AI generates a personalised video. Vionlabs isn't named on the organiser's page. #SATIS2026 is in use but not confirmed as official.",
+      "hashtag": "#SATIS2026",
+      "hooks": [
+        "Today or tomorrow: the W44 invitation post (2026-W44-08), with the stand corrected to IVORY E10 if Embrace confirms.",
+        "On the day: a short clip from the stand of one French title with its emotion curve and chosen preview, tagged with Embrace and IVORY if they agree."
+      ],
+      "url": "https://satis-expo.com/en/"
+    },
+    {
+      "name": "DPP Leaders' Briefing",
+      "start": "2026-11-17",
+      "end": "2026-11-18",
+      "city": "London",
+      "status": "going",
+      "role": "Exhibition stand + 1-minute pitch on main stage (2 tickets); bring marketing material + merch (Viktor tbc, David, Arash tbc)",
+      "agenda": "Convene Sancroft, St Paul's, 08:30–18:30 both days; standard tickets £999. The invitation-only DPP Executive Summit is on 16 Nov. The DPP Media Tech CEO Survey 2026 (second edition, ~50 CEOs, sponsored by Grass Valley) comes out in November and is presented on stage. No 2026 programme or official hashtag found.",
+      "hooks": [
+        "Week before: the build-in-public pitch post (2026-W43-12) is still open on the board.",
+        "When the CEO Survey lands: a response post within a day, picking the one finding that touches content discovery or monetisation."
+      ],
+      "url": "https://www.thedpp.com/events/leaders-briefing-2026"
+    },
+    {
+      "name": "AWS re:Invent",
+      "start": "2026-11-30",
+      "end": "2026-12-04",
+      "city": "Las Vegas",
+      "status": "tbd",
+      "role": "Check whether Embrace / Codemill are going",
+      "agenda": "No new information this week.",
+      "hooks": [],
+      "url": "https://www.cmswire.com/events/conference/aws-reinvent-las-vegas-2026/"
+    },
+    {
+      "name": "Content London",
+      "start": "2026-11-30",
+      "end": "2026-12-03",
+      "city": "London",
+      "status": "tbd",
+      "role": "",
+      "agenda": "Third Vertical Programming & Microdrama Summit planned; no 2026 programme found yet.",
+      "hooks": [
+        "If anyone goes: this week's microdrama idea is the natural pre-event post."
+      ],
+      "url": "https://www.contentlondon.com"
+    },
+    {
+      "name": "IAMT London Conference & Awards",
+      "start": "2026-12-01",
+      "end": "2026-12-02",
+      "city": "London",
+      "status": "tbd",
+      "role": "Tied to IAMT membership",
+      "agenda": "Richmond Hill Hotel; conference from 1 Dec afternoon, awards dinner 2 Dec. No programme yet.",
+      "hooks": [],
+      "url": "https://theiamt.org/richmond"
+    },
+    {
+      "name": "The TV of Tomorrow Show",
+      "start": "2026-12-02",
+      "end": "2026-12-03",
+      "city": "San Francisco",
+      "status": "tbd",
+      "role": "AI's impact on TV and advertising expected to be a major topic",
+      "agenda": "No new information this week.",
+      "hooks": [],
+      "url": "https://thedesk.net/2026/07/dates-announced-for-2026-tv-of-tomorrow-show-in-san-francisco/"
+    },
+    {
+      "name": "The Future of TV Advertising Global",
+      "start": "2026-12-08",
+      "end": "2026-12-09",
+      "city": "London",
+      "status": "tbd",
+      "role": "",
+      "agenda": "Kings Place, run by Adwanted and The Media Leader. No agenda yet.",
+      "hooks": [
+        "This week's agent-buying idea fits as a pre-event post."
+      ],
+      "url": "https://www.iabuk.com/events-training/future-tv-advertising-global"
+    },
+    {
+      "name": "NAB Show New York",
+      "start": "2026-10-21",
+      "end": "2026-10-22",
+      "city": "New York",
+      "status": "recent",
+      "role": "Was Tbd in Notion; no record that anyone attended",
+      "agenda": "No post-show recap found.",
+      "hooks": [],
+      "url": "https://www.sportsvideo.org/2026/10/16/nab-show-new-york-2026-expected-to-draw-about-250-exhibitors/"
+    }
+  ],
+  "third_party_mentions": 0,
+  "mentions": [
+    {
+      "date": "2026-09-14",
+      "who": "TVBEurope Best of Show at IBC2026",
+      "where": "Trade press (awards)",
+      "summary": "Probable but not confirmed first-hand: two searches quote the winners list line 'Vionlabs: Vionlabs Agentic Layer' from the article published 14 Sep. Open the page and search for 'Vionlabs' before claiming it. Not counted: published before this window.",
+      "action": "Check, then thank and reshare",
+      "url": "https://www.tvbeurope.com/business/tvbeurope-announces-winners-of-best-of-show-awards-at-ibc2026"
+    },
+    {
+      "date": "2026-09",
+      "who": "SDVI IBC2026 release",
+      "where": "Partner press release",
+      "summary": "Carried over since W43 and still not actioned: ad-break detection demo built with Vionlabs on the Rally platform.",
+      "action": "Reshare",
+      "url": "https://sdvi.com/about-us/press-releases/sdvi-to-showcase-next-generation-rally-platform-and-new-technology-integrations-at-ibc2026/"
+    },
+    {
+      "date": "2026",
+      "who": "Streaming Media European Innovation Awards",
+      "where": "Trade press",
+      "summary": "Carried over: Vionlabs Creative Lab runner-up in AI Workflow.",
+      "action": "Reshare",
+      "url": "https://www.streamingmediaglobal.com/Articles/Editorial/Featured-Articles/Presenting--the-2026-European-Innovation-Awards--Winners-176213.aspx"
+    },
+    {
+      "date": "2026-09-12",
+      "who": "IBC session: AI-Powered Media Intelligence",
+      "where": "IBC Future Tech Stage",
+      "summary": "Carried over: Arash's panel; still no recap posted.",
+      "action": "Post takeaways",
+      "url": "https://show.ibc.org/ibc2026/ai-powered-media-intelligence-turning-content-insights-into-audience-value"
+    }
+  ],
+  "stats": [
+    {
+      "value": "49.6%",
+      "what": "Streaming's share of US TV time in August",
+      "source": "Nielsen Gauge via TheWrap",
+      "date": "2026-10-22",
+      "url": "https://www.thewrap.com/media-platforms/tv/youtube-netflix-disney-tv-viewership-nielsen-gauge-august-2026/"
+    },
+    {
+      "value": "15.8%",
+      "what": "YouTube's share of US TV time in August, a record (+1.6 points)",
+      "source": "Nielsen Gauge via Tubefilter",
+      "date": "2026-10-22",
+      "url": "https://www.tubefilter.com/2026/10/22/nielsen-the-gauge-youtube-record-watch-time-share-us-tv/"
+    },
+    {
+      "value": "$11.2bn, +9%",
+      "what": "YouTube ad revenue in Q3 2026, its slowest growth this year",
+      "source": "Alphabet via PPC Land",
+      "date": "2026-10-28",
+      "url": "https://ppc.land/youtube-ad-revenue-gains-9-to-11-2bn-its-slowest-growth-of-2026/"
+    },
+    {
+      "value": "More than a third",
+      "what": "Share of YouTube ad revenue that now comes from TV screens",
+      "source": "Alphabet via TheWrap",
+      "date": "2026-10-28",
+      "url": "https://thewrap.com/industry-news/business/alphabet-earnings-q3-2026/"
+    },
+    {
+      "value": "+20.5%",
+      "what": "TF1+ advertising growth in Q3 (streaming consumption +25%); check the official release",
+      "source": "TF1 via Advanced Television",
+      "date": "2026-10-29",
+      "url": "https://www.advanced-television.com/?p=294980"
+    },
+    {
+      "value": "48m, +17%",
+      "what": "Peacock paid subscribers at 30 Sep",
+      "source": "Comcast 10-Q (SEC)",
+      "date": "2026-10-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001166691/000162828026066863/cmcsa-20260930.htm"
+    },
+    {
+      "value": "13",
+      "what": "Versant FAST channels after four new launches built from CNBC, Oxygen and E! shows",
+      "source": "NewscastStudio",
+      "date": "2026-10-28",
+      "url": "https://www.newscaststudio.com/2026/10/28/versant-new-fast-channels-cnbc-oxygen-snapped-botched/"
+    },
+    {
+      "value": "30 × 3 min",
+      "what": "Format of the Fear Factor vertical drama; Fox has committed to 200+ vertical titles",
+      "source": "Señal News / Variety",
+      "date": "2026-10-28",
+      "url": "https://senalnews.com/en/content/fox-and-endemol-shine-take-fear-factor-into-vertical-scripted-drama"
+    },
+    {
+      "value": "44.4%",
+      "what": "YouTube's share of US streaming ad exposure time in August (Tubi 11.6%); Digiday date unconfirmed",
+      "source": "Comscore via Digiday",
+      "date": "2026-10",
+      "url": "https://digiday.com/future-of-tv/future-of-tv-briefing-youtube-tubi-top-streamers-share-of-ad-exposure-time/"
+    }
+  ],
+  "competitors": [
+    {
+      "name": "Gracenote (Nielsen)",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "AI roadmap: Sports MCP Server, entertainment SLM, agents",
+          "date": "2026-09-09",
+          "url": "https://www.nielsen.com/news-center/2026/gracenote-expands-ai-product-roadmap-with-sports-mcp-server-entertainment-slm-and-agents/"
+        }
+      ],
+      "message": "Ground AI in source-verified data on 55M+ titles; powers Samsung and Google AI search."
+    },
+    {
+      "name": "Veritone",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "Q3 2026 results call set for 12 Nov",
+          "date": "2026-10-29",
+          "url": "https://finviz.com/news/411550/veritone-to-hold-third-quarter-2026-results-conference-call-on-november-12th"
+        },
+        {
+          "title": "ATP Media archive partnership",
+          "date": "2026-09-29",
+          "url": "https://investors.veritone.com/news-events/press-releases/detail/438/veritone-partners-with-atp-media-to-unlock-new-revenue-from-tenniss-greatest-moments"
+        }
+      ],
+      "message": "Search, discover and monetize: archive licensing and a training-data marketplace.",
+      "new": true
+    },
+    {
+      "name": "Moments Lab",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "Studio + MXT at IBC2026",
+          "date": "2026-09",
+          "url": "https://www.momentslab.com/blog/moments-lab-to-showcase-studio-at-ibc2026"
+        },
+        {
+          "title": "ELEMENTS partnership",
+          "date": "2026-09-09",
+          "url": "https://www.momentslab.com/blog/moments-lab-and-elements-bring-show-tuned-ai-to-media-storage"
+        }
+      ],
+      "message": "Show-tuned AI that finds the moment your best editor would have found; archive to social feed."
+    },
+    {
+      "name": "TwelveLabs",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "What's new in Pegasus 1.6",
+          "date": "2026-10-06",
+          "url": "https://www.twelvelabs.io/blog/what%E2%80%99s-new-pegasus-1.6"
+        },
+        {
+          "title": "Iconik semantic search",
+          "date": "2026-09-10",
+          "url": "https://www.twelvelabs.io/blog/iconik-twelvelabs-semantic-search"
+        }
+      ],
+      "message": "Video superintelligence: foundation models, agentic search and compliance at scale."
+    },
+    {
+      "name": "Media Distillery",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "IBC 2026: Verticals and Shorts & Highlights",
+          "date": "2026-09",
+          "url": "https://mediadistillery.com/news/ibc-2026"
+        }
+      ],
+      "message": "Previews, verticals and ad-break markers for telcos without editorial workload. Closest competitor in telco."
+    },
+    {
+      "name": "Mimir",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "Single orchestration layer for metadata and AI (SVG)",
+          "date": "2026-09-10",
+          "url": "https://www.sportsvideo.org/2026/09/10/ibc-2026-mimir-develops-single-layer-for-content-metadata-ai-orchestration/"
+        }
+      ],
+      "message": "Agent-ready asset management: MCPs, open APIs, browser editor."
+    },
+    {
+      "name": "Valossa",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "Agentic video AI for advertising",
+          "date": "2026-06-24",
+          "url": "https://valossa.com/2026/06/valossa-unveils-agentic-video-ai-for-advertising-from-brand-safe-understanding-to-generative-ctv-and-cross-platform-ads/"
+        }
+      ],
+      "message": "Agentic video understanding, brand-safe and generated CTV ads. Nothing found since 1 Sep."
+    },
+    {
+      "name": "Imaginario AI",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "WBD EMEA customer story (~70% less search time)",
+          "date": "2026-09-03",
+          "url": "https://imaginario.ai/wide-lens/"
+        }
+      ],
+      "message": "Video intelligence for marketing and post teams."
+    },
+    {
+      "name": "DeepVA (Aiconix)",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "Changelog",
+          "date": "2025-06-16",
+          "url": "https://docs.deepva.com/changelog/"
+        }
+      ],
+      "message": "Vision-language model modules; powers Vizrt Viz One AI metadata. No 2026 news found."
+    },
+    {
+      "name": "ThinkAnalytics",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Brings agentic AI to content curation and advertising",
+          "date": "2026-09-22",
+          "url": "https://www.broadbandtvnews.com/2026/09/22/thinkanalytics-brings-agentic-ai-to-content-curation-and-advertising/"
+        },
+        {
+          "title": "IBC2026",
+          "date": "2026-09",
+          "url": "https://thinkanalytics.com/ibc2026/"
+        }
+      ],
+      "message": "Agents in editorial tools; ContentDNA metadata drives >30% carousel viewing (claim)."
+    },
+    {
+      "name": "XroadMedia",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "What can we take from IBC 2026",
+          "date": "2026-09",
+          "url": "https://www.xroadmedia.com/blog-what-can-we-take-from-ibc-2026"
+        },
+        {
+          "title": "Rogers Sports & Media personalisation",
+          "date": "2026-09-07",
+          "url": "https://www.broadbandtvnews.com/2026/09/07/xroadmedia-to-provide-personalisation-for-rogers-sports-media-streaming-services/"
+        }
+      ],
+      "message": "Sovereign, auditable personalisation for national and public broadcasters."
+    },
+    {
+      "name": "ContentWise",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Personal/Flow: Mi Flow",
+          "date": "2026-09-10",
+          "url": "https://contentwise.com/news/personal-flow-programas-mi-flow-contentwise/"
+        },
+        {
+          "title": "UX Engine 11, 'The Agentic Release'",
+          "date": "2026-09",
+          "url": "https://contentwise.com/event/ibc-show-2026/"
+        }
+      ],
+      "message": "LLM agents on a catalog-aware recommender; MCP tools; Open Enricher metadata; the editor approves."
+    },
+    {
+      "name": "Mediagenix (ex-Spideo)",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Spideo rebranded as Mediagenix Curation",
+          "date": "2026-09",
+          "url": "https://www.tvtechnology.com/production/mediagenix-rebrands-spideo-as-mediagenix-curation"
+        }
+      ],
+      "message": "Curation recipes that mix editorial strategy and personalisation."
+    },
+    {
+      "name": "Synamedia",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "IBC 2026: The new Synamedia",
+          "date": "2026-09-08",
+          "url": "https://www.synamedia.com/press/ibc-2026-the-new-synamedia/"
+        }
+      ],
+      "message": "Partner for the business of video: retention, revenue, lower cost."
+    },
+    {
+      "name": "Bitmovin",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Nine deploys AI Scene Analysis",
+          "date": "2026-09-11",
+          "url": "https://www.broadbandtvnews.com/2026/09/11/nine-deploys-bitmovin-ai-scene-analysis-for-vod-workflows/"
+        },
+        {
+          "title": "Video Developer Report 2026/27",
+          "date": "2026-09",
+          "url": "https://www.streamingmedia.com/PressRelease/Bitmovins-Video-Developer-Report-2026-27-Reveals-Low-Latency-for-Live-as-Industrys-Top-Challenge_58019.aspx"
+        }
+      ],
+      "message": "Scene-level metadata for contextual ads and SCTE-35 breaks. Direct overlap with ad-break detection."
+    },
+    {
+      "name": "Accedo",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Accedo + MediaKind joint solution (SVG)",
+          "date": "2026-09-04",
+          "url": "https://www.sportsvideo.org/2026/09/04/accedo-and-mediakind-launch-joint-streaming-solution-for-operators/"
+        }
+      ],
+      "message": "End-to-end, multi-platform; AI personalisation via partners."
+    },
+    {
+      "name": "NPAW",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Blog: Nala Sentinel 3 and ground-truth probes",
+          "date": "2026-08",
+          "url": "https://npaw.com/blog/"
+        }
+      ],
+      "message": "AI co-pilot for QoE; ground-truth data for agents."
+    },
+    {
+      "name": "JUMP",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Homepage: connected intelligence layer",
+          "date": "2026",
+          "url": "https://www.jumptvs.com/"
+        }
+      ],
+      "message": "Personalizer, Data Agent and Video Intelligence; agentic AI on streaming data."
+    },
+    {
+      "name": "Wurl",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Content Intelligence Platform",
+          "date": "2026-09-15",
+          "url": "https://www.advanced-television.com/2026/09/15/wurl-launches-content-intelligence-platform/"
+        }
+      ],
+      "message": "Scene-level context in DSP bid requests at 140B monthly impressions."
+    },
+    {
+      "name": "FreeWheel",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Premium Signals Packaging",
+          "date": "2026-09-17",
+          "url": "https://www.nasdaq.com/press-release/freewheel-brings-attention-quality-and-emotional-resonance-signals-ctv-buying-2026-09"
+        },
+        {
+          "title": "Ad-load recall research",
+          "date": "2026-09-15",
+          "url": "https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/"
+        }
+      ],
+      "message": "Attention, quality and emotional intensity as buying signals; lighter ad load lifts recall."
+    },
+    {
+      "name": "Peer39",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Program-level signals: Chris Chandler interview",
+          "date": "2026-10-19",
+          "url": "https://www.adworldnews.com/news/program-level-signals-ctv-contextual-targeting-chris-chandler-peer39"
+        },
+        {
+          "title": "CTV safety gaps report",
+          "date": "2026-09-29",
+          "url": "https://signalnewsalbuquerque.com/press-releases/74895/new-peer39-report-finds-gaps-in-ctv-safety-put-brands-at-risk/"
+        }
+      ],
+      "message": "Pre-bid, program-level signals; web-style verification fails on CTV."
+    },
+    {
+      "name": "Magnite / SpringServe",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "LG Ad Solutions: agentic buying on the home screen",
+          "date": "2026-10-14",
+          "url": "https://www.manilatimes.net/2026/10/14/tmt-newswire/globenewswire/lg-ad-solutions-and-magnite-expand-partnership-to-advance-agentic-buying-on-the-home-screen/2445526"
+        },
+        {
+          "title": "Orchestration layer for AI buying agents",
+          "date": "2026-09-16",
+          "url": "https://www.globenewswire.com/news-release/2026/09/16/3363128/0/en/magnite-advances-agentic-vision-as-major-media-owners-buyers-and-technology-players-leverage-orchestration-layer.html"
+        }
+      ],
+      "message": "Agentic orchestration; SpringServe as the CTV ad server."
+    },
+    {
+      "name": "KERV.ai",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Expands LG Ad Solutions partnership internationally",
+          "date": "2026-08-25",
+          "url": "https://www.businesswire.com/news/home/20260825957571/en/KERV.ai-Expands-Global-Partnership-with-LG-Ad-Solutions-Bringing-Interactive-CTV-Experiences-to-New-International-Markets"
+        },
+        {
+          "title": "What 30 campaigns revealed about shoppable CTV",
+          "date": "2026-08-18",
+          "url": "https://kerv.ai/what-30-campaigns-revealed-about-shoppable-ctv-performance/"
+        }
+      ],
+      "message": "Object-level, shoppable contextual commerce."
+    },
+    {
+      "name": "Anoki",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "MarTech Breakthrough award",
+          "date": "2026-08-18",
+          "url": "https://finance.yahoo.com/technology/ai/articles/anoki-ai-awarded-ai-marketing-140000349.html"
+        }
+      ],
+      "message": "Multimodal scene-level brand suitability (ContextIQ) and an AI planning copilot."
+    },
+    {
+      "name": "IRIS.TV",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Roku partners with IRIS.TV for show-level signals (via Beet.TV, snippet)",
+          "date": "2026-10-22",
+          "url": "https://beet.tv/2026/10/roku-bets-on-interoperability-as-ctv-moves-from-reach-to-accountability.html"
+        },
+        {
+          "title": "Blog (latest dated item May 2026)",
+          "date": "2026-05-21",
+          "url": "https://blog.iris.tv/en"
+        }
+      ],
+      "message": "IRIS_ID as the shared content ID behind contextual data. Possibly now part of Viant (unverified)."
+    },
+    {
+      "name": "Yospace",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Court TV taps Yospace for SSAI",
+          "date": "2026-10-13",
+          "url": "https://www.tvtechnology.com/business/court-tv-taps-yospace-for-streaming-ad-insertion"
+        },
+        {
+          "title": "Ad Presentation: pause ads and overlays",
+          "date": "2026-08-27",
+          "url": "https://www.streamingmedia.com/PressRelease/Yospace-releases-new-Ad-Presentation-solution_57925.aspx"
+        }
+      ],
+      "message": "Server-side insertion at scale; standardised non-linear formats."
+    },
+    {
+      "name": "Mirriad",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Plunges into administration",
+          "date": "2026-05",
+          "url": "https://businesscloud.co.uk/news/listed-adtech-mirriad-plunges-into-administration/"
+        }
+      ],
+      "message": "Defunct. In-content ad placement as a stand-alone business didn't scale."
+    },
+    {
+      "name": "WSC Sports",
+      "group": "Clips, shorts & highlights",
+      "latest": [
+        {
+          "title": "Launches WSC Studios",
+          "date": "2026-10-15",
+          "url": "https://www.globenewswire.com/news-release/2026/10/15/3381800/0/en/wsc-sports-launches-wsc-studios-to-build-next-generation-media-franchises-for-global-sports-brands.html"
+        }
+      ],
+      "message": "From automated highlights to an agentic production platform for sports franchises."
+    },
+    {
+      "name": "Magnifi",
+      "group": "Clips, shorts & highlights",
+      "latest": [
+        {
+          "title": "Acquired by Sportz Interactive, becomes FanOS Media",
+          "date": "2026-08-27",
+          "url": "https://www.medianews4u.com/si-acquires-magnifi-to-accelerate-fanos-product-roadmap-and-global-expansion/"
+        }
+      ],
+      "message": "AI clipping folded into a sports fan platform. Two owners in about 11 months."
+    },
+    {
+      "name": "OpusClip",
+      "group": "Clips, shorts & highlights",
+      "latest": [
+        {
+          "title": "Changelog: Motion Studio, new publishing targets",
+          "date": "2026-09-28",
+          "url": "https://opusclip.canny.io/changelog"
+        }
+      ],
+      "message": "Volume, virality and publish everywhere; sold to media companies as API infrastructure."
+    },
+    {
+      "name": "Comcast Technology Solutions",
+      "group": "Clips, shorts & highlights",
+      "latest": [
+        {
+          "title": "VideoAI apps: smart crop and natural-language clipping",
+          "date": "2026-09-02",
+          "url": "https://lightreading.com/ai-machine-learning/comcast-rolls-upgraded-ai-platform-for-broadcasters-and-streamers"
+        }
+      ],
+      "message": "Smart crop around each scene's action centre, bundled into cloud media processing."
+    },
+    {
+      "name": "Qvest + Nvidia",
+      "group": "Clips, shorts & highlights",
+      "latest": [
+        {
+          "title": "V-Cropper Blueprint at IBC 2026",
+          "date": "2026-09",
+          "url": "https://www.advanced-television.com/?p=291814"
+        }
+      ],
+      "message": "Automatic reframing to other aspect ratios."
+    },
+    {
+      "name": "Coactive",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "AI can unlock streaming's untapped advertising goldmine (Beet.TV, snippet)",
+          "date": "2026-10-25",
+          "url": "https://beet.tv/2026/10/ai-can-unlock-streamings-untapped-advertising-goldmine-coactives-cody-coleman.html"
+        }
+      ],
+      "message": "AI contextual analysis unlocks ad inventory on ad tiers. Not on the watchlist yet."
+    }
+  ],
+  "coverage": [
+    "Window 2026-10-26 to 2026-11-02. Six research agents ran with 30 web searches each (180 total).",
+    "Direct page fetches are blocked by this environment's network policy (DNS errors on beet.tv, thedesk.net, advanced-television.com, twelvelabs.io, vionlabs.com and nielsen.com), so findings come from search-result summaries with dated URLs. The search index returned very little dated after about 20 Oct, so 'nothing new' means not surfaced.",
+    "LinkedIn searches returned profile pages only, with no individual posts: social activity and mentions are a partial view.",
+    "Events come from a live query of the Notion Event Calendar on 2 Nov, which matches content-engine/config/events.yaml. The Embrace × Codemill × Vionlabs London evening (16 Nov, public page vionlabs.com/london) isn't in the Notion calendar, so it isn't listed; add it there to include it.",
+    "Hooks and angles follow Arash's 28 Oct rules from the content bot's brand brief: no competitor or former-customer names in public content, and human prose. Competitor names appear only in the internal research sections.",
+    "Unverified and flagged: the TVBEurope award (page not opened), the dates of the Fox and CNN agentic-buying stories, a Variety headline on A+E adapting library titles for microdrama (date not confirmed, not used), TF1's figures (check the official release) and the Nielsen Gauge pause (partly verified).",
+    "Mentions count: 0 new third-party mentions first published in the window. Carried-over items and items dated before 26 Oct are excluded. Search lag may hide items from 31 Oct to 2 Nov.",
+    "Idea board read on 2 Nov: no ideas in Drafting, Ready or Posted, and no team ideas yet."
+  ]
+}

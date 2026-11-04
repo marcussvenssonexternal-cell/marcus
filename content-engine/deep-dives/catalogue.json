@@ -90,5 +90,155 @@
       "format": "Image + text",
       "working": "What Because You Watched misses when it only knows the genre"
     }
-  ]
+  ],
+  "pack": {
+    "generated": "2026-11-04",
+    "summary": "The long read for W45, written for the Wednesday draft to Arash: a blog post for vionlabs.com built on the radar's W45 gap (broadcasters moving catalogues into other companies' apps) and timed before the DPP Leaders' Briefing (17–18 Nov). The carousel and posts are still to write.",
+    "pieces": [
+      {
+        "kind": "article",
+        "slot": "On vionlabs.com when Arash approves",
+        "pillar": "Industry Trend Commentary",
+        "format": "Blog post (vionlabs.com)",
+        "title": "The catalogue you already own is the cheapest answer to churn",
+        "subtitle": "Broadcasters are moving their catalogues into other companies' apps. Inside someone else's interface, how each title is described, pictured and previewed is what's left to control.",
+        "body": "The cheapest thing a streaming service can do about churn is make the catalogue it has already paid for easier to find.\n\nTF1 showed what that looks like this summer. Its channels and the TF1+ catalogue went onto Netflix in France in June. Once TF1 titles were part of Netflix's search and recommendations, viewing among the people who saw them rose 140% between July and August, [as reported by Broadband TV News](https://www.broadbandtvnews.com/2026/10/19/tf1-reports-30-viewership-growth-following-netflix-launch/). The two companies pointed to renewed interest in archive programming, including a TF1 series first shown in 2015.\n\nThe series was the same one TF1 had carried for a decade. What was new was the audience in front of it and a system that could recommend it.\n\nLast week [Channel 4 agreed to bring its channel and catalogue to Disney+](https://www.channel4.com/press/news/channel-4-and-walt-disney-company-strike-landmark-deal-bring-channel-4-disney) in the UK and Ireland from early 2027, in a Channel 4-branded section with \"the same navigation and user experience as the rest of Disney+\". I expect more broadcasters to follow, and each of them will find out what TF1 found out: inside someone else's app, a library is worth what that app can understand about it.\n\n## The library is where viewers already are\n\nI think the industry still talks about libraries as a cost line and about originals as the strategy. Viewing points the other way.\n\nLuminate counts 42.2 billion hours of library TV streamed in the US in the first half of 2026, against 11.5 billion hours of original series. By its estimate, viewers spend nearly 60% of their time on content more than a year old.\n\nOriginals still do the job of getting people in the door. Antenna estimates that Landman brought Paramount+ 2.75 million sign-ups in its first 90 days. A hit ends, though, and what keeps someone subscribed in the months after is mostly the catalogue they find next.\n\n## Every price rise asks whether this month was worth it\n\nDisney+ and Hulu raised prices again for existing subscribers on 21 October, the fourth increase in four years by Variety's count. Ad-free Disney+ Premium went from $18.99 to $21.49 a month.\n\nEach rise makes people ask whether the service was worth it this month. I believe that question gets answered on the home screen, by whether the viewer found something they wanted in the first minute.\n\nTwo numbers show what is at stake:\n\n- HUB Entertainment Research found in September that the service a viewer treats as their default can be up to six times less likely to be cancelled.\n- Antenna found that 42% of people who cancelled a premium streaming service in 2024 came back within 12 months.\n\nViewers move between services, and many of them come back. Being the default is what earns the first look, and I'd argue it is won in discovery far more than in the content budget.\n\n## What you keep inside someone else's app\n\nWhen your catalogue sits in a partner's app, you give up the home screen. The partner owns the rows, the algorithm and the viewing data. What you still control is how each title is described, the artwork that represents it and the preview that plays when someone pauses on it.\n\n![What a catalogue owner still controls inside a partner's app: how each title is described, its mood, theme and tone tags, artwork for every title and episode, and the preview that plays on pause. The home screen, the rows and the algorithm belong to the host.](figures/catalogue-01-controls.png)\n\nThe platforms' own partner documentation says as much. Prime Video's artwork guide explains that cover art appears in storefront carousels, \"the primary surface driving title discovery\", and that when episode art is missing it falls back to season art, which [Amazon describes](https://videocentral.amazon.com/support/getting-started-with-artwork-delivery) as \"a suboptimal customer experience\". Apple maps partner titles onto its own product pages and says artwork matters most for the titles its editors promote.\n\nThe titles most likely to arrive with a thin description and one tired image are the old ones, and those are the titles a broadcaster most hopes a new audience will discover. Netflix's research from early 2014 found that artwork took more than 82% of members' attention while browsing, at about 1.8 seconds per title. That is very little time for a 2009 drama represented by a grainy press still.\n\n## Describe the old titles the way you describe the new ones\n\nAt Vionlabs we see the same pattern in almost every catalogue we work with. Titles came from different distributors in different decades and were described by different people with different vocabularies. A recommender ends up seeing a 2024 original in rich detail and a 2004 film as a genre and a cast list.\n\n[Plex](https://www.vionlabs.com/customer-stories/plex) had exactly that problem: a catalogue gathered from many distributors over decades, described inconsistently in both style and emphasis. We gave every title the same layer of mood, theme and context, whatever its origin, era or language, and an A/B test showed a significant uplift in minutes watched from the mood data.\n\nKeeping that layer consistent takes deliberate choices. This autumn we removed 833 terms from the Fingerprint+ vocabularies, because two labels for one idea split an audience in two. A filter on \"calm\" was missing every title tagged \"calming\".\n\nIn a partner's app this matters even more. The host's recommender can only connect your drama to a viewer if it can read what kind of drama it is, in the same terms it uses for everything else on the service.\n\n## The viewer who has watched two titles\n\nThe library also matters most for the viewers with the least history. A subscriber who joined yesterday, or a long-tail title nobody has opened in a year, gives a collaborative filter almost nothing to work with.\n\nThat is the case we built Curio for. It runs on embeddings learned from more than a million analysed assets, so it can recommend a title on how it feels to watch before anyone has watched it. [Great American Pure Flix became its first partner](https://www.vionlabs.com/news/vionlabs-launches-curio) in October, with Because You Watched and Similar Titles built on it.\n\n## The case against\n\nThe strongest objection is that the host decides. A broadcaster can send excellent metadata and the partner may overwrite it, map it to its own taxonomy or keep the titles in a branded corner. TF1's results also come from reach: Netflix puts TF1 in front of far more people than TF1+ could reach on its own, so the value of the shelf and the value of the description are hard to separate.\n\nI agree that reach does most of the work. The 140% came after the titles were fully part of search and recommendations, though, and that is the point where the host's systems have to understand them.\n\nA thin catalogue is a different problem. Bango found that a quarter of US consumers say they have \"run out\" of things to watch, and better descriptions can't add titles that aren't there. What they can do is stop a deep catalogue from looking thin.\n\n## Where I'd start\n\nIf you own a catalogue, whether it lives in your own app or in someone else's, these numbers tell you whether it is being found:\n\n- The share of your catalogue that got any play in the last 30 days\n- Viewing of titles more than five years old, as a share of all viewing\n- How many titles are missing episode-level artwork, or a description written in the last few years\n- For partner deals, how much of your viewing comes through the host's search and recommendations rather than your branded section\n\nWhich of those do you actually know for your own library today?\n\n*Want to see what's hiding in your own catalogue?*\n\n[**Book a demo with Vionlabs →**](https://www.vionlabs.com/book-a-demo)\n",
+        "rationale": [
+          "The question is live this week. On 27 October Channel 4 agreed to put its channel and catalogue on Disney+ from early 2027, and TF1 credits its Netflix partnership for TF1+ advertising growth of 20.5% in the third quarter. The coverage treats both as distribution deals; nobody asks how a broadcaster's titles get found once they are inside someone else's app, and that is where we have something of our own to say.",
+          "It lands two weeks before the DPP Leaders' Briefing in London (17–18 Nov), where we have a stand and a one-minute pitch on the main stage. The broadcasters in that room are the ones signing these deals.",
+          "Viewing sits in the library. Luminate counts 42.2 billion hours of library TV streamed in the US in the first half of 2026 against 11.5 billion for original series, and every price rise (Disney+ and Hulu again on 21 October) makes viewers ask whether the month was worth it.",
+          "We can speak from our own work: Plex's catalogue, described consistently across decades with an A/B-tested uplift in minutes, the 833 terms we cut from Fingerprint+, and Curio with Great American Pure Flix. It ends with a Book a demo link, so sales can send it to broadcasters and streamers with deep libraries."
+        ],
+        "sources": [
+          {
+            "label": "TF1 reports 30% viewership growth following Netflix launch (Broadband TV News)",
+            "url": "https://www.broadbandtvnews.com/2026/10/19/tf1-reports-30-viewership-growth-following-netflix-launch/",
+            "date": "2026-10-19"
+          },
+          {
+            "label": "TF1 9M 2026 results (TF1 press release)",
+            "url": "https://groupe-tf1.fr/sites/default/files//communiques/TF1%209M%202026%20results%20-%20Press%20release.pdf",
+            "date": "2026-10-29"
+          },
+          {
+            "label": "Channel 4 and The Walt Disney Company strike landmark deal (Channel 4 press)",
+            "url": "https://www.channel4.com/press/news/channel-4-and-walt-disney-company-strike-landmark-deal-bring-channel-4-disney",
+            "date": "2026-10-27"
+          },
+          {
+            "label": "Luminate 2026 midyear report",
+            "url": "https://luminatedata.com/blog/luminate-2026-midyear-report-trends-in-music-television-film/",
+            "date": "2026-07-15"
+          },
+          {
+            "label": "Antenna: Premium SVOD 2025 Year in Review",
+            "url": "https://cdn.prod.website-files.com/6756b521db09e280168a4cf3/699da4453c52c6c16fba9a45_Antenna%20x%20State%20of%20Subscriptions%20-%20Premium%20SVOD%202025%20Year%20in%20Review.pdf",
+            "date": "2026"
+          },
+          {
+            "label": "Disney+ and Hulu price increase (Variety)",
+            "url": "https://variety.com/2026/tv/news/disney-plus-hulu-price-increase-2026-1236873281/",
+            "date": "2026-09"
+          },
+          {
+            "label": "HUB: viewers less likely to cancel their default streaming service (NewscastStudio)",
+            "url": "https://www.newscaststudio.com/2026/09/21/viewers-less-likely-to-cancel-their-default-streaming-service/",
+            "date": "2026-09-21"
+          },
+          {
+            "label": "Prime Video: getting started with artwork delivery",
+            "url": "https://videocentral.amazon.com/support/getting-started-with-artwork-delivery",
+            "date": "current docs"
+          },
+          {
+            "label": "Apple TV partners: metadata requirements",
+            "url": "https://tvpartners.apple.com/support/3669-metadata-requirements",
+            "date": "current docs"
+          },
+          {
+            "label": "Netflix: The Power of a Picture",
+            "url": "https://about.netflix.com/news/the-power-of-a-picture",
+            "date": "2016-05-03"
+          },
+          {
+            "label": "Plex customer story (Vionlabs)",
+            "url": "https://www.vionlabs.com/customer-stories/plex",
+            "date": "2026-05-05"
+          },
+          {
+            "label": "What's new in Fingerprint+ v11.15 (Vionlabs)",
+            "url": "https://www.vionlabs.com/news/whats-new-in-fingerprint-v11-15",
+            "date": "2026-10-09"
+          },
+          {
+            "label": "Vionlabs launches Curio, live with Pure Flix",
+            "url": "https://www.vionlabs.com/news/vionlabs-launches-curio",
+            "date": "2026-10-01"
+          },
+          {
+            "label": "US viewers report growing frustration with content overload (Bango, NewscastStudio)",
+            "url": "https://www.newscaststudio.com/2026/05/20/u-s-viewers-report-growing-frustration-with-streaming-content-overload/",
+            "date": "2026-05-20"
+          }
+        ],
+        "figures": [
+          {
+            "image": "figures/catalogue-01-controls.png",
+            "alt": "What a catalogue owner still controls inside a partner's app: how each title is described, its mood, theme and tone tags, artwork for every title and episode, and the preview that plays on pause. The home screen, the rows and the algorithm belong to the host.",
+            "kicker": "Inside a partner's app",
+            "title": "What a catalogue owner still controls when the app isn't theirs",
+            "items": [
+              "How each title is described",
+              "Mood, theme and tone tags",
+              "Artwork for every title and episode",
+              "The preview that plays on pause"
+            ],
+            "missing": "The home screen, the rows and the algorithm",
+            "missingTag": "The host's",
+            "source": "Sources: Channel 4, 27 Oct 2026; Prime Video partner artwork guide"
+          }
+        ],
+        "cover": {
+          "image": "covers/catalogue-01.png",
+          "kicker": "The catalogue you already own",
+          "by": "A long read by Arash Pendari",
+          "headline": "The catalogue you already own is the cheapest answer to churn",
+          "marks": [],
+          "alt": "A tension curve across a title's runtime under the headline: The catalogue you already own is the cheapest answer to churn."
+        },
+        "thumb": {
+          "image": "thumbs/catalogue-01.png",
+          "kicker": "The catalogue you already own",
+          "headline": "The cheapest answer to churn is already in your catalogue",
+          "marks": [],
+          "alt": "Headline: The cheapest answer to churn is already in your catalogue."
+        },
+        "social": {
+          "image": "social/catalogue-01.png",
+          "kicker": "The catalogue you already own",
+          "headline": "Your library is already paid for. Can anyone find it?",
+          "by": "Arash Pendari, CEO of Vionlabs",
+          "marks": [],
+          "alt": "Headline: Your library is already paid for. Can anyone find it? A long read by Arash Pendari, CEO of Vionlabs, on vionlabs.com."
+        },
+        "website": {
+          "title": "The Catalogue You Already Own Is the Cheapest Answer to Churn",
+          "slug": "the-catalogue-you-already-own",
+          "url": "https://www.vionlabs.com/news/the-catalogue-you-already-own",
+          "author": "Arash Pendari",
+          "status": "not staged",
+          "summary": "Broadcasters are moving their catalogues into other companies' apps. Arash Pendari on why the library is the cheapest answer to churn, and what a catalogue owner still controls when the home screen isn't theirs."
+        },
+        "linkedin": {
+          "shareText": "The cheapest thing a streaming service can do about churn is make the catalogue it already paid for easier to find.\n\nWhen TF1's catalogue went onto Netflix in France, viewing among people who saw TF1 titles rose 140% between July and August once those titles were part of Netflix's search and recommendations, and archive series came back with them. Last week Channel 4 agreed to bring its channel and catalogue to Disney+.\n\nInside someone else's app you give up the home screen. What you keep is how each title is described, its artwork and its preview, and that matters most for the oldest titles. I wrote about why:\nhttps://www.vionlabs.com/news/the-catalogue-you-already-own\n\nHow much of your catalogue got any play in the last 30 days?"
+        },
+        "checks": [],
+        "id": "catalogue-01"
+      }
+    ],
+    "factcheck": [],
+    "coverage": [
+      "Three research agents (evidence and numbers; landscape; Vionlabs public proof) and two verification agents, 4 Nov 2026. vionlabs.com, channel4.com and thedesk.net were read through Firecrawl because the session's network blocks them for direct fetches."
+    ]
+  }
 }

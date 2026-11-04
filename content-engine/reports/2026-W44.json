@@ -1,0 +1,1005 @@
+{
+  "week": "2026-W44",
+  "generated": "2026-10-26",
+  "window": "2026-10-19 → 2026-10-26",
+  "headline": "A quiet week for competitors, but the open lanes got clearer: everyone is working on which ad goes in a scene and which clip to find, and nobody on where the break lands or how a viewer discovers what they can't describe.",
+  "summary": [
+    "No competitor in the 40-odd companies tracked had verifiably new product news this week; search coverage was thin, so read this as 'not surfaced' rather than 'nothing published'.",
+    "New in the window: Parks finds 39% of US households watch live via on-demand streamers (22 Oct); Beet.TV pieces on Coactive and Omnicom (21–25 Oct) keep the CTV conversation on targeting and relevance, not break placement; Roku partners with IRIS.TV for show-level signals (22 Oct).",
+    "Scene-level metadata is moving into platforms (Bitmovin, Comcast, AWS, all September). The specialist argument shifts to depth and viewer outcomes.",
+    "Next 14 days: Satis (4–5 Nov, going, Embrace booth). DPP Leaders' Briefing follows on 17–18 Nov.",
+    "No new public mentions of Vionlabs found; TVBEurope award claim still unconfirmed. Several W43 mentions are still waiting for a reshare."
+  ],
+  "ideas": [
+    {
+      "hook": "39% of US homes now watch live sports or events through on-demand streamers. Nobody has told those apps where the ad break goes in a live match or a news hour.",
+      "pillar": "Industry Trend Commentary",
+      "format": "Text",
+      "timing": "This week",
+      "angle": "Parks Associates' new report puts live inside on-demand apps at 39% of US internet households, with a quarter watching live via FAST. Live and news are where a badly timed break costs the most. The same scene-level understanding that finds a natural pause in a drama can find it in a news hour or a match.",
+      "proof": "Ad-Break Creation and Contextual Ad-Breaks; news-broadcaster ICP. Needs a Vionlabs live or news example before posting; check what is public.",
+      "reactsTo": [
+        {
+          "label": "Research: 39% of US watch live content through streamers (Advanced Television)",
+          "url": "https://www.advanced-television.com/2026/10/22/research-39-of-us-watch-live-content-through-streamers/",
+          "date": "2026-10-22"
+        }
+      ],
+      "id": "2026-W44-01"
+    },
+    {
+      "hook": "Scene-level targeting is a crowded shelf now. Scene-level break placement is an empty one.",
+      "pillar": "Product & AI Insight",
+      "format": "Carousel",
+      "timing": "This month",
+      "angle": "Coactive argues AI context unlocks ad inventory; Omnicom says two thirds of viewers avoid ads yet most feel favourable toward ads relevant to the content (both via Beet.TV snippets, verify numbers). Everyone is working on which ad goes in a scene. Few say where in the story the break should fall. Slides: what scene-level targeting does, what it leaves out, what a story-aware break adds.",
+      "proof": "Ad-Break Creation and Contextual Ad-Breaks; the SDVI ad-break demo from IBC. Don't name competitors.",
+      "event": "The Future of TV Advertising Global (8–9 Dec)",
+      "reactsTo": [
+        {
+          "label": "AI can unlock streaming's untapped advertising goldmine: Coactive's Cody Coleman (Beet.TV)",
+          "url": "https://beet.tv/2026/10/ai-can-unlock-streamings-untapped-advertising-goldmine-coactives-cody-coleman.html",
+          "date": "2026-10-25"
+        },
+        {
+          "label": "Two thirds of consumers are avoiding ads, but they're not anti-brand (Beet.TV)",
+          "url": "https://www.beet.tv/2026/10/two-thirds-of-consumers-are-avoiding-ads-but-theyre-not-anti-brand.html",
+          "date": "2026-10-21"
+        }
+      ],
+      "id": "2026-W44-02"
+    },
+    {
+      "hook": "Every search box in video is learning to find the moment you already know exists. Viewers need the one they didn't know they wanted.",
+      "pillar": "Opinion / Contrarian Take",
+      "format": "Text",
+      "timing": "This month",
+      "angle": "This year's pitches from Valossa, Imaginario and others centre on asking for a clip in plain language. That is retrieval, and it works for editors who know what they're after. Discovery is the opposite problem: the viewer can't describe it. It needs the feel of a scene in the data, not a better prompt box. Acknowledge that retrieval is real value before arguing the difference.",
+      "proof": "Mood rows and Similar Titles from Curio; an emotion curve for one title.",
+      "reactsTo": [
+        {
+          "label": "Valossa: Ask-First Video Editing (blog title seen via search)",
+          "url": "https://valossa.com",
+          "date": "2026-04-27"
+        },
+        {
+          "label": "Imaginario AI: find moments, not files (ISE 2026)",
+          "url": "https://videos.jbanda.com/imaginario-ai-find-moments-not-files-ise-2026/",
+          "date": "2026"
+        }
+      ],
+      "id": "2026-W44-03"
+    },
+    {
+      "hook": "Bitmovin, Comcast and AWS all shipped scene analysis in September. If scene metadata is becoming a platform feature, what's left for a specialist?",
+      "pillar": "Founder POV / Build Lessons",
+      "format": "Text",
+      "timing": "This month",
+      "angle": "A candid post about what happens when the big platforms add your category as a feature. The honest answer: depth, taste and proof on viewer outcomes. Where scene analysis tags what is on screen, a specialist has to say what it feels like and show it changed viewing. Credit the others for making the category real.",
+      "proof": "Needs Arash's own view and one viewer-outcome number we can cite publicly.",
+      "reactsTo": [
+        {
+          "label": "Nine deploys Bitmovin AI Scene Analysis on Stan",
+          "url": "https://senalnews.com/en/content/nine-entertainment-deploys-bitmovins-ai-scene-analysis-on-stan-to-boost-catalog-monetization",
+          "date": "2026-09-14"
+        },
+        {
+          "label": "Comcast Technology Solutions VideoAI workflow apps",
+          "url": "https://www.sportsvideo.org/2026/09/02/ibc-2026-comcast-technology-solutions-unveils-ai-powered-workflow-applications/",
+          "date": "2026-09-02"
+        },
+        {
+          "label": "AWS Elemental Inference: contextual metadata for live video",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/elemental-inference-contextual-metadata/",
+          "date": "2026-09"
+        }
+      ],
+      "id": "2026-W44-04"
+    },
+    {
+      "hook": "TiVo's new assistant lets you search by mood. The interface is ready. Who is producing the mood data behind it?",
+      "pillar": "Opinion / Contrarian Take",
+      "format": "Text",
+      "timing": "This week",
+      "angle": "Natural-language, mood-aware search is arriving in the UI (Agent TiVo, announced 11 Sep per Advanced Television; verify). A query like 'something tense but warm' only works if scenes were described that way upstream. A question mark over the data layer, not a dig at TiVo.",
+      "proof": "Scene-level emotion metadata and mood rows in Curio. Check the TiVo date on the page first.",
+      "reactsTo": [
+        {
+          "label": "Agent TiVo conversational discovery assistant (Advanced Television)",
+          "url": "https://www.advanced-television.com/?p=291935",
+          "date": "2026-09-11"
+        }
+      ],
+      "id": "2026-W44-05"
+    },
+    {
+      "hook": "Disney, Fox, Banijay and Yle are all commissioning vertical microdramas. What does a library owner do with the 4,000 titles they already have?",
+      "pillar": "Industry Trend Commentary",
+      "format": "Carousel",
+      "timing": "This month",
+      "angle": "Microdrama has moved from app category to commissioned format. The new money chases new vertical productions, but existing libraries hold plenty of scenes that already work as short, self-contained stories. The question is which ones, and how to choose without a human watching everything.",
+      "proof": "Preview Clips & Shorts, selecting by emotional arc. Number '4,000' is illustrative: replace with a real library size or drop it.",
+      "event": "Content London (30 Nov–3 Dec), if attending",
+      "reactsTo": [
+        {
+          "label": "Dazed: vertical micro-romances (ReelShort etc.)",
+          "url": "https://www.dazeddigital.com/film-tv/article/71084/1/horny-vertical-micro-romances-tiktok-youtube-shorts-reelshort-microdrama",
+          "date": "2026-10-01"
+        },
+        {
+          "label": "Banijay's Brazilian prodcos forge microdrama pact (Broadcast)",
+          "url": "https://www.broadcastnow.co.uk/broadcast-international/banijays-brazilian-prodcos-forge-microdrama-pact/5214871.article",
+          "date": "2026"
+        }
+      ],
+      "id": "2026-W44-06"
+    },
+    {
+      "hook": "Sweden ended over 4 million streaming subscriptions in a year, and still hit a record of 11 million paying. Churn isn't leaving. It's the default.",
+      "pillar": "Founder POV / Build Lessons",
+      "format": "Text",
+      "timing": "Evergreen",
+      "angle": "A Nordic angle from a Stockholm company. People leave and come back constantly, so the first ten minutes after they return decide the next month. What they see on the home screen matters more than the catalogue behind it.",
+      "proof": "Curio for returning viewers; check for a newer Mediavision release first (this one is from April).",
+      "reactsTo": [
+        {
+          "label": "Sweden's paid streaming subscriptions hit a record 11 million (Mediavision, via Senal News)",
+          "url": "https://senalnews.com/en/data/swedens-paid-streaming-subscriptions-hit-record-11-million/amp",
+          "date": "2026-04-21"
+        }
+      ],
+      "id": "2026-W44-07"
+    },
+    {
+      "hook": "We're on the Embrace booth at Satis, 4–5 November. Come and see what a French film looks like when AI reads the scenes.",
+      "pillar": "Behind the Scenes",
+      "format": "Image + text",
+      "timing": "This week",
+      "angle": "Short pre-event invitation, co-posted with Embrace (and IVORY if they're on the stand). Name who's there and offer demo slots. Follow with a booth clip on the day.",
+      "proof": "Team photo; real stand number once confirmed (not found publicly).",
+      "event": "Satis (4–5 Nov)",
+      "reactsTo": [
+        {
+          "label": "Satis 2026 (dates and venue)",
+          "url": "https://satis-expo.com/en/",
+          "date": "2026"
+        }
+      ],
+      "id": "2026-W44-08"
+    },
+    {
+      "hook": "Everyone launched a clips feed. We still can't find one that publishes how often a clip becomes a full watch.",
+      "pillar": "Industry Trend Commentary",
+      "format": "Text",
+      "timing": "Evergreen",
+      "angle": "Follow-up to last month's vertical timeline with a sharper ask: Netflix Clips, Disney+ Verts and HBO Max Shorts have not shared a clip-to-title rate in what we found (Disney only says 'additional engagement'). Propose the metric and invite others to share theirs. HBO Max says AI uses scene-level metadata and editors choose the clips.",
+      "proof": "Preview Clips & Shorts; only use a Vionlabs conversion number if one is public.",
+      "reactsTo": [
+        {
+          "label": "Disney follows ESPN with Verts vertical feed (SVG)",
+          "url": "https://www.sportsvideo.org/2026/03/13/disney-follows-in-espns-footsteps-with-launch-of-verts-vertical-video-feed-on-mobile/",
+          "date": "2026-03-13"
+        },
+        {
+          "label": "HBO Max embraces vertical video with a Shorts feed (TechCrunch)",
+          "url": "https://techcrunch.com/2026/07/28/hbo-max-embraces-vertical-video-with-a-new-shorts-feed/",
+          "date": "2026-07-28"
+        }
+      ],
+      "id": "2026-W44-09"
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Mood at the interface, no mood in the data",
+      "detail": "Conversational, mood-aware search is showing up in the UI (Agent TiVo), but no vendor in this week's results says where scene-level mood comes from. Based on search summaries only.",
+      "evidence": [
+        {
+          "label": "Agent TiVo (Advanced Television)",
+          "url": "https://www.advanced-television.com/?p=291935",
+          "date": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "title": "Retrieval is sold as discovery",
+      "detail": "Video AI vendors pitch find-a-moment-by-asking, aimed at editors and archives. Nobody frames discovery for viewers who can't describe what they want. Inferred from snippets; product pages not read.",
+      "evidence": [
+        {
+          "label": "Imaginario AI: find moments, not files",
+          "url": "https://videos.jbanda.com/imaginario-ai-find-moments-not-files-ise-2026/",
+          "date": "2026"
+        },
+        {
+          "label": "Valossa blog",
+          "url": "https://valossa.com",
+          "date": "2026-04-27"
+        }
+      ]
+    },
+    {
+      "title": "Break placement in the story",
+      "detail": "New CTV pieces this week cover scene-level targeting, ad load and relevance. None cover where in a story the break falls.",
+      "evidence": [
+        {
+          "label": "Coactive via Beet.TV",
+          "url": "https://beet.tv/2026/10/ai-can-unlock-streamings-untapped-advertising-goldmine-coactives-cody-coleman.html",
+          "date": "2026-10-25"
+        },
+        {
+          "label": "Omnicom via Beet.TV",
+          "url": "https://www.beet.tv/2026/10/two-thirds-of-consumers-are-avoiding-ads-but-theyre-not-anti-brand.html",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "title": "Clip-to-watch conversion",
+      "detail": "No streamer with a vertical feed has published a clip-to-title-watched number in what we found. Disney says only 'additional engagement'. Commentators call it the right metric.",
+      "evidence": [
+        {
+          "label": "Disney Verts (SVG)",
+          "url": "https://www.sportsvideo.org/2026/03/13/disney-follows-in-espns-footsteps-with-launch-of-verts-vertical-video-feed-on-mobile/",
+          "date": "2026-03-13"
+        },
+        {
+          "label": "Why Netflix should clone TikTok's… (Substack)",
+          "url": "https://dennisyu.substack.com/p/why-netflix-should-clone-tiktoks",
+          "date": "2026"
+        }
+      ]
+    },
+    {
+      "title": "What the merged HBO Max / Paramount+ library will feel like",
+      "detail": "Reports say the services will unify over time, with no name, price or date. Nobody is writing about how two libraries get surfaced together. Hollywood Reporter India is the only source for the 6 Oct close in these results.",
+      "evidence": [
+        {
+          "label": "Engadget: Skydance will combine HBO Max and Paramount+",
+          "url": "https://engadget.com/2279192/skydance-will-combine-hbo-max-and-paramount-into-a-single-streaming-service",
+          "date": "2026"
+        },
+        {
+          "label": "HBO Max and Paramount to combine (Advanced Television)",
+          "url": "https://www.advanced-television.com/2026/03/02/hbo-max-and-paramount-to-combine/",
+          "date": "2026-03-02"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "title": "Scene-level metadata becomes a platform feature",
+      "who": [
+        "Bitmovin",
+        "Comcast Technology Solutions",
+        "AWS"
+      ],
+      "detail": "Three September launches put scene analysis inside broader platforms. Not new this week, but it frames what a specialist has to add.",
+      "sources": [
+        {
+          "label": "AWS Elemental Inference",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/elemental-inference-contextual-metadata/",
+          "date": "2026-09"
+        },
+        {
+          "label": "Nine on Bitmovin AI Scene Analysis",
+          "url": "https://senalnews.com/en/content/nine-entertainment-deploys-bitmovins-ai-scene-analysis-on-stan-to-boost-catalog-monetization",
+          "date": "2026-09-14"
+        }
+      ]
+    },
+    {
+      "title": "CTV context moves from show to scene, and buying to agents",
+      "who": [
+        "IRIS.TV",
+        "Roku",
+        "Coactive",
+        "NBCU",
+        "FreeWheel",
+        "Magnite"
+      ],
+      "detail": "Roku partners with IRIS.TV for show-level signals (22 Oct, snippet); Coactive argues AI context unlocks inventory (25 Oct). Agentic buying keeps growing.",
+      "sources": [
+        {
+          "label": "Roku bets on interoperability (Beet.TV)",
+          "url": "https://beet.tv/2026/10/roku-bets-on-interoperability-as-ctv-moves-from-reach-to-accountability.html",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    {
+      "title": "Live and sports move into on-demand apps",
+      "who": [
+        "Parks Associates"
+      ],
+      "detail": "39% of US internet households watch live events or sports via on-demand streamers.",
+      "sources": [
+        {
+          "label": "Advanced Television",
+          "url": "https://www.advanced-television.com/2026/10/22/research-39-of-us-watch-live-content-through-streamers/",
+          "date": "2026-10-22"
+        }
+      ]
+    },
+    {
+      "title": "Political money tightens CTV",
+      "who": [
+        "AdImpact",
+        "Digiday"
+      ],
+      "detail": "Midterm spending is pushing CTV costs up; one agency says premium CTV CPMs rose from $34–35 to $43.",
+      "sources": [
+        {
+          "label": "Digiday",
+          "url": "https://digiday.com/media-buying/midterm-political-spending-throws-spanner-into-regional-advertiser-holiday-plans/",
+          "date": "2026-10-26"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "NAB Show New York",
+      "start": "2026-10-21",
+      "end": "2026-10-22",
+      "city": "New York",
+      "status": "recent",
+      "role": "Not confirmed as attended (was Tbd). Use only as a recap source.",
+      "hooks": [
+        "Only if someone attended or a real recap is found: 'what US buyers asked about practical AI', from a European angle. Otherwise skip."
+      ],
+      "agenda": "21–22 Oct, Javits Center. About 250 exhibitors and ~64 hours of programming on practical AI, sports and news (pre-show figures, SVG 16 Oct). No post-show recap found this week.",
+      "url": "https://www.sportsvideo.org/2026/10/16/nab-show-new-york-2026-expected-to-draw-about-250-exhibitors/"
+    },
+    {
+      "name": "Satis",
+      "start": "2026-11-04",
+      "end": "2026-11-05",
+      "city": "Paris",
+      "status": "going",
+      "role": "On the Embrace booth (Viktor, David, Nancy tbc). Booth link to Embrace not corroborated publicly.",
+      "hooks": [
+        "This week: 'Find us at the Embrace booth, 4–5 Nov' with stand number and demo-booking link (stand number not confirmed; tag Embrace and IVORY only if they agree).",
+        "During: a short booth clip, one French title turned into vertical previews; after: what French broadcasters asked about AI."
+      ],
+      "agenda": "44th edition at Docks de Paris, Aubervilliers. Three 'Thematic Experiences', including an Artificial Intelligence Experience with its own conference content, plus an eco-production area with Ecoprod. No 2026 speaker list or official hashtag found. Dates and venue (Docks de Paris, La Plaine Saint-Denis) re-confirmed this week; no session list or speakers found. Hashtag unconfirmed: check #Satis2026 on the site.",
+      "url": "https://www.satis-expo.com/en/news/"
+    },
+    {
+      "name": "DPP Leaders' Briefing",
+      "start": "2026-11-17",
+      "end": "2026-11-18",
+      "city": "London",
+      "status": "going",
+      "role": "Exhibition stand + 1-minute pitch on main stage (Viktor tbc, David, Arash tbc)",
+      "agenda": "No 2026 agenda or venue found. The 2025 edition was 18–19 Nov and drew leaders from 30+ broadcasters and content organisations. Official site could not be opened.",
+      "hashtag": "",
+      "hooks": [
+        "Week before: the 'what we cut from a 60-second pitch' post (idea 2026-W43-12 is still open on the board).",
+        "After: Arash on the one sentence that survived, plus a recap with stand photos."
+      ],
+      "url": "https://www.thedpp.com"
+    },
+    {
+      "name": "AWS re:Invent",
+      "start": "2026-11-30",
+      "end": "2026-12-04",
+      "city": "Las Vegas",
+      "status": "tbd",
+      "role": "Check whether Embrace / Codemill are going",
+      "agenda": "Dates confirmed. 60,000+ attendees and 2,200+ sessions expected; no media & entertainment track list found yet. Last year's M&E recap was headlined around agentic AI.",
+      "hashtag": "",
+      "hooks": [],
+      "url": "https://www.cmswire.com/events/conference/aws-reinvent-las-vegas-2026/"
+    },
+    {
+      "name": "Content London",
+      "start": "2026-11-30",
+      "end": "2026-12-03",
+      "city": "London",
+      "status": "tbd",
+      "role": "",
+      "agenda": "Dates are as in the Notion snapshot. Searches this week returned nothing reliable; check the official site for the programme.",
+      "hashtag": "",
+      "hooks": [],
+      "url": "https://www.contentlondon.com"
+    },
+    {
+      "name": "IAMT London Conference & Awards",
+      "start": "2026-12-01",
+      "end": "2026-12-02",
+      "city": "London",
+      "status": "tbd",
+      "role": "Tied to IAMT membership",
+      "agenda": "IAMT's page lists the conference from 1 Dec (afternoon) and the awards dinner on 2 Dec; details to follow, year not stated on the page.",
+      "hashtag": "",
+      "hooks": [
+        "A 'what we're watching' post on AI for TV discovery and ads, only if the team decides to go."
+      ],
+      "url": "https://theiamt.org/richmond"
+    },
+    {
+      "name": "The TV of Tomorrow Show",
+      "start": "2026-12-02",
+      "end": "2026-12-03",
+      "city": "San Francisco",
+      "status": "tbd",
+      "role": "AI's impact on TV and advertising expected to be a major topic",
+      "agenda": "The House, Presidio. AI is the central theme, linking TV and advertising leaders with the SF AI community. Speakers not yet announced.",
+      "hashtag": "",
+      "hooks": [],
+      "url": "https://thedesk.net/2026/07/dates-announced-for-2026-tv-of-tomorrow-show-in-san-francisco/"
+    },
+    {
+      "name": "The Future of TV Advertising Global",
+      "start": "2026-12-08",
+      "end": "2026-12-09",
+      "city": "London",
+      "status": "tbd",
+      "role": "",
+      "agenda": "Kings Place, organised by Adwanted and curated by The Media Leader. Themes: CTV, programmatic, data targeting, AI, outcomes measurement. No agenda found yet.",
+      "hashtag": "",
+      "hooks": [
+        "The break-placement idea (scene-level targeting is crowded, break placement isn't) is the natural pre-event post."
+      ],
+      "url": "https://www.iabuk.com/events-training/future-tv-advertising-global"
+    }
+  ],
+  "mentions": [
+    {
+      "date": "2026-09",
+      "who": "SDVI IBC2026 release",
+      "where": "Partner press release",
+      "summary": "Carried over from W43, not yet actioned: demo of ad-break detection using Vionlabs on the Rally platform.",
+      "action": "Reshare",
+      "url": "https://sdvi.com/about-us/press-releases/sdvi-to-showcase-next-generation-rally-platform-and-new-technology-integrations-at-ibc2026/"
+    },
+    {
+      "date": "2026",
+      "who": "Streaming Media European Innovation Awards",
+      "where": "Trade press",
+      "summary": "Carried over from W43: Vionlabs Creative Lab named runner-up in AI Workflow.",
+      "action": "Reshare",
+      "url": "https://www.streamingmediaglobal.com/Articles/Editorial/Featured-Articles/Presenting--the-2026-European-Innovation-Awards--Winners-176213.aspx"
+    },
+    {
+      "date": "2026-09-12",
+      "who": "IBC session: AI-Powered Media Intelligence",
+      "where": "IBC Future Tech Stage",
+      "summary": "Carried over from W43: Arash's panel; still no recap found.",
+      "action": "Post takeaways",
+      "url": "https://show.ibc.org/ibc2026/ai-powered-media-intelligence-turning-content-insights-into-audience-value"
+    },
+    {
+      "date": "2026-09",
+      "who": "TVBEurope Best of Show at IBC2026",
+      "where": "Trade press (awards)",
+      "summary": "Still unconfirmed. No source says Vionlabs or the Agentic Layer won; one undated LinkedIn snippet credits Accedo Compose with the TVBEurope win. Don't post this claim until the winners page is checked by hand.",
+      "action": "Check before using",
+      "url": "https://www.tvbeurope.com/business/tvbeurope-announces-winners-of-best-of-show-awards-at-ibc2026"
+    },
+    {
+      "date": "undated",
+      "who": "Possible LinkedIn posts about Arash on a DPP podcast and a Plex shared stand (seen on a third party's profile)",
+      "where": "LinkedIn",
+      "summary": "Dates unknown, may be old. Open the profile by hand and see if recent.",
+      "action": "Check",
+      "url": "https://se.linkedin.com/in/carlsson10"
+    }
+  ],
+  "stats": [
+    {
+      "value": "39%",
+      "what": "of US internet households watch live events or sports via on-demand streamers (25% via FAST, 21% watch no live video)",
+      "source": "Parks Associates via Advanced Television",
+      "date": "2026-10-22",
+      "url": "https://www.advanced-television.com/2026/10/22/research-39-of-us-watch-live-content-through-streamers/"
+    },
+    {
+      "value": "76%",
+      "what": "feel favourable toward ads relevant to the content (cited research, snippet; verify)",
+      "source": "Omnicom Media via Beet.TV",
+      "date": "2026-10-21",
+      "url": "https://www.beet.tv/2026/10/two-thirds-of-consumers-are-avoiding-ads-but-theyre-not-anti-brand.html"
+    },
+    {
+      "value": "$8.2B of $12B",
+      "what": "midterm political ad spend going to TV and CTV",
+      "source": "AdImpact via Digiday",
+      "date": "2026-10-26",
+      "url": "https://digiday.com/media-buying/midterm-political-spending-throws-spanner-into-regional-advertiser-holiday-plans/"
+    },
+    {
+      "value": "5x",
+      "what": "rate at which cord cutters sign up for streaming after cancelling",
+      "source": "Antenna via NewscastStudio",
+      "date": "2026-08-31",
+      "url": "https://www.newscaststudio.com/2026/08/31/cord-cutters-sign-up-for-streaming-at-five-times-the-normal-rate-after-cancellation/"
+    },
+    {
+      "value": "4M+",
+      "what": "Swedish streaming subscriptions ended in a year (record ~11M paid)",
+      "source": "Mediavision via Senal News",
+      "date": "2026-04-21",
+      "url": "https://senalnews.com/en/data/swedens-paid-streaming-subscriptions-hit-record-11-million/amp"
+    }
+  ],
+  "competitors": [
+    {
+      "name": "Gracenote (Nielsen)",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "AI roadmap: Sports MCP Server, entertainment SLM, agents",
+          "date": "2026-09-09",
+          "url": "https://www.nielsen.com/news-center/2026/gracenote-expands-ai-product-roadmap-with-sports-mcp-server-entertainment-slm-and-agents/"
+        }
+      ],
+      "message": "Ground AI in source-verified data on 55M+ titles; powers Samsung and Google AI search."
+    },
+    {
+      "name": "Veritone",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "ATP Media archive partnership",
+          "date": "2026-09-29",
+          "url": "https://investors.veritone.com/news-events/press-releases/detail/438/veritone-partners-with-atp-media-to-unlock-new-revenue-from-tenniss-greatest-moments"
+        },
+        {
+          "title": "Meet us at IBC2026",
+          "date": "2026-09",
+          "url": "https://www.veritone.com/newsroom/press-releases/meet-us-at-ibc2026/"
+        }
+      ],
+      "message": "Search, discover and monetize: archive licensing and a training-data marketplace."
+    },
+    {
+      "name": "Moments Lab",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "Studio + MXT at IBC2026",
+          "date": "2026-09",
+          "url": "https://www.momentslab.com/blog/moments-lab-to-showcase-studio-at-ibc2026"
+        },
+        {
+          "title": "ELEMENTS partnership",
+          "date": "2026-09-09",
+          "url": "https://www.momentslab.com/blog/moments-lab-and-elements-bring-show-tuned-ai-to-media-storage"
+        }
+      ],
+      "message": "Show-tuned AI that finds the moment your best editor would have found; archive to social feed."
+    },
+    {
+      "name": "TwelveLabs",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "What's new in Pegasus 1.6",
+          "date": "2026-10-06",
+          "url": "https://www.twelvelabs.io/blog/what%E2%80%99s-new-pegasus-1.6"
+        },
+        {
+          "title": "Iconik semantic search",
+          "date": "2026-09-10",
+          "url": "https://www.twelvelabs.io/blog/iconik-twelvelabs-semantic-search"
+        }
+      ],
+      "message": "Video superintelligence: foundation models, agentic search and compliance at scale."
+    },
+    {
+      "name": "Media Distillery",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "IBC 2026: Verticals and Shorts & Highlights",
+          "date": "2026-09",
+          "url": "https://mediadistillery.com/news/ibc-2026"
+        }
+      ],
+      "message": "Previews, verticals and ad-break markers for telcos without editorial workload. Closest competitor in telco."
+    },
+    {
+      "name": "Mimir",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "Single orchestration layer for metadata and AI (SVG)",
+          "date": "2026-09-10",
+          "url": "https://www.sportsvideo.org/2026/09/10/ibc-2026-mimir-develops-single-layer-for-content-metadata-ai-orchestration/"
+        }
+      ],
+      "message": "Agent-ready asset management: MCPs, open APIs, browser editor."
+    },
+    {
+      "name": "Valossa",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "Agentic video AI for advertising",
+          "date": "2026-06-24",
+          "url": "https://valossa.com/2026/06/valossa-unveils-agentic-video-ai-for-advertising-from-brand-safe-understanding-to-generative-ctv-and-cross-platform-ads/"
+        }
+      ],
+      "message": "Agentic video understanding, brand-safe and generated CTV ads. Nothing found since 1 Sep."
+    },
+    {
+      "name": "Imaginario AI",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "WBD EMEA customer story (~70% less search time)",
+          "date": "2026-09-03",
+          "url": "https://imaginario.ai/wide-lens/"
+        }
+      ],
+      "message": "Video intelligence for marketing and post teams."
+    },
+    {
+      "name": "DeepVA (Aiconix)",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "Changelog",
+          "date": "2025-06-16",
+          "url": "https://docs.deepva.com/changelog/"
+        }
+      ],
+      "message": "Vision-language model modules; powers Vizrt Viz One AI metadata. No 2026 news found."
+    },
+    {
+      "name": "ThinkAnalytics",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Brings agentic AI to content curation and advertising",
+          "date": "2026-09-22",
+          "url": "https://www.broadbandtvnews.com/2026/09/22/thinkanalytics-brings-agentic-ai-to-content-curation-and-advertising/"
+        },
+        {
+          "title": "IBC2026",
+          "date": "2026-09",
+          "url": "https://thinkanalytics.com/ibc2026/"
+        }
+      ],
+      "message": "Agents in editorial tools; ContentDNA metadata drives >30% carousel viewing (claim)."
+    },
+    {
+      "name": "XroadMedia",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "What can we take from IBC 2026",
+          "date": "2026-09",
+          "url": "https://www.xroadmedia.com/blog-what-can-we-take-from-ibc-2026"
+        },
+        {
+          "title": "Rogers Sports & Media personalisation",
+          "date": "2026-09-07",
+          "url": "https://www.broadbandtvnews.com/2026/09/07/xroadmedia-to-provide-personalisation-for-rogers-sports-media-streaming-services/"
+        }
+      ],
+      "message": "Sovereign, auditable personalisation for national and public broadcasters."
+    },
+    {
+      "name": "ContentWise",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Personal/Flow: Mi Flow",
+          "date": "2026-09-10",
+          "url": "https://contentwise.com/news/personal-flow-programas-mi-flow-contentwise/"
+        },
+        {
+          "title": "UX Engine 11, 'The Agentic Release'",
+          "date": "2026-09",
+          "url": "https://contentwise.com/event/ibc-show-2026/"
+        }
+      ],
+      "message": "LLM agents on a catalog-aware recommender; MCP tools; Open Enricher metadata; the editor approves."
+    },
+    {
+      "name": "Mediagenix (ex-Spideo)",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Spideo rebranded as Mediagenix Curation",
+          "date": "2026-09",
+          "url": "https://www.tvtechnology.com/production/mediagenix-rebrands-spideo-as-mediagenix-curation"
+        }
+      ],
+      "message": "Curation recipes that mix editorial strategy and personalisation."
+    },
+    {
+      "name": "Synamedia",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "IBC 2026: The new Synamedia",
+          "date": "2026-09-08",
+          "url": "https://www.synamedia.com/press/ibc-2026-the-new-synamedia/"
+        }
+      ],
+      "message": "Partner for the business of video: retention, revenue, lower cost."
+    },
+    {
+      "name": "Bitmovin",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Nine deploys AI Scene Analysis",
+          "date": "2026-09-11",
+          "url": "https://www.broadbandtvnews.com/2026/09/11/nine-deploys-bitmovin-ai-scene-analysis-for-vod-workflows/"
+        },
+        {
+          "title": "Video Developer Report 2026/27",
+          "date": "2026-09",
+          "url": "https://www.streamingmedia.com/PressRelease/Bitmovins-Video-Developer-Report-2026-27-Reveals-Low-Latency-for-Live-as-Industrys-Top-Challenge_58019.aspx"
+        }
+      ],
+      "message": "Scene-level metadata for contextual ads and SCTE-35 breaks. Direct overlap with ad-break detection."
+    },
+    {
+      "name": "Accedo",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Accedo + MediaKind joint solution (SVG)",
+          "date": "2026-09-04",
+          "url": "https://www.sportsvideo.org/2026/09/04/accedo-and-mediakind-launch-joint-streaming-solution-for-operators/"
+        }
+      ],
+      "message": "End-to-end, multi-platform; AI personalisation via partners."
+    },
+    {
+      "name": "NPAW",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Blog: Nala Sentinel 3 and ground-truth probes",
+          "date": "2026-08",
+          "url": "https://npaw.com/blog/"
+        }
+      ],
+      "message": "AI co-pilot for QoE; ground-truth data for agents."
+    },
+    {
+      "name": "JUMP",
+      "group": "Discovery & personalization",
+      "latest": [
+        {
+          "title": "Homepage: connected intelligence layer",
+          "date": "2026",
+          "url": "https://www.jumptvs.com/"
+        }
+      ],
+      "message": "Personalizer, Data Agent and Video Intelligence; agentic AI on streaming data."
+    },
+    {
+      "name": "Wurl",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Content Intelligence Platform",
+          "date": "2026-09-15",
+          "url": "https://www.advanced-television.com/2026/09/15/wurl-launches-content-intelligence-platform/"
+        }
+      ],
+      "message": "Scene-level context in DSP bid requests at 140B monthly impressions."
+    },
+    {
+      "name": "FreeWheel",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Premium Signals Packaging",
+          "date": "2026-09-17",
+          "url": "https://www.nasdaq.com/press-release/freewheel-brings-attention-quality-and-emotional-resonance-signals-ctv-buying-2026-09"
+        },
+        {
+          "title": "Ad-load recall research",
+          "date": "2026-09-15",
+          "url": "https://ppc.land/more-ads-cut-streaming-brand-recall-from-41-to-26-freewheel-finds/"
+        }
+      ],
+      "message": "Attention, quality and emotional intensity as buying signals; lighter ad load lifts recall."
+    },
+    {
+      "name": "Peer39",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Program-level signals: Chris Chandler interview",
+          "date": "2026-10-19",
+          "url": "https://www.adworldnews.com/news/program-level-signals-ctv-contextual-targeting-chris-chandler-peer39"
+        },
+        {
+          "title": "CTV safety gaps report",
+          "date": "2026-09-29",
+          "url": "https://signalnewsalbuquerque.com/press-releases/74895/new-peer39-report-finds-gaps-in-ctv-safety-put-brands-at-risk/"
+        }
+      ],
+      "message": "Pre-bid, program-level signals; web-style verification fails on CTV."
+    },
+    {
+      "name": "Magnite / SpringServe",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "LG Ad Solutions: agentic buying on the home screen",
+          "date": "2026-10-14",
+          "url": "https://www.manilatimes.net/2026/10/14/tmt-newswire/globenewswire/lg-ad-solutions-and-magnite-expand-partnership-to-advance-agentic-buying-on-the-home-screen/2445526"
+        },
+        {
+          "title": "Orchestration layer for AI buying agents",
+          "date": "2026-09-16",
+          "url": "https://www.globenewswire.com/news-release/2026/09/16/3363128/0/en/magnite-advances-agentic-vision-as-major-media-owners-buyers-and-technology-players-leverage-orchestration-layer.html"
+        }
+      ],
+      "message": "Agentic orchestration; SpringServe as the CTV ad server."
+    },
+    {
+      "name": "KERV.ai",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Expands LG Ad Solutions partnership internationally",
+          "date": "2026-08-25",
+          "url": "https://www.businesswire.com/news/home/20260825957571/en/KERV.ai-Expands-Global-Partnership-with-LG-Ad-Solutions-Bringing-Interactive-CTV-Experiences-to-New-International-Markets"
+        },
+        {
+          "title": "What 30 campaigns revealed about shoppable CTV",
+          "date": "2026-08-18",
+          "url": "https://kerv.ai/what-30-campaigns-revealed-about-shoppable-ctv-performance/"
+        }
+      ],
+      "message": "Object-level, shoppable contextual commerce."
+    },
+    {
+      "name": "Anoki",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "MarTech Breakthrough award",
+          "date": "2026-08-18",
+          "url": "https://finance.yahoo.com/technology/ai/articles/anoki-ai-awarded-ai-marketing-140000349.html"
+        }
+      ],
+      "message": "Multimodal scene-level brand suitability (ContextIQ) and an AI planning copilot."
+    },
+    {
+      "name": "IRIS.TV",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Roku partners with IRIS.TV for show-level signals (via Beet.TV, snippet)",
+          "date": "2026-10-22",
+          "url": "https://beet.tv/2026/10/roku-bets-on-interoperability-as-ctv-moves-from-reach-to-accountability.html"
+        },
+        {
+          "title": "Blog (latest dated item May 2026)",
+          "date": "2026-05-21",
+          "url": "https://blog.iris.tv/en"
+        }
+      ],
+      "message": "IRIS_ID as the shared content ID behind contextual data. Possibly now part of Viant (unverified).",
+      "new": true
+    },
+    {
+      "name": "Yospace",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Court TV taps Yospace for SSAI",
+          "date": "2026-10-13",
+          "url": "https://www.tvtechnology.com/business/court-tv-taps-yospace-for-streaming-ad-insertion"
+        },
+        {
+          "title": "Ad Presentation: pause ads and overlays",
+          "date": "2026-08-27",
+          "url": "https://www.streamingmedia.com/PressRelease/Yospace-releases-new-Ad-Presentation-solution_57925.aspx"
+        }
+      ],
+      "message": "Server-side insertion at scale; standardised non-linear formats."
+    },
+    {
+      "name": "Mirriad",
+      "group": "CTV ads & context",
+      "latest": [
+        {
+          "title": "Plunges into administration",
+          "date": "2026-05",
+          "url": "https://businesscloud.co.uk/news/listed-adtech-mirriad-plunges-into-administration/"
+        }
+      ],
+      "message": "Defunct. In-content ad placement as a stand-alone business didn't scale."
+    },
+    {
+      "name": "WSC Sports",
+      "group": "Clips, shorts & highlights",
+      "latest": [
+        {
+          "title": "Launches WSC Studios",
+          "date": "2026-10-15",
+          "url": "https://www.globenewswire.com/news-release/2026/10/15/3381800/0/en/wsc-sports-launches-wsc-studios-to-build-next-generation-media-franchises-for-global-sports-brands.html"
+        }
+      ],
+      "message": "From automated highlights to an agentic production platform for sports franchises."
+    },
+    {
+      "name": "Magnifi",
+      "group": "Clips, shorts & highlights",
+      "latest": [
+        {
+          "title": "Acquired by Sportz Interactive, becomes FanOS Media",
+          "date": "2026-08-27",
+          "url": "https://www.medianews4u.com/si-acquires-magnifi-to-accelerate-fanos-product-roadmap-and-global-expansion/"
+        }
+      ],
+      "message": "AI clipping folded into a sports fan platform. Two owners in about 11 months."
+    },
+    {
+      "name": "OpusClip",
+      "group": "Clips, shorts & highlights",
+      "latest": [
+        {
+          "title": "Changelog: Motion Studio, new publishing targets",
+          "date": "2026-09-28",
+          "url": "https://opusclip.canny.io/changelog"
+        }
+      ],
+      "message": "Volume, virality and publish everywhere; sold to media companies as API infrastructure."
+    },
+    {
+      "name": "Comcast Technology Solutions",
+      "group": "Clips, shorts & highlights",
+      "latest": [
+        {
+          "title": "VideoAI apps: smart crop and natural-language clipping",
+          "date": "2026-09-02",
+          "url": "https://lightreading.com/ai-machine-learning/comcast-rolls-upgraded-ai-platform-for-broadcasters-and-streamers"
+        }
+      ],
+      "message": "Smart crop around each scene's action centre, bundled into cloud media processing."
+    },
+    {
+      "name": "Qvest + Nvidia",
+      "group": "Clips, shorts & highlights",
+      "latest": [
+        {
+          "title": "V-Cropper Blueprint at IBC 2026",
+          "date": "2026-09",
+          "url": "https://www.advanced-television.com/?p=291814"
+        }
+      ],
+      "message": "Automatic reframing to other aspect ratios."
+    },
+    {
+      "name": "Coactive",
+      "group": "Video AI & metadata",
+      "latest": [
+        {
+          "title": "AI can unlock streaming's untapped advertising goldmine (Beet.TV, snippet)",
+          "date": "2026-10-25",
+          "url": "https://beet.tv/2026/10/ai-can-unlock-streamings-untapped-advertising-goldmine-coactives-cody-coleman.html"
+        }
+      ],
+      "message": "AI contextual analysis unlocks ad inventory on ad tiers. Not on the watchlist yet.",
+      "new": true
+    }
+  ],
+  "coverage": [
+    "Window: 2026-10-19 → 2026-10-26 (8 days since W43). This was a thin week: all six research scans found little or nothing verifiably dated inside the window, so most ideas build on September and early-October items plus a handful of items from 21–26 Oct.",
+    "Events come from content-engine/config/events.yaml (snapshot 2026-10-20) because the Notion connector is not enabled in this session. The snapshot may be stale: NAB New York is shown as recent but attendance was never confirmed.",
+    "The idea board was read-only checked: the work and team_ideas collections were empty, so nothing is excluded for being posted, parked or drafted.",
+    "WebFetch is blocked by DNS in this environment, so every finding comes from search-result summaries. Check exact quotes, dates and numbers on the source page before posting.",
+    "LinkedIn is login-walled and site:linkedin.com searches returned almost nothing. No public mention of Vionlabs dated 12 Oct or later was found; that is a search gap, not proof there were none.",
+    "Unconfirmed: TVBEurope Best of Show award (see mentions); the Roku/IRIS.TV, Coactive, Omnicom and Agent TiVo items rest on snippets; Marengo 3.5 and TwelveLabs subscription pricing dates are unverified and left out; the 24i sale has no primary source and is left out.",
+    "Not reached: Wurl, FreeWheel, Qvest, Valossa, Mimir, Moments Lab, DeepVA, PA TV Metadata newsrooms; Nielsen Gauge Aug/Sep, Antenna Q3, BBC/ITVX/C4/RTL/SVT news. Competitor entries other than IRIS.TV and Coactive are carried from W43 with no new items found.",
+    "Search budget: each agent used 11–28 of its 30.",
+    "Research agents were given 30-search budgets; the discovery agent used only 12 and the CTV agent 11, so quiet companies had thin coverage. A run with direct page access would likely surface more.",
+    "Mentions count (third_party_mentions) added on 2026-10-29 from this run's own finding: no new third-party mentions in the window; every listed mention is carried over from W43 or unconfirmed. This is the scoreboard baseline."
+  ],
+  "third_party_mentions": 0
+}
