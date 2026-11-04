@@ -69,7 +69,7 @@ The cheapest thing a streaming service can do about churn is make the catalogue 
 
 TF1 showed what that looks like this summer. Its channels and the TF1+ catalogue went onto Netflix in France in June. Once TF1 titles were part of Netflix's search and recommendations, viewing among the people who saw them rose 140% between July and August, [as reported by Broadband TV News](https://www.broadbandtvnews.com/2026/10/19/tf1-reports-30-viewership-growth-following-netflix-launch/). The two companies pointed to renewed interest in archive programming, including a TF1 series first shown in 2015.
 
-The series was the same one TF1 first aired in 2015. What was new was the audience in front of it and a system that could recommend it.
+The series itself hadn't changed in eleven years. What was new was the audience in front of it and a system that could recommend it.
 
 On 27 October [Channel 4 agreed to bring its channel and catalogue to Disney+](https://www.channel4.com/press/news/channel-4-and-walt-disney-company-strike-landmark-deal-bring-channel-4-disney) in the UK and Ireland from early 2027, in a Channel 4-branded section with "the same navigation and user experience as the rest of Disney+". I expect more broadcasters to follow, and each of them will find out what TF1 found out: inside someone else's app, a library is worth what that app can understand about it.
 
