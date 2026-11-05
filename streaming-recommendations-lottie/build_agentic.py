@@ -483,7 +483,7 @@ def build_hero():
 # request, same answer, same titles and clips, so every image is one the site
 # already shows. Transparent background, so it sits on the page; loops on its own.
 
-PROMPT3 = "Give me all the scenes for 3 romantic comedies where a couple are kissing and make them in TikTok format"
+PROMPT3 = "Give me all the scenes from three romantic comedies where a couple is kissing, and format them for TikTok"
 REPLIES3 = ["I found 3 catalog titles: Honeymoon, The Donor Party and About Fate. Pulled kissing/couple scene "
             "clips for TikTok format. The cards below will render them as 9:16 vertical clips."]
 
@@ -523,7 +523,7 @@ CARD_H = CARD_W * 16 / 9
 ROW_H = 104 + CARD_H + 92                       # header, cards, caption and the gap below
 
 
-def type_times(text, t0, char=1.25, space=2.25):
+def type_times(text, t0, char=1.6, space=2.8):
     """Frame at which each prefix of `text` is shown; spaces take a beat longer."""
     ts, t = [t0], float(t0)
     for ch in text:
@@ -735,11 +735,11 @@ def hero3_workspace(m, imgs, T, cam):
     # the second film sits below the fold, cut off by the workspace as in the image on the site
     for k, (title, meta, poster, clips) in enumerate(TITLES3):
         y = TOP + k * ROW_H
-        t_row = r + 44 * k
+        t_row = r + T["row"] * k
         title_header(ws, imgs, k, title, meta, poster, y, t_row, None)
         for j, (img, when, score) in enumerate(clips):
             box = (X0 + j * (CARD_W + GAP), y + 104, CARD_W, CARD_H)
-            t_in = t_row + 6 + 9 * j
+            t_in = t_row + 6 + T["clip"] * j
             site_clip(ws, imgs, f"clip {k}-{j}", img, box, t_in, None)
             if when:
                 ws.shape(f"clip {k}-{j} caption", [REG.text(f"{when}  ·  Relevance {score}%", 17, box[0] + 4,
@@ -751,13 +751,14 @@ def build_hero_v3():
     W, H = 1920, 1080
     PRECOMPS.clear()
     imgs = Images()
-    T = {"type": 26}
+    T = {"type": 40}                            # time to read the greeting before typing starts
     lines, t_typed = typing(T["type"])
-    send = t_typed + 10
-    T.update(send=send, grow=(send + 4, send + 44), open=(send + 62, send + 102))
-    T["results"] = T["open"][1] + 20
+    send = t_typed + 24                         # a beat to read the finished request before it is sent
+    T.update(send=send, grow=(send + 6, send + 56), open=(send + 80, send + 130))
+    T["results"] = T["open"][1] + 40            # the agent "thinks" long enough to read its reply coming
+    T["row"], T["clip"] = 60, 14                # stagger between the two films' rows, and between clips
     T["added"] = T["results"] + 120             # a second answer would come in here; the site's image has one
-    OP = T["results"] + 44 + 6 + 27 + 150         # both rows in, then a five-second hold on the finished view
+    OP = T["results"] + T["row"] + 6 + 3 * T["clip"] + 240  # both rows in, then an eight-second hold to read it
     scene = Comp(W, H, OP, "comp_scene")        # no background: it sits on the page
     g0, g1 = T["grow"]                          # the opening fills the frame, then the view pulls back
     cam = scene.null("camera", ks=layer_ks(p=(W / 2, H / 2), a=(W / 2, H / 2), s=anim(
@@ -831,7 +832,7 @@ def balanced(text, size, max_w):
     return [ln.replace("\u00a0", " ") for ln in fit(hi)]
 
 
-def section_prompt(m, prompt, reply, t=0):
+def section_prompt(m, prompt, reply, t=0, reply_at=10):
     """The request (right-aligned bubble) and the agent's answer in a card under it.
 
     Both stay narrower than the canvas, as in a real chat, with their lines evened out."""
@@ -843,25 +844,25 @@ def section_prompt(m, prompt, reply, t=0):
     y = EDGE + bh + 20
     rlines = balanced(reply, 24, m.w * 0.74 - 44)
     items, h = reply_card(rlines, EDGE, y, max(REG.width(t_, 24) for t_ in rlines) + 44, size=24, lh=33, pad=22)
-    appear(m, "reply", items, t + 10, dy=12)
+    appear(m, "reply", items, t + reply_at, dy=12)
     return y + h + 40
 
 
 # --------------------------------------------- section: Curated Lists
 
-LIST_FOCUS = [(36, 76), (76, 116), (116, 156), (156, 196), (196, None)]
+LIST_FOCUS = [(110, 166), (166, 222), (222, 278), (278, 334), (334, None)]   # one row at a time, once all are in
 
 
 def build_curated_lists():
-    OP = 240
+    OP = 400
     m, imgs = section_start(OP)
     top = section_prompt(m, "Give me 5 space movies for a Friday night line-up",
-                         "Ranked 5 titles from your catalog by how well they fit a Friday space night.")
+                         "Ranked 5 titles from your catalog by how well they fit a Friday space night.", reply_at=24)
     x0, rh, gap = EDGE, 82, 12
     rw = m.w - 2 * EDGE
     for k, (name, title, genres, moods, score) in enumerate(LINEUP):
         y = top + k * (rh + gap)
-        t = 14 + 3 * k
+        t = 44 + 8 * k
         gx = x0 + 196 + REG.width(genres, 17) + 16
         pills, _ = pill_row(moods, gx, y + 44, gap=6, size=14, h=26, color=MOOD, fill_o=16,
                             edge=MOOD, edge_o=55, text_color="#ffd9d2", pad=10)
