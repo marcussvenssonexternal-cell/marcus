@@ -386,12 +386,15 @@
         "approval": {
           "week": "2026-W45",
           "doc": "https://docs.google.com/document/d/1j2iEJvnPwURx6i6sJzLzFadxjDq3zzq3dzmF1XQzT74/edit",
-          "shareAt": "2026-11-05, once Marcus approves the email",
+          "shareAt": "2026-11-05 (after the creative was redone)",
           "shareWith": "arash@vionlabs.com",
           "role": "commenter",
-          "status": "ready",
+          "status": "shared",
           "message": "Hej Arash!\n\nHär kommer veckans blogginlägg: https://docs.google.com/document/d/1j2iEJvnPwURx6i6sJzLzFadxjDq3zzq3dzmF1XQzT74/edit\n\nDen här gången handlar det om katalogen. TF1 ligger nu på Netflix och Channel 4 är på väg in i Disney+, och där inne är det inte de som styr startsidan längre. Det de har kvar är hur varje titel beskrivs, bilden och klippet, och där är ju vi riktigt starka. Poängen är alltså att biblioteket man redan har betalat för är det billigaste sättet att få ner churn.\n\nVarför jag tycker vi ska köra den nu:\n\n- Channel 4 och Disney+ blev klart den 27 oktober, och TF1 säger att Netflix-samarbetet låg bakom att TF1+ reklamintäkter växte med 20,5 % i Q3. Alla skriver om affärerna, ingen om hur titlarna faktiskt hittas sen.\n- Den kommer två veckor före DPP i London (17–18 nov), där vi har monter och pitch. Det är precis de broadcasters som gör sådana här affärer.\n- Det mesta tittandet sker redan i biblioteket: 42,2 miljarder timmar äldre tv mot 11,5 miljarder för originalserier i USA i första halvåret, enligt Luminate.\n- Vi använder våra egna exempel: Plex, städningen av Fingerprint+ och Curio med Great American Pure Flix. Och det finns en boka demo-länk i slutet, så sälj kan skicka den vidare.\n\nAllt är faktakollat och inga konkurrenter eller gamla kunder nämns. Tar ungefär sex minuter att läsa.\n\nSer det bra ut? Skriv bara \"Kör\" så lägger vi upp den, annars är det bara att kommentera i dokumentet så fixar jag resten.\n\n/Marcus",
-          "note": "Held on 4 Nov while the creative was redone (Marcus: match the blog's past posts). Earlier Docs 1SLocK4P…, 13SbTD91… and 1VdJOsfO… were never shared and are superseded."
+          "note": "Held on 4 Nov while the creative was redone (Marcus: match the blog's past posts). Earlier Docs 1SLocK4P…, 13SbTD91… and 1VdJOsfO… were never shared and are superseded.",
+          "sharedAt": "2026-11-05T09:11:24Z",
+          "emailedAt": "2026-11-05T09:11:24Z",
+          "emailThread": "1a1aafa14fc7eb3b"
         }
       }
     ],
