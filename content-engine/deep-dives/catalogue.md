@@ -71,7 +71,7 @@ TF1 showed what that looks like this summer. Its channels and the TF1+ catalogue
 
 The series itself hadn't changed in eleven years. What was new was the audience in front of it and a system that could recommend it.
 
-On 27 October [Channel 4 agreed to bring its channel and catalogue to Disney+](https://www.channel4.com/press/news/channel-4-and-walt-disney-company-strike-landmark-deal-bring-channel-4-disney) in the UK and Ireland from early 2027, in a Channel 4-branded section with "the same navigation and user experience as the rest of Disney+". I expect more broadcasters to follow, and each of them will find out what TF1 found out: inside someone else's app, a library is worth what that app can understand about it.
+On 27 October [Channel 4 agreed to bring its channel and catalogue to Disney+](https://www.channel4.com/press/news/channel-4-and-walt-disney-company-strike-landmark-deal-bring-channel-4-disney) in the UK and Ireland from early 2027, in a Channel 4-branded section with "the same navigation and user experience as the rest of Disney+". I expect more broadcasters to follow, and each of them will find out what TF1 found out: **inside someone else's app, a library is worth what that app can understand about it.**
 
 ## The library is where viewers already are
 
@@ -79,7 +79,7 @@ I think the industry still talks about libraries as a cost line and about origin
 
 Luminate counts 42.2 billion hours of library TV streamed in the US in the first half of 2026, against 11.5 billion hours of original series. Viewers told Luminate they spend nearly 60% of their viewing time on content more than a year old.
 
-Originals still do the job of getting people in the door, and Antenna's sign-up data shows how big a wave a premiere like Landman can bring. A hit ends, though, and what keeps someone subscribed in the months after is mostly the catalogue they find next.
+Originals still do the job of getting people in the door. A hit ends, though, and I think what keeps someone subscribed in the months after is mostly the catalogue they find next.
 
 ## Every price rise asks whether this month was worth it
 
@@ -100,7 +100,7 @@ When your catalogue sits in a partner's app, you give up the home screen. The pa
 
 ![What a catalogue owner still controls inside a partner's app: how each title is described, its mood, theme and tone tags, artwork for every title and episode, and the preview that plays on pause. The home screen, the rows and the algorithm belong to the host.](figures/catalogue-01-controls.png)
 
-The platforms' own partner documentation says as much. Prime Video's artwork guide explains that cover art appears in storefront carousels, "the primary surface driving title discovery", and that when episode art is missing it falls back to season art, which [Amazon describes](https://videocentral.amazon.com/support/getting-started-with-artwork-delivery) as "a suboptimal customer experience". Apple matches partner titles to its own product pages and says artwork matters especially for titles its editorial team promotes.
+The platforms' own partner documentation says as much. Prime Video's artwork guide explains that cover art appears in storefront carousels, "the primary surface driving title discovery", and that when episode art is missing it falls back to season art, which Amazon itself calls "a suboptimal customer experience". Apple matches partner titles to its own product pages and says artwork matters especially for titles its editorial team promotes.
 
 The titles most likely to arrive with a thin description and one tired image are the old ones, and those are the titles a broadcaster most hopes a new audience will discover. Netflix's research from early 2014 found that artwork made up more than 82% of members' focus while browsing, and that they spent an average of 1.8 seconds on each title. That is very little time for a 2009 drama represented by a grainy press still.
 
@@ -122,7 +122,7 @@ That is the case we built Curio for. It runs on embeddings learned from more tha
 
 ## The case against
 
-The strongest objection is that the host decides. A broadcaster can send excellent metadata and the partner may overwrite it, map it to its own taxonomy or keep the titles in a branded corner. TF1's results also come from reach: Netflix puts TF1 in front of far more people than TF1+ could reach on its own, so the value of the shelf and the value of the description are hard to separate.
+The strongest objection is that the host decides. A broadcaster can send excellent metadata and the partner may overwrite it, map it to its own taxonomy or keep the titles in a branded corner. TF1's results also come from reach: Netflix puts TF1 in front of people TF1+ might never have reached on its own, so the value of the shelf and the value of the description are hard to separate.
 
 I agree that reach does most of the work. The 140% came after the titles were fully part of search and recommendations, though, and that is the point where the host's systems have to understand them.
 
@@ -153,7 +153,6 @@ Which of those do you actually know for your own library today?
 | TF1+ advertising growth accelerated to 20.5% in Q3 2026, credited to the Netflix partnership (used in the rationale, not the post) | [TF1 9M 2026 results release](https://groupe-tf1.fr/sites/default/files//communiques/TF1%209M%202026%20results%20-%20Press%20release.pdf) 2026-10-29 | confirmed |
 | Channel 4 linear HD channel and on-demand catalogue on Disney+ in the UK and Ireland from early 2027, in 'a Channel 4-branded section featuring the same navigation and user experience as the rest of Disney+' | [Channel 4 press release](https://www.channel4.com/press/news/channel-4-and-walt-disney-company-strike-landmark-deal-bring-channel-4-disney) 2026-10-27 | confirmed |
 | US H1 2026: 42.2bn hours library TV vs 11.5bn original series; viewers say they spend nearly 60% of viewing time on content over a year old (self-estimate) | [Luminate midyear report (blog; AP coverage)](https://luminatedata.com/blog/luminate-2026-midyear-report-trends-in-music-television-film/) 2026-07-15 | confirmed |
-| Landman as an example of a premiere that brings a wave of sign-ups (no number used: Antenna's 2.75M is an extrapolated beta estimate) | [Antenna, Premium SVOD 2025 Year in Review](https://cdn.prod.website-files.com/6756b521db09e280168a4cf3/699da4453c52c6c16fba9a45_Antenna%20x%20State%20of%20Subscriptions%20-%20Premium%20SVOD%202025%20Year%20in%20Review.pdf) 2026 | confirmed |
 | Disney+ and Hulu price rise from 23 Sept 2026 (existing subscribers from their next bill); fourth in four years; Disney+ Premium $18.99 to $21.49 | [Variety](https://variety.com/2026/tv/news/disney-plus-hulu-price-increase-2026-1236873281/) 2026-09-23 | confirmed |
 | Users of some services up to six times more likely to keep a service when it is their default (HUB, 1,600 US consumers, Aug 2026) | [NewscastStudio](https://www.newscaststudio.com/2026/09/21/viewers-less-likely-to-cancel-their-default-streaming-service/) 2026-09-21 | confirmed |
 | 42% of 2024 premium SVOD cancellations returned to the same service within 12 months | [Antenna, Premium SVOD 2025 Year in Review](https://cdn.prod.website-files.com/6756b521db09e280168a4cf3/699da4453c52c6c16fba9a45_Antenna%20x%20State%20of%20Subscriptions%20-%20Premium%20SVOD%202025%20Year%20in%20Review.pdf) 2026 | confirmed |
