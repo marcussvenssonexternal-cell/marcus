@@ -523,7 +523,7 @@ CARD_H = CARD_W * 16 / 9
 ROW_H = 104 + CARD_H + 92                       # header, cards, caption and the gap below
 
 
-def type_times(text, t0, char=1.6, space=2.8):
+def type_times(text, t0, char=1.4, space=2.5):
     """Frame at which each prefix of `text` is shown; spaces take a beat longer."""
     ts, t = [t0], float(t0)
     for ch in text:
@@ -751,14 +751,14 @@ def build_hero_v3():
     W, H = 1920, 1080
     PRECOMPS.clear()
     imgs = Images()
-    T = {"type": 40}                            # time to read the greeting before typing starts
+    T = {"type": 33}                            # time to read the greeting before typing starts
     lines, t_typed = typing(T["type"])
-    send = t_typed + 24                         # a beat to read the finished request before it is sent
-    T.update(send=send, grow=(send + 6, send + 56), open=(send + 80, send + 130))
-    T["results"] = T["open"][1] + 40            # the agent "thinks" long enough to read its reply coming
-    T["row"], T["clip"] = 60, 14                # stagger between the two films' rows, and between clips
+    send = t_typed + 17                         # a beat to read the finished request before it is sent
+    T.update(send=send, grow=(send + 5, send + 50), open=(send + 71, send + 116))
+    T["results"] = T["open"][1] + 30            # the agent "thinks" long enough to read its reply coming
+    T["row"], T["clip"] = 52, 11                # stagger between the two films' rows, and between clips
     T["added"] = T["results"] + 120             # a second answer would come in here; the site's image has one
-    OP = T["results"] + T["row"] + 6 + 3 * T["clip"] + 240  # both rows in, then an eight-second hold to read it
+    OP = T["results"] + T["row"] + 6 + 3 * T["clip"] + 195  # both rows in, then a 6.5-second hold to read it
     scene = Comp(W, H, OP, "comp_scene")        # no background: it sits on the page
     g0, g1 = T["grow"]                          # the opening fills the frame, then the view pulls back
     cam = scene.null("camera", ks=layer_ks(p=(W / 2, H / 2), a=(W / 2, H / 2), s=anim(
@@ -850,19 +850,19 @@ def section_prompt(m, prompt, reply, t=0, reply_at=10):
 
 # --------------------------------------------- section: Curated Lists
 
-LIST_FOCUS = [(110, 166), (166, 222), (222, 278), (278, 334), (334, None)]   # one row at a time, once all are in
+LIST_FOCUS = [(73, 121), (121, 169), (169, 217), (217, 265), (265, None)]   # one row at a time, once all are in
 
 
 def build_curated_lists():
-    OP = 400
+    OP = 320
     m, imgs = section_start(OP)
     top = section_prompt(m, "Give me 5 space movies for a Friday night line-up",
-                         "Ranked 5 titles from your catalog by how well they fit a Friday space night.", reply_at=24)
+                         "Ranked 5 titles from your catalog by how well they fit a Friday space night.", reply_at=17)
     x0, rh, gap = EDGE, 82, 12
     rw = m.w - 2 * EDGE
     for k, (name, title, genres, moods, score) in enumerate(LINEUP):
         y = top + k * (rh + gap)
-        t = 44 + 8 * k
+        t = 29 + 5 * k
         gx = x0 + 196 + REG.width(genres, 17) + 16
         pills, _ = pill_row(moods, gx, y + 44, gap=6, size=14, h=26, color=MOOD, fill_o=16,
                             edge=MOOD, edge_o=55, text_color="#ffd9d2", pad=10)
