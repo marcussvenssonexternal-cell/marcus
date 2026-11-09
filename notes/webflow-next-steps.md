@@ -25,3 +25,12 @@ Production: vionlabs.com / www.vionlabs.com, publish only with Marcus's explicit
 ## Context
 - The Why Vionlabs page (/why-vionlabs) uses its own wv-* classes. It is live on
   production and not in the navigation.
+
+## Status, 9 Nov
+- Noindex: false alarm. Site and page custom code contain no robots tag. The tag Firecrawl
+  reported comes from the HubSpot Meetings iframe (meetings.hubspot.com) inside the
+  Book a Demo Form component, which only applies to HubSpot's own page. No change made.
+- Homepage hero: fixed on staging. Combo classes `Frame 3458.home-hero-half`,
+  `Frame 3320.home-hero-half` (flex 1 1 0, min-width 0; small breakpoint resets to auto)
+  and `image 57.home-hero-img` (width 100%). These apply to the homepage only.
+  Awaiting Marcus's OK for production.
