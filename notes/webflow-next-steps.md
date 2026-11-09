@@ -71,3 +71,6 @@ Blockers, Marcus to decide:
 Nice to have:
 - Keep the "Coming soon" wording (Marcus confirmed).
 - One test sign-up after launch.
+- 9 Nov: removed the trademark line from the bottom of /mcp at Marcus's request.
+  - The gap above the footer is set to 96px (72px on mobile).
+  - This uses a page-only embed at the end of #early-access, so the shared footer is unchanged on other pages.
