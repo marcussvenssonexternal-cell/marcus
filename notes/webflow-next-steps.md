@@ -64,10 +64,10 @@ Ready:
 - The staging noindex comes from webflow.io only; the production page is indexable.
 
 Blockers, Marcus to decide:
-1. Rights for the Spencer stills and the six romcom posters.
+1. ~~Rights for the Spencer stills and the six romcom posters.~~ Marcus confirmed on 9 Nov that these can be shown publicly.
 2. A notification email for form submissions (Site settings → Forms).
 3. Check that the Webflow publish dialog lists only /mcp and the footer as changes.
 
 Nice to have:
-- "Coming soon" wording vs. the docs, which already show it as available per organization.
+- Keep the "Coming soon" wording (Marcus confirmed).
 - One test sign-up after launch.
