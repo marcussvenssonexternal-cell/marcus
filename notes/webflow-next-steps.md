@@ -50,3 +50,24 @@ Production: vionlabs.com / www.vionlabs.com, publish only with Marcus's explicit
   - FAQPage JSON-LD added to /mcp.
   - "Vionlabs MCP" link added to the Footer White component under Integrations & Access, so it shows in the footer on every page.
   - Watch out: the next production publish of anything will also take /mcp and the footer link live.
+
+### MCP go-live check (9 Nov, staging)
+Ready:
+- Page renders correctly at 390, 768, 1024 and 1440px. Single h1.
+- Canonical is https://www.vionlabs.com/mcp.
+- Share image and title/description are set.
+- FAQPage JSON-LD is now present (the first save hadn't stuck; re-saved and verified).
+- All 18 images return 200.
+- The docs link https://docs.app.vionlabs.com/mcp is live, and every FAQ answer matches it.
+- The form "MCP Early Access" is registered and has Turnstile spam protection.
+- Footer link to /mcp.
+- The staging noindex comes from webflow.io only; the production page is indexable.
+
+Blockers, Marcus to decide:
+1. Rights for the Spencer stills and the six romcom posters.
+2. A notification email for form submissions (Site settings → Forms).
+3. Check that the Webflow publish dialog lists only /mcp and the footer as changes.
+
+Nice to have:
+- "Coming soon" wording vs. the docs, which already show it as available per organization.
+- One test sign-up after launch.
