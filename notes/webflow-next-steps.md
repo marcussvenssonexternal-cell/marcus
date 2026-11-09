@@ -33,4 +33,4 @@ Production: vionlabs.com / www.vionlabs.com, publish only with Marcus's explicit
 - Homepage hero: fixed on staging. Combo classes `Frame 3458.home-hero-half`,
   `Frame 3320.home-hero-half` (flex 1 1 0, min-width 0; small breakpoint resets to auto)
   and `image 57.home-hero-img` (width 100%). These apply to the homepage only.
-  Awaiting Marcus's OK for production.
+  Published to production 9 Nov 13:02 UTC with Marcus's OK; verified live.
