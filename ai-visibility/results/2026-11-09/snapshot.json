@@ -1,0 +1,289 @@
+{
+  "date": "2026-11-09",
+  "kind": "weekly run",
+  "kpis": {
+    "ai_citations_all_platforms": 0,
+    "ai_pages_cited": 0,
+    "domain_rating": 30,
+    "live_referring_domains": 1034,
+    "live_backlinks": 2134,
+    "nonbranded_keywords_top40": 2,
+    "buyer_prompts_naming_vionlabs": "0 of 4 unbranded (prompts 15-18), same as 29 Oct; branded 19-21 unchanged in kind"
+  },
+  "previous_kpis_2026-11-02": {
+    "ai_citations_all_platforms": 1,
+    "domain_rating": 30,
+    "live_referring_domains": 1039,
+    "live_backlinks": 3260,
+    "nonbranded_keywords_top40": 2
+  },
+  "search_console": {
+    "source": "Google Search Console via Supermetrics (GW), property https://www.vionlabs.com/, standard report, sent by Atlas (session_01V9gwdoCjyZ2JYMtRftvuCt) on 2026-11-06. Use as given; do not estimate.",
+    "period": "2026-10-30 to 2026-11-05",
+    "whole_site": {
+      "clicks": 42,
+      "impressions": 1292,
+      "position": 12.78
+    },
+    "brand_queries_matching_vion": {
+      "clicks": 23,
+      "impressions": 145,
+      "queries": {
+        "vionlabs": [
+          13,
+          93,
+          5.14
+        ],
+        "vion labs": [
+          9,
+          29,
+          1.0
+        ],
+        "vionlabs ab": [
+          1,
+          7,
+          1.0
+        ],
+        "vionlabs.com": [
+          0,
+          6,
+          1.0
+        ],
+        "vion ai": [
+          0,
+          4,
+          7.0
+        ],
+        "vionlab": [
+          0,
+          4,
+          3.75
+        ],
+        "vion website": [
+          0,
+          1,
+          null
+        ],
+        "vionex-ai.com": [
+          0,
+          1,
+          null
+        ]
+      },
+      "format": "[clicks, impressions, position]"
+    },
+    "query_vionlabs": {
+      "all": {
+        "clicks": 13,
+        "impressions": 93,
+        "position": 5.14
+      },
+      "US": {
+        "clicks": 2,
+        "impressions": 19,
+        "position": 12.47
+      },
+      "SE": {
+        "clicks": 2,
+        "impressions": 18,
+        "position": 4.44
+      },
+      "FR": {
+        "clicks": 2,
+        "impressions": 13,
+        "position": 1.0
+      }
+    },
+    "top_non_branded_by_impressions": [
+      {
+        "query": "dpp leaders briefing 2026",
+        "clicks": 0,
+        "impressions": 112,
+        "position": 7.1
+      },
+      {
+        "query": "ivory labs",
+        "clicks": 0,
+        "impressions": 86,
+        "position": 19.3
+      },
+      {
+        "query": "dpp london 2026",
+        "clicks": 0,
+        "impressions": 24,
+        "position": 5.6
+      },
+      {
+        "query": "vertical video trend",
+        "clicks": 0,
+        "impressions": 19,
+        "position": 58.7
+      },
+      {
+        "query": "monetize video archive",
+        "clicks": 0,
+        "impressions": 17,
+        "position": 6.6
+      },
+      {
+        "query": "zeam",
+        "clicks": 0,
+        "impressions": 15,
+        "position": 25.1
+      },
+      {
+        "query": "aws marketplace logo",
+        "clicks": 0,
+        "impressions": 11,
+        "position": 56.9
+      },
+      {
+        "query": "video embedding api",
+        "clicks": 0,
+        "impressions": 9,
+        "position": 11.3
+      },
+      {
+        "query": "dpp leaders briefing",
+        "clicks": 0,
+        "impressions": 7,
+        "position": 13.6
+      },
+      {
+        "query": "vlyby",
+        "clicks": 0,
+        "impressions": 7,
+        "position": 5.9
+      }
+    ],
+    "notes": [
+      "US 'vionlabs' at 12.47 on 19 impressions is low volume; compare with position 1.0 the week before before calling it a drop.",
+      "'vlyby' is a known near-match for our name: no action (see 2026-11-02 snapshot)."
+    ]
+  },
+  "ai_citations": {
+    "vionlabs.com": 0,
+    "mixpeek.com": 343,
+    "twelvelabs.io": 155,
+    "gracenote.com": 86,
+    "momentslab.com": 16,
+    "coactive.ai": 10,
+    "thinkanalytics.com": 2
+  },
+  "prompts": [
+    {
+      "id": 15,
+      "vionlabs_named": "no",
+      "pages_that_rank": [
+        "advanced-television.com (Amagi report, FAST metadata report Jul 2026)",
+        "streamingmedia.com",
+        "allrites.com",
+        "webpronews.com",
+        "am.reachtv.com (STIRR)"
+      ]
+    },
+    {
+      "id": 16,
+      "vionlabs_named": "no",
+      "pages_that_rank": [
+        "mixpeek.com curated lists",
+        "pixeltable.com 'Best Video Intelligence APIs in 2026'",
+        "memories.ai/vs",
+        "twelvelabs.io",
+        "toolradar.com"
+      ]
+    },
+    {
+      "id": 17,
+      "vionlabs_named": "no",
+      "pages_that_rank": [
+        "twelvelabs.io",
+        "reka.ai/solution/media",
+        "blogs.nvidia.com (Valossa/MTV)",
+        "csimagazine.com 'Video AI-as-a-service'",
+        "aws media2cloud",
+        "caylent"
+      ]
+    },
+    {
+      "id": 18,
+      "vionlabs_named": "no (our skip-intro listing prodview-bcy4p6gwu3r44 ranks but is not attributed)",
+      "pages_that_rank": [
+        "AWS Marketplace listings (Mactores, MediaSentinel, Coactive Context Studio, VideoAI)",
+        "tvtechnology.com (Veritone)"
+      ]
+    },
+    {
+      "id": 19,
+      "vionlabs_named": "described",
+      "via": "zoftwarehub, cbinsights, intellyx.com, g2.com, everybodywiki",
+      "notes": "founding year given as 2010 and 2015; customers listed include HBO Europe, Sony Pictures, NENT, Sky, Viaplay, First Look Media, Cineverse, A1 (unverified); Toolspedia VisionLabs page still ranks"
+    },
+    {
+      "id": 20,
+      "vionlabs_named": "described",
+      "via": "cbinsights compare, g2, reelgood",
+      "notes": "no independent comparison; answer says Gracenote stronger on breadth, Vionlabs on AI mood/scene tags"
+    },
+    {
+      "id": 21,
+      "vionlabs_named": "no",
+      "notes": "nothing about Vionlabs"
+    }
+  ],
+  "news": [
+    "NAB Show 2027 (3-7 Apr) general call for speakers open until 4 Dec 2026",
+    "Streaming Media European Innovation Awards: Europe-HQ only; 2026 nominations closed 26 Jun, 2027 likely similar",
+    "No November announcements found for TwelveLabs, Moments Lab, Mixpeek or Coactive",
+    "No third-party coverage found for Vionlabs at SATIS or DPP"
+  ],
+  "site_audit": "skipped: Webflow connector needs re-authorisation in this session",
+  "steps_skipped": [
+    "3 new links and 4 content gaps: Ahrefs workspace had 10,830 units left (<20,000)",
+    "7 Webflow audit and 8 site work: Webflow not authorised"
+  ],
+  "outreach_targets": [
+    {
+      "site": "pixeltable.com",
+      "page": "Best Video Intelligence APIs in 2026",
+      "prompt": 16,
+      "task": 21
+    },
+    {
+      "site": "memories.ai",
+      "page": "/vs comparisons",
+      "prompt": 16,
+      "task": 21
+    },
+    {
+      "site": "reka.ai",
+      "note": "competitor"
+    },
+    {
+      "site": "csimagazine.com",
+      "page": "Video AI-as-a-service for media and entertainment",
+      "prompt": 17,
+      "task": 22
+    },
+    {
+      "site": "intellyx.com",
+      "note": "already covers Vionlabs; ask to add Curio and Agentic Layer",
+      "task": 2
+    }
+  ],
+  "tasks_added": [
+    52
+  ],
+  "status_changes": [
+    {
+      "task": 28,
+      "to": "In progress"
+    },
+    {
+      "task": 51,
+      "to": "In progress"
+    }
+  ],
+  "site_changes": [],
+  "ahrefs_units_used": 555
+}
