@@ -3,14 +3,56 @@
     "description": "DRAFT until the one-story sheet (backlog task 1) is approved: Vionlabs is entertainment-specific AI that understands what is inside every title (mood, scenes, characters, pacing) so streamers can personalise discovery, automate artwork and clips, and place ads in context.",
     "headquarters": "Stockholm, Sweden",
     "founded": "TO CONFIRM: vionlabs.com says 2016, Wikidata and LinkedIn say 2010",
-    "products": ["Curio", "Agentic Layer", "Editorial Lab", "Creative Lab", "Operations Lab", "Embeddings API", "Fingerprint+"],
-    "retired_names": ["Discovery Suite", "Efficiency Suite"],
-    "customers": ["Plex", "Deutsche Telekom", "Great American Pure Flix", "Canela Media", "Cineverse", "Zeam"]
+    "products": [
+      "Curio",
+      "Agentic Layer",
+      "Editorial Lab",
+      "Creative Lab",
+      "Operations Lab",
+      "Embeddings API",
+      "Fingerprint+"
+    ],
+    "retired_names": [
+      "Discovery Suite",
+      "Efficiency Suite"
+    ],
+    "customers": [
+      "Plex",
+      "Deutsche Telekom",
+      "Great American Pure Flix",
+      "Canela Media",
+      "Cineverse",
+      "Zeam"
+    ],
+    "agentic_layer": {
+      "source": "https://www.vionlabs.com/agentic-layer, read 2026-11-09",
+      "what": "An AI agent for editorial teams: describe a list, clip or thumbnail in plain language and get a finished result in minutes, for the team to review and approve.",
+      "agents": {
+        "Curation Agent": "ranks titles from across the catalog by relevance for seasonal line-ups and audience-specific collections",
+        "Creative Agent": "finds a scene from a description and cuts it in every ratio (16:9 TV, 1:1 feeds, 9:16 for TikTok, YouTube Shorts, Instagram Reels); picks a frame and places the title's logo for thumbnails; imports finished assets into the editor"
+      },
+      "built_on": "Vionlabs media intelligence: multimodal embeddings and scene-level metadata, learned from 1,000,000+ analyzed assets; no manual tagging",
+      "control": "Nothing is published until someone on the team approves it",
+      "proof": "At a leading European broadcaster, a paid-social A/B test in April 2026 measured a 20.9% lower cost per conversion with Vionlabs-generated clips than with clips from an external agency",
+      "cta": "Book a 30-minute demo"
+    }
   },
   "red_flags": [
-    {"pattern": "smart[- ]buildings?", "why": "Confused with Vion Labs, a smart-buildings company"},
-    {"pattern": "VisionLabs", "why": "Confused with VisionLabs, a different AI company"},
-    {"pattern": "\\b(Discovery|Efficiency) Suite\\b", "why": "Uses a retired product name"},
-    {"pattern": "coding (experience|assistant)", "why": "Echoes stale template text on vionlabs.com that describes a coding tool"}
+    {
+      "pattern": "smart[- ]buildings?",
+      "why": "Confused with Vion Labs, a smart-buildings company"
+    },
+    {
+      "pattern": "VisionLabs",
+      "why": "Confused with VisionLabs, a different AI company"
+    },
+    {
+      "pattern": "\\b(Discovery|Efficiency) Suite\\b",
+      "why": "Uses a retired product name"
+    },
+    {
+      "pattern": "coding (experience|assistant)",
+      "why": "Echoes stale template text on vionlabs.com that describes a coding tool"
+    }
   ]
 }
