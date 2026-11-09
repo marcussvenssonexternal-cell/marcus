@@ -74,3 +74,7 @@ Nice to have:
 - 9 Nov: removed the trademark line from the bottom of /mcp at Marcus's request.
   - The gap above the footer is set to 96px (72px on mobile).
   - This uses a page-only embed at the end of #early-access, so the shared footer is unchanged on other pages.
+- 9 Nov: /mcp published to production (vionlabs.com and www.vionlabs.com) with Marcus's OK ("let me know once live").
+  - Verified live: 200, canonical https://www.vionlabs.com/mcp, share image, footer link.
+  - The page's own HTML has no robots meta tag. The "noindex" Firecrawl sometimes reports comes from the embedded HubSpot frame.
+  - Still open: the form notification email in Site settings → Forms.
