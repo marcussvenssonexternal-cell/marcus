@@ -45,3 +45,8 @@ Production: vionlabs.com / www.vionlabs.com, publish only with Marcus's explicit
   - one inside `.mcp-chat` holds the animated assistant demo (vanilla JS, 21.6s loop, respects reduced motion).
 - The early-access form is a native Webflow form named "MCP Early Access", so submissions land in Webflow Forms. The design's mailto form was dropped.
 - Open: rights for the Spencer stills and romcom posters; who receives form submissions; a nav/footer link to /mcp; an OG image.
+- 9 Nov follow-up, staging only:
+  - Share thumbnail (1200×630, no film stills) set as the page's OG image (asset 6af1ce0f6908a4a6e96479ef).
+  - FAQPage JSON-LD added to /mcp.
+  - "Vionlabs MCP" link added to the Footer White component under Integrations & Access, so it shows in the footer on every page.
+  - Watch out: the next production publish of anything will also take /mcp and the footer link live.
