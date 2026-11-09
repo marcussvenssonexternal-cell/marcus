@@ -34,3 +34,14 @@ Production: vionlabs.com / www.vionlabs.com, publish only with Marcus's explicit
   `Frame 3320.home-hero-half` (flex 1 1 0, min-width 0; small breakpoint resets to auto)
   and `image 57.home-hero-img` (width 100%). These apply to the homepage only.
   Published to production 9 Nov 13:02 UTC with Marcus's OK; verified live.
+
+## Vionlabs MCP page (/mcp), 9 Nov 2026
+
+- Built on staging only: https://vionlabs.webflow.io/mcp (page id 6af1c886724fe278e134d3ae). Not published to production.
+- Made by duplicating /why-vionlabs, so it has the site banner, Navbar Primary and Footer White.
+- Sections are native Webflow elements with `mcp-*` classes, so the text can be edited in the Designer.
+- Two HTML embeds:
+  - one at the top of the page holds the responsive rules, hovers, FAQ +/× toggle and icons;
+  - one inside `.mcp-chat` holds the animated assistant demo (vanilla JS, 21.6s loop, respects reduced motion).
+- The early-access form is a native Webflow form named "MCP Early Access", so submissions land in Webflow Forms. The design's mailto form was dropped.
+- Open: rights for the Spencer stills and romcom posters; who receives form submissions; a nav/footer link to /mcp; an OG image.
