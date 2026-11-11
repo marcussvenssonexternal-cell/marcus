@@ -66,7 +66,7 @@ _mood-01 · On vionlabs.com when Arash approves · Blog post (vionlabs.com) · P
 
 When a viewer tells you how they want to feel, the scene you show them matters more than the title you pick.
 
-Netflix made that concrete last week. On 3 November it began [testing AI Discover](https://about.netflix.com/news/introducing-ai-discover), a new tab on its TV app for a small group of US members. Instead of rows of titles, it opens with themes such as "Something Light", "Scare Me", "Family Movie Night" and "Quick Watches", each previewed with a clip from a show or movie. Choosing one brings up matching recommendations, and narrower themes follow until something feels right.
+Netflix made that concrete last week. On 3 November it began [testing AI Discover](https://about.netflix.com/news/introducing-ai-discover), a new tab on its TV app for a small group of English-speaking members in the US. Instead of rows of titles, it opens with themes such as "Something Light", "Scare Me", "Family Movie Night" and "Quick Watches", each previewed with a clip from a show or movie. Choosing one brings up matching recommendations, and narrower themes follow until something feels right.
 
 Netflix calls it a test kitchen, and it isn't alone. Disney+ has been testing AI search with a small group of subscribers since August, and EE launched a Mood Matcher on its TV service in the spring.
 
@@ -84,7 +84,7 @@ A mood-first screen multiplies the number of contexts each title appears in, and
 
 None of this is new to Netflix. Its own research from early 2014 found that artwork made up more than 82% of members' focus while browsing, at an average of 1.8 seconds per title.
 
-In 2017 Netflix [described how it personalises artwork](https://netflixtechblog.com/artwork-personalization-c589f074ad76): a member who watches romance might see Good Will Hunting represented by Matt Damon and Minnie Driver, while a comedy fan sees Robin Williams. Its engineers wrote that looking at each image in isolation isn't enough, because what matters is the set of images a member sees across a page and a session.
+In 2017 Netflix [described how it personalises artwork](https://netflixtechblog.com/artwork-personalization-c589f074ad76): a member who watches romance might see Good Will Hunting represented by Matt Damon and Minnie Driver, while a comedy fan sees Robin Williams. Its engineers wrote that judging each image in isolation may not be enough, because an image also performs in relation to the other artwork a member sees on the same page or in the same session.
 
 AI Discover extends the same logic from artwork to clips, and from viewing history to the mood a viewer chooses in the moment. The question every service now has to answer is which scene, for which mood, in which title.
 
@@ -92,7 +92,7 @@ AI Discover extends the same logic from artwork to clips, and from viewing histo
 
 Answering that takes more than a mood tag on the title. A tag guessed from the synopsis can tell you a film is a thriller. It can't tell you where the tension peaks, which scene is the funny one, or where the story pauses long enough for a clean ten-second clip.
 
-That needs a description of every scene: the emotion, the pacing, who is on screen and where the moment begins and ends. At Vionlabs this is what we build, and in June I wrote about the same idea for thumbnails under the heading ["same title, different emotional entry point"](https://www.vionlabs.com/news/your-thumbnails-are-broken-at-scale-story-aware-ai-built-for-entertainment-fixes-it). A viewer drawn to thrillers should see the tension frame. A viewer drawn to romance should see the frame with the emotional connection.
+That needs a description of every scene: the emotion, the pacing, who is on screen and where the moment begins and ends. At Vionlabs this is what we build, and in June I wrote about the same idea for thumbnails under the heading ["Same Title, Different Emotional Entry Point"](https://www.vionlabs.com/news/your-thumbnails-are-broken-at-scale-story-aware-ai-built-for-entertainment-fixes-it). A viewer drawn to thrillers should see the tension frame. A viewer drawn to romance should see the frame with the emotional connection.
 
 We've learned two things doing this. Preview clips often start at the beginning of an episode even when the emotional payoff comes ten minutes later, so the default clip is usually the weakest one. And editors make the best final call when they choose between strong candidates instead of hunting through the whole film, which is why our tools hand them ranked moments to approve rather than replacing them.
 
@@ -106,9 +106,9 @@ For broadcasters and studios whose catalogues sit on several platforms, that des
 
 ## The case against
 
-Mood is fickle, and that is the strongest objection. Disney's own example is someone who usually watches crime dramas but is suddenly in the mood for something lighter, so the viewer has to state the mood each time, and many won't bother. I haven't found a published study showing that mood-first discovery beats recommendations based on viewing history.
+Mood is fickle, and that is the strongest objection. Disney's own example is someone who usually watches crime dramas but wants something lighter tonight. That means the viewer has to state the mood each time, and many won't bother. I haven't found a published study showing that mood-first discovery beats recommendations based on viewing history.
 
-Netflix is hedging too. It calls AI Discover a test, keeps its normal home screen, and gives every title a "Tune Your Recommendations" button. In 2020 it also let members switch off autoplay previews after complaints.
+Netflix is hedging too. It calls AI Discover a test, keeps its normal home screen, and gives every title in AI Discover a "Tune Your Recommendations" button. In 2020 it also let members switch off autoplay previews after complaints.
 
 I agree with all of that. Choosing a mood only narrows the list, and what persuades a viewer to press play is still the image or clip they see for that title. Previews annoy people when they show the wrong moment at the wrong time, and the answer to that is a better-chosen scene rather than no preview at all.
 
@@ -133,6 +133,15 @@ We'll be at the DPP Leaders' Briefing in London next week. If your catalogue had
 
 | Claim | Source | Status |
 | --- | --- | --- |
+| Netflix AI Discover test from 3 Nov 2026 on its TV app, small group of English-language US members; themes incl. Something Light, Scare Me, Family Movie Night, Quick Watches, each previewed with a clip; narrower themes; 'test kitchen'; Tune Recommendations in AI Discover | [Netflix newsroom; TechCrunch; Tom's Guide; Netflix Help](https://about.netflix.com/news/introducing-ai-discover) 2026-11-03 | confirmed |
+| Disney+ limited beta of AI search with a small group of subscribers (Aug 2026); crime-drama viewer wanting something lighter | [The Walt Disney Company; TNW; Advanced Television](https://thewaltdisneycompany.com/news/ai-powered-search-espn-disney-plus/) 2026-08-06 | confirmed |
+| EE TV Mood Matcher, spring 2026 | [EE newsroom; Advanced Television](https://newsroom.ee.co.uk/ee-tv-transforms-the-tv-experience-by-becoming-the-uks-first-pay-tv-service-to-introduce-conversational-ai-powered-search/) 2026-03-31 | confirmed |
+| Netflix research from early 2014: artwork over 82% of focus while browsing; 1.8 seconds per title | [Netflix, The Power of a Picture](https://about.netflix.com/news/the-power-of-a-picture) 2016-05-03 | confirmed |
+| Netflix artwork personalisation: Good Will Hunting example; artwork judged in relation to other artwork on the page/session | [Netflix Tech Blog](https://netflixtechblog.com/artwork-personalization-c589f074ad76) 2017-12-07 | confirmed |
+| Netflix let members turn off autoplay previews after complaints (Feb 2020) | [Netflix tweet via Engadget, TVLine](https://www.engadget.com/2020-02-06-netflix-autoplay-preview-settings.html) 2020-02-06 | confirmed |
+| Vionlabs thumbnails post: heading 'Same Title, Different Emotional Entry Point'; thriller → tension frame, romance → emotional connection frame | [Vionlabs (read via Firecrawl)](https://www.vionlabs.com/news/your-thumbnails-are-broken-at-scale-story-aware-ai-built-for-entertainment-fixes-it) 2026-06-10 | confirmed |
+| Vionlabs: preview clips often start at the beginning of an episode even if the emotional payoff comes 10 minutes later | [Vionlabs (read via Firecrawl)](https://www.vionlabs.com/news/boosting-viewer-engagement-with-ai-revolutionizing-thumbnails-and-preview-clips) 2025-05-12 | confirmed |
+| Plex: catalogue from many distributors across decades; A/B test showed significant uplift in minutes from mood data | [Vionlabs customer story (read 4 Nov)](https://www.vionlabs.com/customer-stories/plex) 2026-05-05 | confirmed |
 
 ## How this was made
 
