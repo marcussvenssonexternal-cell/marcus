@@ -312,10 +312,25 @@
           "url": "https://www.vionlabs.com/news/mood-first-discovery-needs-a-different-scene",
           "author": "Arash Pendari",
           "status": "not staged",
-          "summary": "Netflix now asks viewers how they want to feel before it shows a title. Arash Pendari on why most titles fit several moods, and why each mood needs its own scene."
+          "summary": "Netflix now asks viewers how they want to feel before it shows a title. Arash Pendari on why most titles fit several moods, and why each mood needs its own scene.",
+          "assets": {
+            "covers/mood-01.png": {
+              "fileId": "6af40f6a5dda86c2a9fb2ba6",
+              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/6af40f6a5dda86c2a9fb2ba6_mood-first-discovery-cover.png"
+            },
+            "thumbs/mood-01.png": {
+              "fileId": "6af40f6a5dda86c2a9fb2bb7",
+              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/6af40f6a5dda86c2a9fb2bb7_mood-first-discovery-thumb.png"
+            },
+            "figures/mood-01-scene.png": {
+              "fileId": "6af40f6a1f93ae344aa8c3d5",
+              "url": "https://cdn.prod.website-files.com/67978ee27d95b7ff0119d2ea/6af40f6a1f93ae344aa8c3d5_mood-first-discovery-scene.png"
+            }
+          }
         },
         "linkedin": {
-          "shareText": "Netflix is now testing a TV tab that asks how you want to feel before it shows you a single title. \"Scare Me\", \"Something Light\", \"Quick Watches\", each one previewed with a clip.\n\nMost titles fit more than one of those moods. A tight thriller is both \"Scare Me\" and \"Quick Watches\", and the scene that sells it in one rail is the wrong scene in the other.\n\nSo the question every service now has to answer is which scene, for which mood, in which title. I wrote about what that takes:\nhttps://www.vionlabs.com/news/mood-first-discovery-needs-a-different-scene\n\nIf your catalogue had to answer \"Scare Me\" tomorrow, which scene would you show?"
+          "shareText": "Netflix is now testing a TV tab that asks how you want to feel before it shows you a single title. \"Scare Me\", \"Something Light\", \"Quick Watches\", each one previewed with a clip.\n\nMost titles fit more than one of those moods. A tight thriller is both \"Scare Me\" and \"Quick Watches\", and the scene that sells it in one rail is the wrong scene in the other.\n\nSo the question every service now has to answer is which scene, for which mood, in which title. I wrote about what that takes:\nhttps://www.vionlabs.com/news/mood-first-discovery-needs-a-different-scene\n\nIf your catalogue had to answer \"Scare Me\" tomorrow, which scene would you show?",
+          "imageUrl": "https://s3.amazonaws.com/webflow-prod-assets/67978ee27d95b7ff0119d2ea/6af40f6a3569c332d4460e61_linkedin-mood-first-discovery.png"
         },
         "checks": [],
         "id": "mood-01"
