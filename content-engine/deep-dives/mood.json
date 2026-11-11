@@ -334,7 +334,17 @@
           "imageUrl": "https://s3.amazonaws.com/webflow-prod-assets/67978ee27d95b7ff0119d2ea/6af40f6a3569c332d4460e61_linkedin-mood-first-discovery.png"
         },
         "checks": [],
-        "id": "mood-01"
+        "id": "mood-01",
+        "googleDoc": "https://docs.google.com/document/d/17KZdFsUtTBWDZvO80jpWcaL92VNUer8XyLksZnGspAk/edit",
+        "approval": {
+          "week": "2026-W46",
+          "doc": "https://docs.google.com/document/d/17KZdFsUtTBWDZvO80jpWcaL92VNUer8XyLksZnGspAk/edit",
+          "shareAt": "2026-11-11, once Marcus approves the email",
+          "shareWith": "arash@vionlabs.com",
+          "role": "commenter",
+          "status": "ready",
+          "message": "Hej Arash!\n\nHär kommer veckans blogginlägg: https://docs.google.com/document/d/17KZdFsUtTBWDZvO80jpWcaL92VNUer8XyLksZnGspAk/edit\n\nDen här gången handlar det om mood. Netflix testar sedan förra veckan en ny flik i tv-appen där man först väljer hur man vill känna sig, typ \"Scare Me\" eller \"Quick Watches\", och varje tema visas med ett klipp. Men de flesta titlar passar flera moods, och klippet som säljer en thriller under \"Scare Me\" är fel klipp under \"Quick Watches\". Poängen är att varje mood behöver sin egen scen, och att välja rätt scen är ju precis det vi gör.\n\nVarför jag tycker vi ska köra den nu:\n\n- Netflix startade testet den 3 november, och Disney+ och EE testar liknande grejer. Alla skriver om gränssnittet, ingen om vilken scen som ska visas för vilket mood.\n- Den kommer veckan före DPP i London, och eftersom ingen press är på plats är det vårt eget innehåll som blir bevakningen. Den slutar dessutom med en fråga vi kan ta med oss dit.\n- Den bygger vidare på thumbnail-inlägget från juni och Plex, och hänger ihop med förra veckans inlägg om katalogen.\n- Det finns en boka demo-länk i slutet, så sälj kan använda den.\n\nAllt är faktakollat och inga konkurrenter eller gamla kunder nämns. Tar ungefär fem minuter att läsa.\n\nSer det bra ut? Skriv bara \"Kör\" så lägger vi upp den, annars är det bara att kommentera i dokumentet så fixar jag resten.\n\n/Marcus"
+        }
       }
     ],
     "factcheck": [
