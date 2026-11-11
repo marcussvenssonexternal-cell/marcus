@@ -74,7 +74,7 @@ I think this is the right direction, and it creates a problem most catalogues ar
 
 ## One title, several moods
 
-Most titles fit more than one mood. A tight 95-minute thriller belongs under "Scare Me". It also belongs under "Quick Watches", and possibly under "Something Different" for a viewer who has only watched comedies this month.
+Most titles fit more than one mood. A tight 95-minute thriller belongs under "Scare Me". It also belongs under "Quick Watches", and it might suit a viewer who has watched nothing but comedies this month and wants a change.
 
 The clip that sells it in one place can be wrong in another. For "Scare Me" you want the moment the lights go out in the house. For "Quick Watches" you want the opening two minutes that show how fast the story moves. A viewer who picked "Something Light" and gets the scariest scene in the film backs out, and they probably don't come back to that title.
 
@@ -87,6 +87,8 @@ None of this is new to Netflix. Its own research from early 2014 found that artw
 In 2017 Netflix [described how it personalises artwork](https://netflixtechblog.com/artwork-personalization-c589f074ad76): a member who watches romance might see Good Will Hunting represented by Matt Damon and Minnie Driver, while a comedy fan sees Robin Williams. Its engineers wrote that judging each image in isolation may not be enough, because an image also performs in relation to the other artwork a member sees on the same page or in the same session.
 
 AI Discover extends the same logic from artwork to clips, and from viewing history to the mood a viewer chooses in the moment. The question every service now has to answer is which scene, for which mood, in which title.
+
+![What it takes to answer a mood: the emotion of each scene, its pacing, who is on screen, and where each moment starts and ends. A mood tag guessed from the synopsis isn't enough.](figures/mood-01-scene.png)
 
 ## Knowing how each scene feels
 
